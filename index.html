@@ -2091,6 +2091,21 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .ars-check .ars-ans { display: inline-block; margin-inline-start: 8px; font-size: .9rem; color: var(--muted); }
 .ars-id { border-top: 4px solid #C0392B; } .ars-badge { text-align: center; }
 
+/* ===== علم الإمارات المتحرك (تبويب الهوية الوطنية) ===== */
+.uae-flag { direction: ltr; display: flex; align-items: flex-start; justify-content: center; margin: 4px auto 18px; height: 150px; }
+.uf-pole { width: 8px; height: 150px; border-radius: 4px; background: linear-gradient(90deg, #8a8f94, #e3e6e8 45%, #7b8084); position: relative; }
+.uf-pole::before { content: ""; position: absolute; top: -9px; left: -4px; width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff4c2, #d4a72c 70%); }
+.uf-cloth { display: flex; width: 210px; height: 105px; margin-top: 6px; filter: drop-shadow(0 6px 10px rgba(0,0,0,.18)); }
+.uf-cloth i { flex: 1; display: block; height: 100%; animation: ufWave 2.6s ease-in-out infinite; }
+.uf-cloth i.r { background: #EF3340; }
+.uf-cloth i.s { background: linear-gradient(#00843D 0 33.34%, #FFFFFF 33.34% 66.67%, #000000 66.67% 100%); }
+.uf-cloth i:first-child { border-radius: 2px 0 0 2px; }
+@keyframes ufWave {
+  0%, 100% { transform: translateY(0); filter: brightness(1); }
+  50% { transform: translateY(7px); filter: brightness(.86); }
+}
+@media (prefers-reduced-motion: reduce) { .uf-cloth i { animation: none; } }
+
 </style>
 </head>
 <body>
@@ -3670,6 +3685,12 @@ window.addEventListener("error", function (e) {
   };
   const setNav = (key) => document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
 
+  // animated waving UAE flag for the national-identity tab (CSS only)
+  const uaeFlag = () => {
+    const n = 24;
+    const slices = Array.from({ length: n }, (_, i) => `<i class="${i < n / 4 ? "r" : "s"}" style="animation-delay:${(-i * 0.09).toFixed(2)}s"></i>`).join("");
+    return `<div class="uae-flag" role="img" aria-label="علم دولة الإمارات العربية المتحدة"><span class="uf-pole"></span><div class="uf-cloth">${slices}</div></div>`;
+  };
   const slideEmbed = (url) => {
     try {
       const u = new URL(url);
@@ -4348,7 +4369,7 @@ window.addEventListener("error", function (e) {
           ${e.is_verified ? '<span class="pill axis">موثّق</span>' : '<span class="pill warn">قيد التوثيق</span>'}</div></div>`).join("")
       : `<div class="empty"><strong>لم تُضف أدلة لهذا الدرس بعد</strong></div>`;
 
-    const idHtml = lockedForMe ? lockedMsg : (l.lesson_identity_links || []).length ? `<img class="id-map" src="${TD_ART.uaemap}" alt="">` + l.lesson_identity_links.map((x) => `
+    const idHtml = lockedForMe ? lockedMsg : (l.lesson_identity_links || []).length ? uaeFlag() + l.lesson_identity_links.map((x) => `
       <div class="identity-card"><span class="pillar">${nn ? esc(({ culture: "Culture", values: "Values", citizenship: "Citizenship" })[x.identity_tags.pillar] || x.identity_tags.pillar) + " · " + esc(x.identity_tags.name_en || x.identity_tags.name_ar) : esc(PILLAR[x.identity_tags.pillar] || "") + " · " + esc(x.identity_tags.name_ar)}</span>
         ${nn && x.connection_en ? `<p class="en" dir="ltr">${esc(x.connection_en)}</p>` : `<p>${esc(x.connection_ar)}</p>`}</div>`).join("")
       : `<div class="empty"><strong>لم يُضف ربط بالهوية الوطنية لهذا الدرس بعد</strong></div>`;
