@@ -2046,3 +2046,45 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .ar-tile b { display: block; font-size: 1.15rem; margin: 2px 0 6px; }
 .ar-tile p { margin: 4px 0; font-size: .9rem; line-height: 1.7; }
 .ar-ic { float: inline-end; font-size: 1.4rem; }
+
+/* ===== مصادر العربية للمرحلة الابتدائية ===== */
+.ars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 18px; }
+.ars-card { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; }
+.ars-card h3 { margin: 0 0 10px; font-size: 1.1rem; }
+.ars-book { display: flex; gap: 14px; align-items: center; background: var(--hira-soft, #e6f4f4); }
+.ars-big { font-size: 2.6rem; }
+.ars-words { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.ars-w { border: 2px solid var(--line); border-radius: 14px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 4px; }
+.ars-w b { font-size: 1.5rem; color: var(--hira); }
+.ars-w span { font-size: .9rem; color: var(--muted); }
+.ars-list { margin: 0; padding-inline-start: 18px; line-height: 1.9; }
+.ars-ic { margin-inline-end: 6px; }
+.ars-home { border-top: 4px solid var(--dawn); }
+.ars-teacher { grid-column: 1 / -1; border-style: dashed; }
+.ars-teacher code { font-size: .8rem; background: var(--stone, #f2efe8); padding: 1px 6px; border-radius: 6px; }
+
+.ars-hic { margin-inline-end: 8px; }
+.ars-letter { text-align: center; border-top: 4px solid var(--hira); }
+.ars-letter-big { font-size: 5rem; line-height: 1.2; color: var(--hira); font-weight: 700; }
+.ars-dict { grid-column: 1 / -1; }
+.ars-emo { font-size: 2.2rem; }
+.ars-w small { color: var(--muted); font-size: .85rem; }
+.ars-say { font-size: 1.35rem; line-height: 1.9; }
+.ars-sound { border-top: 4px solid #7A4FB5; } .ars-blend { border-top: 4px solid var(--dawn); }
+.ars-check .ars-ans { display: inline-block; margin-inline-start: 8px; font-size: .9rem; color: var(--muted); }
+.ars-id { border-top: 4px solid #C0392B; } .ars-badge { text-align: center; }
+
+/* ===== علم الإمارات المتحرك (تبويب الهوية الوطنية) ===== */
+.uae-flag { direction: ltr; display: flex; align-items: flex-start; justify-content: center; margin: 4px auto 18px; height: 150px; }
+.uf-pole { width: 8px; height: 150px; border-radius: 4px; background: linear-gradient(90deg, #8a8f94, #e3e6e8 45%, #7b8084); position: relative; }
+.uf-pole::before { content: ""; position: absolute; top: -9px; left: -4px; width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff4c2, #d4a72c 70%); }
+.uf-cloth { display: flex; width: 210px; height: 105px; margin-top: 6px; filter: drop-shadow(0 6px 10px rgba(0,0,0,.18)); }
+.uf-cloth i { flex: 1; display: block; height: 100%; animation: ufWave 2.6s ease-in-out infinite; }
+.uf-cloth i.r { background: #EF3340; }
+.uf-cloth i.s { background: linear-gradient(#00843D 0 33.34%, #FFFFFF 33.34% 66.67%, #000000 66.67% 100%); }
+.uf-cloth i:first-child { border-radius: 2px 0 0 2px; }
+@keyframes ufWave {
+  0%, 100% { transform: translateY(0); filter: brightness(1); }
+  50% { transform: translateY(7px); filter: brightness(.86); }
+}
+@media (prefers-reduced-motion: reduce) { .uf-cloth i { animation: none; } }

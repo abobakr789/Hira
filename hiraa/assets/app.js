@@ -1506,6 +1506,12 @@
   };
   const setNav = (key) => document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
 
+  // animated waving UAE flag for the national-identity tab (CSS only)
+  const uaeFlag = () => {
+    const n = 24;
+    const slices = Array.from({ length: n }, (_, i) => `<i class="${i < n / 4 ? "r" : "s"}" style="animation-delay:${(-i * 0.09).toFixed(2)}s"></i>`).join("");
+    return `<div class="uae-flag" role="img" aria-label="علم دولة الإمارات العربية المتحدة"><span class="uf-pole"></span><div class="uf-cloth">${slices}</div></div>`;
+  };
   const slideEmbed = (url) => {
     try {
       const u = new URL(url);
@@ -1525,6 +1531,21 @@
     return data.signedUrl;
   }
   const officeView = (u) => "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(u);
+  document.addEventListener("click", async (e) => {
+    const a = e.target.closest('a[href^="resources/"]');
+    if (!a) return;
+    e.preventDefault();
+    const href = new URL(a.getAttribute("href"), location.href.split("#")[0]).href;
+    const w = window.open("", "_blank");
+    try {
+      const r = await fetch(href, { method: "HEAD", cache: "no-store" });
+      if (!r.ok) throw new Error(String(r.status));
+      if (w) w.location = href; else location.href = href;
+    } catch (err) {
+      if (w) w.close();
+      toast(isStaff() ? "الملف غير موجود على الموقع بعد: ارفع مجلد resources إلى GitHub بالمسار نفسه (" + a.getAttribute("href") + ")" : "هذا الملف غير متاح الآن، حاول لاحقًا.");
+    }
+  });
   document.addEventListener("click", async (e) => {
     const f = e.target.closest("[data-file]");
     if (!f) return;
@@ -2093,6 +2114,8 @@
     const u = l.units || {};
     const nn = u.track === "non_native" || LANG === "en";
     const subject = SUBJECT_BY_ID[u.subject_id] || "islamic";
+    // Arabic, primary grades: only Hiraa's new curated materials (no auto-generated papers/decks/group tasks)
+    const NEWAR = subject === "arabic" && (u.year_group || 0) <= 6;
     state.pageSubject = subject;
     const res = (l.lesson_resources || []).sort((a, b) => (a.part || 0) - (b.part || 0) || a.sort_order - b.sort_order);
     const acc = isStaff() ? "ok" : ((await sb.rpc("lesson_access", { p_lesson: l.id })).data || "no_access");
@@ -2130,7 +2153,7 @@
       if (lockedForMe) return lockedMsg;
       const sl = res.filter((r) => r.kind === "slides");
       const T = sl.filter((r) => r.audience === "teacher"), Sd = sl.filter((r) => r.audience !== "teacher");
-      const tdBtn = summary ? `<div class="td-cta"><div class="td-cta-b">${(l.periods || 1) > 1 ? `<button class="btn btn-primary td-open" data-part="1">📽️ ${CT("الحصة الأولى", "Lesson 1")}</button><button class="btn btn-primary td-open" data-part="2">📽️ ${CT("الحصة الثانية", "Lesson 2")}</button>` : `<button class="btn btn-primary td-open" data-part="1">📽️ ${CT("عرض المعلم الجاهز", "Ready teacher presentation")}</button>`}</div><small class="muted">${CT("اعرضه في الصف أو عدّله بما يناسب فصلك: نصوص وصور ومؤقت ومؤثرات. تُحفظ نسختك لك وحدك.", "Present it in class or edit it for your class: text, images, timer and effects. Your copy is saved for you only.")}</small>
+      const tdBtn = summary && !NEWAR ? `<div class="td-cta"><div class="td-cta-b">${(l.periods || 1) > 1 ? `<button class="btn btn-primary td-open" data-part="1">📽️ ${CT("الحصة الأولى", "Lesson 1")}</button><button class="btn btn-primary td-open" data-part="2">📽️ ${CT("الحصة الثانية", "Lesson 2")}</button>` : `<button class="btn btn-primary td-open" data-part="1">📽️ ${CT("عرض المعلم الجاهز", "Ready teacher presentation")}</button>`}</div><small class="muted">${CT("اعرضه في الصف أو عدّله بما يناسب فصلك: نصوص وصور ومؤقت ومؤثرات. تُحفظ نسختك لك وحدك.", "Present it in class or edit it for your class: text, images, timer and effects. Your copy is saved for you only.")}</small>
         <div class="td-papers"><b>📄 ${CT("أوراق الحصة للطباعة والتعديل", "Lesson papers to print and edit")}</b><div class="td-cta-b">
           <button class="btn btn-ghost btn-small pp-open" data-kind="ws">📝 ${CT("ورقة العمل", "Worksheet")}</button>
           ${(l.periods || 1) > 1 ? `<button class="btn btn-ghost btn-small pp-open" data-kind="gt" data-part="1">👥 ${CT("مهام المجموعات · الحصة الأولى", "Group tasks · Lesson 1")}</button><button class="btn btn-ghost btn-small pp-open" data-kind="gt" data-part="2">👥 ${CT("مهام المجموعات · الحصة الثانية", "Group tasks · Lesson 2")}</button>` : `<button class="btn btn-ghost btn-small pp-open" data-kind="gt" data-part="1">👥 ${CT("مهام المجموعات", "Group tasks")}</button>`}
@@ -2167,7 +2190,7 @@
           ${e.is_verified ? '<span class="pill axis">موثّق</span>' : '<span class="pill warn">قيد التوثيق</span>'}</div></div>`).join("")
       : `<div class="empty"><strong>لم تُضف أدلة لهذا الدرس بعد</strong></div>`;
 
-    const idHtml = lockedForMe ? lockedMsg : (l.lesson_identity_links || []).length ? `<img class="id-map" src="${TD_ART.uaemap}" alt="">` + l.lesson_identity_links.map((x) => `
+    const idHtml = lockedForMe ? lockedMsg : (l.lesson_identity_links || []).length ? uaeFlag() + l.lesson_identity_links.map((x) => `
       <div class="identity-card"><span class="pillar">${nn ? esc(({ culture: "Culture", values: "Values", citizenship: "Citizenship" })[x.identity_tags.pillar] || x.identity_tags.pillar) + " · " + esc(x.identity_tags.name_en || x.identity_tags.name_ar) : esc(PILLAR[x.identity_tags.pillar] || "") + " · " + esc(x.identity_tags.name_ar)}</span>
         ${nn && x.connection_en ? `<p class="en" dir="ltr">${esc(x.connection_en)}</p>` : `<p>${esc(x.connection_ar)}</p>`}</div>`).join("")
       : `<div class="empty"><strong>لم يُضف ربط بالهوية الوطنية لهذا الدرس بعد</strong></div>`;
@@ -2235,6 +2258,37 @@
       </div></div>`;
     state._tdArgs = isStaff() && summary ? [l, u, summary, ev, { sc: l.success_criteria || [], identity: l.lesson_identity_links || [] }] : null;
     if (!document.getElementById("ppCss")) { const st = document.createElement("style"); st.id = "ppCss"; st.textContent = TD_PAPER_CSS; document.head.appendChild(st); }
+    // Arabic primary: a child-friendly sources page built from the lesson itself
+    const arSourcesHtml = () => {
+      if (lockedForMe) return lockedMsg;
+      const sm = (summary && summary.content) || {};
+      const learn = sm.learn || [];
+      const pick = (ic) => (learn.find((x) => x[0] === ic) || [])[1] || "";
+      const story = (l.title_ar || "").replace(/\s*\([^)]*\)$/, "");
+      const letter = ((l.title_ar || "").match(/\(([^)]+)\)$/) || [])[1] || "";
+      const pics = [];
+      (sm.words || []).forEach((w) => { const m = String(w[1] || "").match(/(\p{Extended_Pictographic}[\uFE0F\u200D\p{Extended_Pictographic}]*)\s*$/u); pics.push([w[0], m ? m[1] : "", String(w[1] || "").replace(/\s*\p{Extended_Pictographic}.*$/u, "")]); });
+      gameItems.filter((g) => g.game === "match").forEach((g) => ((g.payload && g.payload.pairs) || []).forEach((p) => {
+        if (/\p{Extended_Pictographic}/u.test(p[1]) && !pics.some((x) => x[0] === p[0])) pics.push([p[0], p[1], ""]); }));
+      const card = (cls, ic, title, body) => body ? `<div class="ars-card ${cls}"><h3><span class="ars-hic">${ic}</span>${title}</h3>${body}</div>` : "";
+      const li = (arr) => arr.length ? `<ul class="ars-list">${arr.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
+      const forms = pick("🔗"), sounds = pick("👂") || pick("🎩"), write = pick("✍️"), blend = pick("⚙️");
+      const id = (l.lesson_identity_links || [])[0];
+      const quiz = (sm.quiz || []).slice(0, 2);
+      return `<div class="ars">
+        ${card("ars-book", "📖", "كتابي المدرسي", `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
+        ${letter ? card("ars-letter", "🔤", "بطاقة الحرف", `<div class="ars-letter-big">${esc(letter)}</div>${forms ? `<p>${esc(forms)}</p>` : ""}${write ? `<p class="muted">✍️ ${esc(write)}</p>` : ""}`) : ""}
+        ${pics.length ? card("ars-dict", "🖼️", "قاموسي المصوّر", `<div class="ars-words">${pics.slice(0, 8).map((w) => `<div class="ars-w"><span class="ars-emo">${esc(w[1])}</span><b>${esc(w[0])}</b>${w[2] ? `<small>${esc(w[2])}</small>` : ""}</div>`).join("")}</div>`) : ""}
+        ${sounds ? card("ars-sound", "👂", "أسمع وأردّد", `<p class="ars-say">${esc(sounds)}</p><p class="muted">أقرأ بصوت واضح، ثم أطلب من أحد أفراد أسرتي أن يسمعني.</p>`) : ""}
+        ${blend ? card("ars-blend", "⚙️", "أركّب وأحلّل", `<p class="ars-say">${esc(blend)}</p>`) : ""}
+        ${learn.length ? card("ars-learn", "💡", "ما تعلّمته اليوم", li(learn.filter((x) => !["📚", "🔗", "✍️"].includes(x[0])).map((x) => x[1]))) : ""}
+        ${quiz.length ? card("ars-check", "✅", "أختبر نفسي", `<ul class="ars-list">${quiz.map((q) => `<li>${esc(q[0])} <details class="ars-ans"><summary>الإجابة</summary>${q[1] ? "صحيح ✔️" : "خطأ ✖️"}</details></li>`).join("")}</ul>`) : ""}
+        ${sm.think ? card("ars-think", "🤔", "أفكّر", `<p>${esc(sm.think)}</p>`) : ""}
+        ${(sm.do || []).length ? card("ars-home", "🏠", "أتعلّم مع أسرتي", li(sm.do)) : ""}
+        ${id && id.connection_ar ? card("ars-id", "🇦🇪", "من وطني", `<p>${esc(id.connection_ar)}</p>`) : ""}
+        ${sm.badge ? card("ars-badge", "⭐", "شارتي اليوم", `<p class="ars-say">${esc(sm.badge)}</p><p class="muted">أحصل عليها حين أُنهي لعبة الدرس وبطاقة الخروج.</p>`) : ""}
+      </div>`;
+    };
     const srcCtx = { l, u, en: nn, sm: summary && summary.content, ev, sc: l.success_criteria || [], identity: l.lesson_identity_links || [], grade: u.year_group, lessonTitle: nn && l.title_en ? l.title_en : l.title_ar };
     const srcHtml = lockedForMe ? lockedMsg : `${isStaff() && summary ? `<p style="margin:0 0 12px"><button class="btn btn-dawn btn-small pp-open" data-kind="src">🖨️ ${CT("طباعة ورقة المصادر أو تعديلها", "Print or edit the source sheet")}</button> <span class="muted">${CT("قسما HPL ومتطلبات الوزارة يظهران للمعلم فقط.", "The HPL and ministry sections are visible to teachers only.")}</span></p>` : ""}<div class="pp-tab">${tdSourcesHtml(srcCtx, isStaff())}</div>`;
     let REL = { slides: true, work: true, grp: true, cls: null };
@@ -2251,7 +2305,14 @@
       ...(isStaff() && summary && !lockedForMe ? [["weekly", CT("الخطة الأسبوعية", "Weekly plan"), `<div class="papers-box"><h3>📅 ${CT("الخطة الأسبوعية", "Weekly plan")}</h3>
         <p class="muted">${CT("تُبنى تلقائيًّا من الدرس: ما تمّ الانتهاء منه، ودرس الأسبوع، والهدف، ومعايير النجاح، والهوية الوطنية، وHPL، والحصة القادمة، والمطلوب من الطالب. عدّلها بالكتابة عليها، واحفظ نسختك، ثم اطبعها أو أرسلها لأولياء الأمور.", "Built from the lesson: what was completed, this week's lesson, objective, success criteria, national identity, HPL, next lesson and student tasks. Edit it, save your copy, then print or send it to parents.")}</p>
         <button class="btn btn-primary pp-open" data-kind="wp">📅 ${CT("فتح الخطة الأسبوعية وتعديلها", "Open and edit the weekly plan")}</button></div>`]] : []),
-      ["work", "أوراق العمل", (isStaff() && summary && !lockedForMe ? papersHtml : "") + resList(["worksheet", "group_pack", "file", "interactive", "link"], isStaff() && summary ? CT("لا توجد ملفات مرفوعة إضافية", "No extra uploaded files") : "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+      ...(NEWAR ? [
+        ["work", "أوراق العمل", resList(["worksheet"], "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["group", "العمل الجماعي", resList(["group_pack"], "لم تُضف مهام المجموعات لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["res", "المصادر", arSourcesHtml() + (lockedForMe ? "" : (() => { const fs = res.filter((r) => ["file", "interactive", "link"].includes(r.kind)); const tf = fs.filter((r) => r.audience === "teacher"), sf = fs.filter((r) => r.audience !== "teacher");
+          return (isStaff() && tf.length ? `<h3 class="res-group">مواد المعلم <span class="pill warn">لا تظهر للطلاب</span></h3>${resItems(tf)}` : "") + (sf.length ? `<h3 class="res-group">مواد الطالب</h3>${resItems(sf)}` : ""); })())]
+      ] : [
+        ["work", "أوراق العمل", (isStaff() && summary && !lockedForMe ? papersHtml : "") + resList(["worksheet", "group_pack", "file", "interactive", "link"], isStaff() && summary ? CT("لا توجد ملفات مرفوعة إضافية", "No extra uploaded files") : "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+      ]),
       ["video", "الفيديو", videoHtml],
       ...((subject === "islamic" || subject === "igcse") || ev.length ? [["evidence", (subject === "islamic" || subject === "igcse") ? CT("المصادر", "Sources") : "الشواهد", (subject === "islamic" || subject === "igcse") ? srcHtml : evHtml]] : []),
       ["identity", "الهوية الوطنية", idHtml],
@@ -9336,7 +9397,7 @@
   function gamePanel(l, items) {
     if (!items.length) return `<div class="empty"><strong>${LANG === "en" ? "No game for this lesson yet" : "لا توجد لعبة لهذا الدرس بعد"}</strong>${LANG === "en" ? "Games are built from the lesson's verses and hadiths." : "تُبنى الألعاب من آيات الدرس وأحاديثه."}</div>`;
     return `<div class="game-intro"><div class="gi-ic">🎮</div><div><h2>${LANG === "en" ? "Lesson game" : "لعبة الدرس"}</h2>
-      <p class="muted">${LANG === "en" ? (items.some((x) => ["tf", "mcq", "match"].includes(x.game)) ? "Questions on the lesson: true or false, choose, match" + (items.some((x) => ["order", "complete"].includes(x.game)) ? ", and put the verse in order" : "") + ". 10 points per correct answer, +20 for a perfect round." : "Put the words in order and complete the missing word. 10 points for each correct answer, +20 for a perfect round.") : (items.some((x) => ["tf", "mcq", "match"].includes(x.game)) ? "أسئلة على محتوى الدرس: صح أم خطأ، واختر الإجابة، وصِل المتشابهات" + (items.some((x) => ["order", "complete"].includes(x.game)) ? "، ورتّب الآية أو الحديث" : "") + ". لكل إجابة صحيحة 10 نقاط، و20 نقطة إضافية للجولة الكاملة." : "رتّب كلمات الآية أو الحديث، وأكمل الكلمة الناقصة. لكل إجابة صحيحة 10 نقاط، و20 نقطة إضافية للجولة الكاملة.")}</p>
+      <p class="muted">${LANG === "en" ? (items.some((x) => ["tf", "mcq", "match"].includes(x.game)) ? "Questions on the lesson: true or false, choose, match" + (items.some((x) => ["order", "complete"].includes(x.game)) ? ", and put the verse in order" : "") + ". 10 points per correct answer, +20 for a perfect round." : "Put the words in order and complete the missing word. 10 points for each correct answer, +20 for a perfect round.") : (state.pageSubject === "arabic" ? "أسئلة على محتوى الدرس: صح أم خطأ، واختر الإجابة، وصِل الكلمة بصورتها، ورتّب الكلمات لتكوّن جملة. لكل إجابة صحيحة 10 نقاط، و20 نقطة إضافية للجولة الكاملة." : items.some((x) => ["tf", "mcq", "match"].includes(x.game)) ? "أسئلة على محتوى الدرس: صح أم خطأ، واختر الإجابة، وصِل المتشابهات" + (items.some((x) => ["order", "complete"].includes(x.game)) ? "، ورتّب الآية أو الحديث" : "") + ". لكل إجابة صحيحة 10 نقاط، و20 نقطة إضافية للجولة الكاملة." : "رتّب كلمات الآية أو الحديث، وأكمل الكلمة الناقصة. لكل إجابة صحيحة 10 نقاط، و20 نقطة إضافية للجولة الكاملة.")}</p>
       <button class="btn btn-dawn" id="gameStart">${LANG === "en" ? "Play" : "ابدأ اللعب"}</button></div></div>
       <div id="gameStage"></div>`;
   }
