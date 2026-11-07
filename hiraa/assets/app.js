@@ -1558,6 +1558,80 @@
       present(["ppt", "pptx", "doc", "docx", "xlsx"].includes(ext) ? officeView(u) : u, f.dataset.title || "");
     } else if (w) { w.location = ["ppt", "pptx", "doc", "docx", "xlsx"].includes(ext) ? officeView(u).replace("/embed.aspx", "/view.aspx") : u; }
   });
+  /* ---------- built-in PDF viewer (decks, worksheets, group packs) ---------- */
+  let PDFJS = null;
+  const loadPdfJs = () => PDFJS || (PDFJS = new Promise((ok, no) => {
+    const sc = document.createElement("script");
+    sc.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+    sc.onload = () => { window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"; ok(window.pdfjsLib); };
+    sc.onerror = () => { PDFJS = null; no(new Error("pdfjs")); };
+    document.head.appendChild(sc);
+  }));
+  const pdfDocs = new Map();
+  const getPdf = async (url) => {
+    const abs = new URL(url, location.href.split("#")[0]).href;
+    if (!pdfDocs.has(abs)) pdfDocs.set(abs, loadPdfJs().then((lib) => lib.getDocument(abs).promise));
+    return pdfDocs.get(abs);
+  };
+  const renderPage = async (doc, n, canvas, width) => {
+    const page = await doc.getPage(n);
+    const v1 = page.getViewport({ scale: 1 });
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const vp = page.getViewport({ scale: (width / v1.width) * dpr });
+    canvas.width = vp.width; canvas.height = vp.height;
+    canvas.style.width = width + "px"; canvas.style.height = "auto"; canvas.style.aspectRatio = vp.width + " / " + vp.height;
+    await page.render({ canvasContext: canvas.getContext("2d"), viewport: vp }).promise;
+  };
+  async function mountPdfView(box) {
+    if (box.dataset.ready) return; box.dataset.ready = "1";
+    const url = box.dataset.pdf, mode = box.dataset.mode;
+    let doc;
+    try { doc = await getPdf(url); }
+    catch (e) { box.innerHTML = `<div class="pdfv-err">${isStaff() ? "تعذّر تحميل الملف من الموقع: تأكد من وجوده في المسار " + esc(url) : "هذا الملف غير متاح الآن."}</div>`; return; }
+    const n = doc.numPages;
+    if (mode === "deck") {
+      let cur = 1;
+      box.innerHTML = `<div class="pdfv-stage"><canvas></canvas><button class="pdfv-nav prev" aria-label="السابق">‹</button><button class="pdfv-nav next" aria-label="التالي">›</button></div>
+        <div class="pdfv-bar"><button class="btn btn-ghost btn-small" data-go="-1">السابق</button><span class="pdfv-count"></span><button class="btn btn-ghost btn-small" data-go="1">التالي</button></div>
+        <div class="pdfv-thumbs"></div>`;
+      const cv = box.querySelector(".pdfv-stage canvas"), cnt = box.querySelector(".pdfv-count"), th = box.querySelector(".pdfv-thumbs");
+      const draw = async () => { const full = !!document.fullscreenElement && box.closest(".pdfv-card") === document.fullscreenElement;
+        const host = (box.closest(".pdfv-card") || box).parentElement; const w = full ? Math.min(window.innerWidth - 20, (window.innerHeight - 70) * 16 / 9) : Math.min(1100, (host ? host.clientWidth : 900) - 30);
+        await renderPage(doc, cur, cv, Math.max(280, w)); cnt.textContent = `${cur} / ${n}`;
+        th.querySelectorAll("button").forEach((b) => b.classList.toggle("on", +b.dataset.p === cur)); };
+      const go = (d) => { const nx = Math.min(n, Math.max(1, cur + d)); if (nx !== cur) { cur = nx; draw(); } };
+      box._go = go;
+      box.querySelector(".prev").onclick = () => go(-1); box.querySelector(".next").onclick = () => go(1);
+      box.querySelectorAll("[data-go]").forEach((b) => b.onclick = () => go(+b.dataset.go));
+      th.innerHTML = Array.from({ length: n }, (_, i) => `<button data-p="${i + 1}"><canvas></canvas><span>${i + 1}</span></button>`).join("");
+      th.querySelectorAll("button").forEach((b) => { b.onclick = () => { cur = +b.dataset.p; draw(); }; renderPage(doc, +b.dataset.p, b.querySelector("canvas"), 120); });
+      box._redraw = draw; await draw();
+    } else {
+      box.innerHTML = `<div class="pdfv-pages">${Array.from({ length: n }, (_, i) => `<div class="pdfv-page" data-p="${i + 1}"><canvas></canvas><span class="pdfv-pno">${i + 1} / ${n}</span></div>`).join("")}</div>`;
+      const io = new IntersectionObserver((ents) => ents.forEach((en) => { if (!en.isIntersecting) return; io.unobserve(en.target);
+        const pg = en.target; renderPage(doc, +pg.dataset.p, pg.querySelector("canvas"), Math.min(((box.closest(".pdfv-card") || box).parentElement || box).clientWidth - 50, 860)); }), { rootMargin: "300px" });
+      box.querySelectorAll(".pdfv-page").forEach((pg) => io.observe(pg));
+      box._redraw = () => box.querySelectorAll(".pdfv-page").forEach((pg) => renderPage(doc, +pg.dataset.p, pg.querySelector("canvas"), document.fullscreenElement ? Math.min(window.innerWidth - 60, 1100) : Math.min(((box.closest(".pdfv-card") || box).parentElement || box).clientWidth - 50, 860)));
+    }
+  }
+  const pdfIO = "IntersectionObserver" in window ? new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) { pdfIO.unobserve(en.target); mountPdfView(en.target); } }), { rootMargin: "200px" }) : null;
+  new MutationObserver(() => document.querySelectorAll(".pdfv:not([data-watch])").forEach((b) => { b.dataset.watch = "1"; pdfIO ? pdfIO.observe(b) : mountPdfView(b); }))
+    .observe(document.documentElement, { childList: true, subtree: true });
+  document.addEventListener("click", async (e) => {
+    const b = e.target.closest("[data-pdfv-act]"); if (!b) return;
+    const card = b.closest(".pdfv-card"), box = card && card.querySelector(".pdfv"), act = b.dataset.pdfvAct;
+    if (act === "full") { if (document.fullscreenElement) document.exitFullscreen(); else if (card.requestFullscreen) card.requestFullscreen(); mountPdfView(box); }
+    if (act === "print") { const f = document.createElement("iframe"); f.style.cssText = "position:fixed;width:0;height:0;border:0;left:-9999px";
+      f.src = new URL(b.dataset.url, location.href.split("#")[0]).href; f.onload = () => { try { f.contentWindow.focus(); f.contentWindow.print(); } catch (err) { window.open(f.src, "_blank"); } setTimeout(() => f.remove(), 60000); }; document.body.appendChild(f); }
+    if (act === "dl") { const a = document.createElement("a"); a.href = new URL(b.dataset.url, location.href.split("#")[0]).href; a.download = (b.dataset.name || "file") + ".pdf"; document.body.appendChild(a); a.click(); a.remove(); }
+  });
+  document.addEventListener("fullscreenchange", () => document.querySelectorAll(".pdfv").forEach((b) => b._redraw && b._redraw()));
+  document.addEventListener("keydown", (e) => {
+    const fs = document.fullscreenElement; if (!fs || !fs.classList.contains("pdfv-card")) return;
+    const box = fs.querySelector(".pdfv"); if (!box || !box._go) return;
+    if (["ArrowLeft", "PageDown", " "].includes(e.key)) { e.preventDefault(); box._go(1); }
+    if (["ArrowRight", "PageUp"].includes(e.key)) { e.preventDefault(); box._go(-1); }
+  });
   function present(src, title) {
     let o = document.getElementById("presentOverlay");
     if (!o) { o = document.createElement("div"); o.id = "presentOverlay"; o.className = "present-overlay"; document.body.appendChild(o); }
@@ -2134,6 +2208,14 @@
         const stored = !r.url && r.storage_path;
         const emb = r.kind === "slides" && !stored ? slideEmbed(r.url) : null;
         const canPresent = stored && ["pdf", "ppt", "pptx"].includes(extOf(r.storage_path));
+        if (!stored && /^resources\/.+\.pdf$/i.test(r.url || "")) {
+          const deck = r.kind === "slides";
+          return `<div class="pdfv-card"><div class="pdfv-head">${ic}<span><strong>${esc(r.title_ar)}</strong><span class="kind">${KIND[r.kind]}</span></span>
+            <span class="pdfv-tools">${deck ? `<button class="btn btn-dawn btn-small" data-pdfv-act="full">📽️ عرض في الصف</button>` : `<button class="btn btn-ghost btn-small" data-pdfv-act="full">⛶ ملء الشاشة</button>`}
+            <button class="btn btn-ghost btn-small" data-pdfv-act="print" data-url="${esc(r.url)}">🖨️ طباعة</button>
+            <button class="btn btn-ghost btn-small" data-pdfv-act="dl" data-url="${esc(r.url)}" data-name="${esc(r.title_ar)}">⬇️ تنزيل</button></span></div>
+            <div class="pdfv" data-pdf="${esc(r.url)}" data-mode="${deck ? "deck" : "doc"}"><div class="pdfv-load">جارٍ تجهيز العرض…</div></div></div>`;
+        }
         return `<div class="res-row"><a class="res-item" href="${stored ? "#" : esc(r.url)}" ${stored ? `data-file="${esc(r.storage_path)}"` : 'target="_blank" rel="noopener"'}>${ic}
           <span><strong>${esc(r.title_ar)}</strong><span class="kind">${KIND[r.kind]}${r.part ? ` · الجزء ${r.part}` : ""}</span></span></a>
           ${emb ? `<button class="btn btn-dawn btn-small present-btn" data-present="${esc(emb)}" data-title="${esc(r.title_ar)}">عرض في الصف</button>` : ""}
