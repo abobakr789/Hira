@@ -1591,7 +1591,7 @@
     const n = doc.numPages;
     if (mode === "deck") {
       let cur = 1;
-      box.innerHTML = `<div class="pdfv-stage"><canvas></canvas><button class="pdfv-nav prev" aria-label="السابق">‹</button><button class="pdfv-nav next" aria-label="التالي">›</button></div>
+      box.innerHTML = `<div class="pdfv-stage" oncontextmenu="return false"><canvas></canvas><button class="pdfv-nav prev" aria-label="السابق">‹</button><button class="pdfv-nav next" aria-label="التالي">›</button></div>
         <div class="pdfv-bar"><button class="btn btn-ghost btn-small" data-go="-1">السابق</button><span class="pdfv-count"></span><button class="btn btn-ghost btn-small" data-go="1">التالي</button></div>
         <div class="pdfv-thumbs"></div>`;
       const cv = box.querySelector(".pdfv-stage canvas"), cnt = box.querySelector(".pdfv-count"), th = box.querySelector(".pdfv-thumbs");
@@ -2212,8 +2212,8 @@
           const deck = r.kind === "slides";
           return `<div class="pdfv-card"><div class="pdfv-head">${ic}<span><strong>${esc(r.title_ar)}</strong><span class="kind">${KIND[r.kind]}</span></span>
             <span class="pdfv-tools">${deck ? `<button class="btn btn-dawn btn-small" data-pdfv-act="full">📽️ عرض في الصف</button>` : `<button class="btn btn-ghost btn-small" data-pdfv-act="full">⛶ ملء الشاشة</button>`}
-            <button class="btn btn-ghost btn-small" data-pdfv-act="print" data-url="${esc(r.url)}">🖨️ طباعة</button>
-            <button class="btn btn-ghost btn-small" data-pdfv-act="dl" data-url="${esc(r.url)}" data-name="${esc(r.title_ar)}">⬇️ تنزيل</button></span></div>
+            ${deck ? "" : `<button class="btn btn-ghost btn-small" data-pdfv-act="print" data-url="${esc(r.url)}">🖨️ طباعة</button>
+            <button class="btn btn-ghost btn-small" data-pdfv-act="dl" data-url="${esc(r.url)}" data-name="${esc(r.title_ar)}">⬇️ تنزيل</button>`}</span></div>
             <div class="pdfv" data-pdf="${esc(r.url)}" data-mode="${deck ? "deck" : "doc"}"><div class="pdfv-load">جارٍ تجهيز العرض…</div></div></div>`;
         }
         return `<div class="res-row"><a class="res-item" href="${stored ? "#" : esc(r.url)}" ${stored ? `data-file="${esc(r.storage_path)}"` : 'target="_blank" rel="noopener"'}>${ic}
@@ -2357,18 +2357,18 @@
       const forms = pick("🔗"), sounds = pick("👂") || pick("🎩"), write = pick("✍️"), blend = pick("⚙️");
       const id = (l.lesson_identity_links || [])[0];
       const quiz = (sm.quiz || []).slice(0, 2);
-      return `<div class="ars">
-        ${card("ars-book", "📖", "كتابي المدرسي", `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
-        ${letter ? card("ars-letter", "🔤", "بطاقة الحرف", `<div class="ars-letter-big">${esc(letter)}</div>${forms ? `<p>${esc(forms)}</p>` : ""}${write ? `<p class="muted">✍️ ${esc(write)}</p>` : ""}`) : ""}
-        ${pics.length ? card("ars-dict", "🖼️", "قاموسي المصوّر", `<div class="ars-words">${pics.slice(0, 8).map((w) => `<div class="ars-w"><span class="ars-emo">${esc(w[1])}</span><b>${esc(w[0])}</b>${w[2] ? `<small>${esc(w[2])}</small>` : ""}</div>`).join("")}</div>`) : ""}
-        ${sounds ? card("ars-sound", "👂", "أسمع وأردّد", `<p class="ars-say">${esc(sounds)}</p><p class="muted">أقرأ بصوت واضح، ثم أطلب من أحد أفراد أسرتي أن يسمعني.</p>`) : ""}
-        ${blend ? card("ars-blend", "⚙️", "أركّب وأحلّل", `<p class="ars-say">${esc(blend)}</p>`) : ""}
-        ${learn.length ? card("ars-learn", "💡", "ما تعلّمته اليوم", li(learn.filter((x) => !["📚", "🔗", "✍️"].includes(x[0])).map((x) => x[1]))) : ""}
-        ${quiz.length ? card("ars-check", "✅", "أختبر نفسي", `<ul class="ars-list">${quiz.map((q) => `<li>${esc(q[0])} <details class="ars-ans"><summary>الإجابة</summary>${q[1] ? "صحيح ✔️" : "خطأ ✖️"}</details></li>`).join("")}</ul>`) : ""}
-        ${sm.think ? card("ars-think", "🤔", "أفكّر", `<p>${esc(sm.think)}</p>`) : ""}
-        ${(sm.do || []).length ? card("ars-home", "🏠", "أتعلّم مع أسرتي", li(sm.do)) : ""}
-        ${id && id.connection_ar ? card("ars-id", "🇦🇪", "من وطني", `<p>${esc(id.connection_ar)}</p>`) : ""}
-        ${sm.badge ? card("ars-badge", "⭐", "شارتي اليوم", `<p class="ars-say">${esc(sm.badge)}</p><p class="muted">أحصل عليها حين أُنهي لعبة الدرس وبطاقة الخروج.</p>`) : ""}
+      return `<div class="ars"${nn ? ' dir="ltr"' : ""}>
+        ${card("ars-book", "📖", nn ? "My textbook" : "كتابي المدرسي", nn ? `<p>Read «${esc(story)}» in your student book${l.book_pages ? ` (page ${esc(String(l.book_pages).replace(/^ص\s*/, ""))})` : ""} with your teacher.</p>` : `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
+        ${letter ? card("ars-letter", "🔤", nn ? "Letter card" : "بطاقة الحرف", `<div class="ars-letter-big">${esc(letter)}</div>${forms ? `<p>${esc(forms)}</p>` : ""}${write ? `<p class="muted">✍️ ${esc(write)}</p>` : ""}`) : ""}
+        ${pics.length ? card("ars-dict", "🖼️", nn ? "My picture dictionary" : "قاموسي المصوّر", `<div class="ars-words">${pics.slice(0, 8).map((w) => `<div class="ars-w"><span class="ars-emo">${esc(w[1])}</span><b>${esc(w[0])}</b>${w[2] ? `<small>${esc(w[2])}</small>` : ""}</div>`).join("")}</div>`) : ""}
+        ${sounds ? card("ars-sound", "👂", nn ? "Listen and repeat" : "أسمع وأردّد", `<p class="ars-say">${esc(sounds)}</p><p class="muted">${nn ? "Say it clearly, then ask someone at home to listen to you." : "أقرأ بصوت واضح، ثم أطلب من أحد أفراد أسرتي أن يسمعني."}</p>`) : ""}
+        ${blend ? card("ars-blend", "⚙️", nn ? "Build and break words" : "أركّب وأحلّل", `<p class="ars-say">${esc(blend)}</p>`) : ""}
+        ${learn.length ? card("ars-learn", "💡", nn ? "What I learned today" : "ما تعلّمته اليوم", li(learn.filter((x) => !["📚", "🔗", "✍️"].includes(x[0])).map((x) => x[1]))) : ""}
+        ${quiz.length ? card("ars-check", "✅", nn ? "Check myself" : "أختبر نفسي", `<ul class="ars-list">${quiz.map((q) => `<li>${esc(q[0])} <details class="ars-ans"><summary>${nn ? "Answer" : "الإجابة"}</summary>${q[1] ? (nn ? "True ✔️" : "صحيح ✔️") : (nn ? "False ✖️" : "خطأ ✖️")}</details></li>`).join("")}</ul>`) : ""}
+        ${sm.think ? card("ars-think", "🤔", nn ? "Think" : "أفكّر", `<p>${esc(sm.think)}</p>`) : ""}
+        ${(sm.do || []).length ? card("ars-home", "🏠", nn ? "Learn with my family" : "أتعلّم مع أسرتي", li(sm.do)) : ""}
+        ${id && id.connection_ar ? card("ars-id", "🇦🇪", nn ? "From my country" : "من وطني", `<p>${esc(nn && id.connection_en ? id.connection_en : id.connection_ar)}</p>`) : ""}
+        ${sm.badge ? card("ars-badge", "⭐", nn ? "My badge today" : "شارتي اليوم", `<p class="ars-say">${esc(sm.badge)}</p><p class="muted">${nn ? "I earn it when I finish the lesson game and the exit card." : "أحصل عليها حين أُنهي لعبة الدرس وبطاقة الخروج."}</p>`) : ""}
       </div>`;
     };
     const srcCtx = { l, u, en: nn, sm: summary && summary.content, ev, sc: l.success_criteria || [], identity: l.lesson_identity_links || [], grade: u.year_group, lessonTitle: nn && l.title_en ? l.title_en : l.title_ar };
@@ -2383,25 +2383,25 @@
     const relMsg = () => `<div class="empty rel-lock"><strong>🔒 ${CT("سيتيحها معلمك في الوقت المناسب", "Your teacher will make this available at the right time")}</strong>${CT("يفتح معلمك الشرائح وأوراق العمل ومهام المجموعات عندما يحين وقتها في الحصة. وحتى ذلك الحين راجع الملخص والمصادر ولعبة الدرس.", "Your teacher opens slides, worksheets and group tasks when it's time in class. Meanwhile, use the summary, sources and lesson game.")}</div>`;
     const relBox = isStaff() && summary ? `<div id="relBox" class="rel-box"></div>` : "";
     const TABS = [
-      ["slides", "الشرائح", relBox + slidesPanel()],
+      ["slides", nn ? "Slides" : "الشرائح", relBox + slidesPanel()],
       ...(isStaff() && summary && !lockedForMe ? [["weekly", CT("الخطة الأسبوعية", "Weekly plan"), `<div class="papers-box"><h3>📅 ${CT("الخطة الأسبوعية", "Weekly plan")}</h3>
         <p class="muted">${CT("تُبنى تلقائيًّا من الدرس: ما تمّ الانتهاء منه، ودرس الأسبوع، والهدف، ومعايير النجاح، والهوية الوطنية، وHPL، والحصة القادمة، والمطلوب من الطالب. عدّلها بالكتابة عليها، واحفظ نسختك، ثم اطبعها أو أرسلها لأولياء الأمور.", "Built from the lesson: what was completed, this week's lesson, objective, success criteria, national identity, HPL, next lesson and student tasks. Edit it, save your copy, then print or send it to parents.")}</p>
         <button class="btn btn-primary pp-open" data-kind="wp">📅 ${CT("فتح الخطة الأسبوعية وتعديلها", "Open and edit the weekly plan")}</button></div>`]] : []),
       ...(NEWAR ? [
-        ["work", "أوراق العمل", resList(["worksheet"], "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
-        ["group", "العمل الجماعي", resList(["group_pack"], "لم تُضف مهام المجموعات لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
-        ["res", "المصادر", arSourcesHtml() + (lockedForMe ? "" : (() => { const fs = res.filter((r) => ["file", "interactive", "link"].includes(r.kind)); const tf = fs.filter((r) => r.audience === "teacher"), sf = fs.filter((r) => r.audience !== "teacher");
+        ["work", nn ? "Worksheets" : "أوراق العمل", resList(["worksheet"], "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["group", nn ? "Group work" : "العمل الجماعي", resList(["group_pack"], "لم تُضف مهام المجموعات لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["res", nn ? "Resources" : "المصادر", arSourcesHtml() + (lockedForMe ? "" : (() => { const fs = res.filter((r) => ["file", "interactive", "link"].includes(r.kind)); const tf = fs.filter((r) => r.audience === "teacher"), sf = fs.filter((r) => r.audience !== "teacher");
           return (isStaff() && tf.length ? `<h3 class="res-group">مواد المعلم <span class="pill warn">لا تظهر للطلاب</span></h3>${resItems(tf)}` : "") + (sf.length ? `<h3 class="res-group">مواد الطالب</h3>${resItems(sf)}` : ""); })())]
       ] : [
         ["work", "أوراق العمل", (isStaff() && summary && !lockedForMe ? papersHtml : "") + resList(["worksheet", "group_pack", "file", "interactive", "link"], isStaff() && summary ? CT("لا توجد ملفات مرفوعة إضافية", "No extra uploaded files") : "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
       ]),
-      ["video", "الفيديو", videoHtml],
+      ["video", nn ? "Video" : "الفيديو", videoHtml],
       ...((subject === "islamic" || subject === "igcse") || ev.length ? [["evidence", (subject === "islamic" || subject === "igcse") ? CT("المصادر", "Sources") : "الشواهد", (subject === "islamic" || subject === "igcse") ? srcHtml : evHtml]] : []),
-      ["identity", "الهوية الوطنية", idHtml],
-      ["outcomes", "نواتج التعلم", outHtml],
-      ...(gameItems.length ? [["games", "🎮 لعبة الدرس", lockedForMe ? lockedMsg : gamePanel(l, gameItems)]] : []),
-      ["quiz", "بطاقة الخروج", quizHtml],
-      ["recite", "التسميع", recHtml]
+      ["identity", nn ? "National identity" : "الهوية الوطنية", idHtml],
+      ["outcomes", nn ? "Learning outcomes" : "نواتج التعلم", outHtml],
+      ...(gameItems.length ? [["games", nn ? "🎮 Lesson game" : "🎮 لعبة الدرس", lockedForMe ? lockedMsg : gamePanel(l, gameItems)]] : []),
+      ["quiz", nn ? "Exit card" : "بطاقة الخروج", quizHtml],
+      ["recite", nn ? "Recitation" : "التسميع", recHtml]
     ];
 
     h(`
