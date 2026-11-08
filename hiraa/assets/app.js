@@ -6530,7 +6530,15 @@
   function tdBuild(ctx, part) { return tdBuild0(ctx, part); }
   function tdBuild0(ctx, part) {
     // Arabic (primary): the young-learner deck without the Qur'an recitation opener
-    if (ctx.l && ctx.l.units && ctx.l.units.subject_id === 2 && (ctx.grade || 9) <= 6) return tdBuildYoung(ctx, part).filter((x) => !["open", "listen", "trans", "steps"].includes(x.t));
+    if (ctx.l && ctx.l.units && ctx.l.units.subject_id === 2 && (ctx.grade || 9) <= 6) {
+      const young = tdBuildYoung(ctx, part).filter((x) => !["open", "listen", "trans", "steps"].includes(x.t));
+      const dk = ctx.sm && ctx.sm.deck;
+      if (!dk || !dk.n) return young;
+      // Hira's illustrated deck (Dandon) is the main presentation; practice slides and the game QR follow it
+      const pics = Array.from({ length: dk.n }, (_, i) => ({ t: "pic", d: { src: dk.base + String(i + 1).padStart(2, "0") + ".webp" }, n: (dk.notes || [])[i] || "" }));
+      const practice = young.filter((x) => ["bank", "starter", "claim", "exit"].includes(x.t));
+      return part === 2 ? practice : pics.concat(practice);
+    }
     if ((ctx.grade || 9) <= 3) return tdBuildYoung(ctx, part);
     const { l, sm, prev, ev, en } = ctx;
     const two = (l.periods || 1) > 1;
@@ -6769,6 +6777,7 @@
       case "show": b = head("🙋") + `<ol class="kid-steps show">${(d.items || []).map((x, j) => `<li class="rv"><span>${x[0]}</span><p ${tdE(0, `items.${j}.1`)}>${X(x[1])}</p></li>`).join("")}</ol>${d.home ? `<div class="kid-home">🏠 <span ${tdE(0, "home")}>${X(d.home)}</span></div>` : ""}`; break;
       case "exit": b = head("🚪") + `<div class="td-exit"><div class="td-qr" id="tdqr${i}" data-url="${X(d.url)}"></div><p ${tdE(0, "sub")}>${X(d.sub)}</p></div>`; break;
       case "text": b = head("") + `<div class="td-free" ${tdE(0, "body")}>${X(d.body)}</div>`; break;
+      case "pic": b = `<img class="td-pic" src="${X(d.src)}" alt="" draggable="false">`; break;
     }
     const imgs = (s.imgs || []).map((im, j) => `<div class="td-img" data-im="${j}" style="left:${im.x}px;top:${im.y}px;width:${im.w}px"><img src="${im.src}" alt="" draggable="false"><span class="td-imx" title="${CT("حذف", "Delete")}">✕</span><span class="td-imr"></span></div>`).join("");
     const ak = TD_ART_ICON[s.t]; if (ak && TD_ART[ak]) b = b.replace(/<div class="td-ic">[\s\S]*?<\/div>/, `<img class="td-icart a-${ak}" src="${TD_ART[ak]}" alt="" draggable="false">`);

@@ -2120,3 +2120,6 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .pdfv, .pdfv-stage, .pdfv-thumbs, .pdfv-pages { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; }
 .pdfv-page { display: block; text-align: center; } .pdfv-page canvas { display: inline-block; vertical-align: top; }
 .pdfv-page { flex-shrink: 0; }
+
+/* full-bleed illustrated slide (Hira Arabic decks) */
+.td-pic { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #FBF6EC; z-index: 0; }
