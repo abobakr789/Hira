@@ -2149,3 +2149,6 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .pn-words b { font-size: 1.5rem; color: var(--hira); } .pn-words small { color: var(--muted); }
 .pn-foot { font-size: .9rem; color: var(--muted); margin-top: 14px; word-break: break-all; }
 .pn-tools { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+
+.tdf-l2{display:none!important}body.l2on .tdf-l2{display:flex!important}
+.tdf-l2btn{position:absolute;left:10px;bottom:8px;z-index:5;font:600 12px Arial,sans-serif;background:#ffffffcc;border:1px solid #0F6E72;color:#0F6E72;border-radius:12px;padding:3px 10px;cursor:pointer}body.l2on .tdf-l2btn{background:#0F6E72;color:#fff}

@@ -6823,12 +6823,12 @@
       case "exit": b = head("🚪") + `<div class="td-exit"><div class="td-qr" id="tdqr${i}" data-url="${X(d.url)}"></div><p ${tdE(0, "sub")}>${X(d.sub)}</p></div>`; break;
       case "text": b = head("") + `<div class="td-free" ${tdE(0, "body")}>${X(d.body)}</div>`; break;
       case "pic": b = `<img class="td-pic" src="${X(d.src)}" alt="" draggable="false">`; break;
-      case "free": b = `<div class="tdf" style="background:#${X(d.bg || "FBF6EC")}">` + (d.els || []).map((e, j) => {
+      case "free": b = `<div class="tdf" style="background:#${X(d.bg || "FBF6EC")}">` + ((d.els || []).some((e) => e.l2) ? `<button class="tdf-l2btn" onclick="event.stopPropagation();document.body.classList.toggle('l2on')" title="Language support">عون لغوي · EN</button>` : "") + (d.els || []).map((e, j) => {
           const pos = `left:${e.x}px;top:${e.y}px;width:${e.w}px;height:${e.h}px;`, rv = e.rv ? ` rv" data-rvg="${e.rv}` : "";
           if (e.k === "shape") return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:#${X(e.fill)};${e.line ? `border:${Math.max(2, Math.round((e.lw || 1.5) * 1.8))}px solid #${X(e.line)};` : ""}border-radius:${e.oval ? "50%" : e.rad ? "16px" : "0"}"></div>`;
           if (e.k === "img") return `<div class="tdf-el tdf-emo${rv}" style="${pos}font-size:${Math.round(e.h * 0.82)}px" ${tdE(0, `els.${j}.emo`)}>${X(e.emo)}</div>`;
           const rtl = /[\u0600-\u06FF]/.test(e.text || ""), jc = e.align === "center" ? "center" : (e.align === "left") === rtl ? "flex-end" : "flex-start";
-          return `<div class="tdf-el tdf-tx${rv}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}" ${tdE(0, `els.${j}.text`)}>${X(e.text)}</div>`;
+          return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}" ${tdE(0, `els.${j}.text`)}>${X(e.text)}</div>`;
         }).join("") + `</div>`; break;
     }
     const imgs = (s.imgs || []).map((im, j) => `<div class="td-img" data-im="${j}" style="left:${im.x}px;top:${im.y}px;width:${im.w}px"><img src="${im.src}" alt="" draggable="false"><span class="td-imx" title="${CT("حذف", "Delete")}">✕</span><span class="td-imr"></span></div>`).join("");
