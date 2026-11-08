@@ -2146,6 +2146,14 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .ppt-frame:fullscreen { border-radius: 0; aspect-ratio: auto; }
 .ppt-card small { display: block; margin-top: 8px; }
 
+/* editable Hira slides (Arabic) */
+.tdf { position: absolute; inset: 0; overflow: hidden; font-family: "Readex Pro", "Noto Naskh Arabic", Arial, sans-serif; cursor: pointer; }
+.tdf-el { position: absolute; box-sizing: border-box; }
+.tdf-tx { display: flex; padding: 4px 10px; line-height: 1.45; white-space: pre-wrap; overflow: hidden; }
+.tdf-emo { display: flex; align-items: center; justify-content: center; line-height: 1; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
+.tdf-el.rv { transition: opacity .35s ease, transform .35s ease; }
+.tdf-el.rv.hid { opacity: 0; transform: translateY(8px); visibility: hidden; }
+
 </style>
 </head>
 <body>
@@ -8761,6 +8769,11 @@ window.addEventListener("error", function (e) {
     // Arabic (primary): the young-learner deck without the Qur'an recitation opener
     if (ctx.l && ctx.l.units && ctx.l.units.subject_id === 2 && (ctx.grade || 9) <= 6) {
       const young = tdBuildYoung(ctx, part).filter((x) => !["open", "listen", "trans", "steps"].includes(x.t));
+      if (ctx.free && ctx.free.length) {
+        const free = ctx.free.map((x) => ({ t: "free", d: { bg: x.bg, els: JSON.parse(JSON.stringify(x.els)) }, n: x.n || "" }));
+        const qr = young.filter((x) => x.t === "exit");
+        return part === 2 ? young.filter((x) => ["bank", "starter", "claim", "exit"].includes(x.t)) : free.concat(qr);
+      }
       const dk = ctx.sm && ctx.sm.deck;
       if (!dk || !dk.n) return young;
       // Hira's illustrated deck (Dandon) is the main presentation; practice slides and the game QR follow it
@@ -9007,6 +9020,13 @@ window.addEventListener("error", function (e) {
       case "exit": b = head("🚪") + `<div class="td-exit"><div class="td-qr" id="tdqr${i}" data-url="${X(d.url)}"></div><p ${tdE(0, "sub")}>${X(d.sub)}</p></div>`; break;
       case "text": b = head("") + `<div class="td-free" ${tdE(0, "body")}>${X(d.body)}</div>`; break;
       case "pic": b = `<img class="td-pic" src="${X(d.src)}" alt="" draggable="false">`; break;
+      case "free": b = `<div class="tdf" style="background:#${X(d.bg || "FBF6EC")}">` + (d.els || []).map((e, j) => {
+          const pos = `left:${e.x}px;top:${e.y}px;width:${e.w}px;height:${e.h}px;`, rv = e.rv ? ` rv" data-rvg="${e.rv}` : "";
+          if (e.k === "shape") return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:#${X(e.fill)};${e.line ? `border:${Math.max(2, Math.round((e.lw || 1.5) * 1.8))}px solid #${X(e.line)};` : ""}border-radius:${e.oval ? "50%" : e.rad ? "16px" : "0"}"></div>`;
+          if (e.k === "img") return `<div class="tdf-el tdf-emo${rv}" style="${pos}font-size:${Math.round(e.h * 0.82)}px" ${tdE(0, `els.${j}.emo`)}>${X(e.emo)}</div>`;
+          const jc = e.align === "center" ? "center" : e.align === "left" ? "flex-start" : e.align === "right" ? "flex-end" : "flex-start";
+          return `<div class="tdf-el tdf-tx${rv}" dir="auto" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}" ${tdE(0, `els.${j}.text`)}>${X(e.text)}</div>`;
+        }).join("") + `</div>`; break;
     }
     const imgs = (s.imgs || []).map((im, j) => `<div class="td-img" data-im="${j}" style="left:${im.x}px;top:${im.y}px;width:${im.w}px"><img src="${im.src}" alt="" draggable="false"><span class="td-imx" title="${CT("حذف", "Delete")}">✕</span><span class="td-imr"></span></div>`).join("");
     const ak = TD_ART_ICON[s.t]; if (ak && TD_ART[ak]) b = b.replace(/<div class="td-ic">[\s\S]*?<\/div>/, `<img class="td-icart a-${ak}" src="${TD_ART[ak]}" alt="" draggable="false">`);
@@ -9085,6 +9105,7 @@ window.addEventListener("error", function (e) {
       sc: (extra && extra.sc) || [], identity: (extra && extra.identity) || [],
       partLbl: two ? tdT(en, part === 1 ? "الحصة الأولى" : "الحصة الثانية", `Lesson ${part}`) : "",
       schoolName: school ? (en && school.name_en ? school.name_en : school.name_ar) : "", logo: school && school.logo_url };
+    if (l.units && l.units.subject_id === 2) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} }
     const base = () => tdBuild(ctx, part);
     const { data: saved } = await sb.from("teacher_decks").select("slides, updated_at").eq("lesson_id", l.id).eq("part", part).eq("kind", "deck").maybeSingle();
     let slides = saved && Array.isArray(saved.slides) && saved.slides.length ? saved.slides : base();
@@ -9298,7 +9319,7 @@ window.addEventListener("error", function (e) {
         });
       } else {
         stage.querySelectorAll(".rv").forEach((x) => x.classList.add("hid"));
-        stage.onclick = (e) => { const cd = e.target.closest(".td-card, .td-clues li, .td-sc li, .td-answer, .td-think, .td-tags span, .td-table .rv, .td-evi, .td-idc");
+        stage.onclick = (e) => { if (e.target.closest(".tdf")) { step(1); return; } const cd = e.target.closest(".td-card, .td-clues li, .td-sc li, .td-answer, .td-think, .td-tags span, .td-table .rv, .td-evi, .td-idc");
           const r = cd && (cd.classList.contains("rv") ? cd : cd.querySelector(".rv")); if (r && r.classList.contains("hid")) { r.classList.remove("hid"); const v = r.classList.contains("td-verdict"); if (v) (r.classList.contains("ok") ? TD_SOUNDS.correct : TD_SOUNDS.wrong)(); } };
       }
       const on = (id, f) => { const b = document.getElementById(id); if (b) b.onclick = f; };
@@ -9379,7 +9400,9 @@ window.addEventListener("error", function (e) {
     }
     const step = (k) => {
       const stage = document.getElementById("tdStage");
-      if (k > 0 && !editing) { const h = stage && stage.querySelector(".rv.hid"); if (h) { h.classList.remove("hid"); return; } }
+      if (k > 0 && !editing) { const h = stage && stage.querySelector(".rv.hid"); if (h) {
+        if (h.dataset.rvg) { const hs = [...stage.querySelectorAll(".rv.hid[data-rvg]")], g = Math.min(...hs.map((x) => Number(x.dataset.rvg))); hs.filter((x) => Number(x.dataset.rvg) === g).forEach((x) => x.classList.remove("hid")); }
+        else h.classList.remove("hid"); return; } }
       const n = cur + k; if (n < 0 || n >= slides.length) return; dir = k; cur = n; draw(true);
     };
     const onKey = (e) => {
