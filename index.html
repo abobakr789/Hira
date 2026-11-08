@@ -2154,6 +2154,19 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .tdf-el.rv { transition: opacity .35s ease, transform .35s ease; }
 .tdf-el.rv.hid { opacity: 0; transform: translateY(8px); visibility: hidden; }
 
+/* parent note (Arabic primary) */
+.pn { max-width: 820px; margin: 0 auto; }
+.pn-card { background: var(--paper); border: 1px solid var(--line); border-top: 6px solid var(--dawn); border-radius: 18px; padding: 22px 26px; line-height: 1.9; }
+.pn-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.pn-head h3 { margin: 0; } .pn-head p { margin: 0; color: var(--muted); }
+.pn-emo { font-size: 2.4rem; } .pn-letter { margin-inline-start: auto; font-size: 3.2rem; color: var(--hira); font-weight: 700; }
+.pn-card h4 { margin: 14px 0 6px; color: var(--hira); }
+.pn-words { display: flex; flex-wrap: wrap; gap: 10px; }
+.pn-words span { border: 2px solid var(--line); border-radius: 14px; padding: 8px 14px; display: flex; flex-direction: column; align-items: center; }
+.pn-words b { font-size: 1.5rem; color: var(--hira); } .pn-words small { color: var(--muted); }
+.pn-foot { font-size: .9rem; color: var(--muted); margin-top: 14px; word-break: break-all; }
+.pn-tools { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+
 </style>
 </head>
 <body>
@@ -4608,6 +4621,31 @@ window.addEventListener("error", function (e) {
         ${sm.badge ? card("ars-badge", "⭐", nn ? "My badge today" : "شارتي اليوم", `<p class="ars-say">${esc(sm.badge)}</p><p class="muted">${nn ? "I earn it when I finish the lesson game and the exit card." : "أحصل عليها حين أُنهي لعبة الدرس وبطاقة الخروج."}</p>`) : ""}
       </div>`;
     };
+    // Arabic primary: weekly note for parents (Arabic for native, English for non-native), printable and shareable
+    const parentNoteHtml = () => {
+      if (lockedForMe) return lockedMsg;
+      const sm = (summary && summary.content) || {}, en = nn;
+      const letter = ((l.title_ar || "").match(/\(([^)]+)\)$/) || [])[1] || "";
+      const title = en && l.title_en ? l.title_en : l.title_ar;
+      const words = (sm.words || []).slice(0, 4), home = (sm.do || []).slice(0, 3);
+      const link = location.href.split("#")[0] + "#/lesson/" + l.code;
+      const T = (a, b) => (en ? b : a);
+      const msg = T(`ولي الأمر الكريم، تعلّم طفلنا هذا الأسبوع «${title}».${words.length ? " كلمات الدرس: " + words.map((w) => w[0]).join("، ") + "." : ""} نرجو أن تشاركوه: ${home.join(" ")} رابط الدرس واللعبة: ${link}`,
+        `Dear parent, this week your child learned «${title}».${words.length ? " New words: " + words.map((w) => w[0] + " (" + String(w[1]).replace(/\s*\p{Extended_Pictographic}.*$/u, "") + ")").join(", ") + "." : ""} Please practise at home: ${home.join(" ")} Lesson and game: ${link}`);
+      return `<div class="pn" dir="${en ? "ltr" : "rtl"}">
+        <div class="pn-card" id="pnCard">
+          <div class="pn-head"><span class="pn-emo">🏠</span><div><h3>${T("رسالة إلى ولي الأمر", "A note for parents")}</h3><p>${esc(title)}</p></div>${letter ? `<span class="pn-letter">${esc(letter)}</span>` : ""}</div>
+          <p>${T("ولي الأمر الكريم، هذا ما تعلّمه طفلنا في هذا الدرس، وهكذا تساعدونه في البيت:", "Dear parent, here is what your child learned in this lesson, and how you can help at home:")}</p>
+          ${words.length ? `<h4>${T("🖼️ كلمات الدرس", "🖼️ New words")}</h4><div class="pn-words">${words.map((w) => `<span><b>${esc(w[0])}</b><small>${esc(w[1] || "")}</small></span>`).join("")}</div>` : ""}
+          ${home.length ? `<h4>${T("🏠 نتعلّم معًا في البيت", "🏠 Practise together at home")}</h4><ul>${home.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+          ${sm.think ? `<h4>${T("🤔 اسألوا طفلكم", "🤔 Ask your child")}</h4><p>${esc(sm.think)}</p>` : ""}
+          <p class="pn-foot">${T("🎮 لعبة الدرس على منصة حراء: ", "🎮 The lesson game on Hira: ")}<span dir="ltr">${esc(link)}</span></p>
+        </div>
+        <div class="pn-tools"><button class="btn btn-primary btn-small" id="pnPrint">🖨️ ${T("طباعة", "Print")}</button>
+          <a class="btn btn-ghost btn-small" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg)}">💬 ${T("إرسال عبر واتساب", "Send on WhatsApp")}</a>
+          <button class="btn btn-ghost btn-small" id="pnCopy">📋 ${T("نسخ النص", "Copy text")}</button></div>
+      </div>`;
+    };
     const srcCtx = { l, u, en: nn, sm: summary && summary.content, ev, sc: l.success_criteria || [], identity: l.lesson_identity_links || [], grade: u.year_group, lessonTitle: nn && l.title_en ? l.title_en : l.title_ar };
     const srcHtml = lockedForMe ? lockedMsg : `${isStaff() && summary ? `<p style="margin:0 0 12px"><button class="btn btn-dawn btn-small pp-open" data-kind="src">🖨️ ${CT("طباعة ورقة المصادر أو تعديلها", "Print or edit the source sheet")}</button> <span class="muted">${CT("قسما HPL ومتطلبات الوزارة يظهران للمعلم فقط.", "The HPL and ministry sections are visible to teachers only.")}</span></p>` : ""}<div class="pp-tab">${tdSourcesHtml(srcCtx, isStaff())}</div>`;
     let REL = { slides: true, work: true, grp: true, cls: null };
@@ -4627,6 +4665,7 @@ window.addEventListener("error", function (e) {
       ...(NEWAR ? [
         ["work", nn ? "Worksheets" : "أوراق العمل", resList(["worksheet"], "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
         ["group", nn ? "Group work" : "العمل الجماعي", resList(["group_pack"], "لم تُضف مهام المجموعات لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["parent", nn ? "For parents" : "ولي الأمر", parentNoteHtml()],
         ["res", nn ? "Resources" : "المصادر", arSourcesHtml() + (lockedForMe ? "" : (() => { const fs = res.filter((r) => ["file", "interactive", "link"].includes(r.kind)); const tf = fs.filter((r) => r.audience === "teacher"), sf = fs.filter((r) => r.audience !== "teacher");
           return (isStaff() && tf.length ? `<h3 class="res-group">مواد المعلم <span class="pill warn">لا تظهر للطلاب</span></h3>${resItems(tf)}` : "") + (sf.length ? `<h3 class="res-group">مواد الطالب</h3>${resItems(sf)}` : ""); })())]
       ] : [
@@ -4664,6 +4703,8 @@ window.addEventListener("error", function (e) {
     const show = (k) => {
       const tab = TABS.find((t) => t[0] === k) || TABS[0];
       panel.innerHTML = tab[2];
+      const pp = panel.querySelector("#pnPrint"); if (pp) pp.onclick = () => { const w = window.open("", "_blank"); if (!w) return; w.document.write(`<html dir="${nn ? "ltr" : "rtl"}"><head><meta charset="utf-8"><title>Hira</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.8}.pn-words span{display:inline-block;border:1px solid #ccc;border-radius:10px;padding:6px 12px;margin:4px}.pn-words b{font-size:1.4em;display:block}.pn-letter{font-size:3em;float:${nn ? "right" : "left"}}</style></head><body>${panel.querySelector("#pnCard").innerHTML}</body></html>`); w.document.close(); w.focus(); w.print(); };
+      const pc = panel.querySelector("#pnCopy"); if (pc) pc.onclick = () => { try { navigator.clipboard.writeText(panel.querySelector("#pnCard").innerText); toast(nn ? "Copied" : "تم النسخ"); } catch (e) {} };
       if (REL.cls && !REL.slides) panel.querySelectorAll(".td-open").forEach((x, i) => { if (i === 0) { const n = document.createElement("div"); n.className = "rel-lock-inline"; n.innerHTML = `🔒 <b>${CT("لم يفتح معلمك الشرائح بعد", "Your teacher hasn't opened the slides yet")}</b><small>${CT("يفتحها معلمك في الحصة عندما يحين وقتها. وأوراق العمل ومهام المجموعات متاحة لك الآن.", "Your teacher opens them in class at the right time. Worksheets and group tasks are available now.")}</small>`; x.replaceWith(n); } else x.remove(); });
       if (document.getElementById("relBox")) releaseBox(l, u);
       panel.setAttribute("aria-labelledby", "tab-" + tab[0]);
