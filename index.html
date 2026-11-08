@@ -4446,7 +4446,7 @@ window.addEventListener("error", function (e) {
       if (lockedForMe) return lockedMsg;
       const sl = res.filter((r) => r.kind === "slides");
       const T = sl.filter((r) => r.audience === "teacher"), Sd = sl.filter((r) => r.audience !== "teacher");
-      const tdBtn = summary && !NEWAR ? `<div class="td-cta"><div class="td-cta-b">${(l.periods || 1) > 1 ? `<button class="btn btn-primary td-open" data-part="1">📽️ ${CT("الحصة الأولى", "Lesson 1")}</button><button class="btn btn-primary td-open" data-part="2">📽️ ${CT("الحصة الثانية", "Lesson 2")}</button>` : `<button class="btn btn-primary td-open" data-part="1">📽️ ${CT("عرض المعلم الجاهز", "Ready teacher presentation")}</button>`}</div><small class="muted">${CT("اعرضه في الصف أو عدّله بما يناسب فصلك: نصوص وصور ومؤقت ومؤثرات. تُحفظ نسختك لك وحدك.", "Present it in class or edit it for your class: text, images, timer and effects. Your copy is saved for you only.")}</small>
+      const tdBtn = summary && NEWAR ? `<div class="td-cta"><div class="td-cta-b"><button class="btn btn-primary td-open" data-part="0">📽️ ${CT("عرض المعلم الجاهز", "Ready teacher presentation")}</button></div><small class="muted">${CT("اعرضه في الصف أو عدّله بما يناسب فصلك: نصوص وصور ومؤقت ومؤثرات. تُحفظ نسختك لك وحدك.", "Present it in class or edit it for your class: text, images, timer and effects. Your copy is saved for you only.")}</small></div>` : summary ? `<div class="td-cta"><div class="td-cta-b">${(l.periods || 1) > 1 ? `<button class="btn btn-primary td-open" data-part="1">📽️ ${CT("الحصة الأولى", "Lesson 1")}</button><button class="btn btn-primary td-open" data-part="2">📽️ ${CT("الحصة الثانية", "Lesson 2")}</button>` : `<button class="btn btn-primary td-open" data-part="1">📽️ ${CT("عرض المعلم الجاهز", "Ready teacher presentation")}</button>`}</div><small class="muted">${CT("اعرضه في الصف أو عدّله بما يناسب فصلك: نصوص وصور ومؤقت ومؤثرات. تُحفظ نسختك لك وحدك.", "Present it in class or edit it for your class: text, images, timer and effects. Your copy is saved for you only.")}</small>
         <div class="td-papers"><b>📄 ${CT("أوراق الحصة للطباعة والتعديل", "Lesson papers to print and edit")}</b><div class="td-cta-b">
           <button class="btn btn-ghost btn-small pp-open" data-kind="ws">📝 ${CT("ورقة العمل", "Worksheet")}</button>
           ${(l.periods || 1) > 1 ? `<button class="btn btn-ghost btn-small pp-open" data-kind="gt" data-part="1">👥 ${CT("مهام المجموعات · الحصة الأولى", "Group tasks · Lesson 1")}</button><button class="btn btn-ghost btn-small pp-open" data-kind="gt" data-part="2">👥 ${CT("مهام المجموعات · الحصة الثانية", "Group tasks · Lesson 2")}</button>` : `<button class="btn btn-ghost btn-small pp-open" data-kind="gt" data-part="1">👥 ${CT("مهام المجموعات", "Group tasks")}</button>`}
@@ -8740,6 +8740,8 @@ window.addEventListener("error", function (e) {
   }
   function tdBuild(ctx, part) { return tdBuild0(ctx, part); }
   function tdBuild0(ctx, part) {
+    // Arabic (primary): the young-learner deck without the Qur'an recitation opener
+    if (ctx.l && ctx.l.units && ctx.l.units.subject_id === 2 && (ctx.grade || 9) <= 6) return tdBuildYoung(ctx, part).filter((x) => !["open", "listen", "trans", "steps"].includes(x.t));
     if ((ctx.grade || 9) <= 3) return tdBuildYoung(ctx, part);
     const { l, sm, prev, ev, en } = ctx;
     const two = (l.periods || 1) > 1;
