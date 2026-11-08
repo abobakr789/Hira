@@ -2141,6 +2141,11 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 /* full-bleed illustrated slide (Hira Arabic decks) */
 .td-pic { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #FBF6EC; z-index: 0; }
 
+.ppt-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #111; }
+.ppt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ppt-frame:fullscreen { border-radius: 0; aspect-ratio: auto; }
+.ppt-card small { display: block; margin-top: 8px; }
+
 </style>
 </head>
 <body>
@@ -3837,9 +3842,11 @@ window.addEventListener("error", function (e) {
     if (act === "full") { if (document.fullscreenElement) document.exitFullscreen(); else if (card.requestFullscreen) card.requestFullscreen(); mountPdfView(box); }
     if (act === "print") { const f = document.createElement("iframe"); f.style.cssText = "position:fixed;width:0;height:0;border:0;left:-9999px";
       f.src = new URL(b.dataset.url, location.href.split("#")[0]).href; f.onload = () => { try { f.contentWindow.focus(); f.contentWindow.print(); } catch (err) { window.open(f.src, "_blank"); } setTimeout(() => f.remove(), 60000); }; document.body.appendChild(f); }
-    if (act === "dl") { const a = document.createElement("a"); a.href = new URL(b.dataset.url, location.href.split("#")[0]).href; a.download = (b.dataset.name || "file") + ".pdf"; document.body.appendChild(a); a.click(); a.remove(); }
+    if (act === "dl") { const a = document.createElement("a"); a.href = new URL(b.dataset.url, location.href.split("#")[0]).href; a.download = (b.dataset.name || "file") + "." + (b.dataset.ext || "pdf"); document.body.appendChild(a); a.click(); a.remove(); }
   });
   document.addEventListener("fullscreenchange", () => document.querySelectorAll(".pdfv").forEach((b) => b._redraw && b._redraw()));
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-ppt-full]"); if (!b) return; const f = b.closest(".ppt-card").querySelector(".ppt-frame");
+    if (document.fullscreenElement) document.exitFullscreen(); else if (f.requestFullscreen) f.requestFullscreen(); });
   document.addEventListener("keydown", (e) => {
     const fs = document.fullscreenElement; if (!fs || !fs.classList.contains("pdfv-card")) return;
     const box = fs.querySelector(".pdfv"); if (!box || !box._go) return;
@@ -4422,6 +4429,14 @@ window.addEventListener("error", function (e) {
         const stored = !r.url && r.storage_path;
         const emb = r.kind === "slides" && !stored ? slideEmbed(r.url) : null;
         const canPresent = stored && ["pdf", "ppt", "pptx"].includes(extOf(r.storage_path));
+        if (!stored && /^resources\/.+\.pptx$/i.test(r.url || "")) {
+          const abs = new URL(r.url, location.href.split("#")[0]).href;
+          const emb = "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(abs);
+          return `<div class="pdfv-card ppt-card"><div class="pdfv-head">${ic}<span><strong>${esc(r.title_ar)}</strong><span class="kind">PowerPoint</span></span>
+            <span class="pdfv-tools"><button class="btn btn-dawn btn-small" data-ppt-full>📽️ ${CT("عرض في الصف", "Present")}</button>${isStaff() ? `<button class="btn btn-ghost btn-small" data-pdfv-act="dl" data-url="${esc(r.url)}" data-name="${esc(r.title_ar)}" data-ext="pptx">✏️ ${CT("تعديل في PowerPoint", "Edit in PowerPoint")}</button>` : ""}</span></div>
+            <div class="ppt-frame"><iframe src="${esc(emb)}" loading="lazy" allowfullscreen title="${esc(r.title_ar)}"></iframe></div>
+            ${isStaff() ? `<small class="muted">${CT("نزّل الملف وعدّله في PowerPoint كما تشاء: النصوص والصور والحركات قابلة للتعديل، والإجابات تظهر بالنقر.", "Download and edit freely in PowerPoint: text, pictures and animations are editable; answers appear on click.")}</small>` : ""}</div>`;
+        }
         if (!stored && /^resources\/.+\.pdf$/i.test(r.url || "")) {
           const deck = r.kind === "slides";
           return `<div class="pdfv-card"><div class="pdfv-head">${ic}<span><strong>${esc(r.title_ar)}</strong><span class="kind">${KIND[r.kind]}</span></span>

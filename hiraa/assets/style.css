@@ -2123,3 +2123,8 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 
 /* full-bleed illustrated slide (Hira Arabic decks) */
 .td-pic { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #FBF6EC; z-index: 0; }
+
+.ppt-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #111; }
+.ppt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ppt-frame:fullscreen { border-radius: 0; aspect-ratio: auto; }
+.ppt-card small { display: block; margin-top: 8px; }
