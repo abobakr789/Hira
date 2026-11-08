@@ -2191,7 +2191,7 @@
     const nn = u.track === "non_native" || LANG === "en";
     const subject = SUBJECT_BY_ID[u.subject_id] || "islamic";
     // Arabic, primary grades: only Hiraa's new curated materials (no auto-generated papers/decks/group tasks)
-    const NEWAR = subject === "arabic" && (u.year_group || 0) <= 6;
+    const NEWAR = subject === "arabic";
     // non-native Arabic: English support fades out by grade — full English UI only in Years 1–2, Arabic from Year 3 on
     const nnEn = nn && (subject !== "arabic" || (u.year_group || 1) <= 2);
     state.pageSubject = subject;
@@ -6570,7 +6570,7 @@
   function tdBuild(ctx, part) { return tdBuild0(ctx, part); }
   function tdBuild0(ctx, part) {
     // Arabic (primary): the young-learner deck without the Qur'an recitation opener
-    if (ctx.l && ctx.l.units && ctx.l.units.subject_id === 2 && (ctx.grade || 9) <= 6) {
+    if (ctx.l && ctx.l.units && ctx.l.units.subject_id === 2) {
       const young = tdBuildYoung(ctx, part).filter((x) => !["open", "listen", "trans", "steps"].includes(x.t));
       if (ctx.free && ctx.free.length) {
         const free = ctx.free.map((x) => ({ t: "free", d: { bg: x.bg, els: JSON.parse(JSON.stringify(x.els)) }, n: x.n || "" }));
