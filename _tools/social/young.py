@@ -14,13 +14,17 @@ def stage(D, i, title, S, mins=None, notes=''):
     T(sl, title, 1.8, 0.52, 7.9, 0.6, 26, DK, True, 'right')
     T(sl, '🎯 ' + S['gs'], X0, 5.17, W, 0.36, 12, TE, True, 'center', fill=SOFT, rad=True)
     return sl
+def wide(src):
+    try:
+        from PIL import Image; im = Image.open('/home/claude/Hira/' + src); return im.width / im.height > 1.25
+    except Exception: return False
 def deck(S):
     D = Deck(False); P = S['pics']
     sl = D.new(DK, 'اقرأ العنوان بصوت واضح، واطلب من الطلاب فتح الكتاب على الصفحة.')
     T(sl, f'{SUBJ} · {S["grade"]} · {S["unit"]}', 0.5, 0.45, 9.0, 0.45, 14, SUN, True, 'right')
     T(sl, S['title'], 3.0, 1.0, 6.5, 1.05, 44, 'FFFFFF', True, 'right')
     T(sl, S['sub'], 3.0, 2.1, 6.5, 0.5, 16, 'CFE3E1', False, 'right')
-    PIC(sl, P['cover'], 0.6, 0.95, 2.1, 2.3)
+    PIC(sl, P['cover'], *((0.4, 1.0, 2.6, 2.0) if wide(P['cover']) else (0.6, 0.95, 2.1, 2.3)))
     R(sl, 0.5, 3.45, 9.0, 1.45, '27474D'); T(sl, '🎯 ' + S['goal'], 0.7, 3.55, 8.6, 1.25, 18, 'FFFFFF', False, 'right', valign='top')
     # 1
     r = S['ret']; sl = stage(D, 0, r['title'], S, 3, 'اسأل شفويًّا، واستمع لثلاث إجابات، ثم اكشف الجملة الأخيرة.')
@@ -47,15 +51,16 @@ def deck(S):
     T(sl, '🗣️ ' + S['vtask'], X0, 4.15, W, 0.85, 17, DK, True, 'right', fill=PEACH, rad=True, rv=5)
     # 5
     st = S['story']; sl = stage(D, 4, st['title'], S, 7, 'اقرأ النص قراءة معبّرة والطلاب يتابعون في الكتاب، ثم اسأل: من؟ كم عمره؟')
-    PIC(sl, P[st['pic']], X0, 1.25, 2.3, 3.0)
-    T(sl, st['t1'], 2.75, 1.25, 6.95, 1.75, 17, DK, False, 'right', fill=CARD, rad=True, valign='top', rv=1)
-    T(sl, st['t2'], 2.75, 3.1, 6.95, 1.35, 16, DK, False, 'right', fill=SOFT, rad=True, valign='top', rv=2)
+    pw = 3.3 if wide(P[st['pic']]) else 2.3; tx = X0 + pw + 0.15; tw = 9.7 - tx
+    PIC(sl, P[st['pic']], X0, 1.25, pw, 3.0)
+    T(sl, st['t1'], tx, 1.25, tw, 1.75, 17 if tw > 6 else 15, DK, False, 'right', fill=CARD, rad=True, valign='top', rv=1)
+    T(sl, st['t2'], tx, 3.1, tw, 1.35, 16 if tw > 6 else 14, DK, False, 'right', fill=SOFT, rad=True, valign='top', rv=2)
     T(sl, st['ask'], X0, 4.55, W, 0.5, 15, '6B46A8', True, 'center', rv=3)
     # 6
     k = S['model']; sl = stage(D, 5, k['title'], S, 5, 'عرّف بنفسك أمام الطلاب بالقالب نفسه، ثم اطلب من متطوّع.')
     for (x, w), (c, t_, d) in zip(cols(len(k['chips'])), k['chips']):
         R(sl, x, 1.25, w, 1.05, c, rv=1); T(sl, t_, x, 1.27, w, 0.5, 20, 'FFFFFF', True, 'center', rv=1); T(sl, d, x, 1.77, w, 0.45, 14, 'FFFFFF', False, 'center', rv=1)
-    box(sl, X0, 2.45, W, 1.4, '👩‍🏫 أَنا أُعَرِّفُ بِنَفْسي', k['frame'], size=19, rv=2)
+    box(sl, X0, 2.45, W, 1.4, k.get('ftitle', '👩‍🏫 أَنا أُطَبِّقُ أَمامَكُمْ'), k['frame'], size=19, rv=2)
     box(sl, X0, 3.97, W, 1.05, k['note'][0], k['note'][1], col='B42318', size=17, rv=3)
     # 7
     g = S['guided']; sl = stage(D, 6, g['title'], S, 7, 'اعرض الصورتين، وعُدّوا معًا. ثم نفّذوا نشاط الكتاب.')
