@@ -66,7 +66,7 @@ def deck(S):
     g = S['guided']; sl = stage(D, 6, g['title'], S, 7, 'اعرض الصورتين، وعُدّوا معًا. ثم نفّذوا نشاط الكتاب.')
     (a, wa), (b, wb) = cols(2)
     PIC(sl, P[g['pics'][0]], a, 1.25, wa, 2.45, rv=1); PIC(sl, P[g['pics'][1]], b, 1.25, wb, 2.45, rv=2)
-    T(sl, g['task'], X0, 3.82, W, 0.6, 18, DK, True, 'center', fill=CARD, rad=True, rv=3)
+    T(sl, g['task'], X0, 3.82, W, 0.6, 18 if len(g['task']) < 95 else (15 if len(g['task']) < 125 else 13), DK, True, 'center', fill=CARD, rad=True, rv=3)
     T(sl, g['book'], X0, 4.5, W, 0.55, 15, TE, True, 'center', rv=4)
     # 8
     c = S['check']; sl = stage(D, 7, c['q'], S, 2, 'يرفع كل طالب بطاقة (أ) أو (ب). من يخطئ ينضمّ إلى مجموعة دعم قصيرة.')
