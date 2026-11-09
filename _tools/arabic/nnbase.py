@@ -1,6 +1,8 @@
 import sys; sys.path.insert(0,'/tmp/g6v2')
 SP=[]
-OUTS={'تحدّث':["NN-S4-01","NN-S4-02","NN-W4-01"],'استماع':["NN-R4-01","NN-S4-01","NN-W4-02"],'قراءة':["NN-R4-01","NN-R4-02","NN-W4-01"],'كتابة':["NN-W4-01","NN-W4-02","NN-S4-01"]}
+import os
+_L=os.environ.get("NN_LEVEL","4")
+OUTS={'تحدّث':[f"NN-S{_L}-01",f"NN-S{_L}-02",f"NN-W{_L}-01"],'استماع':[f"NN-R{_L}-01",f"NN-S{_L}-01",f"NN-W{_L}-02"],'قراءة':[f"NN-R{_L}-01",f"NN-R{_L}-02",f"NN-W{_L}-01"],'كتابة':[f"NN-W{_L}-01",f"NN-W{_L}-02",f"NN-S{_L}-01"]}
 def N(code,U,title,pg,emo,skill,topic,vocab,frames,model,qbox,task,real,chk,idea,idv,prev,nxt):
     w=[x[0] for x in vocab]
     return dict(code=code,unit=U,title=title,pg=pg,emo=emo,skill=skill,gs=f"{topic} · {skill} · التراكيب · التفاعل",
