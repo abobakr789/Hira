@@ -2169,3 +2169,15 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .brand-d{display:none!important}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .brand-l{display:none!important}:root:not([data-theme="light"]) .brand-d{display:block!important}}
 :root[data-theme="dark"] .brand-l{display:none!important}:root[data-theme="dark"] .brand-d{display:block!important}
+
+/* بطاقات الصفوف: ارتفاع موحّد، والحالة في الأسفل؛ «متاح» بالأخضر و«قيد الإعداد» بالرمادي */
+.grade-tile{display:flex!important;flex-direction:column;align-items:flex-start;min-height:132px}
+.grade-tile .g{white-space:nowrap}
+.grade-tile .status{margin-top:auto!important;padding-top:10px;display:inline-flex!important;align-items:center;gap:6px}
+.grade-tile.ready .status{color:#1B6B3A}
+.grade-tile.ready .status::before{content:"";width:8px;height:8px;border-radius:50%;background:#2E9E5B;flex-shrink:0}
+.grade-tile.soon{border-style:dashed;border-color:var(--line)}
+.grade-tile.soon .y{color:var(--muted)}
+.grade-tile.soon .status::before{content:"";width:8px;height:8px;border-radius:50%;background:#B4BCC8;flex-shrink:0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .grade-tile.ready .status{color:#7DD3A0}}
+:root[data-theme="dark"] .grade-tile.ready .status{color:#7DD3A0}
