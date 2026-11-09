@@ -2172,8 +2172,8 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 
 /* بطاقات الصفوف: ارتفاع موحّد، والحالة في الأسفل؛ «متاح» بالأخضر و«قيد الإعداد» بالرمادي */
 .grade-tile{display:flex!important;flex-direction:column;align-items:flex-start;min-height:132px}
-.grade-tile .g{white-space:nowrap}
-.grade-tile .status{margin-top:auto!important;padding-top:10px;display:inline-flex!important;align-items:center;gap:6px}
+.grade-tile .g{white-space:normal;line-height:1.5}
+.grade-tile .status{margin-top:auto!important;padding-top:10px;display:inline-flex!important;align-items:center;gap:6px;white-space:nowrap}
 .grade-tile.ready .status{color:#1B6B3A}
 .grade-tile.ready .status::before{content:"";width:8px;height:8px;border-radius:50%;background:#2E9E5B;flex-shrink:0}
 .grade-tile.soon{border-style:dashed;border-color:var(--line)}
