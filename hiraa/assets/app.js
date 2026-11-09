@@ -2214,7 +2214,7 @@
     const nn = u.track === "non_native" || LANG === "en";
     const subject = SUBJECT_BY_ID[u.subject_id] || "islamic";
     // Arabic, primary grades: only Hiraa's new curated materials (no auto-generated papers/decks/group tasks)
-    const NEWAR = subject === "arabic";
+    const NEWAR = subject === "arabic" || subject === "social";
     // non-native Arabic: English support fades out by grade — full English UI only in Years 1–2, Arabic from Year 3 on
     const nnEn = nn && (subject !== "arabic" || (u.year_group || 1) <= 2);
     state.pageSubject = subject;
@@ -6757,7 +6757,7 @@
   function tdBuild(ctx, part) { return tdBuild0(ctx, part); }
   function tdBuild0(ctx, part) {
     // Arabic (primary): the young-learner deck without the Qur'an recitation opener
-    if (ctx.l && ctx.l.units && ctx.l.units.subject_id === 2) {
+    if (ctx.l && ctx.l.units && [2, 3].includes(ctx.l.units.subject_id)) {
       const young = tdBuildYoung(ctx, part).filter((x) => !["open", "listen", "trans", "steps"].includes(x.t));
       if (ctx.free && ctx.free.length) {
         const free = ctx.free.map((x) => ({ t: "free", d: { bg: x.bg, els: JSON.parse(JSON.stringify(x.els)) }, n: x.n || "" }));
@@ -7013,6 +7013,7 @@
       case "free": b = `<div class="tdf" style="background:#${X(d.bg || "FBF6EC")}">` + ((d.els || []).some((e) => e.l2) ? `<button class="tdf-l2btn" onclick="event.stopPropagation();document.body.classList.toggle('l2on')" title="Language support">عون لغوي · EN</button>` : "") + (d.els || []).map((e, j) => {
           const pos = `left:${e.x}px;top:${e.y}px;width:${e.w}px;height:${e.h}px;`, rv = e.rv ? ` rv" data-rvg="${e.rv}` : "";
           if (e.k === "shape") return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:#${X(e.fill)};${e.line ? `border:${Math.max(2, Math.round((e.lw || 1.5) * 1.8))}px solid #${X(e.line)};` : ""}border-radius:${e.oval ? "50%" : e.rad ? "16px" : "0"}"></div>`;
+          if (e.k === "pic") return `<img class="tdf-el${rv}" src="${X(new URL(e.src, location.href.split("#")[0]).href)}" alt="" draggable="false" style="${pos}object-fit:contain;${e.rad ? "border-radius:16px;" : ""}">`;
           if (e.k === "img") return `<div class="tdf-el tdf-emo${rv}" style="${pos}font-size:${Math.round(e.h * 0.82)}px" ${tdE(0, `els.${j}.emo`)}>${X(e.emo)}</div>`;
           const rtl = /[\u0600-\u06FF]/.test(e.text || ""), jc = e.align === "center" ? "center" : (e.align === "left") === rtl ? "flex-end" : "flex-start";
           return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}" ${tdE(0, `els.${j}.text`)}>${X(e.text)}</div>`;
@@ -7095,7 +7096,7 @@
       sc: (extra && extra.sc) || [], identity: (extra && extra.identity) || [],
       partLbl: two ? tdT(en, part === 1 ? "الحصة الأولى" : "الحصة الثانية", `Lesson ${part}`) : "",
       schoolName: school ? (en && school.name_en ? school.name_en : school.name_ar) : "", logo: school && school.logo_url };
-    if (l.units && l.units.subject_id === 2) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} } try { if (ctx.free && Array.isArray(ctx.free)) { const bt = (await sb.from("lesson_book_texts").select("kind, title, body, pages").eq("lesson_id", l.id).maybeSingle()).data; if (bt && bt.body) { const bs = tdBookSlides(bt); let at = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /^(📖 نصّ القراءة|📖 قراءة إضافية|🎵 القصيدة)/.test(e.text))); if (at < 0) at = Math.min(5, ctx.free.length); ctx.free.splice(at, 0, ...bs); } } } catch (e) {}
+    if (l.units && [2, 3].includes(l.units.subject_id)) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} } try { if (ctx.free && Array.isArray(ctx.free)) { const bt = (await sb.from("lesson_book_texts").select("kind, title, body, pages").eq("lesson_id", l.id).maybeSingle()).data; if (bt && bt.body) { const bs = tdBookSlides(bt); let at = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /^(📖 نصّ القراءة|📖 قراءة إضافية|🎵 القصيدة)/.test(e.text))); if (at < 0) at = Math.min(5, ctx.free.length); ctx.free.splice(at, 0, ...bs); } } } catch (e) {}
     const base = () => tdBuild(ctx, part);
     const { data: saved } = await sb.from("teacher_decks").select("slides, updated_at").eq("lesson_id", l.id).eq("part", part).eq("kind", "deck").maybeSingle();
     let slides = saved && Array.isArray(saved.slides) && saved.slides.length ? saved.slides : base();

@@ -32,6 +32,11 @@ def I(sl, emo, x, y, size, rv=0):
     if rv: e['rv'] = rv
     sl['els'].append(e); return e
 
+def PIC(sl, src, x, y, w, h, rv=0, rad=True):
+    e = {'k': 'pic', 'x': _p(x), 'y': _p(y), 'w': _p(w), 'h': _p(h)}
+    if rv: e['rv'] = rv
+    e.update({'src': src, 'rad': rad}); sl['els'].append(e); return e
+
 def cols(n, gap=0.15, x0=X0, w=W):
     cw = (w - gap * (n - 1)) / n
     return [(x0 + w - cw - i * (cw + gap), cw) for i in range(n)]   # right-to-left order
@@ -48,12 +53,12 @@ def overlaps(D):
         return min(a['x'] + a['w'], b['x'] + b['w']) - max(a['x'], b['x']) > 2 and \
                min(a['y'] + a['h'], b['y'] + b['h']) - max(a['y'], b['y']) > 2
     for si, s in enumerate(D.slides):
-        tx = [e for e in s['els'] if e['k'] == 'text']; im = [e for e in s['els'] if e['k'] == 'img']
+        tx = [e for e in s['els'] if e['k'] == 'text']; im = [e for e in s['els'] if e['k'] in ('img', 'pic')]
         for i in range(len(tx)):
             for j in range(i + 1, len(tx)):
                 if ov(tx[i], tx[j]): bad.append((si, 'text', tx[i]['text'][:25], tx[j]['text'][:25]))
             for m in im:
-                if ov(tx[i], m): bad.append((si, 'emoji', tx[i]['text'][:25], m['emo']))
+                if ov(tx[i], m): bad.append((si, 'emoji', tx[i]['text'][:25], m.get('emo', m.get('src'))))
     return bad
 
 def export(code, D, root):
@@ -65,12 +70,15 @@ def export(code, D, root):
 CSS = (".tdf{position:relative;width:1280px;height:720px;overflow:hidden;font-family:'Noto Naskh Arabic','Noto Sans Arabic',Arial}"
        ".el{position:absolute;box-sizing:border-box}.tx{display:flex;padding:4px 10px;line-height:1.45;white-space:pre-wrap;overflow:hidden}"
        ".emo{display:flex;align-items:center;justify-content:center;line-height:1}")
+PIC_ROOT = '/home/claude/Hira'
 def _el(e):
     import html
     pos = f"left:{e['x']}px;top:{e['y']}px;width:{e['w']}px;height:{e['h']}px;"
     if e['k'] == 'shape':
         bd = 'border:%spx solid #%s;' % (max(2, round(e.get('lw', 1.5) * 1.8)), e['line']) if e.get('line') else ''
         return f"<div class='el' style='{pos}background:#{e['fill']};{bd}border-radius:{'16px' if e.get('rad') else '0'}'></div>"
+    if e['k'] == 'pic':
+        return f"<img class='el' src='file://{PIC_ROOT}/{e['src']}' style='{pos}object-fit:contain;border-radius:16px'>"
     if e['k'] == 'img':
         return f"<div class='el emo' style='{pos}font-size:{round(e['h']*0.82)}px'>{e['emo']}</div>"
     rtl = bool(re.search('[\u0600-\u06FF]', e['text'])); al = e.get('align')
@@ -82,7 +90,8 @@ def _el(e):
 def render_check(page, D, png_prefix=None):
     clip = []
     for i, s in enumerate(D.slides):
-        page.set_content(f"<html><head><style>{CSS}</style></head><body style='margin:0'><div class='tdf' style='background:#{s['bg']}'>{''.join(_el(e) for e in s['els'])}</div></body></html>")
+        open('/tmp/_slide.html', 'w').write(f"<html><head><meta charset='utf-8'><style>{CSS}</style></head><body style='margin:0'><div class='tdf' style='background:#{s['bg']}'>{''.join(_el(e) for e in s['els'])}</div></body></html>")
+        page.goto('file:///tmp/_slide.html'); page.wait_for_timeout(60)
         c = page.evaluate("()=>[...document.querySelectorAll('.tx')].filter(d=>d.scrollHeight>d.clientHeight+2||d.scrollWidth>d.clientWidth+2).map(d=>d.textContent.slice(0,40))")
         if c: clip.append((i, c))
         if png_prefix: page.screenshot(path=f'{png_prefix}{i:02d}.png')
