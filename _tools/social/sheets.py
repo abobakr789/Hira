@@ -22,3 +22,32 @@ def Q(n, t): return f"<div class='q'><span class='n'>{n}</span>{t}</div>"
 def pdf(page, path, body):
     open('/tmp/_ws.html', 'w').write(f"<html><head><meta charset='utf-8'><style>{CSS}</style></head><body>{body}</body></html>")
     page.goto('file:///tmp/_ws.html'); page.wait_for_timeout(150); page.pdf(path=path, format='A4', print_background=True)
+
+# ---- spec-driven sheets: items are tuples ----
+def render(items, P):
+    o = []
+    for n, it in enumerate(items, 1):
+        k = it[0]; o.append(Q(n, it[1]))
+        if k == 'pics':      o.append("<div class='row'>" + "".join(f"<div class='pic'><img src='{P[x]}'>{'<b>'+c+'</b>' if c else ''}</div>" for x, c in it[2]) + "</div>")
+        elif k == 'match':   o.append("<div class='row'><div>" + "<br>".join(f"<div class='card'>{w}</div>" for w, _ in it[2]) + "</div><div>" + "<br>".join(f"<div class='emo'>{e}</div>" for e in it[3]) + "</div></div>")
+        elif k == 'frame':   o.append(f"<div style='font-size:22px;line-height:2.4'>{it[2]}</div>")
+        elif k == 'box':     o.append(f"<div class='box' style='height:{it[2]}px'></div>")
+        elif k == 'lines':   o.append("<div class='ln'></div>" * it[2])
+        elif k == 'trace':   o.append(f"<div class='trace'>{it[2]}</div>")
+        elif k == 'table':   o.append("<table><tr>" + "".join(f"<th>{h}</th>" for h in it[2]) + "</tr>" + "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in it[3]) + "</table>")
+        elif k == 'ticks':   o.append("<table>" + "".join(f"<tr><td style='text-align:right;font-size:20px'>{t}</td><td style='width:90px'>☐</td></tr>" for t in it[2]) + "</table>")
+    return ''.join(o)
+def build(S, W, P, outdir):
+    from playwright.sync_api import sync_playwright
+    t = f"وَرَقَةُ نَشاطٍ: {S['title']}"
+    lv = [('مُبْتَدِئٌ ⭐', 'beg'), ('مُتَطَوِّرٌ ⭐⭐', 'dev'), ('مُتَمَكِّنٌ ⭐⭐⭐', 'adv')]
+    ws = "<div class='pb'></div>".join(head(S, a, t) + render(W[b], P) + SELF for a, b in lv)
+    pod = head(S, 'أَصْحابُ الهِمَمِ 💚', f"نَشاطٌ مُكَيَّفٌ: {S['title']}") + render(W['pod'], P) + SELF
+    concept = head(S, 'لِلْجَميعِ', 'بِطاقَةُ المَفاهيمِ: كَلِماتي الجَديدَةُ') + "<table><tr><th>الكَلِمَةُ</th><th>أَرْسُمُها</th><th>أَقولُها في جُمْلَةٍ</th></tr>" + \
+        "".join(f"<tr><td style='font-size:24px;font-weight:800'>{e} {w}</td><td style='height:120px'></td><td></td></tr>" for e, w, _ in S['vocab']) + "</table>"
+    key = f"<div class='hd'><div class='t'>مِفْتاحُ الإِجابَةِ لِلْمُعَلِّمِ: {S['title']}</div><div class='lv'>لِلْمُعَلِّمِ</div></div>" + \
+        "".join(f"<div class='goal' style='background:#E2F0EF'><b>{a}:</b> {b}</div>" for a, b in W['key'])
+    with sync_playwright() as p:
+        b = p.chromium.launch(); pg = b.new_page()
+        pdf(pg, outdir + 'worksheets-A4.pdf', ws); pdf(pg, outdir + 'pod-sheet.pdf', pod)
+        pdf(pg, outdir + 'concept-card.pdf', concept); pdf(pg, outdir + 'answer-key.pdf', key); b.close()

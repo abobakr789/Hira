@@ -42,7 +42,7 @@ def deck(S):
     for i, ((x, w), (emo, wd, m)) in enumerate(zip(cols(4), S['vocab'])):
         R(sl, x, 1.25, w, 2.75, CARD, line=TE, rv=i + 1, lw=2)
         I(sl, emo, x + (w - 0.95) / 2, 1.35, 0.95, rv=i + 1)
-        T(sl, wd, x + 0.08, 2.4, w - 0.16, 0.6, 24, TE, True, 'center', rv=i + 1)
+        T(sl, wd, x + 0.08, 2.4, w - 0.16, 0.6, 24 if len(wd) <= 14 else 15, TE, True, 'center', rv=i + 1)
         T(sl, m, x + 0.08, 3.05, w - 0.16, 0.85, 15, DK, False, 'center', rv=i + 1, valign='top')
     T(sl, '🗣️ ' + S['vtask'], X0, 4.15, W, 0.85, 17, DK, True, 'right', fill=PEACH, rad=True, rv=5)
     # 5
