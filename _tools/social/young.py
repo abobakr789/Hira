@@ -53,14 +53,14 @@ def deck(S):
     st = S['story']; sl = stage(D, 4, st['title'], S, 7, 'اقرأ النص قراءة معبّرة والطلاب يتابعون في الكتاب، ثم اسأل: من؟ كم عمره؟')
     pw = 3.3 if wide(P[st['pic']]) else 2.3; tx = X0 + pw + 0.15; tw = 9.7 - tx
     PIC(sl, P[st['pic']], X0, 1.25, pw, 3.0)
-    T(sl, st['t1'], tx, 1.25, tw, 1.75, 17 if tw > 6 else 15, DK, False, 'right', fill=CARD, rad=True, valign='top', rv=1)
-    T(sl, st['t2'], tx, 3.1, tw, 1.35, 16 if tw > 6 else 14, DK, False, 'right', fill=SOFT, rad=True, valign='top', rv=2)
+    T(sl, st['t1'], tx, 1.25, tw, 1.75, (17 if tw > 6 else 15) - (2 if len(st['t1']) > 380 else 0) - (2 if len(st['t1']) > 470 else 0), DK, False, 'right', fill=CARD, rad=True, valign='top', rv=1)
+    T(sl, st['t2'], tx, 3.1, tw, 1.35, (16 if tw > 6 else 14) - (2 if len(st['t2']) > 300 else 0) - (2 if len(st['t2']) > 380 else 0), DK, False, 'right', fill=SOFT, rad=True, valign='top', rv=2)
     T(sl, st['ask'], X0, 4.55, W, 0.5, 15, '6B46A8', True, 'center', rv=3)
     # 6
     k = S['model']; sl = stage(D, 5, k['title'], S, 5, 'عرّف بنفسك أمام الطلاب بالقالب نفسه، ثم اطلب من متطوّع.')
     for (x, w), (c, t_, d) in zip(cols(len(k['chips'])), k['chips']):
         R(sl, x, 1.25, w, 1.05, c, rv=1); T(sl, t_, x, 1.27, w, 0.5, 20, 'FFFFFF', True, 'center', rv=1); T(sl, d, x, 1.77, w, 0.45, 14, 'FFFFFF', False, 'center', rv=1)
-    box(sl, X0, 2.45, W, 1.4, k.get('ftitle', '👩‍🏫 أَنا أُطَبِّقُ أَمامَكُمْ'), k['frame'], size=19, rv=2)
+    box(sl, X0, 2.45, W, 1.4, k.get('ftitle', '👩‍🏫 أَنا أُطَبِّقُ أَمامَكُمْ'), k['frame'], size=19 if sum(map(len, k['frame'])) < 150 else 15, rv=2)
     box(sl, X0, 3.97, W, 1.05, k['note'][0], k['note'][1], col='B42318', size=17, rv=3)
     # 7
     g = S['guided']; sl = stage(D, 6, g['title'], S, 7, 'اعرض الصورتين، وعُدّوا معًا. ثم نفّذوا نشاط الكتاب.')
