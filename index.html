@@ -2170,6 +2170,12 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .tdf-l2{display:none!important}body.l2on .tdf-l2{display:flex!important}.tdf-l2btn{position:absolute;left:10px;bottom:8px;z-index:5;font:600 12px Arial,sans-serif;background:#ffffffcc;border:1px solid #0F6E72;color:#0F6E72;border-radius:12px;padding:3px 10px;cursor:pointer}body.l2on .tdf-l2btn{background:#0F6E72;color:#fff}
 .lvl-nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0;padding:10px 14px;background:rgba(15,110,114,.07);border:1px solid rgba(15,110,114,.2);border-radius:14px}.lvl-nav label{font-weight:800;color:#0F6E72}.lvl-nav select{font:inherit;font-weight:700;padding:8px 12px;border-radius:10px;border:2px solid #0F6E72;background:#fff;color:#0F6E72;max-width:100%}.lvl-nav small{flex-basis:100%}
 .hub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}.hub-tab{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:999px;background:rgba(15,110,114,.08);color:#0F6E72;font-weight:700;text-decoration:none;border:2px solid rgba(15,110,114,.18)}.hub-tab.on{background:#0F6E72;color:#fff;border-color:#0F6E72}.hub-tab:hover{border-color:#0F6E72}
+.ig-sec h3{font-size:1.05rem;margin:0 0 10px}.ig-topics{display:flex;flex-direction:column;gap:8px}
+.ig-topic{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s}
+.ig-topic:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.08);border-color:var(--hira)}
+.ig-tn{flex:none;min-width:38px;text-align:center;font-weight:800;font-size:.85rem;color:#fff;background:var(--hira);border-radius:8px;padding:4px 6px}
+.ig-sec.s2 .ig-tn{background:#2E86AB}.ig-sec.s3 .ig-tn{background:#B9770E}
+.ig-tt{flex:1;font-weight:600;line-height:1.35}.ig-ta{color:var(--muted);font-size:1.3rem}
 </style>
 </head>
 <body>
@@ -5770,7 +5776,8 @@ window.addEventListener("error", function (e) {
     let mine = [];
     if (state.session && isStudent()) { const { data } = await sb.from("igcse_attempts").select("paper, total, max, created_at").order("created_at", { ascending: false }); mine = data || []; }
     const best = (id) => { const m = mine.filter((x) => x.paper === id); return m.length ? Math.max(...m.map((x) => Math.round((x.total / x.max) * 100))) : null; };
-    const sec = (t, name, icon) => `<div class="ig-sec"><h3>${icon} ${name}</h3><ol>${(L || []).filter((l) => l.units && l.units.term === t).map((l) => `<li><a href="#/lesson/${esc(l.code)}">${esc(l.title_en)}</a></li>`).join("")}</ol></div>`;
+    const sec = (t, name, icon) => `<div class="ig-sec s${t}"><h3>${icon} ${name}</h3><div class="ig-topics">${(L || []).filter((l) => l.units && l.units.term === t).map((l) => { const m = String(l.title_en || "").match(/^(\d\.\d)\s+(.*)$/);
+      return `<a class="ig-topic" href="#/lesson/${esc(l.code)}"><span class="ig-tn">${esc(m ? m[1] : "")}</span><span class="ig-tt">${esc(m ? m[2] : l.title_en)}</span><span class="ig-ta">›</span></a>`; }).join("")}</div></div>`;
     h(`<section class="page-head ig-head" dir="ltr"><div class="wrap"><div class="crumbs"><a href="#/grades?subject=islamic">التربية الإسلامية</a></div><span class="ig-badge">Pearson Edexcel International GCSE · 4IS1</span><h1>IGCSE Islamic Studies</h1>
         <p class="muted">The full course in English: every topic with a detailed explanation, set passages with recitation, teacher slides, worksheets, group tasks, exit tickets — and exam-style mock papers marked instantly with feedback.</p>
         <div class="ig-facts"><span>📝 One paper · 2h 30m</span><span>🎯 90 marks · 4 questions</span><span>⚖️ AO1 33% · AO2 40% · AO3 27%</span></div></div></section>

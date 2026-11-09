@@ -2152,3 +2152,10 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 
 .tdf-l2{display:none!important}body.l2on .tdf-l2{display:flex!important}
 .tdf-l2btn{position:absolute;left:10px;bottom:8px;z-index:5;font:600 12px Arial,sans-serif;background:#ffffffcc;border:1px solid #0F6E72;color:#0F6E72;border-radius:12px;padding:3px 10px;cursor:pointer}body.l2on .tdf-l2btn{background:#0F6E72;color:#fff}
+
+.ig-sec h3{font-size:1.05rem;margin:0 0 10px}.ig-topics{display:flex;flex-direction:column;gap:8px}
+.ig-topic{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s}
+.ig-topic:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.08);border-color:var(--hira)}
+.ig-tn{flex:none;min-width:38px;text-align:center;font-weight:800;font-size:.85rem;color:#fff;background:var(--hira);border-radius:8px;padding:4px 6px}
+.ig-sec.s2 .ig-tn{background:#2E86AB}.ig-sec.s3 .ig-tn{background:#B9770E}
+.ig-tt{flex:1;font-weight:600;line-height:1.35}.ig-ta{color:var(--muted);font-size:1.3rem}

@@ -3529,7 +3529,8 @@
     let mine = [];
     if (state.session && isStudent()) { const { data } = await sb.from("igcse_attempts").select("paper, total, max, created_at").order("created_at", { ascending: false }); mine = data || []; }
     const best = (id) => { const m = mine.filter((x) => x.paper === id); return m.length ? Math.max(...m.map((x) => Math.round((x.total / x.max) * 100))) : null; };
-    const sec = (t, name, icon) => `<div class="ig-sec"><h3>${icon} ${name}</h3><ol>${(L || []).filter((l) => l.units && l.units.term === t).map((l) => `<li><a href="#/lesson/${esc(l.code)}">${esc(l.title_en)}</a></li>`).join("")}</ol></div>`;
+    const sec = (t, name, icon) => `<div class="ig-sec s${t}"><h3>${icon} ${name}</h3><div class="ig-topics">${(L || []).filter((l) => l.units && l.units.term === t).map((l) => { const m = String(l.title_en || "").match(/^(\d\.\d)\s+(.*)$/);
+      return `<a class="ig-topic" href="#/lesson/${esc(l.code)}"><span class="ig-tn">${esc(m ? m[1] : "")}</span><span class="ig-tt">${esc(m ? m[2] : l.title_en)}</span><span class="ig-ta">›</span></a>`; }).join("")}</div></div>`;
     h(`<section class="page-head ig-head" dir="ltr"><div class="wrap"><div class="crumbs"><a href="#/grades?subject=islamic">التربية الإسلامية</a></div><span class="ig-badge">Pearson Edexcel International GCSE · 4IS1</span><h1>IGCSE Islamic Studies</h1>
         <p class="muted">The full course in English: every topic with a detailed explanation, set passages with recitation, teacher slides, worksheets, group tasks, exit tickets — and exam-style mock papers marked instantly with feedback.</p>
         <div class="ig-facts"><span>📝 One paper · 2h 30m</span><span>🎯 90 marks · 4 questions</span><span>⚖️ AO1 33% · AO2 40% · AO3 27%</span></div></div></section>
