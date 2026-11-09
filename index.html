@@ -3708,6 +3708,20 @@ window.addEventListener("error", function (e) {
   const subjOf = (params) => (SUBJECTS[params && params.get("subject")] ? params.get("subject") : "islamic");
   const subjectSeg = (current, hrefFn) => `<div class="seg" role="group" aria-label="المادة">${Object.keys(SUBJECTS).filter((k) => k !== "igcse").map((k) =>
     `<a href="${hrefFn(k)}" aria-current="${k === current}">${SUBJECTS[k].name}</a>`).join("")}</div>`;
+  function tdBookSlides(bt) {
+    const lines = String(bt.body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean); const poem = bt.kind === "poem";
+    const per = poem ? 6 : 7, out = [];
+    for (let p = 0; p < lines.length; p += per) {
+      const chunk = lines.slice(p, p + per), n = chunk.length, top = 150, avail = 480, hgt = Math.min(78, Math.floor(avail / Math.max(n, 1)));
+      const size = poem ? (n <= 4 ? 40 : 34) : (n <= 4 ? 34 : 29);
+      const els = [{ k: "text", x: 256, y: 13, w: 768, h: 46, text: "نص الكتاب", size: 21, color: "FFFFFF", bold: true, align: "center", fill: "0F6E72", rad: true, va: "middle" },
+        { k: "text", x: 230, y: 67, w: 1011, h: 70, text: "📖 " + (bt.title || "نص الكتاب") + (lines.length > per ? ` (${Math.floor(p / per) + 1})` : ""), size: 40, color: "1E3A3F", bold: true, align: "right", fill: null, rad: false, va: "middle" }];
+      if (bt.pages) els.push({ k: "text", x: 38, y: 74, w: 200, h: 54, text: bt.pages, size: 22, color: "1E3A3F", bold: true, align: "center", fill: "F2A93B", rad: true, va: "middle" });
+      chunk.forEach((t, i) => els.push({ k: "text", x: poem ? 190 : 38, y: top + i * hgt, w: poem ? 900 : 1203, h: hgt - 6, text: t, size, color: "1E3A3F", bold: poem, align: poem ? "center" : "right", fill: i % 2 === 0 ? "FFFDF7" : null, rad: true, va: "middle", rv: i + 1 }));
+      out.push({ bg: "FBF6EC", els });
+    }
+    return out;
+  }
   const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "الانطلاقة" };
   const TRACK_SHORT = { native: "عربي", non_native: "Non-native" };
   const ORD_GRADE = ["", "الأول", "الثاني", "الثالث", "الرابع", "الخامس", "السادس", "السابع", "الثامن", "التاسع", "العاشر", "الحادي عشر", "الثاني عشر", "الثالث عشر"];
@@ -4441,6 +4455,21 @@ window.addEventListener("error", function (e) {
     const res = (l.lesson_resources || []).sort((a, b) => (a.part || 0) - (b.part || 0) || a.sort_order - b.sort_order);
     const acc = isStaff() ? "ok" : ((await sb.rpc("lesson_access", { p_lesson: l.id })).data || "no_access");
     const gameItems = acc === "ok" ? ((await sb.from("game_items").select("game, source, payload, sort_order").eq("lesson_id", l.id).order("sort_order")).data || []) : [];
+    const bookTx = (acc === "ok" || isStaff()) ? ((await sb.from("lesson_book_texts").select("*").eq("lesson_id", l.id).maybeSingle()).data || null) : null;
+    const bookLines = (t) => String(t || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
+    const bookTxHtml = () => {
+      const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">📖 ${esc(bookTx.title || "نص الكتاب")}${bookTx.pages ? ` <span class="pill">${esc(bookTx.pages)}</span>` : ""}</h3>
+        <div dir="rtl" style="font-size:1.25rem;line-height:2.1;${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<div>${esc(x)}</div>`).join("")}</div>
+        <div style="margin-top:12px"><button class="btn btn-ghost btn-small" id="btxPrint">🖨️ طباعة النص للطالب</button></div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
+      const ed = isSuper() ? `<div class="form-card" style="margin-top:14px"><h3 style="margin-top:0">✏️ إضافة نص الكتاب أو تعديله</h3>
+        <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option></select></div>
+        <div class="field"><label for="btxTitle">عنوان النص</label><input id="btxTitle" value="${esc((bookTx && bookTx.title) || "")}"></div>
+        <div class="field"><label for="btxPages">الصفحات</label><input id="btxPages" value="${esc((bookTx && bookTx.pages) || l.book_pages || "")}"></div>
+        <div class="field"><label for="btxBody">النص (كل سطر أو بيت في سطر مستقل)</label><textarea id="btxBody" dir="rtl" rows="10" style="width:100%;font-size:1.1rem;line-height:1.9">${esc((bookTx && bookTx.body) || "")}</textarea></div>
+        <button class="btn btn-primary" id="btxSave">حفظ النص</button> ${bookTx ? '<button class="btn btn-ghost" id="btxDel">حذف النص</button>' : ""}
+        <p class="muted" style="margin-top:8px">يظهر النص بعد الحفظ في الشرائح (شريحة «نص الكتاب») وفي هذا التبويب للطلاب، مع زر طباعته.</p></div>` : "";
+      return view + ed;
+    };
     const lockedForMe = acc !== "ok";
     const summary = acc === "ok" ? ((await sb.from("lesson_summaries").select("content").eq("lesson_id", l.id).maybeSingle()).data || null) : null;
     if (isStudent() && !lockedForMe) sb.rpc("record_lesson_view", { p_lesson: l.id }).then(() => {});
@@ -4676,6 +4705,7 @@ window.addEventListener("error", function (e) {
       ] : [
         ["work", "أوراق العمل", (isStaff() && summary && !lockedForMe ? papersHtml : "") + resList(["worksheet", "group_pack", "file", "interactive", "link"], isStaff() && summary ? CT("لا توجد ملفات مرفوعة إضافية", "No extra uploaded files") : "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
       ]),
+      ...(subject === "arabic" && (bookTx || isSuper()) ? [["booktext", nnEn ? "📖 Book text" : "📖 نص الكتاب", bookTxHtml()]] : []),
       ["video", nnEn ? "Video" : "الفيديو", videoHtml],
       ...((subject === "islamic" || subject === "igcse") || ev.length ? [["evidence", (subject === "islamic" || subject === "igcse") ? CT("المصادر", "Sources") : "الشواهد", (subject === "islamic" || subject === "igcse") ? srcHtml : evHtml]] : []),
       ["identity", nnEn ? "National identity" : "الهوية الوطنية", idHtml],
@@ -4719,6 +4749,16 @@ window.addEventListener("error", function (e) {
       if (k === "quiz") { const eb = document.getElementById("editTicket"); if (eb) eb.onclick = () => ticketEditor(l, u, ticket); }
       if (k === "recite" && isStudent() && !lockedForMe) recorder(l, nn);
       if (k === "games" && !lockedForMe && gameItems.length) runGame(l, gameItems);
+      if (k === "booktext") {
+        const pr = document.getElementById("btxPrint");
+        if (pr) pr.onclick = () => { const w = window.open("", "_blank"); w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(bookTx.title || l.title_ar)}</title><style>body{font-family:'Noto Naskh Arabic','Amiri',serif;padding:32px;font-size:20px;line-height:2.2}h1{font-size:24px}.poem{text-align:center;font-weight:700}.ln{border-bottom:1px solid #999;height:34px}</style></head><body><h1>${esc(bookTx.title || l.title_ar)}${bookTx.pages ? " · " + esc(bookTx.pages) : ""}</h1><div class="${bookTx.kind === "poem" ? "poem" : ""}">${bookLines(bookTx.body).map((x) => `<div>${esc(x)}</div>`).join("")}</div><h2 style="font-size:20px;margin-top:28px">أسئلتي عن النص:</h2>${Array.from({ length: 6 }, () => '<div class="ln"></div>').join("")}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
+        const sv = document.getElementById("btxSave");
+        if (sv) sv.onclick = async () => { const body = document.getElementById("btxBody").value.trim(); if (!body) { toast("اكتب النص أولًا"); return; }
+          const r = await sb.from("lesson_book_texts").upsert({ lesson_id: l.id, kind: document.getElementById("btxKind").value, title: document.getElementById("btxTitle").value.trim() || null, pages: document.getElementById("btxPages").value.trim() || null, body, updated_at: new Date().toISOString() });
+          if (r.error) toast("تعذّر الحفظ: " + r.error.message); else { toast("حُفظ نص الكتاب"); location.reload(); } };
+        const dl = document.getElementById("btxDel");
+        if (dl) dl.onclick = async () => { if (!confirm("حذف نص الكتاب لهذا الدرس؟")) return; await sb.from("lesson_book_texts").delete().eq("lesson_id", l.id); toast("حُذف النص"); location.reload(); };
+      }
     };
     document.querySelectorAll(".lesson-tab").forEach((b) => b.addEventListener("click", () => { show(b.dataset.k); wire(b.dataset.k); }));
     show("slides");
@@ -9151,7 +9191,7 @@ window.addEventListener("error", function (e) {
       sc: (extra && extra.sc) || [], identity: (extra && extra.identity) || [],
       partLbl: two ? tdT(en, part === 1 ? "الحصة الأولى" : "الحصة الثانية", `Lesson ${part}`) : "",
       schoolName: school ? (en && school.name_en ? school.name_en : school.name_ar) : "", logo: school && school.logo_url };
-    if (l.units && l.units.subject_id === 2) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} }
+    if (l.units && l.units.subject_id === 2) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} } try { if (ctx.free && Array.isArray(ctx.free)) { const bt = (await sb.from("lesson_book_texts").select("kind, title, body, pages").eq("lesson_id", l.id).maybeSingle()).data; if (bt && bt.body) { const bs = tdBookSlides(bt); let at = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /^(📖 نصّ القراءة|📖 قراءة إضافية|🎵 القصيدة)/.test(e.text))); if (at < 0) at = Math.min(5, ctx.free.length); ctx.free.splice(at, 0, ...bs); } } } catch (e) {}
     const base = () => tdBuild(ctx, part);
     const { data: saved } = await sb.from("teacher_decks").select("slides, updated_at").eq("lesson_id", l.id).eq("part", part).eq("kind", "deck").maybeSingle();
     let slides = saved && Array.isArray(saved.slides) && saved.slides.length ? saved.slides : base();

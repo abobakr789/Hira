@@ -44,7 +44,7 @@ def deck(S):
             L2(sl,en,x+0.08,4.4,w-0.16,0.4,12)
     TX=S.get('text'); h=sum(map(ord,S['code']))
     if TX:
-        kindlbl="🎵 القصيدة" if TX['kind']=='شعر' else "📖 نصّ القراءة"
+        kindlbl="📖 قراءة إضافية"
         sl=sld(D,3,kindlbl+": "+TX['title'],G,5,"يقرأ المعلّم النص قراءة نموذجية، ثم يقرأ الطلاب سطرًا سطرًا. ابحثوا عن كلمات الدرس الملوّنة.")
         body=TX['body']; n=len(body); fs=19 if n<=5 else 17 if n<=7 else 15
         hgt=min(0.62,3.7/max(n,1))
@@ -125,7 +125,7 @@ def sheets(S,pg,lv1=True):
     vt="<table><tr><th>الصورة</th><th>الكلمة</th><th>المعنى</th></tr>"+"".join(f"<tr><td style='font-size:24px'>{e}</td><td><b>{w}</b></td><td>{m}</td></tr>" for w,m,e,en in v[:4])+"</table>"
     gloss="<div class='box'><span class='q'>📘 مسرد مساعد</span> "+" · ".join(f"{w} = <span dir='ltr'>{en}</span>" for w,m,e,en in v)+"</div>"
     TX=S.get('text'); h=sum(map(ord,S['code']))
-    tbox=(f"<div class='box' style='background:#FFF8EC'><span class='q'>{'🎵 القصيدة' if TX['kind']=='شعر' else '📖 النص'}: {TX['title']}</span><div style='font-size:16px;line-height:2;{'text-align:center' if TX['kind']=='شعر' else ''}'>{'<br>'.join(TX['body'])}</div></div>") if TX else ""
+    tbox=(f"<div class='box' style='background:#FFF8EC'><span class='q'>📖 قراءة إضافية: {TX['title']}</span><div style='font-size:16px;line-height:2;{'text-align:center' if TX['kind']=='شعر' else ''}'>{'<br>'.join(TX['body'])}</div></div>") if TX else ""
     def act(k,full):
         if not TX: return ""
         if k==0: return "<div class='box'><span class='q'>أضع ✓ أو ✗:</span>"+"".join(f"<div>☐ {st}</div>" for st,ok in TX['tf'])+"</div>"
@@ -155,7 +155,7 @@ def payload(S):
     q+=[["mcq",f"معنى «{v[3][0]}»:",v[3][1],[v[4][1],v[5][1]],2,"multistructural"],["mcq",c[0],c[1][c[2]],[o for i,o in enumerate(c[1]) if i!=c[2]],2,"multistructural"]]
     q+=S['q_extra']
     return {"track":"non_native","obj":S['goal'],"axis":"NN-S","periods":2,"emoji":S['emo'],"hook":S['hook'],"idea":S['idea'],
-      "learn":([["📖" if S["text"]["kind"]!="شعر" else "🎵",S["text"]["title"]+": "+" ".join(S["text"]["body"])]] if S.get("text") else [])+[[e,f"{w}: {m}"] for w,m,e,en in v[:4]]+[["🧱",S['frames'][0]],["💬","عفوًا، هل يمكن أن تعيد؟ · أتّفق معك لأنّ …"]],
+      "learn":([["📖","قراءة إضافية — "+S["text"]["title"]+": "+" ".join(S["text"]["body"])]] if S.get("text") else [])+[[e,f"{w}: {m}"] for w,m,e,en in v[:4]]+[["🧱",S['frames'][0]],["💬","عفوًا، هل يمكن أن تعيد؟ · أتّفق معك لأنّ …"]],
       "words":[[w,m] for w,m,e,en in v],"do":[S['bridge'][1],"أتحدّث مع أسرتي عن الموضوع بثلاث جمل."],"think":S['exit'],
       "quiz":[[S['frames'][0].split('…')[0].strip()+"… تركيب مفيد في هذا الموضوع.",True],["لا أحتاج إلى عبارات الاستيضاح في الحوار.",False]],
       "badge":"⭐ أَحْسَنْتَ","sc":[[1,S['sc'][0],2],[1,S['sc'][1],3],[2,S['sc'][2],3],[2,S['say'][2],4]],"q":q,
