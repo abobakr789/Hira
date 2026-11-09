@@ -22,7 +22,7 @@ def deck(S):
     D = Deck(False); P = S['pics']
     sl = D.new(DK, 'اقرأ العنوان بصوت واضح، واطلب من الطلاب فتح الكتاب على الصفحة.')
     T(sl, f'{SUBJ} · {S["grade"]} · {S["unit"]}', 0.5, 0.45, 9.0, 0.45, 14, SUN, True, 'right')
-    T(sl, S['title'], 3.0, 1.0, 6.5, 1.05, 44, 'FFFFFF', True, 'right')
+    T(sl, S['title'], 3.0, 1.0, 6.5, 1.05, 44 if len(S['title']) < 22 else 30, 'FFFFFF', True, 'right')
     T(sl, S['sub'], 3.0, 2.1, 6.5, 0.5, 16, 'CFE3E1', False, 'right')
     PIC(sl, P['cover'], *((0.4, 1.0, 2.6, 2.0) if wide(P['cover']) else (0.6, 0.95, 2.1, 2.3)))
     R(sl, 0.5, 3.45, 9.0, 1.45, '27474D'); T(sl, '🎯 ' + S['goal'], 0.7, 3.55, 8.6, 1.25, 18, 'FFFFFF', False, 'right', valign='top')
@@ -93,7 +93,7 @@ def deck(S):
     sl = stage(D, 11, 'ماذا تَعَلَّمْتُ؟', S, 2, 'اطلب من ثلاثة طلاب إكمال الجمل شفويًّا.')
     box(sl, X0, 1.25, W, 1.25, '🪞 تَعَلَّمْتُ الْيَوْمَ', [S['learned']], size=19 if len(S['learned']) < 95 else 15)
     box(sl, X0, 2.62, W, 1.1, '❓ أَتَساءَلُ', [S['wonder']], col='6B46A8', size=18, rv=1)
-    box(sl, X0, 3.85, W, 1.17, '🔬 أَرْبِطُ', [S['link']], col='A35E24', size=17, rv=2)
+    box(sl, X0, 3.85, W, 1.17, '🔬 أَرْبِطُ', [S['link']], col='A35E24', size=17 if len(S['link']) < 110 else 13, rv=2)
     # 13
     sl = stage(D, 12, 'رِسالَتي إِلى الْبَيْتِ', S, None, 'ذكّر الطلاب بالمهمة، وحدّد موعد عرض اللوحة.')
     box(sl, X0, 1.25, W, 1.9, '🏠 مَعَ أُسْرَتي', S['home'], size=18)
