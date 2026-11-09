@@ -5,7 +5,8 @@ STAGES=["استرجاع التعلّم السابق","التهيئة وربط ا
 X0=0.3; W=9.4
 def slide(D,cur,title,goal,mins=None,notes='',bg=BG):
     sl=D.new(bg,notes)
-    T(sl,f'المرحلة {cur+1} من 13 · {STAGES[cur]}',2.0,0.1,6.0,0.36,12,'FFFFFF',True,'center',fill=TE,rad=True)
+    T(sl,["🔁 نتذكّر معًا","✨ لحظة فضول","🎯 وجهتنا اليوم","🔑 كلمات مفتاحية","📖 رحلة في النص","👩‍🏫 شاهدني أطبّق","🤝 نطبّق معًا","🚦 إشارة الانطلاق","🚀 تحدّي المستويات","🔍 عين الناقد","🎟️ تذكرة الخروج","🪞 مرآة التعلّم","🏠 رسالتي إلى البيت"][cur],3.2,0.1,3.6,0.36,13,'FFFFFF',True,'center',fill=TE,rad=True)
+    sl['n']='['+STAGES[cur]+'] '+(sl.get('n') or '')
     if mins: T(sl,'⏱ %s دقائق'%mins if mins>2 else '⏱ %s دقيقة'%mins,X0,0.58,1.35,0.42,13,DK,True,'center',fill=SUN,rad=True)
     T(sl,title,1.8,0.52,7.9,0.55,23,DK,True,'right')
     T(sl,'🎯 '+goal,X0,5.17,W,0.36,12,TE,True,'center',fill=SOFT,rad=True)

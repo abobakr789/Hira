@@ -9,7 +9,8 @@ def L2(sl,text,x,y,w,h,size=11):
     sl['els'].append({'k':'text','text':text,'x':x,'y':y,'w':w,'h':h,'size':size,'color':'5B6B6E','bold':False,'align':'left','fill':None,'font':'Arial','rv':0,'rad':False,'line':None,'valign':'middle','l2':1})
 def sld(D,i,title,goal,mins=None,notes=''):
     sl=D.new(BG,notes)
-    T(sl,f'المرحلة {i+1} من 10 · {ST[i]}',2.0,0.1,6.0,0.36,12,'FFFFFF',True,'center',fill=TE,rad=True)
+    T(sl,["✨ نبدأ بحماس","🎯 وجهتنا اليوم","🖼️ كلمات نراها","👩‍🏫 شاهدني","🤝 معًا خطوة خطوة","🎲 نتدرّب ونلعب","🚦 هل أنا جاهز؟","🚀 دوري الآن","✍️ من الكلام إلى الكتابة","🪞 مرآة التعلّم"][i],3.2,0.1,3.6,0.36,13,'FFFFFF',True,'center',fill=TE,rad=True)
+    sl['n']='['+ST[i]+'] '+(sl.get('n') or '')
     if mins: T(sl,'⏱ %s دقائق'%mins if mins>2 else '⏱ %s دقيقة'%mins,X0,0.58,1.35,0.42,13,DK,True,'center',fill=SUN,rad=True)
     T(sl,title,1.8,0.52,7.9,0.55,23,DK,True,'right')
     T(sl,'🎯 '+goal,X0,5.17,W,0.36,12,TE,True,'center',fill=SOFT,rad=True)
