@@ -1467,7 +1467,7 @@
   const subjOf = (params) => (SUBJECTS[params && params.get("subject")] ? params.get("subject") : "islamic");
   const subjectSeg = (current, hrefFn) => `<div class="seg" role="group" aria-label="المادة">${Object.keys(SUBJECTS).filter((k) => k !== "igcse").map((k) =>
     `<a href="${hrefFn(k)}" aria-current="${k === current}">${SUBJECTS[k].name}</a>`).join("")}</div>`;
-  const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين" };
+  const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level" };
   const TRACK_SHORT = { native: "عربي", non_native: "Non-native" };
   const ORD_GRADE = ["", "الأول", "الثاني", "الثالث", "الرابع", "الخامس", "السادس", "السابع", "الثامن", "التاسع", "العاشر", "الحادي عشر", "الثاني عشر", "الثالث عشر"];
   const LEVEL_AR = { mastered: "أتقن", developing: "قريب من الإتقان", needs_support: "يحتاج دعمًا" };
@@ -1961,7 +1961,7 @@
         <a class="btn btn-primary" style="margin-top:12px" href="#/year/${g}?track=${state.myTrack || "native"}">${LANG === "en" ? "Go to my grade" : "اذهب إلى دروس صفّي"} · Grade ${g}</a></div></div>`);
       return;
     }
-    const track = params.get("track") === "non_native" ? "non_native" : params.get("track") === "native" ? "native" : (isStudent() && state.myTrack) || (LANG === "en" ? "non_native" : "native");
+    const track = params.get("track") === "alevel" ? "alevel" : params.get("track") === "non_native" ? "non_native" : params.get("track") === "native" ? "native" : (isStudent() && state.myTrack) || (LANG === "en" ? "non_native" : "native");
     const testsView = params.get("term") === "tests";
     const term = ["1", "2", "3"].includes(params.get("term")) ? Number(params.get("term")) : 1;
     const subject = subjOf(params);
@@ -2083,6 +2083,7 @@
         <div class="seg" role="group" aria-label="المسار">
           <a href="${testsView ? `#/year/${year}?subject=${subject}&track=native&term=tests` : href(term, "native")}" aria-current="${track === "native"}">${TRACKS.native}</a>
           <a href="${testsView ? `#/year/${year}?subject=${subject}&track=non_native&term=tests` : href(term, "non_native")}" aria-current="${track === "non_native"}">${TRACKS.non_native}</a>
+          ${subject === "arabic" && [11, 12].includes(Number(year)) ? `<a href="${testsView ? `#/year/${year}?subject=${subject}&track=alevel&term=tests` : href(term, "alevel")}" aria-current="${track === "alevel"}" dir="ltr">A Level</a>` : ""}
         </div>
         <div class="term-tabs" role="tablist">
           ${[1, 2, 3].map((t) => `<a class="term-tab" role="tab" href="${href(t, track, 0)}" aria-selected="${!testsView && t === term}" style="text-decoration:none">${(isStudent() || ctl) && counts[t] && !termOpen[t] ? lockIcon + " " : ""}${TERMS[t]} <span class="muted">(${counts[t]})</span></a>`).join("")}
@@ -3629,7 +3630,7 @@
     if (!state.session) { location.hash = "#/login"; return; }
     if (!isSuper()) { h('<div class="wrap loading">لوحة التحكم متاحة للمشرف العام فقط.</div>'); return; }
     const year = Number(params.get("year") || 1);
-    const track = params.get("track") === "non_native" ? "non_native" : "native";
+    const track = params.get("track") === "alevel" ? "alevel" : params.get("track") === "non_native" ? "non_native" : "native";
     const subject = subjOf(params);
     loading();
     const { data: units, error } = await sb.from("units")
@@ -3659,7 +3660,7 @@
       <form class="admin-filters" id="filters">
         <div class="field"><label for="fs">المادة</label><select id="fs">${Object.keys(SUBJECTS).map((k) => `<option value="${k}" ${k === subject ? "selected" : ""}>${SUBJECTS[k].name}</option>`).join("")}</select></div>
         <div class="field"><label for="fy">الصف</label><select id="fy">${Array.from({ length: 12 }, (_, i) => `<option value="${i + 1}" ${i + 1 === year ? "selected" : ""}>Grade ${i + 1}</option>`).join("")}</select></div>
-        <div class="field"><label for="ft">المسار</label><select id="ft"><option value="native" ${track === "native" ? "selected" : ""}>${TRACKS.native}</option><option value="non_native" ${track === "non_native" ? "selected" : ""}>${TRACKS.non_native}</option></select></div>
+        <div class="field"><label for="ft">المسار</label><select id="ft"><option value="native" ${track === "native" ? "selected" : ""}>${TRACKS.native}</option><option value="non_native" ${track === "non_native" ? "selected" : ""}>${TRACKS.non_native}</option><option value="alevel" ${track === "alevel" ? "selected" : ""}>A Level</option></select></div>
         <button class="btn btn-ghost" type="submit">عرض</button>
       </form>
       ${rows.length ? `<div class="table-wrap"><table class="admin-table">
