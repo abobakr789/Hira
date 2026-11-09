@@ -47,7 +47,7 @@ def deck(S):
         R(sl, x, 1.25, w, 2.75, CARD, line=TE, rv=i + 1, lw=2)
         I(sl, emo, x + (w - 0.95) / 2, 1.35, 0.95, rv=i + 1)
         T(sl, wd, x + 0.08, 2.4, w - 0.16, 0.6, 24 if len(wd) <= 14 else 15, TE, True, 'center', rv=i + 1)
-        T(sl, m, x + 0.08, 3.05, w - 0.16, 0.85, 15, DK, False, 'center', rv=i + 1, valign='top')
+        T(sl, m, x + 0.08, 3.05, w - 0.16, 0.85, 15 if len(m) < 40 else 12, DK, False, 'center', rv=i + 1, valign='top')
     T(sl, '🗣️ ' + S['vtask'], X0, 4.15, W, 0.85, 17, DK, True, 'right', fill=PEACH, rad=True, rv=5)
     # 5
     st = S['story']; sl = stage(D, 4, st['title'], S, 7, 'اقرأ النص قراءة معبّرة والطلاب يتابعون في الكتاب، ثم اسأل: من؟ كم عمره؟')
@@ -67,7 +67,7 @@ def deck(S):
     (a, wa), (b, wb) = cols(2)
     PIC(sl, P[g['pics'][0]], a, 1.25, wa, 2.45, rv=1); PIC(sl, P[g['pics'][1]], b, 1.25, wb, 2.45, rv=2)
     T(sl, g['task'], X0, 3.82, W, 0.6, 18 if len(g['task']) < 95 else (15 if len(g['task']) < 125 else 13), DK, True, 'center', fill=CARD, rad=True, rv=3)
-    T(sl, g['book'], X0, 4.5, W, 0.55, 15, TE, True, 'center', rv=4)
+    T(sl, g['book'], X0, 4.5, W, 0.55, 15 if len(g['book']) < 105 else 12, TE, True, 'center', rv=4)
     # 8
     c = S['check']; sl = stage(D, 7, c['q'], S, 2, 'يرفع كل طالب بطاقة (أ) أو (ب). من يخطئ ينضمّ إلى مجموعة دعم قصيرة.')
     (a, wa), (b, wb) = cols(2)
