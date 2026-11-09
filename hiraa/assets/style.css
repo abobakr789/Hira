@@ -2159,3 +2159,8 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .ig-tn{flex:none;min-width:38px;text-align:center;font-weight:800;font-size:.85rem;color:#fff;background:var(--hira);border-radius:8px;padding:4px 6px}
 .ig-sec.s2 .ig-tn{background:#2E86AB}.ig-sec.s3 .ig-tn{background:#B9770E}
 .ig-tt{flex:1;font-weight:600;line-height:1.35}.ig-ta{color:var(--muted);font-size:1.3rem}
+
+/* شعار حراء: الشعار لا يُضغط، والقائمة في صفٍّ مستقل تحته حتى تظهر كل الروابط */
+.brand{flex-shrink:0}
+@media (max-width:640px){.brand-logo{height:36px}}
+@media (min-width:641px){.brand-logo{height:56px;width:auto}.header-row{flex-wrap:wrap;row-gap:0;padding:8px 0 6px}.main-nav{order:3;flex-basis:100%;justify-content:center;min-width:0;overflow-x:auto;scrollbar-width:none}.main-nav::-webkit-scrollbar{display:none}.header-row>.icon-btn:first-of-type{margin-inline-start:auto}}
