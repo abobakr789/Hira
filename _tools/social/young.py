@@ -34,7 +34,7 @@ def deck(S):
     # 2
     h = S['hook']; sl = stage(D, 1, h['title'], S, 4, 'فكّر – زاوج – شارك. لا تكشف الإجابة قبل أن يخمّن الطلاب.')
     PIC(sl, P[h['pic']], 6.9, 1.25, 2.8, 2.6)
-    T(sl, h['q1'], X0, 1.25, 6.4, 0.75, 24, DK, True, 'right'); T(sl, h['q2'], X0, 2.05, 6.4, 0.95, 18, TE, True, 'right', rv=1, valign='top')
+    T(sl, h['q1'], X0, 1.25, 6.4, 0.75, 24 if len(h['q1']) < 45 else 18, DK, True, 'right'); T(sl, h['q2'], X0, 2.05, 6.4, 0.95, 18, TE, True, 'right', rv=1, valign='top')
     T(sl, '💬 ' + h['tps'], X0, 3.1, 6.4, 0.75, 16, DK, False, 'right', fill=CARD, rad=True, rv=2)
     T(sl, h['reveal'], X0, 4.05, W, 0.95, 20, 'B42318', True, 'center', fill=PEACH, rad=True, rv=3)
     # 3
