@@ -2168,6 +2168,7 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .pn-tools { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 
 .tdf-l2{display:none!important}body.l2on .tdf-l2{display:flex!important}.tdf-l2btn{position:absolute;left:10px;bottom:8px;z-index:5;font:600 12px Arial,sans-serif;background:#ffffffcc;border:1px solid #0F6E72;color:#0F6E72;border-radius:12px;padding:3px 10px;cursor:pointer}body.l2on .tdf-l2btn{background:#0F6E72;color:#fff}
+.hub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}.hub-tab{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:999px;background:rgba(15,110,114,.08);color:#0F6E72;font-weight:700;text-decoration:none;border:2px solid rgba(15,110,114,.18)}.hub-tab.on{background:#0F6E72;color:#fff;border-color:#0F6E72}.hub-tab:hover{border-color:#0F6E72}
 </style>
 </head>
 <body>
@@ -3722,6 +3723,13 @@ window.addEventListener("error", function (e) {
     }
     return out;
   }
+  const HUB_SUBJ = [["arabic", "📖", "اللغة العربية", "Arabic"], ["islamic", "🕌", "التربية الإسلامية", "Islamic Education"], ["social", "🌍", "الدراسات الاجتماعية", "Social Studies"]];
+  const HUB_SID = { islamic: 1, arabic: 2, social: 3 };
+  const ECA_KIND_SUBJ = { prayer: "islamic", tajweed: "islamic", seerah: "islamic", nabati: "arabic", speech: "arabic", reading: "arabic", writing: "arabic", arabic: "arabic", identity: "social" };
+  function hubSubj(params) { const q = params && params.get ? params.get("subject") : null; let v = ["arabic", "islamic", "social"].includes(q) ? q : null; if (!v) { try { v = localStorage.getItem("hubSubj"); } catch (e) {} } if (!["arabic", "islamic", "social"].includes(v)) v = "islamic"; try { localStorage.setItem("hubSubj", v); } catch (e) {} return v; }
+  function hubTabs(route, cur, extra) { return `<div class="hub-tabs" role="tablist">${HUB_SUBJ.map(([k, ic, ar, en]) => `<a role="tab" class="hub-tab ${k === cur ? "on" : ""}" aria-selected="${k === cur}" href="#/${route}?subject=${k}${extra || ""}"><span>${ic}</span> ${LANG === "en" ? en : ar}</a>`).join("")}</div>`; }
+  function hubSoon(ar, en) { return `<div class="empty"><strong>${LANG === "en" ? "Coming soon" : "قريبًا"}</strong>${LANG === "en" ? en : ar}</div>`; }
+  const hubName = (k) => { const x = HUB_SUBJ.find((y) => y[0] === k); return x ? (LANG === "en" ? x[3] : x[2]) : ""; };
   const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "الانطلاقة" };
   const TRACK_SHORT = { native: "عربي", non_native: "Non-native" };
   const ORD_GRADE = ["", "الأول", "الثاني", "الثالث", "الرابع", "الخامس", "السادس", "السابع", "الثامن", "التاسع", "العاشر", "الحادي عشر", "الثاني عشر", "الثالث عشر"];
@@ -5408,18 +5416,19 @@ window.addEventListener("error", function (e) {
 
 
   /* ===== Student: all my tests in one place ===== */
-  async function pageMyTests() {
+  async function pageMyTests(params) {
     setNav("my");
     if (!state.session) { location.hash = "#/login"; return; }
     if (!isStudent()) { location.hash = "#/my"; return; }
     loading();
+    const subj = hubSubj(params), sid = HUB_SID[subj];
     const me = state.session.user.id, g = myGradeNow(), tr = state.myTrack || "native", en = tr === "non_native" || LANG === "en";
     if (!g) { h(`<div class="wrap loading">${CT("لم يُحدَّد صفّك بعد", "Your grade is not set")}</div>`); return; }
     const { data: mc } = await sb.from("class_students").select("class_id, classes(year_group, subject_id, track)").eq("student_id", me);
-    const cls = (mc || []).filter((x) => x.classes && x.classes.year_group === g && x.classes.subject_id === 1).map((x) => x.class_id);
+    const cls = (mc || []).filter((x) => x.classes && x.classes.year_group === g && x.classes.subject_id === sid).map((x) => x.class_id);
     const [{ data: tests }, { data: units }, { data: att }, { data: opened }] = await Promise.all([
-      sb.from("assessments").select("id, kind, term, unit_id, title_ar, title_en").eq("year_group", g).eq("track", tr).eq("subject_id", 1).eq("is_published", true).in("kind", ["diagnostic", "post", "unit_test", "unit_practice", "teacher_test"]),
-      sb.from("units").select("id, term, sort_order, title_ar, title_en").eq("year_group", g).eq("track", tr).eq("subject_id", 1),
+      sb.from("assessments").select("id, kind, term, unit_id, title_ar, title_en").eq("year_group", g).eq("track", tr).eq("subject_id", sid).eq("is_published", true).in("kind", ["diagnostic", "post", "unit_test", "unit_practice", "teacher_test"]),
+      sb.from("units").select("id, term, sort_order, title_ar, title_en").eq("year_group", g).eq("track", tr).eq("subject_id", sid),
       sb.from("attempts").select("assessment_id, score, max_score, submitted_at").eq("student_id", me).not("submitted_at", "is", null),
       cls.length ? sb.from("class_assessments").select("assessment_id").in("class_id", cls) : Promise.resolve({ data: [] })
     ]);
@@ -5451,7 +5460,7 @@ window.addEventListener("error", function (e) {
         ${!all ? `<p class="muted">—</p>` : ""}</section>`;
     };
     const nowTerm = typeof bookTermNow === "function" ? bookTermNow() : 1;
-    h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/my">${CT("صفحتي", "My page")}</a></div><h1>📝 ${CT("اختباراتي", "My tests")}</h1>
+    h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/my">${CT("صفحتي", "My page")}</a></div><h1>📝 ${CT("اختباراتي", "My tests")}</h1>${hubTabs("my-tests", subj)}
         <p class="muted">${CT("كل اختباراتك في مكان واحد: التشخيصي في بداية الفصل، وتدريبات واختبارات الوحدات، واختبارات معلمك، والبعدي في نهاية الفصل، والمعيارية، والاختبار التجريبي النهائي.", "All your tests in one place: diagnostic, unit practice and tests, your teacher's tests, post-tests, benchmarks and the final mock exam.")}</p></div></section>
       <section class="section" style="padding-top:22px"><div class="wrap">${testsTabs("mine")}
         <div class="mt-stats"><div><b>${doneList.length}</b><span>${CT("اختبارًا أنجزته", "tests done")}</span></div><div><b>${avg == null ? "—" : avg + "%"}</b><span>${CT("متوسط درجاتي", "my average")}</span></div><div><b>Grade ${g}</b><span>${tr === "non_native" ? CT("غير الناطقين", "Non-Arabic speakers") : CT("الناطقون", "Arabic speakers")}</span></div></div>
@@ -7414,11 +7423,13 @@ window.addEventListener("error", function (e) {
   };
   async function pageEnrich(params) {
     setNav("enrich");
+    const subj = hubSubj(params);
+    if (subj !== "islamic") { h(`<section class="page-head enr-head"><div class="wrap"><h1>🌟 ${ET("المنهج الإثرائي", "Enrichment curriculum")}</h1>${hubTabs("enrich", subj)}</div></section><section class="section"><div class="wrap">${hubSoon("الوحدات الإثرائية في " + hubName(subj) + " قيد الإعداد، وستظهر هنا بالنظام نفسه: سؤال كبير، وأربع مهام، وفحص معرفي، ومنتج نهائي.", "Enrichment units for " + hubName(subj) + " are being prepared.")}</div></section>`); return; }
     const g = state.session && isStudent() ? myGradeNow() : null;
     const st = +(params.get("s") || (g ? enrStageOf(g) : 1));
     let W = {};
     if (state.session && isStudent()) { const { data } = await sb.from("enrich_work").select("unit_key, status, missions, check_score, check_max, teacher").eq("student_id", state.session.user.id); (data || []).forEach((w) => { W[w.unit_key] = w; }); }
-    h(`<section class="page-head enr-head"><div class="wrap"><h1>🌟 ${ET("المنهج الإثرائي", "Enrichment curriculum")}</h1>
+    h(`<section class="page-head enr-head"><div class="wrap"><h1>🌟 ${ET("المنهج الإثرائي", "Enrichment curriculum")}</h1>${hubTabs("enrich", subj)}
         <p class="muted">${ET("وحدة إثرائية لكل فصل دراسي في كل مرحلة، تنطلق من سؤال كبير، وتمرّ بمهام استكشافية، وتنتهي بمنتج حقيقي يُقيَّم بسلّم متدرّج. مفتوح لجميع الطلاب.", "One enrichment unit per term for each stage: a big question, discovery missions and a real product assessed with a rubric. Open to all students.")}</p>
         <div class="enr-how"><span>❓ ${ET("سؤال كبير", "Big question")}</span><span>🧭 ${ET("4 مهام", "4 missions")}</span><span>✅ ${ET("فحص معرفي", "Knowledge check")}</span><span>🏆 ${ET("منتج نهائي", "Final product")}</span><span>📊 ${ET("تقييم بسلّم", "Rubric assessment")}</span></div>
         <div class="mt-tabs">${[1, 2, 3].map((n) => `<a class="btn btn-small ${n === st ? "btn-primary" : "btn-ghost"}" href="#/enrich?s=${n}">${enrEN() ? "Stage " + n : ENR_STAGES[n][0]} · ${enrEN() ? "Grades " + ENR_STAGES[n][2] + "–" + ENR_STAGES[n][3] : ENR_STAGES[n][1]}</a>`).join("")}</div></div></section>
@@ -7526,10 +7537,11 @@ window.addEventListener("error", function (e) {
 
   async function pageCompetitions(params) {
     setNav("comps");
+    const subj = hubSubj(params);
     loading();
     const cat = params.get("cat") || "";
-    const { data } = await sb.from("competitions").select("id, parent_id, category, category_label, icon, title_ar, title_en, school_id, levels, tracks, reg_from, reg_to, submit_from, submit_to, results_published, is_published, mode, two_stage, stage").order("created_at", { ascending: false });
-    const all = data || [];
+    const { data } = await sb.from("competitions").select("id, parent_id, category, category_label, icon, title_ar, title_en, school_id, levels, tracks, reg_from, reg_to, submit_from, submit_to, results_published, is_published, mode, two_stage, stage, subject").order("created_at", { ascending: false });
+    const all = (data || []).filter((c) => (c.subject || "islamic") === subj);
     let joined = new Set();
     if (isStaff() && state.profile.school_id) { const { data: js } = await sb.from("competition_schools").select("competition_id").eq("school_id", state.profile.school_id); joined = new Set((js || []).map((x) => x.competition_id)); }
     const copied = new Set(all.filter((c) => c.parent_id && c.school_id && (c.is_published || isStaff())).map((c) => c.parent_id));
@@ -7555,14 +7567,14 @@ window.addEventListener("error", function (e) {
       </a>`; };
     h(`<section class="page-head comp-head"><div class="wrap">
         <div class="crumbs"><a href="#/">${CT("الرئيسية", "Home")}</a></div>
-        <h1>${CT("المسابقات", "Competitions")}</h1>
+        <h1>${CT("المسابقات", "Competitions")}</h1>${hubTabs("competitions", subj)}
         <p class="muted">${CT("سجّل، واستعدّ، وسمّع أو اختبر، وتابع النتيجة، وكل ذلك داخل حراء.", "Register, prepare, recite or take the test, and follow your result, all inside Hira.")}</p>
         ${isStaff() ? `<a class="btn btn-dawn" href="#/competition-edit/new${cat ? "?cat=" + cat : ""}">+ مسابقة جديدة</a>` : ""}
       </div></section>
       <section class="section" style="padding-top:30px"><div class="wrap">
         <div class="comp-cats">
           <a class="comp-cat ${!cat ? "on" : ""}" href="#/competitions"><span class="ic">🏆</span><strong>${CT("الكل", "All")}</strong><span class="muted">${all.length}</span></a>
-          ${Object.keys(COMP_CATS).map((k) => `<a class="comp-cat ${cat === k ? "on" : ""}" href="#/competitions?cat=${k}"><span class="ic">${COMP_CATS[k].icon}</span><strong>${CT(COMP_CATS[k].ar, COMP_CATS[k].en)}</strong><span class="muted">${counts[k] || 0}</span></a>`).join("")}
+          ${Object.keys(COMP_CATS).filter((k) => k === "other" || (({ writing: "arabic", reading: "arabic", arabic: "arabic", speech: "arabic", nabati: "arabic", identity: "social" })[k] || "islamic") === subj).map((k) => `<a class="comp-cat ${cat === k ? "on" : ""}" href="#/competitions?cat=${k}"><span class="ic">${COMP_CATS[k].icon}</span><strong>${CT(COMP_CATS[k].ar, COMP_CATS[k].en)}</strong><span class="muted">${counts[k] || 0}</span></a>`).join("")}
         </div>
         ${platform.length && !isSuper() ? `<h2 class="comp-sec">مسابقات المنصة: اختر ما تشارك فيه مدرستك</h2><div class="comp-list">${platform.map(card).join("")}</div><h2 class="comp-sec">مسابقات مدرستك</h2>` : ""}
         <div class="comp-list">${(isStaff() && !isSuper() ? ownList.filter((c) => c.school_id) : ownList).map(card).join("") || `<div class="empty"><strong>${CT("لا توجد مسابقات الآن", "No competitions right now")}</strong>${isStaff() ? "أنشئ أول مسابقة من زر «مسابقة جديدة»." : CT("ترقّب الإعلان عن المسابقات القادمة.", "Stay tuned for upcoming competitions.")}</div>`}</div>
@@ -8189,7 +8201,7 @@ window.addEventListener("error", function (e) {
         let school_id = scopeAll ? null : (c && c.school_id) || state.profile.school_id || null;
         if (!school_id && !scopeAll) { const { data: sc } = await sb.from("schools").select("id").limit(1); school_id = sc && sc[0] ? sc[0].id : null; }
         if (!school_id && !scopeAll) { toast("أنشئ مدرسة أولًا"); e.target.disabled = false; return; }
-        const row = { category: S.category, category_label: S.category === "other" ? S.category_label : null, icon: S.category === "other" ? S.icon : null,
+        const row = { subject: ({ writing: "arabic", reading: "arabic", arabic: "arabic", speech: "arabic", nabati: "arabic", identity: "social" })[S.category] || (S.category === "other" ? hubSubj(null) : "islamic"), category: S.category, category_label: S.category === "other" ? S.category_label : null, icon: S.category === "other" ? S.icon : null,
           title_ar: S.title_ar, title_en: S.title_en, intro_ar: S.intro_ar || null, intro_en: S.intro_en, rules_ar: S.rules_ar || null, rules_en: S.rules_en,
           tracks: S.tracks, levels: S.levels.map((l, i) => ({ ...l, key: l.key || "L" + i, audience: l.audience || "student", grades: l.audience === "parent" ? [] : l.grades || [] })),
           criteria: S.mode === "test" ? [] : S.criteria, mode: S.mode, test: S.mode === "oral" ? [] : S.test, test_minutes: S.test_minutes || null,
@@ -8343,12 +8355,13 @@ window.addEventListener("error", function (e) {
   async function pageBenchmarks(params) {
     setNav("bench");
     loading();
+    const subj = hubSubj(params), sid = HUB_SID[subj];
     const { data: wins } = await sb.from("benchmark_windows").select("*").eq("is_active", true).order("opens_at");
     const W = wins || [];
     let roleHtml = "";
     if (isStudent()) {
       const g = myGradeNow(), tr = state.myTrack || "native", me = state.session.user.id;
-      const { data: forms } = await sb.from("assessments").select("id, window_id, title_ar, title_en").eq("kind", "benchmark").eq("year_group", g).eq("track", tr);
+      const { data: forms } = await sb.from("assessments").select("id, window_id, title_ar, title_en").eq("kind", "benchmark").eq("year_group", g).eq("track", tr).eq("subject_id", sid);
       const ids = (forms || []).map((f) => f.id);
       const { data: att } = ids.length ? await sb.from("attempts").select("assessment_id, score, max_score").eq("student_id", me).not("submitted_at", "is", null).in("assessment_id", ids) : { data: [] };
       const done = {}; (att || []).forEach((a) => { done[a.assessment_id] = a; });
@@ -8356,14 +8369,14 @@ window.addEventListener("error", function (e) {
       const reci = {}; (rc || []).forEach((r) => { reci[r.assessment_id] = r; });
       roleHtml = `<h2>${CT("اختباراتي المعيارية", "My benchmark tests")} <small class="muted" dir="ltr">Grade ${g}</small></h2><div class="bw-grid">${W.map((w) => { const f = (forms || []).find((x) => x.window_id === w.id); const st = winState(w); const d = f && done[f.id];
         return `<div class="bw-card ${st}"><div class="bw-h"><strong>${esc(CT(w.name_ar, w.name_en))}</strong><span class="bw-st">${CT(WSTATE[st][0], WSTATE[st][1])}</span></div><p class="muted">${fmtD(w.opens_at)} – ${fmtD(w.closes_at)}</p>
-          ${f && (st === "open" || (reci[f.id])) ? `<a class="bw-recite ${reci[f.id] ? (reci[f.id].marked_at ? "done" : reci[f.id].submitted_at ? "sent" : "") : ""}" href="#/bench-recite/${f.id}">🎙️ ${CT("التسميع", "Recitation")}${reci[f.id] && reci[f.id].marked_at ? ` · <b>${reci[f.id].total}/20</b>` : reci[f.id] && reci[f.id].submitted_at ? CT(" · أُرسل، بانتظار المعلم", " · sent, awaiting teacher") : CT(" · لم تسجّل بعد", " · not recorded yet")}</a>` : ""}
+          ${subj === "islamic" && f && (st === "open" || (reci[f.id])) ? `<a class="bw-recite ${reci[f.id] ? (reci[f.id].marked_at ? "done" : reci[f.id].submitted_at ? "sent" : "") : ""}" href="#/bench-recite/${f.id}">🎙️ ${CT("التسميع", "Recitation")}${reci[f.id] && reci[f.id].marked_at ? ` · <b>${reci[f.id].total}/20</b>` : reci[f.id] && reci[f.id].submitted_at ? CT(" · أُرسل، بانتظار المعلم", " · sent, awaiting teacher") : CT(" · لم تسجّل بعد", " · not recorded yet")}</a>` : ""}
           ${d ? `<div class="bw-score">${Math.round((d.score / d.max_score) * 100)}% ${bandChip((d.score / d.max_score) * 100)}</div><a class="btn btn-ghost btn-small" href="#/bench-report/${f.id}">${CT("بصمتي وتقريري", "My fingerprint & report")}</a>`
             : st === "open" && f ? `<a class="btn btn-dawn btn-small" href="#/test/${f.id}">${CT("ابدأ الاختبار", "Start the test")}</a><p class="muted" style="font-size:.82rem">${CT(`الجزء المكتوب: ${benchN(g)} سؤالًا · مرة واحدة · يفتحه معلمك إن كنت في فصل`, `Written part: ${benchN(g)} questions · once · your teacher opens it`)}</p>` : `<p class="muted">${st === "soon" ? CT("تفتح في موعدها", "Opens on schedule") : CT("لم تؤدِّه", "Not taken")}</p>`}</div>`; }).join("")}</div>`;
     } else if (isStaff()) {
       const me = state.session.user.id;
-      const { data: all } = await sb.from("classes").select("id, name, year_group, track, subject_id, class_teachers(teacher_id), class_assessments(assessment_id)").eq("subject_id", 1).order("year_group").order("name");
+      const { data: all } = await sb.from("classes").select("id, name, year_group, track, subject_id, class_teachers(teacher_id), class_assessments(assessment_id)").eq("subject_id", sid).order("year_group").order("name");
       const mine = state.profile.role === "teacher" ? (all || []).filter((c) => (c.class_teachers || []).some((x) => x.teacher_id === me)) : (all || []);
-      const { data: forms } = mine.length ? await sb.from("assessments").select("id, window_id, year_group, track").eq("kind", "benchmark").in("year_group", [...new Set(mine.map((c) => c.year_group))]) : { data: [] };
+      const { data: forms } = mine.length ? await sb.from("assessments").select("id, window_id, year_group, track").eq("kind", "benchmark").eq("subject_id", sid).in("year_group", [...new Set(mine.map((c) => c.year_group))]) : { data: [] };
       const formFor = (c, w) => (forms || []).find((f) => f.year_group === c.year_group && f.track === c.track && f.window_id === w.id);
       roleHtml = `<h2>إدارة الاختبار في فصولي</h2><p class="muted">يبقى الاختبار مقفلًا حتى تفتحه لفصلك خلال نافذته، في الحصة التي تحددها للاختبار.</p>
         ${mine.length ? `<div class="table-wrap"><table class="admin-table bench-tbl"><thead><tr><th>الفصل</th>${W.map((w) => { const st = winState(w); const forms = mine.map((c) => formFor(c, w)).filter(Boolean); const openN = mine.filter((c) => { const f = formFor(c, w); return f && (c.class_assessments || []).some((x) => x.assessment_id === f.id); }).length;
@@ -8372,15 +8385,14 @@ window.addEventListener("error", function (e) {
           ${mine.map((c) => `<tr><td><b>${esc(c.name)}</b> <span class="muted" dir="ltr">G${c.year_group}</span> <span class="pill">${c.track === "native" ? "ناطقون" : "غير ناطقين"}</span></td>${W.map((w) => { const f = formFor(c, w); if (!f) return "<td>—</td>"; const on = (c.class_assessments || []).some((x) => x.assessment_id === f.id); const st = winState(w);
             return `<td><div class="bt-cell">${st === "open" ? `<button class="tp-lock ${on ? "on" : ""}" data-bopen="${f.id}" data-cl="${c.id}" data-on="${on}">${on ? unlockIcon + " مفتوح" : lockIcon + " مقفل"}</button>` : `<span class="muted">${WSTATE[st][0]}</span>`}
               <a class="btn btn-ghost btn-small" href="#/bench-class/${f.id}?class=${c.id}">التقرير</a><a class="btn btn-ghost btn-small" href="#/preview/${f.id}?class=${c.id}">معاينة</a></div></td>`; }).join("")}</tr>`).join("")}
-          </tbody></table></div>` : '<div class="empty"><strong>لا فصول تربية إسلامية لك بعد</strong>أنشئ فصلًا من «فصولي».</div>'}
+          </tbody></table></div>` : `<div class="empty"><strong>لا فصول ${hubName(subj)} لك بعد</strong>أنشئ فصلًا من «فصولي».</div>`}
         ${isSuper() ? `<h2 style="margin-top:28px">نوافذ الاختبار (للمنصة كلها)</h2><div class="bw-admin">${W.map((w) => `<div class="bwa-row" data-w="${w.id}"><strong>${esc(w.name_ar)}</strong>
             <label>من <input type="date" class="bwf" value="${w.opens_at ? w.opens_at.slice(0, 10) : ""}"></label><label>إلى <input type="date" class="bwt" value="${w.closes_at ? w.closes_at.slice(0, 10) : ""}"></label>
             <button class="btn btn-ghost btn-small" data-wsave>حفظ</button></div>`).join("")}</div>` : ""}`;
     } else if (!state.session) roleHtml = `<div class="cp-panel"><strong>${CT("سجّل الدخول لأداء الاختبار أو متابعة النتائج", "Sign in to take the test or see results")}</strong><a class="btn btn-primary" href="#/login">${CT("تسجيل الدخول", "Sign in")}</a></div>`;
     h(`<section class="bench-hero"><div class="wrap">
         <div class="bh-badge">${fpIcon}<span>${CT("معيار حراء", "Hira Benchmark")}</span></div>
-        <h1>${CT("الاختبارات المعيارية", "Benchmark Tests")}</h1>
-        <p>${CT("اختبار معياري موحّد في التربية الإسلامية للصفوف 1–12 بمساريها، يقيس مستوى الطالب مقابل معايير صفّه، ويرسم <b>بصمته</b> في المجالات الستة للإطار الوطني، ويتتبّع نموّه ثلاث مرات في العام.", "A standardised Islamic Education benchmark for Grades 1–12, measuring each student against grade standards, drawing their <b>fingerprint</b> across the six framework domains, and tracking growth three times a year.")}</p>
+        <h1>${CT("الاختبارات المعيارية", "Benchmark Tests")}</h1>${hubTabs("benchmarks", subj)}${subj !== "islamic" ? `<p>${CT("اختبار معياري موحّد في " + hubName(subj) + " ثلاث مرات في العام (بداية العام ومنتصفه ونهايته)، يقيس مستوى الطالب مقابل نواتج صفّه في الإطار الوطني، ويتتبّع نموّه.", "A standardised " + hubName(subj) + " benchmark three times a year that measures each student against the national outcomes for their grade and tracks growth.")}</p>${subj === "social" ? hubSoon("اختبارات الدراسات الاجتماعية المعيارية قيد الإعداد.", "Social Studies benchmarks are being prepared.") : ""}` : ""}<p ${subj !== "islamic" ? "hidden" : ""}>${CT("اختبار معياري موحّد في التربية الإسلامية للصفوف 1–12 بمساريها، يقيس مستوى الطالب مقابل معايير صفّه، ويرسم <b>بصمته</b> في المجالات الستة للإطار الوطني، ويتتبّع نموّه ثلاث مرات في العام.", "A standardised Islamic Education benchmark for Grades 1–12, measuring each student against grade standards, drawing their <b>fingerprint</b> across the six framework domains, and tracking growth three times a year.")}</p>
         <div class="bh-actions"><a class="btn btn-dawn" href="#/bench-guide">${CT("دليل المعيار", "Benchmark guide")}</a><a class="btn btn-ghost" href="#/bench-sample">${CT("نماذج التقارير", "Sample reports")}</a></div>
       </div></section>
       <section class="section" style="padding-top:30px"><div class="wrap">
@@ -10498,14 +10510,15 @@ window.addEventListener("error", function (e) {
   const SOLO_AR = { unistructural: "أحادي", multistructural: "متعدد", relational: "علائقي", extended_abstract: "تجريد ممتد" };
   const SOLO_C = { unistructural: "#7aa6c2", multistructural: "#2e86ab", relational: "#c8941a", extended_abstract: "#7b3fa0" };
   async function myTeachClasses() { const { data } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id); return (data || []).map((x) => x.classes).filter((c) => c && c.subject_id === 1); }
-  async function pageTests() {
+  async function pageTests(params) {
     setNav("tests");
     if (!state.session || !isStaff()) { h('<div class="wrap loading">للمعلمين.</div>'); return; }
     loading();
-    const { data: T } = await sb.from("assessments").select("id, title_ar, year_group, track, created_at, due_at, time_limit_min, assessment_questions(count), class_assessments(class_id, classes(name))").eq("kind", "teacher_test").eq("created_by", state.session.user.id).order("created_at", { ascending: false });
+    const subj = hubSubj(params), sid = HUB_SID[subj];
+    const { data: T } = await sb.from("assessments").select("id, title_ar, year_group, track, created_at, due_at, time_limit_min, assessment_questions(count), class_assessments(class_id, classes(name))").eq("kind", "teacher_test").eq("subject_id", sid).eq("created_by", state.session.user.id).order("created_at", { ascending: false });
     const ids = (T || []).map((t) => t.id);
     const { data: att } = ids.length ? await sb.from("attempts").select("assessment_id, score, max_score").in("assessment_id", ids).not("submitted_at", "is", null) : { data: [] };
-    h(`<section class="page-head"><div class="wrap"><h1>📝 ${CT("اختباراتي", "My tests")}</h1><p class="muted">${CT("ابنِ اختبارك من بنك أسئلة حراء أو اكتب أسئلتك، وأسنده لفصولك، ويُصحَّح تلقائيًّا مع تحليل لكل سؤال، ونسخة ورقية بنموذجين للطباعة.", "Build a test from the Hiraa bank or your own questions, assign it to classes, get auto-marking with item analysis, and print A/B paper versions.")}</p>
+    h(`<section class="page-head"><div class="wrap"><h1>📝 ${CT("اختباراتي", "My tests")}</h1>${hubTabs("tests", subj)}<p class="muted">${CT("ابنِ اختبارك من بنك أسئلة حراء أو اكتب أسئلتك، وأسنده لفصولك، ويُصحَّح تلقائيًّا مع تحليل لكل سؤال، ونسخة ورقية بنموذجين للطباعة.", "Build a test from the Hiraa bank or your own questions, assign it to classes, get auto-marking with item analysis, and print A/B paper versions.")}</p>
       <a class="btn btn-dawn" href="#/tests/new">＋ ${CT("اختبار جديد", "New test")}</a></div></section>
       <section class="section"><div class="wrap">${(T || []).length ? `<div class="bk-grid">${T.map((t) => { const A = (att || []).filter((x) => x.assessment_id === t.id), avg = A.length ? Math.round(A.reduce((s, x) => s + x.score / x.max_score, 0) / A.length * 100) : null;
         return `<a class="bk-card tt-card" href="#/tests/${t.id}"><span class="bk-cover ph">📝</span><div><strong>${esc(t.title_ar)}</strong><small dir="ltr" style="text-align:start">Grade ${t.year_group}${t.track === "non_native" ? " · NN" : ""}</small>
@@ -10533,7 +10546,7 @@ window.addEventListener("error", function (e) {
         return c; }) };
       P.questions.filter((q) => q.bank !== "teacher").forEach((q) => { bankCache[q.id] = { id: q.id, stem_ar: q.stem, stem_en: q.stem_en, options: q.options, correct: q.correct, solo: q.solo, lesson_id: q.lesson_id }; }); }
     let units = [], bank = [], fSolo = "", fLesson = "";
-    const loadUnits = async () => { const { data } = await sb.from("units").select("id, term, sort_order, title_ar, lessons(id, code, title_ar)").eq("year_group", S.year_group).eq("track", S.track).eq("subject_id", 1).order("term").order("sort_order"); units = data || []; };
+    const loadUnits = async () => { const { data } = await sb.from("units").select("id, term, sort_order, title_ar, lessons(id, code, title_ar)").eq("year_group", S.year_group).eq("track", S.track).eq("subject_id", HUB_SID[hubSubj(null)]).order("term").order("sort_order"); units = data || []; };
     const loadBank = async () => { if (!S.lessons.length) { bank = []; return; } const { data, error } = await sb.rpc("teacher_bank", { p_year: S.year_group, p_track: S.track, p_lessons: S.lessons }); if (error) toast(error.message); bank = data || []; bank.forEach((q) => { bankCache[q.id] = q; }); };
     await loadUnits();
     const total = () => S.bank.length + S.custom.length;
@@ -10658,7 +10671,7 @@ window.addEventListener("error", function (e) {
           if (t === "ordering") return { ...base, items: c.items.map((x) => x.trim()).filter(Boolean) };
           if (t === "fill_blank") return { ...base, answers: c.answers };
           return { ...base, model: (c.model || "").trim() }; });
-        const { data: id, error } = await sb.rpc("teacher_test_save", { p: { id: S.id || null, title: S.title.trim(), year_group: S.year_group, track: S.track, term: S.term, minutes: S.minutes ? +S.minutes : null, due_at: S.due_at ? S.due_at + "T23:59:00+04:00" : null, bank: S.bank, custom, classes: S.classes } });
+        const { data: id, error } = await sb.rpc("teacher_test_save", { p: { subject_id: HUB_SID[hubSubj(null)], id: S.id || null, title: S.title.trim(), year_group: S.year_group, track: S.track, term: S.term, minutes: S.minutes ? +S.minutes : null, due_at: S.due_at ? S.due_at + "T23:59:00+04:00" : null, bank: S.bank, custom, classes: S.classes } });
         if (error) { er.textContent = /has attempts/.test(error.message) ? CT("لا يمكن تعديل اختبار أدّاه طلاب. أنشئ نسخة جديدة.", "A test students have taken can't be edited. Create a new one.") : error.message; return; }
         toast(CT("حُفظ الاختبار ✓", "Test saved ✓")); location.hash = "#/tests/" + id; };
     };
@@ -11582,12 +11595,13 @@ window.addEventListener("error", function (e) {
   }
   const ecaJoinUrl = (c) => appUrl() + "#/eca-join?c=" + c.join_code;
 
-  async function pageEca() {
+  async function pageEca(params) {
     setNav("eca"); loading();
+    const subj = hubSubj(params);
     if (!state.session) { h(`<div class="wrap loading">${CT("سجّل الدخول لترى أنديتك.", "Sign in to see your clubs.")} <a href="#/login">${CT("تسجيل الدخول", "Sign in")}</a></div>`); return; }
     const staff = isStaff();
     const { data: clubs } = await sb.from("eca_clubs").select("*, eca_members(count)").order("created_at", { ascending: false });
-    const C = clubs || [];
+    const C = (clubs || []).filter((c) => (c.subject || "islamic") === subj);
     let kidsHtml = "";
     if (isParent()) {
       const { data: kids } = await sb.from("parent_links").select("student_id, profiles!parent_links_student_id_fkey(full_name_ar)").eq("parent_id", state.session.user.id);
@@ -11595,11 +11609,11 @@ window.addEventListener("error", function (e) {
       kidsHtml = (kids || []).map((k) => { const mine = (mem || []).filter((m) => m.student_id === k.student_id).map((m) => C.find((c) => c.id === m.club_id)).filter(Boolean);
         return `<div class="eca-kid"><b>${esc(k.profiles ? k.profiles.full_name_ar : "")}</b> ${mine.length ? mine.map((c) => `<a class="pill" href="#/eca/${c.id}">${ECA_KINDS[c.kind] ? ECA_KINDS[c.kind].icon : "✨"} ${esc(c.title)}</a>`).join(" ") : `<span class="muted">${CT("لم ينضمّ إلى نادٍ بعد", "Not in a club yet")}</span>`}</div>`; }).join("");
     }
-    h(`<section class="page-head"><div class="wrap"><h1>🎯 ${CT("الأنشطة اللاصفية", "Extra-curricular clubs (ECA)")}</h1>
+    h(`<section class="page-head"><div class="wrap"><h1>🎯 ${CT("الأنشطة اللاصفية", "Extra-curricular clubs (ECA)")}</h1>${hubTabs("eca", subj)}
         <p class="muted">${staff ? CT("أنشئ ناديًا، وشارك رابطه مع الطلاب وأولياء الأمور، وتابع الحضور والتقدّم.", "Create a club, share its link with students and parents, and track attendance and progress.") : CT("أنديتك التي انضممت إليها بدعوة من معلمك.", "The clubs you joined through your teacher.")}</p></div></section>
       <section class="section" style="padding-top:20px"><div class="wrap">
         ${staff ? `<details class="eca-new" ${C.length ? "" : "open"}><summary class="btn btn-primary">+ ${CT("نادٍ جديد", "New club")}</summary>
-          <div class="eca-form"><label>${CT("نوع النادي", "Club type")}<select id="ecKind">${Object.entries(ECA_KINDS).map(([k, v]) => `<option value="${k}" ${(new URLSearchParams(location.hash.split("?")[1] || "")).get("kind") === k ? "selected" : ""}>${v.icon} ${CT(v.ar, v.en)}</option>`).join("")}</select></label>
+          <div class="eca-form"><label>${CT("نوع النادي", "Club type")}<select id="ecKind">${Object.entries(ECA_KINDS).filter(([k]) => k === "custom" || ECA_KIND_SUBJ[k] === subj).map(([k, v]) => `<option value="${k}" ${(new URLSearchParams(location.hash.split("?")[1] || "")).get("kind") === k ? "selected" : ""}>${v.icon} ${CT(v.ar, v.en)}</option>`).join("")}</select></label>
             <label>${CT("اسم النادي", "Club name")}<input id="ecTitle" placeholder="${CT("مثال: نادي التجويد · الخميس", "e.g. Tajweed Club · Thursday")}"></label>
             <label>${CT("المستوى", "Level")}<select id="ecLevel"><option value="1">${ecaLevel(1)}</option><option value="2">${ecaLevel(2)}</option><option value="3">${ecaLevel(3)}</option></select></label>
             <label>${CT("الموعد", "Meeting time")}<input id="ecMeet" placeholder="${CT("مثال: الخميس 2:30–3:30", "e.g. Thursday 2:30–3:30")}"></label>
@@ -11612,7 +11626,7 @@ window.addEventListener("error", function (e) {
       </div></section>`);
     const cr = document.getElementById("ecCreate");
     if (cr) cr.onclick = async () => { const kind = document.getElementById("ecKind").value, title = document.getElementById("ecTitle").value.trim() || CT(ECA_KINDS[kind].ar, ECA_KINDS[kind].en);
-      cr.disabled = true; const r = await sb.from("eca_clubs").insert({ title, kind, level: +document.getElementById("ecLevel").value, meeting: document.getElementById("ecMeet").value.trim() || null, school_id: state.profile.school_id || null, owner: state.session.user.id }).select("id").single();
+      cr.disabled = true; const r = await sb.from("eca_clubs").insert({ title, kind, level: +document.getElementById("ecLevel").value, meeting: document.getElementById("ecMeet").value.trim() || null, school_id: state.profile.school_id || null, owner: state.session.user.id, subject: subj }).select("id").single();
       cr.disabled = false; if (r.error) { toast(CT("تعذّر: ", "Failed: ") + r.error.message); return; } location.hash = "#/eca/" + r.data.id; };
     const go = document.getElementById("ecGo"); if (go) go.onclick = () => { const v = document.getElementById("ecCode").value.trim(); if (v) location.hash = "#/eca-join?c=" + encodeURIComponent(v); };
   }
@@ -13731,7 +13745,7 @@ window.addEventListener("error", function (e) {
         if (hp.get("error")) { h(`<div class="wrap"><div class="form-card empty"><strong>${CT("الرابط غير صالح أو انتهت صلاحيته", "The link is invalid or has expired")}</strong>${CT("اطلب رابطًا جديدًا من صفحة الدخول.", "Request a new link from the sign-in page.")} <a href="#/login">${CT("تسجيل الدخول", "Sign in")}</a></div></div>`); return; }
         loading(); setTimeout(async () => { const { data } = await sb.auth.getSession(); state.session = data.session; location.hash = hp.get("type") === "recovery" ? "#/reset" : "#/"; }, 900); return; }
       if (p0 === "eca" && parts[1]) return pageEcaClub(parts[1], params);
-      if (p0 === "eca") return pageEca();
+      if (p0 === "eca") return pageEca(params);
       if (p0 === "books") return pageBooks(params);
       if (p0 === "prep") return pagePrep(params);
       if (p0 === "live" && parts[1] === "host" && parts[2]) return pageLiveHost(parts[2]);
@@ -13744,11 +13758,11 @@ window.addEventListener("error", function (e) {
       if (p0 === "tests" && parts[1] === "new") return pageTestBuilder(null);
       if (p0 === "tests" && parts[1] === "edit" && parts[2]) return pageTestBuilder(parts[2]);
       if (p0 === "tests" && parts[1]) return pageTestResults(parts[1]);
-      if (p0 === "tests") return pageTests();
+      if (p0 === "tests") return pageTests(params);
       if (p0 === "book" && parts[1]) return pageBook(parts[1], params);
       if (p0 === "eca-join") return pageEcaJoin(params);
       if (p0 === "family") return pageFamily(params);
-      if (p0 === "my-tests") return pageMyTests();
+      if (p0 === "my-tests") return pageMyTests(params);
       if (p0 === "igcse") return pageIgcse();
       if (p0 === "enrich" && parts[1]) return pageEnrichUnit(parts[1]);
       if (p0 === "enrich") return pageEnrich(params);
