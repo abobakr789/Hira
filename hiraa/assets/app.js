@@ -2242,6 +2242,18 @@
     if (!state.session && acc !== "ok") { h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/">${CT("الرئيسية", "Home")}</a> / <a href="#/year/${u.year_group}?track=${u.track}&term=1">Grade ${u.year_group}</a></div>
         <h1>${esc((LANG === "en" || u.track === "non_native") && l.title_en ? l.title_en : l.title_ar)}</h1></div></section><section class="section"><div class="wrap" style="max-width:760px">${paywallBox()}
         <p style="text-align:center;margin-top:16px"><a class="btn btn-primary" href="#/year/${u.year_group}?track=${u.track}&term=1">${CT("افتح الدرس المجاني", "Open the free lesson")}</a></p></div></section>`); return; }
+    let lvlNav = "";
+    if (subject === "arabic" && u.track === "non_native" && isStaff()) {
+      const mm = /^AR-Y(\d+)-NN-T(\d)-L(\d+)$/.exec(l.code);
+      if (mm) {
+        const { data: sib } = await sb.from("lessons").select("code, title_ar, title_en").like("code", `AR-Y%-NN-T${mm[2]}-L%`).eq("is_published", true);
+        const byG = {};
+        (sib || []).forEach((x) => { const k = /^AR-Y(\d+)-NN-T\d-L(\d+)$/.exec(x.code); if (!k) return; const g = +k[1], n = +k[2]; (byG[g] = byG[g] || []).push({ ...x, n }); });
+        const want = +mm[3], cur = +mm[1];
+        const opts = Object.keys(byG).map(Number).sort((a, b) => a - b).map((g) => { const arr = byG[g].sort((a, b) => a.n - b.n); const pick = arr.find((x) => x.n === want) || arr[arr.length - 1]; return { g, pick }; });
+        if (opts.length > 1) lvlNav = `<div class="lvl-nav"><label for="lvlSel">🎚️ ${CT("المستوى", "Level")}</label><select id="lvlSel" onchange="location.hash='#/lesson/'+this.value">${opts.map(({ g, pick }) => `<option value="${pick.code}" ${g === cur ? "selected" : ""}>${CT("المستوى " + g, "Level " + g)} · ${esc(pick.title_ar)}${pick.n !== want ? " " + CT("(آخر درس في الفصل)", "(last lesson of term)") : ""}</option>`).join("")}</select><small class="muted">${CT("الدرس نفسه (رقم " + want + " في الفصل " + mm[2] + ") من كتاب كل مستوى", "The same lesson number from each level's book")}</small></div>`;
+      }
+    }
     const lockedMsg = accessBox(acc === "no_access" ? "none" : acc, u.year_group);
     const isSampleLesson = acc === "ok" && !isStaff() && state.plan && !(state.plan.subjects || []).includes(u.subject_id);
 
@@ -2486,6 +2498,7 @@
       <div class="crumbs"><a href="#/">الرئيسية</a> / <a href="#/grades?subject=${subject}">${SUBJECTS[subject].name}</a> / <a href="#/year/${u.year_group}?subject=${subject}&track=${u.track}&term=${u.term}"><span dir="ltr">Grade ${u.year_group}</span> · ${TRACKS[u.track]}</a> / ${LANG === "en" ? "Term " + u.term : TERMS[u.term]}</div>
       ${(nn || LANG === "en") && l.title_en ? `<h1 dir="ltr" style="text-align:start">${esc(l.title_en)}</h1>${LANG === "en" ? "" : `<p class="muted" style="font-size:1.15rem">${esc(l.title_ar)}</p>`}`
         : `<h1>${esc(l.title_ar)}</h1>${l.title_en ? `<p class="muted" dir="ltr" style="text-align:start">${esc(l.title_en)}</p>` : ""}`}
+      ${lvlNav}
       <div class="head-meta">
         <span class="pill axis">${esc(axisName)}</span>
         <span class="pill">وحدة: ${esc((nn || LANG === "en") && u.title_en ? u.title_en : u.title_ar)}</span>
@@ -2504,7 +2517,8 @@
     const show = (k) => {
       const tab = TABS.find((t) => t[0] === k) || TABS[0];
       panel.innerHTML = tab[2];
-      const pp = panel.querySelector("#pnPrint"); if (pp) pp.onclick = () => { const w = window.open("", "_blank"); if (!w) return; w.document.write(`<html dir="${nn ? "ltr" : "rtl"}"><head><meta charset="utf-8"><title>Hira</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.8}.pn-words span{display:inline-block;border:1px solid #ccc;border-radius:10px;padding:6px 12px;margin:4px}.pn-words b{font-size:1.4em;display:block}.pn-letter{font-size:3em;float:${nn ? "right" : "left"}}.hub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}.hub-tab{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:999px;background:rgba(15,110,114,.08);color:#0F6E72;font-weight:700;text-decoration:none;border:2px solid rgba(15,110,114,.18)}.hub-tab.on{background:#0F6E72;color:#fff;border-color:#0F6E72}.hub-tab:hover{border-color:#0F6E72}
+      const pp = panel.querySelector("#pnPrint"); if (pp) pp.onclick = () => { const w = window.open("", "_blank"); if (!w) return; w.document.write(`<html dir="${nn ? "ltr" : "rtl"}"><head><meta charset="utf-8"><title>Hira</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.8}.pn-words span{display:inline-block;border:1px solid #ccc;border-radius:10px;padding:6px 12px;margin:4px}.pn-words b{font-size:1.4em;display:block}.pn-letter{font-size:3em;float:${nn ? "right" : "left"}}.lvl-nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0;padding:10px 14px;background:rgba(15,110,114,.07);border:1px solid rgba(15,110,114,.2);border-radius:14px}.lvl-nav label{font-weight:800;color:#0F6E72}.lvl-nav select{font:inherit;font-weight:700;padding:8px 12px;border-radius:10px;border:2px solid #0F6E72;background:#fff;color:#0F6E72;max-width:100%}.lvl-nav small{flex-basis:100%}
+.hub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}.hub-tab{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:999px;background:rgba(15,110,114,.08);color:#0F6E72;font-weight:700;text-decoration:none;border:2px solid rgba(15,110,114,.18)}.hub-tab.on{background:#0F6E72;color:#fff;border-color:#0F6E72}.hub-tab:hover{border-color:#0F6E72}
 </style></head><body>${panel.querySelector("#pnCard").innerHTML}</body></html>`); w.document.close(); w.focus(); w.print(); };
       const pc = panel.querySelector("#pnCopy"); if (pc) pc.onclick = () => { try { navigator.clipboard.writeText(panel.querySelector("#pnCard").innerText); toast(nn ? "Copied" : "تم النسخ"); } catch (e) {} };
       if (REL.cls && !REL.slides) panel.querySelectorAll(".td-open").forEach((x, i) => { if (i === 0) { const n = document.createElement("div"); n.className = "rel-lock-inline"; n.innerHTML = `🔒 <b>${CT("لم يفتح معلمك الشرائح بعد", "Your teacher hasn't opened the slides yet")}</b><small>${CT("يفتحها معلمك في الحصة عندما يحين وقتها. وأوراق العمل ومهام المجموعات متاحة لك الآن.", "Your teacher opens them in class at the right time. Worksheets and group tasks are available now.")}</small>`; x.replaceWith(n); } else x.remove(); });
