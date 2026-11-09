@@ -3,9 +3,10 @@ SP=[]
 import os
 _L=os.environ.get("NN_LEVEL","4")
 OUTS={'تحدّث':[f"NN-S{_L}-01",f"NN-S{_L}-02",f"NN-W{_L}-01"],'استماع':[f"NN-R{_L}-01",f"NN-S{_L}-01",f"NN-W{_L}-02"],'قراءة':[f"NN-R{_L}-01",f"NN-R{_L}-02",f"NN-W{_L}-01"],'كتابة':[f"NN-W{_L}-01",f"NN-W{_L}-02",f"NN-S{_L}-01"]}
+TEXTS={}
 def N(code,U,title,pg,emo,skill,topic,vocab,frames,model,qbox,task,real,chk,idea,idv,prev,nxt):
     w=[x[0] for x in vocab]
-    return dict(code=code,unit=U,title=title,pg=pg,emo=emo,skill=skill,gs=f"{topic} · {skill} · التراكيب · التفاعل",
+    return dict(text=TEXTS.get(code),code=code,unit=U,title=title,pg=pg,emo=emo,skill=skill,gs=f"{topic} · {skill} · التراكيب · التفاعل",
       goal=f"أتحدّث وأكتب عن «{topic}» بجمل مترابطة، مستخدمًا المفردات الجديدة والتراكيب: {frames[0].split('…')[0].strip()}…، وأسأل للاستيضاح وأعقّب.",
       hook=f"{qbox[0]}",warm=[f"اذكر كلمتين عن «{topic}».",qbox[1],qbox[2]],prev=prev,next=nxt,why=f"لتتحدّث عن «{topic}» في مواقف حقيقية في المدرسة والمجتمع.",
       vocab=vocab,frames=frames,model=model,qbox=qbox,cfu=f"أكمل شفويًّا: {frames[0]}",task=task,
