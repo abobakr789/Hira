@@ -2111,6 +2111,17 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 @keyframes tdSplIn { from { opacity: 0; transform: scale(.82) translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes tdSplGlow { from { filter: drop-shadow(0 0 14px rgba(212,170,85,.35)); } to { filter: drop-shadow(0 0 36px rgba(212,170,85,.8)); } }
 .fc { max-width: 760px; margin: 0 auto; }
+.pg-wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 14px; }
+.pg-card { display: flex; gap: 16px; align-items: center; background: #FFFDF7; border: 2px solid #E8DCC8; border-radius: 20px; padding: 16px 20px; }
+.pg-card.done { border-color: #6FBF8E; background: #F2FAF4; } .pg-card h3 { margin: 0 0 4px; }
+.pg-n { width: 54px; height: 54px; flex: none; border-radius: 50%; background: #0F6E72; color: #fff; display: flex; align-items: center; justify-content: center; font: 700 1.5rem "Readex Pro", sans-serif; }
+.pg-res { margin: 6px 0 0; } .pg-gain { text-align: center; font-size: 1.3rem; background: #FFF6DA; border-radius: 16px; padding: 12px; }
+.pg-t { display: grid; gap: 14px; } .pg-open { display: grid; gap: 6px; } .pg-orow { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 6px 8px; border-radius: 12px; } .pg-orow.on { background: #EAF5F4; }
+.pg-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; } .pg-stats div { background: #FFFDF7; border: 1px solid var(--line); border-radius: 14px; padding: 10px; text-align: center; } .pg-stats b { display: block; font-size: 1.3rem; color: #102A4C; } .pg-stats small { color: #6b6b6b; }
+.pg-hard { background: #FFF1E6; border-inline-start: 5px solid #E67E22; border-radius: 12px; padding: 10px 14px; }
+.pg-tw { overflow-x: auto; } .pg-tbl { width: 100%; border-collapse: collapse; } .pg-tbl th, .pg-tbl td { border-bottom: 1px solid var(--line); padding: 8px; text-align: center; } .pg-tbl th { background: #F4ECE2; } .pg-tbl td:first-child { text-align: start; }
+.pg-tbl .up { color: #0B7A55; font-weight: 700; } .pg-tbl .dn { color: #B23A1E; font-weight: 700; } .pg-acts { display: flex; gap: 8px; flex-wrap: wrap; }
+.pg-pop { width: min(880px, 92vw); max-height: 80vh; overflow: auto; inset-inline-end: 24px !important; color: #142033; } .pg-pop h3 { margin: 0 0 10px; } .pg-pop .pg-x { float: inline-end; }
 .fc-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; } .fc-top .fc-n { margin-inline-start: auto; font-weight: 700; }
 .fc-bar { height: 8px; background: #EEE6D6; border-radius: 99px; overflow: hidden; margin-bottom: 14px; } .fc-bar i { display: block; height: 100%; background: linear-gradient(90deg, #0F6E72, #D4AA55); }
 .fc-card { position: relative; height: 300px; perspective: 1200px; cursor: pointer; outline: none; }
@@ -3823,6 +3834,79 @@ window.addEventListener("error", function (e) {
       return { bg: "FBF6EC", els };
     });
   }
+  /* ===== lesson progress: same 5 questions before and after the lesson; teacher opens each per class ===== */
+  async function progIds(l) {
+    const { data } = await sb.from("assessments").select("id, kind").eq("lesson_id", l.id).in("kind", ["lesson_pre", "lesson_post"]);
+    const o = {}; (data || []).forEach((a) => { o[a.kind === "lesson_pre" ? "pre" : "post"] = a.id; });
+    if ((!o.pre || !o.post) && isStaff()) { const { data: r } = await sb.rpc("ensure_lesson_progress", { p_lesson: l.id }); if (r && r.pre) { o.pre = r.pre; o.post = r.post; } }
+    return o;
+  }
+  async function progStudent(box, l, en) {
+    const T2 = (a, b) => (en ? b : a); box.innerHTML = `<div class="loading">${T2("جارٍ التحميل…", "Loading…")}</div>`;
+    const ids = await progIds(l);
+    if (!ids.pre) { box.innerHTML = `<div class="empty"><strong>${T2("لا يوجد قياس تقدّم لهذا الدرس بعد", "No progress check for this lesson yet")}</strong></div>`; return; }
+    const { data: at } = await sb.from("attempts").select("assessment_id, score, max_score").eq("student_id", state.session.user.id).in("assessment_id", [ids.pre, ids.post]).not("submitted_at", "is", null);
+    const mine = (id) => (at || []).find((a) => a.assessment_id === id);
+    const p = mine(ids.pre), q = mine(ids.post);
+    const card = (n, ttl, when, id, done, enabled) => `<div class="pg-card ${done ? "done" : ""}"><div class="pg-n">${n}</div><div><h3>${ttl}</h3><p class="muted">${when}</p>
+      ${done ? `<p class="pg-res">✔️ ${T2("أَنْهَيْتُهُ", "Done")}: <b>${done.score}/${done.max_score}</b></p>` : enabled ? `<a class="btn btn-dawn" href="#/test/${id}">▶ ${T2("أَبْدَأُ", "Start")}</a>` : `<p class="muted">🔒 ${T2("يُفْتَحُ بَعْدَ الْقِياسِ الْقَبْلِيِّ وَالدَّرْسِ", "Opens after the pre-check and the lesson")}</p>`}</div></div>`;
+    box.innerHTML = `<div class="pg-wrap"><p class="muted">${T2("خَمْسَةُ أَسْئِلَةٍ قَصيرَةٍ: أُجيبُ عَنْها في أَوَّلِ الْحِصَّةِ، ثُمَّ أُجيبُ عَنْها نَفْسِها في آخِرِها لِأَرى كَمْ تَعَلَّمْتُ. 🔊 أَسْتَطيعُ أَنْ أَسْتَمِعَ إِلى كُلِّ سُؤالٍ.", "Five short questions at the start of the lesson, and the same five at the end, to see how much you learned. 🔊 You can listen to every question.")}</p>
+      ${card("1", T2("الْقِياسُ الْقَبْلِيُّ", "Pre-check"), T2("في أَوَّلِ الْحِصَّةِ، حينَ يَفْتَحُهُ مُعَلِّمي", "At the start of the lesson, when my teacher opens it"), ids.pre, p, true)}
+      ${card("2", T2("الْقِياسُ الْبَعْدِيُّ", "Post-check"), T2("في آخِرِ الْحِصَّةِ", "At the end of the lesson"), ids.post, q, !!p)}
+      ${p && q ? `<div class="pg-gain">${q.score > p.score ? "🌟" : "💪"} ${T2("تَقَدَّمْتُ مِنْ", "I moved from")} <b>${p.score}</b> ${T2("إِلى", "to")} <b>${q.score}</b> ${T2("مِنْ", "of")} ${q.max_score}</div>` : ""}</div>`;
+  }
+  async function progTeacher(box, l, u, en) {
+    const T2 = (a, b) => (en ? b : a); box.innerHTML = `<div class="loading">${T2("جارٍ التحميل…", "Loading…")}</div>`;
+    const ids = await progIds(l);
+    if (!ids.pre) { box.innerHTML = `<div class="empty"><strong>${T2("أنشئ بطاقة خروج للدرس أولًا: يُبنى القياس من أول خمسة أسئلة فيها.", "Create the lesson's exit ticket first: the check uses its first five questions.")}</strong></div>`; return; }
+    const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+    let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.year_group === u.year_group && c.track === u.track && c.subject_id === u.subject_id);
+    if (!cls.length && isSchoolAdmin()) { const { data } = await sb.from("classes").select("id, name, year_group, track, subject_id").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).limit(20); cls = data || []; }
+    if (!cls.length) { box.innerHTML = `<div class="empty"><strong>${T2("لا توجد فصول مرتبطة بك في هذا الصف.", "You have no classes in this grade.")}</strong><a class="btn btn-ghost" href="#/preview/${ids.pre}">${T2("معاينة الأسئلة", "Preview the questions")}</a></div>`; return; }
+    let cur = box.dataset.cls && cls.find((c) => c.id === box.dataset.cls) ? box.dataset.cls : cls[0].id;
+    const draw = async () => {
+      const [{ data: open }, { data: roster }] = await Promise.all([
+        sb.from("class_assessments").select("class_id, assessment_id").in("class_id", cls.map((c) => c.id)).in("assessment_id", [ids.pre, ids.post]),
+        sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur)]);
+      const isOpen = (c, id) => (open || []).some((o) => o.class_id === c && o.assessment_id === id);
+      const S = (roster || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
+      const { data: at } = S.length ? await sb.from("attempts").select("id, student_id, assessment_id, score, max_score").in("assessment_id", [ids.pre, ids.post]).in("student_id", S.map((x) => x.id)).not("submitted_at", "is", null) : { data: [] };
+      const A = {}; (at || []).forEach((a) => { A[a.student_id + (a.assessment_id === ids.pre ? ":pre" : ":post")] = a; });
+      const postIds = (at || []).filter((a) => a.assessment_id === ids.post).map((a) => a.id);
+      const { data: ans } = postIds.length ? await sb.from("attempt_answers").select("question_id, is_correct").in("attempt_id", postIds) : { data: [] };
+      const { data: qs } = await sb.from("assessment_questions").select("question_id, sort_order, questions(stem_ar, stem_en)").eq("assessment_id", ids.post).order("sort_order");
+      const Q = (qs || []).map((x) => { const r = (ans || []).filter((a) => a.question_id === x.question_id); return { n: x.sort_order, stem: (x.questions && (en && x.questions.stem_en ? x.questions.stem_en : x.questions.stem_ar)) || "", ok: r.filter((a) => a.is_correct).length, all: r.length }; });
+      const rows = S.map((s) => { const p = A[s.id + ":pre"], q = A[s.id + ":post"]; const mx = (q || p || {}).max_score || 5;
+        const g = q ? (q.score / mx >= 0.8 ? "ok" : q.score / mx >= 0.5 ? "mid" : "low") : ""; return { s, p, q, mx, gain: p && q ? q.score - p.score : null, g }; });
+      const done = rows.filter((r) => r.p && r.q), avg = (k) => { const v = rows.filter((r) => r[k]).map((r) => r[k].score / r.mx * 100); return v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null; };
+      const up = done.filter((r) => r.gain > 0).length, hard = Q.filter((x) => x.all).sort((a, b) => a.ok / a.all - b.ok / b.all)[0];
+      const G = { low: T2("🔴 تحتاج دعمًا", "🔴 Needs support"), mid: T2("🟡 قريب من الإتقان", "🟡 Nearly there"), ok: T2("🟢 أتقن", "🟢 Mastered") };
+      const lvl = { low: T2("ورقة المستوى البرونزي", "Bronze sheet"), mid: T2("ورقة المستوى الفضي أو الذهبي", "Silver or gold sheet"), ok: T2("ورقة التحدّي", "Challenge sheet") };
+      const cName = (cls.find((c) => c.id === cur) || {}).name || "";
+      box.innerHTML = `<div class="pg-t">
+        <div class="pg-open">${cls.map((c) => `<div class="pg-orow ${c.id === cur ? "on" : ""}"><button class="btn btn-ghost btn-small" data-cls="${c.id}">${esc(c.name)}</button>
+          <label class="rel-t"><input type="checkbox" data-op="${ids.pre}" data-c="${c.id}" ${isOpen(c.id, ids.pre) ? "checked" : ""}> ${T2("فتح القبلي", "Open pre-check")}</label>
+          <label class="rel-t"><input type="checkbox" data-op="${ids.post}" data-c="${c.id}" ${isOpen(c.id, ids.post) ? "checked" : ""}> ${T2("فتح البعدي", "Open post-check")}</label></div>`).join("")}</div>
+        <div class="pg-stats"><div><b>${rows.filter((r) => r.p).length}/${S.length}</b><small>${T2("أنهوا القبلي", "did the pre-check")}</small></div><div><b>${rows.filter((r) => r.q).length}/${S.length}</b><small>${T2("أنهوا البعدي", "did the post-check")}</small></div>
+          <div><b>${T2("قبل", "Before")} ${avg("p") ?? "—"}% · ${T2("بعد", "After")} ${avg("q") ?? "—"}%</b><small>${T2("متوسط الفصل", "Class average")}</small></div><div><b>${done.length ? Math.round(up * 100 / done.length) + "%" : "—"}</b><small>${T2("نسبة من تقدّموا", "Share who improved")}</small></div></div>
+        ${hard ? `<div class="pg-hard">🎯 ${T2("أصعب سؤال بعد الدرس", "Hardest question after the lesson")}: <b>${esc(hard.stem)}</b> (${hard.ok}/${hard.all} ${T2("أجابوا صحيحًا", "correct")}) — ${T2("ابدأ به الحصة القادمة.", "start the next lesson with it.")}</div>` : ""}
+        <div class="pg-tw"><table class="pg-tbl"><thead><tr><th>${T2("الطالب", "Student")}</th><th>${T2("القبلي", "Pre")}</th><th>${T2("البعدي", "Post")}</th><th>${T2("التقدّم", "Progress")}</th><th>${T2("المجموعة", "Group")}</th><th>${T2("الخطوة التالية", "Next step")}</th></tr></thead><tbody>
+          ${rows.map((r) => `<tr><td>${esc(r.s.name)}</td><td>${r.p ? r.p.score + "/" + r.mx : "—"}</td><td>${r.q ? r.q.score + "/" + r.mx : "—"}</td><td>${r.gain == null ? "—" : r.gain > 0 ? `<span class="up">⬆️ +${r.gain}</span>` : r.gain < 0 ? `<span class="dn">⬇️ ${r.gain}</span>` : "➖ 0"}</td><td>${r.g ? G[r.g] : "—"}</td><td>${r.g ? lvl[r.g] : ""}</td></tr>`).join("")}</tbody></table></div>
+        <div class="pg-acts"><button class="btn btn-primary btn-small" id="pgCsv">⬇️ ${T2("تحميل Excel", "Download Excel")}</button><button class="btn btn-ghost btn-small" id="pgPrint">🖨️ ${T2("طباعة التقرير", "Print report")}</button><button class="btn btn-ghost btn-small" id="pgRef">🔄 ${T2("تحديث", "Refresh")}</button><a class="btn btn-ghost btn-small" href="#/preview/${ids.pre}">${T2("الأسئلة والإجابات", "Questions and answers")}</a></div></div>`;
+      box.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; box.dataset.cls = cur; draw(); });
+      box.querySelectorAll("[data-op]").forEach((cb) => cb.onchange = async () => {
+        const r = cb.checked ? await sb.from("class_assessments").insert({ class_id: cb.dataset.c, assessment_id: cb.dataset.op, opened_by: state.session.user.id })
+          : await sb.from("class_assessments").delete().eq("class_id", cb.dataset.c).eq("assessment_id", cb.dataset.op);
+        if (r.error) { cb.checked = !cb.checked; toast(T2("تعذّر الحفظ", "Could not save")); } else toast(cb.checked ? T2("فُتح للطلاب ✓", "Opened for students ✓") : T2("أُغلق", "Closed")); });
+      box.querySelector("#pgRef").onclick = draw;
+      const lines = [[T2("الطالب", "Student"), T2("القبلي", "Pre"), T2("البعدي", "Post"), T2("التقدّم", "Progress"), T2("المجموعة", "Group"), T2("الخطوة التالية", "Next step")]].concat(rows.map((r) => [r.s.name, r.p ? r.p.score : "", r.q ? r.q.score : "", r.gain == null ? "" : r.gain, r.g ? G[r.g].replace(/^\S+\s/, "") : "", r.g ? lvl[r.g] : ""]));
+      box.querySelector("#pgCsv").onclick = () => { const csv = "\uFEFF" + lines.map((a) => a.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n"); const b = new Blob([csv], { type: "text/csv;charset=utf-8" }); const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = `قياس-التقدم-${l.code}-${cName}.csv`; a.click(); };
+      box.querySelector("#pgPrint").onclick = () => { const w = window.open("", "_blank"); if (!w) return; w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(l.title_ar)}</title><style>body{font-family:Tahoma,sans-serif;padding:24px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #bbb;padding:6px 8px;text-align:center}th{background:#F4ECE2}h1{font-size:20px}.st{display:flex;gap:24px;margin:10px 0}</style></head><body><h1>${T2("تقرير قياس التقدّم", "Progress report")} · ${esc(l.title_ar)} · ${esc(cName)}</h1>
+        <div class="st"><span>${T2("متوسط القبلي", "Pre average")}: ${avg("p") ?? "—"}%</span><span>${T2("متوسط البعدي", "Post average")}: ${avg("q") ?? "—"}%</span><span>${T2("نسبة من تقدّموا", "Improved")}: ${done.length ? Math.round(up * 100 / done.length) + "%" : "—"}</span></div>
+        ${hard ? `<p>${T2("أصعب سؤال بعد الدرس", "Hardest question")}: ${esc(hard.stem)} (${hard.ok}/${hard.all})</p>` : ""}<table>${lines.map((r, i) => `<tr>${r.map((v) => i ? `<td>${esc(String(v))}</td>` : `<th>${esc(String(v))}</th>`).join("")}</tr>`).join("")}</table><script>setTimeout(()=>print(),400)<\/script></body></html>`); w.document.close(); };
+    };
+    draw();
+  }
   function fcRun(l, cards0, en) {
     const box = document.getElementById("fcBox"); if (!box) return;
     const deck = "lesson:" + l.code, me = state.session && state.session.user && state.session.user.id;
@@ -5066,6 +5150,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const relBox = isStaff() && summary ? `<div id="relBox" class="rel-box"></div>` : "";
     const TABS = [
       ["slides", nnEn ? "Slides" : "الشرائح", relBox + slidesPanel()],
+      ...(state.session && (isStaff() || isStudent()) && !lockedForMe && (ticket && nq >= 3) ? [["prog", nnEn ? "📈 Progress check" : "📈 قياس التقدّم", `<div id="pgBox"></div>`]] : []),
       ...(fcCards.length >= 3 ? [["cards", nnEn ? "🃏 Flashcards" : "🃏 البطاقات التعليمية", lockedForMe ? lockedMsg : `<div class="fc" id="fcBox"></div>`]] : []),
       ...(isStaff() && summary && !lockedForMe ? [["weekly", CT("الخطة الأسبوعية", "Weekly plan"), `<div class="papers-box"><h3>📅 ${CT("الخطة الأسبوعية", "Weekly plan")}</h3>
         <p class="muted">${CT("تُبنى تلقائيًّا من الدرس: ما تمّ الانتهاء منه، ودرس الأسبوع، والهدف، ومعايير النجاح، والهوية الوطنية، وHPL، والحصة القادمة، والمطلوب من الطالب. عدّلها بالكتابة عليها، واحفظ نسختك، ثم اطبعها أو أرسلها لأولياء الأمور.", "Built from the lesson: what was completed, this week's lesson, objective, success criteria, national identity, HPL, next lesson and student tasks. Edit it, save your copy, then print or send it to parents.")}</p>
@@ -5125,6 +5210,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (k === "recite" && isStudent() && !lockedForMe) recorder(l, nn);
       if (k === "games" && !lockedForMe && gameItems.length) runGame(l, gameItems);
       if (k === "cards" && !lockedForMe) fcRun(l, fcCards, nnEn);
+      if (k === "prog") { const pb = document.getElementById("pgBox"); if (pb) (isStaff() ? progTeacher(pb, l, u, nnEn) : progStudent(pb, l, nnEn)); }
       if (k === "booktext") {
         const pr = document.getElementById("btxPrint");
         if (pr) pr.onclick = () => { const w = window.open("", "_blank"); w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(bookTx.title || l.title_ar)}</title><style>body{font-family:'Noto Naskh Arabic','Amiri',serif;padding:32px;font-size:20px;line-height:2.2}h1{font-size:24px}.poem{text-align:center;font-weight:700}.ln{border-bottom:1px solid #999;height:34px}mark{background:#FFE9A8;color:#8A2D0E;font-weight:700;padding:0 3px;border-radius:4px}</style></head><body><h1>${esc(bookTx.title || l.title_ar)}${bookTx.pages ? " · " + esc(bookTx.pages) : ""}</h1><div class="${bookTx.kind === "poem" ? "poem" : ""}">${bookLines(bookTx.body).map((x) => `<div>${bkHL(esc(x))}</div>`).join("")}</div><h2 style="font-size:20px;margin-top:28px">أسئلتي عن النص:</h2>${Array.from({ length: 6 }, () => '<div class="ln"></div>').join("")}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
@@ -7373,7 +7459,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           return `<div class="cheer ${pct >= 80 ? "party" : ""}" ${nnR ? 'dir="ltr"' : ""}><span class="stars" aria-label="${stars}/3">${"★".repeat(stars)}<span class="off">${"★".repeat(3 - stars)}</span></span><strong>${msg}${grow}</strong>${pct >= 80 ? '<span class="confetti" aria-hidden="true">' + "<i></i>".repeat(14) + "</span>" : ""}</div>`; })()}
         <h1>${esc(tTitle(a) || "النتيجة")}</h1>
         <div class="score-line"><span class="score-big">${att.score}/${att.max_score}</span><span class="muted">${pct}% · ${new Date(att.submitted_at).toLocaleDateString(LANG === "en" ? "en-GB" : "ar-AE")}</span></div>
-        ${!viewing ? `<div class="res-acts"><button class="btn btn-dawn" id="resCert">🏅 ${nnR ? "Certificate of appreciation" : "شهادة تقدير"}</button>${["diagnostic", "post", "benchmark", "unit_test", "teacher_test"].includes(a.kind) ? "" : `<a class="btn btn-primary" href="#/test/${id}">🔁 ${nnR ? "Try again to improve" : "حاول مرة أخرى لتحسين درجتك"}</a>`}</div>` : ""}
+        ${!viewing ? `<div class="res-acts"><button class="btn btn-dawn" id="resCert">🏅 ${nnR ? "Certificate of appreciation" : "شهادة تقدير"}</button>${["diagnostic", "post", "benchmark", "unit_test", "teacher_test", "lesson_pre", "lesson_post"].includes(a.kind) ? "" : `<a class="btn btn-primary" href="#/test/${id}">🔁 ${nnR ? "Try again to improve" : "حاول مرة أخرى لتحسين درجتك"}</a>`}</div>` : ""}
         ${pre ? `<p class="growth-line">${nnR ? "Diagnostic" : "في التشخيصي"}: <b>${pre.score}/${pre.max}</b> ← ${nnR ? "Now" : "الآن"}: <b>${att.score}/${att.max_score}</b>
           ${att.score > pre.score ? `<span class="lv mastered">${nnR ? "Improved" : "تقدّم"} +${att.score - pre.score}</span>` : att.score < pre.score ? `<span class="lv needs_support">${att.score - pre.score}</span>` : `<span class="lv developing">${nnR ? "Same" : "ثابت"}</span>`}</p>` : ""}
       </div></section>
@@ -9889,7 +9975,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <button class="btn btn-ghost btn-small" id="tdUp">▲</button><button class="btn btn-ghost btn-small" id="tdDown">▼</button>
             <button class="btn btn-ghost btn-small" id="tdDel">🗑 حذف</button>${custom ? '<button class="btn btn-ghost btn-small" id="tdReset">استرجاع الأصل</button>' : ""}
             <button class="btn btn-primary btn-small" id="tdSave">${dirty ? "حفظ التعديلات" : "محفوظ ✓"}</button><button class="btn btn-dawn btn-small" id="tdDone">إنهاء التعديل</button>`
-          : `<select id="tdFxSel" class="td-sel" title="مؤثر الانتقال">${TD_FX.map(([k, t]) => `<option value="${k}" ${k === fx ? "selected" : ""}>✨ ${t}</option>`).join("")}</select>${state._bookTx ? `<button class="btn btn-ghost btn-small" data-bk="1">📖 ${CT("النَّصُّ كامِلًا", "Full text")}</button>` : ""}
+          : `<select id="tdFxSel" class="td-sel" title="مؤثر الانتقال">${TD_FX.map(([k, t]) => `<option value="${k}" ${k === fx ? "selected" : ""}>✨ ${t}</option>`).join("")}</select>${state._bookTx ? `<button class="btn btn-ghost btn-small" data-bk="1">📖 ${CT("النَّصُّ كامِلًا", "Full text")}</button>` : ""}<button class="btn btn-ghost btn-small" id="tdProg">📈 ${CT("قياس التقدّم", "Progress check")}</button>
             ${s.t === "table" ? '<button class="btn btn-primary btn-small" id="tdLive">📲 قياس مباشر</button>' : ""}<button class="btn btn-ghost btn-small" id="tdTimer">⏱ مؤقت</button><button class="btn btn-ghost btn-small" id="tdSnd">🔔 انتباه</button>
             <button class="btn btn-ghost btn-small" id="tdNotes">📝 الملاحظات</button><button class="btn btn-ghost btn-small" id="tdEdit">✏️ تعديل</button><button class="btn btn-dawn btn-small" id="tdFull">⛶ ملء الشاشة</button>`}
         </div>
@@ -9942,6 +10028,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       on("tdEdit", () => { editing = true; draw(); });
       on("tdDone", () => { editing = false; draw(); });
       on("tdTimer", timerMenu); on("tdSnd", soundMenu);
+      on("tdProg", () => { let pp = document.getElementById("tdProgPop"); if (pp) { pp.remove(); return; } pp = document.createElement("div"); pp.id = "tdProgPop"; pp.className = "td-pop pg-pop"; pp.innerHTML = `<button class="btn btn-ghost btn-small pg-x">✕</button><h3>📈 ${CT("قياس التقدّم", "Progress check")}</h3><div id="pgPopBox"></div>`;
+        ["click", "keydown", "pointerdown"].forEach((t) => pp.addEventListener(t, (e) => e.stopPropagation())); d.appendChild(pp); pp.querySelector(".pg-x").onclick = () => pp.remove(); progTeacher(pp.querySelector("#pgPopBox"), l, u, en); });
       on("tdLive", () => pgLivePanel(d, ctx, part, (s.d && s.d.rows) || [], en));
       const fs = document.getElementById("tdFxSel"); if (fs) fs.onchange = () => { fx = fs.value; localStorage.setItem("tdFx", fx); dir = 1; draw(true); };
       on("tdFull", () => { (d.requestFullscreen ? d.requestFullscreen() : Promise.resolve()).catch(() => {}).finally(() => setTimeout(() => tdFit(document.getElementById("tdStage")), 200)); });
