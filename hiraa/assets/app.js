@@ -1549,13 +1549,13 @@
       const tgt = q.words || 300, CM = q.cmax || 15, LM = q.max - CM; const lenf = W >= 0.93 * tgt ? 1 : W >= 0.73 * tgt ? 0.8 : W >= 0.5 * tgt ? 0.6 : W >= 0.27 * tgt ? 0.4 : W > 0 ? 0.2 : 0;
       const form = q.form === "speech" ? mkHas(t, ["ايها", "اعزائي", "زملائي", "السلام عليكم", "الحضور"]) : q.form === "compare" ? mkCount(t, MK_CMP) >= 2 : q.form === "letter" ? mkHas(t, ["حضره", "تحيه طيبه", "وبعد", "المحترم", "تفضلوا", "السيد"]) : q.form === "story" ? (paras >= 3 && mkHas(t, ["فجاه", "عندما", "ثم", "في النهايه", "اخيرا"])) : paras >= 3;
       const lenScale = W >= 0.67 * tgt ? 1 : W >= 0.4 * tgt ? 0.75 : W >= 0.2 * tgt ? 0.5 : 0.3;
-      const C = W ? Math.round(CM * Math.min(1, 0.45 * cov + 0.3 * lenf + 0.1 * (paras >= 3 ? 1 : 0) + 0.15 * (form ? 1 : 0)) * lenScale) : 0;
+      const shortT = tgt <= 60; const C = W ? Math.round(CM * Math.min(1, shortT ? 0.6 * cov + 0.4 * lenf : 0.45 * cov + 0.3 * lenf + 0.1 * (paras >= 3 ? 1 : 0) + 0.15 * (form ? 1 : 0)) * lenScale) : 0;
       const words = t.split(" ").filter(Boolean), ttr = words.length ? new Set(words).size / words.length : 0, conn = mkCount(t, MK_CONN);
       const rh = (String(A || "").match(/[؟?!]/g) || []).length + mkCount(t, ["كان", "كأن", "مثل", "يا ", "ما اجمل", "اليس", "ليت"]) + (/«[^»]+»|﴿/.test(A || "") ? 1 : 0);
-      const L = W ? Math.round(LM * (0.4 * Math.min(1, conn / (tgt >= 200 ? 6 : 3)) + 0.3 * Math.max(0, Math.min(1, (ttr - 0.4) / 0.3)) + 0.2 * Math.min(1, rh / 3) + 0.1 * (W >= 0.67 * tgt ? 1 : 0)) * (W >= 0.67 * tgt ? 1 : W >= 0.4 * tgt ? 0.8 : 0.5)) : 0;
+      const L = !W ? 0 : shortT ? Math.round(LM * (0.4 * Math.min(1, (conn + (/(\u0644\u0627\u0646|\u0648 )/.test(t) ? 1 : 0)) / 2) + 0.4 * Math.max(0, Math.min(1, (ttr - 0.5) / 0.3)) + 0.2 * (W >= 0.67 * tgt ? 1 : 0))) : Math.round(LM * (0.4 * Math.min(1, conn / (tgt >= 200 ? 6 : 3)) + 0.3 * Math.max(0, Math.min(1, (ttr - 0.4) / 0.3)) + 0.2 * Math.min(1, rh / 3) + 0.1 * (W >= 0.67 * tgt ? 1 : 0)) * (W >= 0.67 * tgt ? 1 : W >= 0.4 * tgt ? 0.8 : 0.5));
       if (cov < 1) fb.push("غطِّ كل النقاط المقترحة في السؤال: كل نقطة في فقرة.");
       if (W < 0.83 * tgt) fb.push(`عدد كلماتك ${W}: المطلوب نحو ${tgt} كلمة.`);
-      if (!form) fb.push(q.form === "speech" ? "الكلمة تبدأ بمخاطبة الجمهور: «أيها الزملاء الأعزاء…»." : q.form === "compare" ? "استخدم أدوات الموازنة: في حين، بينما، على عكس…" : q.form === "letter" ? "الرسالة الرسمية: «حضرة السيد…، تحية طيبة وبعد،» وتُختم بـ«وتفضّلوا بقبول فائق الاحترام»." : q.form === "story" ? "القصة: بداية وعقدة ونهاية في فقرات، بأدوات الزمن (عندما، فجأة، ثم، في النهاية)." : "نظّم المقال في فقرات: مقدمة، عرض، خاتمة.");
+      if (!form && !shortT) fb.push(q.form === "speech" ? "الكلمة تبدأ بمخاطبة الجمهور: «أيها الزملاء الأعزاء…»." : q.form === "compare" ? "استخدم أدوات الموازنة: في حين، بينما، على عكس…" : q.form === "letter" ? "الرسالة الرسمية: «حضرة السيد…، تحية طيبة وبعد،» وتُختم بـ«وتفضّلوا بقبول فائق الاحترام»." : q.form === "story" ? "القصة: بداية وعقدة ونهاية في فقرات، بأدوات الزمن (عندما، فجأة، ثم، في النهاية)." : "نظّم المقال في فقرات: مقدمة، عرض، خاتمة.");
       if (conn < 4) fb.push("نوّع أدوات الربط: لذلك، علاوة على ذلك، ومع ذلك، في الختام…");
       return { got: C + L, max: q.max, fb, info: `المحتوى والتواصل: ${C}/${CM} · المعرفة اللغوية: ${L}/${LM} · كلمات: ${W}`, parts: { C, L } };
     }
