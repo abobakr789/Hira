@@ -1,0 +1,639 @@
+{
+"id": "GC-M1-P1H",
+"qual": "1AA0",
+"title": "Mock 1 — Paper 1: Listening and understanding in Arabic (Higher) · 50 marks",
+"minutes": 50,
+"note": "امتحان استماع تجريبي من تأليف حراء بشكل الورقة 1 في GCSE العربية (المستوى الأعلى). يُقرأ كل مقطع بصوت عربي آلي مرتين كحدّ أقصى. القسم أ بالإنجليزية، والقسم ب بالعربية.",
+"sections": [
+{
+"title": "Section A (questions in English)",
+"intro": "Listen to each recording twice, then answer in English.",
+"qs": [
+{
+"n": 1,
+"type": "short",
+"q": "Two friends discuss social media. (a) Give ONE advantage Rami mentions. (b) What is Rami's problem? (c) What did Lina do before her exams? (d) How does she feel now? (e) Does Lina have a positive or negative view?",
+"audio": [
+{
+"s": "m",
+"t": "رامي: وسائل التواصل تساعدني على البقاء على اتصال بأبناء عمّي في الخارج."
+},
+{
+"s": "m",
+"t": "لكنّني أقضي ساعات طويلة عليها، وهذا يؤثّر في نومي."
+},
+{
+"s": "f",
+"t": "لينا: أنا حذفتُ التطبيقات قبل الامتحانات."
+},
+{
+"s": "f",
+"t": "والآن أشعر بهدوء أكبر، وأركّز أكثر في دراستي."
+}
+],
+"max": 5,
+"pts": [
+[
+"cousins",
+"relatives",
+"in touch",
+"contact"
+],
+[
+"hours",
+"time",
+"sleep"
+],
+[
+"deleted",
+"removed",
+"apps"
+],
+[
+"calm",
+"calmer",
+"relaxed",
+"focus"
+],
+[
+"negative",
+"both"
+]
+],
+"model": "(a) Keeps in touch with cousins abroad (b) Spends too long, affects his sleep (c) Deleted the apps (d) Calmer and more focused (e) Mostly negative"
+},
+{
+"n": 2,
+"type": "mcq",
+"q": "News report about a new park. Choose the correct answer.",
+"audio": [
+{
+"s": "f",
+"t": "تفتتح بلدية أبوظبي حديقة جديدة في الشهر القادم."
+},
+{
+"s": "f",
+"t": "تعمل أضواء الحديقة بالطاقة الشمسية، وفيها مسارات للدرّاجات."
+},
+{
+"s": "f",
+"t": "لكنّ بعض السكان يرون أنّ الحديقة بعيدة عن وسط المدينة."
+}
+],
+"items": [
+{
+"prompt": "When will the park open?",
+"options": [
+"Next month",
+"Next week",
+"Next year",
+"Today"
+],
+"c": 0
+},
+{
+"prompt": "How are the lights powered?",
+"options": [
+"Solar energy",
+"Electricity from oil",
+"Wind",
+"Batteries"
+],
+"c": 0
+},
+{
+"prompt": "What can people do there?",
+"options": [
+"Cycle",
+"Swim",
+"Ski",
+"Fish"
+],
+"c": 0
+},
+{
+"prompt": "What is the criticism?",
+"options": [
+"It is far from the city centre",
+"It is expensive",
+"It is small",
+"It is noisy"
+],
+"c": 0
+}
+]
+},
+{
+"n": 3,
+"type": "short",
+"q": "Youssef talks about his future. (a) What did he want to be as a child? (b) What does he want to be now? (c) Why? (d) Where does he volunteer? (e) What has volunteering taught him?",
+"audio": [
+{
+"s": "m",
+"t": "عندما كنتُ صغيرًا كنتُ أحلم بأن أكون طيّارًا."
+},
+{
+"s": "m",
+"t": "أمّا الآن فأريد أن أصبح مهندسًا لأنني ممتاز في الرياضيات."
+},
+{
+"s": "m",
+"t": "أتطوّع في المستشفى كل يوم جمعة،"
+},
+{
+"s": "m",
+"t": "وقد علّمني التطوّع الصبر."
+}
+],
+"max": 5,
+"pts": [
+[
+"pilot"
+],
+[
+"engineer"
+],
+[
+"maths",
+"math"
+],
+[
+"hospital"
+],
+[
+"patience",
+"patient"
+]
+],
+"model": "(a) A pilot (b) An engineer (c) Good at maths (d) At a hospital (e) Patience"
+},
+{
+"n": 4,
+"type": "mcq",
+"q": "A hotel complaint. Choose the correct answer.",
+"audio": [
+{
+"s": "f",
+"t": "مساء الخير، غرفتي مزعجة جدًّا بسبب الشارع."
+},
+{
+"s": "f",
+"t": "والمكيّف لا يعمل."
+},
+{
+"s": "f",
+"t": "أريد أن أغيّر الغرفة من فضلك."
+},
+{
+"s": "m",
+"t": "نعتذر يا سيدتي، سننقلك إلى غرفة هادئة، والفطور مجّاني لك غدًا."
+}
+],
+"items": [
+{
+"prompt": "What is the first problem?",
+"options": [
+"The room is noisy",
+"The room is small",
+"The room is dirty",
+"The room is cold"
+],
+"c": 0
+},
+{
+"prompt": "What else does not work?",
+"options": [
+"The air conditioning",
+"The TV",
+"The lift",
+"The light"
+],
+"c": 0
+},
+{
+"prompt": "What does the guest ask for?",
+"options": [
+"A different room",
+"Her money back",
+"A taxi",
+"A doctor"
+],
+"c": 0
+},
+{
+"prompt": "What does the manager offer?",
+"options": [
+"Free breakfast",
+"A free night",
+"A discount on lunch",
+"A free taxi"
+],
+"c": 0
+}
+]
+},
+{
+"n": 5,
+"type": "short",
+"q": "Eid then and now. (a) Where did the family celebrate Eid in the past? (b) What do many families do now? (c) Which does the speaker prefer? (d) Why?",
+"audio": [
+{
+"s": "f",
+"t": "في الماضي كنّا نحتفل بالعيد في بيت جدّي وجدّتي."
+},
+{
+"s": "f",
+"t": "أمّا اليوم فكثير من الأسر تسافر في العطلة."
+},
+{
+"s": "f",
+"t": "أنا أفضّل الطريقة القديمة،"
+},
+{
+"s": "f",
+"t": "لأنّ العائلة كلّها كانت تجتمع في مكان واحد."
+}
+],
+"max": 4,
+"pts": [
+[
+"grandparents",
+"grandfather",
+"grandmother"
+],
+[
+"travel"
+],
+[
+"old",
+"past",
+"traditional"
+],
+[
+"together",
+"whole family",
+"gather",
+"one place"
+]
+],
+"model": "(a) At the grandparents' house (b) Travel (c) The old way (d) The whole family gathered in one place"
+},
+{
+"n": 6,
+"type": "mcq",
+"q": "A school environment campaign. Choose the correct answer.",
+"audio": [
+{
+"s": "m",
+"t": "وضعنا صناديق لإعادة التدوير في كل صف."
+},
+{
+"s": "m",
+"t": "فانخفض استخدام البلاستيك في المدرسة إلى النصف."
+},
+{
+"s": "m",
+"t": "وخطّتنا القادمة تركيب ألواح شمسية على السطح."
+}
+],
+"items": [
+{
+"prompt": "What did they put in each classroom?",
+"options": [
+"Recycling bins",
+"Plants",
+"Computers",
+"Posters"
+],
+"c": 0
+},
+{
+"prompt": "What was the result?",
+"options": [
+"Plastic use fell by half",
+"Paper use doubled",
+"Nothing changed",
+"Plastic use rose"
+],
+"c": 0
+},
+{
+"prompt": "What is the next plan?",
+"options": [
+"Solar panels on the roof",
+"A new garden",
+"A bike shed",
+"A water fountain"
+],
+"c": 0
+}
+]
+}
+]
+},
+{
+"title": "القسم ب (الأسئلة بالعربية)",
+"intro": "استمع إلى كل تسجيل مرتين، ثم أجب بالعربية.",
+"qs": [
+{
+"n": 7,
+"type": "short",
+"q": "برنامج إذاعي عن القراءة. أ) ما سبب تراجع القراءة عند الشباب؟ ب) ما الحلّ المقترح؟ ج) كم نسبة الشباب الذين يقرؤون يوميًّا؟ د) ماذا تفعل النوادي؟ هـ) ما رأي المذيعة؟",
+"audio": [
+{
+"s": "f",
+"t": "تراجعت القراءة عند الشباب بسبب الهواتف الذكية."
+},
+{
+"s": "f",
+"t": "ويقترح الخبراء إنشاء نوادٍ للقراءة في المدارس،"
+},
+{
+"s": "f",
+"t": "تجمع الطلاب أسبوعيًّا لمناقشة الكتب."
+},
+{
+"s": "f",
+"t": "وتشير دراسة إلى أنّ ثلاثين في المئة فقط يقرؤون يوميًّا."
+},
+{
+"s": "f",
+"t": "وأنا أرى أنّ الأسرة يجب أن تكون القدوة."
+}
+],
+"max": 5,
+"pts": [
+[
+"الهواتف"
+],
+[
+"نوادي",
+"نواد"
+],
+[
+"ثلاثين",
+"30"
+],
+[
+"مناقشه",
+"الكتب",
+"اسبوعيا"
+],
+[
+"الاسره",
+"القدوه"
+]
+],
+"model": "الهواتف الذكية؛ نوادي القراءة؛ ثلاثون في المئة؛ تجمع الطلاب لمناقشة الكتب؛ أن الأسرة يجب أن تكون القدوة."
+},
+{
+"n": 8,
+"type": "mcq",
+"q": "نقاش عن الزيّ المدرسي. اختر الإجابة الصحيحة.",
+"audio": [
+{
+"s": "m",
+"t": "الزيّ المدرسي يحقّق المساواة بين الطلاب."
+},
+{
+"s": "m",
+"t": "ويوفّر الوقت في الصباح."
+},
+{
+"s": "f",
+"t": "لكنّه يمنع الطلاب من التعبير عن شخصياتهم."
+},
+{
+"s": "f",
+"t": "أقترح يومًا حرًّا في الأسبوع بلا زيّ."
+}
+],
+"items": [
+{
+"prompt": "ما الفائدة الأولى للزيّ؟",
+"options": [
+"المساواة بين الطلاب",
+"الأناقة",
+"الرخص",
+"الدفء"
+],
+"c": 0
+},
+{
+"prompt": "ما الفائدة الثانية؟",
+"options": [
+"توفير الوقت",
+"توفير المال",
+"الراحة",
+"النظافة"
+],
+"c": 0
+},
+{
+"prompt": "ما عيب الزيّ في رأي المتحدّثة؟",
+"options": [
+"يمنع التعبير عن الشخصية",
+"غالٍ",
+"حارّ",
+"قبيح"
+],
+"c": 0
+},
+{
+"prompt": "ماذا تقترح؟",
+"options": [
+"يومًا حرًّا في الأسبوع",
+"إلغاء الزيّ",
+"زيًّا جديدًا",
+"ألوانًا مختلفة"
+],
+"c": 0
+}
+]
+},
+{
+"n": 9,
+"type": "short",
+"q": "مقابلة مع مخترعة إماراتية شابّة. أ) ماذا اخترعت؟ ب) من أين جاءتها الفكرة؟ ج) كم يوفّر الجهاز؟ د) ما نصيحتها للشباب؟ هـ) ما مشروعها القادم؟",
+"audio": [
+{
+"s": "f",
+"t": "اخترعتُ جهازًا يوفّر الماء في ريّ الحدائق."
+},
+{
+"s": "f",
+"t": "جاءتني الفكرة من مزرعة جدّي في العين."
+},
+{
+"s": "f",
+"t": "يوفّر الجهاز نحو أربعين في المئة من الماء."
+},
+{
+"s": "f",
+"t": "نصيحتي للشباب: لا تستسلموا بعد أوّل فشل."
+},
+{
+"s": "f",
+"t": "ومشروعي القادم جهاز مثله للمنازل."
+}
+],
+"max": 5,
+"pts": [
+[
+"الماء",
+"الري",
+"جهازا"
+],
+[
+"مزرعه",
+"جدي"
+],
+[
+"اربعين",
+"40"
+],
+[
+"لا تستسلموا",
+"الفشل"
+],
+[
+"المنازل",
+"للمنازل"
+]
+],
+"model": "جهازًا يوفّر الماء في ريّ الحدائق؛ من مزرعة جدّها؛ نحو 40%؛ لا تستسلموا؛ جهاز للمنازل."
+},
+{
+"n": 10,
+"type": "mcq",
+"q": "تقرير عن السياحة. اختر الإجابة الصحيحة.",
+"audio": [
+{
+"s": "m",
+"t": "يزداد عدد السيّاح في الإمارات كل عام."
+},
+{
+"s": "m",
+"t": "وتوفّر السياحة آلاف الوظائف للشباب."
+},
+{
+"s": "m",
+"t": "لكنّها تسبّب الازدحام في بعض المناطق،"
+},
+{
+"s": "m",
+"t": "وترفع الأسعار أحيانًا على السكان."
+},
+{
+"s": "m",
+"t": "ولذلك تعمل الحكومة على تنظيم المواقع السياحية."
+}
+],
+"items": [
+{
+"prompt": "كيف يتغيّر عدد السيّاح؟",
+"options": [
+"يزداد",
+"ينقص",
+"ثابت",
+"يتغيّر كل شهر"
+],
+"c": 0
+},
+{
+"prompt": "ما فائدة السياحة؟",
+"options": [
+"الوظائف",
+"الهدوء",
+"رخص الأسعار",
+"قلة الزحام"
+],
+"c": 0
+},
+{
+"prompt": "ما المشكلة الأولى؟",
+"options": [
+"الازدحام",
+"التلوّث",
+"الضجيج",
+"البرد"
+],
+"c": 0
+},
+{
+"prompt": "ما المشكلة الثانية؟",
+"options": [
+"ارتفاع الأسعار",
+"قلة الفنادق",
+"الحرّ",
+"البطالة"
+],
+"c": 0
+},
+{
+"prompt": "ماذا تفعل الحكومة؟",
+"options": [
+"تنظّم المواقع السياحية",
+"تمنع السيّاح",
+"تبني مطارًا",
+"تخفّض الأسعار"
+],
+"c": 0
+}
+]
+},
+{
+"n": 11,
+"type": "short",
+"q": "مستقبل العمل. أ) ما الذي سيغيّر العمل في المستقبل؟ ب) و ج) اذكر مهارتين يحتاجهما الشباب. د) ما نصيحة المتحدّث؟ هـ) لماذا؟ و) هل هو متفائل؟",
+"audio": [
+{
+"s": "m",
+"t": "سيغيّر الذكاء الاصطناعي كثيرًا من الوظائف."
+},
+{
+"s": "m",
+"t": "لذلك يحتاج الشباب إلى مهارات مثل الإبداع والتواصل."
+},
+{
+"s": "m",
+"t": "وأنصحهم بتعلّم اللغات،"
+},
+{
+"s": "m",
+"t": "لأنّ الشركات تبحث عن موظّفين يتحدّثون أكثر من لغة."
+},
+{
+"s": "m",
+"t": "أنا متفائل بالمستقبل إذا استعددنا له جيدًا."
+}
+],
+"max": 6,
+"pts": [
+[
+"الذكاء الاصطناعي"
+],
+[
+"الابداع"
+],
+[
+"التواصل"
+],
+[
+"اللغات"
+],
+[
+"الشركات",
+"اكثر من لغه"
+],
+[
+"متفائل",
+"نعم"
+]
+],
+"model": "الذكاء الاصطناعي؛ الإبداع والتواصل؛ تعلّم اللغات؛ لأنّ الشركات تبحث عمّن يتحدّث أكثر من لغة؛ نعم، متفائل."
+}
+]
+}
+]
+}

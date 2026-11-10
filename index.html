@@ -4039,6 +4039,13 @@ window.addEventListener("error", function (e) {
   }
   const mkGrade = (p) => p >= 85 ? 9 : p >= 78 ? 8 : p >= 70 ? 7 : p >= 62 ? 6 : p >= 54 ? 5 : p >= 46 ? 4 : p >= 38 ? 3 : p >= 28 ? 2 : p >= 18 ? 1 : "U";
   const mkGradeQ = (qual, p) => qual === "9AA0" || qual === "alevel" ? (p >= 80 ? "A*" : p >= 70 ? "A" : p >= 60 ? "B" : p >= 50 ? "C" : p >= 40 ? "D" : p >= 30 ? "E" : "U") : mkGrade(p);
+  function mkArVoice() { const v = (window.speechSynthesis && speechSynthesis.getVoices()) || []; return v.find((x) => /^ar(-|_|$)/i.test(x.lang) && /google|natural|online/i.test(x.name)) || v.find((x) => /^ar(-|_|$)/i.test(x.lang)) || null; }
+  function mkSpeak(lines, onEnd) {
+    if (!window.speechSynthesis) { onEnd && onEnd(false); return; }
+    speechSynthesis.cancel(); const voice = mkArVoice(); let i = 0;
+    const next = () => { if (i >= lines.length) { onEnd && onEnd(true); return; } const L = lines[i++]; const u = new SpeechSynthesisUtterance(L.t); u.lang = (voice && voice.lang) || "ar-SA"; if (voice) u.voice = voice; u.rate = 0.88; u.pitch = L.s === "f" ? 1.25 : 0.8; let done = false; const go = (d) => { if (done) return; done = true; clearTimeout(tm); setTimeout(next, d); }; const tm = setTimeout(() => go(0), Math.max(3000, L.t.length * 140)); u.onend = () => go(700); u.onerror = () => go(300); speechSynthesis.speak(u); };
+    next();
+  }
   async function pageArMocks(params) {
     setNav("grades"); const q = params.get("q") || "igcse";
     let idx = []; try { idx = await (await fetch(new URL("resources/mocks/index.json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
@@ -4065,7 +4072,7 @@ window.addEventListener("error", function (e) {
       return q.items.map((it, i) => q.type === "mcq" ? `<div class="form-card" style="margin:8px 0"><b>${String.fromCharCode(1571 + i)}) ${esc(it.prompt)}</b>${it.options.map((o, j) => `<label style="display:block;margin:4px 0"><input type="radio" name="m${q.n}_${i}" data-n="${q.n}" data-i="${i}" value="${j}" ${String(A[i]) === String(j) ? "checked" : ""}> ${esc(o)}</label>`).join("")}</div>`
         : `<div style="margin:8px 0"><label>${q.type === "extract" ? esc(it.label) : esc(it.prompt) + (it.base ? ` <b>(${esc(it.base)})</b>` : "") + (it.tool ? ` <b>(${esc(it.tool)})</b>` : "")}</label><input dir="auto" data-n="${q.n}" data-i="${i}" value="${esc(A[i] || "")}" style="width:100%"></div>`).join("");
     };
-    const qHtml = (q) => `<article class="form-card" style="margin:14px 0" data-q="${q.n}"><h3 style="margin-top:0">سؤال رقم ${q.n} <small class="muted">(${q.max || (q.items ? (q.type === "trans" ? q.items.reduce((x, it) => x + it.pts.length, 0) : q.items.length) : 0)} ${q.type === "essay" ? "درجة" : "درجات"})</small></h3><p style="font-size:1.08rem">${esc(q.q)}</p>${q.bullets ? `<ul>${q.bullets.map((b) => `<li>${esc(b.t)}</li>`).join("")}</ul>` : ""}${inp(q)}</article>`;
+    const qHtml = (q) => `<article class="form-card" style="margin:14px 0" data-q="${q.n}"><h3 style="margin-top:0">سؤال رقم ${q.n} <small class="muted">(${q.max || (q.items ? (q.type === "trans" ? q.items.reduce((x, it) => x + it.pts.length, 0) : q.items.length) : 0)} ${q.type === "essay" ? "درجة" : "درجات"})</small></h3><p style="font-size:1.08rem">${esc(q.q)}</p>${q.audio ? `<div class="form-card" style="max-width:none;margin:8px 0;background:#EEF6FF;display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn btn-primary btn-small" data-play="${q.n}">▶ استمع</button><span class="muted" data-plays="${q.n}">الاستماع مرتان كحدّ أقصى</span>${isStaff() ? `<details style="flex-basis:100%"><summary class="muted" style="cursor:pointer">📜 نص التسجيل (للمعلم)</summary>${q.audio.map((l) => `<div>${l.s === "f" ? "👩" : "👨"} ${esc(l.t)}</div>`).join("")}</details>` : ""}</div>` : ""}${q.bullets ? `<ul>${q.bullets.map((b) => `<li>${esc(b.t)}</li>`).join("")}</ul>` : ""}${inp(q)}</article>`;
     const render = () => {
       h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="${(() => { try { return localStorage.getItem("hiraa.mockBack") || (P.qual === "9AA0" ? "#/year/12?subject=arabic&track=alevel" : "#/year/10?subject=arabic&track=" + (P.qual === "4AA1" ? "igcse" : "gcse")); } catch (e) { return "#/grades?subject=arabic"; } })()}">${P.qual === "4AA1" ? "International GCSE" : P.qual === "9AA0" ? "A Level" : "GCSE"} · الامتحانات التجريبية</a></div><h1>${esc(P.title)}</h1><p class="muted">${esc(P.note)}</p><div class="pill" id="amT">⏱ 0:00 / ${P.minutes} دقيقة</div></div></section>
         <section class="section" style="padding-top:12px"><div class="wrap" style="max-width:900px;margin-inline:auto">
@@ -4077,6 +4084,13 @@ window.addEventListener("error", function (e) {
       document.querySelectorAll("[data-pick]").forEach((c) => c.onchange = () => { const [k, n0] = c.dataset.pick.split(":"); const n = +n0; const lim = P.sections[+k].choose; const cur = secPicked(k); picks[k] = c.checked ? [...new Set([...cur, n])].slice(-lim) : cur.filter((x) => x !== n); save(); render(); });
       document.querySelectorAll("textarea[data-n]").forEach((t) => { const n = +t.dataset.n; const wc = document.querySelector(`[data-wc="${n}"]`); const up = () => { if (wc) wc.textContent = mkWords(t.value) + " كلمة"; }; up(); t.oninput = () => { ans[n] = t.value; up(); save(); }; });
       document.querySelectorAll("input[data-n]").forEach((el) => { const n = +el.dataset.n, i = +el.dataset.i; const h2 = () => { ans[n] = ans[n] || {}; ans[n][i] = el.type === "radio" ? +el.value : el.value; save(); }; el.oninput = h2; el.onchange = h2; });
+      ans._plays = ans._plays || {};
+      const updPlays = (n) => { const el = document.querySelector(`[data-plays="${n}"]`), b = document.querySelector(`[data-play="${n}"]`); const c = ans._plays[n] || 0; if (el) el.textContent = c >= 2 ? "انتهت مرّتا الاستماع" : `استمعت ${c} من 2`; if (b && c >= 2 && !isStaff()) b.disabled = true; };
+      document.querySelectorAll("[data-play]").forEach((b) => { const n = +b.dataset.play; updPlays(n); b.onclick = () => { const q = allQ.find((x) => x.n === n); if (!window.speechSynthesis) { toast("المتصفح لا يدعم القراءة الصوتية. استخدم Chrome أو Edge أو الهاتف."); return; }
+        if (!mkArVoice()) toast("لا يوجد صوت عربي على هذا الجهاز؛ قد تُقرأ الكلمات بنطق غير دقيق. جرّب Chrome أو Edge أو الهاتف.");
+        if ((ans._plays[n] || 0) >= 2 && !isStaff()) return; ans._plays[n] = (ans._plays[n] || 0) + 1; save(); updPlays(n); b.disabled = true; b.textContent = "🔊 يُقرأ…";
+        mkSpeak(q.audio, () => { b.textContent = "▶ استمع"; b.disabled = (ans._plays[n] || 0) >= 2 && !isStaff(); }); }; });
+      if (window.speechSynthesis) speechSynthesis.getVoices();
       document.getElementById("amSend").onclick = submit;
     };
     const t0 = Date.now(); state._amTm && clearInterval(state._amTm);
@@ -4087,12 +4101,12 @@ window.addEventListener("error", function (e) {
       const Qs = P.sections.flatMap((sc, k) => sc.qs.filter((q) => !sc.choose || secPicked(k).includes(q.n))); const marks = {}; let tot = 0, mx = 0;
       Qs.forEach((q) => { const m = mkMarkQ(P, q, ans[q.n]); marks[q.n] = m; tot += m.got; mx += m.max; });
       if (state.session && isStudent()) { try { await sb.from("ar_mock_attempts").insert({ paper: P.id, answers: ans, marks, total: tot, max: mx }); } catch (e) {} }
-      clearInterval(state._amTm);
+      clearInterval(state._amTm); try { speechSynthesis.cancel(); } catch (e) {}
       const pct = Math.round((tot / Math.max(1, mx)) * 100);
       h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/ar-mock/${P.id}">${esc(P.title)}</a></div><h1>النتيجة: ${tot} / ${mx} (${pct}%)</h1><p class="muted">الدرجة المقدّرة (${P.qual === "9AA0" ? "A*–E" : "9–1"}): <b style="font-size:1.4rem">${mkGradeQ(P.qual, pct)}</b> · تقدير آلي تقريبي للتدريب؛ المعلم يراجع الأسئلة المقالية.</p></div></section>
         <section class="section"><div class="wrap" style="max-width:900px;margin-inline:auto">${Qs.map((q) => { const m = marks[q.n]; return `<article class="form-card" style="margin:12px 0"><h3 style="margin-top:0">سؤال ${q.n}: <span style="color:${m.got / m.max >= 0.7 ? "#16A34A" : m.got / m.max >= 0.4 ? "#D97706" : "#C2410C"}">${m.got} / ${m.max}</span></h3>
           ${m.info ? `<p class="muted">${esc(m.info)}</p>` : ""}${m.per ? `<p>${m.per.map((ok, i) => `${ok ? "✓" : "✗"} ${String.fromCharCode(1571 + i)}`).join(" · ")}</p>` : ""}
-          ${m.fb.length ? `<ul>${m.fb.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : "<p>✓ أحسنت.</p>"}${m.model ? `<p><b>إجابة نموذجية:</b> ${esc(m.model)}</p>` : ""}</article>`; }).join("")}
+          ${m.fb.length ? `<ul>${m.fb.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : "<p>✓ أحسنت.</p>"}${m.model ? `<p><b>إجابة نموذجية:</b> ${esc(m.model)}</p>` : ""}${q.audio ? `<details><summary style="cursor:pointer">📜 نص التسجيل</summary>${q.audio.map((l) => `<div>${l.s === "f" ? "👩" : "👨"} ${esc(l.t)}</div>`).join("")}</details>` : ""}</article>`; }).join("")}
         <div style="text-align:center;margin:20px 0"><button class="btn btn-ghost" onclick="localStorage.removeItem('${key}');location.reload()">إعادة المحاولة من البداية</button></div></div></section>`);
     };
     render();
