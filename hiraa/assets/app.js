@@ -1492,7 +1492,7 @@
   const MK_EFF = ["يدل", "يوحي", "يبرز", "يجعل", "اثر", "يصور", "يعبر", "يقرب", "يوضح", "يؤكد", "يثير", "يشعر", "القارئ", "يعمق", "يقوي", "يظهر", "يكشف"];
   const MK_CMP = ["بينما", "في حين", "كلاهما", "كلا الكاتبين", "كلا النصين", "النص الاول", "النص الثاني", "اما ", "على عكس", "يتفق", "يختلف", "بالمقابل", "كذلك", "في المقابل", "الكاتب الاول", "الكاتبه"];
   const MK_CONN = ["لكن", "لذلك", "بالاضافه", "علاوه", "كما ", "حيث", "اذ ", "بينما", "اولا", "ثانيا", "اخيرا", "في الختام", "من ناحيه", "لان", "ومع ذلك", "فضلا", "وهكذا", "اضافه الى", "على الرغم", "بالرغم"];
-  const mkN = (s) => String(s || "").replace(/[\u064B-\u0652\u0670\u0640]/g, "").replace(/[أإآ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").replace(/[«»"'.,،؛:!؟?()\-\u061F]/g, " ").replace(/\s+/g, " ").trim();
+  const mkN = (s) => String(s || "").toLowerCase().replace(/[\u064B-\u0652\u0670\u0640]/g, "").replace(/[أإآ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").replace(/[«»"'.,،؛:!؟?()\-\u061F]/g, " ").replace(/\s+/g, " ").trim();
   const mkWords = (s) => { const t = mkN(s); return t ? t.split(" ").length : 0; };
   const mkHas = (t, alts) => alts.some((a) => t.includes(mkN(a)));
   const mkCount = (t, list) => list.filter((x) => t.includes(mkN(x))).length;
@@ -1538,20 +1538,26 @@
         if (ok) got++; return ok; });
       return { got, max: q.items.length, fb: got < q.items.length ? ["راجع البنود المعلّمة بـ ✗ في القاعدة المناسبة."] : [], per };
     }
+    if (q.type === "trans") {
+      const AA = A || {}; let got = 0, mx = 0; const per = q.items.map((it, i) => { const t = mkN(AA[i]); const h = it.pts.filter((p) => mkHas(t, p)).length; got += h; mx += it.pts.length; return h === it.pts.length; });
+      if (got < mx) fb.push(q.dir === "en" ? "Check tenses, negatives and that every idea is translated." : "راجع الأزمنة والنفي (لا، لم، لن) والمطابقة، وترجم كل فكرة.");
+      return { got, max: mx, fb, per };
+    }
     if (q.type === "essay") {
       const t = mkN(A), W = mkWords(A), paras = String(A || "").split(/\n+/).filter((x) => x.trim().length > 20).length;
       const cov = q.bullets.filter((b) => mkHas(t, b.kws)).length / q.bullets.length;
-      const lenf = W >= 280 ? 1 : W >= 220 ? 0.8 : W >= 150 ? 0.6 : W >= 80 ? 0.4 : W > 0 ? 0.2 : 0;
-      const form = q.form === "speech" ? mkHas(t, ["ايها", "اعزائي", "زملائي", "السلام عليكم", "الحضور"]) : q.form === "compare" ? mkCount(t, MK_CMP) >= 2 : paras >= 3;
-      const C = W ? Math.round(15 * (0.55 * cov + 0.25 * lenf + 0.1 * (paras >= 3 ? 1 : 0) + 0.1 * (form ? 1 : 0))) : 0;
+      const tgt = q.words || 300, CM = q.cmax || 15, LM = q.max - CM; const lenf = W >= 0.93 * tgt ? 1 : W >= 0.73 * tgt ? 0.8 : W >= 0.5 * tgt ? 0.6 : W >= 0.27 * tgt ? 0.4 : W > 0 ? 0.2 : 0;
+      const form = q.form === "speech" ? mkHas(t, ["ايها", "اعزائي", "زملائي", "السلام عليكم", "الحضور"]) : q.form === "compare" ? mkCount(t, MK_CMP) >= 2 : q.form === "letter" ? mkHas(t, ["حضره", "تحيه طيبه", "وبعد", "المحترم", "تفضلوا", "السيد"]) : q.form === "story" ? (paras >= 3 && mkHas(t, ["فجاه", "عندما", "ثم", "في النهايه", "اخيرا"])) : paras >= 3;
+      const lenScale = W >= 0.67 * tgt ? 1 : W >= 0.4 * tgt ? 0.75 : W >= 0.2 * tgt ? 0.5 : 0.3;
+      const C = W ? Math.round(CM * Math.min(1, 0.45 * cov + 0.3 * lenf + 0.1 * (paras >= 3 ? 1 : 0) + 0.15 * (form ? 1 : 0)) * lenScale) : 0;
       const words = t.split(" ").filter(Boolean), ttr = words.length ? new Set(words).size / words.length : 0, conn = mkCount(t, MK_CONN);
       const rh = (String(A || "").match(/[؟?!]/g) || []).length + mkCount(t, ["كان", "كأن", "مثل", "يا ", "ما اجمل", "اليس", "ليت"]) + (/«[^»]+»|﴿/.test(A || "") ? 1 : 0);
-      const L = W ? Math.round(10 * (0.4 * Math.min(1, conn / 6) + 0.3 * Math.max(0, Math.min(1, (ttr - 0.4) / 0.3)) + 0.2 * Math.min(1, rh / 3) + 0.1 * (W >= 200 ? 1 : 0))) : 0;
+      const L = W ? Math.round(LM * (0.4 * Math.min(1, conn / (tgt >= 200 ? 6 : 3)) + 0.3 * Math.max(0, Math.min(1, (ttr - 0.4) / 0.3)) + 0.2 * Math.min(1, rh / 3) + 0.1 * (W >= 0.67 * tgt ? 1 : 0)) * (W >= 0.67 * tgt ? 1 : W >= 0.4 * tgt ? 0.8 : 0.5)) : 0;
       if (cov < 1) fb.push("غطِّ كل النقاط المقترحة في السؤال: كل نقطة في فقرة.");
-      if (W < 250) fb.push(`عدد كلماتك ${W}: المطلوب نحو 300 كلمة.`);
-      if (!form) fb.push(q.form === "speech" ? "الكلمة تبدأ بمخاطبة الجمهور: «أيها الزملاء الأعزاء…»." : q.form === "compare" ? "استخدم أدوات الموازنة: في حين، بينما، على عكس…" : "نظّم المقال في فقرات: مقدمة، عرض، خاتمة.");
+      if (W < 0.83 * tgt) fb.push(`عدد كلماتك ${W}: المطلوب نحو ${tgt} كلمة.`);
+      if (!form) fb.push(q.form === "speech" ? "الكلمة تبدأ بمخاطبة الجمهور: «أيها الزملاء الأعزاء…»." : q.form === "compare" ? "استخدم أدوات الموازنة: في حين، بينما، على عكس…" : q.form === "letter" ? "الرسالة الرسمية: «حضرة السيد…، تحية طيبة وبعد،» وتُختم بـ«وتفضّلوا بقبول فائق الاحترام»." : q.form === "story" ? "القصة: بداية وعقدة ونهاية في فقرات، بأدوات الزمن (عندما، فجأة، ثم، في النهاية)." : "نظّم المقال في فقرات: مقدمة، عرض، خاتمة.");
       if (conn < 4) fb.push("نوّع أدوات الربط: لذلك، علاوة على ذلك، ومع ذلك، في الختام…");
-      return { got: C + L, max: 25, fb, info: `المحتوى والتواصل: ${C}/15 · المعرفة اللغوية: ${L}/10 · كلمات: ${W}`, parts: { C, L } };
+      return { got: C + L, max: q.max, fb, info: `المحتوى والتواصل: ${C}/${CM} · المعرفة اللغوية: ${L}/${LM} · كلمات: ${W}`, parts: { C, L } };
     }
     return { got: 0, max: q.max || 0, fb };
   }
@@ -1572,13 +1578,14 @@
     const allQ = P.sections.flatMap((s) => s.qs);
     const textHtml = (k) => { const T = P.texts[k]; return `<details class="form-card" open style="background:#FFF8EC;margin:10px 0"><summary style="cursor:pointer;font-weight:800">📖 ${esc(T.title)}</summary><div style="font-size:1.12rem;line-height:2.1;margin-top:8px">${T.body.map((p) => `<p>${esc(p)}</p>`).join("")}</div></details>`; };
     const inp = (q) => { const a = ans[q.n];
-      if (["short", "explain"].includes(q.type)) return `<textarea data-n="${q.n}" rows="${q.type === "short" ? 2 : 5}" style="width:100%">${esc(a || "")}</textarea>`;
-      if (["analysis", "compare", "summary", "essay"].includes(q.type)) return `<textarea data-n="${q.n}" rows="${q.type === "summary" ? 8 : 14}" style="width:100%">${esc(a || "")}</textarea><small class="muted" data-wc="${q.n}"></small>`;
+      if (["short", "explain"].includes(q.type)) return `<textarea dir="auto" data-n="${q.n}" rows="${q.type === "short" ? 2 : 5}" style="width:100%">${esc(a || "")}</textarea>`;
+      if (["analysis", "compare", "summary", "essay"].includes(q.type)) return `<textarea dir="auto" data-n="${q.n}" rows="${q.type === "summary" ? 8 : 14}" style="width:100%">${esc(a || "")}</textarea><small class="muted" data-wc="${q.n}"></small>`;
       const A = a || {};
+      if (q.type === "trans") return q.items.map((it, i) => `<div style="margin:8px 0"><label ${q.dir === "en" ? "" : ""}>${String.fromCharCode(1571 + i)}) ${esc(it.src)}</label><input data-n="${q.n}" data-i="${i}" value="${esc(A[i] || "")}" style="width:100%" dir="${q.dir === "en" ? "ltr" : "rtl"}"></div>`).join("");
       return q.items.map((it, i) => q.type === "mcq" ? `<div class="form-card" style="margin:8px 0"><b>${String.fromCharCode(1571 + i)}) ${esc(it.prompt)}</b>${it.options.map((o, j) => `<label style="display:block;margin:4px 0"><input type="radio" name="m${q.n}_${i}" data-n="${q.n}" data-i="${i}" value="${j}" ${String(A[i]) === String(j) ? "checked" : ""}> ${esc(o)}</label>`).join("")}</div>`
-        : `<div style="margin:8px 0"><label>${q.type === "extract" ? esc(it.label) : esc(it.prompt) + (it.base ? ` <b>(${esc(it.base)})</b>` : "") + (it.tool ? ` <b>(${esc(it.tool)})</b>` : "")}</label><input data-n="${q.n}" data-i="${i}" value="${esc(A[i] || "")}" style="width:100%"></div>`).join("");
+        : `<div style="margin:8px 0"><label>${q.type === "extract" ? esc(it.label) : esc(it.prompt) + (it.base ? ` <b>(${esc(it.base)})</b>` : "") + (it.tool ? ` <b>(${esc(it.tool)})</b>` : "")}</label><input dir="auto" data-n="${q.n}" data-i="${i}" value="${esc(A[i] || "")}" style="width:100%"></div>`).join("");
     };
-    const qHtml = (q) => `<article class="form-card" style="margin:14px 0" data-q="${q.n}"><h3 style="margin-top:0">سؤال رقم ${q.n} <small class="muted">(${q.max || (q.items ? q.items.length : 0)} ${q.type === "essay" ? "درجة" : "درجات"})</small></h3><p style="font-size:1.08rem">${esc(q.q)}</p>${q.bullets ? `<ul>${q.bullets.map((b) => `<li>${esc(b.t)}</li>`).join("")}</ul>` : ""}${inp(q)}</article>`;
+    const qHtml = (q) => `<article class="form-card" style="margin:14px 0" data-q="${q.n}"><h3 style="margin-top:0">سؤال رقم ${q.n} <small class="muted">(${q.max || (q.items ? (q.type === "trans" ? q.items.reduce((x, it) => x + it.pts.length, 0) : q.items.length) : 0)} ${q.type === "essay" ? "درجة" : "درجات"})</small></h3><p style="font-size:1.08rem">${esc(q.q)}</p>${q.bullets ? `<ul>${q.bullets.map((b) => `<li>${esc(b.t)}</li>`).join("")}</ul>` : ""}${inp(q)}</article>`;
     const render = () => {
       h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="${(() => { try { return localStorage.getItem("hiraa.mockBack") || ("#/year/10?subject=arabic&track=" + (P.qual === "4AA1" ? "igcse" : "gcse")); } catch (e) { return "#/grades?subject=arabic"; } })()}">${P.qual === "4AA1" ? "International GCSE" : "GCSE"} · الامتحانات التجريبية</a></div><h1>${esc(P.title)}</h1><p class="muted">${esc(P.note)}</p><div class="pill" id="amT">⏱ 0:00 / ${P.minutes} دقيقة</div></div></section>
         <section class="section" style="padding-top:12px"><div class="wrap" style="max-width:900px;margin-inline:auto">
@@ -1616,10 +1623,63 @@ async function fillArMocks() {
     try { localStorage.setItem("hiraa.mockBack", location.hash); } catch (e) {}
     let idx = []; try { idx = await (await fetch(new URL("resources/mocks/index.json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
     const L = idx.filter((x) => x.qual === q);
-    el.innerHTML = `<div class="form-card" style="border-inline-start:5px solid #0F6E72;max-width:none;width:100%;margin:0"><h2 style="margin:0 0 4px">📝 الامتحانات التجريبية</h2><p class="muted" style="margin:0 0 12px">بشكل امتحانات Pearson نفسه (الأسئلة والدرجات والزمن)، بنصوص من تأليف حراء، مع تصحيح فوري ودرجة تقديرية على سلّم 9–1.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span></a>`).join("") : `<div class="empty">قريبًا.</div>`}</div></div>`;
+    let mine = []; if (state.session && isStudent()) { try { const { data } = await sb.from("ar_mock_attempts").select("paper, total, max, teacher_marks, created_at").order("created_at", { ascending: false }); mine = data || []; } catch (e) {} }
+    const best = (id) => { const m = mine.filter((x) => x.paper === id); if (!m.length) return null; const b = m.map((x) => Math.round(((x.teacher_marks ? x.teacher_marks.total : x.total) / x.max) * 100)); return Math.max(...b); };
+    const facts = (MK_GUIDE[q] || {}).facts || [];
+    el.innerHTML = `<div class="form-card" style="border-inline-start:5px solid #0F6E72;max-width:none;width:100%;margin:0"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><h2 style="margin:0 0 4px">📝 الامتحانات التجريبية</h2><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-small" href="#/ar-guide/${q}">🧭 كيف أجيب؟</a>${isStaff() ? `<a class="btn btn-small btn-primary" href="#/ar-mock-review">📋 نتائج طلابي</a>` : ""}</div></div>
+      <p style="margin:6px 0">${facts.map((f) => `<span class="pill" style="margin:3px">${esc(f)}</span>`).join("")}</p><p class="muted" style="margin:0 0 12px">بشكل امتحانات Pearson نفسه (الأسئلة والدرجات والزمن)، بنصوص من تأليف حراء، مع تصحيح فوري ودرجة تقديرية على سلّم 9–1.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span>${best(x.id) != null ? `<span class="pill" style="display:inline-block;margin-top:8px;background:#E7F6EC">أفضل نتيجة: ${best(x.id)}% · ${mkGrade(best(x.id))}</span>` : ""}</a>`).join("") : `<div class="empty">قريبًا.</div>`}</div></div>`;
   }
-  const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "أبجد", gcse: "GCSE", igcse: "IGCSE" };
+  const MK_GUIDE = {
+    igcse: { title: "International GCSE العربية (4AA1): كيف أجيب؟", facts: ["📝 الورقة 1: ساعتان وربع · قراءة نصّين + تلخيص + قواعد", "✍️ الورقة 2: ساعة ونصف · كتابتان من ثلاث × 25 درجة", "🎯 سلّم 9–1"],
+      items: [
+        ["س1، س2، س5، س6 · الفهم المباشر (1–2 درجة)", "اقرأ أداة الاستفهام ← حدّد الدرجة = عدد النقاط ← أجب بجملة قصيرة لكل نقطة.", "«الضيافة مهمة عند العرب لأنها جميلة.» (عامة، لا تجيب عن المطلوب)", "«وصفه بأنه مدرسة مفتوحة يتعلّم فيها الصغار.» (دقيقة وموجزة)"],
+        ["س3، س7 · الشرح بالدليل (4 درجات)", "فكرة بأسلوبك + اقتباس قصير «…» + شرح كيف يدعمها. ثم نقطة جديدة مختلفة.", "نسخ سطرين من النص دون تعليق.", "«كان المجلس مدرسة في التكافل؛ ففيه «تُجمع التبرّعات لمن نزلت به حاجة»، وهذا يدلّ على أن الناس يتعاونون في الشدائد.»"],
+        ["س4، س8 · تحليل اللغة والأسلوب (10 درجات)", "غاية الكاتب ← 3–4 أساليب بمصطلحها + شاهد + أثرها في المعنى والقارئ ← خاتمة تربط الأساليب بالغاية.", "«في النص تشبيه واستعارة وطباق.» (تسمية بلا شاهد ولا أثر)", "«شبّه الكاتب المجلس بـ«شجرة ضاربة جذورها في الأرض»، فأبرز رسوخه وامتداده عبر الأجيال، وجعل القارئ يشعر بأنه أصل ثابت لا يزول.»"],
+        ["س9 · المقارنة بين النصّين (15 درجة)", "جدول مقارنة ← مقدمة ← فقرات تربط النصّين في كل مرة (بينما، في حين، كلا الكاتبين) ← شواهد من النصّين ← حكم معلّل.", "فقرة عن النص الأول ثم فقرة عن الثاني دون ربط.", "«يحتفي الكاتبان بالماضي، غير أنّ الأول يقدّمه بالحجة والاستفهام «ألم يكن ذلك كلّه مدرسة…؟»، في حين تستدعيه الكاتبة بالصورة والحنين «فيها رائحة أيام لن تعود».»"],
+        ["س10 · التلخيص (100–150 كلمة)", "فكرة رئيسة من كل فقرة ← بأسلوبك ← أدوات ربط ← لا أمثلة ولا رأي ← عدّ الكلمات.", "نسخ الجمل الأولى من كل فقرة.", "«يقرأ الناس اليوم أكثر، لكنهم يقرؤون نصوصًا قصيرة متفرّقة تُضعف تركيزهم…»"],
+        ["س11–س14 · القواعد", "حدّد النوع والحالة الإعرابية معًا · في التحويل غيّر كل ما يلزم في الجملة ثم اقرأها كاملة.", "«لم يحافظُ الشبابُ» (نسي الجزم)", "«لم يحافظِ الشبابُ على تراثهم.»"],
+        ["الورقة 2 · الكتابة (25 = 15 + 10)", "حلّل السؤال: الشكل + الجمهور + النقاط ← خطة 7 دقائق ← فقرة لكل نقطة بحجة ومثال ← تنويع التراكيب وأدوات الربط ← مراجعة 5 دقائق.", "كلام عام عن القيمة حين يطلب السؤال تجربتك الشخصية.", "«أيها الزملاء الأعزاء، قبل عامين وقفتُ أمام قرار صعب…» (يخاطب الجمهور ويحكي تجربته)"]] },
+    gcse: { title: "GCSE العربية (1AA0): كيف أجيب؟", facts: ["🎧 الاستماع 25% · 🗣️ المحادثة 25% · 📖 القراءة 25% · ✍️ الكتابة 25%", "🟢 المستوى الأساسي / 🔵 المستوى الأعلى", "🎯 سلّم 9–1"],
+      items: [
+        ["المحادثة · لعب الأدوار", "اقرأ البطاقة في وقت التحضير ← جهّز جملة لكل نقطة ← جهّز سؤالًا (؟) ← توقّع غير المتوقّع (!).", "«نعم.» «لا.»", "«أريد تذكرتين إلى دبي من فضلك. متى يغادر القطار؟»"],
+        ["المحادثة · وصف الصورة", "من؟ أين؟ ماذا يفعلون؟ ← «يبدو أنّ…» ← رأيك ← تجربتك في الماضي ← خطتك في المستقبل.", "«في الصورة ناس.»", "«أرى طلابًا في رحلة، ويبدو أنهم سعداء. في رأيي الرحلات مفيدة، وقد زرتُ المتحف العام الماضي.»"],
+        ["المحادثة · الحوار الحر", "طوّر كل إجابة: رأي + سبب + مثال + زمن آخر.", "«أحبّ المدرسة.»", "«أحبّ مدرستي لأن المعلمين يساعدوننا، مثلًا… وفي المستقبل سأشارك في نادي الخطابة.»"],
+        ["القراءة والترجمة إلى الإنجليزية", "انتبه للأزمنة والنفي · ترجم المعنى بإنجليزية طبيعية لا كلمة كلمة.", "«Was I go to school» ", "«I used to go to school by bus.»"],
+        ["الكتابة والترجمة إلى العربية", "غطِّ كل النقاط ← استخدم الأزمنة الثلاثة ← رأي مبرّر ← أدوات ربط ← في الترجمة: لا / لم / لن والمطابقة.", "«أنا أذهب أمس.»", "«ذهبتُ أمس إلى السوق، وسأعود غدًا لأنّ الأسعار مناسبة.»"]] } };
+  async function pageArGuide(q) {
+    setNav("grades"); const G = MK_GUIDE[q] || MK_GUIDE.igcse;
+    h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="${(() => { try { return localStorage.getItem("hiraa.mockBack") || "#/grades?subject=arabic"; } catch (e) { return "#/grades?subject=arabic"; } })()}">رجوع إلى القسم</a></div><h1>🧭 ${esc(G.title)}</h1><p>${G.facts.map((f) => `<span class="pill" style="margin:3px">${esc(f)}</span>`).join("")}</p></div></section>
+      <section class="section"><div class="wrap" style="max-width:960px;margin-inline:auto">${G.items.map(([t, f, w, s]) => `<article class="form-card" style="max-width:none;margin:14px 0"><h3 style="margin-top:0">${esc(t)}</h3><p><b>🧩 الطريقة:</b> ${esc(f)}</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div style="background:#FDECEA;border-radius:12px;padding:10px"><b>✗ إجابة ضعيفة</b><p style="margin:6px 0 0">${esc(w)}</p></div><div style="background:#E7F6EC;border-radius:12px;padding:10px"><b>✓ إجابة قوية</b><p style="margin:6px 0 0">${esc(s)}</p></div></div></article>`).join("")}</div></section>`);
+  }
+  async function pageArMockReview(id) {
+    setNav("grades"); if (!isStaff()) { location.hash = "#/"; return; } loading();
+    if (!id) {
+      const { data } = await sb.from("ar_mock_attempts").select("id, student_id, paper, total, max, teacher_marks, created_at").order("created_at", { ascending: false }).limit(200);
+      const ids = [...new Set((data || []).map((x) => x.student_id))]; let names = {};
+      if (ids.length) { const { data: pr } = await sb.from("profiles").select("id, full_name_ar, full_name_en, username").in("id", ids); (pr || []).forEach((p) => names[p.id] = p.full_name_ar || p.full_name_en || p.username); }
+      h(`<section class="page-head"><div class="wrap"><h1>📋 نتائج الامتحانات التجريبية</h1><p class="muted">محاولات طلاب مدرستك. افتح أيّ محاولة لقراءة الإجابات وتعديل الدرجة.</p></div></section>
+        <section class="section"><div class="wrap">${(data || []).length ? `<div style="overflow-x:auto"><table class="tbl" style="width:100%"><thead><tr><th>الطالب</th><th>الامتحان</th><th>الدرجة الآلية</th><th>درجة المعلم</th><th>التاريخ</th><th></th></tr></thead><tbody>${data.map((a) => { const tm = a.teacher_marks ? Object.values(a.teacher_marks.q || {}).reduce((x, y) => x + (+y || 0), 0) : null;
+          return `<tr><td>${esc(names[a.student_id] || "—")}</td><td>${esc(a.paper)}</td><td>${a.total} / ${a.max}</td><td>${a.teacher_marks ? `<b>${a.teacher_marks.total} / ${a.max}</b>` : "—"}</td><td>${new Date(a.created_at).toLocaleDateString("ar-AE")}</td><td><a class="btn btn-small" href="#/ar-mock-review/${a.id}">مراجعة</a></td></tr>`; }).join("")}</tbody></table></div>` : `<div class="empty">لا محاولات بعد.</div>`}</div></section>`);
+      return;
+    }
+    const { data: a } = await sb.from("ar_mock_attempts").select("*").eq("id", id).maybeSingle(); if (!a) { location.hash = "#/ar-mock-review"; return; }
+    let P; try { P = await (await fetch(new URL("resources/mocks/" + a.paper + ".json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
+    const { data: pr } = await sb.from("profiles").select("full_name_ar, full_name_en, username").eq("id", a.student_id).maybeSingle();
+    const allQ = P ? P.sections.flatMap((s) => s.qs) : []; const tq = (a.teacher_marks && a.teacher_marks.q) || {};
+    const ansView = (q) => { const v = a.answers[q.n]; if (v == null) return "<i class='muted'>لم يُجب</i>"; if (typeof v === "string") return `<div style="white-space:pre-wrap;background:#FFFDF7;border-radius:10px;padding:10px">${esc(v)}</div>`;
+      return (q.items || []).map((it, i) => `<div>${String.fromCharCode(1571 + i)}) ${q.type === "mcq" ? esc(it.options[v[i]] || "—") : esc(v[i] || "—")}</div>`).join(""); };
+    h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/ar-mock-review">نتائج الامتحانات التجريبية</a></div><h1>${esc(pr ? (pr.full_name_ar || pr.full_name_en || pr.username) : "")} · ${esc(P ? P.title : a.paper)}</h1><p class="muted">الدرجة الآلية: ${a.total} / ${a.max}</p></div></section>
+      <section class="section"><div class="wrap" style="max-width:960px;margin-inline:auto">${allQ.filter((q) => a.marks[q.n]).map((q) => { const m = a.marks[q.n];
+        return `<article class="form-card" style="max-width:none;margin:12px 0"><h3 style="margin-top:0">سؤال ${q.n} <small class="muted">· آلي: ${m.got} / ${m.max}</small></h3><p class="muted">${esc(q.q)}</p>${ansView(q)}${m.info ? `<p class="muted">${esc(m.info)}</p>` : ""}
+          <label style="display:block;margin-top:8px">درجة المعلم: <input type="number" min="0" max="${m.max}" step="1" data-tq="${q.n}" value="${tq[q.n] != null ? tq[q.n] : m.got}" style="width:90px"> / ${m.max}</label></article>`; }).join("")}
+        <div style="text-align:center;margin:20px 0"><button class="btn btn-primary" id="tqSave">حفظ درجة المعلم</button></div></div></section>`);
+    document.getElementById("tqSave").onclick = async () => { const q = {}; let tot = 0; document.querySelectorAll("[data-tq]").forEach((el) => { const v = Math.max(0, Math.min(+el.max, +el.value || 0)); q[el.dataset.tq] = v; tot += v; });
+      const r = await sb.from("ar_mock_attempts").update({ teacher_marks: { q, total: tot, at: new Date().toISOString() } }).eq("id", a.id); if (r.error) toast("تعذّر الحفظ: " + r.error.message); else { toast("حُفظت درجة المعلم: " + tot + " / " + a.max); location.hash = "#/ar-mock-review"; } };
+  }
+  
+const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "أبجد", gcse: "GCSE", igcse: "IGCSE" };
   const TRACK_SHORT = { native: "عربي", non_native: "Non-native" };
   const ORD_GRADE = ["", "الأول", "الثاني", "الثالث", "الرابع", "الخامس", "السادس", "السابع", "الثامن", "التاسع", "العاشر", "الحادي عشر", "الثاني عشر", "الثالث عشر"];
   const LEVEL_AR = { mastered: "أتقن", developing: "قريب من الإتقان", needs_support: "يحتاج دعمًا" };
@@ -11792,6 +11852,8 @@ async function fillArMocks() {
       if (p0 === "my-tests") return pageMyTests(params);
       if (p0 === "ar-mocks") return pageArMocks(params);
       if (p0 === "ar-mock") return pageArMock(parts[1]);
+      if (p0 === "ar-mock-review") return pageArMockReview(parts[1]);
+      if (p0 === "ar-guide") return pageArGuide(parts[1]);
       if (p0 === "igcse") return pageIgcse();
       if (p0 === "enrich" && parts[1]) return pageEnrichUnit(parts[1]);
       if (p0 === "enrich") return pageEnrich(params);

@@ -1,0 +1,294 @@
+{
+"id": "GC-M1-P3",
+"qual": "1AA0",
+"title": "Mock 1 — Paper 3: Reading and understanding in Arabic (Higher)",
+"minutes": 65,
+"note": "امتحان تجريبي من تأليف حراء بشكل الورقة 3 (القراءة) في GCSE العربية 1AA0 للمستوى الأعلى: القسم أ بالإنجليزية، والقسم ب بالعربية، والقسم ج ترجمة إلى الإنجليزية. النصوص أصلية.",
+"texts": {
+"t1": {
+"title": "Text 1 — رسالة من سارة",
+"body": [
+"مرحبًا يا لينا، كيف حالك؟ قضيتُ عطلة الربيع مع أسرتي في مدينة العين. نزلنا في فندق صغير قرب جبل حفيت، وكان الجوّ معتدلًا وجميلًا. في اليوم الأول زرنا حديقة الحيوان، وأعجبتني الزرافات كثيرًا. وفي اليوم الثاني ذهبنا إلى السوق الشعبي واشتريت هدية لجدّتي. لم أحبّ الطعام في الفندق لأنه كان باردًا، لكنّ المطعم اليمني قرب السوق كان رائعًا. في الصيف القادم سنسافر إلى الأردن لنزور البتراء. أكتبي لي عن عطلتك! سارة"
+]
+},
+"t2": {
+"title": "Text 2 — نادي المتطوّعين الصغار",
+"body": [
+"أطلقت مدرسة النور في دبي نادي «المتطوّعين الصغار» لطلاب المرحلة المتوسطة. يجتمع الطلاب كل يوم أربعاء بعد الدوام، ويشاركون في أنشطة مختلفة: تنظيف الشاطئ مرة في الشهر، وزيارة دار المسنّين، وجمع الكتب المستعملة للمكتبات الصغيرة في القرى. تقول المعلّمة هند: «انضمّ إلى النادي أكثر من أربعين طالبًا في شهر واحد، وتغيّرت شخصيات كثير منهم؛ فقد أصبحوا أكثر ثقة وتعاونًا». ويقول الطالب يوسف: «كنت خجولًا، أمّا الآن فأتحدّث مع الناس بسهولة، وأشعر بأنني أفيد مجتمعي»."
+]
+},
+"t3": {
+"title": "النص الثالث — يومي في المدرسة الجديدة",
+"body": [
+"انتقلتُ هذا العام إلى مدرسة جديدة في أبوظبي. المدرسة كبيرة وحديثة، فيها مختبرات للعلوم وملعب لكرة السلة ومكتبة واسعة. يبدأ اليوم الدراسي في الساعة السابعة والنصف وينتهي في الساعة الثانية والنصف. مادّتي المفضّلة هي التاريخ لأنّ المعلّم يحكي لنا قصصًا ممتعة، أمّا الرياضيات فصعبة قليلًا. القواعد في المدرسة صارمة: يجب أن نلبس الزيّ المدرسي، ويُمنع استخدام الهاتف في الصف. في البداية شعرتُ بالوحدة، لكنني الآن عندي أصدقاء كثيرون، وسأشارك في رحلة المدرسة إلى متحف اللوفر الشهر القادم."
+]
+}
+},
+"sections": [
+{
+"title": "Section A (questions in English)",
+"intro": "Answer the questions in English.",
+"qs": [
+{
+"n": 1,
+"type": "mcq",
+"q": "Read Sara's message (Text 1). Choose the correct answer.",
+"items": [
+{
+"prompt": "Where did Sara spend her spring holiday?",
+"options": [
+"Al Ain",
+"Dubai",
+"Jordan",
+"Sharjah"
+],
+"c": 0
+},
+{
+"prompt": "What was the weather like?",
+"options": [
+"Mild and nice",
+"Very hot",
+"Rainy",
+"Cold"
+],
+"c": 0
+},
+{
+"prompt": "What did she like at the zoo?",
+"options": [
+"The giraffes",
+"The lions",
+"The birds",
+"The camels"
+],
+"c": 0
+},
+{
+"prompt": "Why didn't she like the hotel food?",
+"options": [
+"It was cold",
+"It was expensive",
+"It was spicy",
+"It was late"
+],
+"c": 0
+}
+]
+},
+{
+"n": 2,
+"type": "short",
+"q": "Read Text 2. (a) When do the club members meet? (b) Give TWO activities the club does.",
+"max": 3,
+"pts": [
+[
+"wednesday"
+],
+[
+"beach",
+"clean"
+],
+[
+"elderly",
+"old people",
+"care home",
+"seniors"
+],
+[
+"books",
+"library",
+"libraries"
+]
+],
+"model": "(a) Every Wednesday after school. (b) Cleaning the beach; visiting the elderly; collecting used books."
+},
+{
+"n": 3,
+"type": "short",
+"q": "Read Text 2. (a) How many students joined in the first month? (b) How has Youssef changed? Give TWO details.",
+"max": 3,
+"pts": [
+[
+"forty",
+"40",
+"more than forty"
+],
+[
+"shy",
+"was shy"
+],
+[
+"talk",
+"speak",
+"confident",
+"easily"
+],
+[
+"help",
+"useful",
+"community",
+"benefit"
+]
+],
+"model": "(a) More than forty. (b) He used to be shy; now he talks to people easily and feels he helps his community."
+}
+]
+},
+{
+"title": "القسم ب (الأسئلة بالعربية)",
+"intro": "أجب عن الأسئلة باللغة العربية.",
+"qs": [
+{
+"n": 4,
+"type": "short",
+"text": "t3",
+"q": "اقرأ النص الثالث. أ) متى يبدأ اليوم الدراسي؟ ب) لماذا يحبّ الكاتب مادة التاريخ؟",
+"max": 2,
+"pts": [
+[
+"السابعه والنصف",
+"7:30",
+"السابعه"
+],
+[
+"قصصا",
+"قصص",
+"يحكي"
+]
+],
+"model": "في السابعة والنصف؛ لأن المعلّم يحكي قصصًا ممتعة."
+},
+{
+"n": 5,
+"type": "short",
+"text": "t3",
+"q": "اذكر قاعدتين من قواعد المدرسة.",
+"max": 2,
+"pts": [
+[
+"الزي",
+"الزي المدرسي"
+],
+[
+"الهاتف",
+"يمنع"
+]
+],
+"model": "لبس الزيّ المدرسي، ومنع استخدام الهاتف في الصف."
+},
+{
+"n": 6,
+"type": "short",
+"text": "t3",
+"q": "كيف تغيّرت مشاعر الكاتب في المدرسة الجديدة؟ وماذا سيفعل الشهر القادم؟",
+"max": 3,
+"pts": [
+[
+"الوحده",
+"شعرت بالوحده"
+],
+[
+"اصدقاء",
+"اصدقاء كثيرون"
+],
+[
+"رحله",
+"اللوفر",
+"المتحف"
+]
+],
+"model": "شعر بالوحدة في البداية، والآن عنده أصدقاء كثيرون؛ وسيشارك في رحلة إلى متحف اللوفر."
+}
+]
+},
+{
+"title": "Section C: Translation into English",
+"intro": "Translate the following sentences into English.",
+"qs": [
+{
+"n": 7,
+"type": "trans",
+"dir": "en",
+"q": "Translate into English:",
+"items": [
+{
+"src": "أسكن مع أسرتي في شقة كبيرة.",
+"pts": [
+[
+"live"
+],
+[
+"family"
+],
+[
+"flat",
+"apartment"
+],
+[
+"big",
+"large"
+]
+]
+},
+{
+"src": "أمس ذهبتُ إلى السوق مع أخي.",
+"pts": [
+[
+"yesterday"
+],
+[
+"went"
+],
+[
+"market"
+],
+[
+"brother"
+]
+]
+},
+{
+"src": "لا أحبّ الرياضيات لأنها صعبة.",
+"pts": [
+[
+"don't like",
+"do not like",
+"dislike"
+],
+[
+"math"
+],
+[
+"because"
+],
+[
+"difficult",
+"hard"
+]
+]
+},
+{
+"src": "في المستقبل سأدرس الطب في الجامعة.",
+"pts": [
+[
+"future"
+],
+[
+"will study",
+"going to study"
+],
+[
+"medicine"
+],
+[
+"university"
+]
+]
+}
+]
+}
+]
+}
+]
+}
