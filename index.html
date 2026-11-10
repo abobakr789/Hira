@@ -2111,6 +2111,11 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 @keyframes tdSplIn { from { opacity: 0; transform: scale(.82) translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes tdSplGlow { from { filter: drop-shadow(0 0 14px rgba(212,170,85,.35)); } to { filter: drop-shadow(0 0 36px rgba(212,170,85,.8)); } }
 .fc { max-width: 760px; margin: 0 auto; }
+.gb { display: grid; gap: 8px; } .gb-obj { background: #F6EEDC; border: 1.5px solid #D4AA55; border-radius: 14px; padding: 10px 14px; line-height: 1.9; }
+.gb-sc { display: flex; align-items: center; gap: 10px; background: #fff; border: 1.5px solid #E1E8E6; border-radius: 14px; padding: 8px 12px; }
+.gb-n { width: 30px; height: 30px; flex: none; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.gb-t { flex: 1; font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: 1.15rem; font-weight: 600; } .gb-lv { font-weight: 700; white-space: nowrap; font-size: .9rem; }
+.pn-logo { height: 40px; margin-inline-start: auto; }
 .pg-wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 14px; }
 .pg-card { display: flex; gap: 16px; align-items: center; background: #FFFDF7; border: 2px solid #E8DCC8; border-radius: 20px; padding: 16px 20px; }
 .pg-card.done { border-color: #6FBF8E; background: #F2FAF4; } .pg-card h3 { margin: 0 0 4px; }
@@ -3907,6 +3912,14 @@ window.addEventListener("error", function (e) {
     };
     draw();
   }
+  // lesson objective + success criteria (I–IIII depth, one per worksheet level)
+  function goalBlock(l, en, cls) {
+    const sc = (l.success_criteria || []).slice().sort((a, b) => a.sort_order - b.sort_order), obj = en && l.objective_en ? l.objective_en : l.objective_ar;
+    if (!obj && !sc.length) return "";
+    const LV = [["#9A5B2E", en ? "Bronze" : "برونزي"], ["#5F6C78", en ? "Silver" : "فضي"], ["#B8860B", en ? "Gold" : "ذهبي"], ["#6B46A8", en ? "Challenge" : "تحدٍّ"]];
+    return `<div class="gb ${cls || ""}">${obj ? `<div class="gb-obj">🎯 <b>${en ? "Lesson goal" : "هَدَفُ الدَّرْسِ"}:</b> ${esc(obj)}</div>` : ""}
+      ${sc.map((c, i) => { const lv = LV[Math.min((c.solo || i + 1) - 1, 3)]; return `<div class="gb-sc"><span class="gb-n" style="background:${lv[0]}">${i + 1}</span><span class="gb-t">${en ? "I can " : "أَسْتَطيعُ أَنْ "}${esc(en && c.statement_en ? c.statement_en : String(c.statement_ar).replace(/^أَسْتَطيعُ أَنْ\s*/, ""))}</span><span class="gb-lv" style="color:${lv[0]}">${lv[1]} ${"|".repeat(Math.min(c.solo || i + 1, 4))}</span></div>`; }).join("")}</div>`;
+  }
   function fcRun(l, cards0, en) {
     const box = document.getElementById("fcBox"); if (!box) return;
     const deck = "lesson:" + l.code, me = state.session && state.session.user && state.session.user.id;
@@ -5088,6 +5101,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const id = (l.lesson_identity_links || [])[0];
       const quiz = (sm.quiz || []).slice(0, 2);
       return `<div class="ars"${nnEn ? ' dir="ltr"' : ""}>
+        ${goalBlock(l, nnEn) ? card("ars-goal ars-wide", "🎯", nnEn ? "My goal today" : "هَدَفي الْيَوْمَ", goalBlock(l, nnEn)) : ""}
         ${bookTx && bookTx.body ? card("ars-book ars-wide", "📖", nnEn ? "The lesson text" : "نَصُّ الدَّرْسِ", `${sm.idea ? `<p>${esc(sm.idea)}</p>` : ""}<div class="ars-text">${((sm.key && sm.key.length) ? sm.key : bookLines(bookTx.body).slice(0, 3)).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
           <details class="ars-full"><summary>📖 ${nnEn ? "Read the full text" : "أَقْرَأُ النَّصَّ كامِلًا"}${bookTx.pages ? ` (${esc(bookTx.title || "")} · ص ${esc(bookTx.pages)})` : ""}</summary><div class="bk-read"${bookTx.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div></details>
           <p class="muted" style="margin-top:8px">${nnEn ? "You will also find it in the lesson slides." : "وَأَجِدُهُ أَيْضًا في شَرائِحِ الدَّرْسِ."}</p>`)
@@ -5118,7 +5132,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         `Dear parent, this week your child learned «${title}».${words.length ? " New words: " + words.map((w) => w[0] + " (" + String(w[1]).replace(/\s*\p{Extended_Pictographic}.*$/u, "") + ")").join(", ") + "." : ""} Please practise at home: ${home.join(" ")} Lesson and game: ${link}`);
       return `<div class="pn" dir="${en ? "ltr" : "rtl"}">
         <div class="pn-card" id="pnCard">
-          <div class="pn-head"><span class="pn-emo">🏠</span><div><h3>${T("رسالة إلى ولي الأمر", "A note for parents")}</h3><p>${esc(title)}</p></div>${letter ? `<span class="pn-letter">${esc(letter)}</span>` : ""}</div>
+          <div class="pn-head"><span class="pn-emo">🏠</span><div><h3>${T("رسالة إلى ولي الأمر", "A note for parents")}</h3><p>${esc(title)}</p></div>${letter ? `<span class="pn-letter">${esc(letter)}</span>` : ""}<img class="pn-logo" src="art/brand/hiraa-lockup-light.svg" alt="حراء"></div>
+          ${goalBlock(l, en) ? `<h4>${T("🎯 هدف الدرس وما سيتمكّن منه طفلكم", "🎯 The lesson goal and what your child will be able to do")}</h4>${goalBlock(l, en, "pn-gb")}` : ""}
           <p>${T("ولي الأمر الكريم، هذا ما تعلّمه طفلنا في هذا الدرس، وهكذا تساعدونه في البيت:", "Dear parent, here is what your child learned in this lesson, and how you can help at home:")}</p>
           ${words.length ? `<h4>${T("🖼️ كلمات الدرس", "🖼️ New words")}</h4><div class="pn-words">${words.map((w) => `<span><b>${esc(w[0])}</b><small>${esc(w[1] || "")}</small></span>`).join("")}</div>` : ""}
           ${home.length ? `<h4>${T("🏠 نتعلّم معًا في البيت", "🏠 Practise together at home")}</h4><ul>${home.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
@@ -5198,7 +5213,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const show = (k) => {
       const tab = TABS.find((t) => t[0] === k) || TABS[0];
       panel.innerHTML = tab[2];
-      const pp = panel.querySelector("#pnPrint"); if (pp) pp.onclick = () => { const w = window.open("", "_blank"); if (!w) return; w.document.write(`<html dir="${nn ? "ltr" : "rtl"}"><head><meta charset="utf-8"><title>Hira</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.8}.pn-words span{display:inline-block;border:1px solid #ccc;border-radius:10px;padding:6px 12px;margin:4px}.pn-words b{font-size:1.4em;display:block}.pn-letter{font-size:3em;float:${nn ? "right" : "left"}}</style></head><body>${panel.querySelector("#pnCard").innerHTML}</body></html>`); w.document.close(); w.focus(); w.print(); };
+      const pp = panel.querySelector("#pnPrint"); if (pp) pp.onclick = () => { const w = window.open("", "_blank"); if (!w) return; w.document.write(`<html dir="${nn ? "ltr" : "rtl"}"><head><meta charset="utf-8"><title>Hira</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.8}.pn-words span{display:inline-block;border:1px solid #ccc;border-radius:10px;padding:6px 12px;margin:4px}.pn-words b{font-size:1.4em;display:block}.pn-letter{font-size:3em;float:${nn ? "right" : "left"}}.pn-head{display:flex;align-items:center;gap:12px}.pn-logo{height:44px;margin-inline-start:auto}.gb{display:grid;gap:6px}.gb-obj{background:#F6EEDC;border:1px solid #D4AA55;border-radius:10px;padding:8px 12px}.gb-sc{display:flex;gap:8px;align-items:center;border:1px solid #ddd;border-radius:10px;padding:6px 10px}.gb-n{width:24px;height:24px;border-radius:50%;color:#fff;display:inline-flex;align-items:center;justify-content:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}.gb-t{flex:1}</style></head><body>${panel.querySelector("#pnCard").innerHTML.replace(/src="art\//g, 'src="' + location.href.split("#")[0].replace(/[^/]*$/, "") + 'art/')}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
       const pc = panel.querySelector("#pnCopy"); if (pc) pc.onclick = () => { try { navigator.clipboard.writeText(panel.querySelector("#pnCard").innerText); toast(nn ? "Copied" : "تم النسخ"); } catch (e) {} };
       if (REL.cls && !REL.slides) panel.querySelectorAll(".td-open").forEach((x, i) => { if (i === 0) { const n = document.createElement("div"); n.className = "rel-lock-inline"; n.innerHTML = `🔒 <b>${CT("لم يفتح معلمك الشرائح بعد", "Your teacher hasn't opened the slides yet")}</b><small>${CT("يفتحها معلمك في الحصة عندما يحين وقتها. وأوراق العمل ومهام المجموعات متاحة لك الآن.", "Your teacher opens them in class at the right time. Worksheets and group tasks are available now.")}</small>`; x.replaceWith(n); } else x.remove(); });
       if (document.getElementById("relBox")) releaseBox(l, u);
@@ -9717,7 +9732,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           if (e.k === "btn") return `<div role="button" tabindex="0" class="tdf-el tdf-btn" data-bk="1" style="${pos}display:flex;align-items:center;justify-content:center;">${X(e.text)}</div>`;
           if (e.k === "img") return `<div class="tdf-el tdf-emo${rv}" style="${pos}font-size:${Math.round(e.h * 0.82)}px" ${tdE(0, `els.${j}.emo`)}>${X(e.emo)}</div>`;
           const rtl = /[\u0600-\u06FF]/.test(e.text || ""), jc = e.align === "center" ? "center" : (e.align === "left") === rtl ? "flex-end" : "flex-start";
-          return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}${e.ff === "naskh" ? "font-family:'Noto Naskh Arabic','Amiri',serif;line-height:2;" : ""}" ${tdE(0, `els.${j}.text`)}>${((t) => t.includes("<mark") ? `<span>${t}</span>` : t)(bkHL(X(e.text)))}</div>`;
+          return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}${e.ff === "naskh" ? "font-family:'Noto Naskh Arabic','Amiri',serif;line-height:2;" : e.ff === "brand" ? "font-family:'Reem Kufi','Readex Pro',sans-serif;" : ""}" ${tdE(0, `els.${j}.text`)}>${((t) => t.includes("<mark") ? `<span>${t}</span>` : t)(bkHL(X(e.text)))}</div>`;
         }).join("") + `</div>`; break;
     }
     const imgs = (s.imgs || []).map((im, j) => `<div class="td-img" data-im="${j}" style="left:${im.x}px;top:${im.y}px;width:${im.w}px"><img src="${im.src}" alt="" draggable="false"><span class="td-imx" title="${CT("حذف", "Delete")}">✕</span><span class="td-imr"></span></div>`).join("");
