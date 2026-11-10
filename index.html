@@ -9324,7 +9324,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         const qr = young.filter((x) => x.t === "exit");
         // Hiraa logo on every slide; one merged lesson (no second period): main deck + practice + exit QR
         free.forEach((x) => { const dark = /^(1E3A3F|0F6E72|102A4C|263238)$/i.test(x.d.bg || ""); x.d.els.push({ k: "pic", x: 24, y: 672, w: 132, h: 36, src: dark ? "art/brand/hiraa-lockup-on-dark.svg" : "art/brand/hiraa-lockup-light.svg" }); });
-        return free.concat(young.filter((x) => ["bank", "starter", "claim"].includes(x.t)), qr);
+        return free.concat(qr);
       }
       const dk = ctx.sm && ctx.sm.deck;
       if (!dk || !dk.n) return young;
@@ -9654,7 +9654,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const prevIds = (prevL || []).map((x) => x.id);
     const { data: prevS } = prevIds.length ? await sb.from("lesson_summaries").select("lesson_id, content").in("lesson_id", prevIds) : { data: [] };
     const prev = prevIds.map((id) => ((prevS || []).find((x) => x.lesson_id === id) || {}).content).filter(Boolean);
-    const two = (l.periods || 1) > 1;
+    // Arabic and Social Studies: one merged lesson deck, no period switch
+    const two = (l.periods || 1) > 1 && !(l.units && [2, 3].includes(l.units.subject_id));
     const ctx = { l, u, sm: summary && summary.content, prev, ev: evs, en, grade: u.year_group, lessonTitle: en && l.title_en ? l.title_en : l.title_ar,
       sc: (extra && extra.sc) || [], identity: (extra && extra.identity) || [],
       partLbl: two ? tdT(en, part === 1 ? "الحصة الأولى" : "الحصة الثانية", `Lesson ${part}`) : "",

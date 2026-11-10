@@ -55,3 +55,41 @@ def build(S, out):
         pg.pdf(path=out, format="A4", print_background=True); b.close()
 if __name__ == "__main__":
     build(json.load(open(sys.argv[1], encoding="utf-8")), sys.argv[2])
+
+# ---- extra sheets: people of determination (POD), concept card, teacher answer key ----
+def _doc(body, extra=""):
+    return f'<html dir="rtl"><head><meta charset="utf-8"><style>{CSS}{extra}</style></head><body>{body}</body></html>'
+def _pdf(doc, out, base):
+    with sync_playwright() as p:
+        b = p.chromium.launch(); pg = b.new_page(); pg.goto("file://" + base + "/"); pg.set_content(doc); pg.wait_for_timeout(700)
+        bad = pg.evaluate("Array.from(document.querySelectorAll('.pg')).map((e,i)=>e.scrollHeight>e.clientHeight+2?i:-1).filter(i=>i>=0)")
+        if bad: raise SystemExit(f"OVERFLOW on page(s) {bad}")
+        pg.pdf(path=out, format="A4", print_background=True); b.close()
+def _hd(S, tag, col): return f'<div class="hd" style="background:{col}"><div class="t">حِراء · اللغة العربية · {S["grade"]} · {hl(S["title"])}</div><div class="lv" style="color:{col}">{tag}</div></div>'
+POD_CSS = """.pic{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}.pic div{border:1.6px solid #D9CFC2;border-radius:4mm;padding:2mm;text-align:center}
+.pic img{width:100%;height:42mm;object-fit:contain}.pic b{display:block;font-family:'Noto Naskh Arabic',serif;font-size:20pt;margin-top:1mm}
+.trace{font-family:'Noto Naskh Arabic',serif;font-size:58pt;color:transparent;-webkit-text-stroke:1.6px #9A9087;text-align:center;letter-spacing:2mm;line-height:1.6}
+.big{font-size:15pt;font-weight:700}.heart{font-size:120pt;text-align:center;color:transparent;-webkit-text-stroke:3px #C0392B;line-height:1}"""
+def pod(S, out, base):
+    P = S["pod"]
+    body = f'<div class="pg">{_hd(S, "أَصْحابُ الْهِمَمِ", "#0F6E72")}<div class="meta"><span>الاسم:</span><span>التاريخ:</span></div><div class="goal">🎯 {hl(P["goal"])}</div>'
+    body += f'<div class="box"><div class="q big">1️⃣ {hl(P["q1"])}</div><div class="pic">' + "".join(f'<div><img src="{base}/{im}"><b>{hl(n)}</b></div>' for im, n in P["pics"]) + "</div></div>"
+    body += f'<div class="box"><div class="q big">2️⃣ {hl(P["q2"])}</div><div class="trace">{html.escape(P["trace"])}</div></div>'
+    body += f'<div class="box"><div class="q big">3️⃣ {hl(P["q3"])}</div><div class="heart">♥</div></div>'
+    body += '<div class="feel"><span>🟢 أَسْتَطيعُ وَحْدي</span><span>🟡 أَحْتاجُ مُساعَدَةً</span></div></div>'
+    _pdf(_doc(body, POD_CSS), out, base)
+def concept(S, out, base):
+    C = S["concept"]
+    body = f'<div class="pg">{_hd(S, "بِطاقَةُ الْمَفاهيمِ", "#9A5B2E")}'
+    body += '<div class="box"><h3 style="margin:0 0 2mm;color:#9A2F0B">🔤 كَلِماتي الْجَديدَةُ</h3><div class="grid" style="grid-template-columns:1fr 1fr">' + "".join(f'<div class="cell"><b style="font-family:Noto Naskh Arabic,serif;font-size:16pt;color:#9A2F0B">{hl(w)}</b><br><span style="font-family:Noto Naskh Arabic,serif;font-size:13pt;font-weight:400">{hl(m)}</span></div>' for w, m in S["words"]) + "</div></div>"
+    body += '<div class="box"><h3 style="margin:0 0 2mm;color:#0F6E72">🗺️ عَناصِرُ الْقِصَّةِ</h3>' + "".join(f'<div class="tx" style="font-size:14pt"><b>{hl(k)}:</b> {hl(v)}</div>' for k, v in C["elements"]) + "</div>"
+    body += f'<div class="rd"><h3>💡 رِسالَةُ الْقِصَّةِ</h3><div class="tx">{hl(C["message"])}</div></div></div>'
+    _pdf(_doc(body), out, base)
+def answer_key(S, out, base):
+    K = S["answers"]
+    body = f'<div class="pg">{_hd(S, "مِفْتاحُ الْإِجابَةِ لِلْمُعَلِّمِ", "#1E3A3F")}'
+    for lv in ["bronze", "silver", "gold", "challenge"]:
+        name, col = LV[lv]
+        body += f'<div class="box"><h3 style="margin:0 0 1.5mm;color:{col}">المستوى {name}</h3>' + "".join(f'<div class="tx" style="font-size:13pt;line-height:1.9">• {hl(a)}</div>' for a in K[lv]) + "</div>"
+    body += "</div>"
+    _pdf(_doc(body), out, base)
