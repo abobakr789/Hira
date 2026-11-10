@@ -1488,7 +1488,7 @@
   function hubTabs(route, cur, extra) { return `<div class="hub-tabs" role="tablist">${HUB_SUBJ.map(([k, ic, ar, en]) => `<a role="tab" class="hub-tab ${k === cur ? "on" : ""}" aria-selected="${k === cur}" href="#/${route}?subject=${k}${extra || ""}"><span>${ic}</span> ${LANG === "en" ? en : ar}</a>`).join("")}</div>`; }
   function hubSoon(ar, en) { return `<div class="empty"><strong>${LANG === "en" ? "Coming soon" : "قريبًا"}</strong>${LANG === "en" ? en : ar}</div>`; }
   const hubName = (k) => { const x = HUB_SUBJ.find((y) => y[0] === k); return x ? (LANG === "en" ? x[3] : x[2]) : ""; };
-  const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "أبجد" };
+  const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "أبجد", gcse: "GCSE", igcse: "IGCSE" };
   const TRACK_SHORT = { native: "عربي", non_native: "Non-native" };
   const ORD_GRADE = ["", "الأول", "الثاني", "الثالث", "الرابع", "الخامس", "السادس", "السابع", "الثامن", "التاسع", "العاشر", "الحادي عشر", "الثاني عشر", "الثالث عشر"];
   const LEVEL_AR = { mastered: "أتقن", developing: "قريب من الإتقان", needs_support: "يحتاج دعمًا" };
@@ -1982,7 +1982,7 @@
         <a class="btn btn-primary" style="margin-top:12px" href="#/year/${g}?track=${state.myTrack || "native"}">${LANG === "en" ? "Go to my grade" : "اذهب إلى دروس صفّي"} · Grade ${g}</a></div></div>`);
       return;
     }
-    const track = params.get("track") === "launch" ? "launch" : params.get("track") === "alevel" ? "alevel" : params.get("track") === "non_native" ? "non_native" : params.get("track") === "native" ? "native" : (isStudent() && state.myTrack) || (LANG === "en" ? "non_native" : "native");
+    const track = params.get("track") === "gcse" ? "gcse" : params.get("track") === "igcse" ? "igcse" : params.get("track") === "launch" ? "launch" : params.get("track") === "alevel" ? "alevel" : params.get("track") === "non_native" ? "non_native" : params.get("track") === "native" ? "native" : (isStudent() && state.myTrack) || (LANG === "en" ? "non_native" : "native");
     const testsView = params.get("term") === "tests";
     const term = ["1", "2", "3"].includes(params.get("term")) ? Number(params.get("term")) : 1;
     const subject = subjOf(params);
@@ -2106,6 +2106,7 @@
           <a href="${testsView ? `#/year/${year}?subject=${subject}&track=non_native&term=tests` : href(term, "non_native")}" aria-current="${track === "non_native"}">${TRACKS.non_native}</a>
           ${subject === "arabic" && [11, 12].includes(Number(year)) ? `<a href="${testsView ? `#/year/${year}?subject=${subject}&track=alevel&term=tests` : href(term, "alevel")}" aria-current="${track === "alevel"}" dir="ltr">A Level</a>` : ""}
           ${subject === "arabic" && [6, 7, 8, 9].includes(Number(year)) ? `<a href="#/year/6?subject=${subject}&track=launch&term=${testsView ? "tests" : term}" aria-current="${track === "launch"}" title="للمتعلّمين اليافعين المبتدئين في العربية">أبجد</a>` : ""}
+          ${subject === "arabic" && [9, 10].includes(Number(year)) ? `<a href="${testsView ? `#/year/${year}?subject=${subject}&track=gcse&term=tests` : href(term, "gcse")}" aria-current="${track === "gcse"}" dir="ltr" title="GCSE Arabic (1AA0): العربية لغة أجنبية">GCSE</a><a href="${testsView ? `#/year/${year}?subject=${subject}&track=igcse&term=tests` : href(term, "igcse")}" aria-current="${track === "igcse"}" dir="ltr" title="International GCSE Arabic (4AA1): للناطقين بالعربية">IGCSE</a>` : ""}
         </div>
         <div class="term-tabs" role="tablist">
           ${[1, 2, 3].map((t) => `<a class="term-tab" role="tab" href="${href(t, track, 0)}" aria-selected="${!testsView && t === term}" style="text-decoration:none">${(isStudent() || ctl) && counts[t] && !termOpen[t] ? lockIcon + " " : ""}${TERMS[t]} <span class="muted">(${counts[t]})</span></a>`).join("")}
@@ -3695,7 +3696,7 @@
     if (!state.session) { location.hash = "#/login"; return; }
     if (!isSuper()) { h('<div class="wrap loading">لوحة التحكم متاحة للمشرف العام فقط.</div>'); return; }
     const year = Number(params.get("year") || 1);
-    const track = params.get("track") === "launch" ? "launch" : params.get("track") === "alevel" ? "alevel" : params.get("track") === "non_native" ? "non_native" : "native";
+    const track = params.get("track") === "gcse" ? "gcse" : params.get("track") === "igcse" ? "igcse" : params.get("track") === "launch" ? "launch" : params.get("track") === "alevel" ? "alevel" : params.get("track") === "non_native" ? "non_native" : "native";
     const subject = subjOf(params);
     loading();
     const { data: units, error } = await sb.from("units")
@@ -3725,7 +3726,7 @@
       <form class="admin-filters" id="filters">
         <div class="field"><label for="fs">المادة</label><select id="fs">${Object.keys(SUBJECTS).map((k) => `<option value="${k}" ${k === subject ? "selected" : ""}>${SUBJECTS[k].name}</option>`).join("")}</select></div>
         <div class="field"><label for="fy">الصف</label><select id="fy">${Array.from({ length: 12 }, (_, i) => `<option value="${i + 1}" ${i + 1 === year ? "selected" : ""}>Grade ${i + 1}</option>`).join("")}</select></div>
-        <div class="field"><label for="ft">المسار</label><select id="ft"><option value="native" ${track === "native" ? "selected" : ""}>${TRACKS.native}</option><option value="non_native" ${track === "non_native" ? "selected" : ""}>${TRACKS.non_native}</option><option value="alevel" ${track === "alevel" ? "selected" : ""}>A Level</option><option value="launch" ${track === "launch" ? "selected" : ""}>أبجد</option></select></div>
+        <div class="field"><label for="ft">المسار</label><select id="ft"><option value="native" ${track === "native" ? "selected" : ""}>${TRACKS.native}</option><option value="non_native" ${track === "non_native" ? "selected" : ""}>${TRACKS.non_native}</option><option value="alevel" ${track === "alevel" ? "selected" : ""}>A Level</option><option value="launch" ${track === "launch" ? "selected" : ""}>أبجد</option><option value="gcse" ${track === "gcse" ? "selected" : ""}>GCSE</option><option value="igcse" ${track === "igcse" ? "selected" : ""}>IGCSE</option></select></div>
         <button class="btn btn-ghost" type="submit">عرض</button>
       </form>
       ${rows.length ? `<div class="table-wrap"><table class="admin-table">
