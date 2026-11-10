@@ -1547,21 +1547,24 @@
       const t = mkN(A), W = mkWords(A), paras = String(A || "").split(/\n+/).filter((x) => x.trim().length > 20).length;
       const cov = q.bullets.filter((b) => mkHas(t, b.kws)).length / q.bullets.length;
       const tgt = q.words || 300, CM = q.cmax || 15, LM = q.max - CM; const lenf = W >= 0.93 * tgt ? 1 : W >= 0.73 * tgt ? 0.8 : W >= 0.5 * tgt ? 0.6 : W >= 0.27 * tgt ? 0.4 : W > 0 ? 0.2 : 0;
-      const form = q.form === "speech" ? mkHas(t, ["ايها", "اعزائي", "زملائي", "السلام عليكم", "الحضور"]) : q.form === "compare" ? mkCount(t, MK_CMP) >= 2 : q.form === "letter" ? mkHas(t, ["حضره", "تحيه طيبه", "وبعد", "المحترم", "تفضلوا", "السيد"]) : q.form === "story" ? (paras >= 3 && mkHas(t, ["فجاه", "عندما", "ثم", "في النهايه", "اخيرا"])) : paras >= 3;
+      const form = q.form === "research" ? (mkQuotes(A, mkTxt(P, q.text)) >= 1 && mkCount(t, MK_EFF) + mkCount(t, ["الى اي مدى", "في راي", "ارى", "لذلك", "بحثي", "دراستي", "مقارنه"]) >= 3) : q.form === "literary" ? (((A || "").match(/«[^»]{3,}»/g) || []).length >= 2 && mkCount(t, ["الشخصيه", "الحبكه", "الراوي", "الرمز", "الصراع", "الحوار", "السرد", "المشهد", "اللقطه", "الكادر", "الاضاءه", "المخرج", "الكاتب", "الموضوع", "الاسلوب", "المفارقه"]) >= 4) : q.form === "speech" ? mkHas(t, ["ايها", "اعزائي", "زملائي", "السلام عليكم", "الحضور"]) : q.form === "compare" ? mkCount(t, MK_CMP) >= 2 : q.form === "letter" ? mkHas(t, ["حضره", "تحيه طيبه", "وبعد", "المحترم", "تفضلوا", "السيد"]) : q.form === "story" ? (paras >= 3 && mkHas(t, ["فجاه", "عندما", "ثم", "في النهايه", "اخيرا"])) : paras >= 3;
       const lenScale = W >= 0.67 * tgt ? 1 : W >= 0.4 * tgt ? 0.75 : W >= 0.2 * tgt ? 0.5 : 0.3;
       const shortT = tgt <= 60; const C = W ? Math.round(CM * Math.min(1, shortT ? 0.6 * cov + 0.4 * lenf : 0.45 * cov + 0.3 * lenf + 0.1 * (paras >= 3 ? 1 : 0) + 0.15 * (form ? 1 : 0)) * lenScale) : 0;
       const words = t.split(" ").filter(Boolean), ttr = words.length ? new Set(words).size / words.length : 0, conn = mkCount(t, MK_CONN);
       const rh = (String(A || "").match(/[؟?!]/g) || []).length + mkCount(t, ["كان", "كأن", "مثل", "يا ", "ما اجمل", "اليس", "ليت"]) + (/«[^»]+»|﴿/.test(A || "") ? 1 : 0);
       const L = !W ? 0 : shortT ? Math.round(LM * (0.4 * Math.min(1, (conn + (/(\u0644\u0627\u0646|\u0648 )/.test(t) ? 1 : 0)) / 2) + 0.4 * Math.max(0, Math.min(1, (ttr - 0.5) / 0.3)) + 0.2 * (W >= 0.67 * tgt ? 1 : 0))) : Math.round(LM * (0.4 * Math.min(1, conn / (tgt >= 200 ? 6 : 3)) + 0.3 * Math.max(0, Math.min(1, (ttr - 0.4) / 0.3)) + 0.2 * Math.min(1, rh / 3) + 0.1 * (W >= 0.67 * tgt ? 1 : 0)) * (W >= 0.67 * tgt ? 1 : W >= 0.4 * tgt ? 0.8 : 0.5));
+      const sents = String(A || "").split(/[.!؟?\n]+/).map((x) => mkN(x)).filter((x) => x.split(" ").length >= 4); const dupR = sents.length ? 1 - new Set(sents).size / sents.length : 0;
+      if (dupR > 0.25) { fb.push("في إجابتك جمل مكرّرة: التكرار لا يُحتسب، طوّر أفكارًا جديدة."); return { got: Math.round((C + L) * (1 - dupR)), max: q.max, fb, info: `تكرار: ${Math.round(dupR * 100)}% · كلمات: ${W}` }; }
       if (cov < 1) fb.push("غطِّ كل النقاط المقترحة في السؤال: كل نقطة في فقرة.");
       if (W < 0.83 * tgt) fb.push(`عدد كلماتك ${W}: المطلوب نحو ${tgt} كلمة.`);
-      if (!form && !shortT) fb.push(q.form === "speech" ? "الكلمة تبدأ بمخاطبة الجمهور: «أيها الزملاء الأعزاء…»." : q.form === "compare" ? "استخدم أدوات الموازنة: في حين، بينما، على عكس…" : q.form === "letter" ? "الرسالة الرسمية: «حضرة السيد…، تحية طيبة وبعد،» وتُختم بـ«وتفضّلوا بقبول فائق الاحترام»." : q.form === "story" ? "القصة: بداية وعقدة ونهاية في فقرات، بأدوات الزمن (عندما، فجأة، ثم، في النهاية)." : "نظّم المقال في فقرات: مقدمة، عرض، خاتمة.");
+      if (!form && !shortT) fb.push(q.form === "research" ? "اربط إجابتك بالنص المعطى (اقتباس قصير) وبنتائج بحثك، وقيّم: «إلى أيّ مدى…»." : q.form === "literary" ? "استشهد باقتباسين على الأقل «…» واستخدم مصطلحات التحليل: الشخصية، الرمز، الصراع، الراوي، اللقطة…" : q.form === "speech" ? "الكلمة تبدأ بمخاطبة الجمهور: «أيها الزملاء الأعزاء…»." : q.form === "compare" ? "استخدم أدوات الموازنة: في حين، بينما، على عكس…" : q.form === "letter" ? "الرسالة الرسمية: «حضرة السيد…، تحية طيبة وبعد،» وتُختم بـ«وتفضّلوا بقبول فائق الاحترام»." : q.form === "story" ? "القصة: بداية وعقدة ونهاية في فقرات، بأدوات الزمن (عندما، فجأة، ثم، في النهاية)." : "نظّم المقال في فقرات: مقدمة، عرض، خاتمة.");
       if (conn < 4) fb.push("نوّع أدوات الربط: لذلك، علاوة على ذلك، ومع ذلك، في الختام…");
       return { got: C + L, max: q.max, fb, info: `المحتوى والتواصل: ${C}/${CM} · المعرفة اللغوية: ${L}/${LM} · كلمات: ${W}`, parts: { C, L } };
     }
     return { got: 0, max: q.max || 0, fb };
   }
   const mkGrade = (p) => p >= 85 ? 9 : p >= 78 ? 8 : p >= 70 ? 7 : p >= 62 ? 6 : p >= 54 ? 5 : p >= 46 ? 4 : p >= 38 ? 3 : p >= 28 ? 2 : p >= 18 ? 1 : "U";
+  const mkGradeQ = (qual, p) => qual === "9AA0" || qual === "alevel" ? (p >= 80 ? "A*" : p >= 70 ? "A" : p >= 60 ? "B" : p >= 50 ? "C" : p >= 40 ? "D" : p >= 30 ? "E" : "U") : mkGrade(p);
   async function pageArMocks(params) {
     setNav("grades"); const q = params.get("q") || "igcse";
     let idx = []; try { idx = await (await fetch(new URL("resources/mocks/index.json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
@@ -1574,7 +1577,10 @@
     setNav("grades"); loading();
     let P; try { P = await (await fetch(new URL("resources/mocks/" + id + ".json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) { h(`<section class="section"><div class="wrap"><div class="empty">تعذّر تحميل الامتحان.</div></div></section>`); return; }
     const key = "hiraa.armock." + id; let ans = {}; try { ans = JSON.parse(localStorage.getItem(key) || "{}"); } catch (e) {}
-    let picks = ans._picks || []; const save = () => { ans._picks = picks; try { localStorage.setItem(key, JSON.stringify(ans)); } catch (e) {} };
+    P.sections.forEach((sc, k) => { if (P.choose && !sc.choose && k === 0) sc.choose = P.choose; });
+    let picks = (ans._picks && !Array.isArray(ans._picks)) ? ans._picks : {}; if (Array.isArray(ans._picks)) picks = { 0: ans._picks };
+    const save = () => { ans._picks = picks; try { localStorage.setItem(key, JSON.stringify(ans)); } catch (e) {} };
+    const secPicked = (k) => picks[k] || [];
     const allQ = P.sections.flatMap((s) => s.qs);
     const textHtml = (k) => { const T = P.texts[k]; return `<details class="form-card" open style="background:#FFF8EC;margin:10px 0"><summary style="cursor:pointer;font-weight:800">📖 ${esc(T.title)}</summary><div style="font-size:1.12rem;line-height:2.1;margin-top:8px">${T.body.map((p) => `<p>${esc(p)}</p>`).join("")}</div></details>`; };
     const inp = (q) => { const a = ans[q.n];
@@ -1587,14 +1593,14 @@
     };
     const qHtml = (q) => `<article class="form-card" style="margin:14px 0" data-q="${q.n}"><h3 style="margin-top:0">سؤال رقم ${q.n} <small class="muted">(${q.max || (q.items ? (q.type === "trans" ? q.items.reduce((x, it) => x + it.pts.length, 0) : q.items.length) : 0)} ${q.type === "essay" ? "درجة" : "درجات"})</small></h3><p style="font-size:1.08rem">${esc(q.q)}</p>${q.bullets ? `<ul>${q.bullets.map((b) => `<li>${esc(b.t)}</li>`).join("")}</ul>` : ""}${inp(q)}</article>`;
     const render = () => {
-      h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="${(() => { try { return localStorage.getItem("hiraa.mockBack") || ("#/year/10?subject=arabic&track=" + (P.qual === "4AA1" ? "igcse" : "gcse")); } catch (e) { return "#/grades?subject=arabic"; } })()}">${P.qual === "4AA1" ? "International GCSE" : "GCSE"} · الامتحانات التجريبية</a></div><h1>${esc(P.title)}</h1><p class="muted">${esc(P.note)}</p><div class="pill" id="amT">⏱ 0:00 / ${P.minutes} دقيقة</div></div></section>
+      h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="${(() => { try { return localStorage.getItem("hiraa.mockBack") || (P.qual === "9AA0" ? "#/year/12?subject=arabic&track=alevel" : "#/year/10?subject=arabic&track=" + (P.qual === "4AA1" ? "igcse" : "gcse")); } catch (e) { return "#/grades?subject=arabic"; } })()}">${P.qual === "4AA1" ? "International GCSE" : P.qual === "9AA0" ? "A Level" : "GCSE"} · الامتحانات التجريبية</a></div><h1>${esc(P.title)}</h1><p class="muted">${esc(P.note)}</p><div class="pill" id="amT">⏱ 0:00 / ${P.minutes} دقيقة</div></div></section>
         <section class="section" style="padding-top:12px"><div class="wrap" style="max-width:900px;margin-inline:auto">
-        ${P.sections.map((s) => `<h2 style="margin-top:26px">${esc(s.title)}</h2>${s.intro ? `<p class="muted">${esc(s.intro)}</p>` : ""}${s.passage ? `<div class="form-card" style="background:#FFF8EC;font-size:1.15rem;line-height:2.1">${esc(s.passage)}</div>` : ""}
+        ${P.sections.map((s, k) => `<h2 style="margin-top:26px">${esc(s.title)}</h2>${s.intro ? `<p class="muted">${esc(s.intro)}</p>` : ""}${s.passage ? `<div class="form-card" style="background:#FFF8EC;font-size:1.15rem;line-height:2.1">${esc(s.passage)}</div>` : ""}
           ${(() => { const tx = [...new Set(s.qs.map((q) => q.text).filter(Boolean))]; return tx.map(textHtml).join(""); })()}
-          ${P.choose ? `<p class="pill">اختر ${P.choose} من ${s.qs.length}: ${s.qs.map((q) => `<label style="margin-inline-start:10px"><input type="checkbox" data-pick="${q.n}" ${picks.includes(q.n) ? "checked" : ""}> سؤال ${q.n}</label>`).join("")}</p>` : ""}
-          ${s.qs.filter((q) => !P.choose || !picks.length || picks.includes(q.n)).map(qHtml).join("")}`).join("")}
+          ${s.choose ? `<div class="form-card" style="max-width:none;margin:8px 0;background:#F6FBFA"><b>اختر ${s.choose} من ${s.qs.length}:</b> ${s.qs.map((q) => `<label style="display:inline-block;margin:4px 10px"><input type="checkbox" data-pick="${k}:${q.n}" ${secPicked(k).includes(q.n) ? "checked" : ""}> ${esc(q.label || ("سؤال " + q.n))}</label>`).join("")}</div>` : ""}
+          ${s.qs.filter((q) => !s.choose || !secPicked(k).length || secPicked(k).includes(q.n)).map(qHtml).join("")}`).join("")}
         <div style="text-align:center;margin:26px 0"><button class="btn btn-primary" id="amSend">تسليم وعرض الدرجة</button></div></div></section>`);
-      document.querySelectorAll("[data-pick]").forEach((c) => c.onchange = () => { const n = +c.dataset.pick; picks = c.checked ? [...new Set([...picks, n])].slice(-P.choose) : picks.filter((x) => x !== n); save(); render(); });
+      document.querySelectorAll("[data-pick]").forEach((c) => c.onchange = () => { const [k, n0] = c.dataset.pick.split(":"); const n = +n0; const lim = P.sections[+k].choose; const cur = secPicked(k); picks[k] = c.checked ? [...new Set([...cur, n])].slice(-lim) : cur.filter((x) => x !== n); save(); render(); });
       document.querySelectorAll("textarea[data-n]").forEach((t) => { const n = +t.dataset.n; const wc = document.querySelector(`[data-wc="${n}"]`); const up = () => { if (wc) wc.textContent = mkWords(t.value) + " كلمة"; }; up(); t.oninput = () => { ans[n] = t.value; up(); save(); }; });
       document.querySelectorAll("input[data-n]").forEach((el) => { const n = +el.dataset.n, i = +el.dataset.i; const h2 = () => { ans[n] = ans[n] || {}; ans[n][i] = el.type === "radio" ? +el.value : el.value; save(); }; el.oninput = h2; el.onchange = h2; });
       document.getElementById("amSend").onclick = submit;
@@ -1602,14 +1608,14 @@
     const t0 = Date.now(); state._amTm && clearInterval(state._amTm);
     state._amTm = setInterval(() => { const el = document.getElementById("amT"); if (!el || !location.hash.startsWith("#/ar-mock/")) { clearInterval(state._amTm); return; } const s = Math.floor((Date.now() - t0) / 1000); el.textContent = `⏱ ${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")} / ${P.minutes} دقيقة`; }, 1000);
     const submit = async () => {
-      if (P.choose && picks.length !== P.choose) { toast(`اختر ${P.choose} أسئلة أولًا`); return; }
+      const bad = P.sections.findIndex((sc, k) => sc.choose && secPicked(k).length !== sc.choose); if (bad >= 0) { toast(`اختر ${P.sections[bad].choose} من «${P.sections[bad].title}» أولًا`); return; }
       if (!confirm("تسليم إجاباتك؟")) return;
-      const Qs = allQ.filter((q) => !P.choose || picks.includes(q.n)); const marks = {}; let tot = 0, mx = 0;
+      const Qs = P.sections.flatMap((sc, k) => sc.qs.filter((q) => !sc.choose || secPicked(k).includes(q.n))); const marks = {}; let tot = 0, mx = 0;
       Qs.forEach((q) => { const m = mkMarkQ(P, q, ans[q.n]); marks[q.n] = m; tot += m.got; mx += m.max; });
       if (state.session && isStudent()) { try { await sb.from("ar_mock_attempts").insert({ paper: P.id, answers: ans, marks, total: tot, max: mx }); } catch (e) {} }
       clearInterval(state._amTm);
       const pct = Math.round((tot / Math.max(1, mx)) * 100);
-      h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/ar-mock/${P.id}">${esc(P.title)}</a></div><h1>النتيجة: ${tot} / ${mx} (${pct}%)</h1><p class="muted">الدرجة المقدّرة على سلّم 9–1: <b style="font-size:1.4rem">${mkGrade(pct)}</b> · تقدير آلي تقريبي للتدريب؛ المعلم يراجع الأسئلة المقالية.</p></div></section>
+      h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/ar-mock/${P.id}">${esc(P.title)}</a></div><h1>النتيجة: ${tot} / ${mx} (${pct}%)</h1><p class="muted">الدرجة المقدّرة (${P.qual === "9AA0" ? "A*–E" : "9–1"}): <b style="font-size:1.4rem">${mkGradeQ(P.qual, pct)}</b> · تقدير آلي تقريبي للتدريب؛ المعلم يراجع الأسئلة المقالية.</p></div></section>
         <section class="section"><div class="wrap" style="max-width:900px;margin-inline:auto">${Qs.map((q) => { const m = marks[q.n]; return `<article class="form-card" style="margin:12px 0"><h3 style="margin-top:0">سؤال ${q.n}: <span style="color:${m.got / m.max >= 0.7 ? "#16A34A" : m.got / m.max >= 0.4 ? "#D97706" : "#C2410C"}">${m.got} / ${m.max}</span></h3>
           ${m.info ? `<p class="muted">${esc(m.info)}</p>` : ""}${m.per ? `<p>${m.per.map((ok, i) => `${ok ? "✓" : "✗"} ${String.fromCharCode(1571 + i)}`).join(" · ")}</p>` : ""}
           ${m.fb.length ? `<ul>${m.fb.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : "<p>✓ أحسنت.</p>"}${m.model ? `<p><b>إجابة نموذجية:</b> ${esc(m.model)}</p>` : ""}</article>`; }).join("")}
@@ -1627,10 +1633,17 @@ async function fillArMocks() {
     const best = (id) => { const m = mine.filter((x) => x.paper === id); if (!m.length) return null; const b = m.map((x) => Math.round(((x.teacher_marks ? x.teacher_marks.total : x.total) / x.max) * 100)); return Math.max(...b); };
     const facts = (MK_GUIDE[q] || {}).facts || [];
     el.innerHTML = `<div class="form-card" style="border-inline-start:5px solid #0F6E72;max-width:none;width:100%;margin:0"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><h2 style="margin:0 0 4px">📝 الامتحانات التجريبية</h2><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-small" href="#/ar-guide/${q}">🧭 كيف أجيب؟</a>${isStaff() ? `<a class="btn btn-small btn-primary" href="#/ar-mock-review">📋 نتائج طلابي</a>` : ""}</div></div>
-      <p style="margin:6px 0">${facts.map((f) => `<span class="pill" style="margin:3px">${esc(f)}</span>`).join("")}</p><p class="muted" style="margin:0 0 12px">بشكل امتحانات Pearson نفسه (الأسئلة والدرجات والزمن)، بنصوص من تأليف حراء، مع تصحيح فوري ودرجة تقديرية على سلّم 9–1.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span>${best(x.id) != null ? `<span class="pill" style="display:inline-block;margin-top:8px;background:#E7F6EC">أفضل نتيجة: ${best(x.id)}% · ${mkGrade(best(x.id))}</span>` : ""}</a>`).join("") : `<div class="empty">قريبًا.</div>`}</div></div>`;
+      <p style="margin:6px 0">${facts.map((f) => `<span class="pill" style="margin:3px">${esc(f)}</span>`).join("")}</p><p class="muted" style="margin:0 0 12px">بشكل امتحانات Pearson نفسه (الأسئلة والدرجات والزمن)، بنصوص من تأليف حراء، مع تصحيح فوري ودرجة تقديرية.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span>${best(x.id) != null ? `<span class="pill" style="display:inline-block;margin-top:8px;background:#E7F6EC">أفضل نتيجة: ${best(x.id)}% · ${mkGradeQ(q, best(x.id))}</span>` : ""}</a>`).join("") : `<div class="empty">قريبًا.</div>`}</div></div>`;
   }
   const MK_GUIDE = {
+    alevel: { title: "A Level العربية (9AA0): كيف أجيب؟", facts: ["📝 الورقة 1: ساعتان ونصف · ترجمة إلى الإنجليزية + قراءة + سؤال بحثي (80)", "✍️ الورقة 2: ساعتان و40 دقيقة · ترجمة إلى العربية + مقالان عن العملين (110)", "🎧 الورقة 3: استماع وقراءة وكتابة (60)", "🎯 سلّم A*–E"],
+      items: [
+        ["الورقة 1 (أ) · الترجمة إلى الإنجليزية (20)", "اقرأ الفقرة كاملة ← ترجم المعنى لا الكلمة ← انتبه لـ«كان + المضارع» والمبني للمجهول والنفي ← اقرأ الإنجليزية وحدها.", "«Was the families sit together.»", "«Families used to sit together every evening.»"],
+        ["الورقة 1 (ب) · الفهم القرائي (20)", "أجب بالعربية بأسلوبك وبإيجاز ← الدرجة = عدد النقاط ← لا تنسخ الجمل.", "نسخ الفقرة كاملة.", "جملة موجزة تذكر النقطتين المطلوبتين بكلماتك."],
+        ["الورقة 1 (ج) · السؤال البحثي (40)", "أطروحة تجيب عن السؤال ← معلومة من النص المعطى (اقتباس قصير) ← نتائج بحثك بأمثلة محدّدة ← تحليل وتقييم «إلى أيّ مدى» ← خاتمة.", "وصف عام للموضوع دون الإشارة إلى النص أو البحث.", "«يشير النص إلى أنّ «…»، وهذا ما وجدته في بحثي عن الإمارات؛ إذ… غير أنّ… لذلك أرى أنّ التأثير محدود لأنّ…»"],
+        ["الورقة 2 (أ) · الترجمة إلى العربية (20)", "التركيب العربي لا الإنجليزي ← المطابقة (جمع غير العاقل مفرد مؤنث) ← الأعداد ← حروف الجر.", "«المشاريع الجديدة ناجحون.»", "«المشاريعُ الجديدةُ ناجحةٌ.»"],
+        ["الورقة 2 (ب/ج) · المقال النقدي (45)", "حلّل السؤال ← أطروحة ← 3 فقرات (فكرة + اقتباس/مشهد + تحليل + ربط بالسؤال) ← مصطلحات التحليل ← حكم معلّل ← نحو 300 كلمة في 60 دقيقة.", "تلخيص أحداث العمل.", "«يكشف الحكيم غربة محسن حين يصف… «…»، فالعصفور هنا رمز للروح الشرقية الهشّة…»"]] },
     igcse: { title: "International GCSE العربية (4AA1): كيف أجيب؟", facts: ["📝 الورقة 1: ساعتان وربع · قراءة نصّين + تلخيص + قواعد", "✍️ الورقة 2: ساعة ونصف · كتابتان من ثلاث × 25 درجة", "🎯 سلّم 9–1"],
       items: [
         ["س1، س2، س5، س6 · الفهم المباشر (1–2 درجة)", "اقرأ أداة الاستفهام ← حدّد الدرجة = عدد النقاط ← أجب بجملة قصيرة لكل نقطة.", "«الضيافة مهمة عند العرب لأنها جميلة.» (عامة، لا تجيب عن المطلوب)", "«وصفه بأنه مدرسة مفتوحة يتعلّم فيها الصغار.» (دقيقة وموجزة)"],
@@ -2305,7 +2318,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         </div>
       </div>
     </div></section>
-    ${subject === "arabic" && (track === "igcse" || track === "gcse") ? `<section class="section" style="padding-top:26px;padding-bottom:0"><div class="wrap" id="arMocksPane" data-q="${track}"></div></section>${(() => { setTimeout(fillArMocks, 0); return ""; })()}` : ""}
+    ${subject === "arabic" && (track === "igcse" || track === "gcse" || track === "alevel") ? `<section class="section" style="padding-top:26px;padding-bottom:0"><div class="wrap" id="arMocksPane" data-q="${track}"></div></section>${(() => { setTimeout(fillArMocks, 0); return ""; })()}` : ""}
       ${testsView ? `<section class="section" style="padding-top:36px"><div class="wrap" id="testsPane"><div class="loading">جارٍ التحميل…</div></div></section>`
       : `<section class="section" style="padding-top:44px"><div class="wrap layout-2">
       <div>${ctlBar}${!state.session ? visitorGate(term) : gradeClosed ? `<div class="grade-gate">${accessBox(gAcc, year).replace('class="empty locked-box access-box"', 'class="gate-in"')}</div>` : ""}${!gradeClosed && isStudent() && termAll && !termOpenN ? `<div class="notice locked-note">${lockIcon} ${LANG === "en" ? "Lessons of this term open one by one when your teacher starts them." : "دروس هذا الفصل الدراسي تُفتح تباعًا حين يبدؤها معلمك."}</div>` : ""}${chipsHtml}${unitsBlock}</div>
