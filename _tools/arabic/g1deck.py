@@ -110,12 +110,76 @@ def theme(deck,t):
         for e in sl["els"]:
             for key in ("fill","line","color"):
                 if e.get(key) in m: e[key]=m[e[key]]
-    if th["flip"]:  # title slide mirrored: picture on the right, text on the left
+    layout(deck,t%3,th)
+    if th["flip"] and t%3!=2:  # title slide mirrored: picture on the right, text on the left
         t0=deck["slides"][0]
         for e in t0["els"]:
             if e["k"]=="text": e["x"]=86
             elif e["k"]=="shape": e["x"]=824
             elif e["k"]=="pic": e["x"]=838
     return deck
+# ---- layout templates: same content, different composition (A classic · B pills & bold columns · C header band) ----
+def _is(e,k,**kw): return e["k"]==k and all(e.get(a)==b for a,b in kw.items())
+def layout(deck,v,th):
+    if v==0: return
+    acc,acc2,dark,soft=th["acc"],th["acc2"],th["dark"],th["soft"]
+    cols=[acc,acc2,dark]
+    for si,sl in enumerate(deck["slides"]):
+        els=sl["els"]
+        if si==0:
+            if v==2:  # centered title: framed picture on top, text below
+                for e in els:
+                    if e["k"]=="shape": e.update(x=440,y=36,w=400,h=330)
+                    elif e["k"]=="pic": e.update(x=454,y=50,w=372,h=302)
+                    elif e["k"]=="text":
+                        e.update(x=140,w=1000,align="center")
+                        if e["y"]==150: e.update(y=384,h=44)
+                        elif e["y"]==206: e.update(y=426,h=110,size=min(e["size"],48))
+                        elif e["y"]==380: e.update(y=534,h=56,size=min(e["size"],22))
+                        elif e["y"]==440: e.update(y=588,h=56,size=min(e["size"],22))
+                els.insert(0,{"k":"shape","x":-120,"y":420,"w":420,"h":420,"fill":acc,"rad":True,"oval":True})
+                els.insert(0,{"k":"shape","x":1000,"y":-160,"w":420,"h":420,"fill":acc2,"rad":True,"oval":True})
+            continue
+        label=next((e for e in els if _is(e,"text",x=461,y=28)),None)
+        if not label: continue
+        timer=next((e for e in els if _is(e,"text",x=86,y=26)),None)
+        head=next((e for e in els if _is(e,"text",x=86,y=92)),None)
+        els[:]=[e for e in els if not (e["k"]=="shape" and e["y"]==42 and e["h"]==15)]
+        goal=any(e.get("text")=="هدف الدرس ومعايير النجاح" for e in els)
+        colcards=[e for e in els if e["k"]=="shape" and e["y"]==175 and e["h"]==420 and e["w"]==333]
+        cards=[e for e in els if e["k"]=="shape" and e.get("line") and e not in colcards]
+        if v==1:
+            label.update(x=466,y=16,w=548,h=58,fill=acc,color="FFFFFF",rad=True,size=24)
+            timer.update(x=50,y=16,w=210,h=58,fill=acc2,color="1E1E1E",rad=True,size=22,text=timer["text"].replace(" د"," دَقائِقَ"))
+            if head: head.update(y=92)
+            for i,c in enumerate(colcards):
+                c.update(fill=cols[i%3]); c.pop("line",None)
+                for e in els:
+                    if e["k"]=="text" and e["y"]==280 and c["x"]<=e["x"]<c["x"]+50: e["color"]="FFFFFF"
+            for c in cards: c.update(fill="FFFFFF",line=acc,lw=3)
+            els.insert(0,{"k":"shape","x":-90,"y":-90,"w":240,"h":240,"fill":soft,"rad":True,"oval":True})
+            els.insert(0,{"k":"shape","x":1130,"y":560,"w":260,"h":260,"fill":soft,"rad":True,"oval":True})
+        else:
+            band={"k":"shape","x":0,"y":0,"w":1280,"h":140,"fill":acc,"rad":False}
+            label.update(x=640,y=14,w=600,h=34,color="FFFFFF",fill=None,align="right",size=18)
+            if goal:
+                els[:]=[e for e in els if not ((e["k"]=="shape" and e["x"]==380 and e["y"]==86) or e.get("text")=="هدف الدرس ومعايير النجاح")]
+                cards=[c for c in cards if c in els]
+                if not head:
+                    head={"k":"text","x":300,"y":48,"w":940,"h":80,"text":"هَدَفُ الدَّرْسِ وَمَعاييرُ النَّجاحِ","size":34,"color":"FFFFFF","bold":True,"align":"right","fill":None,"rad":False,"va":"middle","ff":"naskh"}; els.append(head)
+            if head: head.update(y=48,h=80,color="FFFFFF",size=34)
+            mins=timer["text"].replace("⏱","").strip()
+            els[:]=[e for e in els if e is not timer]
+            badge=[{"k":"shape","x":40,"y":22,"w":96,"h":96,"fill":"FFFFFF","rad":True,"oval":True},{"k":"text","x":40,"y":22,"w":96,"h":96,"text":"⏱\n"+mins,"size":18,"color":acc,"bold":True,"align":"center","fill":None,"rad":False,"va":"middle"}]
+            for e in els:
+                if e["k"]=="text" and e.get("text","").startswith("🧭 الِاسْتِراتيجِيَّةُ"): e.update(x=150,y=92,w=420,h=40,size=16)
+            for c in colcards:
+                c.update(fill="FFFFFF",line=soft,lw=2)
+            extra=[]
+            for c in cards+colcards:
+                extra.append({"k":"shape","x":c["x"]+16,"y":c["y"]-5,"w":c["w"]-32,"h":10,"fill":acc2,"rad":True})
+            for c in cards: c.update(fill=soft); c.pop("line",None)
+            els[:]=[band]+badge+els+extra
+            els.insert(0,{"k":"shape","x":1150,"y":590,"w":200,"h":200,"fill":soft,"rad":True,"oval":True})
 if __name__=="__main__":
     S=json.load(open(sys.argv[1],encoding="utf-8")); json.dump(theme(build(S),S.get("theme",0)),open(sys.argv[2],"w",encoding="utf-8"),ensure_ascii=False)
