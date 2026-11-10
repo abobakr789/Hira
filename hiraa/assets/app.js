@@ -1849,6 +1849,147 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     return data.signedUrl;
   }
   const officeView = (u) => "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(u);
+  // ---------- video challenge (تحدّي الفيديو): questions after each lesson video ----------
+  const VCH_CSS = `
+.vchal{margin-top:20px;border-radius:24px;background:linear-gradient(160deg,#FFF8E8,#F3F8FD);border:3px solid #E7C98A;padding:22px;position:relative;overflow:hidden}
+.vchal h4{margin:0 0 6px;font-size:1.35rem;color:#102A4C;display:flex;align-items:center;gap:10px}
+.vchal .vc-sub{color:#5b6b80;margin:0 0 14px}
+.vchal .vc-lock{display:flex;align-items:center;gap:14px;background:#fff;border-radius:18px;padding:16px 18px;font-weight:700;color:#102A4C}
+.vchal .vc-bar{height:10px;background:#E9EEF5;border-radius:6px;overflow:hidden;margin:6px 0 16px}
+.vchal .vc-bar i{display:block;height:100%;background:#C4943A;border-radius:6px;transition:width .4s}
+.vchal .vc-stem{font-size:1.7rem;font-weight:700;line-height:1.9;color:#102A4C;text-align:center;margin:6px 0 16px}
+.vchal .vc-opts{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.vchal .vc-opt{min-width:130px;min-height:130px;padding:10px 20px;border-radius:24px;border:4px solid #102A4C;background:#fff;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:inherit;color:#102A4C;transition:transform .15s}
+.vchal .vc-opt:hover{transform:translateY(-3px)}
+.vchal .vc-opt b{font-size:4rem;line-height:1.25;font-family:'Amiri','Noto Naskh Arabic',serif}
+.vchal .vc-opt span{font-size:1.05rem;font-weight:700;margin-top:2px}
+.vchal .vc-opt.ok{border-color:#21915F;background:#E8F7EF}
+.vchal .vc-opt.no{border-color:#D2453B;background:#FDECEA;animation:vcShake .4s}
+.vchal .vc-opt[disabled]{cursor:default}
+.vchal .vc-msg{text-align:center;font-weight:700;font-size:1.2rem;margin:16px 0 4px;min-height:1.6em}
+.vchal .vc-acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.vchal .vc-stars{font-size:2.6rem;text-align:center;letter-spacing:6px}
+.vchal canvas{display:block;margin:0 auto;background:#fff;border-radius:20px;border:3px dashed #C4943A;touch-action:none;max-width:100%}
+.vchal .vc-stat{margin-top:14px;padding-top:12px;border-top:1px dashed #E7C98A;color:#5b6b80;font-size:.95rem}
+@keyframes vcShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@keyframes vcPop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+.vchal .vc-pop{animation:vcPop .5s both}`;
+  const vcSound = (good) => {
+    try {
+      const A = window.AudioContext || window.webkitAudioContext; if (!A) return;
+      const ctx = vcSound.ctx || (vcSound.ctx = new A());
+      (good ? [523, 659, 784] : [300, 220]).forEach((f, i) => {
+        const o = ctx.createOscillator(), g = ctx.createGain(); o.type = good ? "triangle" : "sine"; o.frequency.value = f;
+        const t = ctx.currentTime + i * 0.11; g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.25, t + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3); o.connect(g).connect(ctx.destination); o.start(t); o.stop(t + 0.32);
+      });
+    } catch (e) {}
+  };
+  async function vcInit(box) {
+    if (box.dataset.ready) return; box.dataset.ready = "1";
+    if (!document.getElementById("vchal-css")) { const st = document.createElement("style"); st.id = "vchal-css"; st.textContent = VCH_CSS; document.head.appendChild(st); }
+    let meta = {}; try { meta = JSON.parse(box.dataset.meta || "{}"); } catch (e) {}
+    const video = document.getElementById(box.dataset.video);
+    const head = `<h4>⭐ تحدّي الفيديو</h4><p class="vc-sub">أجب عن أسئلة الفيديو، وإن أخطأت أعدنا لك جزء الشرح.</p>`;
+    if (!state.session) { box.innerHTML = head + `<div class="vc-lock">🔒 سجّل الدخول لتجيب عن أسئلة الفيديو.</div>`; return; }
+    const { data: rows } = await sb.from("assessment_questions").select("sort_order, questions(id, stem_ar, options)").eq("assessment_id", meta.challenge).order("sort_order");
+    const qs = (rows || []).map((r) => r.questions).filter(Boolean);
+    if (!qs.length) { box.remove(); return; }
+    const student = isStudent(), staff = isStaff();
+    let att = null, done = false, i = 0, first = {}, right = 0;
+    if (student) {
+      const { data: prev } = await sb.from("attempts").select("score, max_score").eq("assessment_id", meta.challenge).eq("student_id", state.session.user.id).not("submitted_at", "is", null).limit(1);
+      done = !!(prev && prev.length);
+    }
+    const stat = async () => {
+      if (!staff) return "";
+      try {
+        const { data } = await sb.from("attempts").select("student_id, score, max_score").eq("assessment_id", meta.challenge).not("submitted_at", "is", null);
+        const by = {}; (data || []).forEach((a) => { by[a.student_id] = a; });
+        const list = Object.values(by); if (!list.length) return `<div class="vc-stat">لم يُجب أحد من طلابك بعد. النتائج تظهر هنا وفي لوحات الإتقان.</div>`;
+        const avg = list.reduce((s, a) => s + (a.max_score ? a.score / a.max_score : 0), 0) / list.length;
+        return `<div class="vc-stat">أجاب ${list.length} من طلابك · متوسط الإجابات الصحيحة من أول محاولة: ${Math.round(avg * 100)}٪</div>`;
+      } catch (e) { return ""; }
+    };
+    const playPart = (qid) => {
+      const s = meta.seeks && meta.seeks[qid]; if (!video || !s) return;
+      video.scrollIntoView({ behavior: "smooth", block: "center" });
+      video.currentTime = s[0]; video.play().catch(() => {});
+      const stop = () => { if (video.currentTime >= s[1]) { video.pause(); video.removeEventListener("timeupdate", stop); box.scrollIntoView({ behavior: "smooth", block: "center" }); } };
+      video.addEventListener("timeupdate", stop);
+    };
+    const finish = async () => {
+      if (student && att) { await sb.rpc("submit_attempt", { p_attempt: att, p_answers: first }); done = true; }
+      if (meta.trace) return trace();
+      result();
+    };
+    const result = async () => {
+      const n = qs.length;
+      box.innerHTML = head + `<div class="vc-stars vc-pop">${"⭐".repeat(right)}${"☆".repeat(n - right)}</div>
+        <div class="vc-msg">${right === n ? "أحسنت يا بطل حراء! أجبت عن الأسئلة كلها من أول مرة." : "أحسنت! أكملت التحدي، وتعلّمت من أخطائك."}</div>
+        <div class="vc-acts"><button class="btn btn-ghost btn-small" data-vc="again">أعد التحدي</button></div>${await stat()}`;
+      box.querySelector('[data-vc="again"]').onclick = () => start();
+    };
+    const trace = () => {
+      box.innerHTML = head + `<div class="vc-stem">اُكْتُبْ حَرْفَ «${esc(meta.trace)}» بِإِصْبَعِكَ</div><canvas width="420" height="420"></canvas>
+        <div class="vc-acts"><button class="btn btn-ghost btn-small" data-vc="clear">امسح</button><button class="btn btn-primary btn-small" data-vc="ok">انتهيت</button></div>`;
+      const cv = box.querySelector("canvas"), g = cv.getContext("2d");
+      const guide = () => { g.clearRect(0, 0, 420, 420); g.fillStyle = "#EDE3CF"; g.font = "bold 300px Amiri, 'Noto Naskh Arabic', serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(meta.trace, 210, 210); };
+      guide(); let drawing = false; g.lineCap = "round"; g.lineJoin = "round";
+      const pt = (e) => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * 420 / r.width, (e.clientY - r.top) * 420 / r.height]; };
+      cv.onpointerdown = (e) => { drawing = true; cv.setPointerCapture(e.pointerId); const [x, y] = pt(e); g.beginPath(); g.moveTo(x, y); };
+      cv.onpointermove = (e) => { if (!drawing) return; const [x, y] = pt(e); g.strokeStyle = "#102A4C"; g.lineWidth = 18; g.lineTo(x, y); g.stroke(); };
+      cv.onpointerup = () => { drawing = false; };
+      box.querySelector('[data-vc="clear"]').onclick = guide;
+      box.querySelector('[data-vc="ok"]').onclick = () => { vcSound(true); result(); };
+    };
+    const ask = () => {
+      const q = qs[i], opts = q.options || [];
+      box.innerHTML = head + `<div class="vc-bar"><i style="width:${(i / qs.length) * 100}%"></i></div>
+        <div class="vc-stem">${esc(q.stem_ar)}</div>
+        <div class="vc-opts">${opts.map((o) => `<button class="vc-opt" data-id="${esc(o.id)}"><b>${esc(o.text)}</b>${o.sub ? `<span>${esc(o.sub)}</span>` : ""}</button>`).join("")}</div>
+        <div class="vc-msg"></div><div class="vc-acts"></div>`;
+      const msg = box.querySelector(".vc-msg"), acts = box.querySelector(".vc-acts");
+      box.querySelectorAll(".vc-opt").forEach((b) => b.onclick = async () => {
+        box.querySelectorAll(".vc-opt").forEach((x) => x.disabled = true);
+        const id = b.dataset.id, isFirst = !(q.id in first);
+        if (isFirst) first[q.id] = id;
+        const { data, error } = await sb.rpc("video_check_answer", { p_question: q.id, p_response: id });
+        if (error) { toast("تعذّر التحقق من الإجابة، حاول مرة أخرى"); box.querySelectorAll(".vc-opt").forEach((x) => x.disabled = false); if (isFirst) delete first[q.id]; return; }
+        if (data.correct) {
+          if (isFirst) right++;
+          b.classList.add("ok"); vcSound(true);
+          msg.innerHTML = `<span style="color:#21915F">⭐ أحسنت!</span> ${esc(data.explanation || "")}`;
+          acts.innerHTML = `<button class="btn btn-primary btn-small vc-pop" data-vc="next">${i + 1 < qs.length ? "السؤال التالي" : "أكمل"}</button>`;
+          acts.querySelector('[data-vc="next"]').onclick = () => { i++; i < qs.length ? ask() : finish(); };
+        } else {
+          b.classList.add("no"); vcSound(false);
+          msg.innerHTML = `<span style="color:#D2453B">حاول مرة أخرى!</span> شاهد الجواب في الفيديو، ثم أجب.`;
+          acts.innerHTML = (meta.seeks && meta.seeks[q.id] ? `<button class="btn btn-dawn btn-small" data-vc="watch">▶️ شاهد الجواب</button>` : "") + `<button class="btn btn-ghost btn-small" data-vc="retry">أجب مرة أخرى</button>`;
+          const w = acts.querySelector('[data-vc="watch"]'); if (w) w.onclick = () => playPart(q.id);
+          acts.querySelector('[data-vc="retry"]').onclick = () => { box.querySelectorAll(".vc-opt").forEach((x) => { x.disabled = x.classList.contains("no"); }); msg.textContent = ""; acts.innerHTML = ""; };
+        }
+      });
+    };
+    const start = async () => {
+      i = 0; first = {}; right = 0; att = null;
+      if (student) { const r = await sb.rpc("start_attempt", { p_assessment: meta.challenge }); if (!r.error) att = r.data; }
+      ask();
+    };
+    const intro = async () => {
+      box.innerHTML = head + `<div class="vc-acts"><button class="btn btn-primary vc-pop" data-vc="go">ابدأ التحدي (${qs.length} أسئلة)</button></div>`
+        + (staff ? `<p class="vc-sub" style="margin-top:12px;text-align:center">وضع الصف: اعرض الأسئلة على السبورة، ودع الطلاب يجيبون على ألواحهم، ثم اختر الإجابة لكشفها.</p>${await stat()}` : "");
+      box.querySelector('[data-vc="go"]').onclick = () => start();
+    };
+    if (student && !done && video) {
+      box.innerHTML = head + `<div class="vc-lock">🎬 شاهد الفيديو حتى النهاية، ثم يُفتح التحدي هنا.</div>`;
+      const open = () => { if (video.duration && video.currentTime >= video.duration - 6) { video.removeEventListener("timeupdate", open); video.removeEventListener("ended", open); intro(); } };
+      video.addEventListener("timeupdate", open); video.addEventListener("ended", open);
+    } else intro();
+  }
+  new MutationObserver(() => document.querySelectorAll(".vchal:not([data-ready])").forEach(vcInit)).observe(document.body, { childList: true, subtree: true });
+
   document.addEventListener("click", async (e) => {
     const a = e.target.closest('a[href^="resources/"]');
     if (!a) return;
@@ -2500,7 +2641,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const { data: l, error } = await sb.from("lessons")
       .select(`id, code, title_ar, title_en, axis_code, book_pages, overview_ar, periods, objective_ar, objective_en,
         units(term, title_ar, title_en, year_group, track, subject_id),
-        lesson_resources(id, kind, part, title_ar, url, storage_path, sort_order, audience),
+        lesson_resources(id, kind, part, title_ar, url, storage_path, sort_order, audience, meta),
         evidences(kind, text_ar, full_ar, full_en, translation_en, surah_no, ayah_from, ayah_to, source, hadith_grade, is_verified, sort_order),
         lesson_identity_links(connection_ar, connection_en, identity_tags(name_ar, name_en, pillar)),
         lesson_outcomes(learning_outcomes(id, code, statement_ar, statement_en, sort_order)),
@@ -2614,7 +2755,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const mp4 = /\.(mp4|webm|m4v)(\?|$)/i.test(String(v.url || ""));
       return `<h3>${esc(v.title_ar)}</h3>` + (e
         ? `<iframe class="video-frame" src="${e}" title="${esc(v.title_ar)}" allowfullscreen loading="lazy"></iframe>`
-        : mp4 ? `<video class="video-frame" src="${esc(v.url)}" controls playsinline preload="metadata" controlslist="nodownload" oncontextmenu="return false" title="${esc(v.title_ar)}"></video>`
+        : mp4 ? `<video class="video-frame" id="vid-${esc(v.id)}" src="${esc(v.url)}" controls playsinline preload="metadata" controlslist="nodownload" oncontextmenu="return false" title="${esc(v.title_ar)}"></video>`
+          + (v.meta && v.meta.challenge ? `<div class="vchal" data-video="vid-${esc(v.id)}" data-meta="${esc(JSON.stringify(v.meta))}"></div>` : "")
         : `<a class="res-item" href="${esc(v.url)}" target="_blank" rel="noopener">${icon.video}<strong>شاهد الفيديو</strong></a>`);
     }).join('<div style="height:24px"></div>') : `<div class="empty"><strong>لم يُضف فيديو لهذا الدرس بعد</strong></div>`;
 
