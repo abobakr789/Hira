@@ -9472,7 +9472,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (ctx.l && ctx.l.units && [2, 3].includes(ctx.l.units.subject_id)) {
       const young = tdBuildYoung(ctx, part).filter((x) => !["open", "listen", "trans", "steps"].includes(x.t));
       if (ctx.free && ctx.free.length) {
-        const free = ctx.free.map((x) => ({ t: "free", d: { bg: x.bg, els: JSON.parse(JSON.stringify(x.els)) }, n: x.n || "" }));
+        const free = ctx.free.map((x) => ({ t: "free", d: { bg: x.bg, live: !!x.live, els: JSON.parse(JSON.stringify(x.els)) }, n: x.n || "" }));
         const qr = young.filter((x) => x.t === "exit");
         // Hiraa logo on every slide; one merged lesson (no second period): main deck + practice + exit QR
         free.forEach((x) => { const dark = /^(1E3A3F|0F6E72|102A4C|263238)$/i.test(x.d.bg || ""); x.d.els.push({ k: "pic", x: 24, y: 672, w: 132, h: 36, src: dark ? "art/brand/hiraa-lockup-on-dark.svg" : "art/brand/hiraa-lockup-light.svg" }); });
@@ -9991,7 +9991,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <button class="btn btn-ghost btn-small" id="tdDel">🗑 حذف</button>${custom ? '<button class="btn btn-ghost btn-small" id="tdReset">استرجاع الأصل</button>' : ""}
             <button class="btn btn-primary btn-small" id="tdSave">${dirty ? "حفظ التعديلات" : "محفوظ ✓"}</button><button class="btn btn-dawn btn-small" id="tdDone">إنهاء التعديل</button>`
           : `<select id="tdFxSel" class="td-sel" title="مؤثر الانتقال">${TD_FX.map(([k, t]) => `<option value="${k}" ${k === fx ? "selected" : ""}>✨ ${t}</option>`).join("")}</select>${state._bookTx ? `<button class="btn btn-ghost btn-small" data-bk="1">📖 ${CT("النَّصُّ كامِلًا", "Full text")}</button>` : ""}<button class="btn btn-ghost btn-small" id="tdProg">📈 ${CT("قياس التقدّم", "Progress check")}</button>
-            ${s.t === "table" ? '<button class="btn btn-primary btn-small" id="tdLive">📲 قياس مباشر</button>' : ""}<button class="btn btn-ghost btn-small" id="tdTimer">⏱ مؤقت</button><button class="btn btn-ghost btn-small" id="tdSnd">🔔 انتباه</button>
+            ${s.t === "table" || (s.d && s.d.live && ctx.sc.length) ? '<button class="btn btn-primary btn-small" id="tdLive">📲 قياس مباشر</button>' : ""}<button class="btn btn-ghost btn-small" id="tdTimer">⏱ مؤقت</button><button class="btn btn-ghost btn-small" id="tdSnd">🔔 انتباه</button>
             <button class="btn btn-ghost btn-small" id="tdNotes">📝 الملاحظات</button><button class="btn btn-ghost btn-small" id="tdEdit">✏️ تعديل</button><button class="btn btn-dawn btn-small" id="tdFull">⛶ ملء الشاشة</button>`}
         </div>
         <div class="td-main">
@@ -10045,7 +10045,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       on("tdTimer", timerMenu); on("tdSnd", soundMenu);
       on("tdProg", () => { let pp = document.getElementById("tdProgPop"); if (pp) { pp.remove(); return; } pp = document.createElement("div"); pp.id = "tdProgPop"; pp.className = "td-pop lp-pop"; pp.innerHTML = `<button class="btn btn-ghost btn-small lp-x">✕</button><h3>📈 ${CT("قياس التقدّم", "Progress check")}</h3><div id="pgPopBox"></div>`;
         ["click", "keydown", "pointerdown"].forEach((t) => pp.addEventListener(t, (e) => e.stopPropagation())); d.appendChild(pp); pp.querySelector(".lp-x").onclick = () => pp.remove(); progTeacher(pp.querySelector("#pgPopBox"), l, u, en); });
-      on("tdLive", () => pgLivePanel(d, ctx, part, (s.d && s.d.rows) || [], en));
+      on("tdLive", () => pgLivePanel(d, ctx, part, (s.d && s.d.rows) || (s.d && s.d.live ? ctx.sc.slice().sort((a, b) => a.sort_order - b.sort_order).map((c) => String(en && c.statement_en ? c.statement_en : c.statement_ar)) : []), en));
       const fs = document.getElementById("tdFxSel"); if (fs) fs.onchange = () => { fx = fs.value; localStorage.setItem("tdFx", fx); dir = 1; draw(true); };
       on("tdFull", () => { (d.requestFullscreen ? d.requestFullscreen() : Promise.resolve()).catch(() => {}).finally(() => setTimeout(() => tdFit(document.getElementById("tdStage")), 200)); });
       on("tdSave", save);
