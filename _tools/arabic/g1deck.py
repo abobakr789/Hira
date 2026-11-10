@@ -1,0 +1,96 @@
+# Grade 1–3 Arabic lesson deck builder (the approved «المحبة في رمضان» model).
+# python3 g1deck.py spec.json out.json  — [[word]] = key word; every question carries a model answer revealed on click.
+import json, re, sys
+def T(x,y,w,h,text,size=30,color="1E3A3F",bold=True,align="center",fill=None,rad=False,rv=None,ff="naskh"):
+    e={"k":"text","x":x,"y":y,"w":w,"h":h,"text":text,"size":size,"color":color,"bold":bold,"align":align,"fill":fill,"rad":rad,"va":"middle"}
+    if rv: e["rv"]=rv
+    if ff: e["ff"]=ff
+    return e
+def SH(x,y,w,h,fill,line=None,rv=None,oval=False):
+    e={"k":"shape","x":x,"y":y,"w":w,"h":h,"fill":fill,"rad":True}
+    if line: e["line"]=line; e["lw"]=1.5
+    if rv: e["rv"]=rv
+    if oval: e["oval"]=True
+    return e
+def IM(x,y,w,h,emo,rv=None):
+    e={"k":"img","x":x,"y":y,"w":w,"h":h,"emo":emo}
+    if rv: e["rv"]=rv
+    return e
+ANS="F2FAF4"
+def ans(x,y,w,h,t,rv,size=24): return T(x,y,w,h,"✅ "+t,size,"0B5D3B",True,"right",ANS,True,rv=rv)
+def frame(stage,label,mins,head):
+    xs=[1179,1157,1135,1114,1092]; out=[]
+    for i,x in enumerate(xs):
+        out.append(SH(x,42,15,15,"0F6E72") if i<stage else SH(x-22,42,37,15,"0F6E72") if i==stage else SH(x-22,42,15,15,"CFE3E1"))
+    return out+[T(461,28,614,44,label,22,"0F6E72",ff=None),T(86,26,145,46,"⏱ %s د"%mins,20,"1E3A3F",True,"center","FFFFFF",True,ff=None),T(86,92,1108,77,head,34,"1E3A3F",True,"right")]
+def chip(t): return {"k":"text","x":86,"y":104,"w":420,"h":52,"text":"🧭 الِاسْتِراتيجِيَّةُ: "+t,"size":18,"color":"6B46A8","bold":True,"align":"center","fill":"F4EFFB","rad":True,"va":"middle"}
+LV=[("برونزي","9A5B2E"),("فضي","5F6C78"),("ذهبي","B8860B"),("تحدٍّ","6B46A8")]
+def build(S):
+    img=lambda k: S["imgbase"]+k+".webp"
+    PIC=lambda x,y,w,h,k: {"k":"pic","x":x,"y":y,"w":w,"h":h,"src":img(k),"rad":True}
+    out=[]; add=lambda els,n,**kw: out.append(dict({"bg":"FBF6EC","els":els,"n":n},**kw))
+    # 0 title
+    out.append({"bg":"1E3A3F","els":[T(499,150,691,51,S["kicker"],25,"F2A93B",True,"right",ff=None),T(499,206,691,166,S["title"],56,"FBF6EC",True,"right"),
+      T(499,380,691,52,S["byline"],24,"A9C4C3",False,"right"),T(499,440,691,58,"يُرَافِقُنَا دَنْدُون صَدِيقُ الْحُرُوف 👋",24,"A9C4C3",False,"right"),SH(96,70,360,560,"FFFFFF"),PIC(110,84,332,532,"cover")],"n":S["title_note"]})
+    R=S["retrieval"]
+    els=frame(0,"🔁 نَتَذَكَّرُ مَعًا",3,R["head"])+[PIC(96,180,300,340,R["img"])]
+    for i,(q,a) in enumerate(R["qa"]): els+=[T(420,180+i*82,500,66,q,24,"1E3A3F",True,"right","FFFDF8",True),ans(930,180+i*82,222,66,a,i+1,22)]
+    els.append(T(420,436,732,100,R["link"],22,"0F6E72",True,"right","EAF5F4",True,rv=4)); add(els,R["note"])
+    H=S["hook"]; add(frame(0,"✨ لَحْظَةُ فُضولٍ",3,H["head"])+[SH(500,180,652,140,"FFFDF8"),T(515,190,622,120,H["q"],24,"1E3A3F",False,"right"),T(500,340,652,60,"💬 أُفَكِّرُ · أُشارِكُ زَميلي · نُخْبِرُ الصَّفَّ",22,"0F6E72",True,"center",ff=None),ans(500,420,652,130,H["model"],1,21),PIC(96,180,380,330,H["img"])],H["note"])
+    # goal & criteria
+    els=frame(0,"🎯 وِجْهَتُنا الْيَوْمَ",2,"")[:-1]+[SH(380,86,520,64,"FFFFFF","1E3A3F"),T(380,86,520,64,"هدف الدرس ومعايير النجاح",28,"0B7A55",True,"center",ff="brand"),SH(70,165,1140,80,"F6EEDC","D4AA55"),T(85,168,1110,74,"🎯 هَدَفُ الدَّرْسِ: "+S["objective"],22,"1E3A3F",True,"right")]
+    for i,t in enumerate(S["criteria"]):
+        y=262+i*88; nm,col=LV[i]
+        els+=[SH(70,y,1140,76,"FFFFFF","E1E8E6"),SH(1150,y+16,44,44,col,rv=i+1,oval=True),T(1150,y+16,44,44,str(i+1),20,"FFFFFF",True,"center",ff=None,rv=i+1),T(230,y+4,910,68,"أَسْتَطيعُ أَنْ "+t,22,"1E3A3F",True,"right",rv=i+1),T(80,y+16,140,44,nm+"  "+"|"*(i+1),18,col,True,"center",ff=None,rv=i+1)]
+    add(els,"[ناتج التعلّم ومعايير النجاح] اقرأ الهدف، ثم اكشف المعايير واحدًا واحدًا، ووضّح أن كل معيار يقابل مستوى ورقة العمل.")
+    # words
+    els=frame(1,"🔑 مَفاتيحُ الدَّرْسِ",5,"كَلِماتٌ مِنَ الْقِصَّةِ 🆕")
+    for i,(w,m,e) in enumerate(S["words"][:4]):
+        x=[650,90][i%2]; y=[185,385][i//2]
+        els+=[SH(x,y,540,180,"FFFDF8","E8DCC8"),IM(x+430,y+40,90,90,e),T(x+20,y+15,400,78,w,34,"9A2F0B",True,"right"),T(x+20,y+95,400,70,"= "+m,24,"0B5D3B",True,"right","F2FAF4",True,rv=i+1)]
+    add(els,"اقرأ الكلمة، واطلب من الطلاب تخمين معناها من الصورة، ثم اكشف المعنى بالنقر.")
+    P=S["predict"]; add(frame(1,"🔮 قَبْلَ الْقِراءَةِ",3,"أَتَوَقَّعُ 🔮")+[SH(128,180,1024,230,"FFFDF8"),T(150,190,980,90,P["q"],28,"1E3A3F",True,"right"),T(150,290,980,100,"ثُمَّ أَسْتَمِعُ إِلى مُعَلِّمي، وَأَتابِعُ في كِتَابِي (ص %s)."%S["page"],26,"1E3A3F",False,"right"),ans(128,440,1024,110,P["model"],1,25)],"اكتب ثلاثة توقعات على السبورة لمقارنتها بعد القراءة.")
+    # story map
+    els=frame(2,"🗺️ نَكْتَشِفُ مَعًا",6,"خَريطَةُ الْقِصَّةِ 🗺️")
+    for i,(x,(e,t,a)) in enumerate(zip([845,474,102],S["map"])): els+=[SH(x,175,333,420,"FFFDF8","E8DCC8"),IM(x+120,185,90,90,e),T(x,280,333,64,t,28,"0F6E72"),T(x+12,350,309,230,a,22,"0B5D3B",True,"center",ANS,True,rv=i+1)]
+    els.append(chip("خَريطَةُ الْقِصَّةِ")); add(els,"[استراتيجية خريطة القصة] نملأ العناصر معًا: من؟ أين؟ متى؟ من يحكي؟ ثم اكشف الإجابة النموذجية.")
+    # match slide
+    M=S["match"]; els=frame(2,"🤝 نُطَبِّقُ مَعًا",5,M["head"])
+    for i,(c,a) in enumerate(M["rows"]): y=180+i*100; els+=[T(900,y,290,84,c,26,"1E3A3F",True,"center","FFFDF8",True),T(810,y,80,84,"←",30,"0F6E72",True,"center",ff=None),T(90,y,710,84,a,24,"0B5D3B",True,"right",ANS,True,rv=i+1)]
+    els.append(chip("فَكِّرْ · زاوِجْ · شارِكْ")); add(els,"[فكّر – زاوج – شارك] دقيقة تفكير فردي، ثم يتبادل كل زميلين الإجابة، ثم يشارك ثلاثة أزواج قبل كشف الإجابة.")
+    # order
+    els=frame(2,"🔢 نُطَبِّقُ مَعًا",5,"أُرَتِّبُ الْأَحْداثَ 🔢")
+    for i,(x,(e,t,a)) in enumerate(zip([845,474,102],S["order"])): els+=[SH(x,175,333,420,"FFFDF8","E8DCC8"),IM(x+120,185,90,90,e),T(x,280,333,64,t,28,"0F6E72"),T(x+12,350,309,230,a,22,"0B5D3B",True,"center",ANS,True,rv=i+1)]
+    els.append(chip("إِعادَةُ السَّرْدِ بِالتَّسَلْسُلِ")); add(els,"[إعادة السرد بالتسلسل] كل طالب يمسك بطاقة حدث ويقف في مكانه بحسب ترتيب القصة، ثم يسرد حدثه.")
+    WJ=S["wordj"]; add(frame(2,"✂️ رِحْلَتي مَعَ كَلِمَةٍ",3,WJ["head"])+[T(128,180,1024,80,WJ["sent"],30,"1E3A3F",True,"center","FFFDF8",True),T(128,280,1024,60,WJ["q"],26,"1E3A3F",True,"right")]+
+        [T(x,350,w,70,o,24,"1E3A3F",False,"center","FFFFFF",True) for (x,w),o in zip([(800,352),(464,320),(128,320)],WJ["opts"])]+[ans(128,450,1024,100,WJ["model"],1,23)],"صوّت الطلاب بالأصابع (أ، ب، ج)، ثم اكشف الإجابة.")
+    SP=S["speak"]; add(frame(2,"👩‍🏫 شاهِدْني أَتَحَدَّثُ",4,SP["head"])+[SH(128,180,1024,170,"FFFDF8"),T(150,190,980,150,SP["frame"],32,"1E3A3F",True,"center"),T(128,370,1024,50,"أَقِفُ أَمامَ زُمَلائي، وَأَنْظُرُ إِلَيْهِمْ، وَأَتَحَدَّثُ بِصَوْتٍ واضِحٍ.",22,"0F6E72",True,"center",ff=None),ans(128,440,1024,110,SP["model"],1,24)],"نمذج الإجابة أولًا، ثم يتحدث الطلاب في أزواج.")
+    C=S["check"]; add(frame(4,"🚦 إِشارَةُ الِانْطِلاقِ",2,C["q"])+[T(x,200,w,80,o,26,"1E3A3F",False,"center","FFFFFF",True) for (x,w),o in zip([(800,352),(464,320),(128,320)],C["opts"])]+
+        [ans(128,320,1024,140,C["model"],1,24),T(128,490,1024,60,"🟥 أَحْتاجُ مُساعَدَةً     🟨 أَحْتاجُ قَليلًا     🟩 جاهِزٌ",24,"1E3A3F",True,"center",ff=None),
+         T(128,555,1024,44,"📲 أَمْسَحُ الرَّمْزَ، وَأُقَيِّمُ نَفْسي عَلى مَعاييرِ النَّجاحِ",20,"0F6E72",True,"center","EAF5F4",True,ff=None)],"سؤال تحقق قبل المستويات. ثم «📲 قياس مباشر» من الشريط: يقيّم الطلاب أنفسهم على المعايير.",live=True)
+    els=frame(3,"🚀 تَحَدّي الْمُسْتَوَياتِ",10,"كُلُّ مَجْموعَةٍ في مُسْتَواها")
+    for i,((nm,col),t) in enumerate(zip(LV,S["groups"])):
+        x=[946,692,438,184][i]; els+=[SH(x-6,190,250,400,col),T(x,200,238,60,nm,30,"FFFFFF",True,"right",ff=None),T(x,270,238,300,t,21,"FFFFFF",False,"right")]
+    els.append(T(264,610,1015,40,"أوراق المستويات وبطاقات العمل الجماعي في تبويبات الدرس",18,"6B6B6B",False,"center",ff=None)); add(els,"[الأنشطة المتمايزة] وزّع أوراق المستويات الأربعة وورقة أصحاب الهمم.")
+    V=S["value"]; add(frame(3,"🌱 قيمَةٌ نَعيشُها",4,V["head"])+[PIC(90,175,300,400,V["img"]),SH(410,175,360,180,"FFFDF8","E8DCC8"),T(425,180,330,46,"🇦🇪 مِنْ سَنْعِ بِلادي",20,"0F6E72"),T(425,228,330,120,V["sana"],20,"1E3A3F",False,"center"),
+        SH(790,175,362,180,"FFFDF8","E8DCC8"),T(805,180,332,46,"🏠 حَقيقَةٌ وَطَنِيَّةٌ",20,"0F6E72"),T(805,228,332,120,V["fact"],20,"1E3A3F",False,"center"),SH(410,370,742,90,"FFF6DA","E8DCC8"),T(425,375,712,80,"🤔 "+V["dilemma"],22,"1E3A3F",True,"right"),ans(410,475,742,110,V["model"],1,20)],"[القيمة والسلوك والهوية] ناقش المعضلة، ثم اكشف الإجابة واربطها بالقصة.")
+    add(frame(4,"💡 الدَّرْسُ الْمُسْتَفادُ",3,"ماذا تَعَلَّمْتُ مِنَ الْقِصَّةِ؟ 💡")+[SH(128,180,1024,150,"1E3A3F"),T(150,190,980,130,"أَتَعَلَّمُ مِنَ الْقِصَّةِ أَنَّ …",36,"FBF6EC"),ans(128,360,1024,150,S["learned"],1,25)],"اطلب من ثلاثة طلاب إكمال الجملة شفويًا، ثم اكشف النموذج.")
+    E=S["exit"]; els=frame(4,"🎟️ تَذْكِرَةُ الْخُروجِ",3,"تَذْكِرَةُ الْخُروجِ 🎟️")
+    for i,(x,(q,a)) in enumerate(zip([845,474],E)): els+=[SH(x,175,333,250,"FFFDF8","E8DCC8"),T(x+10,185,313,130,q,22,"1E3A3F"),T(x+10,330,313,85,"✅ "+a,18,"0B5D3B",True,"center",ANS,True,rv=i+1)]
+    els+=[T(102,175,333,60,"🟢 أَسْتَطيعُ وَحْدي",20,"1E3A3F",True,"right",ff=None),T(102,240,333,60,"🟡 أَحْتاجُ مُساعَدَةً",20,"1E3A3F",True,"right",ff=None),T(102,305,333,60,"🔴 لَمْ أَفْهَمْ بَعْدُ",20,"1E3A3F",True,"right",ff=None)]
+    add(els,"[بطاقة الخروج] يجيب كل طالب وحده، ثم يحلّ بطاقة الخروج على المنصة (10 أسئلة).")
+    RF=S["reflect"]; add(frame(4,"🪞 مِرْآةُ التَّعَلُّمِ",2,"ماذا تَعَلَّمْتُ؟")+[T(128,180,1024,100,"🪞 تَعَلَّمْتُ الْيَوْمَ: "+RF[0],22,"1E3A3F",True,"right","FFFDF8",True,rv=1),T(128,295,1024,80,"❓ أَتَساءَلُ: "+RF[1],23,"6B46A8",True,"right","F4EFFB",True,rv=2),T(128,390,1024,110,"🔗 "+RF[2],22,"0F6E72",True,"right","EAF5F4",True,rv=3)],"[غلق الدرس والتأمل] اطلب من ثلاثة طلاب إكمال الجمل قبل كشف كل بطاقة.")
+    HM=S["home"]; add(frame(4,"🏠 رِسالَتي إِلى الْبَيْتِ",1,"أَتَعَلَّمُ مَعَ أُسْرَتي")+[PIC(90,175,400,300,HM["img"]),SH(510,175,642,170,"FFFDF8","E8DCC8"),T(525,180,612,46,"🏠 مَعَ أُسْرَتي",20,"0F6E72"),T(525,228,612,110,HM["family"],20,"1E3A3F",False,"center"),
+        SH(510,360,642,170,"FFF6DA","E8DCC8"),T(525,365,612,46,"🎯 مُهِمَّةُ أَداءٍ صَغيرَةٌ",20,"9A5B2E"),T(525,413,612,110,HM["task"],20,"1E3A3F",False,"center")],"[التكليف ومهمة الأداء] ذكّر الطلاب بالمهمة، وحدّد موعد العرض.")
+    GOAL="🎯 "+S["strip"]
+    for s in out[1:]:
+        lab=next((e["text"] for e in s["els"] if e["k"]=="text" and e["x"]==461 and e["y"]==28),"")
+        if not any(k in lab for k in ["وِجْهَتُنا","تَحَدّي","تَذْكِرَةُ","مِرْآةُ","رِسالَتي"]): s["els"].append(T(330,612,620,44,GOAL,18,"0F6E72",True,"center","EAF5F4",True))
+    for s in out:
+        for e in s["els"]:
+            if e["k"]=="text" and e.get("ff")=="naskh":
+                bare=re.sub("[\u064B-\u0652\u0670]","",e["text"])
+                if e["h"]<e["size"]*2+8 and len(bare)<45: e["size"]=int((e["h"]-8)//2)
+    return {"code":S["code"],"en":False,"slides":out}
+if __name__=="__main__":
+    S=json.load(open(sys.argv[1],encoding="utf-8")); json.dump(build(S),open(sys.argv[2],"w",encoding="utf-8"),ensure_ascii=False)
