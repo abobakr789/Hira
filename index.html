@@ -2100,6 +2100,26 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .bk-ov-x { margin-inline-start: auto; border: 0; background: #0F6E72; color: #fff; border-radius: 12px; padding: 8px 16px; font: 700 1rem "Readex Pro", sans-serif; cursor: pointer; }
 .bk-ov .bk-read { font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 2.2; }
 .ars-wide { grid-column: 1 / -1; display: block !important; }
+.td-splash { position: absolute; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 45%, #1F4A6E 0%, #102A4C 55%, #0A1B33 100%); cursor: pointer; transition: opacity .6s ease; }
+.td-splash.out { opacity: 0; pointer-events: none; }
+.td-splash-in { text-align: center; color: #FBF8F1; animation: tdSplIn 1s cubic-bezier(.2,.9,.3,1.15) both; }
+.td-splash-in img { width: min(460px, 60vw); filter: drop-shadow(0 0 28px rgba(212,170,85,.55)); animation: tdSplGlow 2.4s ease-in-out infinite alternate; }
+.td-splash-l { margin-top: 26px; font: 700 clamp(1.4rem, 3vw, 2.4rem) "Noto Naskh Arabic", "Amiri", serif; }
+.td-splash-g { margin-top: 8px; color: #D4AA55; font: 600 1.1rem "Readex Pro", sans-serif; letter-spacing: .04em; }
+@keyframes tdSplIn { from { opacity: 0; transform: scale(.82) translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes tdSplGlow { from { filter: drop-shadow(0 0 14px rgba(212,170,85,.35)); } to { filter: drop-shadow(0 0 36px rgba(212,170,85,.8)); } }
+.fc { max-width: 760px; margin: 0 auto; }
+.fc-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; } .fc-top .fc-n { margin-inline-start: auto; font-weight: 700; }
+.fc-bar { height: 8px; background: #EEE6D6; border-radius: 99px; overflow: hidden; margin-bottom: 14px; } .fc-bar i { display: block; height: 100%; background: linear-gradient(90deg, #0F6E72, #D4AA55); }
+.fc-card { position: relative; height: 300px; perspective: 1200px; cursor: pointer; outline: none; }
+.fc-face { position: absolute; inset: 0; border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px 30px; backface-visibility: hidden; transition: transform .6s cubic-bezier(.3,.9,.3,1); font-family: "Noto Naskh Arabic", "Amiri", serif; line-height: 1.9; box-shadow: 0 10px 0 #E2D6BE, 0 18px 40px rgba(16,42,76,.12); }
+.fc-f { background: #FFFDF7; border: 3px solid #D4AA55; color: #102A4C; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
+.fc-f small { margin-top: 14px; font: 500 .95rem "Readex Pro", sans-serif; color: #8A8172; }
+.fc-b { background: #0F6E72; color: #fff; font-size: clamp(1.4rem, 3vw, 2rem); transform: rotateY(180deg); }
+.fc-card.on .fc-f { transform: rotateY(-180deg); } .fc-card.on .fc-b { transform: rotateY(0); }
+.fc-card:focus-visible .fc-f { outline: 3px solid var(--dawn); }
+.fc-act { display: flex; justify-content: center; gap: 12px; margin-top: 22px; }
+.fc-done { text-align: center; padding: 30px; background: #FFFDF7; border-radius: 26px; border: 3px solid #D4AA55; } .fc-star { font-size: 64px; }
 .ars-text { font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: 1.35rem; line-height: 2.1; }
 .ars-text p { margin: 0 0 .45em; max-width: none; }
 .ars-full { margin-top: 10px; } .ars-full summary { cursor: pointer; font-weight: 700; color: var(--hira); }
@@ -3801,6 +3821,26 @@ window.addEventListener("error", function (e) {
       return { bg: "FBF6EC", els };
     });
   }
+  function fcRun(l, cards0, en) {
+    const box = document.getElementById("fcBox"); if (!box) return;
+    const deck = "lesson:" + l.code, me = state.session && state.session.user && state.session.user.id;
+    let q = cards0.slice(), i = 0, known = 0, flipped = false; const T2 = (a, b) => (en ? b : a);
+    const save = (c, ok) => { if (!me || !isStudent()) return; sb.from("memo_progress").upsert({ user_id: me, deck, card: c.id, box: ok ? 2 : 1, due_at: new Date(Date.now() + (ok ? 3 : 1) * 864e5).toISOString(), reviews: 1, last_review: new Date().toISOString() }).then(() => {}); };
+    const draw = () => {
+      if (i >= q.length) { box.innerHTML = `<div class="fc-done"><div class="fc-star">🌟</div><h3>${T2("أَحْسَنْتَ! أَنْهَيْتَ الْبِطاقاتِ", "Well done! You finished the cards")}</h3><p>${T2("عَرَفْتَ", "You knew")} <b>${known}</b> ${T2("مِنْ", "of")} <b>${cards0.length}</b></p><button class="btn btn-primary" id="fcAgain">🔁 ${T2("أَبْدَأُ مِنْ جَديدٍ", "Start again")}</button></div>`; box.querySelector("#fcAgain").onclick = () => { q = cards0.slice().sort(() => Math.random() - 0.5); i = 0; known = 0; draw(); }; return; }
+      const c = q[i]; flipped = false;
+      box.innerHTML = `<div class="fc-top"><span class="pill">${esc(c.k)}</span><span class="fc-n">${i + 1} / ${q.length}</span><button class="btn btn-ghost btn-small" id="fcMix">🔀 ${T2("خَلْطُ الْبِطاقاتِ", "Shuffle")}</button></div>
+        <div class="fc-bar"><i style="width:${Math.round(i * 100 / q.length)}%"></i></div>
+        <div class="fc-card" id="fcCard" tabindex="0" role="button" aria-label="${T2("اقْلِبِ الْبِطاقَةَ", "Flip the card")}"><div class="fc-face fc-f">${bkHL(esc(c.f))}<small>${T2("اُنْقُرْ لِتَقْلِبَ الْبِطاقَةَ", "Tap to flip")}</small></div><div class="fc-face fc-b">${esc(c.b)}</div></div>
+        <div class="fc-act"><button class="btn btn-ghost" id="fcAgainOne">🔁 ${T2("أُراجِعُها مَرَّةً أُخْرى", "Again")}</button><button class="btn btn-primary" id="fcKnow">✅ ${T2("أَعْرِفُها", "I know it")}</button></div>`;
+      const card = box.querySelector("#fcCard"), flip = () => { flipped = !flipped; card.classList.toggle("on", flipped); };
+      card.onclick = flip; card.onkeydown = (e) => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); flip(); } };
+      box.querySelector("#fcMix").onclick = () => { q = q.slice(i).sort(() => Math.random() - 0.5); i = 0; draw(); };
+      box.querySelector("#fcKnow").onclick = () => { known++; save(c, true); i++; draw(); };
+      box.querySelector("#fcAgainOne").onclick = () => { save(c, false); q.push(c); i++; draw(); };
+    };
+    draw();
+  }
   function bkOpen() {
     const bt = state._bookTx; if (!bt) return;
     const host = document.fullscreenElement || document.body; const old = document.getElementById("bkOv"); if (old) old.remove();
@@ -5014,9 +5054,17 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         REL = { slides: !!(rr && rr.slides), work: true, grp: true, cls: mine.class_id }; }
     }
     const relMsg = () => `<div class="empty rel-lock"><strong>🔒 ${CT("سيتيحها معلمك في الوقت المناسب", "Your teacher will make this available at the right time")}</strong>${CT("يفتح معلمك الشرائح وأوراق العمل ومهام المجموعات عندما يحين وقتها في الحصة. وحتى ذلك الحين راجع الملخص والمصادر ولعبة الدرس.", "Your teacher opens slides, worksheets and group tasks when it's time in class. Meanwhile, use the summary, sources and lesson game.")}</div>`;
+    // flashcards: lesson words (word → meaning), then true/false checks, then the thinking question — built from the lesson itself
+    const fcCards = (() => { const c = (summary && summary.content) || {}, out = [], strip = (t) => String(t || "").replace(/\s*\p{Extended_Pictographic}[\uFE0F\u200D\p{Extended_Pictographic}]*\s*$/u, "").trim();
+      (c.words || []).forEach((w) => { if (w && w[0] && w[1]) out.push({ id: "w:" + strip(w[0]), f: strip(w[0]), b: strip(w[1]), k: nnEn ? "Word" : "كَلِمَةٌ" }); });
+      if (!out.length) gameItems.filter((g) => g.game === "match").forEach((g) => ((g.payload && g.payload.pairs) || []).forEach((pr) => { if (pr && pr[0] && pr[1] && !/\p{Extended_Pictographic}/u.test(pr[1])) out.push({ id: "m:" + pr[0], f: pr[0], b: pr[1], k: nnEn ? "Match" : "كَلِمَةٌ" }); }));
+      (c.quiz || []).forEach((q) => { if (q && q[0]) out.push({ id: "q:" + String(q[0]).slice(0, 40), f: q[0], b: q[1] ? (nnEn ? "True ✔️" : "صَحيحٌ ✔️") : (nnEn ? "False ✖️" : "خَطَأٌ ✖️"), k: nnEn ? "True or false?" : "صَحيحٌ أَمْ خَطَأٌ؟" }); });
+      (c.key || []).forEach((t, i) => { const m = String(t).match(/\[\[([^\]]+)\]\]/); const w = (c.words || []).find((x) => m && bkPlain(x[0]).replace(/[\u064B-\u0652]/g, "") === m[1].replace(/[\u064B-\u0652]/g, "").replace(/^و/, "")); if (m && !w) out.push({ id: "k:" + i, f: "«" + m[1] + "»", b: bkPlain(t), k: nnEn ? "In the text" : "في النَّصِّ" }); });
+      return out.slice(0, 24); })();
     const relBox = isStaff() && summary ? `<div id="relBox" class="rel-box"></div>` : "";
     const TABS = [
       ["slides", nnEn ? "Slides" : "الشرائح", relBox + slidesPanel()],
+      ...(fcCards.length >= 3 ? [["cards", nnEn ? "🃏 Flashcards" : "🃏 البطاقات التعليمية", lockedForMe ? lockedMsg : `<div class="fc" id="fcBox"></div>`]] : []),
       ...(isStaff() && summary && !lockedForMe ? [["weekly", CT("الخطة الأسبوعية", "Weekly plan"), `<div class="papers-box"><h3>📅 ${CT("الخطة الأسبوعية", "Weekly plan")}</h3>
         <p class="muted">${CT("تُبنى تلقائيًّا من الدرس: ما تمّ الانتهاء منه، ودرس الأسبوع، والهدف، ومعايير النجاح، والهوية الوطنية، وHPL، والحصة القادمة، والمطلوب من الطالب. عدّلها بالكتابة عليها، واحفظ نسختك، ثم اطبعها أو أرسلها لأولياء الأمور.", "Built from the lesson: what was completed, this week's lesson, objective, success criteria, national identity, HPL, next lesson and student tasks. Edit it, save your copy, then print or send it to parents.")}</p>
         <button class="btn btn-primary pp-open" data-kind="wp">📅 ${CT("فتح الخطة الأسبوعية وتعديلها", "Open and edit the weekly plan")}</button></div>`]] : []),
@@ -5074,6 +5122,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (k === "quiz") { const eb = document.getElementById("editTicket"); if (eb) eb.onclick = () => ticketEditor(l, u, ticket); }
       if (k === "recite" && isStudent() && !lockedForMe) recorder(l, nn);
       if (k === "games" && !lockedForMe && gameItems.length) runGame(l, gameItems);
+      if (k === "cards" && !lockedForMe) fcRun(l, fcCards, nnEn);
       if (k === "booktext") {
         const pr = document.getElementById("btxPrint");
         if (pr) pr.onclick = () => { const w = window.open("", "_blank"); w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(bookTx.title || l.title_ar)}</title><style>body{font-family:'Noto Naskh Arabic','Amiri',serif;padding:32px;font-size:20px;line-height:2.2}h1{font-size:24px}.poem{text-align:center;font-weight:700}.ln{border-bottom:1px solid #999;height:34px}mark{background:#FFE9A8;color:#8A2D0E;font-weight:700;padding:0 3px;border-radius:4px}</style></head><body><h1>${esc(bookTx.title || l.title_ar)}${bookTx.pages ? " · " + esc(bookTx.pages) : ""}</h1><div class="${bookTx.kind === "poem" ? "poem" : ""}">${bookLines(bookTx.body).map((x) => `<div>${bkHL(esc(x))}</div>`).join("")}</div><h2 style="font-size:20px;margin-top:28px">أسئلتي عن النص:</h2>${Array.from({ length: 6 }, () => '<div class="ln"></div>').join("")}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
@@ -9576,7 +9625,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           const pos = `left:${e.x}px;top:${e.y}px;width:${e.w}px;height:${e.h}px;`, rv = e.rv ? ` rv" data-rvg="${e.rv}` : "";
           if (e.k === "shape") return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:#${X(e.fill)};${e.line ? `border:${Math.max(2, Math.round((e.lw || 1.5) * 1.8))}px solid #${X(e.line)};` : ""}border-radius:${e.oval ? "50%" : e.rad ? "16px" : "0"}"></div>`;
           if (e.k === "pic") return `<img class="tdf-el${rv}" src="${X(new URL(e.src, location.href.split("#")[0]).href)}" alt="" draggable="false" style="${pos}object-fit:contain;${e.rad ? "border-radius:16px;" : ""}">`;
-          if (e.k === "btn") return `<button type="button" class="tdf-el tdf-btn" data-bk="1" style="${pos}">${X(e.text)}</button>`;
+          if (e.k === "btn") return `<div role="button" tabindex="0" class="tdf-el tdf-btn" data-bk="1" style="${pos}display:flex;align-items:center;justify-content:center;">${X(e.text)}</div>`;
           if (e.k === "img") return `<div class="tdf-el tdf-emo${rv}" style="${pos}font-size:${Math.round(e.h * 0.82)}px" ${tdE(0, `els.${j}.emo`)}>${X(e.emo)}</div>`;
           const rtl = /[\u0600-\u06FF]/.test(e.text || ""), jc = e.align === "center" ? "center" : (e.align === "left") === rtl ? "flex-end" : "flex-start";
           return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}${e.ff === "naskh" ? "font-family:'Noto Naskh Arabic','Amiri',serif;line-height:2;" : ""}" ${tdE(0, `els.${j}.text`)}>${((t) => t.includes("<mark") ? `<span>${t}</span>` : t)(bkHL(X(e.text)))}</div>`;
@@ -9681,6 +9730,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
 
     let d = document.getElementById("tdDlg"); if (d) d.remove();
     d = document.createElement("div"); d.id = "tdDlg"; d.className = "td-ov " + ((u.year_group || 9) <= 3 ? "td-young" : (u.year_group || 9) <= 8 ? "td-mid" : "td-sec"); document.body.appendChild(d);
+    { const sp = document.createElement("div"); sp.className = "td-splash"; sp.innerHTML = `<div class="td-splash-in"><img src="art/brand/hiraa-lockup-on-dark.svg" alt="حراء"><div class="td-splash-l">${esc(en && l.title_en ? l.title_en : l.title_ar)}</div><div class="td-splash-g">${esc(CT("نَتَعَلَّمُ مَعًا", "Let's learn together"))}</div></div>`;
+      const off = () => { if (!sp.isConnected) return; sp.classList.add("out"); setTimeout(() => sp.remove(), 650); }; sp.addEventListener("click", off); setTimeout(off, 2600); setTimeout(() => d.appendChild(sp), 0); }
     document.body.style.overflow = "hidden";
     const close = () => { if (dirty && !confirm(CT("لديك تعديلات غير محفوظة. هل تريد الخروج دون حفظ؟", "You have unsaved changes. Leave without saving?"))) return; stopTimer(); d.remove(); document.body.style.overflow = "";
       document.removeEventListener("keydown", onKey); window.removeEventListener("blur", onBlur); window.removeEventListener("focus", onFocus); document.removeEventListener("visibilitychange", onVis); window.removeEventListener("resize", onRes);
