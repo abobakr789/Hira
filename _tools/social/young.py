@@ -39,7 +39,7 @@ def deck(S):
     T(sl, h['reveal'], X0, 4.05, W, 0.95, 20, 'B42318', True, 'center', fill=PEACH, rad=True, rv=3)
     # 3
     sl = stage(D, 2, 'وِجْهَتُنا الْيَوْمَ', S, 2, 'اقرأ الهدف مع الطلاب، ووضّح ماذا يعني كل مستوى.')
-    T(sl, '🎯 ' + S['goal'], X0, 1.25, W, 1.0, 18, DK, True, 'right', fill=CARD, rad=True)
+    T(sl, '🎯 ' + S['goal'], X0, 1.25, W, 1.0, 18 if len(S['goal']) < 150 else (16 if len(S['goal']) < 190 else 14), DK, True, 'right', fill=CARD, rad=True)
     for i, ((x, w), (lv, col), txt) in enumerate(zip(cols(3), LV, S['lv'])): box(sl, x, 2.4, w, 2.6, lv, [txt], col=col, size=18, rv=i + 1)
     # 4
     sl = stage(D, 3, 'كَلِماتٌ جَديدَةٌ', S, 6, 'الكلمات الجديدة من الكتاب. اعرض الرمز، واطلب جملة شفوية بكل كلمة.')
@@ -61,7 +61,7 @@ def deck(S):
     for (x, w), (c, t_, d) in zip(cols(len(k['chips'])), k['chips']):
         R(sl, x, 1.25, w, 1.05, c, rv=1); T(sl, t_, x, 1.27, w, 0.5, 20, 'FFFFFF', True, 'center', rv=1); T(sl, d, x, 1.77, w, 0.45, 14, 'FFFFFF', False, 'center', rv=1)
     box(sl, X0, 2.45, W, 1.4, k.get('ftitle', '👩‍🏫 أَنا أُطَبِّقُ أَمامَكُمْ'), k['frame'], size=19 if sum(map(len, k['frame'])) < 150 else 15, rv=2)
-    box(sl, X0, 3.97, W, 1.05, k['note'][0], k['note'][1], col='B42318', size=17, rv=3)
+    box(sl, X0, 3.97, W, 1.05, k['note'][0], k['note'][1], col='B42318', size=17 if len(''.join(k['note'][1])) < 100 else 15, rv=3)
     # 7
     g = S['guided']; sl = stage(D, 6, g['title'], S, 7, 'اعرض الصورتين، وعُدّوا معًا. ثم نفّذوا نشاط الكتاب.')
     (a, wa), (b, wb) = cols(2)
