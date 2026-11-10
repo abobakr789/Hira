@@ -1584,7 +1584,60 @@
         ${r.status === "open" ? `<button class="btn btn-small btn-primary" data-rs="${r.id}:fixed">✓ أُصلح</button> <button class="btn btn-small btn-ghost" data-rs="${r.id}:dismissed">استبعاد</button>` : ""}</article>`).join("") : `<div class="empty">لا بلاغات بعد.</div>`}</div></section>`);
     document.querySelectorAll("[data-rs]").forEach((b) => b.onclick = async () => { const [id, st] = b.dataset.rs.split(":"); await sb.from("content_reports").update({ status: st }).eq("id", id); pageReports(); });
   }
-  async function pageArMocks(params) {
+  async function pageInspection(params) {
+    setNav("teacher");
+    const pr = state.profile || {};
+    if (!(isSuper() || pr.role === "school_admin" || pr.is_hod || pr.role === "teacher")) { h(`<div class="wrap loading">التقرير لإدارات المدارس ورؤساء الأقسام والمعلمين.</div>`); return; }
+    const subj = hubSubj(params), sid = HUB_SID[subj]; loading();
+    let cq = sb.from("classes").select("id, name, year_group, track, subject_id, school_id").eq("subject_id", sid);
+    if (!isSuper()) cq = cq.eq("school_id", pr.school_id);
+    const { data: cls } = await cq; const C = cls || [];
+    const { data: cs } = C.length ? await sb.from("class_students").select("class_id, student_id, profiles(id, gender, student_groups)").in("class_id", C.map((c) => c.id)) : { data: [] };
+    const studs = new Map(); (cs || []).forEach((x) => { if (x.profiles) studs.set(x.student_id, { ...x.profiles, class_id: x.class_id }); });
+    const ids = [...studs.keys()];
+    const { data: asm } = await sb.from("assessments").select("id, kind, term, year_group, track, window_id, benchmark_windows(code)").eq("subject_id", sid).in("kind", ["diagnostic", "post", "benchmark"]);
+    const AM = new Map((asm || []).map((a) => [a.id, a]));
+    let att = []; for (let k = 0; k < ids.length; k += 150) { const { data } = await sb.from("attempts").select("student_id, assessment_id, score, max_score, submitted_at").in("student_id", ids.slice(k, k + 150)).not("submitted_at", "is", null); att = att.concat((data || []).filter((t) => AM.has(t.assessment_id))); }
+    const pct = (t) => (t.max_score ? (t.score / t.max_score) * 100 : 0);
+    const per = new Map(); // student -> {first, last, bench:{BOY,MOY,EOY}}
+    att.sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at)).forEach((t) => { const a = AM.get(t.assessment_id), p = pct(t); const r = per.get(t.student_id) || { first: null, last: null, bench: {} };
+      if (a.kind === "benchmark" && a.benchmark_windows) r.bench[a.benchmark_windows.code] = p;
+      if (r.first == null) r.first = p; r.last = p; per.set(t.student_id, r); });
+    const band = (v) => v == null ? ["—", "#94A3B8"] : v >= 75 ? ["متميّز", "#15803D"] : v >= 61 ? ["جيد جدًّا", "#16A34A"] : v >= 50 ? ["جيد", "#65A30D"] : v >= 40 ? ["مقبول", "#D97706"] : v >= 25 ? ["ضعيف", "#DC2626"] : ["ضعيف جدًّا", "#991B1B"];
+    const EXP = 60, GAIN = 10;
+    const stats = (list) => { const r = list.map((s) => per.get(s)).filter(Boolean); if (!r.length) return { n: 0 };
+      const att2 = Math.round((r.filter((x) => x.last >= EXP).length / r.length) * 100);
+      const withTwo = r.filter((x) => x.first != null && x.last != null && x.first !== x.last); const prog = withTwo.length ? Math.round((withTwo.filter((x) => x.last - x.first >= GAIN || x.last >= 85).length / withTwo.length) * 100) : null;
+      const avg = Math.round(r.reduce((s, x) => s + x.last, 0) / r.length); const B = (c) => { const v = r.map((x) => x.bench[c]).filter((x) => x != null); return v.length ? Math.round(v.reduce((s, y) => s + y, 0) / v.length) : null; };
+      return { n: r.length, att: att2, prog, avg, BOY: B("BOY"), MOY: B("MOY"), EOY: B("EOY") }; };
+    const phases = [["الحلقة الأولى (1–4)", [1, 2, 3, 4]], ["الحلقة الثانية (5–8)", [5, 6, 7, 8]], ["الحلقة الثالثة (9–12)", [9, 10, 11, 12]]];
+    const sOf = (pred) => ids.filter((i) => pred(studs.get(i)));
+    const clsOf = new Map(C.map((c) => [c.id, c]));
+    const cell = (v, isPct = true) => { const [t, col] = band(v); return v == null ? `<td class="muted">—</td>` : `<td><b style="color:${col}">${v}${isPct ? "%" : ""}</b><br><small style="color:${col}">${t}</small></td>`; };
+    const row = (name, st) => st.n ? `<tr><td>${esc(name)}</td><td>${st.n}</td>${cell(st.att)}${cell(st.prog)}<td>${st.avg}%</td><td>${st.BOY ?? "—"} → ${st.MOY ?? "—"} → ${st.EOY ?? "—"}</td></tr>` : `<tr><td>${esc(name)}</td><td>0</td><td colspan="4" class="muted">لا بيانات بعد</td></tr>`;
+    const all = stats(ids);
+    const groups = [["الذكور", (s) => s.gender === "male"], ["الإناث", (s) => s.gender === "female"], ["أصحاب الهمم (POD)", (s) => (s.student_groups || []).includes("pod")], ["الموهوبون (G&T)", (s) => (s.student_groups || []).includes("gt")], ["مرتفعو التحصيل (HA)", (s) => (s.student_groups || []).includes("ha")], ["العربية لغة إضافية (EAL)", (s) => (s.student_groups || []).includes("eal")]];
+    const gStats = groups.map(([n, f]) => [n, stats(sOf(f))]);
+    const gaps = gStats.filter(([, st]) => st.n && all.n && Math.abs(st.att - all.att) >= 15).map(([n, st]) => `${n}: ${st.att}% مقابل ${all.att}% للجميع (${st.att > all.att ? "أعلى" : "أدنى"} بـ ${Math.abs(st.att - all.att)} نقطة)`);
+    const weakCls = C.map((c) => [c, stats(sOf((s) => s.class_id === c.id))]).filter(([, st]) => st.n && st.att < 50).map(([c, st]) => `${c.name}: ${st.att}%`);
+    const thead = `<thead><tr><th>الفئة</th><th>عدد الطلاب</th><th>التحصيل<br><small>نسبة من بلغوا ${EXP}% فأكثر</small></th><th>التقدّم<br><small>نسبة من تحسّنوا ${GAIN} نقاط فأكثر</small></th><th>متوسط آخر نتيجة</th><th>المعيارية<br><small>بداية → منتصف → نهاية</small></th></tr></thead>`;
+    h(`<section class="page-head"><div class="wrap"><h1>📊 تقرير التفتيش · ${esc(hubName(subj))}</h1>${hubTabs("inspection", subj)}
+      <p class="muted">مؤشرات استرشادية مبنية على نتائج الاختبارات التشخيصية والبعدية والمعيارية في حراء، مرتّبة على محاور معيار الأداء الأول (التحصيل والتقدّم). التقديرات تقريبية للتخطيط الداخلي، وليست أحكامًا رسمية لجهة التفتيش.</p>
+      <button class="btn btn-small" onclick="window.print()">🖨️ طباعة / حفظ PDF</button></div></section>
+      <section class="section"><div class="wrap">
+      ${!ids.length ? `<div class="empty"><strong>لا فصول أو طلاب بعد في هذه المادة</strong>أنشئ الفصول وأضف الطلاب، ثم يُبنى التقرير تلقائيًّا من نتائجهم.</div>` : `
+      <h2>1. الصورة العامة</h2><div style="overflow-x:auto"><table class="ev-t" style="width:100%">${thead}<tbody>${row("كل الطلاب", all)}</tbody></table></div>
+      <h2>2. حسب الحلقة</h2><div style="overflow-x:auto"><table class="ev-t" style="width:100%">${thead}<tbody>${phases.map(([n, ys]) => row(n, stats(sOf((s) => ys.includes((clsOf.get(s.class_id) || {}).year_group))))).join("")}</tbody></table></div>
+      <h2>3. حسب الفصل</h2><div style="overflow-x:auto"><table class="ev-t" style="width:100%">${thead.replace("الفئة", "الفصل")}<tbody>${C.sort((a, b) => a.year_group - b.year_group).map((c) => row(`${c.name} (الصف ${c.year_group})`, stats(sOf((s) => s.class_id === c.id))) .replace(`<td>${esc(`${c.name} (الصف ${c.year_group})`)}</td>`, `<td><a href="#/evidence?class=${c.id}">${esc(c.name)}</a> <small class="muted">الصف ${c.year_group}</small></td>`)).join("")}</tbody></table></div>
+      <h2>4. تحليل الفئات</h2><div style="overflow-x:auto"><table class="ev-t" style="width:100%">${thead}<tbody>${gStats.map(([n, st]) => row(n, st)).join("")}</tbody></table></div>
+      <h2>5. ما يحتاج إلى إجراء</h2><div class="form-card" style="max-width:none">
+        <p><b>فجوات الفئات (15 نقطة فأكثر):</b> ${gaps.length ? `<ul>${gaps.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>` : "لا فجوات كبيرة ✓"}</p>
+        <p><b>فصول تحصيلها دون 50%:</b> ${weakCls.length ? `<ul>${weakCls.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>` : "لا يوجد ✓"}</p>
+        <p class="muted">لكل فصل «ملف أدلة» مفصّل (إتقان النواتج، والفئات، والإجراءات): اضغط اسم الفصل في الجدول 3.</p></div>`}
+      </div></section>`);
+  }
+  
+async function pageArMocks(params) {
     setNav("grades"); const q = params.get("q") || "igcse";
     let idx = []; try { idx = await (await fetch(new URL("resources/mocks/index.json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
     const L = idx.filter((x) => x.qual === q);
@@ -4297,7 +4350,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <h3 style="margin-top:14px">حصة اليوم</h3>
           <button class="btn btn-primary btn-small" data-today="${cls.id}">ابدأ حصة اليوم أو جدول الدروس</button>
           <h3 style="margin-top:14px">سجل الدرجات</h3>
-          <a class="btn btn-dawn btn-small" href="#/gradebook?class=${cls.id}">سجل الدرجات والتحليل</a> <a class="btn btn-ghost btn-small" href="#/evidence?class=${cls.id}">📑 ملف أدلة التفتيش</a>
+          <a class="btn btn-dawn btn-small" href="#/gradebook?class=${cls.id}">سجل الدرجات والتحليل</a> <a class="btn btn-ghost btn-small" href="#/evidence?class=${cls.id}">📑 ملف أدلة التفتيش</a> <a class="btn btn-ghost btn-small" href="#/inspection?subject=${({ 1: "islamic", 2: "arabic", 3: "social" })[cls.subject_id] || "islamic"}">📊 تقرير المدرسة</a>
           <h3 style="margin-top:14px">الواجبات</h3>
           <a class="btn btn-ghost btn-small" href="#/homework?class=${cls.id}">واجبات الفصل</a>
           <h3 style="margin-top:14px">أذونات المحتوى</h3>
@@ -4339,6 +4392,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div class="crumbs">فصولي</div>
         <h1>لوحة الفصل</h1>
         <p class="muted" style="margin:0">درس اليوم، والاختبارات، والطلاب، وقفل الدروس، في مكان واحد.</p>
+         <p style="margin:10px 0 0"><a class="btn btn-small btn-primary" href="#/inspection">📊 تقرير التفتيش للمدرسة</a>${isSuper() ? ` <a class="btn btn-small btn-ghost" href="#/reports">🛠️ بلاغات المحتوى</a>` : ""}</p>
 
       </div></section>
       <section class="section" style="padding-top:34px"><div class="wrap">
@@ -12001,6 +12055,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (p0 === "ar-mocks") return pageArMocks(params);
       if (p0 === "ar-mock") return pageArMock(parts[1]);
       if (p0 === "reports") return pageReports();
+      if (p0 === "inspection") return pageInspection(params);
       if (p0 === "ar-mock-review") return pageArMockReview(parts[1]);
       if (p0 === "ar-guide") return pageArGuide(parts[1]);
       if (p0 === "igcse") return pageIgcse();
