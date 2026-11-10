@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="art/brand/hiraa-favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
 :root {
   --paper: #FFFFFF;
@@ -2088,6 +2088,18 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .ars-emo { font-size: 2.2rem; }
 .ars-w small { color: var(--muted); font-size: .85rem; }
 .ars-say { font-size: 1.35rem; line-height: 1.9; }
+.bk-key { background: #FFE9A8; color: #8A2D0E; font-weight: 700; border-radius: 6px; padding: 0 .15em; }
+.tdf .bk-key { background: #FFE38A; color: #9A2F0B; font-weight: 700; border-radius: 8px; padding: 0 .12em; }
+.bk-read { font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: 1.4rem; line-height: 2.2; }
+.bk-read p { margin: 0 0 .5em; max-width: none; }
+.ars-text { font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: 1.35rem; line-height: 2.1; }
+.ars-text p { margin: 0 0 .45em; max-width: none; }
+.ars-full { margin-top: 10px; } .ars-full summary { cursor: pointer; font-weight: 700; color: var(--hira); }
+.ars-full .bk-read { margin-top: 10px; padding: 14px; background: #FFFDF7; border-radius: 14px; }
+.ars-vocab { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.ars-v { background: #FFFDF7; border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+.ars-v b { display: block; font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: 1.3rem; color: #8A2D0E; }
+.ars-v span { font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: 1.1rem; }
 .ars-sound { border-top: 4px solid #7A4FB5; } .ars-blend { border-top: 4px solid var(--dawn); }
 .ars-check .ars-ans { display: inline-block; margin-inline-start: 8px; font-size: .9rem; color: var(--muted); }
 .ars-id { border-top: 4px solid #C0392B; } .ars-badge { text-align: center; }
@@ -3756,19 +3768,34 @@ window.addEventListener("error", function (e) {
   const subjectSeg = (current, hrefFn) => `<div class="seg" role="group" aria-label="المادة">${Object.keys(SUBJECTS).filter((k) => k !== "igcse").map((k) =>
     `<a href="${hrefFn(k)}" aria-current="${k === current}">${SUBJECTS[k].name}</a>`).join("")}</div>`;
   function tdBookSlides(bt) {
-    const lines = String(bt.body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean); const poem = bt.kind === "poem";
-    const per = poem ? 6 : 7, out = [];
-    for (let p = 0; p < lines.length; p += per) {
-      const chunk = lines.slice(p, p + per), n = chunk.length, top = 150, avail = 480, hgt = Math.min(78, Math.floor(avail / Math.max(n, 1)));
-      const size = poem ? (n <= 4 ? 40 : 34) : (n <= 4 ? 34 : 29);
-      const els = [{ k: "text", x: 256, y: 13, w: 768, h: 46, text: "نص الكتاب", size: 21, color: "FFFFFF", bold: true, align: "center", fill: "0F6E72", rad: true, va: "middle" },
-        { k: "text", x: 230, y: 67, w: 1011, h: 70, text: "📖 " + (bt.title || "نص الكتاب") + (lines.length > per ? ` (${Math.floor(p / per) + 1})` : ""), size: 40, color: "1E3A3F", bold: true, align: "right", fill: null, rad: false, va: "middle" }];
-      if (bt.pages) els.push({ k: "text", x: 38, y: 74, w: 200, h: 54, text: bt.pages, size: 22, color: "1E3A3F", bold: true, align: "center", fill: "F2A93B", rad: true, va: "middle" });
-      chunk.forEach((t, i) => els.push({ k: "text", x: poem ? 190 : 38, y: top + i * hgt, w: poem ? 900 : 1203, h: hgt - 6, text: t, size, color: "1E3A3F", bold: poem, align: poem ? "center" : "right", fill: i % 2 === 0 ? "FFFDF7" : null, rad: true, va: "middle", rv: i + 1 }));
-      out.push({ bg: "FBF6EC", els });
-    }
-    return out;
+    // book text -> clean reading slides: one sentence (or one verse row) per block, sized from its length so nothing overlaps
+    const poem = bt.kind === "poem", bare = (t) => String(t).replace(/[\u064B-\u0652\u0670\[\]]/g, "");
+    const paras = String(bt.body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
+    const units = poem ? paras : paras.flatMap((p) => (p.match(/[^.!؟?؛]+[.!؟?؛]*[»"]?/g) || [p]).map((x) => x.trim()).filter(Boolean));
+    const rows = [];
+    if (poem) for (let i = 0; i < units.length; i += 2) rows.push({ a: units[i], b: units[i + 1] || "", h: 84 });
+    else { const size = 38, lh = 76, cpl = 66; units.forEach((t) => rows.push({ a: t, h: Math.max(1, Math.ceil(bare(t).length / cpl)) * lh + 20, size })); }
+    const pages = [], maxH = 548, gap = 12; let cur = [], used = 0;
+    rows.forEach((r) => { if (cur.length && used + r.h > maxH) { pages.push(cur); cur = []; used = 0; } cur.push(r); used += r.h + gap; });
+    if (cur.length) pages.push(cur);
+    return pages.map((pg, k) => {
+      const els = [{ k: "text", x: 256, y: 13, w: 768, h: 46, text: poem ? "النَّشيدُ مِنْ كِتابي" : "نَصُّ الدَّرْسِ مِنْ كِتابي", size: 21, color: "FFFFFF", bold: true, align: "center", fill: "0F6E72", rad: true, va: "middle" },
+        { k: "text", x: 260, y: 62, w: 981, h: 80, text: "📖 " + (bt.title || "نص الكتاب") + (pages.length > 1 ? ` (${k + 1}/${pages.length})` : ""), size: 32, color: "1E3A3F", bold: true, align: "right", fill: null, rad: false, va: "middle", ff: "naskh" }];
+      if (bt.pages) els.push({ k: "text", x: 38, y: 74, w: 200, h: 54, text: "ص " + bt.pages, size: 22, color: "1E3A3F", bold: true, align: "center", fill: "F2A93B", rad: true, va: "middle" });
+      let y = 150;
+      pg.forEach((r, i) => {
+        if (poem) {
+          els.push({ k: "text", x: 650, y, w: 560, h: r.h, text: r.a, size: 38, color: "1E3A3F", bold: true, align: "center", fill: "FFFDF7", rad: true, va: "middle", ff: "naskh", rv: i + 1 });
+          if (r.b) els.push({ k: "text", x: 70, y, w: 560, h: r.h, text: r.b, size: 38, color: "1E3A3F", bold: true, align: "center", fill: "FFFDF7", rad: true, va: "middle", ff: "naskh", rv: i + 1 });
+        } else els.push({ k: "text", x: 50, y, w: 1180, h: r.h, text: r.a, size: r.size, color: "1E3A3F", bold: false, align: "right", fill: i % 2 ? "FFFFFF" : "FFFDF7", rad: true, va: "middle", ff: "naskh", rv: i + 1 });
+        y += r.h + gap;
+      });
+      return { bg: "FBF6EC", els };
+    });
   }
+  // [[word]] in a book text = a key word, shown highlighted; strip for plain-text uses
+  const bkHL = (html) => String(html).replace(/\[\[([^\]]+?)\]\]/g, '<mark class="bk-key">$1</mark>');
+  const bkPlain = (t) => String(t || "").replace(/\[\[|\]\]/g, "");
   const HUB_SUBJ = [["arabic", "📖", "اللغة العربية", "Arabic"], ["islamic", "🕌", "التربية الإسلامية", "Islamic Education"], ["social", "🌍", "الدراسات الاجتماعية", "Social Studies"]];
   const HUB_SID = { islamic: 1, arabic: 2, social: 3 };
   const ECA_KIND_SUBJ = { prayer: "islamic", tajweed: "islamic", seerah: "islamic", nabati: "arabic", speech: "arabic", reading: "arabic", writing: "arabic", arabic: "arabic", identity: "social" };
@@ -4719,7 +4746,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const bookLines = (t) => String(t || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
     const bookTxHtml = () => {
       const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">📖 ${esc(bookTx.title || "نص الكتاب")}${bookTx.pages ? ` <span class="pill">${esc(bookTx.pages)}</span>` : ""}</h3>
-        <div dir="rtl" style="font-size:1.25rem;line-height:2.1;${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<div>${esc(x)}</div>`).join("")}</div>
+        <div dir="rtl" class="bk-read" style="${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
         <div style="margin-top:12px"><button class="btn btn-ghost btn-small" id="btxPrint">🖨️ طباعة النص للطالب</button></div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
       const ed = isSuper() ? `<div class="form-card" style="margin-top:14px"><h3 style="margin-top:0">✏️ إضافة نص الكتاب أو تعديله</h3>
         <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option></select></div>
@@ -4914,9 +4941,13 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const id = (l.lesson_identity_links || [])[0];
       const quiz = (sm.quiz || []).slice(0, 2);
       return `<div class="ars"${nnEn ? ' dir="ltr"' : ""}>
-        ${card("ars-book", "📖", nnEn ? "My textbook" : "كتابي المدرسي", nnEn ? `<p>Read «${esc(story)}» in your student book${l.book_pages ? ` (page ${esc(String(l.book_pages).replace(/^ص\s*/, ""))})` : ""} with your teacher.</p>` : `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
+        ${bookTx && bookTx.body ? card("ars-book", "📖", nnEn ? "The lesson text" : "نَصُّ الدَّرْسِ", `${sm.idea ? `<p>${esc(sm.idea)}</p>` : ""}<div class="ars-text">${((sm.key && sm.key.length) ? sm.key : bookLines(bookTx.body).slice(0, 3)).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
+          <details class="ars-full"><summary>📖 ${nnEn ? "Read the full text" : "أَقْرَأُ النَّصَّ كامِلًا"}${bookTx.pages ? ` (${esc(bookTx.title || "")} · ص ${esc(bookTx.pages)})` : ""}</summary><div class="bk-read"${bookTx.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div></details>
+          <p class="muted" style="margin-top:8px">${nnEn ? "You will also find it in the lesson slides." : "وَأَجِدُهُ أَيْضًا في شَرائِحِ الدَّرْسِ."}</p>`)
+          + ((sm.words || []).length ? card("ars-dict", "🔤", nnEn ? "Word meanings" : "مَعاني الْكَلِماتِ", `<div class="ars-vocab">${sm.words.map((w) => `<div class="ars-v"><b>${esc(w[0])}</b><span>${esc(w[1])}</span></div>`).join("")}</div>`) : "") : ""}
+        ${bookTx && bookTx.body ? "" : card("ars-book", "📖", nnEn ? "My textbook" : "كتابي المدرسي", nnEn ? `<p>Read «${esc(story)}» in your student book${l.book_pages ? ` (page ${esc(String(l.book_pages).replace(/^ص\s*/, ""))})` : ""} with your teacher.</p>` : `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
         ${letter ? card("ars-letter", "🔤", nnEn ? "Letter card" : "بطاقة الحرف", `<div class="ars-letter-big">${esc(letter)}</div>${forms ? `<p>${esc(forms)}</p>` : ""}${write ? `<p class="muted">✍️ ${esc(write)}</p>` : ""}`) : ""}
-        ${pics.length ? card("ars-dict", "🖼️", nnEn ? "My picture dictionary" : "قاموسي المصوّر", `<div class="ars-words">${pics.slice(0, 8).map((w) => `<div class="ars-w"><span class="ars-emo">${esc(w[1])}</span><b>${esc(w[0])}</b>${w[2] ? `<small>${esc(w[2])}</small>` : ""}</div>`).join("")}</div>`) : ""}
+        ${pics.length && !(bookTx && bookTx.body) ? card("ars-dict", "🖼️", nnEn ? "My picture dictionary" : "قاموسي المصوّر", `<div class="ars-words">${pics.slice(0, 8).map((w) => `<div class="ars-w"><span class="ars-emo">${esc(w[1])}</span><b>${esc(w[0])}</b>${w[2] ? `<small>${esc(w[2])}</small>` : ""}</div>`).join("")}</div>`) : ""}
         ${sounds ? card("ars-sound", "👂", nnEn ? "Listen and repeat" : "أسمع وأردّد", `<p class="ars-say">${esc(sounds)}</p><p class="muted">${nnEn ? "Say it clearly, then ask someone at home to listen to you." : "أقرأ بصوت واضح، ثم أطلب من أحد أفراد أسرتي أن يسمعني."}</p>`) : ""}
         ${blend ? card("ars-blend", "⚙️", nnEn ? "Build and break words" : "أركّب وأحلّل", `<p class="ars-say">${esc(blend)}</p>`) : ""}
         ${learn.length ? card("ars-learn", "💡", nnEn ? "What I learned today" : "ما تعلّمته اليوم", li(learn.filter((x) => !["📚", "🔗", "✍️"].includes(x[0])).map((x) => x[1]))) : ""}
@@ -5024,7 +5055,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (k === "games" && !lockedForMe && gameItems.length) runGame(l, gameItems);
       if (k === "booktext") {
         const pr = document.getElementById("btxPrint");
-        if (pr) pr.onclick = () => { const w = window.open("", "_blank"); w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(bookTx.title || l.title_ar)}</title><style>body{font-family:'Noto Naskh Arabic','Amiri',serif;padding:32px;font-size:20px;line-height:2.2}h1{font-size:24px}.poem{text-align:center;font-weight:700}.ln{border-bottom:1px solid #999;height:34px}</style></head><body><h1>${esc(bookTx.title || l.title_ar)}${bookTx.pages ? " · " + esc(bookTx.pages) : ""}</h1><div class="${bookTx.kind === "poem" ? "poem" : ""}">${bookLines(bookTx.body).map((x) => `<div>${esc(x)}</div>`).join("")}</div><h2 style="font-size:20px;margin-top:28px">أسئلتي عن النص:</h2>${Array.from({ length: 6 }, () => '<div class="ln"></div>').join("")}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
+        if (pr) pr.onclick = () => { const w = window.open("", "_blank"); w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(bookTx.title || l.title_ar)}</title><style>body{font-family:'Noto Naskh Arabic','Amiri',serif;padding:32px;font-size:20px;line-height:2.2}h1{font-size:24px}.poem{text-align:center;font-weight:700}.ln{border-bottom:1px solid #999;height:34px}mark{background:#FFE9A8;color:#8A2D0E;font-weight:700;padding:0 3px;border-radius:4px}</style></head><body><h1>${esc(bookTx.title || l.title_ar)}${bookTx.pages ? " · " + esc(bookTx.pages) : ""}</h1><div class="${bookTx.kind === "poem" ? "poem" : ""}">${bookLines(bookTx.body).map((x) => `<div>${bkHL(esc(x))}</div>`).join("")}</div><h2 style="font-size:20px;margin-top:28px">أسئلتي عن النص:</h2>${Array.from({ length: 6 }, () => '<div class="ln"></div>').join("")}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
         const sv = document.getElementById("btxSave");
         if (sv) sv.onclick = async () => { const body = document.getElementById("btxBody").value.trim(); if (!body) { toast("اكتب النص أولًا"); return; }
           const r = await sb.from("lesson_book_texts").upsert({ lesson_id: l.id, kind: document.getElementById("btxKind").value, title: document.getElementById("btxTitle").value.trim() || null, pages: document.getElementById("btxPages").value.trim() || null, body, updated_at: new Date().toISOString() });
@@ -9524,7 +9555,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           if (e.k === "pic") return `<img class="tdf-el${rv}" src="${X(new URL(e.src, location.href.split("#")[0]).href)}" alt="" draggable="false" style="${pos}object-fit:contain;${e.rad ? "border-radius:16px;" : ""}">`;
           if (e.k === "img") return `<div class="tdf-el tdf-emo${rv}" style="${pos}font-size:${Math.round(e.h * 0.82)}px" ${tdE(0, `els.${j}.emo`)}>${X(e.emo)}</div>`;
           const rtl = /[\u0600-\u06FF]/.test(e.text || ""), jc = e.align === "center" ? "center" : (e.align === "left") === rtl ? "flex-end" : "flex-start";
-          return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}" ${tdE(0, `els.${j}.text`)}>${X(e.text)}</div>`;
+          return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}${e.ff === "naskh" ? "font-family:'Noto Naskh Arabic','Amiri',serif;line-height:2;" : ""}" ${tdE(0, `els.${j}.text`)}>${((t) => t.includes("<mark") ? `<span>${t}</span>` : t)(bkHL(X(e.text)))}</div>`;
         }).join("") + `</div>`; break;
     }
     const imgs = (s.imgs || []).map((im, j) => `<div class="td-img" data-im="${j}" style="left:${im.x}px;top:${im.y}px;width:${im.w}px"><img src="${im.src}" alt="" draggable="false"><span class="td-imx" title="${CT("حذف", "Delete")}">✕</span><span class="td-imr"></span></div>`).join("");
