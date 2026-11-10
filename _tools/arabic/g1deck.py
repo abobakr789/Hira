@@ -92,5 +92,30 @@ def build(S):
                 bare=re.sub("[\u064B-\u0652\u0670]","",e["text"])
                 if e["h"]<e["size"]*2+8 and len(bare)<45: e["size"]=int((e["h"]-8)//2)
     return {"code":S["code"],"en":False,"slides":out}
+# ---- visual themes: same structure, different look per lesson (avoid monotony) ----
+THEMES=[
+ {"bg":"FBF6EC","acc":"0F6E72","dark":"1E3A3F","card":"FFFDF8","line":"E8DCC8","soft":"EAF5F4","acc2":"F2A93B","flip":False},
+ {"bg":"F1F6FB","acc":"1F5FA8","dark":"14325C","card":"FFFFFF","line":"D6E2F0","soft":"E6EFFA","acc2":"F2A93B","flip":True},
+ {"bg":"FCF3F5","acc":"B0395F","dark":"4A1D2C","card":"FFFFFF","line":"F0D5DC","soft":"FBE6EC","acc2":"E9A23B","flip":False},
+ {"bg":"F3F8EF","acc":"2F7D32","dark":"1F3D20","card":"FFFFFF","line":"D8E8CF","soft":"E7F3E1","acc2":"E3A21A","flip":True},
+ {"bg":"FFF6EC","acc":"C2571A","dark":"4A2410","card":"FFFFFF","line":"F2DCC6","soft":"FDEBDC","acc2":"2F7D7A","flip":False},
+ {"bg":"F6F3FB","acc":"5B3FA0","dark":"2C2150","card":"FFFFFF","line":"E1D9F2","soft":"EEE8FA","acc2":"E6A23C","flip":True}]
+BASE={"bg":"FBF6EC","acc":"0F6E72","dark":"1E3A3F","card":"FFFDF8","line":"E8DCC8","soft":"EAF5F4","acc2":"F2A93B"}
+def theme(deck,t):
+    th=THEMES[t%len(THEMES)]; m={}
+    for k,v in BASE.items(): m[v]=th[k]
+    m["FFFDF7"]=th["card"]; m["CFE3E1"]=th["soft"]; m["A9C4C3"]="D9D2C5" if t%len(THEMES) else "A9C4C3"
+    for sl in deck["slides"]:
+        if sl.get("bg") in m: sl["bg"]=m[sl["bg"]]
+        for e in sl["els"]:
+            for key in ("fill","line","color"):
+                if e.get(key) in m: e[key]=m[e[key]]
+    if th["flip"]:  # title slide mirrored: picture on the right, text on the left
+        t0=deck["slides"][0]
+        for e in t0["els"]:
+            if e["k"]=="text": e["x"]=86
+            elif e["k"]=="shape": e["x"]=824
+            elif e["k"]=="pic": e["x"]=838
+    return deck
 if __name__=="__main__":
-    S=json.load(open(sys.argv[1],encoding="utf-8")); json.dump(build(S),open(sys.argv[2],"w",encoding="utf-8"),ensure_ascii=False)
+    S=json.load(open(sys.argv[1],encoding="utf-8")); json.dump(theme(build(S),S.get("theme",0)),open(sys.argv[2],"w",encoding="utf-8"),ensure_ascii=False)

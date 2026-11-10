@@ -9475,7 +9475,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         const free = ctx.free.map((x) => ({ t: "free", d: { bg: x.bg, live: !!x.live, els: JSON.parse(JSON.stringify(x.els)) }, n: x.n || "" }));
         const qr = young.filter((x) => x.t === "exit");
         // Hiraa logo on every slide; one merged lesson (no second period): main deck + practice + exit QR
-        free.forEach((x) => { const dark = /^(1E3A3F|0F6E72|102A4C|263238)$/i.test(x.d.bg || ""); x.d.els.push({ k: "pic", x: 24, y: 672, w: 132, h: 36, src: dark ? "art/brand/hiraa-lockup-on-dark.svg" : "art/brand/hiraa-lockup-light.svg" }); });
+        free.forEach((x) => { const hx = String(x.d.bg || "FFFFFF").replace("#", ""), dark = hx.length === 6 && (0.299 * parseInt(hx.slice(0, 2), 16) + 0.587 * parseInt(hx.slice(2, 4), 16) + 0.114 * parseInt(hx.slice(4, 6), 16)) < 110; x.d.els.push({ k: "pic", x: 24, y: 672, w: 132, h: 36, src: dark ? "art/brand/hiraa-lockup-on-dark.svg" : "art/brand/hiraa-lockup-light.svg" }); });
         return free.concat(qr);
       }
       const dk = ctx.sm && ctx.sm.deck;
