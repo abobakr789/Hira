@@ -1580,7 +1580,7 @@
     };
     const qHtml = (q) => `<article class="form-card" style="margin:14px 0" data-q="${q.n}"><h3 style="margin-top:0">سؤال رقم ${q.n} <small class="muted">(${q.max || (q.items ? q.items.length : 0)} ${q.type === "essay" ? "درجة" : "درجات"})</small></h3><p style="font-size:1.08rem">${esc(q.q)}</p>${q.bullets ? `<ul>${q.bullets.map((b) => `<li>${esc(b.t)}</li>`).join("")}</ul>` : ""}${inp(q)}</article>`;
     const render = () => {
-      h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/ar-mocks?q=${P.qual === "4AA1" ? "igcse" : "gcse"}">الامتحانات التجريبية</a></div><h1>${esc(P.title)}</h1><p class="muted">${esc(P.note)}</p><div class="pill" id="amT">⏱ 0:00 / ${P.minutes} دقيقة</div></div></section>
+      h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="${(() => { try { return localStorage.getItem("hiraa.mockBack") || ("#/year/10?subject=arabic&track=" + (P.qual === "4AA1" ? "igcse" : "gcse")); } catch (e) { return "#/grades?subject=arabic"; } })()}">${P.qual === "4AA1" ? "International GCSE" : "GCSE"} · الامتحانات التجريبية</a></div><h1>${esc(P.title)}</h1><p class="muted">${esc(P.note)}</p><div class="pill" id="amT">⏱ 0:00 / ${P.minutes} دقيقة</div></div></section>
         <section class="section" style="padding-top:12px"><div class="wrap" style="max-width:900px;margin-inline:auto">
         ${P.sections.map((s) => `<h2 style="margin-top:26px">${esc(s.title)}</h2>${s.intro ? `<p class="muted">${esc(s.intro)}</p>` : ""}${s.passage ? `<div class="form-card" style="background:#FFF8EC;font-size:1.15rem;line-height:2.1">${esc(s.passage)}</div>` : ""}
           ${(() => { const tx = [...new Set(s.qs.map((q) => q.text).filter(Boolean))]; return tx.map(textHtml).join(""); })()}
@@ -1611,7 +1611,15 @@
     render();
   }
   
-const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "أبجد", gcse: "GCSE", igcse: "IGCSE" };
+async function fillArMocks() {
+    const el = document.getElementById("arMocksPane"); if (!el) return; const q = el.dataset.q;
+    try { localStorage.setItem("hiraa.mockBack", location.hash); } catch (e) {}
+    let idx = []; try { idx = await (await fetch(new URL("resources/mocks/index.json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
+    const L = idx.filter((x) => x.qual === q);
+    el.innerHTML = `<div class="form-card" style="border-inline-start:5px solid #0F6E72;max-width:none;width:100%;margin:0"><h2 style="margin:0 0 4px">📝 الامتحانات التجريبية</h2><p class="muted" style="margin:0 0 12px">بشكل امتحانات Pearson نفسه (الأسئلة والدرجات والزمن)، بنصوص من تأليف حراء، مع تصحيح فوري ودرجة تقديرية على سلّم 9–1.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span></a>`).join("") : `<div class="empty">قريبًا.</div>`}</div></div>`;
+  }
+  const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "أبجد", gcse: "GCSE", igcse: "IGCSE" };
   const TRACK_SHORT = { native: "عربي", non_native: "Non-native" };
   const ORD_GRADE = ["", "الأول", "الثاني", "الثالث", "الرابع", "الخامس", "السادس", "السابع", "الثامن", "التاسع", "العاشر", "الحادي عشر", "الثاني عشر", "الثالث عشر"];
   const LEVEL_AR = { mastered: "أتقن", developing: "قريب من الإتقان", needs_support: "يحتاج دعمًا" };
@@ -2230,7 +2238,6 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           ${subject === "arabic" && [11, 12].includes(Number(year)) ? `<a href="${testsView ? `#/year/${year}?subject=${subject}&track=alevel&term=tests` : href(term, "alevel")}" aria-current="${track === "alevel"}" dir="ltr">A Level</a>` : ""}
           ${subject === "arabic" && [6, 7, 8, 9].includes(Number(year)) ? `<a href="#/year/6?subject=${subject}&track=launch&term=${testsView ? "tests" : term}" aria-current="${track === "launch"}" title="للمتعلّمين اليافعين المبتدئين في العربية">أبجد</a>` : ""}
           ${subject === "arabic" && [9, 10].includes(Number(year)) ? `<a href="${testsView ? `#/year/${year}?subject=${subject}&track=gcse&term=tests` : href(term, "gcse")}" aria-current="${track === "gcse"}" dir="ltr" title="GCSE Arabic (1AA0): العربية لغة أجنبية">GCSE</a><a href="${testsView ? `#/year/${year}?subject=${subject}&track=igcse&term=tests` : href(term, "igcse")}" aria-current="${track === "igcse"}" dir="ltr" title="International GCSE Arabic (4AA1): للناطقين بالعربية">IGCSE</a>` : ""}
-          ${subject === "arabic" && (track === "igcse" || track === "gcse") ? `<a href="#/ar-mocks?q=${track}" style="font-weight:800">📝 امتحانات تجريبية</a>` : ""}
         </div>
         <div class="term-tabs" role="tablist">
           ${[1, 2, 3].map((t) => `<a class="term-tab" role="tab" href="${href(t, track, 0)}" aria-selected="${!testsView && t === term}" style="text-decoration:none">${(isStudent() || ctl) && counts[t] && !termOpen[t] ? lockIcon + " " : ""}${TERMS[t]} <span class="muted">(${counts[t]})</span></a>`).join("")}
@@ -2238,7 +2245,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         </div>
       </div>
     </div></section>
-    ${testsView ? `<section class="section" style="padding-top:36px"><div class="wrap" id="testsPane"><div class="loading">جارٍ التحميل…</div></div></section>`
+    ${subject === "arabic" && (track === "igcse" || track === "gcse") ? `<section class="section" style="padding-top:26px;padding-bottom:0"><div class="wrap" id="arMocksPane" data-q="${track}"></div></section>${(() => { setTimeout(fillArMocks, 0); return ""; })()}` : ""}
+      ${testsView ? `<section class="section" style="padding-top:36px"><div class="wrap" id="testsPane"><div class="loading">جارٍ التحميل…</div></div></section>`
       : `<section class="section" style="padding-top:44px"><div class="wrap layout-2">
       <div>${ctlBar}${!state.session ? visitorGate(term) : gradeClosed ? `<div class="grade-gate">${accessBox(gAcc, year).replace('class="empty locked-box access-box"', 'class="gate-in"')}</div>` : ""}${!gradeClosed && isStudent() && termAll && !termOpenN ? `<div class="notice locked-note">${lockIcon} ${LANG === "en" ? "Lessons of this term open one by one when your teacher starts them." : "دروس هذا الفصل الدراسي تُفتح تباعًا حين يبدؤها معلمك."}</div>` : ""}${chipsHtml}${unitsBlock}</div>
       <aside class="side-card"><h3>نواتج التعلم للصف</h3>${outcomesHtml}</aside>
