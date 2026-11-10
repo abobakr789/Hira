@@ -4047,6 +4047,17 @@ window.addEventListener("error", function (e) {
     next();
   }
   const mkOrder = (seed, n) => { let h = 2166136261; for (const c of String(seed)) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } const a = [...Array(n).keys()]; for (let k = n - 1; k > 0; k--) { h ^= h << 13; h ^= h >>> 17; h ^= h << 5; const r = Math.abs(h) % (k + 1); [a[k], a[r]] = [a[r], a[k]]; } return a; };
+  async function pageReports() {
+    setNav("grades"); if (!isSuper()) { location.hash = "#/"; return; } loading();
+    const { data } = await sb.from("content_reports").select("id, lesson_id, ref, kind, body, status, created_at, lessons(code, title_ar)").order("created_at", { ascending: false }).limit(300);
+    const K = { error: "خطأ علمي", typo: "خطأ لغوي/إملائي", unclear: "غير واضح", suggestion: "اقتراح" };
+    const R = data || []; const open = R.filter((r) => r.status === "open").length;
+    h(`<section class="page-head"><div class="wrap"><h1>🛠️ بلاغات المحتوى</h1><p class="muted">ما يرسله المعلمون من ملاحظات على الدروس. المفتوح: <b>${open}</b> من ${R.length}.</p></div></section>
+      <section class="section"><div class="wrap">${R.length ? R.map((r) => `<article class="form-card" style="max-width:none;margin:10px 0;opacity:${r.status === "open" ? 1 : 0.6}"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><b>${esc(K[r.kind] || r.kind)} · <a href="#/lesson/${esc(r.lessons ? r.lessons.code : "")}">${esc(r.lessons ? r.lessons.code + " — " + r.lessons.title_ar : r.ref || "")}</a></b><span class="muted">${new Date(r.created_at).toLocaleDateString("ar-AE")} · ${r.status === "open" ? "مفتوح" : r.status === "fixed" ? "أُصلح" : "مُستبعد"}</span></div>
+        ${r.ref ? `<p class="muted" style="margin:4px 0">الموضع: ${esc(r.ref)}</p>` : ""}<p style="white-space:pre-wrap;margin:6px 0">${esc(r.body)}</p>
+        ${r.status === "open" ? `<button class="btn btn-small btn-primary" data-rs="${r.id}:fixed">✓ أُصلح</button> <button class="btn btn-small btn-ghost" data-rs="${r.id}:dismissed">استبعاد</button>` : ""}</article>`).join("") : `<div class="empty">لا بلاغات بعد.</div>`}</div></section>`);
+    document.querySelectorAll("[data-rs]").forEach((b) => b.onclick = async () => { const [id, st] = b.dataset.rs.split(":"); await sb.from("content_reports").update({ status: st }).eq("id", id); pageReports(); });
+  }
   async function pageArMocks(params) {
     setNav("grades"); const q = params.get("q") || "igcse";
     let idx = []; try { idx = await (await fetch(new URL("resources/mocks/index.json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
@@ -4951,6 +4962,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (!state.session && acc !== "ok") { h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/">${CT("الرئيسية", "Home")}</a> / <a href="#/year/${u.year_group}?track=${u.track}&term=1">Grade ${u.year_group}</a></div>
         <h1>${esc((LANG === "en" || u.track === "non_native") && l.title_en ? l.title_en : l.title_ar)}</h1></div></section><section class="section"><div class="wrap" style="max-width:760px">${paywallBox()}
         <p style="text-align:center;margin-top:16px"><a class="btn btn-primary" href="#/year/${u.year_group}?track=${u.track}&term=1">${CT("افتح الدرس المجاني", "Open the free lesson")}</a></p></div></section>`); return; }
+    setTimeout(() => { const rb = document.getElementById("repBtn"); if (!rb) return; rb.onclick = () => {
+      const box = document.createElement("div"); box.className = "form-card"; box.style.cssText = "position:fixed;inset:auto 16px 16px 16px;max-width:560px;margin-inline:auto;z-index:9999;box-shadow:0 10px 40px rgba(0,0,0,.25)";
+      box.innerHTML = `<h3 style="margin-top:0">🛠️ إبلاغ عن ملاحظة في الدرس</h3><div class="field"><label>النوع</label><select id="rpK"><option value="error">خطأ علمي</option><option value="typo">خطأ لغوي/إملائي</option><option value="unclear">غير واضح</option><option value="suggestion">اقتراح</option></select></div><div class="field"><label>الموضع (مثلًا: الشريحة 5، ورقة ★★، السؤال 3)</label><input id="rpR"></div><div class="field"><label>الملاحظة</label><textarea id="rpB" rows="4" style="width:100%"></textarea></div><button class="btn btn-primary" id="rpS">إرسال</button> <button class="btn btn-ghost" id="rpC">إلغاء</button>`;
+      document.body.appendChild(box); box.querySelector("#rpC").onclick = () => box.remove();
+      box.querySelector("#rpS").onclick = async () => { const body = box.querySelector("#rpB").value.trim(); if (!body) { toast("اكتب الملاحظة"); return; } const r = await sb.from("content_reports").insert({ lesson_id: l.id, kind: box.querySelector("#rpK").value, ref: box.querySelector("#rpR").value.trim() || null, body }); if (r.error) toast("تعذّر الإرسال: " + r.error.message); else { toast("شكرًا! وصل البلاغ وسنراجعه."); box.remove(); } };
+    }; }, 0);
     const lockedMsg = accessBox(acc === "no_access" ? "none" : acc, u.year_group);
     const isSampleLesson = acc === "ok" && !isStaff() && state.plan && !(state.plan.subjects || []).includes(u.subject_id);
 
@@ -5210,6 +5227,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       <div class="crumbs"><a href="#/">الرئيسية</a> / <a href="#/grades?subject=${subject}">${SUBJECTS[subject].name}</a> / <a href="#/year/${u.year_group}?subject=${subject}&track=${u.track}&term=${u.term}"><span dir="ltr">Grade ${u.year_group}</span> · ${TRACKS[u.track]}</a> / ${LANG === "en" ? "Term " + u.term : TERMS[u.term]}</div>
       ${(nn || LANG === "en") && l.title_en ? `<h1 dir="ltr" style="text-align:start">${esc(l.title_en)}</h1>${LANG === "en" ? "" : `<p class="muted" style="font-size:1.15rem">${esc(l.title_ar)}</p>`}`
         : `<h1>${esc(l.title_ar)}</h1>${l.title_en ? `<p class="muted" dir="ltr" style="text-align:start">${esc(l.title_en)}</p>` : ""}`}
+      ${isStaff() ? `<button class="btn btn-small btn-ghost" id="repBtn" style="float:inline-end">🛠️ أبلغ عن خطأ</button>` : ""}
       <div class="head-meta">
         <span class="pill axis">${esc(axisName)}</span>
         <span class="pill">وحدة: ${esc((nn || LANG === "en") && u.title_en ? u.title_en : u.title_ar)}</span>
@@ -14486,6 +14504,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (p0 === "my-tests") return pageMyTests(params);
       if (p0 === "ar-mocks") return pageArMocks(params);
       if (p0 === "ar-mock") return pageArMock(parts[1]);
+      if (p0 === "reports") return pageReports();
       if (p0 === "ar-mock-review") return pageArMockReview(parts[1]);
       if (p0 === "ar-guide") return pageArGuide(parts[1]);
       if (p0 === "igcse") return pageIgcse();
