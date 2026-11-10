@@ -5197,6 +5197,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <small class="muted">📖 ${CT("كتيّب الطالب، صفحة", "Student booklet, page")} ${p.pg}</small></div>`).join("")}</div></details>`).join("")}
         <div class="cc-tips"><b>💡 ${CT("نصائح الإلقاء النبطي", "Recitation tips")}</b><ul><li>${CT("احفظ بيتًا بيتًا مع اللحن، وسمّع لأسرتك يوميًّا.", "Memorise verse by verse with the melody; recite to your family daily.")}</li><li>${CT("حافظ على نطق اللهجة الإماراتية كما هو، دون تحويله إلى الفصحى.", "Keep the Emirati dialect; don't convert it to standard Arabic.")}</li><li>${CT("افهم معاني الكلمات قبل الإلقاء ليصدق التعبير.", "Understand the words first so your expression is sincere.")}</li><li>${CT("التسجيل لا يزيد على دقيقتين، فرديًّا وبصوت واضح.", "Recording max two minutes, individual and clear.")}</li></ul></div></div>`;
     }
+    if (c.category === "seerah") { const en = LANG === "en" || state.myTrack === "non_native";
+      return `<div class="cc-box"><h3>🕌 ${CT("محاور مسابقة السيرة النبوية", "Seerah competition topics")}</h3><p class="muted">${CT("اضغط أي محور لتدخل مسابقته: أسئلة الفصل كاملة مع الشرح والنتيجة.", "Tap any topic to enter its challenge: all the chapter's questions with explanations and a score.")}</p>
+        <div class="cc-axes">${SB_CH.map((t, ch) => `<a class="cc-axis" href="#/seerah-practice?ch=${ch}"><span>${ch + 1}</span><b>${esc(en ? t[1] : t[0])}</b><em>${CT("ادخل المسابقة", "Enter")} ←</em></a>`).join("")}</div>
+        <div class="cc-axes-foot"><a class="btn btn-dawn" href="#/seerah-practice?ch=all">🎲 ${CT("مسابقة شاملة من كل المحاور (20 سؤالًا)", "Mixed challenge from all topics (20 questions)")}</a> <a class="btn btn-ghost" href="#/seerah-practice">🎯 ${CT("ساحة التدريب", "Practice arena")}</a></div></div>`; }
     const L = COMP_CONTENT[c.category]; if (!L) return "";
     const head = { speech: CT("🎤 بنك المواضيع", "🎤 Topic bank"), reading: CT("📚 قائمة قراءة مقترحة", "📚 Suggested reading list"), writing: CT("✍️ موضوعات الكتابة", "✍️ Writing prompts"), identity: CT("🇦🇪 دليل الاستعداد", "🇦🇪 Study guide"), arabic: CT("ض دليل الاستعداد", "Study guide") }[c.category];
     return `<div class="cc-box"><h3>${head}</h3>${L.map(([t, items]) => `<details class="cc-grade"><summary><b>${esc(t)}</b> <small class="muted">(${items.length})</small></summary><ol class="cc-list">${items.map((x) => `<li>${esc(x)}</li>`).join("")}</ol></details>`).join("")}
@@ -9960,6 +9964,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         run.className = "sr-run"; run.scrollIntoView({ behavior: "smooth" }); seerahRunner(run, items, { en }); });
     };
     draw();
+    const ach = params.get("ch"); if (ach != null && ach !== "") { const b = wrap.querySelector(`[data-ch="${ach === "all" ? "all" : +ach}"]`); if (b) b.click(); }
   }
   async function pageEcaSession(id, key) {
     setNav("eca"); loading();

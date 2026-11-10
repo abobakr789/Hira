@@ -2211,6 +2211,10 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .sr-ex{margin-top:10px;background:var(--hira-soft);border-radius:12px;padding:10px 14px}.sr-ex p{margin:6px 0}.sr-end{text-align:center;padding:10px}.sr-end b{display:block;font-size:2.2rem;color:var(--hira-deep)}.sr-acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .sr-chs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px}.sr-ch{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:start;border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px;cursor:pointer;font:inherit}.sr-ch:hover{border-color:var(--hira);transform:translateY(-2px)}.sr-ch span{background:var(--hira);color:#fff;border-radius:8px;padding:1px 8px;font-weight:800;font-size:.85rem}.sr-ch small{color:var(--muted)}
 .sr-mix{margin:12px 0}.sr-lang{display:inline-flex;gap:6px;align-items:center;margin-inline-start:8px}
+
+.cc-axes{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin:10px 0}.cc-axis{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s}
+.cc-axis:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.08);border-color:var(--hira)}.cc-axis span{flex:none;width:32px;height:32px;border-radius:50%;background:var(--hira);color:#fff;display:grid;place-items:center;font-weight:800}
+.cc-axis b{flex:1;line-height:1.4}.cc-axis em{font-style:normal;font-size:.8rem;font-weight:700;color:var(--hira-deep);white-space:nowrap}.cc-axes-foot{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 </style>
 </head>
 <body>
@@ -7479,6 +7483,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <small class="muted">📖 ${CT("كتيّب الطالب، صفحة", "Student booklet, page")} ${p.pg}</small></div>`).join("")}</div></details>`).join("")}
         <div class="cc-tips"><b>💡 ${CT("نصائح الإلقاء النبطي", "Recitation tips")}</b><ul><li>${CT("احفظ بيتًا بيتًا مع اللحن، وسمّع لأسرتك يوميًّا.", "Memorise verse by verse with the melody; recite to your family daily.")}</li><li>${CT("حافظ على نطق اللهجة الإماراتية كما هو، دون تحويله إلى الفصحى.", "Keep the Emirati dialect; don't convert it to standard Arabic.")}</li><li>${CT("افهم معاني الكلمات قبل الإلقاء ليصدق التعبير.", "Understand the words first so your expression is sincere.")}</li><li>${CT("التسجيل لا يزيد على دقيقتين، فرديًّا وبصوت واضح.", "Recording max two minutes, individual and clear.")}</li></ul></div></div>`;
     }
+    if (c.category === "seerah") { const en = LANG === "en" || state.myTrack === "non_native";
+      return `<div class="cc-box"><h3>🕌 ${CT("محاور مسابقة السيرة النبوية", "Seerah competition topics")}</h3><p class="muted">${CT("اضغط أي محور لتدخل مسابقته: أسئلة الفصل كاملة مع الشرح والنتيجة.", "Tap any topic to enter its challenge: all the chapter's questions with explanations and a score.")}</p>
+        <div class="cc-axes">${SB_CH.map((t, ch) => `<a class="cc-axis" href="#/seerah-practice?ch=${ch}"><span>${ch + 1}</span><b>${esc(en ? t[1] : t[0])}</b><em>${CT("ادخل المسابقة", "Enter")} ←</em></a>`).join("")}</div>
+        <div class="cc-axes-foot"><a class="btn btn-dawn" href="#/seerah-practice?ch=all">🎲 ${CT("مسابقة شاملة من كل المحاور (20 سؤالًا)", "Mixed challenge from all topics (20 questions)")}</a> <a class="btn btn-ghost" href="#/seerah-practice">🎯 ${CT("ساحة التدريب", "Practice arena")}</a></div></div>`; }
     const L = COMP_CONTENT[c.category]; if (!L) return "";
     const head = { speech: CT("🎤 بنك المواضيع", "🎤 Topic bank"), reading: CT("📚 قائمة قراءة مقترحة", "📚 Suggested reading list"), writing: CT("✍️ موضوعات الكتابة", "✍️ Writing prompts"), identity: CT("🇦🇪 دليل الاستعداد", "🇦🇪 Study guide"), arabic: CT("ض دليل الاستعداد", "Study guide") }[c.category];
     return `<div class="cc-box"><h3>${head}</h3>${L.map(([t, items]) => `<details class="cc-grade"><summary><b>${esc(t)}</b> <small class="muted">(${items.length})</small></summary><ol class="cc-list">${items.map((x) => `<li>${esc(x)}</li>`).join("")}</ol></details>`).join("")}
@@ -12242,6 +12250,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         run.className = "sr-run"; run.scrollIntoView({ behavior: "smooth" }); seerahRunner(run, items, { en }); });
     };
     draw();
+    const ach = params.get("ch"); if (ach != null && ach !== "") { const b = wrap.querySelector(`[data-ch="${ach === "all" ? "all" : +ach}"]`); if (b) b.click(); }
   }
   async function pageEcaSession(id, key) {
     setNav("eca"); loading();
