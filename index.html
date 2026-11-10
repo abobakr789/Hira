@@ -1210,6 +1210,8 @@ html[dir="ltr"] .tq-stem, html[dir="ltr"] .pv-q, html[dir="ltr"] .identity-card 
 .td-think { margin-top: 4px; background: #F6EEDC; border: 2px solid #D4AA55; border-radius: 14px; padding: 16px 24px; font-size: 28px; text-align: center; }
 .td-badge { margin-top: 0; text-align: center; font-size: 30px; font-weight: 700; color: #0F7A55; }
 .td-exit { display: flex; flex-direction: column; align-items: center; gap: 18px; font-size: 28px; }
+.td-exit-t { font-family: "Reem Kufi", "Readex Pro", sans-serif; font-weight: 600; font-size: 34px; color: #102A4C; display: flex; align-items: center; gap: 14px; margin: 0; }
+.td-exit-t .td-hw { height: 58px; vertical-align: middle; }
 .td-qr { background: #fff; padding: 14px; border: 3px solid #0F7A55; border-radius: 16px; min-width: 250px; min-height: 250px; }
 .td-free { font-size: 30px; white-space: pre-wrap; flex: 1 !important; }
 .td-stage.editing [data-p] { outline: 1px dashed #2E86AB; outline-offset: 2px; min-width: 20px; border-radius: 3px; }
@@ -9618,7 +9620,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       case "life": b = head("🌱") + `<div class="kid-cards c${(d.items || []).length}">${(d.items || []).map((x, j) => `<div class="kid-card life rv"><span class="kid-ic">${x.ic}</span><p ${tdE(0, `items.${j}.t`)}>${X(x.t)}</p></div>`).join("")}</div>`; break;
       case "steps": b = head("🧠") + `<ol class="kid-steps">${(d.items || []).map((x, j) => `<li class="rv"><span>${x[0]}</span><p ${tdE(0, `items.${j}.1`)}>${X(x[1])}</p></li>`).join("")}</ol>`; break;
       case "show": b = head("🙋") + `<ol class="kid-steps show">${(d.items || []).map((x, j) => `<li class="rv"><span>${x[0]}</span><p ${tdE(0, `items.${j}.1`)}>${X(x[1])}</p></li>`).join("")}</ol>${d.home ? `<div class="kid-home">🏠 <span ${tdE(0, "home")}>${X(d.home)}</span></div>` : ""}`; break;
-      case "exit": b = head("🚪") + `<div class="td-exit"><div class="td-qr" id="tdqr${i}" data-url="${X(d.url)}"></div><p ${tdE(0, "sub")}>${X(d.sub)}</p></div>`; break;
+      case "exit": { const hw = `<img class="td-hw" src="art/brand/hiraa-lockup-light.svg" alt="حراء">`;
+        b = head("🚪") + `<div class="td-exit"><div class="td-qr" id="tdqr${i}" data-url="${X(d.url)}"></div><div class="td-exit-t"><span ${tdE(0, "sub")}>${X(String(d.sub || "").replace(/\s*(حراء|Hira)\s*$/, ""))}</span>${hw}</div></div>`; break; }
       case "text": b = head("") + `<div class="td-free" ${tdE(0, "body")}>${X(d.body)}</div>`; break;
       case "pic": b = `<img class="td-pic" src="${X(d.src)}" alt="" draggable="false">`; break;
       case "free": b = `<div class="tdf" style="background:#${X(d.bg || "FBF6EC")}">` + ((d.els || []).some((e) => e.l2) ? `<button class="tdf-l2btn" onclick="event.stopPropagation();document.body.classList.toggle('l2on')" title="Language support">عون لغوي · EN</button>` : "") + (d.els || []).map((e, j) => {
@@ -9709,9 +9712,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       sc: (extra && extra.sc) || [], identity: (extra && extra.identity) || [],
       partLbl: two ? tdT(en, part === 1 ? "الحصة الأولى" : "الحصة الثانية", `Lesson ${part}`) : "",
       schoolName: school ? (en && school.name_en ? school.name_en : school.name_ar) : "", logo: school && school.logo_url };
-    if (l.units && [2, 3].includes(l.units.subject_id)) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} } try { if (ctx.free && Array.isArray(ctx.free)) { const bt = (await sb.from("lesson_book_texts").select("kind, title, body, pages").eq("lesson_id", l.id).maybeSingle()).data; if (bt && bt.body) { state._bookTx = bt; const key = ctx.sm && Array.isArray(ctx.sm.key) && ctx.sm.key.length ? ctx.sm.key : null;
+    if (l.units && [2, 3].includes(l.units.subject_id)) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} } state._bookTx = null; try { if (ctx.free && Array.isArray(ctx.free)) { const bt = (await sb.from("lesson_book_texts").select("kind, title, body, pages").eq("lesson_id", l.id).maybeSingle()).data; if (bt && bt.body) { state._bookTx = bt; const key = ctx.sm && Array.isArray(ctx.sm.key) && ctx.sm.key.length ? ctx.sm.key : null;
         const src = bt.kind !== "poem" && key ? Object.assign({}, bt, { title: "أَهَمُّ ما في النَّصِّ · " + bkPlain(bt.title || "").split(" — ")[0], body: key.join("\n") }) : bt;
-        const bs = tdBookSlides(src).slice(0, 3); bs.forEach((sl) => sl.els.push({ k: "btn", act: "book", x: 30, y: 12, w: 214, h: 48, text: "📖 النَّصُّ كامِلًا" }));
+        const bs = tdBookSlides(src).slice(0, 3);
         let at = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /^(📖 نصّ القراءة|📖 قراءة إضافية|🎵 القصيدة)/.test(e.text)));
         if (at < 0) { const kb = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /كِتَابِي|كتابي/.test(e.text))); at = kb >= 0 ? kb + 1 : Math.min(5, ctx.free.length); }
         ctx.free.splice(at, 0, ...bs); } } } catch (e) {}
@@ -9886,7 +9889,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <button class="btn btn-ghost btn-small" id="tdUp">▲</button><button class="btn btn-ghost btn-small" id="tdDown">▼</button>
             <button class="btn btn-ghost btn-small" id="tdDel">🗑 حذف</button>${custom ? '<button class="btn btn-ghost btn-small" id="tdReset">استرجاع الأصل</button>' : ""}
             <button class="btn btn-primary btn-small" id="tdSave">${dirty ? "حفظ التعديلات" : "محفوظ ✓"}</button><button class="btn btn-dawn btn-small" id="tdDone">إنهاء التعديل</button>`
-          : `<select id="tdFxSel" class="td-sel" title="مؤثر الانتقال">${TD_FX.map(([k, t]) => `<option value="${k}" ${k === fx ? "selected" : ""}>✨ ${t}</option>`).join("")}</select>
+          : `<select id="tdFxSel" class="td-sel" title="مؤثر الانتقال">${TD_FX.map(([k, t]) => `<option value="${k}" ${k === fx ? "selected" : ""}>✨ ${t}</option>`).join("")}</select>${state._bookTx ? `<button class="btn btn-ghost btn-small" data-bk="1">📖 ${CT("النَّصُّ كامِلًا", "Full text")}</button>` : ""}
             ${s.t === "table" ? '<button class="btn btn-primary btn-small" id="tdLive">📲 قياس مباشر</button>' : ""}<button class="btn btn-ghost btn-small" id="tdTimer">⏱ مؤقت</button><button class="btn btn-ghost btn-small" id="tdSnd">🔔 انتباه</button>
             <button class="btn btn-ghost btn-small" id="tdNotes">📝 الملاحظات</button><button class="btn btn-ghost btn-small" id="tdEdit">✏️ تعديل</button><button class="btn btn-dawn btn-small" id="tdFull">⛶ ملء الشاشة</button>`}
         </div>
