@@ -3783,7 +3783,7 @@ window.addEventListener("error", function (e) {
     const rows = [];
     if (poem) for (let i = 0; i < units.length; i += 2) rows.push({ a: units[i], b: units[i + 1] || "", h: 84 });
     else { const size = 38, lh = 76, cpl = 66; units.forEach((t) => rows.push({ a: t, h: Math.max(1, Math.ceil(bare(t).length / cpl)) * lh + 20, size })); }
-    const pages = [], maxH = 548, gap = 12; let cur = [], used = 0;
+    const pages = [], maxH = 516, gap = 12; let cur = [], used = 0;
     rows.forEach((r) => { if (cur.length && used + r.h > maxH) { pages.push(cur); cur = []; used = 0; } cur.push(r); used += r.h + gap; });
     if (cur.length) pages.push(cur);
     return pages.map((pg, k) => {
@@ -9322,7 +9322,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (ctx.free && ctx.free.length) {
         const free = ctx.free.map((x) => ({ t: "free", d: { bg: x.bg, els: JSON.parse(JSON.stringify(x.els)) }, n: x.n || "" }));
         const qr = young.filter((x) => x.t === "exit");
-        return part === 2 ? young.filter((x) => ["bank", "starter", "claim", "exit"].includes(x.t)) : free.concat(qr);
+        // Hiraa logo on every slide; one merged lesson (no second period): main deck + practice + exit QR
+        free.forEach((x) => { const dark = /^(1E3A3F|0F6E72|102A4C|263238)$/i.test(x.d.bg || ""); x.d.els.push({ k: "pic", x: 24, y: 672, w: 132, h: 36, src: dark ? "art/brand/hiraa-lockup-on-dark.svg" : "art/brand/hiraa-lockup-light.svg" }); });
+        return free.concat(young.filter((x) => ["bank", "starter", "claim"].includes(x.t)), qr);
       }
       const dk = ctx.sm && ctx.sm.deck;
       if (!dk || !dk.n) return young;
