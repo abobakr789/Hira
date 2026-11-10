@@ -2092,6 +2092,14 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .tdf .bk-key { background: #FFE38A; color: #9A2F0B; font-weight: 700; border-radius: 8px; padding: 0 .12em; }
 .bk-read { font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: 1.4rem; line-height: 2.2; }
 .bk-read p { margin: 0 0 .5em; max-width: none; }
+.tdf-btn { border: 0; border-radius: 14px; background: #0F6E72; color: #fff; font: 700 21px "Readex Pro", sans-serif; cursor: pointer; box-shadow: 0 3px 0 #0a4f52; }
+.tdf-btn:hover { background: #12858a; }
+.bk-ov { position: fixed; inset: 0; z-index: 2147483000; background: rgba(15, 30, 35, .55); display: flex; align-items: center; justify-content: center; padding: 3vh 3vw; }
+.bk-ov-in { background: #FBF6EC; border-radius: 22px; width: min(1100px, 100%); max-height: 94vh; overflow: auto; padding: 22px 34px 30px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+.bk-ov-hd { position: sticky; top: -22px; background: #FBF6EC; display: flex; align-items: center; gap: 12px; padding: 10px 0 12px; border-bottom: 2px solid #E8DCC8; margin-bottom: 14px; font-size: 1.35rem; font-family: "Noto Naskh Arabic", serif; }
+.bk-ov-x { margin-inline-start: auto; border: 0; background: #0F6E72; color: #fff; border-radius: 12px; padding: 8px 16px; font: 700 1rem "Readex Pro", sans-serif; cursor: pointer; }
+.bk-ov .bk-read { font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 2.2; }
+.ars-wide { grid-column: 1 / -1; display: block !important; }
 .ars-text { font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: 1.35rem; line-height: 2.1; }
 .ars-text p { margin: 0 0 .45em; max-width: none; }
 .ars-full { margin-top: 10px; } .ars-full summary { cursor: pointer; font-weight: 700; color: var(--hira); }
@@ -3793,6 +3801,19 @@ window.addEventListener("error", function (e) {
       return { bg: "FBF6EC", els };
     });
   }
+  function bkOpen() {
+    const bt = state._bookTx; if (!bt) return;
+    const host = document.fullscreenElement || document.body; const old = document.getElementById("bkOv"); if (old) old.remove();
+    const lines = String(bt.body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
+    const ov = document.createElement("div"); ov.id = "bkOv"; ov.className = "bk-ov"; ov.setAttribute("dir", "rtl");
+    ov.innerHTML = `<div class="bk-ov-in"><div class="bk-ov-hd"><b>📖 ${bkHL(esc(bt.title || "نص الكتاب"))}</b>${bt.pages ? `<span class="pill">ص ${esc(bt.pages)}</span>` : ""}<button type="button" class="bk-ov-x" aria-label="إغلاق">✕ رجوع إلى العرض</button></div>
+      <div class="bk-read"${bt.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${lines.map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div></div>`;
+    const close = () => { ov.remove(); document.removeEventListener("keydown", onKey, true); };
+    const onKey = (ev) => { if (ev.key === "Escape") { ev.stopPropagation(); ev.preventDefault(); close(); } else if (["ArrowLeft", "ArrowRight", " ", "PageDown", "PageUp"].includes(ev.key)) ev.stopPropagation(); };
+    ov.addEventListener("click", (ev) => { ev.stopPropagation(); if (ev.target === ov || ev.target.closest(".bk-ov-x")) close(); });
+    document.addEventListener("keydown", onKey, true); host.appendChild(ov);
+  }
+  ["click", "pointerdown", "mousedown"].forEach((t) => document.addEventListener(t, (ev) => { const b = ev.target.closest && ev.target.closest("[data-bk]"); if (!b) return; ev.stopPropagation(); ev.preventDefault(); if (t === "click") bkOpen(); }, true));
   // [[word]] in a book text = a key word, shown highlighted; strip for plain-text uses
   const bkHL = (html) => String(html).replace(/\[\[([^\]]+?)\]\]/g, '<mark class="bk-key">$1</mark>');
   const bkPlain = (t) => String(t || "").replace(/\[\[|\]\]/g, "");
@@ -4941,10 +4962,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const id = (l.lesson_identity_links || [])[0];
       const quiz = (sm.quiz || []).slice(0, 2);
       return `<div class="ars"${nnEn ? ' dir="ltr"' : ""}>
-        ${bookTx && bookTx.body ? card("ars-book", "📖", nnEn ? "The lesson text" : "نَصُّ الدَّرْسِ", `${sm.idea ? `<p>${esc(sm.idea)}</p>` : ""}<div class="ars-text">${((sm.key && sm.key.length) ? sm.key : bookLines(bookTx.body).slice(0, 3)).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
+        ${bookTx && bookTx.body ? card("ars-book ars-wide", "📖", nnEn ? "The lesson text" : "نَصُّ الدَّرْسِ", `${sm.idea ? `<p>${esc(sm.idea)}</p>` : ""}<div class="ars-text">${((sm.key && sm.key.length) ? sm.key : bookLines(bookTx.body).slice(0, 3)).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
           <details class="ars-full"><summary>📖 ${nnEn ? "Read the full text" : "أَقْرَأُ النَّصَّ كامِلًا"}${bookTx.pages ? ` (${esc(bookTx.title || "")} · ص ${esc(bookTx.pages)})` : ""}</summary><div class="bk-read"${bookTx.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div></details>
           <p class="muted" style="margin-top:8px">${nnEn ? "You will also find it in the lesson slides." : "وَأَجِدُهُ أَيْضًا في شَرائِحِ الدَّرْسِ."}</p>`)
-          + ((sm.words || []).length ? card("ars-dict", "🔤", nnEn ? "Word meanings" : "مَعاني الْكَلِماتِ", `<div class="ars-vocab">${sm.words.map((w) => `<div class="ars-v"><b>${esc(w[0])}</b><span>${esc(w[1])}</span></div>`).join("")}</div>`) : "") : ""}
+          + ((sm.words || []).length ? card("ars-dict ars-wide", "🔤", nnEn ? "Word meanings" : "مَعاني الْكَلِماتِ", `<div class="ars-vocab">${sm.words.map((w) => `<div class="ars-v"><b>${esc(w[0])}</b><span>${esc(w[1])}</span></div>`).join("")}</div>`) : "") : ""}
         ${bookTx && bookTx.body ? "" : card("ars-book", "📖", nnEn ? "My textbook" : "كتابي المدرسي", nnEn ? `<p>Read «${esc(story)}» in your student book${l.book_pages ? ` (page ${esc(String(l.book_pages).replace(/^ص\s*/, ""))})` : ""} with your teacher.</p>` : `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
         ${letter ? card("ars-letter", "🔤", nnEn ? "Letter card" : "بطاقة الحرف", `<div class="ars-letter-big">${esc(letter)}</div>${forms ? `<p>${esc(forms)}</p>` : ""}${write ? `<p class="muted">✍️ ${esc(write)}</p>` : ""}`) : ""}
         ${pics.length && !(bookTx && bookTx.body) ? card("ars-dict", "🖼️", nnEn ? "My picture dictionary" : "قاموسي المصوّر", `<div class="ars-words">${pics.slice(0, 8).map((w) => `<div class="ars-w"><span class="ars-emo">${esc(w[1])}</span><b>${esc(w[0])}</b>${w[2] ? `<small>${esc(w[2])}</small>` : ""}</div>`).join("")}</div>`) : ""}
@@ -9553,6 +9574,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           const pos = `left:${e.x}px;top:${e.y}px;width:${e.w}px;height:${e.h}px;`, rv = e.rv ? ` rv" data-rvg="${e.rv}` : "";
           if (e.k === "shape") return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:#${X(e.fill)};${e.line ? `border:${Math.max(2, Math.round((e.lw || 1.5) * 1.8))}px solid #${X(e.line)};` : ""}border-radius:${e.oval ? "50%" : e.rad ? "16px" : "0"}"></div>`;
           if (e.k === "pic") return `<img class="tdf-el${rv}" src="${X(new URL(e.src, location.href.split("#")[0]).href)}" alt="" draggable="false" style="${pos}object-fit:contain;${e.rad ? "border-radius:16px;" : ""}">`;
+          if (e.k === "btn") return `<button type="button" class="tdf-el tdf-btn" data-bk="1" style="${pos}">${X(e.text)}</button>`;
           if (e.k === "img") return `<div class="tdf-el tdf-emo${rv}" style="${pos}font-size:${Math.round(e.h * 0.82)}px" ${tdE(0, `els.${j}.emo`)}>${X(e.emo)}</div>`;
           const rtl = /[\u0600-\u06FF]/.test(e.text || ""), jc = e.align === "center" ? "center" : (e.align === "left") === rtl ? "flex-end" : "flex-start";
           return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}${e.ff === "naskh" ? "font-family:'Noto Naskh Arabic','Amiri',serif;line-height:2;" : ""}" ${tdE(0, `els.${j}.text`)}>${((t) => t.includes("<mark") ? `<span>${t}</span>` : t)(bkHL(X(e.text)))}</div>`;
@@ -9635,7 +9657,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       sc: (extra && extra.sc) || [], identity: (extra && extra.identity) || [],
       partLbl: two ? tdT(en, part === 1 ? "الحصة الأولى" : "الحصة الثانية", `Lesson ${part}`) : "",
       schoolName: school ? (en && school.name_en ? school.name_en : school.name_ar) : "", logo: school && school.logo_url };
-    if (l.units && [2, 3].includes(l.units.subject_id)) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} } try { if (ctx.free && Array.isArray(ctx.free)) { const bt = (await sb.from("lesson_book_texts").select("kind, title, body, pages").eq("lesson_id", l.id).maybeSingle()).data; if (bt && bt.body) { const bs = tdBookSlides(bt); let at = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /^(📖 نصّ القراءة|📖 قراءة إضافية|🎵 القصيدة)/.test(e.text))); if (at < 0) at = Math.min(5, ctx.free.length); ctx.free.splice(at, 0, ...bs); } } } catch (e) {}
+    if (l.units && [2, 3].includes(l.units.subject_id)) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} } try { if (ctx.free && Array.isArray(ctx.free)) { const bt = (await sb.from("lesson_book_texts").select("kind, title, body, pages").eq("lesson_id", l.id).maybeSingle()).data; if (bt && bt.body) { state._bookTx = bt; const key = ctx.sm && Array.isArray(ctx.sm.key) && ctx.sm.key.length ? ctx.sm.key : null;
+        const src = bt.kind !== "poem" && key ? Object.assign({}, bt, { title: "أَهَمُّ ما في النَّصِّ · " + bkPlain(bt.title || "").split(" — ")[0], body: key.join("\n") }) : bt;
+        const bs = tdBookSlides(src).slice(0, 3); bs.forEach((sl) => sl.els.push({ k: "btn", act: "book", x: 30, y: 12, w: 214, h: 48, text: "📖 النَّصُّ كامِلًا" }));
+        let at = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /^(📖 نصّ القراءة|📖 قراءة إضافية|🎵 القصيدة)/.test(e.text)));
+        if (at < 0) { const kb = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /كِتَابِي|كتابي/.test(e.text))); at = kb >= 0 ? kb + 1 : Math.min(5, ctx.free.length); }
+        ctx.free.splice(at, 0, ...bs); } } } catch (e) {}
     const base = () => tdBuild(ctx, part);
     const { data: saved } = await sb.from("teacher_decks").select("slides, updated_at").eq("lesson_id", l.id).eq("part", part).eq("kind", "deck").maybeSingle();
     let slides = saved && Array.isArray(saved.slides) && saved.slides.length ? saved.slides : base();
