@@ -2611,8 +2611,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const videos = res.filter((r) => r.kind === "video");
     const videoHtml = lockedForMe ? lockedMsg : videos.length ? videos.map((v) => {
       const e = youtubeEmbed(v.url);
+      const mp4 = /\.(mp4|webm|m4v)(\?|$)/i.test(String(v.url || ""));
       return `<h3>${esc(v.title_ar)}</h3>` + (e
         ? `<iframe class="video-frame" src="${e}" title="${esc(v.title_ar)}" allowfullscreen loading="lazy"></iframe>`
+        : mp4 ? `<video class="video-frame" src="${esc(v.url)}" controls playsinline preload="metadata" controlslist="nodownload" oncontextmenu="return false" title="${esc(v.title_ar)}"></video>`
         : `<a class="res-item" href="${esc(v.url)}" target="_blank" rel="noopener">${icon.video}<strong>شاهد الفيديو</strong></a>`);
     }).join('<div style="height:24px"></div>') : `<div class="empty"><strong>لم يُضف فيديو لهذا الدرس بعد</strong></div>`;
 
