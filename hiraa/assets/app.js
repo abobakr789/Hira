@@ -1638,7 +1638,21 @@
     render();
   }
   
-async function fillArMocks() {
+const PEARSON_LINKS = {
+    gcse: [["🏠 صفحة المؤهّل على موقع Pearson (فيها تسجيلات الاستماع ومواد التقييم)", "https://qualifications.pearson.com/en/qualifications/edexcel-gcses/arabic-2017.html"],
+      ["📘 المواصفات (Issue 5)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/specification-and-sample-assessments/specification-gcse2017-l12-arabic-issue5.pdf"],
+      ["📝 مواد التقييم النموذجية SAMs (Issue 3): نصوص الاستماع والأسئلة ومعايير التصحيح", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/specification-and-sample-assessments/sams-gcse-arabic-2022-issue-3.pdf"],
+      ["🎧 ورقة الاستماع 2024 — الأساسي (1F)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1f-que-20240516.pdf"],
+      ["🎧 معيار تصحيح ونص استماع 2024 — الأساسي (1F)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1f-rms-20240822.pdf"],
+      ["🎧 ورقة الاستماع 2024 — الأعلى (1H)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1h-que-20240516.pdf"],
+      ["🎧 معيار تصحيح ونص استماع 2024 — الأعلى (1H)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1h-rms-20240822.pdf"],
+      ["📊 تقرير الممتحنين 2025 — الاستماع الأعلى (1H)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1h-pef-20250821.pdf"],
+      ["📊 تقرير الممتحنين 2025 — الاستماع الأساسي (1F)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1f-pef-20250821.pdf"]],
+    igcse: [["🏠 صفحة المؤهّل على موقع Pearson", "https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses/international-gcse-arabic-as-1st-language-2017.html"],
+      ["📝 مواد التقييم النموذجية SAMs", "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Arabic%20as%20a%20first%20language/2017/specification-and-sample-assessments/International-GCSE-Arabic-SAMs.pdf"]],
+    alevel: [["🏠 صفحة المؤهّل على موقع Pearson (فيها تسجيلات الاستماع لمواد التقييم)", "https://qualifications.pearson.com/en/qualifications/edexcel-a-levels/arabic-2018.html"],
+      ["📝 مواد التقييم النموذجية SAMs (الأوراق الثلاث ومعايير التصحيح)", "https://qualifications.pearson.com/content/dam/pdf/A%20Level/Arabic/2018/specification-and-sample-assessments/A-level-Arabic-SAMs.pdf"]] };
+  async function fillArMocks() {
     const el = document.getElementById("arMocksPane"); if (!el) return; const q = el.dataset.q;
     try { localStorage.setItem("hiraa.mockBack", location.hash); } catch (e) {}
     let idx = []; try { idx = await (await fetch(new URL("resources/mocks/index.json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
@@ -1648,7 +1662,7 @@ async function fillArMocks() {
     const facts = (MK_GUIDE[q] || {}).facts || [];
     el.innerHTML = `<div class="form-card" style="border-inline-start:5px solid #0F6E72;max-width:none;width:100%;margin:0"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><h2 style="margin:0 0 4px">📝 الامتحانات التجريبية</h2><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-small" href="#/ar-guide/${q}">🧭 كيف أجيب؟</a>${isStaff() ? `<a class="btn btn-small btn-primary" href="#/ar-mock-review">📋 نتائج طلابي</a>` : ""}</div></div>
       <p style="margin:6px 0">${facts.map((f) => `<span class="pill" style="margin:3px">${esc(f)}</span>`).join("")}</p><p class="muted" style="margin:0 0 12px">بشكل امتحانات Pearson نفسه (الأسئلة والدرجات والزمن)، بنصوص من تأليف حراء، مع تصحيح فوري ودرجة تقديرية.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span>${best(x.id) != null ? `<span class="pill" style="display:inline-block;margin-top:8px;background:#E7F6EC">أفضل نتيجة: ${best(x.id)}% · ${mkGradeQ(q, best(x.id))}</span>` : ""}</a>`).join("") : `<div class="empty">قريبًا.</div>`}</div></div>`;
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span>${best(x.id) != null ? `<span class="pill" style="display:inline-block;margin-top:8px;background:#E7F6EC">أفضل نتيجة: ${best(x.id)}% · ${mkGradeQ(q, best(x.id))}</span>` : ""}</a>`).join("") : `<div class="empty">قريبًا.</div>`}</div><details style="margin-top:16px" open><summary style="cursor:pointer;font-weight:800">📚 مواد Pearson الرسمية</summary><div style="display:grid;gap:6px;margin-top:8px">${(PEARSON_LINKS[q] || []).map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener" style="display:block;padding:10px 12px;border:1px solid rgba(15,110,114,.2);border-radius:10px;text-decoration:none">${esc(t)} ↗</a>`).join("")}</div><p class="muted" style="margin:10px 0 0;font-size:.9rem">المصدر: Pearson Edexcel — qualifications.pearson.com. تُفتح الملفات من موقع Pearson مباشرة، وحقوقها محفوظة لـ © Pearson Education Ltd. تسجيلات الاستماع لمواد التقييم النموذجية موجودة في صفحة المؤهّل ضمن «Course materials».</p></details></div>`;
   }
   const MK_GUIDE = {
     alevel: { title: "A Level العربية (9AA0): كيف أجيب؟", facts: ["📝 الورقة 1: ساعتان ونصف · ترجمة إلى الإنجليزية + قراءة + سؤال بحثي (80)", "✍️ الورقة 2: ساعتان و40 دقيقة · ترجمة إلى العربية + مقالان عن العملين (110)", "🎧 الورقة 3: استماع وقراءة وكتابة (60)", "🎯 سلّم A*–E"],
