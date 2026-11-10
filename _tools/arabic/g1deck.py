@@ -31,7 +31,7 @@ def build(S):
     out=[]; add=lambda els,n,**kw: out.append(dict({"bg":"FBF6EC","els":els,"n":n},**kw))
     # 0 title
     out.append({"bg":"1E3A3F","els":[T(499,150,691,51,S["kicker"],25,"F2A93B",True,"right",ff=None),T(499,206,691,166,S["title"],56 if len(re.sub("[\u064B-\u0652\u0670]","",S["title"]))<=24 else 40,"FBF6EC",True,"right"),
-      T(499,380,691,52,S["byline"],24,"A9C4C3",False,"right"),T(499,440,691,58,"يُرَافِقُنَا دَنْدُون صَدِيقُ الْحُرُوف 👋",24,"A9C4C3",False,"right"),SH(96,70,360,560,"FFFFFF"),PIC(110,84,332,532,"cover")],"n":S["title_note"]})
+      T(499,380,691,52,S["byline"],24,"A9C4C3",False,"right"),T(499,440,691,58,S.get("tagline","يُرَافِقُنَا دَنْدُون صَدِيقُ الْحُرُوف 👋"),24,"A9C4C3",False,"right"),SH(96,70,360,560,"FFFFFF"),PIC(110,84,332,532,"cover")],"n":S["title_note"]})
     R=S["retrieval"]
     els=frame(0,"🔁 نَتَذَكَّرُ مَعًا",3,R["head"])+[PIC(96,180,300,340,R["img"])]
     for i,(q,a) in enumerate(R["qa"]): els+=[T(420,180+i*82,500,66,q,24,"1E3A3F",True,"right","FFFDF8",True),ans(930,180+i*82,222,66,a,i+1,22)]
