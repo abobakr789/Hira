@@ -20,7 +20,7 @@ def photo_in(im, box):
         p=r
     r0,r1=max(runs,key=lambda t:t[1]-t[0])
     cols=np.where(mask[r0:r1+1].mean(0)>0.3)[0]
-    if len(cols)<10: return None
+    if len(cols)<10 or r1-r0<20: return None
     return im.crop((x0+cols[0]+4,y0+r0+4,x0+cols[-1]-4,y0+r1-4))
 def safe(im, box):
     x0,y0,x1,y1=box; r=photo_in(im,box); H=y1-y0
