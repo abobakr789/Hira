@@ -1468,19 +1468,263 @@
   const subjectSeg = (current, hrefFn) => `<div class="seg" role="group" aria-label="المادة">${Object.keys(SUBJECTS).filter((k) => k !== "igcse").map((k) =>
     `<a href="${hrefFn(k)}" aria-current="${k === current}">${SUBJECTS[k].name}</a>`).join("")}</div>`;
   function tdBookSlides(bt) {
-    const lines = String(bt.body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean); const poem = bt.kind === "poem";
-    const per = poem ? 6 : 7, out = [];
-    for (let p = 0; p < lines.length; p += per) {
-      const chunk = lines.slice(p, p + per), n = chunk.length, top = 150, avail = 480, hgt = Math.min(78, Math.floor(avail / Math.max(n, 1)));
-      const size = poem ? (n <= 4 ? 40 : 34) : (n <= 4 ? 34 : 29);
-      const els = [{ k: "text", x: 256, y: 13, w: 768, h: 46, text: "نص الكتاب", size: 21, color: "FFFFFF", bold: true, align: "center", fill: "0F6E72", rad: true, va: "middle" },
-        { k: "text", x: 230, y: 67, w: 1011, h: 70, text: "📖 " + (bt.title || "نص الكتاب") + (lines.length > per ? ` (${Math.floor(p / per) + 1})` : ""), size: 40, color: "1E3A3F", bold: true, align: "right", fill: null, rad: false, va: "middle" }];
-      if (bt.pages) els.push({ k: "text", x: 38, y: 74, w: 200, h: 54, text: bt.pages, size: 22, color: "1E3A3F", bold: true, align: "center", fill: "F2A93B", rad: true, va: "middle" });
-      chunk.forEach((t, i) => els.push({ k: "text", x: poem ? 190 : 38, y: top + i * hgt, w: poem ? 900 : 1203, h: hgt - 6, text: t, size, color: "1E3A3F", bold: poem, align: poem ? "center" : "right", fill: i % 2 === 0 ? "FFFDF7" : null, rad: true, va: "middle", rv: i + 1 }));
-      out.push({ bg: "FBF6EC", els });
-    }
-    return out;
+    // book text -> clean reading slides: one sentence (or one verse row) per block, sized from its length so nothing overlaps
+    const poem = bt.kind === "poem", bare = (t) => String(t).replace(/[\u064B-\u0652\u0670\[\]]/g, "");
+    const paras = String(bt.body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
+    const units = poem ? paras : paras.flatMap((p) => (p.match(/[^.!؟?؛]+[.!؟?؛]*[»"]?/g) || [p]).map((x) => x.trim()).filter(Boolean));
+    const rows = [];
+    if (poem) for (let i = 0; i < units.length; i += 2) rows.push({ a: units[i], b: units[i + 1] || "", h: 84 });
+    else { const size = 38, lh = 76, cpl = 66; units.forEach((t) => rows.push({ a: t, h: Math.max(1, Math.ceil(bare(t).length / cpl)) * lh + 20, size })); }
+    const pages = [], maxH = 516, gap = 12; let cur = [], used = 0;
+    rows.forEach((r) => { if (cur.length && used + r.h > maxH) { pages.push(cur); cur = []; used = 0; } cur.push(r); used += r.h + gap; });
+    if (cur.length) pages.push(cur);
+    return pages.map((pg, k) => {
+      const els = [{ k: "text", x: 256, y: 13, w: 768, h: 46, text: poem ? "النَّشيدُ مِنْ كِتابي" : "نَصُّ الدَّرْسِ مِنْ كِتابي", size: 21, color: "FFFFFF", bold: true, align: "center", fill: "0F6E72", rad: true, va: "middle" },
+        { k: "text", x: 260, y: 62, w: 981, h: 80, text: "📖 " + (bt.title || "نص الكتاب") + (pages.length > 1 ? ` (${k + 1}/${pages.length})` : ""), size: 32, color: "1E3A3F", bold: true, align: "right", fill: null, rad: false, va: "middle", ff: "naskh" }];
+      if (bt.pages) els.push({ k: "text", x: 38, y: 74, w: 200, h: 54, text: "ص " + bt.pages, size: 22, color: "1E3A3F", bold: true, align: "center", fill: "F2A93B", rad: true, va: "middle" });
+      let y = 150;
+      pg.forEach((r, i) => {
+        if (poem) {
+          els.push({ k: "text", x: 650, y, w: 560, h: r.h, text: r.a, size: 38, color: "1E3A3F", bold: true, align: "center", fill: "FFFDF7", rad: true, va: "middle", ff: "naskh", rv: i + 1 });
+          if (r.b) els.push({ k: "text", x: 70, y, w: 560, h: r.h, text: r.b, size: 38, color: "1E3A3F", bold: true, align: "center", fill: "FFFDF7", rad: true, va: "middle", ff: "naskh", rv: i + 1 });
+        } else els.push({ k: "text", x: 50, y, w: 1180, h: r.h, text: r.a, size: r.size, color: "1E3A3F", bold: false, align: "right", fill: i % 2 ? "FFFFFF" : "FFFDF7", rad: true, va: "middle", ff: "naskh", rv: i + 1 });
+        y += r.h + gap;
+      });
+      return { bg: "FBF6EC", els };
+    });
   }
+  /* ===== lesson progress: same 5 questions before and after the lesson; teacher opens each per class ===== */
+  async function progIds(l) {
+    const { data } = await sb.from("assessments").select("id, kind").eq("lesson_id", l.id).in("kind", ["lesson_pre", "lesson_post"]);
+    const o = {}; (data || []).forEach((a) => { o[a.kind === "lesson_pre" ? "pre" : "post"] = a.id; });
+    if ((!o.pre || !o.post) && isStaff()) { const { data: r } = await sb.rpc("ensure_lesson_progress", { p_lesson: l.id }); if (r && r.pre) { o.pre = r.pre; o.post = r.post; } }
+    return o;
+  }
+  async function progStudent(box, l, en) {
+    const T2 = (a, b) => (en ? b : a); box.innerHTML = `<div class="loading">${T2("جارٍ التحميل…", "Loading…")}</div>`;
+    const ids = await progIds(l);
+    if (!ids.pre) { box.innerHTML = `<div class="empty"><strong>${T2("لا يوجد قياس تقدّم لهذا الدرس بعد", "No progress check for this lesson yet")}</strong></div>`; return; }
+    const { data: at } = await sb.from("attempts").select("assessment_id, score, max_score").eq("student_id", state.session.user.id).in("assessment_id", [ids.pre, ids.post]).not("submitted_at", "is", null);
+    const mine = (id) => (at || []).find((a) => a.assessment_id === id);
+    const p = mine(ids.pre), q = mine(ids.post);
+    const card = (n, ttl, when, id, done, enabled) => `<div class="lp-card ${done ? "done" : ""}"><div class="lp-n">${n}</div><div><h3>${ttl}</h3><p class="muted">${when}</p>
+      ${done ? `<p class="lp-res">✔️ ${T2("أَنْهَيْتُهُ", "Done")}: <b>${done.score}/${done.max_score}</b></p>` : enabled ? `<a class="btn btn-dawn" href="#/test/${id}">▶ ${T2("أَبْدَأُ", "Start")}</a>` : `<p class="muted">🔒 ${T2("يُفْتَحُ بَعْدَ الْقِياسِ الْقَبْلِيِّ وَالدَّرْسِ", "Opens after the pre-check and the lesson")}</p>`}</div></div>`;
+    box.innerHTML = `<div class="lp-wrap"><p class="muted">${T2("خَمْسَةُ أَسْئِلَةٍ قَصيرَةٍ: أُجيبُ عَنْها في أَوَّلِ الْحِصَّةِ، ثُمَّ أُجيبُ عَنْها نَفْسِها في آخِرِها لِأَرى كَمْ تَعَلَّمْتُ. 🔊 أَسْتَطيعُ أَنْ أَسْتَمِعَ إِلى كُلِّ سُؤالٍ.", "Five short questions at the start of the lesson, and the same five at the end, to see how much you learned. 🔊 You can listen to every question.")}</p>
+      ${card("1", T2("الْقِياسُ الْقَبْلِيُّ", "Pre-check"), T2("في أَوَّلِ الْحِصَّةِ، حينَ يَفْتَحُهُ مُعَلِّمي", "At the start of the lesson, when my teacher opens it"), ids.pre, p, true)}
+      ${card("2", T2("الْقِياسُ الْبَعْدِيُّ", "Post-check"), T2("في آخِرِ الْحِصَّةِ", "At the end of the lesson"), ids.post, q, !!p)}
+      ${p && q ? `<div class="lp-gain">${q.score > p.score ? "🌟" : "💪"} ${T2("تَقَدَّمْتُ مِنْ", "I moved from")} <b>${p.score}</b> ${T2("إِلى", "to")} <b>${q.score}</b> ${T2("مِنْ", "of")} ${q.max_score}</div>` : ""}</div>`;
+  }
+  async function progTeacher(box, l, u, en) {
+    const T2 = (a, b) => (en ? b : a); box.innerHTML = `<div class="loading">${T2("جارٍ التحميل…", "Loading…")}</div>`;
+    const ids = await progIds(l);
+    if (!ids.pre) { box.innerHTML = `<div class="empty"><strong>${T2("أنشئ بطاقة خروج للدرس أولًا: يُبنى القياس من أول خمسة أسئلة فيها.", "Create the lesson's exit ticket first: the check uses its first five questions.")}</strong></div>`; return; }
+    const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+    let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.year_group === u.year_group && c.track === u.track && c.subject_id === u.subject_id);
+    if (!cls.length && isSchoolAdmin()) { const { data } = await sb.from("classes").select("id, name, year_group, track, subject_id").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).limit(20); cls = data || []; }
+    if (!cls.length) { box.innerHTML = `<div class="empty"><strong>${T2("لا توجد فصول مرتبطة بك في هذا الصف.", "You have no classes in this grade.")}</strong><a class="btn btn-ghost" href="#/preview/${ids.pre}">${T2("معاينة الأسئلة", "Preview the questions")}</a></div>`; return; }
+    let cur = box.dataset.cls && cls.find((c) => c.id === box.dataset.cls) ? box.dataset.cls : cls[0].id;
+    const draw = async () => {
+      const [{ data: open }, { data: roster }] = await Promise.all([
+        sb.from("class_assessments").select("class_id, assessment_id").in("class_id", cls.map((c) => c.id)).in("assessment_id", [ids.pre, ids.post]),
+        sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur)]);
+      const isOpen = (c, id) => (open || []).some((o) => o.class_id === c && o.assessment_id === id);
+      const S = (roster || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
+      const { data: at } = S.length ? await sb.from("attempts").select("id, student_id, assessment_id, score, max_score").in("assessment_id", [ids.pre, ids.post]).in("student_id", S.map((x) => x.id)).not("submitted_at", "is", null) : { data: [] };
+      const A = {}; (at || []).forEach((a) => { A[a.student_id + (a.assessment_id === ids.pre ? ":pre" : ":post")] = a; });
+      const postIds = (at || []).filter((a) => a.assessment_id === ids.post).map((a) => a.id);
+      const { data: ans } = postIds.length ? await sb.from("attempt_answers").select("question_id, is_correct").in("attempt_id", postIds) : { data: [] };
+      const { data: qs } = await sb.from("assessment_questions").select("question_id, sort_order, questions(stem_ar, stem_en)").eq("assessment_id", ids.post).order("sort_order");
+      const Q = (qs || []).map((x) => { const r = (ans || []).filter((a) => a.question_id === x.question_id); return { n: x.sort_order, stem: (x.questions && (en && x.questions.stem_en ? x.questions.stem_en : x.questions.stem_ar)) || "", ok: r.filter((a) => a.is_correct).length, all: r.length }; });
+      const rows = S.map((s) => { const p = A[s.id + ":pre"], q = A[s.id + ":post"]; const mx = (q || p || {}).max_score || 5;
+        const g = q ? (q.score / mx >= 0.8 ? "ok" : q.score / mx >= 0.5 ? "mid" : "low") : ""; return { s, p, q, mx, gain: p && q ? q.score - p.score : null, g }; });
+      const done = rows.filter((r) => r.p && r.q), avg = (k) => { const v = rows.filter((r) => r[k]).map((r) => r[k].score / r.mx * 100); return v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null; };
+      const up = done.filter((r) => r.gain > 0).length, hard = Q.filter((x) => x.all).sort((a, b) => a.ok / a.all - b.ok / b.all)[0];
+      const G = { low: T2("🔴 تحتاج دعمًا", "🔴 Needs support"), mid: T2("🟡 قريب من الإتقان", "🟡 Nearly there"), ok: T2("🟢 أتقن", "🟢 Mastered") };
+      const lvl = { low: T2("ورقة المستوى البرونزي", "Bronze sheet"), mid: T2("ورقة المستوى الفضي أو الذهبي", "Silver or gold sheet"), ok: T2("ورقة التحدّي", "Challenge sheet") };
+      const cName = (cls.find((c) => c.id === cur) || {}).name || "";
+      box.innerHTML = `<div class="lp-t">
+        <div class="lp-open">${cls.map((c) => `<div class="lp-orow ${c.id === cur ? "on" : ""}"><button class="btn btn-ghost btn-small" data-cls="${c.id}">${esc(c.name)}</button>
+          <label class="rel-t"><input type="checkbox" data-op="${ids.pre}" data-c="${c.id}" ${isOpen(c.id, ids.pre) ? "checked" : ""}> ${T2("فتح القبلي", "Open pre-check")}</label>
+          <label class="rel-t"><input type="checkbox" data-op="${ids.post}" data-c="${c.id}" ${isOpen(c.id, ids.post) ? "checked" : ""}> ${T2("فتح البعدي", "Open post-check")}</label></div>`).join("")}</div>
+        <div class="lp-stats"><div><b>${rows.filter((r) => r.p).length}/${S.length}</b><small>${T2("أنهوا القبلي", "did the pre-check")}</small></div><div><b>${rows.filter((r) => r.q).length}/${S.length}</b><small>${T2("أنهوا البعدي", "did the post-check")}</small></div>
+          <div><b>${T2("قبل", "Before")} ${avg("p") ?? "—"}% · ${T2("بعد", "After")} ${avg("q") ?? "—"}%</b><small>${T2("متوسط الفصل", "Class average")}</small></div><div><b>${done.length ? Math.round(up * 100 / done.length) + "%" : "—"}</b><small>${T2("نسبة من تقدّموا", "Share who improved")}</small></div></div>
+        ${hard ? `<div class="lp-hard">🎯 ${T2("أصعب سؤال بعد الدرس", "Hardest question after the lesson")}: <b>${esc(hard.stem)}</b> (${hard.ok}/${hard.all} ${T2("أجابوا صحيحًا", "correct")}) — ${T2("ابدأ به الحصة القادمة.", "start the next lesson with it.")}</div>` : ""}
+        <div class="lp-tw"><table class="lp-tbl"><thead><tr><th>${T2("الطالب", "Student")}</th><th>${T2("القبلي", "Pre")}</th><th>${T2("البعدي", "Post")}</th><th>${T2("التقدّم", "Progress")}</th><th>${T2("المجموعة", "Group")}</th><th>${T2("الخطوة التالية", "Next step")}</th></tr></thead><tbody>
+          ${rows.map((r) => `<tr><td>${esc(r.s.name)}</td><td>${r.p ? r.p.score + "/" + r.mx : "—"}</td><td>${r.q ? r.q.score + "/" + r.mx : "—"}</td><td>${r.gain == null ? "—" : r.gain > 0 ? `<span class="up">⬆️ +${r.gain}</span>` : r.gain < 0 ? `<span class="dn">⬇️ ${r.gain}</span>` : "➖ 0"}</td><td>${r.g ? G[r.g] : "—"}</td><td>${r.g ? lvl[r.g] : ""}</td></tr>`).join("")}</tbody></table></div>
+        <div class="lp-acts"><button class="btn btn-primary btn-small" id="pgCsv">⬇️ ${T2("تحميل Excel", "Download Excel")}</button><button class="btn btn-ghost btn-small" id="pgPrint">🖨️ ${T2("طباعة التقرير", "Print report")}</button><button class="btn btn-ghost btn-small" id="pgRef">🔄 ${T2("تحديث", "Refresh")}</button><a class="btn btn-ghost btn-small" href="#/preview/${ids.pre}">${T2("الأسئلة والإجابات", "Questions and answers")}</a></div></div>`;
+      box.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; box.dataset.cls = cur; draw(); });
+      box.querySelectorAll("[data-op]").forEach((cb) => cb.onchange = async () => {
+        const r = cb.checked ? await sb.from("class_assessments").insert({ class_id: cb.dataset.c, assessment_id: cb.dataset.op, opened_by: state.session.user.id })
+          : await sb.from("class_assessments").delete().eq("class_id", cb.dataset.c).eq("assessment_id", cb.dataset.op);
+        if (r.error) { cb.checked = !cb.checked; toast(T2("تعذّر الحفظ", "Could not save")); } else toast(cb.checked ? T2("فُتح للطلاب ✓", "Opened for students ✓") : T2("أُغلق", "Closed")); });
+      box.querySelector("#pgRef").onclick = draw;
+      const lines = [[T2("الطالب", "Student"), T2("القبلي", "Pre"), T2("البعدي", "Post"), T2("التقدّم", "Progress"), T2("المجموعة", "Group"), T2("الخطوة التالية", "Next step")]].concat(rows.map((r) => [r.s.name, r.p ? r.p.score : "", r.q ? r.q.score : "", r.gain == null ? "" : r.gain, r.g ? G[r.g].replace(/^\S+\s/, "") : "", r.g ? lvl[r.g] : ""]));
+      box.querySelector("#pgCsv").onclick = () => { const csv = "\uFEFF" + lines.map((a) => a.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n"); const b = new Blob([csv], { type: "text/csv;charset=utf-8" }); const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = `قياس-التقدم-${l.code}-${cName}.csv`; a.click(); };
+      box.querySelector("#pgPrint").onclick = () => { const w = window.open("", "_blank"); if (!w) return; w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(l.title_ar)}</title><style>body{font-family:Tahoma,sans-serif;padding:24px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #bbb;padding:6px 8px;text-align:center}th{background:#F4ECE2}h1{font-size:20px}.st{display:flex;gap:24px;margin:10px 0}</style></head><body><h1>${T2("تقرير قياس التقدّم", "Progress report")} · ${esc(l.title_ar)} · ${esc(cName)}</h1>
+        <div class="st"><span>${T2("متوسط القبلي", "Pre average")}: ${avg("p") ?? "—"}%</span><span>${T2("متوسط البعدي", "Post average")}: ${avg("q") ?? "—"}%</span><span>${T2("نسبة من تقدّموا", "Improved")}: ${done.length ? Math.round(up * 100 / done.length) + "%" : "—"}</span></div>
+        ${hard ? `<p>${T2("أصعب سؤال بعد الدرس", "Hardest question")}: ${esc(hard.stem)} (${hard.ok}/${hard.all})</p>` : ""}<table>${lines.map((r, i) => `<tr>${r.map((v) => i ? `<td>${esc(String(v))}</td>` : `<th>${esc(String(v))}</th>`).join("")}</tr>`).join("")}</table><script>setTimeout(()=>print(),400)<\/script></body></html>`); w.document.close(); };
+    };
+    draw();
+  }
+  // lesson objective + success criteria (I–IIII depth, one per worksheet level)
+  function goalBlock(l, en, cls) {
+    const sc = (l.success_criteria || []).slice().sort((a, b) => a.sort_order - b.sort_order), obj = en && l.objective_en ? l.objective_en : l.objective_ar;
+    if (!obj && !sc.length) return "";
+    const LV = [["#9A5B2E", en ? "Bronze" : "برونزي"], ["#5F6C78", en ? "Silver" : "فضي"], ["#B8860B", en ? "Gold" : "ذهبي"], ["#6B46A8", en ? "Challenge" : "تحدٍّ"]];
+    return `<div class="gb ${cls || ""}">${obj ? `<div class="gb-obj">🎯 <b>${en ? "Lesson goal" : "هَدَفُ الدَّرْسِ"}:</b> ${esc(obj)}</div>` : ""}
+      ${sc.map((c, i) => { const lv = LV[Math.min((c.solo || i + 1) - 1, 3)]; return `<div class="gb-sc"><span class="gb-n" style="background:${lv[0]}">${i + 1}</span><span class="gb-t">${en ? "I can " : "أَسْتَطيعُ أَنْ "}${esc(en && c.statement_en ? c.statement_en : String(c.statement_ar).replace(/^أَسْتَطيعُ أَنْ\s*/, ""))}</span><span class="gb-lv" style="color:${lv[0]}">${lv[1]} ${"|".repeat(Math.min(c.solo || i + 1, 4))}</span></div>`; }).join("")}</div>`;
+  }
+  // ===== كتاب حراء: a short Hiraa-written book per lesson — the student reads it page by page, then answers 5 questions; the teacher sees who read and how they did =====
+  function rdBook(box, R, en, opt) {
+    const T2 = (a, b) => (en ? b : a), pages = R.pages || [], words = (R.words || []).filter((w) => w && w[0]);
+    const all = pages.length + (words.length ? 1 : 0);
+    let i = 0, t0 = Date.now(), seen = Math.max(0, opt.seen || 0), sent = seen;
+    const flush = (force) => { if (!opt.save) return; const s = Math.round((Date.now() - t0) / 1000); if (!force && seen <= sent && s < 5) return; t0 = Date.now(); sent = seen; opt.save(seen, all, s); };
+    const pageHtml = () => {
+      if (i < pages.length) { const p = pages[i] || {};
+        return `<div class="rd-art" aria-hidden="true">${esc(p.art || "")}</div><div class="rd-txt">${String(p.t || "").split(/\n+/).filter(Boolean).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>`; }
+      return `<h3 class="rd-wh">📝 ${T2("كَلِماتُ الْكِتابِ", "Words from the book")}</h3><div class="rd-words">${words.map((w) => `<div><b>${esc(w[0])}</b><span>${esc(w[1] || "")}</span></div>`).join("")}</div>`;
+    };
+    const draw = () => {
+      seen = Math.max(seen, i + 1);
+      box.innerHTML = `<div class="rd-book">
+        <div class="rd-top"><button class="btn btn-ghost btn-small" id="rdClose">✖ ${T2("إِغْلاقُ الْكِتابِ", "Close the book")}</button><span class="rd-ttl">${esc(R.title)}</span><span class="rd-n"><bdi dir="ltr">${i + 1} / ${all}</bdi></span></div>
+        <div class="rd-bar"><i style="width:${Math.round((i + 1) * 100 / all)}%"></i></div>
+        <div class="rd-page" dir="rtl">${pageHtml()}<div class="rd-pn">${i + 1}</div></div>
+        <div class="rd-nav"><button class="btn btn-ghost" id="rdPrev" ${i === 0 ? "disabled" : ""}>→ ${T2("السّابِقَةُ", "Back")}</button>
+          ${i < all - 1 ? `<button class="btn btn-primary" id="rdNext">${T2("التّالِيَةُ", "Next")} ←</button>` : `<button class="btn btn-dawn" id="rdEnd">🎉 ${T2("أَنْهَيْتُ الْكِتابَ", "I finished the book")}</button>`}</div></div>`;
+      box.querySelector("#rdClose").onclick = () => { flush(true); opt.back(); };
+      box.querySelector("#rdPrev").onclick = () => { if (i > 0) { i--; draw(); } };
+      const nx = box.querySelector("#rdNext"); if (nx) nx.onclick = () => { i++; draw(); flush(); box.scrollIntoView({ block: "start", behavior: "smooth" }); };
+      const en2 = box.querySelector("#rdEnd"); if (en2) en2.onclick = () => { flush(true); opt.done(); };
+    };
+    draw();
+  }
+  function rdQuiz(box, R, en, opt) {
+    const T2 = (a, b) => (en ? b : a), bank = (R.questions || []).map((q, n) => ({ ...q, n })).filter((q) => q.q && (q.o || []).length);
+    const pick = bank.slice().sort(() => Math.random() - 0.5).slice(0, 5).map((q) => ({ ...q, ord: q.o.map((x, k) => k).sort(() => Math.random() - 0.5) }));
+    const ans = []; let i = 0;
+    const result = (res) => {
+      const ok = res.score, mx = res.max, star = ok === mx ? "🌟🌟🌟" : ok >= mx - 1 ? "🌟🌟" : ok >= 2 ? "🌟" : "💪";
+      box.innerHTML = `<div class="rd-res"><div class="rd-star">${star}</div><h3>${T2("نَتيجَتي", "My result")}: <b>${ok}</b> ${T2("مِنْ", "of")} <b>${mx}</b></h3>
+        ${!opt.submit ? `<p class="muted">${T2("مُعايَنَةُ الْمُعَلِّمِ: لا تُحْفَظُ النَّتيجَةُ.", "Teacher preview: the result is not saved.")}</p>` : `<p class="muted">${T2("وَصَلَتْ نَتيجَتي إِلى مُعَلِّمي ✔️", "My result reached my teacher ✔️")}</p>`}
+        <div class="rd-rev">${pick.map((q, k) => { const a = res.answers[k] || {}; return `<div class="${a.ok ? "ok" : "no"}"><span>${a.ok ? "✅" : "❌"}</span><div><b>${esc(q.q)}</b>${a.ok ? "" : `<small>${T2("الْإِجابَةُ الصَّحيحَةُ", "Correct answer")}: ${esc(q.o[q.a])}</small>`}</div></div>`; }).join("")}</div>
+        <div class="rd-nav"><button class="btn btn-ghost" id="rdRe">📖 ${T2("أَقْرَأُ الْكِتابَ مَرَّةً أُخْرى", "Read the book again")}</button><button class="btn btn-primary" id="rdBack">${T2("رُجوعٌ", "Back")}</button></div></div>`;
+      box.querySelector("#rdRe").onclick = () => opt.reread(); box.querySelector("#rdBack").onclick = () => opt.back();
+    };
+    const finish = async () => {
+      box.innerHTML = `<div class="loading">${T2("جارٍ التَّصْحيحُ…", "Marking…")}</div>`;
+      const payload = ans.map((a) => ({ i: a.n, c: a.c }));
+      if (opt.submit) { const r = await sb.rpc("reader_submit", { p_lesson: opt.lesson, p_answers: payload });
+        if (r.error) { box.innerHTML = `<div class="empty"><strong>${T2("تَعَذَّرَ حِفْظُ الْإِجاباتِ، حاوِلْ مَرَّةً أُخْرى.", "Couldn't save your answers. Try again.")}</strong></div>`; return; } result(r.data); }
+      else { const res = payload.map((a) => ({ ...a, ok: R.questions[a.i].a === a.c })); result({ score: res.filter((x) => x.ok).length, max: res.length, answers: res }); }
+    };
+    const draw = () => {
+      if (i >= pick.length) { finish(); return; }
+      const q = pick[i];
+      box.innerHTML = `<div class="rd-q"><div class="rd-top"><span class="pill">❓ ${T2("أَسْئِلَةُ الْكِتابِ", "Book questions")}</span><span class="rd-n"><bdi dir="ltr">${i + 1} / ${pick.length}</bdi></span></div>
+        <div class="rd-bar"><i style="width:${Math.round(i * 100 / pick.length)}%"></i></div>
+        <h3 class="rd-qq" dir="rtl">${bkHL(esc(q.q))}</h3>
+        <div class="rd-opts" dir="rtl">${q.ord.map((k) => `<button class="rd-opt" data-k="${k}">${esc(q.o[k])}</button>`).join("")}</div></div>`;
+      box.querySelectorAll(".rd-opt").forEach((b) => b.onclick = () => { ans.push({ n: q.n, c: +b.dataset.k }); i++; draw(); });
+    };
+    if (pick.length < 1) { box.innerHTML = `<div class="empty"><strong>${T2("لا تُوجَدُ أَسْئِلَةٌ لِهذا الْكِتابِ بَعْدُ", "No questions for this book yet")}</strong></div>`; return; }
+    draw();
+  }
+  async function readerRun(box, l, u, R, en) {
+    const T2 = (a, b) => (en ? b : a);
+    if (!R) { box.innerHTML = `<div class="empty"><strong>📘 ${T2("لم يُكتب كتاب حراء لهذا الدرس بعد", "No Hiraa book for this lesson yet")}</strong>${T2("كتاب قصير من تأليف حراء يقرؤه الطالب صفحة صفحة، ثم يجيب عن خمسة أسئلة، وتصلك النتيجة هنا.", "A short Hiraa-written book the student reads page by page, then answers five questions; results reach you here.")}</div>`; return; }
+    const total = (R.pages || []).length + ((R.words || []).length ? 1 : 0);
+    const cover = (extra) => `<div class="rd-cover"><div class="rd-cv-art" aria-hidden="true">${esc(R.cover || "📘")}</div><div class="rd-cv-body"><span class="rd-brand">📘 ${T2("كِتابُ حِراءٍ", "Hiraa book")}</span><h2>${esc(R.title)}</h2><p class="muted">${T2("صَفَحاتٌ", "Pages")}: ${total} · ${T2("ثُمَّ خَمْسَةُ أَسْئِلَةٍ", "then five questions")}</p>${extra}</div></div>`;
+    if (isStudent()) {
+      const me = state.session.user.id;
+      const home = async () => {
+        box.innerHTML = `<div class="loading">${T2("جارٍ التحميل…", "Loading…")}</div>`;
+        const { data: rr } = await sb.from("reader_reads").select("*").eq("lesson_id", l.id).eq("student_id", me).maybeSingle();
+        const done = rr && rr.finished_at, sc = rr && rr.quiz_at;
+        box.innerHTML = `<div class="rd-wrap">${cover(`<div class="rd-steps">
+          <div class="${done ? "ok" : ""}"><span>1</span>${T2("أَقْرَأُ الْكِتابَ", "I read the book")} ${done ? "✅" : rr ? `(<bdi dir="ltr">${rr.pages_seen}/${total}</bdi>)` : ""}</div>
+          <div class="${sc ? "ok" : ""}"><span>2</span>${T2("أُجيبُ عَنْ خَمْسَةِ أَسْئِلَةٍ", "I answer five questions")} ${sc ? `✅ <b><bdi dir="ltr">${rr.score}/${rr.max_score}</bdi></b>` : ""}</div></div>
+          <div class="rd-nav"><button class="btn btn-primary" id="rdRead">📖 ${done ? T2("أَقْرَأُ مَرَّةً أُخْرى", "Read again") : rr ? T2("أُكْمِلُ الْقِراءَةَ", "Continue reading") : T2("أَبْدَأُ الْقِراءَةَ", "Start reading")}</button>
+          ${done ? `<button class="btn btn-dawn" id="rdQz">❓ ${sc ? T2("أُجيبُ مَرَّةً أُخْرى", "Answer again") : T2("أُجيبُ عَنِ الْأَسْئِلَةِ", "Answer the questions")}</button>` : `<span class="muted">🔒 ${T2("تُفْتَحُ الْأَسْئِلَةُ بَعْدَ أَنْ أُنْهِيَ الْكِتابَ", "Questions open after I finish the book")}</span>`}</div>`)}</div>`;
+        box.querySelector("#rdRead").onclick = () => read(done ? 0 : (rr && rr.pages_seen) || 0);
+        const qz = box.querySelector("#rdQz"); if (qz) qz.onclick = quiz;
+      };
+      const save = (seen, all, s) => sb.rpc("reader_progress", { p_lesson: l.id, p_seen: seen, p_total: all, p_seconds: s }).then(() => {});
+      const read = (seen) => rdBook(box, R, en, { seen, save, back: home, done: quiz });
+      const quiz = () => rdQuiz(box, R, en, { submit: true, lesson: l.id, back: home, reread: () => read(0) });
+      home(); return;
+    }
+    // staff: preview + class report
+    const preview = () => rdBook(box, R, en, { back: staff, done: () => rdQuiz(box, R, en, { submit: false, back: staff, reread: preview }) });
+    const staff = async () => {
+      box.innerHTML = `<div class="rd-wrap">${cover(`<div class="rd-nav"><button class="btn btn-primary" id="rdPv">📖 ${T2("معاينة الكتاب والأسئلة", "Preview the book and questions")}</button></div>`)}<div id="rdRep" class="rd-rep"><div class="loading">${T2("جارٍ التحميل…", "Loading…")}</div></div></div>`;
+      box.querySelector("#rdPv").onclick = preview;
+      const rep = box.querySelector("#rdRep");
+      if (!isStaff() || !state.session) { rep.innerHTML = ""; return; }
+      const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+      let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.year_group === u.year_group && c.track === u.track && c.subject_id === u.subject_id);
+      if (!cls.length && (isSchoolAdmin() || isSuper())) { const { data } = await sb.from("classes").select("id, name, year_group, track, subject_id").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).limit(20); cls = data || []; }
+      if (!cls.length) { rep.innerHTML = `<div class="empty"><strong>${T2("لا توجد فصول مرتبطة بك في هذا الصف، فلا يوجد تقرير قراءة بعد.", "You have no classes in this grade, so there's no reading report yet.")}</strong></div>`; return; }
+      let cur = cls[0].id;
+      const draw = async () => {
+        const { data: roster } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur);
+        const S = (roster || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
+        const { data: rr } = S.length ? await sb.from("reader_reads").select("*").eq("lesson_id", l.id).in("student_id", S.map((s) => s.id)) : { data: [] };
+        const M = {}; (rr || []).forEach((r) => { M[r.student_id] = r; });
+        const fin = S.filter((s) => M[s.id] && M[s.id].finished_at), qd = S.filter((s) => M[s.id] && M[s.id].quiz_at);
+        const avg = qd.length ? Math.round(qd.reduce((a, s) => a + M[s.id].score / (M[s.id].max_score || 5), 0) * 100 / qd.length) : null;
+        const mm = (s) => s >= 60 ? Math.floor(s / 60) + T2(" د ", "m ") + (s % 60) + T2(" ث", "s") : s + T2(" ث", "s");
+        rep.innerHTML = `<div class="lp-t"><h3>📊 ${T2("تقرير القراءة", "Reading report")}</h3>
+          ${cls.length > 1 ? `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>` : ""}
+          <div class="lp-stats"><div><b><bdi dir="ltr">${fin.length}/${S.length}</bdi></b><small>${T2("أنهوا الكتاب", "finished the book")}</small></div><div><b><bdi dir="ltr">${qd.length}/${S.length}</bdi></b><small>${T2("أجابوا عن الأسئلة", "answered the questions")}</small></div><div><b>${avg == null ? "—" : avg + "%"}</b><small>${T2("متوسط الفهم", "Average understanding")}</small></div></div>
+          <div class="lp-tw"><table class="lp-tbl"><thead><tr><th>${T2("الطالب", "Student")}</th><th>${T2("القراءة", "Reading")}</th><th>${T2("الوقت", "Time")}</th><th>${T2("الأسئلة", "Questions")}</th><th>${T2("ملاحظة", "Note")}</th></tr></thead><tbody>
+          ${S.map((s) => { const r = M[s.id]; const fast = r && r.finished_at && r.seconds < (R.min_seconds || 60);
+            const g = r && r.quiz_at ? (r.score / (r.max_score || 5) >= 0.8 ? "🟢" : r.score / (r.max_score || 5) >= 0.6 ? "🟡" : "🔴") : "";
+            return `<tr><td>${esc(s.name)}</td><td>${!r ? "—" : r.finished_at ? "✅ " + T2("أنهاه", "Finished") : `📖 <bdi dir="ltr">${r.pages_seen}/${r.total_pages || total}</bdi>`}</td><td>${r && r.seconds ? mm(r.seconds) : "—"}</td><td>${r && r.quiz_at ? `${g} <bdi dir="ltr">${r.score}/${r.max_score}</bdi>` : "—"}</td><td>${fast ? `⚡ ${T2("قراءة سريعة: اطلب منه إعادتها", "Fast read: ask for a re-read")}` : !r ? T2("لم يبدأ", "Not started") : ""}</td></tr>`; }).join("") || `<tr><td colspan="5">${T2("لا يوجد طلاب في هذا الفصل", "No students in this class")}</td></tr>`}
+          </tbody></table></div></div>`;
+        rep.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; draw(); });
+      };
+      draw();
+    };
+    staff();
+  }
+  function fcRun(l, cards0, en) {
+    const box = document.getElementById("fcBox"); if (!box) return;
+    const deck = "lesson:" + l.code, me = state.session && state.session.user && state.session.user.id;
+    let q = cards0.slice(), i = 0, known = 0, flipped = false; const T2 = (a, b) => (en ? b : a);
+    const save = (c, ok) => { if (!me || !isStudent()) return; sb.from("memo_progress").upsert({ user_id: me, deck, card: c.id, box: ok ? 2 : 1, due_at: new Date(Date.now() + (ok ? 3 : 1) * 864e5).toISOString(), reviews: 1, last_review: new Date().toISOString() }).then(() => {}); };
+    const draw = () => {
+      if (i >= q.length) { box.innerHTML = `<div class="fc-done"><div class="fc-star">🌟</div><h3>${T2("أَحْسَنْتَ! أَنْهَيْتَ الْبِطاقاتِ", "Well done! You finished the cards")}</h3><p>${T2("عَرَفْتَ", "You knew")} <b>${known}</b> ${T2("مِنْ", "of")} <b>${cards0.length}</b></p><button class="btn btn-primary" id="fcAgain">🔁 ${T2("أَبْدَأُ مِنْ جَديدٍ", "Start again")}</button></div>`; box.querySelector("#fcAgain").onclick = () => { q = cards0.slice().sort(() => Math.random() - 0.5); i = 0; known = 0; draw(); }; return; }
+      const c = q[i]; flipped = false;
+      box.innerHTML = `<div class="fc-top"><span class="pill">${esc(c.k)}</span><span class="fc-n">${i + 1} / ${q.length}</span><button class="btn btn-ghost btn-small" id="fcMix">🔀 ${T2("خَلْطُ الْبِطاقاتِ", "Shuffle")}</button></div>
+        <div class="fc-bar"><i style="width:${Math.round(i * 100 / q.length)}%"></i></div>
+        <div class="fc-card" id="fcCard" tabindex="0" role="button" aria-label="${T2("اقْلِبِ الْبِطاقَةَ", "Flip the card")}"><div class="fc-face fc-f">${bkHL(esc(c.f))}<small>${T2("اُنْقُرْ لِتَقْلِبَ الْبِطاقَةَ", "Tap to flip")}</small></div><div class="fc-face fc-b">${esc(c.b)}</div></div>
+        <div class="fc-act"><button class="btn btn-ghost" id="fcAgainOne">🔁 ${T2("أُراجِعُها مَرَّةً أُخْرى", "Again")}</button><button class="btn btn-primary" id="fcKnow">✅ ${T2("أَعْرِفُها", "I know it")}</button></div>`;
+      const card = box.querySelector("#fcCard"), flip = () => { flipped = !flipped; card.classList.toggle("on", flipped); };
+      card.onclick = flip; card.onkeydown = (e) => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); flip(); } };
+      box.querySelector("#fcMix").onclick = () => { q = q.slice(i).sort(() => Math.random() - 0.5); i = 0; draw(); };
+      box.querySelector("#fcKnow").onclick = () => { known++; save(c, true); i++; draw(); };
+      box.querySelector("#fcAgainOne").onclick = () => { save(c, false); q.push(c); i++; draw(); };
+    };
+    draw();
+  }
+  function bkOpen() {
+    const bt = state._bookTx; if (!bt) return;
+    const host = document.fullscreenElement || document.body; const old = document.getElementById("bkOv"); if (old) old.remove();
+    const lines = String(bt.body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
+    const ov = document.createElement("div"); ov.id = "bkOv"; ov.className = "bk-ov"; ov.setAttribute("dir", "rtl");
+    ov.innerHTML = `<div class="bk-ov-in"><div class="bk-ov-hd"><b>📖 ${bkHL(esc(bt.title || "نص الكتاب"))}</b>${bt.pages ? `<span class="pill">ص ${esc(bt.pages)}</span>` : ""}<button type="button" class="bk-ov-x" aria-label="إغلاق">✕ رجوع إلى العرض</button></div>
+      <div class="bk-read"${bt.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${lines.map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div></div>`;
+    const close = () => { ov.remove(); document.removeEventListener("keydown", onKey, true); };
+    const onKey = (ev) => { if (ev.key === "Escape") { ev.stopPropagation(); ev.preventDefault(); close(); } else if (["ArrowLeft", "ArrowRight", " ", "PageDown", "PageUp"].includes(ev.key)) ev.stopPropagation(); };
+    ov.addEventListener("click", (ev) => { ev.stopPropagation(); if (ev.target === ov || ev.target.closest(".bk-ov-x")) close(); });
+    document.addEventListener("keydown", onKey, true); host.appendChild(ov);
+  }
+  ["click", "pointerdown", "mousedown"].forEach((t) => document.addEventListener(t, (ev) => { const b = ev.target.closest && ev.target.closest("[data-bk]"); if (!b) return; ev.stopPropagation(); ev.preventDefault(); if (t === "click") bkOpen(); }, true));
+  // [[word]] in a book text = a key word, shown highlighted; strip for plain-text uses
+  const bkHL = (html) => String(html).replace(/\[\[([^\]]+?)\]\]/g, '<mark class="bk-key">$1</mark>');
+  const bkPlain = (t) => String(t || "").replace(/\[\[|\]\]/g, "");
   const HUB_SUBJ = [["arabic", "📖", "اللغة العربية", "Arabic"], ["islamic", "🕌", "التربية الإسلامية", "Islamic Education"], ["social", "🌍", "الدراسات الاجتماعية", "Social Studies"]];
   const HUB_SID = { islamic: 1, arabic: 2, social: 3 };
   const ECA_KIND_SUBJ = { prayer: "islamic", tajweed: "islamic", seerah: "islamic", nabati: "arabic", speech: "arabic", reading: "arabic", writing: "arabic", arabic: "arabic", identity: "social" };
@@ -2662,10 +2906,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const acc = isStaff() ? "ok" : ((await sb.rpc("lesson_access", { p_lesson: l.id })).data || "no_access");
     const gameItems = acc === "ok" ? ((await sb.from("game_items").select("game, source, payload, sort_order").eq("lesson_id", l.id).order("sort_order")).data || []) : [];
     const bookTx = (acc === "ok" || isStaff()) ? ((await sb.from("lesson_book_texts").select("*").eq("lesson_id", l.id).maybeSingle()).data || null) : null;
+    const reader = (acc === "ok" || isStaff()) ? ((await sb.from("lesson_readers").select("*").eq("lesson_id", l.id).maybeSingle()).data || null) : null;
     const bookLines = (t) => String(t || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
     const bookTxHtml = () => {
       const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">📖 ${esc(bookTx.title || "نص الكتاب")}${bookTx.pages ? ` <span class="pill">${esc(bookTx.pages)}</span>` : ""}</h3>
-        <div dir="rtl" style="font-size:1.25rem;line-height:2.1;${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<div>${esc(x)}</div>`).join("")}</div>
+        <div dir="rtl" class="bk-read" style="${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
         <div style="margin-top:12px"><button class="btn btn-ghost btn-small" id="btxPrint">🖨️ طباعة النص للطالب</button></div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
       const ed = isSuper() ? `<div class="form-card" style="margin-top:14px"><h3 style="margin-top:0">✏️ إضافة نص الكتاب أو تعديله</h3>
         <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option></select></div>
@@ -2857,9 +3102,14 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const id = (l.lesson_identity_links || [])[0];
       const quiz = (sm.quiz || []).slice(0, 2);
       return `<div class="ars"${nnEn ? ' dir="ltr"' : ""}>
-        ${card("ars-book", "📖", nnEn ? "My textbook" : "كتابي المدرسي", nnEn ? `<p>Read «${esc(story)}» in your student book${l.book_pages ? ` (page ${esc(String(l.book_pages).replace(/^ص\s*/, ""))})` : ""} with your teacher.</p>` : `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
+        ${goalBlock(l, nnEn) ? card("ars-goal ars-wide", "🎯", nnEn ? "My goal today" : "هَدَفي الْيَوْمَ", goalBlock(l, nnEn)) : ""}
+        ${bookTx && bookTx.body ? card("ars-book ars-wide", "📖", nnEn ? "The lesson text" : "نَصُّ الدَّرْسِ", `${sm.idea ? `<p>${esc(sm.idea)}</p>` : ""}<div class="ars-text">${((sm.key && sm.key.length) ? sm.key : bookLines(bookTx.body).slice(0, 3)).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
+          <details class="ars-full"><summary>📖 ${nnEn ? "Read the full text" : "أَقْرَأُ النَّصَّ كامِلًا"}${bookTx.pages ? ` (${esc(bookTx.title || "")} · ص ${esc(bookTx.pages)})` : ""}</summary><div class="bk-read"${bookTx.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div></details>
+          <p class="muted" style="margin-top:8px">${nnEn ? "You will also find it in the lesson slides." : "وَأَجِدُهُ أَيْضًا في شَرائِحِ الدَّرْسِ."}</p>`)
+          + ((sm.words || []).length ? card("ars-dict ars-wide", "🔤", nnEn ? "Word meanings" : "مَعاني الْكَلِماتِ", `<div class="ars-vocab">${sm.words.map((w) => `<div class="ars-v"><b>${esc(w[0])}</b><span>${esc(w[1])}</span></div>`).join("")}</div>`) : "") : ""}
+        ${bookTx && bookTx.body ? "" : card("ars-book", "📖", nnEn ? "My textbook" : "كتابي المدرسي", nnEn ? `<p>Read «${esc(story)}» in your student book${l.book_pages ? ` (page ${esc(String(l.book_pages).replace(/^ص\s*/, ""))})` : ""} with your teacher.</p>` : `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
         ${letter ? card("ars-letter", "🔤", nnEn ? "Letter card" : "بطاقة الحرف", `<div class="ars-letter-big">${esc(letter)}</div>${forms ? `<p>${esc(forms)}</p>` : ""}${write ? `<p class="muted">✍️ ${esc(write)}</p>` : ""}`) : ""}
-        ${pics.length ? card("ars-dict", "🖼️", nnEn ? "My picture dictionary" : "قاموسي المصوّر", `<div class="ars-words">${pics.slice(0, 8).map((w) => `<div class="ars-w"><span class="ars-emo">${esc(w[1])}</span><b>${esc(w[0])}</b>${w[2] ? `<small>${esc(w[2])}</small>` : ""}</div>`).join("")}</div>`) : ""}
+        ${pics.length && !(bookTx && bookTx.body) ? card("ars-dict", "🖼️", nnEn ? "My picture dictionary" : "قاموسي المصوّر", `<div class="ars-words">${pics.slice(0, 8).map((w) => `<div class="ars-w"><span class="ars-emo">${esc(w[1])}</span><b>${esc(w[0])}</b>${w[2] ? `<small>${esc(w[2])}</small>` : ""}</div>`).join("")}</div>`) : ""}
         ${sounds ? card("ars-sound", "👂", nnEn ? "Listen and repeat" : "أسمع وأردّد", `<p class="ars-say">${esc(sounds)}</p><p class="muted">${nnEn ? "Say it clearly, then ask someone at home to listen to you." : "أقرأ بصوت واضح، ثم أطلب من أحد أفراد أسرتي أن يسمعني."}</p>`) : ""}
         ${blend ? card("ars-blend", "⚙️", nnEn ? "Build and break words" : "أركّب وأحلّل", `<p class="ars-say">${esc(blend)}</p>`) : ""}
         ${learn.length ? card("ars-learn", "💡", nnEn ? "What I learned today" : "ما تعلّمته اليوم", li(learn.filter((x) => !["📚", "🔗", "✍️"].includes(x[0])).map((x) => x[1]))) : ""}
@@ -2879,16 +3129,16 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const words = (sm.words || []).slice(0, 4), home = (sm.do || []).slice(0, 3);
       const link = location.href.split("#")[0] + "#/lesson/" + l.code;
       const T = (a, b) => (en ? b : a);
-      const msg = T(`ولي الأمر الكريم، تعلّم طفلنا هذا الأسبوع «${title}».${words.length ? " كلمات الدرس: " + words.map((w) => w[0]).join("، ") + "." : ""} نرجو أن تشاركوه: ${home.join(" ")} رابط الدرس واللعبة: ${link}`,
-        `Dear parent, this week your child learned «${title}».${words.length ? " New words: " + words.map((w) => w[0] + " (" + String(w[1]).replace(/\s*\p{Extended_Pictographic}.*$/u, "") + ")").join(", ") + "." : ""} Please practise at home: ${home.join(" ")} Lesson and game: ${link}`);
+      const msg = T(`ولي الأمر الكريم، تعلّم طفلنا هذا الأسبوع «${title}».${words.length ? " كلمات الدرس: " + words.map((w) => w[0]).join("، ") + "." : ""} نرجو أن تشاركوه: ${home.join(" ")}`,
+        `Dear parent, this week your child learned «${title}».${words.length ? " New words: " + words.map((w) => w[0] + " (" + String(w[1]).replace(/\s*\p{Extended_Pictographic}.*$/u, "") + ")").join(", ") + "." : ""} Please practise at home: ${home.join(" ")}`);
       return `<div class="pn" dir="${en ? "ltr" : "rtl"}">
         <div class="pn-card" id="pnCard">
-          <div class="pn-head"><span class="pn-emo">🏠</span><div><h3>${T("رسالة إلى ولي الأمر", "A note for parents")}</h3><p>${esc(title)}</p></div>${letter ? `<span class="pn-letter">${esc(letter)}</span>` : ""}</div>
+          <div class="pn-head"><span class="pn-emo">🏠</span><div><h3>${T("رسالة إلى ولي الأمر", "A note for parents")}</h3><p>${esc(title)}</p></div>${letter ? `<span class="pn-letter">${esc(letter)}</span>` : ""}<img class="pn-logo" src="art/brand/hiraa-lockup-light.svg" alt="حراء"></div>
+          ${goalBlock(l, en) ? `<h4>${T("🎯 هدف الدرس وما سيتمكّن منه طفلكم", "🎯 The lesson goal and what your child will be able to do")}</h4>${goalBlock(l, en, "pn-gb")}` : ""}
           <p>${T("ولي الأمر الكريم، هذا ما تعلّمه طفلنا في هذا الدرس، وهكذا تساعدونه في البيت:", "Dear parent, here is what your child learned in this lesson, and how you can help at home:")}</p>
           ${words.length ? `<h4>${T("🖼️ كلمات الدرس", "🖼️ New words")}</h4><div class="pn-words">${words.map((w) => `<span><b>${esc(w[0])}</b><small>${esc(w[1] || "")}</small></span>`).join("")}</div>` : ""}
           ${home.length ? `<h4>${T("🏠 نتعلّم معًا في البيت", "🏠 Practise together at home")}</h4><ul>${home.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
           ${sm.think ? `<h4>${T("🤔 اسألوا طفلكم", "🤔 Ask your child")}</h4><p>${esc(sm.think)}</p>` : ""}
-          <p class="pn-foot">${T("🎮 لعبة الدرس على منصة حراء: ", "🎮 The lesson game on Hira: ")}<span dir="ltr">${esc(link)}</span></p>
         </div>
         <div class="pn-tools"><button class="btn btn-primary btn-small" id="pnPrint">🖨️ ${T("طباعة", "Print")}</button>
           <a class="btn btn-ghost btn-small" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg)}">💬 ${T("إرسال عبر واتساب", "Send on WhatsApp")}</a>
@@ -2905,9 +3155,19 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         REL = { slides: !!(rr && rr.slides), work: true, grp: true, cls: mine.class_id }; }
     }
     const relMsg = () => `<div class="empty rel-lock"><strong>🔒 ${CT("سيتيحها معلمك في الوقت المناسب", "Your teacher will make this available at the right time")}</strong>${CT("يفتح معلمك الشرائح وأوراق العمل ومهام المجموعات عندما يحين وقتها في الحصة. وحتى ذلك الحين راجع الملخص والمصادر ولعبة الدرس.", "Your teacher opens slides, worksheets and group tasks when it's time in class. Meanwhile, use the summary, sources and lesson game.")}</div>`;
+    // flashcards: lesson words (word → meaning), then true/false checks, then the thinking question — built from the lesson itself
+    const fcCards = (() => { const c = (summary && summary.content) || {}, out = [], strip = (t) => String(t || "").replace(/\s*\p{Extended_Pictographic}[\uFE0F\u200D\p{Extended_Pictographic}]*\s*$/u, "").trim();
+      (c.words || []).forEach((w) => { if (w && w[0] && w[1]) out.push({ id: "w:" + strip(w[0]), f: strip(w[0]), b: strip(w[1]), k: nnEn ? "Word" : "كَلِمَةٌ" }); });
+      if (!out.length) gameItems.filter((g) => g.game === "match").forEach((g) => ((g.payload && g.payload.pairs) || []).forEach((pr) => { if (pr && pr[0] && pr[1] && !/\p{Extended_Pictographic}/u.test(pr[1])) out.push({ id: "m:" + pr[0], f: pr[0], b: pr[1], k: nnEn ? "Match" : "كَلِمَةٌ" }); }));
+      (c.quiz || []).forEach((q) => { if (q && q[0]) out.push({ id: "q:" + String(q[0]).slice(0, 40), f: q[0], b: q[1] ? (nnEn ? "True ✔️" : "صَحيحٌ ✔️") : (nnEn ? "False ✖️" : "خَطَأٌ ✖️"), k: nnEn ? "True or false?" : "صَحيحٌ أَمْ خَطَأٌ؟" }); });
+      (c.key || []).forEach((t, i) => { const m = String(t).match(/\[\[([^\]]+)\]\]/); const w = (c.words || []).find((x) => m && bkPlain(x[0]).replace(/[\u064B-\u0652]/g, "") === m[1].replace(/[\u064B-\u0652]/g, "").replace(/^و/, "")); if (m && !w) out.push({ id: "k:" + i, f: "«" + m[1] + "»", b: bkPlain(t), k: nnEn ? "In the text" : "في النَّصِّ" }); });
+      return out.slice(0, 24); })();
     const relBox = isStaff() && summary ? `<div id="relBox" class="rel-box"></div>` : "";
     const TABS = [
       ["slides", nnEn ? "Slides" : "الشرائح", relBox + slidesPanel()],
+      ...(state.session && (isStaff() || isStudent()) && !lockedForMe && (ticket && nq >= 3) ? [["prog", nnEn ? "📈 Progress check" : "📈 قياس التقدّم", `<div id="pgBox"></div>`]] : []),
+      ...(fcCards.length >= 3 ? [["cards", nnEn ? "🃏 Flashcards" : "🃏 البطاقات التعليمية", lockedForMe ? lockedMsg : `<div class="fc" id="fcBox"></div>`]] : []),
+      ...(reader || isStaff() ? [["reader", nnEn ? "📘 Hiraa book" : "📘 كتاب حراء", lockedForMe && !isStaff() ? lockedMsg : `<div id="rdBox"></div>`]] : []),
       ...(isStaff() && summary && !lockedForMe ? [["weekly", CT("الخطة الأسبوعية", "Weekly plan"), `<div class="papers-box"><h3>📅 ${CT("الخطة الأسبوعية", "Weekly plan")}</h3>
         <p class="muted">${CT("تُبنى تلقائيًّا من الدرس: ما تمّ الانتهاء منه، ودرس الأسبوع، والهدف، ومعايير النجاح، والهوية الوطنية، وHPL، والحصة القادمة، والمطلوب من الطالب. عدّلها بالكتابة عليها، واحفظ نسختك، ثم اطبعها أو أرسلها لأولياء الأمور.", "Built from the lesson: what was completed, this week's lesson, objective, success criteria, national identity, HPL, next lesson and student tasks. Edit it, save your copy, then print or send it to parents.")}</p>
         <button class="btn btn-primary pp-open" data-kind="wp">📅 ${CT("فتح الخطة الأسبوعية وتعديلها", "Open and edit the weekly plan")}</button></div>`]] : []),
@@ -2954,8 +3214,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const show = (k) => {
       const tab = TABS.find((t) => t[0] === k) || TABS[0];
       panel.innerHTML = tab[2];
-      const pp = panel.querySelector("#pnPrint"); if (pp) pp.onclick = () => { const w = window.open("", "_blank"); if (!w) return; w.document.write(`<html dir="${nn ? "ltr" : "rtl"}"><head><meta charset="utf-8"><title>Hira</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.8}.pn-words span{display:inline-block;border:1px solid #ccc;border-radius:10px;padding:6px 12px;margin:4px}.pn-words b{font-size:1.4em;display:block}.pn-letter{font-size:3em;float:${nn ? "right" : "left"}}.hub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}.hub-tab{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:999px;background:rgba(16,42,76,.08);color:#102A4C;font-weight:700;text-decoration:none;border:2px solid rgba(16,42,76,.18)}.hub-tab.on{background:#102A4C;color:#fff;border-color:#102A4C}.hub-tab:hover{border-color:#102A4C}
-</style></head><body>${panel.querySelector("#pnCard").innerHTML}</body></html>`); w.document.close(); w.focus(); w.print(); };
+      const pp = panel.querySelector("#pnPrint"); if (pp) pp.onclick = () => { const w = window.open("", "_blank"); if (!w) return; w.document.write(`<html dir="${nn ? "ltr" : "rtl"}"><head><meta charset="utf-8"><title>Hira</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.8}.pn-words span{display:inline-block;border:1px solid #ccc;border-radius:10px;padding:6px 12px;margin:4px}.pn-words b{font-size:1.4em;display:block}.pn-letter{font-size:3em;float:${nn ? "right" : "left"}}.pn-head{display:flex;align-items:center;gap:12px}.pn-logo{height:44px;margin-inline-start:auto}.gb{display:grid;gap:6px}.gb-obj{background:#F6EEDC;border:1px solid #D4AA55;border-radius:10px;padding:8px 12px}.gb-sc{display:flex;gap:8px;align-items:center;border:1px solid #ddd;border-radius:10px;padding:6px 10px}.gb-n{width:24px;height:24px;border-radius:50%;color:#fff;display:inline-flex;align-items:center;justify-content:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}.gb-t{flex:1}</style></head><body>${panel.querySelector("#pnCard").innerHTML.replace(/src="art\//g, 'src="' + location.href.split("#")[0].replace(/[^/]*$/, "") + 'art/')}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
       const pc = panel.querySelector("#pnCopy"); if (pc) pc.onclick = () => { try { navigator.clipboard.writeText(panel.querySelector("#pnCard").innerText); toast(nn ? "Copied" : "تم النسخ"); } catch (e) {} };
       if (REL.cls && !REL.slides) panel.querySelectorAll(".td-open").forEach((x, i) => { if (i === 0) { const n = document.createElement("div"); n.className = "rel-lock-inline"; n.innerHTML = `🔒 <b>${CT("لم يفتح معلمك الشرائح بعد", "Your teacher hasn't opened the slides yet")}</b><small>${CT("يفتحها معلمك في الحصة عندما يحين وقتها. وأوراق العمل ومهام المجموعات متاحة لك الآن.", "Your teacher opens them in class at the right time. Worksheets and group tasks are available now.")}</small>`; x.replaceWith(n); } else x.remove(); });
       if (document.getElementById("relBox")) releaseBox(l, u);
@@ -2966,9 +3225,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (k === "quiz") { const eb = document.getElementById("editTicket"); if (eb) eb.onclick = () => ticketEditor(l, u, ticket); }
       if (k === "recite" && isStudent() && !lockedForMe) recorder(l, nn);
       if (k === "games" && !lockedForMe && gameItems.length) runGame(l, gameItems);
+      if (k === "cards" && !lockedForMe) fcRun(l, fcCards, nnEn);
+      if (k === "reader") { const rb = document.getElementById("rdBox"); if (rb) readerRun(rb, l, u, reader, nnEn); }
+      if (k === "prog") { const pb = document.getElementById("pgBox"); if (pb) (isStaff() ? progTeacher(pb, l, u, nnEn) : progStudent(pb, l, nnEn)); }
       if (k === "booktext") {
         const pr = document.getElementById("btxPrint");
-        if (pr) pr.onclick = () => { const w = window.open("", "_blank"); w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(bookTx.title || l.title_ar)}</title><style>body{font-family:'Noto Naskh Arabic','Amiri',serif;padding:32px;font-size:20px;line-height:2.2}h1{font-size:24px}.poem{text-align:center;font-weight:700}.ln{border-bottom:1px solid #999;height:34px}</style></head><body><h1>${esc(bookTx.title || l.title_ar)}${bookTx.pages ? " · " + esc(bookTx.pages) : ""}</h1><div class="${bookTx.kind === "poem" ? "poem" : ""}">${bookLines(bookTx.body).map((x) => `<div>${esc(x)}</div>`).join("")}</div><h2 style="font-size:20px;margin-top:28px">أسئلتي عن النص:</h2>${Array.from({ length: 6 }, () => '<div class="ln"></div>').join("")}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
+        if (pr) pr.onclick = () => { const w = window.open("", "_blank"); w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(bookTx.title || l.title_ar)}</title><style>body{font-family:'Noto Naskh Arabic','Amiri',serif;padding:32px;font-size:20px;line-height:2.2}h1{font-size:24px}.poem{text-align:center;font-weight:700}.ln{border-bottom:1px solid #999;height:34px}mark{background:#FFE9A8;color:#8A2D0E;font-weight:700;padding:0 3px;border-radius:4px}</style></head><body><h1>${esc(bookTx.title || l.title_ar)}${bookTx.pages ? " · " + esc(bookTx.pages) : ""}</h1><div class="${bookTx.kind === "poem" ? "poem" : ""}">${bookLines(bookTx.body).map((x) => `<div>${bkHL(esc(x))}</div>`).join("")}</div><h2 style="font-size:20px;margin-top:28px">أسئلتي عن النص:</h2>${Array.from({ length: 6 }, () => '<div class="ln"></div>').join("")}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
         const sv = document.getElementById("btxSave");
         if (sv) sv.onclick = async () => { const body = document.getElementById("btxBody").value.trim(); if (!body) { toast("اكتب النص أولًا"); return; }
           const r = await sb.from("lesson_book_texts").upsert({ lesson_id: l.id, kind: document.getElementById("btxKind").value, title: document.getElementById("btxTitle").value.trim() || null, pages: document.getElementById("btxPages").value.trim() || null, body, updated_at: new Date().toISOString() });
@@ -5216,7 +5478,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           return `<div class="cheer ${pct >= 80 ? "party" : ""}" ${nnR ? 'dir="ltr"' : ""}><span class="stars" aria-label="${stars}/3">${"★".repeat(stars)}<span class="off">${"★".repeat(3 - stars)}</span></span><strong>${msg}${grow}</strong>${pct >= 80 ? '<span class="confetti" aria-hidden="true">' + "<i></i>".repeat(14) + "</span>" : ""}</div>`; })()}
         <h1>${esc(tTitle(a) || "النتيجة")}</h1>
         <div class="score-line"><span class="score-big">${att.score}/${att.max_score}</span><span class="muted">${pct}% · ${new Date(att.submitted_at).toLocaleDateString(LANG === "en" ? "en-GB" : "ar-AE")}</span></div>
-        ${!viewing ? `<div class="res-acts"><button class="btn btn-dawn" id="resCert">🏅 ${nnR ? "Certificate of appreciation" : "شهادة تقدير"}</button>${["diagnostic", "post", "benchmark", "unit_test", "teacher_test"].includes(a.kind) ? "" : `<a class="btn btn-primary" href="#/test/${id}">🔁 ${nnR ? "Try again to improve" : "حاول مرة أخرى لتحسين درجتك"}</a>`}</div>` : ""}
+        ${!viewing ? `<div class="res-acts"><button class="btn btn-dawn" id="resCert">🏅 ${nnR ? "Certificate of appreciation" : "شهادة تقدير"}</button>${["diagnostic", "post", "benchmark", "unit_test", "teacher_test", "lesson_pre", "lesson_post"].includes(a.kind) ? "" : `<a class="btn btn-primary" href="#/test/${id}">🔁 ${nnR ? "Try again to improve" : "حاول مرة أخرى لتحسين درجتك"}</a>`}</div>` : ""}
         ${pre ? `<p class="growth-line">${nnR ? "Diagnostic" : "في التشخيصي"}: <b>${pre.score}/${pre.max}</b> ← ${nnR ? "Now" : "الآن"}: <b>${att.score}/${att.max_score}</b>
           ${att.score > pre.score ? `<span class="lv mastered">${nnR ? "Improved" : "تقدّم"} +${att.score - pre.score}</span>` : att.score < pre.score ? `<span class="lv needs_support">${att.score - pre.score}</span>` : `<span class="lv developing">${nnR ? "Same" : "ثابت"}</span>`}</p>` : ""}
       </div></section>
@@ -7214,9 +7476,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (ctx.l && ctx.l.units && [2, 3].includes(ctx.l.units.subject_id)) {
       const young = tdBuildYoung(ctx, part).filter((x) => !["open", "listen", "trans", "steps"].includes(x.t));
       if (ctx.free && ctx.free.length) {
-        const free = ctx.free.map((x) => ({ t: "free", d: { bg: x.bg, els: JSON.parse(JSON.stringify(x.els)) }, n: x.n || "" }));
+        const free = ctx.free.map((x) => ({ t: "free", d: { bg: x.bg, live: !!x.live, els: JSON.parse(JSON.stringify(x.els)) }, n: x.n || "" }));
         const qr = young.filter((x) => x.t === "exit");
-        return part === 2 ? young.filter((x) => ["bank", "starter", "claim", "exit"].includes(x.t)) : free.concat(qr);
+        // Hiraa logo on every slide; one merged lesson (no second period): main deck + practice + exit QR
+        free.forEach((x) => { const hx = String(x.d.bg || "FFFFFF").replace("#", ""), dark = hx.length === 6 && (0.299 * parseInt(hx.slice(0, 2), 16) + 0.587 * parseInt(hx.slice(2, 4), 16) + 0.114 * parseInt(hx.slice(4, 6), 16)) < 110; x.d.els.push({ k: "pic", x: 24, y: 672, w: 132, h: 36, src: dark ? "art/brand/hiraa-lockup-on-dark.svg" : "art/brand/hiraa-lockup-light.svg" }); });
+        return free.concat(qr);
       }
       const dk = ctx.sm && ctx.sm.deck;
       if (!dk || !dk.n) return young;
@@ -7461,16 +7725,19 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       case "life": b = head("🌱") + `<div class="kid-cards c${(d.items || []).length}">${(d.items || []).map((x, j) => `<div class="kid-card life rv"><span class="kid-ic">${x.ic}</span><p ${tdE(0, `items.${j}.t`)}>${X(x.t)}</p></div>`).join("")}</div>`; break;
       case "steps": b = head("🧠") + `<ol class="kid-steps">${(d.items || []).map((x, j) => `<li class="rv"><span>${x[0]}</span><p ${tdE(0, `items.${j}.1`)}>${X(x[1])}</p></li>`).join("")}</ol>`; break;
       case "show": b = head("🙋") + `<ol class="kid-steps show">${(d.items || []).map((x, j) => `<li class="rv"><span>${x[0]}</span><p ${tdE(0, `items.${j}.1`)}>${X(x[1])}</p></li>`).join("")}</ol>${d.home ? `<div class="kid-home">🏠 <span ${tdE(0, "home")}>${X(d.home)}</span></div>` : ""}`; break;
-      case "exit": b = head("🚪") + `<div class="td-exit"><div class="td-qr" id="tdqr${i}" data-url="${X(d.url)}"></div><p ${tdE(0, "sub")}>${X(d.sub)}</p></div>`; break;
+      case "exit": { const hw = `<img class="td-hw" src="art/brand/hiraa-lockup-light.svg" alt="حراء">`;
+        b = head("🚪") + `<div class="td-exit"><div class="td-qr" id="tdqr${i}" data-url="${X(d.url)}"></div><div class="td-exit-t"><span ${tdE(0, "sub")}>${X(String(d.sub || "").replace(/\s*(حراء|Hira)\s*$/, ""))}</span>${hw}</div></div>`; break; }
       case "text": b = head("") + `<div class="td-free" ${tdE(0, "body")}>${X(d.body)}</div>`; break;
       case "pic": b = `<img class="td-pic" src="${X(d.src)}" alt="" draggable="false">`; break;
-      case "free": b = `<div class="tdf" style="background:#${X(d.bg || "FBF6EC")}">` + ((d.els || []).some((e) => e.l2) ? `<button class="tdf-l2btn" onclick="event.stopPropagation();document.body.classList.toggle('l2on')" title="Language support">عون لغوي · EN</button>` : "") + (d.els || []).map((e, j) => {
+      case "free": b = `<div class="tdf" style="background:${d.bg2 ? `linear-gradient(160deg,#${X(d.bg || "FBF6EC")},#${X(d.bg2)})` : "#" + X(d.bg || "FBF6EC")}">` + ((d.els || []).some((e) => e.l2) ? `<button class="tdf-l2btn" onclick="event.stopPropagation();document.body.classList.toggle('l2on')" title="Language support">عون لغوي · EN</button>` : "") + (d.els || []).map((e, j) => {
           const pos = `left:${e.x}px;top:${e.y}px;width:${e.w}px;height:${e.h}px;`, rv = e.rv ? ` rv" data-rvg="${e.rv}` : "";
-          if (e.k === "shape") return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:#${X(e.fill)};${e.line ? `border:${Math.max(2, Math.round((e.lw || 1.5) * 1.8))}px solid #${X(e.line)};` : ""}border-radius:${e.oval ? "50%" : e.rad ? "16px" : "0"}"></div>`;
-          if (e.k === "pic") return `<img class="tdf-el${rv}" src="${X(new URL(e.src, location.href.split("#")[0]).href)}" alt="" draggable="false" style="${pos}object-fit:contain;${e.rad ? "border-radius:16px;" : ""}">`;
+          const fx = `${e.grad ? `background:linear-gradient(${+e.gdir || 135}deg,#${X(e.fill)},#${X(e.grad)});` : ""}${e.shadow ? `box-shadow:${e.shadow === "hard" ? `7px 7px 0 #${X(e.sc || "1E3A3F")}` : "0 12px 30px rgba(20,30,40,.16)"};` : ""}${e.rot ? `transform:rotate(${+e.rot}deg);` : ""}${e.radius ? `border-radius:${+e.radius}px;` : ""}${e.op != null ? `opacity:${+e.op};` : ""}`;
+          if (e.k === "shape") return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:#${X(e.fill)};${e.line ? `border:${Math.max(2, Math.round((e.lw || 1.5) * 1.8))}px solid #${X(e.line)};` : ""}border-radius:${e.oval ? "50%" : e.rad ? "16px" : "0"};${fx}"></div>`;
+          if (e.k === "pic") return `<img class="tdf-el${rv}" src="${X(new URL(e.src, location.href.split("#")[0]).href)}" alt="" draggable="false" style="${pos}object-fit:${e.cover ? "cover" : "contain"};${e.rad ? "border-radius:16px;" : ""}${e.frame ? `background:#fff;padding:${+e.frame}px;` : ""}${fx}">`;
+          if (e.k === "btn") return `<div role="button" tabindex="0" class="tdf-el tdf-btn" data-bk="1" style="${pos}display:flex;align-items:center;justify-content:center;">${X(e.text)}</div>`;
           if (e.k === "img") return `<div class="tdf-el tdf-emo${rv}" style="${pos}font-size:${Math.round(e.h * 0.82)}px" ${tdE(0, `els.${j}.emo`)}>${X(e.emo)}</div>`;
           const rtl = /[\u0600-\u06FF]/.test(e.text || ""), jc = e.align === "center" ? "center" : (e.align === "left") === rtl ? "flex-end" : "flex-start";
-          return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}" ${tdE(0, `els.${j}.text`)}>${X(e.text)}</div>`;
+          return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}${fx}${e.ff === "naskh" ? "font-family:'Noto Naskh Arabic','Amiri',serif;line-height:2;" : e.ff === "brand" ? "font-family:'Reem Kufi','Readex Pro',sans-serif;" : ""}" ${tdE(0, `els.${j}.text`)}>${((t) => t.includes("<mark") ? `<span>${t}</span>` : t)(bkHL(X(e.text)))}</div>`;
         }).join("") + `</div>`; break;
     }
     const imgs = (s.imgs || []).map((im, j) => `<div class="td-img" data-im="${j}" style="left:${im.x}px;top:${im.y}px;width:${im.w}px"><img src="${im.src}" alt="" draggable="false"><span class="td-imx" title="${CT("حذف", "Delete")}">✕</span><span class="td-imr"></span></div>`).join("");
@@ -7545,12 +7812,18 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const prevIds = (prevL || []).map((x) => x.id);
     const { data: prevS } = prevIds.length ? await sb.from("lesson_summaries").select("lesson_id, content").in("lesson_id", prevIds) : { data: [] };
     const prev = prevIds.map((id) => ((prevS || []).find((x) => x.lesson_id === id) || {}).content).filter(Boolean);
-    const two = (l.periods || 1) > 1;
+    // Arabic and Social Studies: one merged lesson deck, no period switch
+    const two = (l.periods || 1) > 1 && !(l.units && [2, 3].includes(l.units.subject_id));
     const ctx = { l, u, sm: summary && summary.content, prev, ev: evs, en, grade: u.year_group, lessonTitle: en && l.title_en ? l.title_en : l.title_ar,
       sc: (extra && extra.sc) || [], identity: (extra && extra.identity) || [],
       partLbl: two ? tdT(en, part === 1 ? "الحصة الأولى" : "الحصة الثانية", `Lesson ${part}`) : "",
       schoolName: school ? (en && school.name_en ? school.name_en : school.name_ar) : "", logo: school && school.logo_url };
-    if (l.units && [2, 3].includes(l.units.subject_id)) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} } try { if (ctx.free && Array.isArray(ctx.free)) { const bt = (await sb.from("lesson_book_texts").select("kind, title, body, pages").eq("lesson_id", l.id).maybeSingle()).data; if (bt && bt.body) { const bs = tdBookSlides(bt); let at = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /^(📖 نصّ القراءة|📖 قراءة إضافية|🎵 القصيدة)/.test(e.text))); if (at < 0) at = Math.min(5, ctx.free.length); ctx.free.splice(at, 0, ...bs); } } } catch (e) {}
+    if (l.units && [2, 3].includes(l.units.subject_id)) { try { const r = await fetch(new URL("resources/slides/" + l.code + ".json", location.href.split("#")[0]).href, { cache: "no-cache" }); if (r.ok) ctx.free = (await r.json()).slides; } catch (e) {} } state._bookTx = null; try { if (ctx.free && Array.isArray(ctx.free)) { const bt = (await sb.from("lesson_book_texts").select("kind, title, body, pages").eq("lesson_id", l.id).maybeSingle()).data; if (bt && bt.body) { state._bookTx = bt; const key = ctx.sm && Array.isArray(ctx.sm.key) && ctx.sm.key.length ? ctx.sm.key : null;
+        const src = bt.kind !== "poem" && key ? Object.assign({}, bt, { title: "أَهَمُّ ما في النَّصِّ · " + bkPlain(bt.title || "").split(" — ")[0], body: key.join("\n") }) : bt;
+        const bs = tdBookSlides(src).slice(0, 3);
+        let at = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /^(📖 نصّ القراءة|📖 قراءة إضافية|🎵 القصيدة)/.test(e.text)));
+        if (at < 0) { const kb = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /كِتَابِي|كتابي/.test(e.text))); at = kb >= 0 ? kb + 1 : Math.min(5, ctx.free.length); }
+        ctx.free.splice(at, 0, ...bs); } } } catch (e) {}
     const base = () => tdBuild(ctx, part);
     const { data: saved } = await sb.from("teacher_decks").select("slides, updated_at").eq("lesson_id", l.id).eq("part", part).eq("kind", "deck").maybeSingle();
     let slides = saved && Array.isArray(saved.slides) && saved.slides.length ? saved.slides : base();
@@ -7566,6 +7839,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
 
     let d = document.getElementById("tdDlg"); if (d) d.remove();
     d = document.createElement("div"); d.id = "tdDlg"; d.className = "td-ov " + ((u.year_group || 9) <= 3 ? "td-young" : (u.year_group || 9) <= 8 ? "td-mid" : "td-sec"); document.body.appendChild(d);
+    { const sp = document.createElement("div"); sp.className = "td-splash"; sp.innerHTML = `<div class="td-splash-in"><img src="art/brand/hiraa-lockup-on-dark.svg" alt="حراء"><div class="td-splash-l">${esc(en && l.title_en ? l.title_en : l.title_ar)}</div><div class="td-splash-g">${esc(CT("نَتَعَلَّمُ مَعًا", "Let's learn together"))}</div></div>`;
+      const off = () => { if (!sp.isConnected) return; sp.classList.add("out"); setTimeout(() => sp.remove(), 650); }; sp.addEventListener("click", off); setTimeout(off, 2600); setTimeout(() => d.appendChild(sp), 0); }
     document.body.style.overflow = "hidden";
     const close = () => { if (dirty && !confirm(CT("لديك تعديلات غير محفوظة. هل تريد الخروج دون حفظ؟", "You have unsaved changes. Leave without saving?"))) return; stopTimer(); d.remove(); document.body.style.overflow = "";
       document.removeEventListener("keydown", onKey); window.removeEventListener("blur", onBlur); window.removeEventListener("focus", onFocus); document.removeEventListener("visibilitychange", onVis); window.removeEventListener("resize", onRes);
@@ -7720,8 +7995,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <button class="btn btn-ghost btn-small" id="tdUp">▲</button><button class="btn btn-ghost btn-small" id="tdDown">▼</button>
             <button class="btn btn-ghost btn-small" id="tdDel">🗑 حذف</button>${custom ? '<button class="btn btn-ghost btn-small" id="tdReset">استرجاع الأصل</button>' : ""}
             <button class="btn btn-primary btn-small" id="tdSave">${dirty ? "حفظ التعديلات" : "محفوظ ✓"}</button><button class="btn btn-dawn btn-small" id="tdDone">إنهاء التعديل</button>`
-          : `<select id="tdFxSel" class="td-sel" title="مؤثر الانتقال">${TD_FX.map(([k, t]) => `<option value="${k}" ${k === fx ? "selected" : ""}>✨ ${t}</option>`).join("")}</select>
-            ${s.t === "table" ? '<button class="btn btn-primary btn-small" id="tdLive">📲 قياس مباشر</button>' : ""}<button class="btn btn-ghost btn-small" id="tdTimer">⏱ مؤقت</button><button class="btn btn-ghost btn-small" id="tdSnd">🔔 انتباه</button>
+          : `<select id="tdFxSel" class="td-sel" title="مؤثر الانتقال">${TD_FX.map(([k, t]) => `<option value="${k}" ${k === fx ? "selected" : ""}>✨ ${t}</option>`).join("")}</select>${state._bookTx ? `<button class="btn btn-ghost btn-small" data-bk="1">📖 ${CT("النَّصُّ كامِلًا", "Full text")}</button>` : ""}<button class="btn btn-ghost btn-small" id="tdProg">📈 ${CT("قياس التقدّم", "Progress check")}</button>
+            ${s.t === "table" || (s.d && s.d.live && ctx.sc.length) ? '<button class="btn btn-primary btn-small" id="tdLive">📲 قياس مباشر</button>' : ""}<button class="btn btn-ghost btn-small" id="tdTimer">⏱ مؤقت</button><button class="btn btn-ghost btn-small" id="tdSnd">🔔 انتباه</button>
             <button class="btn btn-ghost btn-small" id="tdNotes">📝 الملاحظات</button><button class="btn btn-ghost btn-small" id="tdEdit">✏️ تعديل</button><button class="btn btn-dawn btn-small" id="tdFull">⛶ ملء الشاشة</button>`}
         </div>
         <div class="td-main">
@@ -7773,7 +8048,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       on("tdEdit", () => { editing = true; draw(); });
       on("tdDone", () => { editing = false; draw(); });
       on("tdTimer", timerMenu); on("tdSnd", soundMenu);
-      on("tdLive", () => pgLivePanel(d, ctx, part, (s.d && s.d.rows) || [], en));
+      on("tdProg", () => { let pp = document.getElementById("tdProgPop"); if (pp) { pp.remove(); return; } pp = document.createElement("div"); pp.id = "tdProgPop"; pp.className = "td-pop lp-pop"; pp.innerHTML = `<button class="btn btn-ghost btn-small lp-x">✕</button><h3>📈 ${CT("قياس التقدّم", "Progress check")}</h3><div id="pgPopBox"></div>`;
+        ["click", "keydown", "pointerdown"].forEach((t) => pp.addEventListener(t, (e) => e.stopPropagation())); d.appendChild(pp); pp.querySelector(".lp-x").onclick = () => pp.remove(); progTeacher(pp.querySelector("#pgPopBox"), l, u, en); });
+      on("tdLive", () => pgLivePanel(d, ctx, part, (s.d && s.d.rows) || (s.d && s.d.live ? ctx.sc.slice().sort((a, b) => a.sort_order - b.sort_order).map((c) => String(en && c.statement_en ? c.statement_en : c.statement_ar)) : []), en));
       const fs = document.getElementById("tdFxSel"); if (fs) fs.onchange = () => { fx = fs.value; localStorage.setItem("tdFx", fx); dir = 1; draw(true); };
       on("tdFull", () => { (d.requestFullscreen ? d.requestFullscreen() : Promise.resolve()).catch(() => {}).finally(() => setTimeout(() => tdFit(document.getElementById("tdStage")), 200)); });
       on("tdSave", save);

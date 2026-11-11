@@ -2381,6 +2381,50 @@ html:not([data-subj]) .page-head::after{content:"";position:absolute;inset:auto 
 .pill{border-color:color-mix(in srgb,var(--hira) 30%,var(--line))}
 .page-head + .section[style*="padding-top:0"]{padding-top:28px!important}
 html[data-subj] .page-head .ph-art{opacity:.6}
+/* ===== كتاب حراء (lesson reader) ===== */
+.rd-wrap { max-width: 860px; margin: 0 auto; display: grid; gap: 18px; }
+.rd-cover { display: flex; gap: 22px; align-items: center; background: linear-gradient(135deg, #102A4C, #1B3F6B); color: #fff; border-radius: 26px; padding: 22px 26px; box-shadow: 0 10px 0 #D4AA55, 0 18px 40px rgba(16,42,76,.18); position: relative; overflow: hidden; }
+.rd-cover::after { content: ""; position: absolute; inset-inline-start: 0; top: 0; bottom: 0; width: 14px; background: repeating-linear-gradient(180deg, #D4AA55 0 10px, #B88D3A 10px 20px); }
+.rd-cv-art { font-size: clamp(64px, 12vw, 104px); line-height: 1; background: #FFFDF7; border-radius: 22px; padding: 14px 18px; flex: none; }
+.rd-cv-body { flex: 1; min-width: 0; }
+.rd-cv-body h2 { margin: 6px 0; font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: clamp(1.5rem, 3.4vw, 2.2rem); color: #fff; }
+.rd-cv-body .muted { color: #D8E1EE; }
+.rd-brand { display: inline-block; background: #D4AA55; color: #102A4C; font-weight: 700; border-radius: 99px; padding: 3px 14px; font-size: .9rem; }
+.rd-steps { display: grid; gap: 8px; margin: 12px 0; }
+.rd-steps > div { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.1); border-radius: 14px; padding: 8px 12px; }
+.rd-steps > div.ok { background: rgba(111,191,142,.25); }
+.rd-steps span { width: 28px; height: 28px; border-radius: 50%; background: #D4AA55; color: #102A4C; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; flex: none; }
+.rd-nav { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; margin-top: 14px; }
+.rd-cover .rd-nav { justify-content: flex-start; }
+.rd-cover .muted { font-size: .95rem; }
+.rd-book, .rd-q, .rd-res { max-width: 820px; margin: 0 auto; }
+.rd-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; } .rd-top .rd-n { margin-inline-start: auto; font-weight: 700; }
+.rd-ttl { font-weight: 700; color: #102A4C; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rd-bar { height: 8px; background: #EEE6D6; border-radius: 99px; overflow: hidden; margin-bottom: 14px; } .rd-bar i { display: block; height: 100%; background: linear-gradient(90deg, #0F6E72, #D4AA55); transition: width .4s; }
+.rd-page { position: relative; background: #FFFDF7; border: 3px solid #E8DCC8; border-radius: 10px 26px 26px 10px; padding: 26px 30px 44px; min-height: 340px; box-shadow: 8px 10px 0 #E2D6BE, 0 18px 40px rgba(16,42,76,.10); animation: rdIn .35s ease; }
+@keyframes rdIn { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+.rd-art { text-align: center; font-size: clamp(56px, 11vw, 96px); line-height: 1.2; margin-bottom: 10px; letter-spacing: 6px; }
+.rd-txt p { margin: 0 0 10px; font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: clamp(1.5rem, 3.4vw, 2.15rem); line-height: 2.05; color: #102A4C; text-align: center; }
+.rd-txt mark, .rd-qq mark { background: #FFE9A8; color: #8A2D0E; border-radius: 6px; padding: 0 4px; }
+.rd-pn { position: absolute; bottom: 10px; inset-inline: 0; text-align: center; color: #8A8172; font-weight: 700; }
+.rd-wh { text-align: center; color: #102A4C; }
+.rd-words { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.rd-words > div { background: #fff; border: 2px solid #D4AA55; border-radius: 16px; padding: 10px 12px; text-align: center; }
+.rd-words b { display: block; font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: 1.6rem; color: #0F6E72; }
+.rd-words span { font-size: 1.05rem; }
+.rd-qq { font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: clamp(1.4rem, 3.2vw, 2rem); line-height: 1.9; text-align: center; color: #102A4C; background: #FFFDF7; border: 3px solid #D4AA55; border-radius: 22px; padding: 18px; }
+.rd-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+.rd-opt { font-family: "Noto Naskh Arabic", "Amiri", serif; font-size: clamp(1.25rem, 2.8vw, 1.7rem); padding: 14px 16px; border-radius: 18px; border: 2px solid #E8DCC8; background: #fff; color: #102A4C; cursor: pointer; box-shadow: 0 5px 0 #E2D6BE; transition: transform .15s, border-color .15s; }
+.rd-opt:hover, .rd-opt:focus-visible { border-color: #0F6E72; transform: translateY(-2px); outline: none; }
+.rd-res { text-align: center; background: #FFFDF7; border: 3px solid #D4AA55; border-radius: 26px; padding: 24px; }
+.rd-star { font-size: 56px; }
+.rd-rev { display: grid; gap: 8px; text-align: start; margin-top: 14px; }
+.rd-rev > div { display: flex; gap: 10px; align-items: flex-start; border-radius: 14px; padding: 8px 12px; background: #F2FAF4; }
+.rd-rev > div.no { background: #FDF0EC; } .rd-rev small { display: block; color: #8A2D0E; margin-top: 2px; }
+.rd-rep .lp-t h3 { margin-top: 0; }
+.rd-cls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+@media (max-width: 600px) { .rd-cover { flex-direction: column; text-align: center; } .rd-cover .rd-nav { justify-content: center; } .rd-page { padding: 18px 16px 40px; } }
+
 </style>
 </head>
 <body>
@@ -4028,6 +4072,121 @@ window.addEventListener("error", function (e) {
     return `<div class="gb ${cls || ""}">${obj ? `<div class="gb-obj">🎯 <b>${en ? "Lesson goal" : "هَدَفُ الدَّرْسِ"}:</b> ${esc(obj)}</div>` : ""}
       ${sc.map((c, i) => { const lv = LV[Math.min((c.solo || i + 1) - 1, 3)]; return `<div class="gb-sc"><span class="gb-n" style="background:${lv[0]}">${i + 1}</span><span class="gb-t">${en ? "I can " : "أَسْتَطيعُ أَنْ "}${esc(en && c.statement_en ? c.statement_en : String(c.statement_ar).replace(/^أَسْتَطيعُ أَنْ\s*/, ""))}</span><span class="gb-lv" style="color:${lv[0]}">${lv[1]} ${"|".repeat(Math.min(c.solo || i + 1, 4))}</span></div>`; }).join("")}</div>`;
   }
+  // ===== كتاب حراء: a short Hiraa-written book per lesson — the student reads it page by page, then answers 5 questions; the teacher sees who read and how they did =====
+  function rdBook(box, R, en, opt) {
+    const T2 = (a, b) => (en ? b : a), pages = R.pages || [], words = (R.words || []).filter((w) => w && w[0]);
+    const all = pages.length + (words.length ? 1 : 0);
+    let i = 0, t0 = Date.now(), seen = Math.max(0, opt.seen || 0), sent = seen;
+    const flush = (force) => { if (!opt.save) return; const s = Math.round((Date.now() - t0) / 1000); if (!force && seen <= sent && s < 5) return; t0 = Date.now(); sent = seen; opt.save(seen, all, s); };
+    const pageHtml = () => {
+      if (i < pages.length) { const p = pages[i] || {};
+        return `<div class="rd-art" aria-hidden="true">${esc(p.art || "")}</div><div class="rd-txt">${String(p.t || "").split(/\n+/).filter(Boolean).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>`; }
+      return `<h3 class="rd-wh">📝 ${T2("كَلِماتُ الْكِتابِ", "Words from the book")}</h3><div class="rd-words">${words.map((w) => `<div><b>${esc(w[0])}</b><span>${esc(w[1] || "")}</span></div>`).join("")}</div>`;
+    };
+    const draw = () => {
+      seen = Math.max(seen, i + 1);
+      box.innerHTML = `<div class="rd-book">
+        <div class="rd-top"><button class="btn btn-ghost btn-small" id="rdClose">✖ ${T2("إِغْلاقُ الْكِتابِ", "Close the book")}</button><span class="rd-ttl">${esc(R.title)}</span><span class="rd-n"><bdi dir="ltr">${i + 1} / ${all}</bdi></span></div>
+        <div class="rd-bar"><i style="width:${Math.round((i + 1) * 100 / all)}%"></i></div>
+        <div class="rd-page" dir="rtl">${pageHtml()}<div class="rd-pn">${i + 1}</div></div>
+        <div class="rd-nav"><button class="btn btn-ghost" id="rdPrev" ${i === 0 ? "disabled" : ""}>→ ${T2("السّابِقَةُ", "Back")}</button>
+          ${i < all - 1 ? `<button class="btn btn-primary" id="rdNext">${T2("التّالِيَةُ", "Next")} ←</button>` : `<button class="btn btn-dawn" id="rdEnd">🎉 ${T2("أَنْهَيْتُ الْكِتابَ", "I finished the book")}</button>`}</div></div>`;
+      box.querySelector("#rdClose").onclick = () => { flush(true); opt.back(); };
+      box.querySelector("#rdPrev").onclick = () => { if (i > 0) { i--; draw(); } };
+      const nx = box.querySelector("#rdNext"); if (nx) nx.onclick = () => { i++; draw(); flush(); box.scrollIntoView({ block: "start", behavior: "smooth" }); };
+      const en2 = box.querySelector("#rdEnd"); if (en2) en2.onclick = () => { flush(true); opt.done(); };
+    };
+    draw();
+  }
+  function rdQuiz(box, R, en, opt) {
+    const T2 = (a, b) => (en ? b : a), bank = (R.questions || []).map((q, n) => ({ ...q, n })).filter((q) => q.q && (q.o || []).length);
+    const pick = bank.slice().sort(() => Math.random() - 0.5).slice(0, 5).map((q) => ({ ...q, ord: q.o.map((x, k) => k).sort(() => Math.random() - 0.5) }));
+    const ans = []; let i = 0;
+    const result = (res) => {
+      const ok = res.score, mx = res.max, star = ok === mx ? "🌟🌟🌟" : ok >= mx - 1 ? "🌟🌟" : ok >= 2 ? "🌟" : "💪";
+      box.innerHTML = `<div class="rd-res"><div class="rd-star">${star}</div><h3>${T2("نَتيجَتي", "My result")}: <b>${ok}</b> ${T2("مِنْ", "of")} <b>${mx}</b></h3>
+        ${!opt.submit ? `<p class="muted">${T2("مُعايَنَةُ الْمُعَلِّمِ: لا تُحْفَظُ النَّتيجَةُ.", "Teacher preview: the result is not saved.")}</p>` : `<p class="muted">${T2("وَصَلَتْ نَتيجَتي إِلى مُعَلِّمي ✔️", "My result reached my teacher ✔️")}</p>`}
+        <div class="rd-rev">${pick.map((q, k) => { const a = res.answers[k] || {}; return `<div class="${a.ok ? "ok" : "no"}"><span>${a.ok ? "✅" : "❌"}</span><div><b>${esc(q.q)}</b>${a.ok ? "" : `<small>${T2("الْإِجابَةُ الصَّحيحَةُ", "Correct answer")}: ${esc(q.o[q.a])}</small>`}</div></div>`; }).join("")}</div>
+        <div class="rd-nav"><button class="btn btn-ghost" id="rdRe">📖 ${T2("أَقْرَأُ الْكِتابَ مَرَّةً أُخْرى", "Read the book again")}</button><button class="btn btn-primary" id="rdBack">${T2("رُجوعٌ", "Back")}</button></div></div>`;
+      box.querySelector("#rdRe").onclick = () => opt.reread(); box.querySelector("#rdBack").onclick = () => opt.back();
+    };
+    const finish = async () => {
+      box.innerHTML = `<div class="loading">${T2("جارٍ التَّصْحيحُ…", "Marking…")}</div>`;
+      const payload = ans.map((a) => ({ i: a.n, c: a.c }));
+      if (opt.submit) { const r = await sb.rpc("reader_submit", { p_lesson: opt.lesson, p_answers: payload });
+        if (r.error) { box.innerHTML = `<div class="empty"><strong>${T2("تَعَذَّرَ حِفْظُ الْإِجاباتِ، حاوِلْ مَرَّةً أُخْرى.", "Couldn't save your answers. Try again.")}</strong></div>`; return; } result(r.data); }
+      else { const res = payload.map((a) => ({ ...a, ok: R.questions[a.i].a === a.c })); result({ score: res.filter((x) => x.ok).length, max: res.length, answers: res }); }
+    };
+    const draw = () => {
+      if (i >= pick.length) { finish(); return; }
+      const q = pick[i];
+      box.innerHTML = `<div class="rd-q"><div class="rd-top"><span class="pill">❓ ${T2("أَسْئِلَةُ الْكِتابِ", "Book questions")}</span><span class="rd-n"><bdi dir="ltr">${i + 1} / ${pick.length}</bdi></span></div>
+        <div class="rd-bar"><i style="width:${Math.round(i * 100 / pick.length)}%"></i></div>
+        <h3 class="rd-qq" dir="rtl">${bkHL(esc(q.q))}</h3>
+        <div class="rd-opts" dir="rtl">${q.ord.map((k) => `<button class="rd-opt" data-k="${k}">${esc(q.o[k])}</button>`).join("")}</div></div>`;
+      box.querySelectorAll(".rd-opt").forEach((b) => b.onclick = () => { ans.push({ n: q.n, c: +b.dataset.k }); i++; draw(); });
+    };
+    if (pick.length < 1) { box.innerHTML = `<div class="empty"><strong>${T2("لا تُوجَدُ أَسْئِلَةٌ لِهذا الْكِتابِ بَعْدُ", "No questions for this book yet")}</strong></div>`; return; }
+    draw();
+  }
+  async function readerRun(box, l, u, R, en) {
+    const T2 = (a, b) => (en ? b : a);
+    if (!R) { box.innerHTML = `<div class="empty"><strong>📘 ${T2("لم يُكتب كتاب حراء لهذا الدرس بعد", "No Hiraa book for this lesson yet")}</strong>${T2("كتاب قصير من تأليف حراء يقرؤه الطالب صفحة صفحة، ثم يجيب عن خمسة أسئلة، وتصلك النتيجة هنا.", "A short Hiraa-written book the student reads page by page, then answers five questions; results reach you here.")}</div>`; return; }
+    const total = (R.pages || []).length + ((R.words || []).length ? 1 : 0);
+    const cover = (extra) => `<div class="rd-cover"><div class="rd-cv-art" aria-hidden="true">${esc(R.cover || "📘")}</div><div class="rd-cv-body"><span class="rd-brand">📘 ${T2("كِتابُ حِراءٍ", "Hiraa book")}</span><h2>${esc(R.title)}</h2><p class="muted">${T2("صَفَحاتٌ", "Pages")}: ${total} · ${T2("ثُمَّ خَمْسَةُ أَسْئِلَةٍ", "then five questions")}</p>${extra}</div></div>`;
+    if (isStudent()) {
+      const me = state.session.user.id;
+      const home = async () => {
+        box.innerHTML = `<div class="loading">${T2("جارٍ التحميل…", "Loading…")}</div>`;
+        const { data: rr } = await sb.from("reader_reads").select("*").eq("lesson_id", l.id).eq("student_id", me).maybeSingle();
+        const done = rr && rr.finished_at, sc = rr && rr.quiz_at;
+        box.innerHTML = `<div class="rd-wrap">${cover(`<div class="rd-steps">
+          <div class="${done ? "ok" : ""}"><span>1</span>${T2("أَقْرَأُ الْكِتابَ", "I read the book")} ${done ? "✅" : rr ? `(<bdi dir="ltr">${rr.pages_seen}/${total}</bdi>)` : ""}</div>
+          <div class="${sc ? "ok" : ""}"><span>2</span>${T2("أُجيبُ عَنْ خَمْسَةِ أَسْئِلَةٍ", "I answer five questions")} ${sc ? `✅ <b><bdi dir="ltr">${rr.score}/${rr.max_score}</bdi></b>` : ""}</div></div>
+          <div class="rd-nav"><button class="btn btn-primary" id="rdRead">📖 ${done ? T2("أَقْرَأُ مَرَّةً أُخْرى", "Read again") : rr ? T2("أُكْمِلُ الْقِراءَةَ", "Continue reading") : T2("أَبْدَأُ الْقِراءَةَ", "Start reading")}</button>
+          ${done ? `<button class="btn btn-dawn" id="rdQz">❓ ${sc ? T2("أُجيبُ مَرَّةً أُخْرى", "Answer again") : T2("أُجيبُ عَنِ الْأَسْئِلَةِ", "Answer the questions")}</button>` : `<span class="muted">🔒 ${T2("تُفْتَحُ الْأَسْئِلَةُ بَعْدَ أَنْ أُنْهِيَ الْكِتابَ", "Questions open after I finish the book")}</span>`}</div>`)}</div>`;
+        box.querySelector("#rdRead").onclick = () => read(done ? 0 : (rr && rr.pages_seen) || 0);
+        const qz = box.querySelector("#rdQz"); if (qz) qz.onclick = quiz;
+      };
+      const save = (seen, all, s) => sb.rpc("reader_progress", { p_lesson: l.id, p_seen: seen, p_total: all, p_seconds: s }).then(() => {});
+      const read = (seen) => rdBook(box, R, en, { seen, save, back: home, done: quiz });
+      const quiz = () => rdQuiz(box, R, en, { submit: true, lesson: l.id, back: home, reread: () => read(0) });
+      home(); return;
+    }
+    // staff: preview + class report
+    const preview = () => rdBook(box, R, en, { back: staff, done: () => rdQuiz(box, R, en, { submit: false, back: staff, reread: preview }) });
+    const staff = async () => {
+      box.innerHTML = `<div class="rd-wrap">${cover(`<div class="rd-nav"><button class="btn btn-primary" id="rdPv">📖 ${T2("معاينة الكتاب والأسئلة", "Preview the book and questions")}</button></div>`)}<div id="rdRep" class="rd-rep"><div class="loading">${T2("جارٍ التحميل…", "Loading…")}</div></div></div>`;
+      box.querySelector("#rdPv").onclick = preview;
+      const rep = box.querySelector("#rdRep");
+      if (!isStaff() || !state.session) { rep.innerHTML = ""; return; }
+      const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+      let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.year_group === u.year_group && c.track === u.track && c.subject_id === u.subject_id);
+      if (!cls.length && (isSchoolAdmin() || isSuper())) { const { data } = await sb.from("classes").select("id, name, year_group, track, subject_id").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).limit(20); cls = data || []; }
+      if (!cls.length) { rep.innerHTML = `<div class="empty"><strong>${T2("لا توجد فصول مرتبطة بك في هذا الصف، فلا يوجد تقرير قراءة بعد.", "You have no classes in this grade, so there's no reading report yet.")}</strong></div>`; return; }
+      let cur = cls[0].id;
+      const draw = async () => {
+        const { data: roster } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur);
+        const S = (roster || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
+        const { data: rr } = S.length ? await sb.from("reader_reads").select("*").eq("lesson_id", l.id).in("student_id", S.map((s) => s.id)) : { data: [] };
+        const M = {}; (rr || []).forEach((r) => { M[r.student_id] = r; });
+        const fin = S.filter((s) => M[s.id] && M[s.id].finished_at), qd = S.filter((s) => M[s.id] && M[s.id].quiz_at);
+        const avg = qd.length ? Math.round(qd.reduce((a, s) => a + M[s.id].score / (M[s.id].max_score || 5), 0) * 100 / qd.length) : null;
+        const mm = (s) => s >= 60 ? Math.floor(s / 60) + T2(" د ", "m ") + (s % 60) + T2(" ث", "s") : s + T2(" ث", "s");
+        rep.innerHTML = `<div class="lp-t"><h3>📊 ${T2("تقرير القراءة", "Reading report")}</h3>
+          ${cls.length > 1 ? `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>` : ""}
+          <div class="lp-stats"><div><b><bdi dir="ltr">${fin.length}/${S.length}</bdi></b><small>${T2("أنهوا الكتاب", "finished the book")}</small></div><div><b><bdi dir="ltr">${qd.length}/${S.length}</bdi></b><small>${T2("أجابوا عن الأسئلة", "answered the questions")}</small></div><div><b>${avg == null ? "—" : avg + "%"}</b><small>${T2("متوسط الفهم", "Average understanding")}</small></div></div>
+          <div class="lp-tw"><table class="lp-tbl"><thead><tr><th>${T2("الطالب", "Student")}</th><th>${T2("القراءة", "Reading")}</th><th>${T2("الوقت", "Time")}</th><th>${T2("الأسئلة", "Questions")}</th><th>${T2("ملاحظة", "Note")}</th></tr></thead><tbody>
+          ${S.map((s) => { const r = M[s.id]; const fast = r && r.finished_at && r.seconds < (R.min_seconds || 60);
+            const g = r && r.quiz_at ? (r.score / (r.max_score || 5) >= 0.8 ? "🟢" : r.score / (r.max_score || 5) >= 0.6 ? "🟡" : "🔴") : "";
+            return `<tr><td>${esc(s.name)}</td><td>${!r ? "—" : r.finished_at ? "✅ " + T2("أنهاه", "Finished") : `📖 <bdi dir="ltr">${r.pages_seen}/${r.total_pages || total}</bdi>`}</td><td>${r && r.seconds ? mm(r.seconds) : "—"}</td><td>${r && r.quiz_at ? `${g} <bdi dir="ltr">${r.score}/${r.max_score}</bdi>` : "—"}</td><td>${fast ? `⚡ ${T2("قراءة سريعة: اطلب منه إعادتها", "Fast read: ask for a re-read")}` : !r ? T2("لم يبدأ", "Not started") : ""}</td></tr>`; }).join("") || `<tr><td colspan="5">${T2("لا يوجد طلاب في هذا الفصل", "No students in this class")}</td></tr>`}
+          </tbody></table></div></div>`;
+        rep.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; draw(); });
+      };
+      draw();
+    };
+    staff();
+  }
   function fcRun(l, cards0, en) {
     const box = document.getElementById("fcBox"); if (!box) return;
     const deck = "lesson:" + l.code, me = state.session && state.session.user && state.session.user.id;
@@ -5245,6 +5404,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const acc = isStaff() ? "ok" : ((await sb.rpc("lesson_access", { p_lesson: l.id })).data || "no_access");
     const gameItems = acc === "ok" ? ((await sb.from("game_items").select("game, source, payload, sort_order").eq("lesson_id", l.id).order("sort_order")).data || []) : [];
     const bookTx = (acc === "ok" || isStaff()) ? ((await sb.from("lesson_book_texts").select("*").eq("lesson_id", l.id).maybeSingle()).data || null) : null;
+    const reader = (acc === "ok" || isStaff()) ? ((await sb.from("lesson_readers").select("*").eq("lesson_id", l.id).maybeSingle()).data || null) : null;
     const bookLines = (t) => String(t || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
     const bookTxHtml = () => {
       const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">📖 ${esc(bookTx.title || "نص الكتاب")}${bookTx.pages ? ` <span class="pill">${esc(bookTx.pages)}</span>` : ""}</h3>
@@ -5505,6 +5665,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       ["slides", nnEn ? "Slides" : "الشرائح", relBox + slidesPanel()],
       ...(state.session && (isStaff() || isStudent()) && !lockedForMe && (ticket && nq >= 3) ? [["prog", nnEn ? "📈 Progress check" : "📈 قياس التقدّم", `<div id="pgBox"></div>`]] : []),
       ...(fcCards.length >= 3 ? [["cards", nnEn ? "🃏 Flashcards" : "🃏 البطاقات التعليمية", lockedForMe ? lockedMsg : `<div class="fc" id="fcBox"></div>`]] : []),
+      ...(reader || isStaff() ? [["reader", nnEn ? "📘 Hiraa book" : "📘 كتاب حراء", lockedForMe && !isStaff() ? lockedMsg : `<div id="rdBox"></div>`]] : []),
       ...(isStaff() && summary && !lockedForMe ? [["weekly", CT("الخطة الأسبوعية", "Weekly plan"), `<div class="papers-box"><h3>📅 ${CT("الخطة الأسبوعية", "Weekly plan")}</h3>
         <p class="muted">${CT("تُبنى تلقائيًّا من الدرس: ما تمّ الانتهاء منه، ودرس الأسبوع، والهدف، ومعايير النجاح، والهوية الوطنية، وHPL، والحصة القادمة، والمطلوب من الطالب. عدّلها بالكتابة عليها، واحفظ نسختك، ثم اطبعها أو أرسلها لأولياء الأمور.", "Built from the lesson: what was completed, this week's lesson, objective, success criteria, national identity, HPL, next lesson and student tasks. Edit it, save your copy, then print or send it to parents.")}</p>
         <button class="btn btn-primary pp-open" data-kind="wp">📅 ${CT("فتح الخطة الأسبوعية وتعديلها", "Open and edit the weekly plan")}</button></div>`]] : []),
@@ -5563,6 +5724,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (k === "recite" && isStudent() && !lockedForMe) recorder(l, nn);
       if (k === "games" && !lockedForMe && gameItems.length) runGame(l, gameItems);
       if (k === "cards" && !lockedForMe) fcRun(l, fcCards, nnEn);
+      if (k === "reader") { const rb = document.getElementById("rdBox"); if (rb) readerRun(rb, l, u, reader, nnEn); }
       if (k === "prog") { const pb = document.getElementById("pgBox"); if (pb) (isStaff() ? progTeacher(pb, l, u, nnEn) : progStudent(pb, l, nnEn)); }
       if (k === "booktext") {
         const pr = document.getElementById("btxPrint");
