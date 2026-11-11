@@ -2272,6 +2272,84 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .cc-axes{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin:10px 0}.cc-axis{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s}
 .cc-axis:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.08);border-color:var(--hira)}.cc-axis span{flex:none;width:32px;height:32px;border-radius:50%;background:var(--hira);color:#fff;display:grid;place-items:center;font-weight:800}
 .cc-axis b{flex:1;line-height:1.4}.cc-axis em{font-style:normal;font-size:.8rem;font-weight:700;color:var(--hira-deep);white-space:nowrap}.cc-axes-foot{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+/* ===== حراء · الألوان الحيّة (لوحة مساندة للكحلي والذهبي) ===== */
+:root{
+  --v-sky:#1E6BC2;--v-sky-b:#3B8EE6;--v-sky-s:#E5F0FC;
+  --v-coral:#C2452A;--v-coral-b:#E8664A;--v-coral-s:#FDEBE5;
+  --v-emer:#0B7A75;--v-emer-b:#14A39B;--v-emer-s:#DDF4F1;
+  --v-violet:#6A45C2;--v-violet-b:#8A66E0;--v-violet-s:#EFE9FC;
+  --v-sun:#A85F0C;--v-sun-b:#F0962E;--v-sun-s:#FEF1DE;
+  --v-indigo:#3F3FB5;--v-indigo-b:#5B5BD6;--v-indigo-s:#ECECFB;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--v-sky:#7FB6F2;--v-sky-s:#14263D;--v-coral:#F29A84;--v-coral-s:#3A1D16;--v-emer:#5FD1C7;--v-emer-s:#0F2E2C;--v-violet:#B9A0F2;--v-violet-s:#251C3D;--v-sun:#F5B867;--v-sun-s:#352411;--v-indigo:#A5A5F0;--v-indigo-s:#1F1F3D}}
+:root[data-theme="dark"]{--v-sky:#7FB6F2;--v-sky-s:#14263D;--v-coral:#F29A84;--v-coral-s:#3A1D16;--v-emer:#5FD1C7;--v-emer-s:#0F2E2C;--v-violet:#B9A0F2;--v-violet-s:#251C3D;--v-sun:#F5B867;--v-sun-s:#352411;--v-indigo:#A5A5F0;--v-indigo-s:#1F1F3D}
+
+/* شريط المواد: توقيع بصري بألوان المواد الأربع */
+.hero2::after,.site-footer::before{content:"";position:absolute;inset:auto 0 0 0;height:5px;background:linear-gradient(to left,var(--v-emer-b) 0 25%,var(--v-coral-b) 25% 50%,var(--v-sky-b) 50% 75%,var(--v-violet-b) 75% 100%)}
+.site-footer{position:relative}
+.site-footer::before{inset:0 0 auto 0}
+
+/* البطل: هالات لونية ناعمة وكلمات مُعلَّمة */
+.hero2{background:radial-gradient(420px 260px at 92% 18%,var(--v-sky-s),transparent 70%),radial-gradient(380px 240px at 8% 30%,var(--v-coral-s),transparent 70%),radial-gradient(520px 220px at 50% 120%,var(--v-sun-s),transparent 70%),var(--paper)}
+.hero2 h1{color:var(--hira)}
+.hero2 h1 .hl{font-style:normal;padding:0 .12em;background:linear-gradient(to top,var(--hlc) 0 34%,transparent 34%);border-radius:4px}
+.hero2 h1 .hl-a{--hlc:color-mix(in srgb,var(--v-sky-b) 32%,transparent)}
+.hero2 h1 .hl-b{--hlc:color-mix(in srgb,var(--v-sun-b) 40%,transparent)}
+.hero2 h1 .hl-c{--hlc:color-mix(in srgb,var(--v-emer-b) 32%,transparent)}
+.h2-left{color:var(--v-sky)}
+.h2-right{color:var(--v-coral)}
+
+/* بطاقات الجمهور: لكل جمهور لونه */
+.vp-card{border-top:5px solid var(--vc)!important;transition:transform .18s ease,box-shadow .18s ease}
+.vp-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(16,42,76,.10)}
+.vp-card.s{--vc:var(--v-sky-b);--vt:var(--v-sky);--vs:var(--v-sky-s)}
+.vp-card.p{--vc:var(--v-coral-b);--vt:var(--v-coral);--vs:var(--v-coral-s)}
+.vp-card.t{--vc:var(--v-emer-b);--vt:var(--v-emer);--vs:var(--v-emer-s)}
+.vp-card.m{--vc:var(--dawn);--vt:var(--gold-deep,#8A6418);--vs:var(--dawn-soft)}
+.vp-card .vp-ic{background:var(--vs)!important;color:var(--vt)!important}
+.vp-card h3{color:var(--ink)}
+.vp-card{background:var(--paper)!important}
+.vp-card p{color:var(--muted)!important}
+.vp-card.s .btn,.vp-card.p .btn,.vp-card.t .btn{background:var(--vt)!important;color:var(--paper)!important;border-color:transparent!important}
+
+/* الخطوات الثلاث */
+.steps3 li{position:relative;overflow:hidden;transition:transform .18s ease}
+.steps3 li:hover{transform:translateY(-3px)}
+.steps3 li:nth-child(1){--sc:var(--v-sun-b)}.steps3 li:nth-child(2){--sc:var(--v-sky-b)}.steps3 li:nth-child(3){--sc:var(--v-emer-b)}
+.steps3 li span{background:var(--sc)!important;color:#fff;box-shadow:0 0 0 6px color-mix(in srgb,var(--sc) 18%,transparent)}
+.steps3 li::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:var(--sc)}
+
+/* الأرقام */
+.stats4 div:nth-child(1) b{color:var(--v-coral)}
+.stats4 div:nth-child(2) b{color:var(--v-sky)}
+.stats4 div:nth-child(3) b{color:var(--v-emer)}
+.stats4 div:nth-child(4) b{color:var(--v-violet)}
+
+/* لماذا حراء */
+.why4>div{transition:transform .18s ease}
+.why4>div:hover{transform:translateY(-3px)}
+.why4>div:nth-child(1){--wc:var(--v-emer);--ws:var(--v-emer-s)}
+.why4>div:nth-child(2){--wc:var(--v-sky);--ws:var(--v-sky-s)}
+.why4>div:nth-child(3){--wc:var(--v-coral);--ws:var(--v-coral-s)}
+.why4>div:nth-child(4){--wc:var(--v-violet);--ws:var(--v-violet-s)}
+.why4 svg{box-sizing:content-box;width:26px!important;height:26px!important;padding:11px;border-radius:14px;background:var(--ws);color:var(--wc)!important}
+
+/* لون لكل مادة في مفتاح المواد */
+.seg [data-subj="islamic"][aria-pressed="true"],.seg [data-subj="islamic"][aria-current="true"]{background:var(--v-emer);color:#fff}
+.seg [data-subj="arabic"][aria-pressed="true"],.seg [data-subj="arabic"][aria-current="true"]{background:var(--v-coral);color:#fff}
+.seg [data-subj="social"][aria-pressed="true"],.seg [data-subj="social"][aria-current="true"]{background:var(--v-sky);color:#fff}
+.seg [data-subj="igcse"][aria-pressed="true"],.seg [data-subj="igcse"][aria-current="true"]{background:var(--v-violet);color:#fff}
+
+/* لون لكل حلقة في بطاقات الصفوف */
+.stage.st1{--cc:var(--v-sun-b);--ct:var(--v-sun);--cs:var(--v-sun-s)}
+.stage.st2{--cc:var(--v-sky-b);--ct:var(--v-sky);--cs:var(--v-sky-s)}
+.stage.st3{--cc:var(--v-indigo-b);--ct:var(--v-indigo);--cs:var(--v-indigo-s)}
+.stage[class*="st"] .stage-title h3{display:inline-flex;align-items:center;gap:8px}
+.stage[class*="st"] .stage-title h3::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--cc)}
+.stage[class*="st"] .grade-tile.ready{border-color:color-mix(in srgb,var(--cc) 45%,var(--line));border-top:5px solid var(--cc);transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
+.stage[class*="st"] .grade-tile.ready .y{color:var(--ct)}
+.stage[class*="st"] .grade-tile.ready:hover{transform:translateY(-3px);background:var(--cs);box-shadow:0 10px 22px color-mix(in srgb,var(--cc) 22%,transparent)}
+@media (prefers-reduced-motion:reduce){.vp-card,.steps3 li,.why4>div,.grade-tile{transition:none!important;transform:none!important}}
 </style>
 </head>
 <body>
@@ -4710,8 +4788,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
   function gradeLadder(ready, subject) {
     const only = null;
-    return stageGroups().filter((s) => !only || s.years.some((y) => only.has(y))).map((s) => `
-      <div class="stage">
+    return stageGroups().filter((s) => !only || s.years.some((y) => only.has(y))).map((s, si) => `
+      <div class="stage st${si + 1}">
         <div class="stage-title"><h3>${s.title}</h3><span dir="ltr">${s.sub}</span></div>
         <div class="grade-row">
           ${s.years.filter((y) => !only || only.has(y)).map((y) => {
@@ -4758,7 +4836,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <path d="M174 196 C196 196 212 194 230 192"/>
           </svg>
       <div class="hero2-in">
-        <h1>لمعلمك وقتٌ أكثر، ولك درجةٌ أعلى، ولأهلك طمأنينة.</h1>
+        <h1>لمعلمك <em class="hl hl-a">وقتٌ أكثر</em>، ولك <em class="hl hl-b">درجةٌ أعلى</em>، ولأهلك <em class="hl hl-c">طمأنينة</em>.</h1>
         <p>حراء منصة المواد الوزارية وفق منهج دولة الإمارات، من الصف الأول إلى الثاني عشر، للناطقين بالعربية وغير الناطقين بها.</p>
         <div class="hero2-actions">
           <a class="btn btn-dawn" href="#/try">جرّب مجانًا الآن!</a>

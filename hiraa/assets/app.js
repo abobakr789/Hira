@@ -2236,8 +2236,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
   function gradeLadder(ready, subject) {
     const only = null;
-    return stageGroups().filter((s) => !only || s.years.some((y) => only.has(y))).map((s) => `
-      <div class="stage">
+    return stageGroups().filter((s) => !only || s.years.some((y) => only.has(y))).map((s, si) => `
+      <div class="stage st${si + 1}">
         <div class="stage-title"><h3>${s.title}</h3><span dir="ltr">${s.sub}</span></div>
         <div class="grade-row">
           ${s.years.filter((y) => !only || only.has(y)).map((y) => {
@@ -2284,7 +2284,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <path d="M174 196 C196 196 212 194 230 192"/>
           </svg>
       <div class="hero2-in">
-        <h1>لمعلمك وقتٌ أكثر، ولك درجةٌ أعلى، ولأهلك طمأنينة.</h1>
+        <h1>لمعلمك <em class="hl hl-a">وقتٌ أكثر</em>، ولك <em class="hl hl-b">درجةٌ أعلى</em>، ولأهلك <em class="hl hl-c">طمأنينة</em>.</h1>
         <p>حراء منصة المواد الوزارية وفق منهج دولة الإمارات، من الصف الأول إلى الثاني عشر، للناطقين بالعربية وغير الناطقين بها.</p>
         <div class="hero2-actions">
           <a class="btn btn-dawn" href="#/try">جرّب مجانًا الآن!</a>
