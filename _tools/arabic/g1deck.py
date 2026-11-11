@@ -110,8 +110,9 @@ def theme(deck,t):
         for e in sl["els"]:
             for key in ("fill","line","color"):
                 if e.get(key) in m: e[key]=m[e[key]]
-    layout(deck,t%3,th)
-    if th["flip"] and t%3!=2:  # title slide mirrored: picture on the right, text on the left
+    lv=deck.get("layout_v", t%3)
+    layout(deck,lv,th) if lv<3 else layout2(deck,lv,th)
+    if th["flip"] and lv==0:  # title slide mirrored: picture on the right, text on the left
         t0=deck["slides"][0]
         for e in t0["els"]:
             if e["k"]=="text": e["x"]=86
@@ -181,5 +182,78 @@ def layout(deck,v,th):
             for c in cards: c.update(fill=soft); c.pop("line",None)
             els[:]=[band]+badge+els+extra
             els.insert(0,{"k":"shape","x":1150,"y":590,"w":200,"h":200,"fill":soft,"rad":True,"oval":True})
+# ---- layouts D/E/F (rich effects: gradients, shadows, tilt, frames) ----
+def layout2(deck,v,th):
+    acc,acc2,dark,soft,bg=th["acc"],th["acc2"],th["dark"],th["soft"],th["bg"]
+    for si,sl in enumerate(deck["slides"]):
+        els=sl["els"]
+        if si==0:
+            pic=next((e for e in els if e["k"]=="pic"),None); frame=next((e for e in els if e["k"]=="shape"),None)
+            if frame in els: els.remove(frame)
+            texts=[e for e in els if e["k"]=="text"]
+            if v==3:   # polaroid tilt on gradient
+                sl["bg"]=dark; sl["bg2"]=acc
+                if pic: pic.update(x=820,y=110,w=360,h=420,frame=14,shadow=True,rot=-4,cover=False)
+                for e in texts: e.update(x=96,w=690)
+                els.insert(0,{"k":"shape","x":760,"y":80,"w":440,"h":500,"fill":acc2,"rad":True,"radius":30,"rot":5,"op":0.55})
+            elif v==4: # sticker
+                sl["bg"]=soft
+                if pic: pic.update(x=830,y=120,w=340,h=400,frame=10,shadow="hard",sc=dark,rot=3)
+                els.insert(0,{"k":"shape","x":800,"y":96,"w":400,"h":450,"fill":acc2,"radius":26,"rot":-6,"shadow":"hard","sc":dark})
+                for e in texts: e.update(x=86,w=700,color=(dark if e.get("color") in ("FBF6EC","FFFFFF") else acc))
+                els.insert(0,{"k":"shape","x":60,"y":560,"w":70,"h":70,"fill":acc,"radius":18,"rot":20})
+                els.insert(0,{"k":"shape","x":700,"y":40,"w":46,"h":46,"fill":acc2,"oval":True,"rad":True})
+            else:      # glass gradient + round photo
+                sl["bg"]=acc; sl["bg2"]=dark
+                if pic: pic.update(x=820,y=150,w=360,h=360,cover=True,radius=180,frame=10,shadow=True)
+                for e in texts: e.update(x=96,w=690)
+                els.insert(0,{"k":"shape","x":-160,"y":-160,"w":520,"h":520,"fill":"FFFFFF","oval":True,"rad":True,"op":0.08})
+                els.insert(0,{"k":"shape","x":1000,"y":470,"w":420,"h":420,"fill":"FFFFFF","oval":True,"rad":True,"op":0.08})
+            continue
+        label=next((e for e in els if _is(e,"text",x=461,y=28)),None)
+        if not label: continue
+        timer=next((e for e in els if _is(e,"text",x=86,y=26)),None)
+        head=next((e for e in els if _is(e,"text",x=86,y=92)),None)
+        els[:]=[e for e in els if not (e["k"]=="shape" and e["y"]==42 and e["h"]==15)]
+        colcards=[e for e in els if e["k"]=="shape" and e["y"]==175 and e["h"]==420 and e["w"]==333]
+        cards=[e for e in els if e["k"]=="shape" and e.get("line") and e not in colcards]
+        if v==3:
+            sl["bg2"]=soft
+            rib={"k":"shape","x":1214,"y":0,"w":66,"h":720,"fill":acc,"grad":dark,"gdir":180}
+            label.update(x=86,y=24,w=440,h=44,fill=acc,color="FFFFFF",rad=True,size=20,radius=22,shadow=True)
+            if timer: timer.update(x=1218,y=630,w=58,h=58,fill="FFFFFF",color=acc,size=13,radius=29,text=timer["text"].replace("⏱","").strip())
+            if head: head.update(x=86,y=82,w=1110,color=dark)
+            for c in cards: c.pop("line",None); c.update(fill="FFFFFF",shadow=True,radius=22)
+            bands=[]
+            for c in colcards:
+                c.pop("line",None); c.update(fill="FFFFFF",shadow=True,radius=24)
+                bands.append((c,{"k":"shape","x":c["x"],"y":c["y"],"w":c["w"],"h":100,"fill":acc,"grad":acc2,"radius":24}))
+            for c,b in bands: els.insert(els.index(c)+1,b)
+            els.insert(0,rib)
+        elif v==4:
+            label.update(x=470,y=20,w=360,h=50,fill=acc2,color=dark,rad=True,size=22,rot=-3,shadow="hard",sc=dark)
+            if timer: timer.update(x=60,y=22,w=190,h=50,fill=acc,color="FFFFFF",rad=True,size=20,rot=3,shadow="hard",sc=dark)
+            if head: head.update(color=dark)
+            for c in cards+colcards: c.update(fill="FFFFFF",line=dark,lw=1.6,radius=20,shadow="hard",sc=acc)
+            els.insert(0,{"k":"shape","x":1190,"y":610,"w":60,"h":60,"fill":acc2,"radius":14,"rot":25})
+            els.insert(0,{"k":"shape","x":20,"y":590,"w":34,"h":34,"fill":acc,"oval":True,"rad":True})
+            els.insert(0,{"k":"shape","x":1230,"y":120,"w":28,"h":28,"fill":acc,"radius":8,"rot":45})
+        else:
+            sl["bg2"]=soft
+            if any(e.get("text")=="هدف الدرس ومعايير النجاح" for e in els):
+                els[:]=[e for e in els if not ((e["k"]=="shape" and e["x"]==380 and e["y"]==86) or e.get("text")=="هدف الدرس ومعايير النجاح")]
+                cards=[c for c in cards if c in els]
+                if not head:
+                    head={"k":"text","x":240,"y":62,"w":970,"h":80,"text":"هَدَفُ الدَّرْسِ وَمَعاييرُ النَّجاحِ","size":34,"color":"FFFFFF","bold":True,"align":"right","fill":None,"rad":False,"va":"middle","ff":"naskh"}; els.append(head)
+            hdr={"k":"shape","x":40,"y":14,"w":1200,"h":140,"fill":acc,"grad":dark,"radius":32,"shadow":True}
+            label.update(x=640,y=26,w=570,h=34,color="FFFFFF",fill=None,align="right",size=18,op=0.9)
+            if timer: timer.update(x=64,y=50,w=150,h=46,fill="FFFFFF",color=acc,rad=True,size=18,radius=23)
+            if head: head.update(x=240,y=62,w=970,h=80,color="FFFFFF",size=34)
+            for e in els:
+                if e["k"]=="text" and e.get("text","").startswith("🧭 الِاسْتِراتيجِيَّةُ"): e.update(y=112 if e["y"]<170 else e["y"],x=240 if e["y"]<170 else e["x"],w=420,h=34,size=15)
+            for c in cards+colcards: c.pop("line",None); c.update(fill="FFFFFF",shadow=True,radius=26)
+            els.insert(0,hdr)
+            els.insert(0,{"k":"shape","x":980,"y":420,"w":420,"h":420,"fill":acc2,"oval":True,"rad":True,"op":0.12})
+            els.insert(0,{"k":"shape","x":-140,"y":380,"w":320,"h":320,"fill":acc,"oval":True,"rad":True,"op":0.10})
 if __name__=="__main__":
-    S=json.load(open(sys.argv[1],encoding="utf-8")); json.dump(theme(build(S),S.get("theme",0)),open(sys.argv[2],"w",encoding="utf-8"),ensure_ascii=False)
+    S=json.load(open(sys.argv[1],encoding="utf-8")); D_=build(S); D_["layout_v"]=S.get("layout",S.get("theme",0)%3); json.dump(theme(D_,S.get("theme",0)),open(sys.argv[2],"w",encoding="utf-8"),ensure_ascii=False)

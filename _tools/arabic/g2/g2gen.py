@@ -22,7 +22,7 @@ def build(prefix, d, prev=None):
       summary=dict(hook=d["hook"][0],idea=d["objective"].replace("أَنْ أَ","").replace("أَنْ أُ",""),key=key,words=[[w,m+" "+e] for w,m,e in d["words"]],
         learn=[["🎯",s] for s in d["sc"]],quiz=[[s,ok=="t"] for s,ok in d["tfs"][:2]],think=d["value"]["dilemma"],do=[d["home"][0],d["home"][1],d["value"]["sana"]],badge=d["value"]["head"]+" ⭐"),questions=Q)
     m=d["map"]; o=d["order"]; wj=d["wordj"]
-    S=dict(code=code,tagline="نَقْرَأُ · نَفْهَمُ · نُبْدِعُ 📚",theme=d["theme"],imgbase=img,page=d["page"],kicker="اللغة العربية · الصف الثاني · "+KIND[d["kind"]],title=title,
+    S=dict(code=code,layout=d.get("layout",d["theme"]%3),tagline="نَقْرَأُ · نَفْهَمُ · نُبْدِعُ 📚",theme=d["theme"],imgbase=img,page=d["page"],kicker="اللغة العربية · الصف الثاني · "+KIND[d["kind"]],title=title,
       byline=("تَأْليفُ: "+d["author"]+" · " if d.get("author") else "")+"كِتابي ص "+d["page"],title_note="اعرض الصورة واسأل: ماذا ترون؟ بماذا تذكّركم؟",
       objective=d["objective"],criteria=[subj(c) for c in d["sc"]],strip=d["value"]["head"] if False else sub(title).split(":")[-1].strip()[:40],
       retrieval=dict(head="ماذا نَتَذَكَّرُ؟",img="alt",qa=(prev or [["عَناصِرُ الْقِصَّةِ:","مَنْ؟ أَيْنَ؟ مَتى؟ ماذا؟"],["الِاسْمُ يَدُلُّ عَلى:","إِنْسانٍ وَحَيَوانٍ…"],["أَجْزاءُ الْفِقْرَةِ:","ثَلاثَةٌ"]]),link="🔗 أَرْبِطُ: ما تَعَلَّمْتُهُ مِنْ قَبْلُ يُساعِدُني في دَرْسِ الْيَوْمِ.",note="[استرجاع] اسأل شفويًا، ثم اكشف الإجابة."),
