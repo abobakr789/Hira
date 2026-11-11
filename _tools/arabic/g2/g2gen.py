@@ -1,5 +1,6 @@
 import json, sys, importlib, re
 ROOT="/home/claude/hira"
+GR={"ar":"الصف الثاني"}
 def sub(t): return t.replace("[[","").replace("]]","")
 KIND={"nn":"العربية تجمعنا","vocab":"المفردات والمهارة","story":"القصة","act":"دورك الآن والمحادثة","info":"النص المعلوماتي","gram":"اعرف لغتك","write":"الكتابة","poem":"النشيد","listen":"الاستماع"}
 def subj(s):  # indicative criterion -> subjunctive after «أستطيع أن»
@@ -61,7 +62,7 @@ def build(prefix, d, prev=None, vimg=None):
       summary=dict(hook=d["hook"][0],idea=d["objective"].replace("أَنْ أَ","").replace("أَنْ أُ",""),key=key,words=[[w[0],w[1]+" "+w[2]] for w in d["words"]],
         learn=[["🎯",s] for s in d["sc"]],quiz=[[s,ok=="t"] for s,ok in d["tfs"][:2]],think=d["value"]["dilemma"],do=[d["home"][0],d["home"][1],d["value"]["sana"]],badge=d["value"]["head"]+" ⭐"),questions=Q)
     m=d["map"]; o=d["order"]; wj=d["wordj"]
-    S=dict(code=code,words_head=("كَلِماتٌ مِنَ الْقِصَّةِ 🆕" if d["kind"] in ("vocab","story","act") else "كَلِماتُ الدَّرْسِ 🆕"),layout=d.get("layout",d["theme"]%3),tagline="نَقْرَأُ · نَفْهَمُ · نُبْدِعُ 📚",theme=d["theme"],imgbase=img,page=d["page"],kicker="اللغة العربية · الصف الثاني · "+KIND[d["kind"]],title=title,
+    S=dict(code=code,words_head=("كَلِماتٌ مِنَ الْقِصَّةِ 🆕" if d["kind"] in ("vocab","story","act") else "كَلِماتُ الدَّرْسِ 🆕"),layout=d.get("layout",d["theme"]%3),tagline="نَقْرَأُ · نَفْهَمُ · نُبْدِعُ 📚",theme=d["theme"],imgbase=img,page=d["page"],kicker="اللغة العربية · "+GR["ar"]+" · "+KIND[d["kind"]],title=title,
       byline=("تَأْليفُ: "+d["author"]+" · " if d.get("author") else "")+"كِتابي ص "+d["page"],title_note="اعرض الصورة واسأل: ماذا ترون؟ بماذا تذكّركم؟",
       objective=d["objective"],criteria=[subj(c) for c in d["sc"]],strip=d["value"]["head"] if False else sub(title).split(":")[-1].strip()[:40],
       retrieval=recall(d,prev),
@@ -82,7 +83,7 @@ def build(prefix, d, prev=None, vimg=None):
         if tot+len(sub(t))>330: break
         kws.append(t); tot+=len(sub(t))
     if not kws: kws=[key[0][:key[0].rfind(" ",0,170)]+" …"]
-    WS=dict(code=code,grade="الصف الثاني",title=re.sub("[\u064B-\u0652]","",sub(title)),pages=d["page"],readhead="أَقْرَأُ مِنْ "+("النَّشيدِ" if poem else "الدَّرْسِ"),key=kws,
+    WS=dict(code=code,grade=GR["ar"],title=re.sub("[\u064B-\u0652]","",sub(title)),pages=d["page"],readhead="أَقْرَأُ مِنْ "+("النَّشيدِ" if poem else "الدَّرْسِ"),key=kws,
       words=[[w[0],w[1]] for w in W],criteria=[re.sub("[\u064B-\u0652]","",c)[:34] for c in d["sc"]],
       levels=dict(bronze=dict(goal="أَسْتَطيعُ أَنْ أُجيبَ عَنِ الْأَسْئِلَةِ الْمُباشِرَةِ.",tasks=[dict(type="choose",q="أَخْتارُ الْإِجابَةَ:",items=[[s,o] for s,o in d["qs"][:2]]),dict(type="match",q="أَصِلُ الْكَلِمَةَ بِمَعْناها:",a=[w[0] for w in W[:3]],b=[W[1][1],W[2][1],W[0][1]])]),
         silver=dict(goal="أَسْتَطيعُ أَنْ أُفَسِّرَ وَأُكْمِلَ الْمُخَطَّطَ.",tasks=[dict(type="choose",q="أَخْتارُ:",items=[[s,o] for s,o in d["qs"][2:4]]),dict(type="cells",q=m[0].split(" 🗺")[0].replace("🗺️","").strip()+":",cols=3,cells=[c[1]+":" for c in m[2]])]),
@@ -98,9 +99,9 @@ def build(prefix, d, prev=None, vimg=None):
         gold=dict(goal=m[0].replace("🗺️","").strip(),text=[c[1] for c in m[2]],steps=["نَرْسُمُ الْمُخَطَّطَ.","نَمْلَؤُهُ مِنَ الدَّرْسِ.","نَعْرِضُهُ عَلى الصَّفِّ."],product="مُخَطَّطُ الْمَجْموعَةِ"),
         challenge=dict(goal="نُعَبِّرُ وَنَعْرِضُ.",text=[d["value"]["head"]],steps=["نَتَناقَشُ في الْمَوْقِفِ.","نَكْتُبُ رَأْيَنا.","نَعْرِضُهُ أَمامَ الصَّفِّ."],product="بِطاقَةُ الرَّأْيِ")))
     if d.get("nn"):
-        S.update(nn=True,criteria=list(d["sc"]),tagline="أَسْمَعُ · أَتَحَدَّثُ · أَقْرَأُ · أَكْتُبُ 🌟",kicker="العربية تجمعنا · الصف الثاني · Arabic for non-native speakers",
+        S.update(nn=True,criteria=list(d["sc"]),tagline="أَسْمَعُ · أَتَحَدَّثُ · أَقْرَأُ · أَكْتُبُ 🌟",kicker="العربية تجمعنا · "+GR["ar"]+" · Arabic for non-native speakers",
                  words_head="كَلِماتُ الدَّرْسِ · New words 🆕",learned="I learned: "+"; ".join(c.replace("I can ","").rstrip(".") for c in d["sc"][:2])+".")
-        WS.update(grade="الصف الثاني · لغير الناطقين بها",criteria=[c[:60] for c in d["sc"]])
+        WS.update(grade=GR["ar"]+" · لغير الناطقين بها",criteria=[c[:60] for c in d["sc"]])
         L=WS["levels"]; L["bronze"]["goal"]="I can answer simple questions."; L["silver"]["goal"]="I can explain words and complete the organiser."
         L["gold"]["goal"]="I can put things in order and use the language."; L["challenge"]["goal"]="I can write and give my opinion."
         tr={"أَخْتارُ الْإِجابَةَ:":"أَخْتارُ الْإِجابَةَ (Choose):","أَخْتارُ:":"أَخْتارُ (Choose):","أَصِلُ الْكَلِمَةَ بِمَعْناها:":"أَصِلُ الْكَلِمَةَ بِمَعْناها (Match):","أُرَقِّمُ بِالتَّرْتيبِ (1، 2، 3):":"أُرَقِّمُ بِالتَّرْتيبِ (Number 1–3):"}
@@ -111,7 +112,7 @@ def build(prefix, d, prev=None, vimg=None):
     return pack,S,WS
 if __name__=="__main__":
     mod=sys.argv[1]; prefix=sys.argv[2]; outdir=sys.argv[3]
-    sys.path.insert(0,f"{ROOT}/_tools/arabic/g2"); MOD=importlib.import_module(mod); U=MOD.U; VI=getattr(MOD,"VOCAB_IMG",{})
+    sys.path.insert(0,f"{ROOT}/_tools/arabic/g2"); MOD=importlib.import_module(mod); U=MOD.U; GR["ar"]=getattr(MOD,"GRADE","الصف الثاني"); VI=getattr(MOD,"VOCAB_IMG",{})
     packs=[]; prev=None
     pm=getattr(MOD,"PREV_MOD",None)
     if pm: prev=importlib.import_module(pm).U[-1]
