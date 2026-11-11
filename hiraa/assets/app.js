@@ -2397,7 +2397,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
 
   async function pageGrades(params) {
     setNav("grades");
-    const subject = subjOf(params);
+    const subject = subjOf(params); state.pageSubject = subject; setTheme();
     if (subject === "igcse") return pageIgcse();
     h(`<section class="page-head"><div class="wrap" style="padding-bottom:34px">
         <div class="crumbs"><a href="#/">الرئيسية</a></div>
@@ -2424,7 +2424,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const testsView = params.get("term") === "tests";
     const term = ["1", "2", "3"].includes(params.get("term")) ? Number(params.get("term")) : 1;
     const subject = subjOf(params);
-    state.pageSubject = subject;
+    state.pageSubject = subject; setTheme();
     const sid = SUBJECTS[subject].id;
     const domain = Number(params.get("domain")) || 0;
     loading();
@@ -2657,7 +2657,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const NEWAR = subject === "arabic" || subject === "social";
     // non-native Arabic: English support fades out by grade — full English UI only in Years 1–2, Arabic from Year 3 on
     const nnEn = nn && (subject !== "arabic" || (u.year_group || 1) <= 2);
-    state.pageSubject = subject;
+    state.pageSubject = subject; setTheme();
     const res = (l.lesson_resources || []).sort((a, b) => (a.part || 0) - (b.part || 0) || a.sort_order - b.sort_order);
     const acc = isStaff() ? "ok" : ((await sb.rpc("lesson_access", { p_lesson: l.id })).data || "no_access");
     const gameItems = acc === "ok" ? ((await sb.from("game_items").select("game, source, payload, sort_order").eq("lesson_id", l.id).order("sort_order")).data || []) : [];
@@ -3327,6 +3327,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     setNav("grades"); loading();
     const { data: u } = await sb.from("units").select("id, title_ar, title_en, year_group, term, track, subject_id, lessons(id, code, title_ar, title_en, sort_order, lesson_summaries(content), success_criteria(statement_ar, statement_en, sort_order, solo, part), evidences(kind, text_ar, translation_en, source, sort_order))").eq("id", id).maybeSingle();
     if (!u) { h(`<div class="wrap loading">${CT("لم يُعثر على الوحدة.", "Unit not found.")}</div>`); return; }
+    state.pageSubject = SUBJECT_BY_ID[u.subject_id] || null; setTheme();
     const en = u.track === "non_native", T = (x, y) => (en ? y : x), L = (u.lessons || []).sort((x, y) => x.code.localeCompare(y.code));
     const { data: tests } = await sb.from("assessments").select("id, kind, title_ar, title_en, time_limit_min").eq("unit_id", u.id);
     const test = (tests || []).find((t) => t.kind === "unit_test"), prac = (tests || []).find((t) => t.kind === "unit_practice");
@@ -3908,7 +3909,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     ["Eid al-Fitr", "Festival ending Ramadan", "C"], ["Eid al-Adha", "Festival of sacrifice after the Day of Arafah", "C"], ["Ashura", "10 Muharram, remembering Musa's rescue", "C"], ["Nikah", "Marriage contract", "C"], ["Mahr", "Gift from husband to wife", "C"], ["Aqiqah", "Celebration sacrifice for a newborn", "C"], ["Amanah", "A trust or responsibility", "C"], ["Ummah", "The worldwide Muslim community", "C"]
   ];
   async function pageIgcseCards(params) {
-    setNav("grades");
+    setNav("grades"); state.pageSubject = "igcse"; setTheme();
     const sec = ["A", "B", "C"].includes(params.get("s")) ? params.get("s") : null;
     let deck = shuffle(IG_TERMS.filter((t) => !sec || t[2] === sec)), i = 0, known = 0, again = [];
     const draw = () => {
@@ -3926,7 +3927,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     draw();
   }
   async function pageIgcseUnit(n) {
-    setNav("grades"); loading();
+    setNav("grades"); state.pageSubject = "igcse"; setTheme(); loading();
     const sec = "ABC"[n - 1];
     const { data: U } = await sb.from("units").select("id, title_en, lessons(id, code, title_en, lesson_summaries(content))").eq("subject_id", 4).eq("term", n).maybeSingle();
     if (!U) { h('<div class="wrap loading">—</div>'); return; }
@@ -3960,7 +3961,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
 
   async function pageIgcse() {
-    setNav("grades");
+    setNav("grades"); state.pageSubject = "igcse"; setTheme();
     const { data: L } = await sb.from("lessons").select("code, title_en, units(term)").like("code", "IG-NN-%").order("code");
     let mine = [];
     if (state.session && isStudent()) { const { data } = await sb.from("igcse_attempts").select("paper, total, max, created_at").order("created_at", { ascending: false }); mine = data || []; }
@@ -3980,7 +3981,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
 
   async function pageIgcsePaper(id) {
-    setNav("grades");
+    setNav("grades"); state.pageSubject = "igcse"; setTheme();
     const P = igGetPaper(id); if (!P) { location.hash = "#/igcse"; return; }
     const pick = { A: (P.qs.find((q) => q.sec === "A") || {}).n, B: (P.qs.find((q) => q.sec === "B") || {}).n };
     const key = "hiraa.ig." + id; let ans = {}; try { ans = JSON.parse(localStorage.getItem(key) || "{}"); } catch (e) {}
@@ -9267,7 +9268,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
 
   /* ===== simple role-based navigation: at most 5 links, the rest under «المزيد» ===== */
   const PH_ARTS = {"general": "<svg class=\"ph-l\" viewBox=\"0 0 700 230\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n            <path d=\"M0 200 C40 200 46 198 52 196\"/>\n            <path d=\"M52 196 L58 70 Q60 52 70 56 L72 70 L66 198\"/><path d=\"M58 70 L72 70\"/><path d=\"M60 88 L70 88\"/>\n            <path d=\"M66 198 C90 204 96 150 110 150\"/>\n            <path d=\"M110 150 L150 92 L232 122 L196 196 Z\"/><path d=\"M150 92 L156 82 L238 112 L232 122\"/><path d=\"M166 112 L214 130 M160 126 L206 144 M156 140 L196 156\"/><path d=\"M118 152 L120 160 M126 140 L130 146 M134 128 L138 134\"/>\n            <path d=\"M196 196 C214 210 232 206 244 190\"/>\n            <path d=\"M244 190 L282 108 L294 112 L258 196 L244 200 Z\"/><path d=\"M282 108 L292 92 L294 112\"/><path d=\"M262 150 L276 120\"/>\n            <path d=\"M258 196 C280 214 300 196 320 186\"/>\n            <path d=\"M320 186 C320 150 338 136 352 136 C368 136 384 150 384 172 C384 194 366 204 352 204 C336 204 320 196 320 186 Z\"/><path d=\"M332 152 C342 160 350 150 360 158 C366 164 374 160 380 166\"/><path d=\"M326 178 C338 174 346 186 360 180\"/><path d=\"M352 136 L352 120 M344 120 L360 120\"/><path d=\"M352 204 L352 216 M336 218 L368 218\"/>\n            <path d=\"M368 218 C392 226 402 214 418 208\"/>\n            <path d=\"M418 208 L418 156 Q418 136 444 136 Q470 136 470 156 L470 208 Z\"/><path d=\"M432 136 Q432 120 444 120 Q456 120 456 136\"/><path d=\"M424 172 L464 172 L464 196 L424 196 Z\"/><path d=\"M444 172 L444 182\"/>\n            <path d=\"M470 208 C490 220 500 206 520 204\"/>\n            <path d=\"M520 204 C540 196 580 196 610 206 L610 220 C580 210 540 210 520 218 Z\"/><path d=\"M520 204 L522 192 C546 184 584 186 612 194 L610 206\"/><path d=\"M524 190 L526 180 C550 172 586 174 612 182 L612 194\"/><path d=\"M540 214 L600 214\"/>\n            <path d=\"M612 206 C640 200 660 214 700 230\"/>\n          </svg><svg class=\"ph-r\" viewBox=\"0 0 230 230\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n            <path d=\"M46 186 C80 176 140 176 174 186 L174 200 C140 190 80 190 46 200 Z\"/><path d=\"M50 188 L170 188\"/>\n            <path d=\"M54 172 C86 164 136 164 168 172 L168 184 C136 176 86 176 54 184\"/><path d=\"M58 178 L164 178\"/>\n            <path d=\"M60 158 C90 150 132 150 162 158 L162 170 C132 162 90 162 60 170\"/>\n            <path d=\"M74 150 L74 120 C96 112 126 112 148 120 L148 150\"/>\n            <path d=\"M60 116 L111 96 L162 116 L111 136 Z\"/><path d=\"M111 116 L146 126 L146 150\"/><path d=\"M146 150 C142 156 150 160 148 166 M146 150 C150 156 144 160 146 168\"/>\n            <path d=\"M40 210 C60 200 80 206 92 214 C104 222 120 216 132 206\"/><path d=\"M40 210 L32 222 M44 212 L40 226\"/>\n            <path d=\"M174 196 C196 196 212 194 230 192\"/>\n          </svg>", "islamic": "<svg class=\"ph-l\" viewBox=\"0 0 700 230\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n<path d=\"M0 214 C30 214 40 212 60 210\"/>\n<path d=\"M60 210 L60 120 L70 104 L80 120 L80 210\"/><path d=\"M64 120 L64 210 M76 120 L76 210\"/><path d=\"M58 150 L82 150 M58 176 L82 176\"/><path d=\"M70 104 L70 97 M66 92 A5 5 0 1 0 74 92\"/>\n<path d=\"M80 210 L100 210 L100 160 Q100 122 140 112 Q180 122 180 160 L180 210 Z\"/><path d=\"M140 112 L140 106 M134 100 A6 6 0 1 0 146 100\"/><path d=\"M124 210 L124 178 Q124 166 140 164 Q156 166 156 178 L156 210\"/><path d=\"M108 170 L116 170 M164 170 L172 170\"/>\n<path d=\"M180 210 C200 214 214 200 232 196\"/>\n<path d=\"M226 200 L226 166 Q226 134 250 126 Q274 134 274 166 L274 200\"/><path d=\"M250 126 L250 120 M244 114 A6 6 0 1 0 256 114\"/><path d=\"M240 200 L240 178 Q240 170 250 168 Q260 170 260 178 L260 200\"/><path d=\"M232 200 L268 200\"/>\n<path d=\"M256 186 C280 204 300 200 320 198\"/>\n<path d=\"M330 214 L370 150 M410 214 L370 150 M346 214 L394 186 M394 214 L346 186\"/>\n<path d=\"M330 156 Q350 140 372 150 L372 186 Q352 176 330 190 Z\"/><path d=\"M414 156 Q394 140 372 150 L372 186 Q392 176 414 190 Z\"/><path d=\"M338 162 Q352 154 366 160 M338 172 Q352 164 366 170 M378 160 Q392 154 406 162 M378 170 Q392 164 406 172\"/>\n<path d=\"M410 214 C440 218 460 206 480 200\"/>\n<path d=\"M520 120 A38 38 0 1 0 548 182 A30 30 0 1 1 520 120 Z\"/><path d=\"M566 132 L570 144 L582 144 L572 152 L576 164 L566 156 L556 164 L560 152 L550 144 L562 144 Z\"/>\n<path d=\"M548 200 C590 214 640 206 700 222\"/>\n</svg><svg class=\"ph-r\" viewBox=\"0 0 230 230\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n<path d=\"M122 40 A64 64 0 1 0 150 160 A50 50 0 1 1 122 40 Z\"/><path d=\"M168 70 L173 84 L188 84 L176 93 L180 107 L168 99 L156 107 L160 93 L148 84 L163 84 Z\"/>\n<path d=\"M20 214 C60 206 120 210 160 214 C190 218 210 214 230 210\"/>\n</svg>", "arabic": "<svg class=\"ph-l\" viewBox=\"0 0 700 230\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n<path d=\"M0 214 C30 214 40 210 60 206\"/>\n<path d=\"M60 206 L150 70 L160 76 L72 212 Z\"/><path d=\"M150 70 L162 56 L160 76\"/><path d=\"M90 184 L132 120\"/>\n<path d=\"M72 212 C100 216 120 206 140 204\"/>\n<path d=\"M150 204 L150 170 Q150 158 166 158 L194 158 Q210 158 210 170 L210 204 Z\"/><path d=\"M162 158 L162 148 L198 148 L198 158\"/><path d=\"M150 186 L210 186\"/>\n<path d=\"M210 204 C232 210 246 206 262 200\"/>\n<path d=\"M270 196 Q310 180 352 196 L352 120 Q310 104 270 120 Z\"/><path d=\"M434 196 Q392 180 352 196 L352 120 Q392 104 434 120 Z\"/><path d=\"M286 136 Q312 128 338 136 M286 152 Q312 144 338 152 M286 168 Q312 160 338 168 M366 136 Q392 128 418 136 M366 152 Q392 144 418 152 M366 168 Q392 160 418 168\"/>\n<path d=\"M434 196 C460 210 476 204 492 200\"/>\n<text x=\"560\" y=\"190\" font-size=\"150\" font-family=\"Amiri, 'Noto Naskh Arabic', serif\" text-anchor=\"middle\" stroke-width=\"2.4\">ض</text>\n<path d=\"M610 214 C640 206 670 214 700 222\"/>\n</svg><svg class=\"ph-r\" viewBox=\"0 0 230 230\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n<text x=\"118\" y=\"150\" font-size=\"120\" font-family=\"Amiri, 'Noto Naskh Arabic', serif\" text-anchor=\"middle\" stroke-width=\"2.2\">أ ب</text>\n<path d=\"M30 190 C70 176 160 176 200 190\"/><path d=\"M50 204 C90 194 140 194 180 204\"/>\n</svg>", "social": "<svg class=\"ph-l\" viewBox=\"0 0 700 230\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n<path d=\"M0 214 C20 214 30 212 40 212\"/>\n<path d=\"M44 214 L44 40\"/><circle cx=\"44\" cy=\"36\" r=\"4\"/>\n<rect x=\"44\" y=\"44\" width=\"34\" height=\"78\" fill=\"#C8102E\" fill-opacity=\".22\"/><rect x=\"78\" y=\"44\" width=\"110\" height=\"26\" fill=\"#00843D\" fill-opacity=\".22\"/><rect x=\"78\" y=\"70\" width=\"110\" height=\"26\"/><rect x=\"78\" y=\"96\" width=\"110\" height=\"26\" fill=\"#000\" fill-opacity=\".2\"/>\n<path d=\"M44 214 C80 220 100 208 126 206\"/>\n<path d=\"M200 214 L210 160 L214 110 L220 60 L224 10 L228 60 L234 110 L238 160 L248 214\"/><path d=\"M214 110 L234 110 M210 160 L238 160 M224 10 L224 0\"/><path d=\"M218 80 L230 80 M212 136 L236 136 M206 188 L242 188\"/>\n<path d=\"M248 214 C268 218 280 212 296 210\"/>\n<path d=\"M300 214 L300 160 L470 160 L470 214\"/><path d=\"M330 160 Q330 118 385 108 Q440 118 440 160\"/><path d=\"M385 108 L385 94\"/><path d=\"M304 160 Q304 140 318 136 Q332 140 332 160 M438 160 Q438 140 452 136 Q466 140 466 160\"/><path d=\"M286 214 L286 112 M484 214 L484 112 M282 112 L290 112 M480 112 L488 112 M286 112 L286 100 M484 112 L484 100\"/><path d=\"M340 214 L340 186 Q340 176 352 176 Q364 176 364 186 L364 214 M406 214 L406 186 Q406 176 418 176 Q430 176 430 186 L430 214\"/>\n<path d=\"M488 214 C506 218 520 212 536 210\"/>\n<path d=\"M560 214 L560 150 Q560 132 572 124\"/><path d=\"M572 124 Q546 112 528 124 M572 124 Q556 100 534 102 M572 124 Q578 98 600 94 M572 124 Q598 114 614 126 M572 124 Q594 132 604 150\"/>\n<path d=\"M600 214 C640 206 670 214 700 222\"/>\n</svg><svg class=\"ph-r\" viewBox=\"0 0 230 230\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n<path d=\"M60 210 L60 20 Q150 60 160 210\"/><path d=\"M60 20 L54 8\"/><path d=\"M60 60 Q110 80 128 110 M60 110 Q110 120 140 160\"/><path d=\"M40 210 L180 210\"/><path d=\"M150 150 L196 150 M164 150 L164 120 L186 120 L186 150\"/>\n<path d=\"M20 222 C70 214 160 216 230 220\"/>\n</svg>"};
+  function setTheme() {
+    const r = document.documentElement, k = state.pageSubject;
+    if (k && SUBJECTS[k]) r.dataset.subj = k; else delete r.dataset.subj;
+  }
   function decoratePageHead() {
+    setTheme();
     const ph = document.querySelector("#main .page-head"); if (!ph) return;
     const k = PH_ARTS[state.pageSubject] ? state.pageSubject : "general";
     const cur = ph.querySelector(".ph-art"); if (cur && cur.dataset.k === k) return; if (cur) cur.remove();
@@ -12123,7 +12129,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
 
   /* ---------- router ---------- */
   async function route() {
-    state.pageSubject = null; setTimeout(famBadge, 400); setTimeout(() => { sndControl(); const ob = document.getElementById("pgBack"); if (ob) ob.remove(); backButton(); }, 300); setTimeout(decoratePageHead, 900); setTimeout(decoratePageHead, 2500);
+    state.pageSubject = null; setTheme(); setTimeout(famBadge, 400); setTimeout(() => { sndControl(); const ob = document.getElementById("pgBack"); if (ob) ob.remove(); backButton(); }, 300); setTimeout(decoratePageHead, 900); setTimeout(decoratePageHead, 2500);
     document.querySelectorAll("dialog[open]").forEach((d) => d.close());
     const { parts, params } = parseHash();
     const p0 = parts[0] || "";

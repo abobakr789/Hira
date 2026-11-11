@@ -2278,3 +2278,35 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .stage[class*="st"] .grade-tile.ready .y{color:var(--ct)}
 .stage[class*="st"] .grade-tile.ready:hover{transform:translateY(-3px);background:var(--cs);box-shadow:0 10px 22px color-mix(in srgb,var(--cc) 22%,transparent)}
 @media (prefers-reduced-motion:reduce){.vp-card,.steps3 li,.why4>div,.grade-tile{transition:none!important;transform:none!important}}
+
+/* ===== حراء · لون المادة داخل المنصة: كل صفحات المادة تأخذ لونها ===== */
+html[data-subj="islamic"]{--hira:#0B7A75;--hira-deep:#075C58;--hira-soft:#DDF4F1;--sj-b:#14A39B}
+@media (prefers-color-scheme: dark){html[data-subj="islamic"]:not([data-theme="light"]){--hira:#5FD1C7;--hira-deep:#A8EBE4;--hira-soft:#0F2E2C}}
+html[data-subj="islamic"][data-theme="dark"]{--hira:#5FD1C7;--hira-deep:#A8EBE4;--hira-soft:#0F2E2C}
+html[data-subj="arabic"]{--hira:#C2452A;--hira-deep:#93311B;--hira-soft:#FDEBE5;--sj-b:#E8664A}
+@media (prefers-color-scheme: dark){html[data-subj="arabic"]:not([data-theme="light"]){--hira:#F29A84;--hira-deep:#F8C6B9;--hira-soft:#3A1D16}}
+html[data-subj="arabic"][data-theme="dark"]{--hira:#F29A84;--hira-deep:#F8C6B9;--hira-soft:#3A1D16}
+html[data-subj="social"]{--hira:#1E6BC2;--hira-deep:#154F91;--hira-soft:#E5F0FC;--sj-b:#3B8EE6}
+@media (prefers-color-scheme: dark){html[data-subj="social"]:not([data-theme="light"]){--hira:#7FB6F2;--hira-deep:#BCD8F8;--hira-soft:#14263D}}
+html[data-subj="social"][data-theme="dark"]{--hira:#7FB6F2;--hira-deep:#BCD8F8;--hira-soft:#14263D}
+html[data-subj="igcse"]{--hira:#6A45C2;--hira-deep:#4E2F99;--hira-soft:#EFE9FC;--sj-b:#8A66E0}
+@media (prefers-color-scheme: dark){html[data-subj="igcse"]:not([data-theme="light"]){--hira:#B9A0F2;--hira-deep:#DDD0F9;--hira-soft:#251C3D}}
+html[data-subj="igcse"][data-theme="dark"]{--hira:#B9A0F2;--hira-deep:#DDD0F9;--hira-soft:#251C3D}
+html[data-subj] .page-head{position:relative;background:radial-gradient(520px 240px at 95% 0%,var(--hira-soft),transparent 72%),radial-gradient(360px 200px at 0% 100%,color-mix(in srgb,var(--sj-b) 10%,transparent),transparent 70%),var(--paper)!important;border-bottom:0!important}
+html[data-subj] .page-head::after{content:"";position:absolute;inset:auto 0 0 0;height:5px;background:linear-gradient(to left,var(--sj-b),color-mix(in srgb,var(--sj-b) 35%,transparent))}
+html[data-subj] .page-head h1{color:var(--hira)}
+html[data-subj] .crumbs a{color:var(--hira)}
+/* صفحات بلا مادة (لوحات التحكم وغيرها): شريط المواد الأربع تحت رأس الصفحة */
+html:not([data-subj]) .page-head{position:relative;border-bottom:0!important}
+html:not([data-subj]) .page-head::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:linear-gradient(to left,var(--v-emer-b) 0 25%,var(--v-coral-b) 25% 50%,var(--v-sky-b) 50% 75%,var(--v-violet-b) 75% 100%)}
+/* الوحدات والدروس */
+.unit-head .n{color:var(--hira)!important}
+.lesson-row .idx{color:var(--hira)!important;font-weight:700}
+.lesson-row{transition:background .15s ease}
+.lesson-row:hover{background:color-mix(in srgb,var(--hira-soft) 60%,transparent)}
+.unit-card,.side-card,.lp-box,.sl-box,.identity-card{border-top:4px solid var(--hira)}
+.uc-ic,.sl-ic{background:var(--hira-soft)!important;color:var(--hira-deep)!important}
+.term-tab[aria-selected="true"]{color:var(--hira)!important;border-bottom-color:var(--hira)!important}
+.pill{border-color:color-mix(in srgb,var(--hira) 30%,var(--line))}
+.page-head + .section[style*="padding-top:0"]{padding-top:28px!important}
+html[data-subj] .page-head .ph-art{opacity:.6}
