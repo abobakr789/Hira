@@ -33,9 +33,15 @@ def build(S):
     out.append({"bg":"1E3A3F","els":[T(499,150,691,51,S["kicker"],25,"F2A93B",True,"right",ff=None),T(499,206,691,166,S["title"],56 if len(re.sub("[\u064B-\u0652\u0670]","",S["title"]))<=24 else 40,"FBF6EC",True,"right"),
       T(499,380,691,52,S["byline"],24,"A9C4C3",False,"right"),T(499,440,691,58,S.get("tagline","يُرَافِقُنَا دَنْدُون صَدِيقُ الْحُرُوف 👋"),24,"A9C4C3",False,"right"),SH(96,70,360,560,"FFFFFF"),PIC(110,84,332,532,"cover")],"n":S["title_note"]})
     R=S["retrieval"]
-    els=frame(0,"🔁 نَتَذَكَّرُ مَعًا",3,R["head"])+[PIC(96,180,300,340,R["img"])]
-    for i,(q,a) in enumerate(R["qa"]): els+=[T(420,180+i*82,500,66,q,24,"1E3A3F",True,"right","FFFDF8",True),ans(930,180+i*82,222,66,a,i+1,22)]
-    els.append(T(420,436,732,100,R["link"],22,"0F6E72",True,"right","EAF5F4",True,rv=4)); add(els,R["note"])
+    cards=R.get("cards") or [[["📌","💡","🔁"][i%3],["أَتَذَكَّرُ (1)","أَتَذَكَّرُ (2)","أَتَذَكَّرُ (3)"][i%3],q.rstrip(":： ")+(" …" if q.rstrip().endswith((":","：")) else ""),a] for i,(q,a) in enumerate(R.get("qa",[]))]
+    cards=cards[:3]; n=len(cards); W=(1100-30*(n-1))//n
+    els=frame(0,"🔁 نَتَذَكَّرُ مَعًا",3,R["head"])
+    for i,(emo,tt,pr,an) in enumerate(cards):
+        x=1190-W-i*(W+30); col=["0F6E72","6B46A8","B4532A"][i%3]
+        els+=[SH(x,172,W,300,"FFFDF8",col),IM(x+W-66,184,48,48,emo),T(x+16,182,W-90,58,tt,24,col,True,"right"),
+              T(x+16,240,W-32,106,pr,(28 if n<3 else (22 if len(pr)<70 else 19)),"1E3A3F",False,"right"),ans(x+16,352,W-32,104,an,i+1,(22 if n<3 else 20))]
+    els+=[SH(90,494,1100,112,"EAF5F4"),T(110,498,1060,104,R["link"],26,"0F6E72",True,"right",rv=n+1)]
+    add(els,R["note"])
     H=S["hook"]; add(frame(0,"✨ لَحْظَةُ فُضولٍ",3,H["head"])+[SH(500,180,652,140,"FFFDF8"),T(515,190,622,120,H["q"],24,"1E3A3F",False,"right"),T(500,340,652,60,"💬 أُفَكِّرُ · أُشارِكُ زَميلي · نُخْبِرُ الصَّفَّ",22,"0F6E72",True,"center",ff=None),ans(500,420,652,130,H["model"],1,21),PIC(96,180,380,330,H["img"])],H["note"])
     # goal & criteria
     els=frame(0,"🎯 وِجْهَتُنا الْيَوْمَ",2,"")[:-1]+[SH(380,86,520,64,"FFFFFF","1E3A3F"),T(380,86,520,64,"هدف الدرس ومعايير النجاح",28,"0B7A55",True,"center",ff="brand"),SH(70,165,1140,80,"F6EEDC","D4AA55"),T(85,168,1110,74,"🎯 هَدَفُ الدَّرْسِ: "+S["objective"],22,"1E3A3F",True,"right")]

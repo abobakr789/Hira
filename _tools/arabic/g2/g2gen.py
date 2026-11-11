@@ -25,6 +25,21 @@ def _icon(text, d, vimg, left=True):
     for k,v in EMO.items():
         if len(k)>2 and k in t: return v
     return None
+def _short(t):
+    t=sub(t); return t.split(": ",1)[-1].split("«")[-1].split("»")[0].strip()
+def recall(d, prev):
+    if prev:
+        pw=prev["words"]; pt=_short(prev["title"])
+        used=[_st(x[0]) for x in pw[:2]]+[_st(x[1]) for x in pw[:2]]
+        cand=[q for q in prev["qs"] if not any(u and (u in _st(q[0]) or u==_st(q[1][0])) for u in used)]
+        cand.sort(key=lambda q:len(q[0])); pq=[(cand or prev["qs"])[0][0],(cand or prev["qs"])[0][1][0]]
+        cards=[[pw[0][2],"«"+pw[0][0]+"»","مَعْناها: …",pw[0][1]],
+               ["❓","سُؤالٌ مِنَ الدَّرْسِ",*pq]]
+        if len(pw)>1: cards.insert(1,[pw[1][2],"«"+pw[1][0]+"»","مَعْناها: …",pw[1][1]])
+        head="مِنْ دَرْسِ «"+pt[:30]+"»"
+    else:
+        w=d["words"]; cards=[[x[2],"«"+x[0]+"»","هَلْ تَعْرِفُ مَعْناها؟",x[1]] for x in w[:3]]; head="ماذا نَعْرِفُ؟"
+    return dict(head=head,img="alt",cards=cards,link="🔗 وَالْيَوْمَ: "+(d["hook"][1] if len(d["hook"][1])<=95 else d["hook"][0]),note="[استرجاع] اسأل عن كل بطاقة شفويًا، ثم اكشف الإجابة بالنقر، ثم اقرأ جسر الربط بدرس اليوم.")
 def build(prefix, d, prev=None, vimg=None):
     vimg=vimg or {}
     d=dict(d); d["words"]=[list(w)+([p] if (p:=next((v for k,v in vimg.items() if _st(k) and (_st(k) in _st(w[0]) or (len(_st(w[0]))>=3 and _st(w[0]) in _st(k)))),None)) else []) for w in d["words"]]
@@ -48,7 +63,7 @@ def build(prefix, d, prev=None, vimg=None):
     S=dict(code=code,words_head=("كَلِماتٌ مِنَ الْقِصَّةِ 🆕" if d["kind"] in ("vocab","story","act") else "كَلِماتُ الدَّرْسِ 🆕"),layout=d.get("layout",d["theme"]%3),tagline="نَقْرَأُ · نَفْهَمُ · نُبْدِعُ 📚",theme=d["theme"],imgbase=img,page=d["page"],kicker="اللغة العربية · الصف الثاني · "+KIND[d["kind"]],title=title,
       byline=("تَأْليفُ: "+d["author"]+" · " if d.get("author") else "")+"كِتابي ص "+d["page"],title_note="اعرض الصورة واسأل: ماذا ترون؟ بماذا تذكّركم؟",
       objective=d["objective"],criteria=[subj(c) for c in d["sc"]],strip=d["value"]["head"] if False else sub(title).split(":")[-1].strip()[:40],
-      retrieval=dict(head="ماذا نَتَذَكَّرُ؟",img="alt",qa=(prev or [["عَناصِرُ الْقِصَّةِ:","مَنْ؟ أَيْنَ؟ مَتى؟ ماذا؟"],["الِاسْمُ يَدُلُّ عَلى:","إِنْسانٍ وَحَيَوانٍ…"],["أَجْزاءُ الْفِقْرَةِ:","ثَلاثَةٌ"]]),link="🔗 أَرْبِطُ: ما تَعَلَّمْتُهُ مِنْ قَبْلُ يُساعِدُني في دَرْسِ الْيَوْمِ.",note="[استرجاع] اسأل شفويًا، ثم اكشف الإجابة."),
+      retrieval=recall(d,prev),
       hook=dict(head=d["hook"][0],img="main",q=d["hook"][1],model=d["hook"][2],note="[التهيئة] فكّر – زاوج – شارك."),
       words=d["words"],predict=dict(q="أَقْرَأُ الْعُنْوانَ «"+sub(title).split(": ")[-1]+"»، وَأَتَوَقَّعُ: عَمَّ يَتَحَدَّثُ الدَّرْسُ؟",model=sub(key[0])[:140]),
       map_head=m[0],map_strategy=m[1],map=m[2],match=dict(head=d["match"][0],rows=d["match"][1]),order_head=o[0],order_strategy=o[1],order=o[2],
@@ -85,9 +100,11 @@ def build(prefix, d, prev=None, vimg=None):
 if __name__=="__main__":
     mod=sys.argv[1]; prefix=sys.argv[2]; outdir=sys.argv[3]
     sys.path.insert(0,f"{ROOT}/_tools/arabic/g2"); MOD=importlib.import_module(mod); U=MOD.U; VI=getattr(MOD,"VOCAB_IMG",{})
-    packs=[]
+    packs=[]; prev=None
+    pm=getattr(MOD,"PREV_MOD",None)
+    if pm: prev=importlib.import_module(pm).U[-1]
     for d in U:
-        p,S,WS=build(prefix,d,vimg=VI); packs.append(p)
+        p,S,WS=build(prefix,d,prev=prev,vimg=VI); packs.append(p); prev=d
         json.dump(S,open(f"{outdir}/{d['code']}.deck.json","w",encoding="utf-8"),ensure_ascii=False)
         json.dump(WS,open(f"{outdir}/{d['code']}.json","w",encoding="utf-8"),ensure_ascii=False)
     json.dump(packs,open(f"{outdir}/packs.json","w",encoding="utf-8"),ensure_ascii=False); print(len(packs))
