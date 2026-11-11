@@ -44,10 +44,12 @@ def build(S):
         els+=[SH(70,y,1140,76,"FFFFFF","E1E8E6"),SH(1150,y+16,44,44,col,rv=i+1,oval=True),T(1150,y+16,44,44,str(i+1),20,"FFFFFF",True,"center",ff=None,rv=i+1),T(230,y+4,910,68,"أَسْتَطيعُ أَنْ "+t,22,"1E3A3F",True,"right",rv=i+1),T(80,y+16,140,44,nm+"  "+"|"*(i+1),18,col,True,"center",ff=None,rv=i+1)]
     add(els,"[ناتج التعلّم ومعايير النجاح] اقرأ الهدف، ثم اكشف المعايير واحدًا واحدًا، ووضّح أن كل معيار يقابل مستوى ورقة العمل.")
     # words
-    els=frame(1,"🔑 مَفاتيحُ الدَّرْسِ",5,"كَلِماتٌ مِنَ الْقِصَّةِ 🆕")
-    for i,(w,m,e) in enumerate(S["words"][:4]):
+    els=frame(1,"🔑 مَفاتيحُ الدَّرْسِ",5,S.get("words_head","كَلِماتٌ مِنَ الْقِصَّةِ 🆕"))
+    for i,wd in enumerate(S["words"][:4]):
+        w,m,e=wd[:3]; ph=wd[3] if len(wd)>3 else None
         x=[650,90][i%2]; y=[185,385][i//2]
-        els+=[SH(x,y,540,180,"FFFDF8","E8DCC8"),IM(x+430,y+40,90,90,e),T(x+20,y+15,400,78,w,34,"9A2F0B",True,"right"),T(x+20,y+95,400,70,"= "+m,24,"0B5D3B",True,"right","F2FAF4",True,rv=i+1)]
+        if ph: els+=[SH(x,y,540,180,"FFFDF8","E8DCC8"),{"k":"pic","x":x+372,"y":y+12,"w":156,"h":156,"src":ph,"cover":True,"radius":20,"shadow":True},{"k":"img","x":x+352,"y":y+4,"w":44,"h":44,"emo":e},T(x+16,y+15,340,78,w,32,"9A2F0B",True,"right"),T(x+16,y+95,340,70,"= "+m,22,"0B5D3B",True,"right","F2FAF4",True,rv=i+1)]
+        else: els+=[SH(x,y,540,180,"FFFDF8","E8DCC8"),IM(x+430,y+40,90,90,e),T(x+20,y+15,400,78,w,34,"9A2F0B",True,"right"),T(x+20,y+95,400,70,"= "+m,24,"0B5D3B",True,"right","F2FAF4",True,rv=i+1)]
     add(els,"اقرأ الكلمة، واطلب من الطلاب تخمين معناها من الصورة، ثم اكشف المعنى بالنقر.")
     P=S["predict"]; add(frame(1,"🔮 قَبْلَ الْقِراءَةِ",3,"أَتَوَقَّعُ 🔮")+[SH(128,180,1024,230,"FFFDF8"),T(150,190,980,90,P["q"],28,"1E3A3F",True,"right"),T(150,290,980,100,"ثُمَّ أَسْتَمِعُ إِلى مُعَلِّمي، وَأَتابِعُ في كِتَابِي (ص %s)."%S["page"],26,"1E3A3F",False,"right"),ans(128,440,1024,110,P["model"],1,25)],"اكتب ثلاثة توقعات على السبورة لمقارنتها بعد القراءة.")
     # story map
@@ -56,7 +58,12 @@ def build(S):
     els.append(chip(S.get("map_strategy","خَريطَةُ الْقِصَّةِ"))); add(els,"[استراتيجية خريطة القصة] نملأ العناصر معًا: من؟ أين؟ متى؟ من يحكي؟ ثم اكشف الإجابة النموذجية.")
     # match slide
     M=S["match"]; els=frame(2,"🤝 نُطَبِّقُ مَعًا",5,M["head"])
-    for i,(c,a) in enumerate(M["rows"]): y=180+i*100; els+=[T(900,y,290,84,c,26,"1E3A3F",True,"center","FFFDF8",True),T(810,y,80,84,"←",30,"0F6E72",True,"center",ff=None),T(90,y,710,84,a,24,"0B5D3B",True,"right",ANS,True,rv=i+1)]
+    for i,row in enumerate(M["rows"]):
+        c,a=row[0],row[1]; ic=row[2] if len(row)>2 else None; y=180+i*100
+        els+=[T(900,y,290,84,c,26,"1E3A3F",True,"center","FFFDF8",True),T(810,y,80,84,"←",30,"0F6E72",True,"center",ff=None)]
+        if ic and str(ic).startswith("resources/"): els+=[T(196,y,604,84,a,24,"0B5D3B",True,"right",ANS,True,rv=i+1),{"k":"pic","x":90,"y":y-4,"w":96,"h":92,"src":ic,"cover":True,"radius":18,"shadow":True,"rv":i+1}]
+        elif ic: els+=[T(196,y,604,84,a,24,"0B5D3B",True,"right",ANS,True,rv=i+1),SH(96,y+2,84,80,"FFFFFF","E8DCC8",rv=i+1,oval=True),IM(106,y+10,64,64,ic,rv=i+1)]
+        else: els+=[T(90,y,710,84,a,24,"0B5D3B",True,"right",ANS,True,rv=i+1)]
     els.append(chip("فَكِّرْ · زاوِجْ · شارِكْ")); add(els,"[فكّر – زاوج – شارك] دقيقة تفكير فردي، ثم يتبادل كل زميلين الإجابة، ثم يشارك ثلاثة أزواج قبل كشف الإجابة.")
     # order
     els=frame(2,"🔢 نُطَبِّقُ مَعًا",5,S.get("order_head","أُرَتِّبُ الْأَحْداثَ 🔢"))
