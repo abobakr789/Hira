@@ -44,10 +44,10 @@ def build(S):
     add(els,R["note"])
     H=S["hook"]; add(frame(0,"✨ لَحْظَةُ فُضولٍ",3,H["head"])+[SH(500,180,652,140,"FFFDF8"),T(515,190,622,120,H["q"],24,"1E3A3F",False,"right"),T(500,340,652,60,"💬 أُفَكِّرُ · أُشارِكُ زَميلي · نُخْبِرُ الصَّفَّ",22,"0F6E72",True,"center",ff=None),ans(500,420,652,130,H["model"],1,21),PIC(96,180,380,330,H["img"])],H["note"])
     # goal & criteria
-    els=frame(0,"🎯 وِجْهَتُنا الْيَوْمَ",2,"")[:-1]+[SH(380,86,520,64,"FFFFFF","1E3A3F"),T(380,86,520,64,"هدف الدرس ومعايير النجاح",28,"0B7A55",True,"center",ff="brand"),SH(70,165,1140,80,"F6EEDC","D4AA55"),T(85,168,1110,74,"🎯 هَدَفُ الدَّرْسِ: "+S["objective"],22,"1E3A3F",True,"right")]
+    els=frame(0,"🎯 وِجْهَتُنا الْيَوْمَ",2,"")[:-1]+[SH(380,86,520,64,"FFFFFF","1E3A3F"),T(380,86,520,64,("Goal & Success Criteria" if S.get("nn") else "هدف الدرس ومعايير النجاح"),28,"0B7A55",True,"center",ff="brand"),SH(70,165,1140,80,"F6EEDC","D4AA55"),(T(85,168,1110,74,"🎯 Goal: "+S["objective"],22,"1E3A3F",True,"left",ff=None) if S.get("nn") else T(85,168,1110,74,"🎯 هَدَفُ الدَّرْسِ: "+S["objective"],22,"1E3A3F",True,"right"))]
     for i,t in enumerate(S["criteria"]):
         y=262+i*88; nm,col=LV[i]
-        els+=[SH(70,y,1140,76,"FFFFFF","E1E8E6"),SH(1150,y+16,44,44,col,rv=i+1,oval=True),T(1150,y+16,44,44,str(i+1),20,"FFFFFF",True,"center",ff=None,rv=i+1),T(230,y+4,910,68,"أَسْتَطيعُ أَنْ "+t,22,"1E3A3F",True,"right",rv=i+1),T(80,y+16,140,44,nm+"  "+"|"*(i+1),18,col,True,"center",ff=None,rv=i+1)]
+        els+=[SH(70,y,1140,76,"FFFFFF","E1E8E6"),SH(1150,y+16,44,44,col,rv=i+1,oval=True),T(1150,y+16,44,44,str(i+1),20,"FFFFFF",True,"center",ff=None,rv=i+1),(T(230,y+4,910,68,t,22,"1E3A3F",True,"left",ff=None,rv=i+1) if S.get("nn") else T(230,y+4,910,68,"أَسْتَطيعُ أَنْ "+t,22,"1E3A3F",True,"right",rv=i+1)),T(80,y+16,140,44,nm+"  "+"|"*(i+1),18,col,True,"center",ff=None,rv=i+1)]
     add(els,"[ناتج التعلّم ومعايير النجاح] اقرأ الهدف، ثم اكشف المعايير واحدًا واحدًا، ووضّح أن كل معيار يقابل مستوى ورقة العمل.")
     # words
     els=frame(1,"🔑 مَفاتيحُ الدَّرْسِ",5,S.get("words_head","كَلِماتٌ مِنَ الْقِصَّةِ 🆕"))
@@ -159,7 +159,7 @@ def layout(deck,v,th):
         timer=next((e for e in els if _is(e,"text",x=86,y=26)),None)
         head=next((e for e in els if _is(e,"text",x=86,y=92)),None)
         els[:]=[e for e in els if not (e["k"]=="shape" and e["y"]==42 and e["h"]==15)]
-        goal=any(e.get("text")=="هدف الدرس ومعايير النجاح" for e in els)
+        goal=any(e.get("text") in ("هدف الدرس ومعايير النجاح","Goal & Success Criteria") for e in els)
         colcards=[e for e in els if e["k"]=="shape" and e["y"]==175 and e["h"]==420 and e["w"]==333]
         cards=[e for e in els if e["k"]=="shape" and e.get("line") and e not in colcards]
         if v==1:
@@ -177,10 +177,10 @@ def layout(deck,v,th):
             band={"k":"shape","x":0,"y":0,"w":1280,"h":140,"fill":acc,"rad":False}
             label.update(x=640,y=14,w=600,h=34,color="FFFFFF",fill=None,align="right",size=18)
             if goal:
-                els[:]=[e for e in els if not ((e["k"]=="shape" and e["x"]==380 and e["y"]==86) or e.get("text")=="هدف الدرس ومعايير النجاح")]
+                els[:]=[e for e in els if not ((e["k"]=="shape" and e["x"]==380 and e["y"]==86) or e.get("text") in ("هدف الدرس ومعايير النجاح","Goal & Success Criteria"))]
                 cards=[c for c in cards if c in els]
                 if not head:
-                    head={"k":"text","x":300,"y":48,"w":940,"h":80,"text":"هَدَفُ الدَّرْسِ وَمَعاييرُ النَّجاحِ","size":34,"color":"FFFFFF","bold":True,"align":"right","fill":None,"rad":False,"va":"middle","ff":"naskh"}; els.append(head)
+                    head={"k":"text","x":300,"y":48,"w":940,"h":80,"text":("Goal & Success Criteria" if any(str(e.get("text","")).startswith("🎯 Goal:") for e in els) else "هَدَفُ الدَّرْسِ وَمَعاييرُ النَّجاحِ"),"size":34,"color":"FFFFFF","bold":True,"align":"right","fill":None,"rad":False,"va":"middle","ff":"naskh"}; els.append(head)
             if head: head.update(y=48,h=80,color="FFFFFF",size=34)
             mins=timer["text"].replace("⏱","").strip()
             els[:]=[e for e in els if e is not timer]
@@ -253,11 +253,11 @@ def layout2(deck,v,th):
             els.insert(0,{"k":"shape","x":1230,"y":120,"w":28,"h":28,"fill":acc,"radius":8,"rot":45})
         else:
             sl["bg2"]=soft
-            if any(e.get("text")=="هدف الدرس ومعايير النجاح" for e in els):
-                els[:]=[e for e in els if not ((e["k"]=="shape" and e["x"]==380 and e["y"]==86) or e.get("text")=="هدف الدرس ومعايير النجاح")]
+            if any(e.get("text") in ("هدف الدرس ومعايير النجاح","Goal & Success Criteria") for e in els):
+                els[:]=[e for e in els if not ((e["k"]=="shape" and e["x"]==380 and e["y"]==86) or e.get("text") in ("هدف الدرس ومعايير النجاح","Goal & Success Criteria"))]
                 cards=[c for c in cards if c in els]
                 if not head:
-                    head={"k":"text","x":240,"y":62,"w":970,"h":80,"text":"هَدَفُ الدَّرْسِ وَمَعاييرُ النَّجاحِ","size":34,"color":"FFFFFF","bold":True,"align":"right","fill":None,"rad":False,"va":"middle","ff":"naskh"}; els.append(head)
+                    head={"k":"text","x":240,"y":62,"w":970,"h":80,"text":("Goal & Success Criteria" if any(str(e.get("text","")).startswith("🎯 Goal:") for e in els) else "هَدَفُ الدَّرْسِ وَمَعاييرُ النَّجاحِ"),"size":34,"color":"FFFFFF","bold":True,"align":"right","fill":None,"rad":False,"va":"middle","ff":"naskh"}; els.append(head)
             hdr={"k":"shape","x":40,"y":14,"w":1200,"h":140,"fill":acc,"grad":dark,"radius":32,"shadow":True}
             label.update(x=640,y=26,w=570,h=34,color="FFFFFF",fill=None,align="right",size=18,op=0.9)
             if timer: timer.update(x=64,y=50,w=150,h=46,fill="FFFFFF",color=acc,rad=True,size=18,radius=23)

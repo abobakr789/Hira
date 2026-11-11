@@ -1,7 +1,7 @@
 import json, sys, importlib, re
 ROOT="/home/claude/hira"
 def sub(t): return t.replace("[[","").replace("]]","")
-KIND={"vocab":"المفردات والمهارة","story":"القصة","act":"دورك الآن والمحادثة","info":"النص المعلوماتي","gram":"اعرف لغتك","write":"الكتابة","poem":"النشيد","listen":"الاستماع"}
+KIND={"nn":"العربية تجمعنا","vocab":"المفردات والمهارة","story":"القصة","act":"دورك الآن والمحادثة","info":"النص المعلوماتي","gram":"اعرف لغتك","write":"الكتابة","poem":"النشيد","listen":"الاستماع"}
 def subj(s):  # indicative criterion -> subjunctive after «أستطيع أن»
     w=s.split(" ",1); v=w[0]
     if v.endswith("ُ"): v=v[:-1]+"َ"
@@ -33,12 +33,13 @@ def recall(d, prev):
         used=[_st(x[0]) for x in pw[:2]]+[_st(x[1]) for x in pw[:2]]
         cand=[q for q in prev["qs"] if not any(u and (u in _st(q[0]) or u==_st(q[1][0])) for u in used)]
         cand.sort(key=lambda q:len(q[0])); pq=[(cand or prev["qs"])[0][0],(cand or prev["qs"])[0][1][0]]
-        cards=[[pw[0][2],"«"+pw[0][0]+"»","مَعْناها: …",pw[0][1]],
+        mn=("Meaning: …" if prev.get("nn") else "مَعْناها: …")
+        cards=[[pw[0][2],"«"+pw[0][0]+"»",mn,pw[0][1]],
                ["❓","سُؤالٌ مِنَ الدَّرْسِ",*pq]]
-        if len(pw)>1: cards.insert(1,[pw[1][2],"«"+pw[1][0]+"»","مَعْناها: …",pw[1][1]])
+        if len(pw)>1: cards.insert(1,[pw[1][2],"«"+pw[1][0]+"»",mn,pw[1][1]])
         head="مِنْ دَرْسِ «"+pt[:30]+"»"
     else:
-        w=d["words"]; cards=[[x[2],"«"+x[0]+"»","هَلْ تَعْرِفُ مَعْناها؟",x[1]] for x in w[:3]]; head="ماذا نَعْرِفُ؟"
+        w=d["words"]; cards=[[x[2],"«"+x[0]+"»",("Do you know it?" if d.get("nn") else "هَلْ تَعْرِفُ مَعْناها؟"),x[1]] for x in w[:3]]; head="ماذا نَعْرِفُ؟"
     return dict(head=head,img="alt",cards=cards,link="🔗 وَالْيَوْمَ: "+(d["hook"][1] if len(d["hook"][1])<=95 else d["hook"][0]),note="[استرجاع] اسأل عن كل بطاقة شفويًا، ثم اكشف الإجابة بالنقر، ثم اقرأ جسر الربط بدرس اليوم.")
 def build(prefix, d, prev=None, vimg=None):
     vimg=vimg or {}
@@ -96,6 +97,17 @@ def build(prefix, d, prev=None, vimg=None):
         silver=dict(goal="نُفَسِّرُ الْكَلِماتِ.",text=[" · ".join(w[0] for w in W)],steps=["نَبْحَثُ عَنِ الْكَلِماتِ.","نَكْتُبُ مَعانِيَها.","نُكَوِّنُ جُمَلًا بِها."],product="بِطاقاتُ الْكَلِماتِ"),
         gold=dict(goal=m[0].replace("🗺️","").strip(),text=[c[1] for c in m[2]],steps=["نَرْسُمُ الْمُخَطَّطَ.","نَمْلَؤُهُ مِنَ الدَّرْسِ.","نَعْرِضُهُ عَلى الصَّفِّ."],product="مُخَطَّطُ الْمَجْموعَةِ"),
         challenge=dict(goal="نُعَبِّرُ وَنَعْرِضُ.",text=[d["value"]["head"]],steps=["نَتَناقَشُ في الْمَوْقِفِ.","نَكْتُبُ رَأْيَنا.","نَعْرِضُهُ أَمامَ الصَّفِّ."],product="بِطاقَةُ الرَّأْيِ")))
+    if d.get("nn"):
+        S.update(nn=True,criteria=list(d["sc"]),tagline="أَسْمَعُ · أَتَحَدَّثُ · أَقْرَأُ · أَكْتُبُ 🌟",kicker="العربية تجمعنا · الصف الثاني · Arabic for non-native speakers",
+                 words_head="كَلِماتُ الدَّرْسِ · New words 🆕",learned="I learned: "+"; ".join(c.replace("I can ","").rstrip(".") for c in d["sc"][:2])+".")
+        WS.update(grade="الصف الثاني · لغير الناطقين بها",criteria=[c[:60] for c in d["sc"]])
+        L=WS["levels"]; L["bronze"]["goal"]="I can answer simple questions."; L["silver"]["goal"]="I can explain words and complete the organiser."
+        L["gold"]["goal"]="I can put things in order and use the language."; L["challenge"]["goal"]="I can write and give my opinion."
+        tr={"أَخْتارُ الْإِجابَةَ:":"أَخْتارُ الْإِجابَةَ (Choose):","أَخْتارُ:":"أَخْتارُ (Choose):","أَصِلُ الْكَلِمَةَ بِمَعْناها:":"أَصِلُ الْكَلِمَةَ بِمَعْناها (Match):","أُرَقِّمُ بِالتَّرْتيبِ (1، 2، 3):":"أُرَقِّمُ بِالتَّرْتيبِ (Number 1–3):"}
+        for lv in L.values():
+            for t in lv["tasks"]: t["q"]=tr.get(t["q"],t["q"])
+        WS["pod"]["goal"]="I know the lesson words. أَتَعَرَّفُ كَلِماتِ الدَّرْسِ."
+        pack["summary"]["idea"]=d["objective"]
     return pack,S,WS
 if __name__=="__main__":
     mod=sys.argv[1]; prefix=sys.argv[2]; outdir=sys.argv[3]
