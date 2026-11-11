@@ -22,6 +22,11 @@ def photo_in(im, box):
     cols=np.where(mask[r0:r1+1].mean(0)>0.3)[0]
     if len(cols)<10: return None
     return im.crop((x0+cols[0]+4,y0+r0+4,x0+cols[-1]-4,y0+r1-4))
+def safe(im, box):
+    x0,y0,x1,y1=box; r=photo_in(im,box); H=y1-y0
+    if r is None or r.size[1]<0.45*H:
+        W=x1-x0; return im.crop((x0+int(W*.05),y0+int(H*.12),x1-int(W*.05),y1-int(H*.03)))
+    return r
 def cards(F, idxA, idxB, nA=2, rowsB=3, botB=0.93):
     out=[]
     A=page(F,idxA); w,h=A.size
@@ -37,14 +42,14 @@ def cards(F, idxA, idxB, nA=2, rowsB=3, botB=0.93):
             p=x
         s,p=max(segs,key=lambda t:t[1]-t[0]); x0,x1=s,p
     top=int(h*0.28); step=(int(h*0.95)-top)//nA
-    for i in range(nA): out.append(photo_in(A,(x0,top+i*step+int(step*.25),x1,top+(i+1)*step)))
+    for i in range(nA): out.append(safe(A,(x0,top+i*step+int(step*.25),x1,top+(i+1)*step)))
     B=page(F,idxB); w,h=B.size
     b=np.asarray(B).astype(int); ink=((b.max(2)-b.min(2))>38)|(b.max(2)<170)
     xs=np.where(ink[int(h*.1):int(h*.9)].mean(0)>0.12)[0]; L,R=xs[0],xs[-1]; mid=(L+R)//2
     top=int(h*0.07); bot=int(h*botB); step=(bot-top)//rowsB
     for r in range(rowsB):
         for (cx0,cx1) in ((mid,R),(L,mid)):   # right card first (Arabic order)
-            out.append(photo_in(B,(cx0,top+r*step+int(step*.3),cx1,top+(r+1)*step)))
+            out.append(safe(B,(cx0,top+r*step+int(step*.3),cx1,top+(r+1)*step)))
     return out
 if __name__=="__main__":
     F,a,b,prefix=sys.argv[1],int(sys.argv[2]),int(sys.argv[3]),sys.argv[4]
