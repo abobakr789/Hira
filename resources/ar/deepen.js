@@ -59,7 +59,8 @@ function build(D){
   const GM=new Map(); GL.forEach(([w,m])=>{ String(w).split(/[\/،,]| أو /).forEach(x=>{const c=core(x.trim()); if(c.length>=2&&!GM.has(c)) GM.set(c,m);}); });
   const look=tok=>{ const c0=core(tok); if(c0.length<2) return null; const cs=[c0]; if(/^[وفبلك]/.test(c0)&&c0.length>=4) cs.push(c0.slice(1)); if(/^[وف][بلك]/.test(c0)&&c0.length>=5) cs.push(c0.slice(2));
     for(const c of cs){ if(GM.has(c)) return GM.get(c); } for(const c of cs){ for(const [k,m] of GM){ if(k.length>=3&&c.startsWith(k)&&/^(ه|ها|هم|هما|ك|كم|ي|نا|ات|ون|ين|ان|وا|ت|تا)$/.test(c.slice(k.length))) return m; } } return null; };
-  const GLX=p=>KW(p).replace(/(^|[\s«(\[–—"])([\u0621-\u0652\u0670\u0640]{2,})(?=$|[\s،.؛:!؟?»)\],"–—])/g,(a,pre,w)=>{ if(/<mark/.test(w)) return a; const m=look(w); return m?`${pre}<mark class="kw" data-ia data-m="${E(m)}" onclick="hxGl(this,event)">${w}</mark>`:a; });
+  const GLX0=p=>KW(p).replace(/(^|[\s«(\[–—"])([\u0621-\u0652\u0670\u0640]{2,})(?=$|[\s،.؛:!؟?»)\],"–—])/g,(a,pre,w)=>{ if(/<mark/.test(w)) return a; const m=look(w); return m?`${pre}<mark class="kw" data-ia data-m="${E(m)}" onclick="hxGl(this,event)">${w}</mark>`:a; });
+  const GLX=p=>String(p).split(/(﴿[^﴾]*﴾)/).map(x=>/^﴿/.test(x)?`<span class="qf">${String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}</span>`:(x?GLX0(x):"")).join("");
   D.bt.forEach((t,ti)=>{ const raw=String(t.body||"").split(/\n+/).map(x=>x.trim()).filter(Boolean), paras=[];
     raw.forEach(x=>{ const pv=paras[paras.length-1]; if(t.kind!=="poem"&&pv&&bare(pv).length>120&&!/[.!؟?:»"”)\]…]\s*$/.test(pv)) paras[paras.length-1]=pv+" "+x; else paras.push(x); });
     const pages=[];let cur=[],n=0;
@@ -100,7 +101,9 @@ function build(D){
 }
 
 (function(){ if(window.hxGl) return;
-  const css=`mark.kw{background:#FFE58A;border-radius:10px;padding:0 6px;cursor:pointer;box-shadow:inset 0 -4px 0 #E8B90C;color:inherit;transition:background .2s}mark.kw:hover,mark.kw.on{background:#FFD23F}
+  const QFU=(()=>{try{const sc=document.currentScript||[...document.scripts].find(x=>/deepen\.js/.test(x.src)); return new URL('../../art/fonts/amiri-quran.woff2',sc.src).href;}catch(e){return '../../../art/fonts/amiri-quran.woff2';}})();
+  const css=`@font-face{font-family:'Amiri Quran';src:url('${QFU}') format('woff2');font-display:swap}.qf{font-family:'Amiri Quran','Amiri',serif;font-size:1.08em;line-height:2.1;color:#0F5132}
+  mark.kw{background:#FFE58A;border-radius:10px;padding:0 6px;cursor:pointer;box-shadow:inset 0 -4px 0 #E8B90C;color:inherit;transition:background .2s}mark.kw:hover,mark.kw.on{background:#FFD23F}
   .hxmore{font:700 30px/1 inherit;font-family:inherit;background:var(--a,#B4532A);color:#fff;border:0;border-radius:999px;padding:14px 30px;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,.15)}.hxtip{font-size:24px;color:#7A5A2A}
   #hx-pop{position:fixed;z-index:10001;max-width:min(560px,86vw);background:#1F2A44;color:#fff;font-family:inherit;font-size:clamp(17px,2vw,28px);line-height:1.7;padding:14px 22px;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.3);direction:rtl;display:none}
   #hx-pop b{color:#FFD23F;display:block;font-size:1.15em}
