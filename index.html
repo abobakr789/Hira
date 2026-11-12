@@ -5707,7 +5707,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         ["res", nnEn ? "Resources" : "المصادر", arSourcesHtml() + (lockedForMe ? "" : (() => { const fs = res.filter((r) => ["file", "interactive", "link"].includes(r.kind)); const tf = fs.filter((r) => r.audience === "teacher"), sf = fs.filter((r) => r.audience !== "teacher");
           return (isStaff() && tf.length ? `<h3 class="res-group">مواد المعلم <span class="pill warn">لا تظهر للطلاب</span></h3>${resItems(tf)}` : "") + (sf.length ? `<h3 class="res-group">مواد الطالب</h3>${resItems(sf)}` : ""); })())]
       ] : IEPACK ? [
-        ["work", nnEn ? "Worksheets" : "أوراق العمل", (isStaff() && summary && !lockedForMe ? pmOnlyHtml : "") + resList(["worksheet", "file"], "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["work", nnEn ? "Worksheets" : "أوراق العمل", resList(["worksheet", "file"], "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
         ["group", nnEn ? "Group work" : "العمل الجماعي", resList(["group_pack"], "لم تُضف مهام المجموعات لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
         ["parent", nnEn ? "For parents" : "ولي الأمر", parentNoteHtml()],
       ] : [
