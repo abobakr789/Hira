@@ -2438,3 +2438,6 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .memo-text, .sm-ev-t, .bk-read, .gb-t, .ars-text, .ars-v b, .ars-v span { font-family: var(--font-text); }
 
 .qf { font-family: var(--font-quran); font-size: 1.12em; font-weight: 400; }
+
+.htmlv { display: block; width: 100%; height: 82vh; min-height: 620px; border: 0; border-radius: 12px; background: #E9E3D6; margin-top: 10px; }
+.htmlv-card { margin-bottom: 14px; }

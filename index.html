@@ -2458,6 +2458,9 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .memo-text, .sm-ev-t, .bk-read, .gb-t, .ars-text, .ars-v b, .ars-v span { font-family: var(--font-text); }
 
 .qf { font-family: var(--font-quran); font-size: 1.12em; font-weight: 400; }
+
+.htmlv { display: block; width: 100%; height: 82vh; min-height: 620px; border: 0; border-radius: 12px; background: #E9E3D6; margin-top: 10px; }
+.htmlv-card { margin-bottom: 14px; }
 </style>
 </head>
 <body>
@@ -4871,6 +4874,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (["ArrowLeft", "PageDown", " "].includes(e.key)) { e.preventDefault(); box._go(1); }
     if (["ArrowRight", "PageUp"].includes(e.key)) { e.preventDefault(); box._go(-1); }
   });
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-htmlv]"); if (!b) return; const f = b.closest(".htmlv-card") && b.closest(".htmlv-card").querySelector("iframe.htmlv"); if (!f) return;
+    if (b.dataset.htmlv === "print") { try { f.contentWindow.focus(); f.contentWindow.print(); } catch (err) { window.open(f.src, "_blank"); } }
+    else if (f.requestFullscreen) f.requestFullscreen().catch(() => {}); });
   function openIeDeck(src) {
     let o = document.getElementById("ieDeckOv"); if (o) o.remove();
     o = document.createElement("div"); o.id = "ieDeckOv"; o.style.cssText = "position:fixed;inset:0;z-index:2147483000;background:#0E1621";
@@ -5491,6 +5497,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <span class="pdfv-tools"><button class="btn btn-dawn btn-small" data-ppt-full>📽️ ${CT("عرض في الصف", "Present")}</button>${isStaff() ? `<button class="btn btn-ghost btn-small" data-pdfv-act="dl" data-url="${esc(r.url)}" data-name="${esc(r.title_ar)}" data-ext="pptx">✏️ ${CT("تعديل في PowerPoint", "Edit in PowerPoint")}</button>` : ""}</span></div>
             <div class="ppt-frame"><iframe src="${esc(emb)}" loading="lazy" allowfullscreen title="${esc(r.title_ar)}"></iframe></div>
             ${isStaff() ? `<small class="muted">${CT("نزّل الملف وعدّله في PowerPoint كما تشاء: النصوص والصور والحركات قابلة للتعديل، والإجابات تظهر بالنقر.", "Download and edit freely in PowerPoint: text, pictures and animations are editable; answers appear on click.")}</small>` : ""}</div>`;
+        }
+        if (!stored && /^resources\/.+\.html$/i.test(r.url || "") && r.kind !== "slides") {
+          const abs = new URL(r.url, location.href.split("#")[0]).href;
+          return `<div class="pdfv-card htmlv-card"><div class="pdfv-head">${ic}<span><strong>${esc(r.title_ar)}</strong><span class="kind">${KIND[r.kind]}</span></span>
+            <span class="pdfv-tools"><button class="btn btn-ghost btn-small" data-htmlv="full">⛶ ${CT("ملء الشاشة", "Full screen")}</button><button class="btn btn-ghost btn-small" data-htmlv="print">🖨️ ${CT("طباعة", "Print")}</button><a class="btn btn-ghost btn-small" href="${esc(abs)}" target="_blank" rel="noopener">↗️ ${CT("فتح في صفحة", "Open in a page")}</a></span></div>
+            <iframe class="htmlv" src="${esc(abs)}" loading="lazy" title="${esc(r.title_ar)}"></iframe></div>`;
         }
         if (!stored && /^resources\/.+\.pdf$/i.test(r.url || "")) {
           const deck = r.kind === "slides";
