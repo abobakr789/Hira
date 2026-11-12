@@ -4,7 +4,7 @@
 @font-face{font-family:"Thmanyah Text";src:url("../../../art/fonts/thmanyahseriftext-Medium.woff2") format("woff2");font-weight:100 900}
 html,body{margin:0;height:100%;background:#0E1621;overflow:hidden}
 #tb{position:fixed;left:0;right:0;top:0;height:64px;background:#18222E;display:flex;align-items:center;gap:10px;padding:0 16px;direction:rtl;z-index:10;font-family:"Thmanyah Text","Cairo",Tahoma,sans-serif;color:#E9EEF3;box-shadow:0 2px 12px rgba(0,0,0,.25)}
-#tb b{font-family:"Thmanyah Display","Thmanyah Text",Tahoma,sans-serif;font-size:19px;font-weight:700;white-space:nowrap}
+#tb b{font-family:"Thmanyah Display","Thmanyah Text",Tahoma,sans-serif;font-size:19px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto}#tb button,#tb select{flex:none}@media (max-width:1250px){#tb b{display:none}#tb button,#tb select{padding:6px 11px;font-size:15px}}@media (max-width:1100px){#tb{gap:4px;padding:0 6px}#tb .cnt{display:none}#tb button,#tb select{padding:5px 7px;font-size:13px}}
 #tb .cnt{font-size:16px;opacity:.8;white-space:nowrap}
 #tb .sp{flex:1}
 #tb button,#tb select{font-family:"Thmanyah Text","Cairo",Tahoma,sans-serif;font-size:17px;background:transparent;color:#E9EEF3;border:1.5px solid rgba(233,238,243,.28);border-radius:22px;padding:7px 16px;cursor:pointer;white-space:nowrap}
