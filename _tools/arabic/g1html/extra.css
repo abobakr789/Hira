@@ -225,3 +225,5 @@ p.en{font-family:"Thmanyah Text",Tahoma,sans-serif;text-align:left}.crit p.en,.p
 .cv-tx{display:flex;align-items:center;padding:6px 14px;line-height:1.6;white-space:pre-wrap;overflow:hidden}
 .cv-tx>span{display:block;width:100%}
 .cv-emo{display:flex;align-items:center;justify-content:center;line-height:1;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+
+.fs.p5{gap:10px}.fc.n5{flex-direction:column;gap:0;padding:4px 14px;min-width:66px}.fc.n5 b{font:700 30px "Thmanyah Display";width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--c2,#EEE);color:var(--c,#333)}.fc.n5 i{font-size:22px}

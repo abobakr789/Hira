@@ -86,7 +86,7 @@ def conv(code, mode="site"):
         hd=f'<div class="hlogo">{logo(196)}</div><h2 class="ht{" s" if len(bare(ht))>32 else ""}">{ht}</h2><div class="hrow">{chips}</div>'
         ft=f'<div class="ft"><div class="ftr"><span class="ftl">{logo(92)}</span><span>{esc(title)}</span></div>{f"<div class=goal>🎯 {esc(strip)}</div>" if strip else "<div></div>"}<div class="dots"><b style="background:#E2574C"></b><b style="background:#F2A93B"></b><b style="background:#1E7A5A"></b><b style="background:#2F64A8"></b></div></div>'
         out.append(f'<section class="sl" id="s{si}" dir="{"ltr" if en else "rtl"}" style="--bg:{bgc};--a:{a};--a2:{a2};background:{bgc}">{deco(DK[(si*5)%len(DK)],a)}{hd}<div class="bd cvb2">{"".join(parts)}</div>{ft}<aside>{esc(s.get("n",""))}</aside></section>')
-    return page(bare(title),bidify("".join(out)),None,code), len(out)
+    return page(bare(title),bidify("".join(out)),None,code,deep=True), len(out)
 if __name__=="__main__":
     mode=sys.argv[1]
     for c in sys.argv[2:]:

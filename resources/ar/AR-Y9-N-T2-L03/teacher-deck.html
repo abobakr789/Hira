@@ -264,6 +264,8 @@ p.en{font-family:"Thmanyah Text",Tahoma,sans-serif;text-align:left}.crit p.en,.p
 .cv-tx{display:flex;align-items:center;padding:6px 14px;line-height:1.6;white-space:pre-wrap;overflow:hidden}
 .cv-tx>span{display:block;width:100%}
 .cv-emo{display:flex;align-items:center;justify-content:center;line-height:1;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+
+.fs.p5{gap:10px}.fc.n5{flex-direction:column;gap:0;padding:4px 14px;min-width:66px}.fc.n5 b{font:700 30px "Thmanyah Display";width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--c2,#EEE);color:var(--c,#333)}.fc.n5 i{font-size:22px}
 </style></head><body><div id="tb"><button class="x" id="bX">✕ خروج</button><b>عرض المعلم · الناس والزمان</b><span class="cnt" id="pg"></span><span class="sp"></span>
 <select id="fx" title="الانتقال بين الشرائح"><option value="fade">✨ تلاشٍ</option><option value="slide">✨ انزلاق</option><option value="zoom">✨ تكبير</option><option value="none">✨ بلا حركة</option></select>
 <button id="bPg">📈 قياس التقدّم</button><button id="bT">⏱ مؤقت</button><button id="bS">🔔 انتباه</button><button id="bNo">📝 الملاحظات</button><button id="bE">✏️ تعديل</button><button class="gold" id="bF">⛶ ملء الشاشة</button></div>
@@ -588,7 +590,7 @@ p.en{font-family:"Thmanyah Text",Tahoma,sans-serif;text-align:left}.crit p.en,.p
 <path d="M178.4 -112.8 175.0 -118.8 220.0 -144.8 223.4 -138.8Z M260.4 62.0 257.0 56.0 302.0 29.999999999999993 305.4 35.99999999999999Z" fill="#C4943A"></path></g></svg></span><span>النَّاسُ وَالزَّمَانُ</span></div><div class=goal>🎯 الحكمة · السياق · الخيال والموسيقى</div><div class="dots"><b style="background:#E2574C"></b><b style="background:#F2A93B"></b><b style="background:#1E7A5A"></b><b style="background:#2F64A8"></b></div></div><aside>[التكليف المنزلي] </aside></section>
 </div><button class="nav" id="nP" title="السابق">›</button><button class="nav" id="nN" title="التالي">‹</button></div>
 <div id="notes"></div><div id="timer"></div><div id="att">👀 انْتَبِهوا</div><div id="toast"></div>
-<script>const S=[...document.querySelectorAll('.sl')];let i=0,b=0,editing=false;const KEY='hiraa-deck-'+(location.pathname.length>1?location.pathname:'AR-Y9-N-T2-L03');
+<script>window.HIRAA_CODE="AR-Y9-N-T2-L03";</script><script src="../deepen.js"></script><script>window.__boot=function(){const S=[...document.querySelectorAll('.sl')];let i=0,b=0,editing=false;const KEY='hiraa-deck-'+(location.pathname.length>1?location.pathname:'AR-Y9-N-T2-L03');
 const $=x=>document.getElementById(x);
 const toast=t=>{const e=$('toast');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(()=>e.style.display='none',2200);};
 // restore teacher edits (this device)
@@ -644,4 +646,5 @@ function boom(el){snd('clap');const r=el.getBoundingClientRect();for(let k=0;k<2
 function fitTx(sl){sl.querySelectorAll('.cv-tx').forEach(d=>{let f=parseFloat(d.style.fontSize)||24,k=0;while(d.scrollHeight>d.clientHeight+2&&f>14&&k<40){f-=1;d.style.fontSize=f+'px';k++;}});}
 const _show=show;show=function(n,end){_show(n,end);if(!S[i].dataset.fit){const hid=[...S[i].querySelectorAll('.hid')];hid.forEach(e=>e.classList.remove('hid'));fitTx(S[i]);hid.forEach(e=>e.classList.add('hid'));S[i].dataset.fit=1;}const w=S[i].querySelector('.wbox');if(w)setTimeout(()=>redraw(w),300);};
 show((parseInt(location.hash.slice(1))||1)-1);
-</script></body></html>
+
+Object.assign(window,{show,next,prev,snd,cnt,rst,redraw,boom,fb});window.S=S;};if(!window.HIRAA_DEEP||window.__bootWanted){window.__booted=1;window.__boot();}</script></body></html>

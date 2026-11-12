@@ -9,7 +9,7 @@ def A(p):
     if MODE["m"]=="site": return "../../../"+p
     mime={"webp":"image/webp","woff2":"font/woff2","png":"image/png","jpg":"image/jpeg"}[p.rsplit(".",1)[1]]
     return f"data:{mime};base64,"+base64.b64encode(open(ROOT+p,"rb").read()).decode()
-def page(title,slides,lesson_id,code):
+def page(title,slides,lesson_id,code,deep=False):
     css0=re.findall(r'<style[^>]*>(.*?)</style>',IE,re.S)[0]
     css0=re.sub(r'@font-face\{[^}]*\}\n?','',css0).replace('.sl div:not([style*="display"]){display:flex;flex-direction:column}\n','').replace('.sl p,.sl h1,.sl h2,.sl h3{margin:0}',':where(.sl) :where(p,h1,h2,h3){margin:0}').replace('.sl p{line-height:1.4}.sl h1{line-height:1.1;font-weight:600}.sl h2{line-height:1.15;font-weight:600}.sl h3{line-height:1.2;font-weight:600}',':where(.sl) :where(h1,h2,h3){font-weight:600}')
     fonts=f'''@font-face{{font-family:"Thmanyah Display";src:url("{A('art/fonts/thmanyahserifdisplay-Bold.woff2')}") format("woff2");font-weight:100 900}}
@@ -34,8 +34,10 @@ function fitTx(sl){sl.querySelectorAll('.cv-tx').forEach(d=>{let f=parseFloat(d.
 const _show=show;show=function(n,end){_show(n,end);if(!S[i].dataset.fit){const hid=[...S[i].querySelectorAll('.hid')];hid.forEach(e=>e.classList.remove('hid'));fitTx(S[i]);hid.forEach(e=>e.classList.add('hid'));S[i].dataset.fit=1;}const w=S[i].querySelector('.wbox');if(w)setTimeout(()=>redraw(w),300);};
 show((parseInt(location.hash.slice(1))||1)-1);
 '''
+    dp=(f'<script>window.HIRAA_CODE="{code}";</script><script src="../deepen.js"></script>' if deep else "")
     return f'''<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>عرض المعلم · {title} · حراء</title>
 <style>{CSS}</style></head><body>{TB}<div id="wrap"><div id="stage">{slides}
 </div><button class="nav" id="nP" title="السابق">›</button><button class="nav" id="nN" title="التالي">‹</button></div>
 <div id="notes"></div><div id="timer"></div><div id="att">👀 انْتَبِهوا</div><div id="toast"></div>
-<script>{JS}</script></body></html>'''
+{dp}<script>window.__boot=function(){{{JS}
+Object.assign(window,{{show,next,prev,snd,cnt,rst,redraw,boom,fb}});window.S=S;}};if(!window.HIRAA_DEEP||window.__bootWanted){{window.__booted=1;window.__boot();}}</script></body></html>'''
