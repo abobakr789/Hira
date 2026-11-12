@@ -221,3 +221,7 @@ p.en{font-family:"Thmanyah Text",Tahoma,sans-serif;text-align:left}.crit p.en,.p
 .ob{display:inline-flex;align-items:center;justify-content:center;width:1.25em;height:1.25em;border-radius:50%;background:var(--a2,#EEE);color:var(--a,#333);font-style:normal;font-weight:700;font-size:.8em;margin-left:8px;vertical-align:middle}
 
 .goalbox.sm p{font-size:32px}.crs.sm .crit{min-height:0;padding:16px 22px}.crs.sm .crit p{font-size:32px!important;line-height:1.5}.crs.sm .tag{font-size:24px}
+.cvb2 .cv-el{position:absolute;box-sizing:border-box}
+.cv-tx{display:flex;align-items:center;padding:6px 14px;line-height:1.6;white-space:pre-wrap;overflow:hidden}
+.cv-tx>span{display:block;width:100%}
+.cv-emo{display:flex;align-items:center;justify-content:center;line-height:1;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}

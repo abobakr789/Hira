@@ -30,7 +30,8 @@ function rst(b){b.closest('.sl').querySelectorAll('.fc i').forEach(i=>i.textCont
 function fb(b,d){const s=b.closest('.sl'),P=[...s.querySelectorAll('.fbk .fsp')];let k=P.findIndex(p=>p.classList.contains('on'));k=Math.max(0,Math.min(P.length-1,k+d));P.forEach((p,j)=>p.classList.toggle('on',j===k));s.querySelector('.fbc2').textContent=(k+1)+' / '+P.length;}
 function redraw(box){box.classList.remove('go');void box.offsetWidth;box.classList.add('go');}
 function boom(el){snd('clap');const r=el.getBoundingClientRect();for(let k=0;k<26;k++){const s=document.createElement('span');s.className='boom';s.textContent=['🎉','⭐','✨','🌟','💫'][k%5];s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top+r.height/2)+'px';s.style.setProperty('--x',(Math.random()*900-450)+'px');s.style.setProperty('--y',(Math.random()*-600+100)+'px');document.body.appendChild(s);setTimeout(()=>s.remove(),1500);}}
-const _show=show;show=function(n,end){_show(n,end);const w=S[i].querySelector('.wbox');if(w)setTimeout(()=>redraw(w),300);};
+function fitTx(sl){sl.querySelectorAll('.cv-tx').forEach(d=>{let f=parseFloat(d.style.fontSize)||24,k=0;while(d.scrollHeight>d.clientHeight+2&&f>14&&k<40){f-=1;d.style.fontSize=f+'px';k++;}});}
+const _show=show;show=function(n,end){_show(n,end);if(!S[i].dataset.fit){const hid=[...S[i].querySelectorAll('.hid')];hid.forEach(e=>e.classList.remove('hid'));fitTx(S[i]);hid.forEach(e=>e.classList.add('hid'));S[i].dataset.fit=1;}const w=S[i].querySelector('.wbox');if(w)setTimeout(()=>redraw(w),300);};
 show((parseInt(location.hash.slice(1))||1)-1);
 '''
     return f'''<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>عرض المعلم · {title} · حراء</title>
