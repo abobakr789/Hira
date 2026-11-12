@@ -2406,3 +2406,9 @@ html[data-subj] .page-head .ph-art{opacity:.6}
 .rd-rep .lp-t h3 { margin-top: 0; }
 .rd-cls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
 @media (max-width: 600px) { .rd-cover { flex-direction: column; text-align: center; } .rd-cover .rd-nav { justify-content: center; } .rd-page { padding: 18px 16px 40px; } }
+
+/* كتاب حراء بخط ثمانية: نسخة النصوص لصفحات الكتاب والكلمات والأسئلة، ونسخة العناوين للعناوين */
+.rd-wrap,.rd-book,.rd-q,.rd-res{--rd-text:"thmanyah serif text","Noto Naskh Arabic","Amiri",serif;--rd-head:"thmanyah serif display","thmanyah serif text","Noto Naskh Arabic",serif}
+.rd-txt p,.rd-qq,.rd-opt,.rd-words span,.rd-steps,.rd-cover .muted{font-family:var(--rd-text)!important}
+.rd-txt p{line-height:2.15}
+.rd-cv-body h2,.rd-ttl,.rd-words b,.rd-rev h2,.rd-rev h3,.rd-res h2,.rd-res h3{font-family:var(--rd-head)!important;font-weight:700}
