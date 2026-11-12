@@ -1,4 +1,4 @@
-import re, json, sys, os, random, unicodedata
+import re, json, sys, os, random, unicodedata, glob
 import art, content
 from shell import A, logo, page, MODE, ROOT
 from content import MEAN, SHAPE, ORDER, NAME
@@ -84,15 +84,13 @@ def build(code, mode="site"):
     MODE["m"]=mode
     term=code.split("-")[3]; n=code.split("-")[4]
     nn="-NN-" in code
-    if nn: sp=f"{T}g2/g1nn{term.lower()}/{n}"
-    elif term=="T1": sp=f"{T}g1t1/{n}"; 
-    elif term=="T2": sp=f"{T}g1t2/{n}"
-    else: sp=f"{T}g1/{code}"
+    sp=SPEC.get(code) or f"{T}g1/{code}"
     P=json.load(open(sp+".json"))
     S=json.load(open(sp+".deck.json")) if os.path.exists(sp+".deck.json") else None
-    meta=META[code]
+    meta=META.get(code,{"id":None})
     if S is None: S=json.load(open(f"{T}g1/AR-Y1-N-T3-L09.deck.json")); S=fallback(S,P)
-    title=S["title"]; m=re.search(r"\((.{1,2})\)\s*$",bare(title)); L=m.group(1) if m else ""
+    grade=int(code.split("-")[1][1:])
+    title=S["title"]; m=re.search(r"\((.{1,2})\)\s*$",bare(title)); L=m.group(1) if (m and grade==1) else ""
     review=bare(title).startswith("مراجعة:"); poem="النشيد" in bare(title)
     if L=="ه": L="هـ"
     kind="letter" if L else ("poem" if poem else ("review" if review else "text"))
@@ -107,7 +105,7 @@ def build(code, mode="site"):
         if "بِـ (" in mean or "بِـ(" in mean: mean=MEAN.get(w[0],mean)
         words.append((w[0],mean,w[2] if len(w)>2 else "🔤",w[3] if len(w)>3 and os.path.exists(ROOT+w[3]) else None))
     crit=S["criteria"]; G=P["groups"]; LVK=["bronze","silver","gold","challenge"]
-    gm=[0,1,1,2] if kind=="letter" else crit_map(crit,[G[k] for k in LVK])
+    gm=[0,1,1,2] if kind=="letter" else [0,1,2,3]
     verbs=[c.split()[0] for c in P["criteria"]]
     if nn: verbs=[v.strip() for v in re.sub(r"[^\u0600-\u06FF ·]","",S.get("tagline","أَسْمَعُ · أَتَحَدَّثُ · أَقْرَأُ · أَكْتُبُ")).split("·")][:4]
     EN={"retrieve":"Remember","guess":"Guess the word","hook":"Wonder","goal":"Goal & Success Criteria","progress":"Where am I now?","vocab":"New words","predict":"Predict","story":"Read together","map":"Explore","match":"Match","speak":"Speak","wordj":"Word journey","order":"Order","groups":"Group work","models":"Model answers","truefalse":"True or false?","feedback":"Two stars & a wish","value":"Our values","quick":"Quick challenge","progress2":"How far did I get?","exit":"Exit ticket","home":"Home task"} if nn else {}
@@ -125,7 +123,7 @@ def build(code, mode="site"):
 <i class="dc" style="left:-200px;bottom:-260px;width:760px;height:760px;border-radius:50%;background:#F2A93B;opacity:.10"></i>
 <div class="hlogo cvlogo">{logo(380)}</div>
 <div class="cvpic g"><div class="cvsun"></div>{f'<img class="cvimg" src="{cov}" alt="">' if cov else ''}<div class="cvL{' e' if kind!='letter' else ''}"><span>{badge}</span></div></div>
-<div class="cvtx"><p class="cvk">{kick}</p><h1 class="cvt{' s' if len(bare(ctitle))>22 else ''}">{ctitle}</h1>{f'<p class="cvs" dir="ltr" style="text-align:right">{S["objective"]}</p>' if nn else f'<p class="cvs">{S["strip"]}.</p>'}
+<div class="cvtx"><p class="cvk">{kick}</p><h1 class="cvt{' s' if len(bare(ctitle))>22 else ''}">{ctitle}</h1>{f'<p class="cvs" dir="ltr" style="text-align:right">{S["objective"]}</p>' if nn else f'<p class="cvs">{S["strip"] if bare(S["strip"]).strip(". ")!=bare(ctitle).split(":")[-1].strip() else re.sub("^أَنْ ","",S["objective"])}.</p>'}
 <div class="cvv">{''.join(f'<span style="--c:{vcols[k]}">{v}</span>' for k,v in enumerate(verbs[:4]))}</div></div>
 <p class="cvb">{S["byline"]}</p><aside>{S.get("title_note","")}</aside></section>''')
     # ---------- retrieval ----------
@@ -169,7 +167,8 @@ def build(code, mode="site"):
     for k in range(4):
         gs=[j for j in range(4) if gm[j]==k]
         tags.append(("الْمَجْموعَةُ "+str(gs[0]+1)) if len(gs)==1 else ("الْمَجْموعَتانِ "+" وَ ".join(str(j+1) for j in gs)) if gs else "الصَّفُّ كُلُّهُ · بِطاقَةُ الْخُروجِ")
-    body=f'<div class="goalbox">{f'<p dir="ltr" class="en">🎯 <b>Goal:</b> {S["objective"]}</p>' if nn else f'<p>🎯 <b>هَدَفُ الدَّرْسِ:</b> {S["objective"]}</p>'}</div><div class="crs">'+"".join(f'<div class="crit" style="--c:{LV[k][1]};--c2:{LV[k][2]}"{B(k+1)}><b class="n">{k+1}</b><span class="vb">{verbs[k]}</span><p{' dir=ltr class=en' if nn else ''}>{c if nn else "أَسْتَطيعُ أَنْ "+c}</p><span class="tag">{tags[k]}</span></div>' for k,c in enumerate(crit[:4]))+'</div>'
+    cl=max(len(bare(c)) for c in crit[:4])+len(bare(S["objective"]))//4; gcls=" sm" if cl>75 else ""
+    body=f'<div class="goalbox{gcls}">{f'<p dir="ltr" class="en">🎯 <b>Goal:</b> {S["objective"]}</p>' if nn else f'<p>🎯 <b>هَدَفُ الدَّرْسِ:</b> {S["objective"]}</p>'}</div><div class="crs{gcls}">'+"".join(f'<div class="crit" style="--c:{LV[k][1]};--c2:{LV[k][2]}"{B(k+1)}><b class="n">{k+1}</b><span class="vb">{verbs[k]}</span><p{' dir=ltr class=en' if nn else ''}>{c if nn else "أَسْتَطيعُ أَنْ "+c}</p><span class="tag">{tags[k]}</span></div>' for k,c in enumerate(crit[:4]))+'</div>'
     D.slide("goal","هَدَفُ الدَّرْسِ وَمَعاييرُ النَّجاحِ","إِلى أَيْنَ نَمْضي؟",body,"[ناتج التعلّم ومعايير النجاح] اقرأ الهدف، ثم اكشف المعايير واحدًا واحدًا، ووضّح مكان تنفيذ كل معيار.",mins=2,bg="lilac",dk="dots")
     def prog(sid,t,pill,inst,bg):
         rows="".join(f'<div class="pr" style="--c:{LV[k][1]};--c2:{LV[k][2]}"><b class="n">{k+1}</b><span class="vb">{verbs[k]}</span><p{' dir=ltr class=en' if nn else ''}>{P["criteria"][k]}</p><div class="fs">'+"".join(f'<button class="fc" data-ia onclick="cnt(this)">{art.face(f,None,70)}<i>0</i></button>' for f in ("sad","mid","happy"))+'</div></div>' for k in range(4))
@@ -187,6 +186,7 @@ def build(code, mode="site"):
     D.slide("predict","أَتَوَقَّعُ قَبْلَ الْقِراءَةِ","قَبْلَ الْقِراءَةِ",body,"اكتب توقعات الطلاب على السبورة، وارجع إليها بعد القراءة.",mins=3,strat="فَكِّرْ · زاوِجْ · شارِكْ",bg="rose",dk="ring")
     # ---------- text ----------
     lines=P["key"]; long=sum(len(bare(strip_br(x))) for x in lines)>170
+    lines=[re.sub(r"\s*\*{3}\s*","  ✦  ",l) for l in lines]
     txt="".join(f'<p{B(k+1)}>{kw(hl_letter(l,L) if kind=="letter" else l)}</p>' for k,l in enumerate(lines))
     hunt=f'<button data-ia onclick="this.closest(\'.sl\').classList.toggle(\'hunt\')">🔍 أَيْنَ حَرْفُ ({L})؟ أُلَوِّنُهُ!</button>' if kind=="letter" else ""
     full="📖 النَّصُّ كامِلًا في تَبْويبِ «نَصُّ الْكِتابِ»" if (long or kind in ("poem","text")) else "📖 مِنْ كِتابِ «الْعَرَبِيَّةُ تَجْمَعُنا»"
@@ -376,3 +376,9 @@ for d in ["g1t1","g1t2"]:
             if len(w)>2 and w[0] in MEAN: POOL.append((w[0],w[2]))
 POOL=list(dict.fromkeys(POOL))
 META=json.load(open("/home/claude/ar/meta.json"))
+SPEC={}
+for f in glob.glob(T+"**/*.deck.json",recursive=True):
+    try: c=json.load(open(f)).get("code")
+    except Exception: continue
+    if c and os.path.exists(f[:-10]+".json"): SPEC.setdefault(c,f[:-10])
+SPEC["AR-Y1-N-T3-L08"]=T+"g1/AR-Y1-N-T3-L08"

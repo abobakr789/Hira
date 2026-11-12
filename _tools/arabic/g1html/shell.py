@@ -17,7 +17,7 @@ def page(title,slides,lesson_id,code):
 '''
     CSS=fonts+css0+open(__import__("os").path.join(__import__("os").path.dirname(__file__),"extra.css")).read()
     tb_start=IE.find('<body>')+6; tb_end=IE.find('<div id="wrap">')
-    TB=IE[tb_start:tb_end].replace('عرض المعلم · حديث: الدين النصيحة','عرض المعلم · '+title).replace('e0ea43be-0356-481f-a72d-0885b6d4d80f',lesson_id)
+    TB=IE[tb_start:tb_end].replace('عرض المعلم · حديث: الدين النصيحة','عرض المعلم · '+title).replace('lesson=e0ea43be-0356-481f-a72d-0885b6d4d80f',('lesson='+lesson_id) if lesson_id else ('code='+code))
     JS=re.findall(r'<script[^>]*>(.*?)</script>',IE,re.S)[0]
     JS=JS.replace("const KEY='hiraa-deck-'+location.pathname;",f"const KEY='hiraa-deck-'+(location.pathname.length>1?location.pathname:'{code}');")
     JS=JS.replace("$('wrap').addEventListener('click',e=>{if(!editing&&!e.target.closest('.nav'))next();});",
