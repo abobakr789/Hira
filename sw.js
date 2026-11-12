@@ -1,5 +1,5 @@
 /* Hira service worker: app shell offline, curriculum data cached for offline reading */
-const VERSION = "hira-v36";
+const VERSION = "hira-v37";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 // only public curriculum tables are cached (never student data, resources or results)
 const CURRICULUM = /\/rest\/v1\/(units|lessons|learning_outcomes|lesson_outcomes|fw_domains|fw_axes|fw_standards|evidences|identity_tags|lesson_identity_links|success_criteria)\b/;

@@ -3134,16 +3134,17 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const words = (sm.words || []).slice(0, 4), home = (sm.do || []).slice(0, 3);
       const link = location.href.split("#")[0] + "#/lesson/" + l.code;
       const T = (a, b) => (en ? b : a);
-      const msg = T(`ولي الأمر الكريم، تعلّم طفلنا هذا الأسبوع «${title}».${words.length ? " كلمات الدرس: " + words.map((w) => w[0]).join("، ") + "." : ""} نرجو أن تشاركوه: ${home.join(" ")}`,
+      const big = (u.year_group || 1) > 4, KID = big ? "ابننا" : "طفلنا", KIDS = big ? "ابنكم" : "طفلكم";
+      const msg = T(`ولي الأمر الكريم، تعلّم ${KID} هذا الأسبوع «${title}».${words.length ? " كلمات الدرس: " + words.map((w) => w[0]).join("، ") + "." : ""} نرجو أن تشاركوه: ${home.join(" ")}`,
         `Dear parent, this week your child learned «${title}».${words.length ? " New words: " + words.map((w) => w[0] + " (" + String(w[1]).replace(/\s*\p{Extended_Pictographic}.*$/u, "") + ")").join(", ") + "." : ""} Please practise at home: ${home.join(" ")}`);
       return `<div class="pn" dir="${en ? "ltr" : "rtl"}">
         <div class="pn-card" id="pnCard">
           <div class="pn-head"><span class="pn-emo">🏠</span><div><h3>${T("رسالة إلى ولي الأمر", "A note for parents")}</h3><p>${esc(title)}</p></div>${letter ? `<span class="pn-letter">${esc(letter)}</span>` : ""}<img class="pn-logo" src="art/brand/hiraa-lockup-light.svg" alt="حراء"></div>
-          ${goalBlock(l, en) ? `<h4>${T("🎯 هدف الدرس وما سيتمكّن منه طفلكم", "🎯 The lesson goal and what your child will be able to do")}</h4>${goalBlock(l, en, "pn-gb")}` : ""}
-          <p>${T("ولي الأمر الكريم، هذا ما تعلّمه طفلنا في هذا الدرس، وهكذا تساعدونه في البيت:", "Dear parent, here is what your child learned in this lesson, and how you can help at home:")}</p>
+          ${goalBlock(l, en) ? `<h4>${T(`🎯 هدف الدرس وما سيتمكّن منه ${KIDS}`, "🎯 The lesson goal and what your child will be able to do")}</h4>${goalBlock(l, en, "pn-gb")}` : ""}
+          <p>${T(`ولي الأمر الكريم، هذا ما تعلّمه ${KID} في هذا الدرس، وهكذا تساعدونه في البيت:`, "Dear parent, here is what your child learned in this lesson, and how you can help at home:")}</p>
           ${words.length ? `<h4>${T("🖼️ كلمات الدرس", "🖼️ New words")}</h4><div class="pn-words">${words.map((w) => `<span><b>${esc(w[0])}</b><small>${esc(w[1] || "")}</small></span>`).join("")}</div>` : ""}
           ${home.length ? `<h4>${T("🏠 نتعلّم معًا في البيت", "🏠 Practise together at home")}</h4><ul>${home.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
-          ${sm.think ? `<h4>${T("🤔 اسألوا طفلكم", "🤔 Ask your child")}</h4><p>${esc(sm.think)}</p>` : ""}
+          ${sm.think ? `<h4>${T(`🤔 اسألوا ${KIDS}`, "🤔 Ask your child")}</h4><p>${esc(sm.think)}</p>` : ""}
         </div>
         <div class="pn-tools"><button class="btn btn-primary btn-small" id="pnPrint">🖨️ ${T("طباعة", "Print")}</button>
           <a class="btn btn-ghost btn-small" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg)}">💬 ${T("إرسال عبر واتساب", "Send on WhatsApp")}</a>
@@ -3185,10 +3186,13 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       ] : IEPACK ? [
         ["work", nnEn ? "Worksheets" : "أوراق العمل", (isStaff() && summary && !lockedForMe ? pmOnlyHtml : "") + resList(["worksheet", "file"], "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
         ["group", nnEn ? "Group work" : "العمل الجماعي", resList(["group_pack"], "لم تُضف مهام المجموعات لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["parent", nnEn ? "For parents" : "ولي الأمر", parentNoteHtml()],
       ] : [
-        ["work", "أوراق العمل", (isStaff() && summary && !lockedForMe ? papersHtml : "") + resList(["worksheet", "group_pack", "file", "interactive", "link"], isStaff() && summary ? CT("لا توجد ملفات مرفوعة إضافية", "No extra uploaded files") : "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["work", nnEn ? "Worksheets" : "أوراق العمل", (isStaff() && summary && !lockedForMe ? papersHtml : "") + resList(["worksheet", "file", "interactive", "link"], isStaff() && summary ? CT("لا توجد ملفات مرفوعة إضافية", "No extra uploaded files") : "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["group", nnEn ? "Group work" : "العمل الجماعي", resList(["group_pack"], "لم تُضف مهام المجموعات لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["parent", nnEn ? "For parents" : "ولي الأمر", parentNoteHtml()],
       ]),
-      ...(subject === "arabic" && (bookTx || isSuper()) ? [["booktext", nnEn ? "📖 Book text" : "📖 نص الكتاب", bookTxHtml()]] : []),
+      ...((bookTx || isSuper()) ? [["booktext", nnEn ? "📖 Book text" : "📖 نص الكتاب", bookTxHtml()]] : []),
       ["video", nnEn ? "Video" : "الفيديو", videoHtml],
       ...((subject === "islamic" || subject === "igcse") || ev.length ? [["evidence", (subject === "islamic" || subject === "igcse") ? CT("المصادر", "Sources") : "الشواهد", (subject === "islamic" || subject === "igcse") ? (IEPACK ? (lockedForMe ? lockedMsg : resItems(res.filter((r) => /sources-concept-card/.test(r.url || "")))) : srcHtml) : evHtml]] : []),
       ["identity", nnEn ? "National identity" : "الهوية الوطنية", idHtml],
