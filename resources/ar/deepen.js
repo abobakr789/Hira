@@ -10,7 +10,7 @@ const KW=s=>E(s).replace(/\[\[(.+?)\]\]/g,'<mark>$1</mark>');
 const LV=[["بُرونْزِيٌّ","#A0612F","#F6E7DA"],["فِضِّيٌّ","#5F6C78","#E9EDF1"],["ذَهَبِيٌّ","#B8860B","#FBF0D2"],["تَحَدٍّ","#6B46A8","#EEE7FA"]];
 const BG=[["#FBF7EF","#B4532A","#FBE6D8"],["#EEF6F1","#1E7A5A","#D7EEE2"],["#EEF4FB","#2F64A8","#DCE8F7"],["#FDF1EA","#C2571A","#FBE0CF"],["#F4F0FB","#6B46A8","#E6DDF7"],["#FFF8E6","#B07A12","#FBEBC2"],["#FCF1F3","#B0395F","#F8DCE3"]];
 const B=(n,k)=>` data-build-in="${k||"up"} ${n}"`;
-const bare=s=>String(s||"").replace(/[\u064B-\u0652\u0670\u0640]/g,"");
+const bare=s=>String(s||"").replace(/[\u064B-\u065F\u0670\u0640\u06D6-\u06ED]/g,"");
 let LOGO="",FOOT="",K=0;
 function slide(id,title,pill,body,note,mins,crit){
   const b=BG[(K++)%BG.length];
@@ -60,7 +60,7 @@ function build(D){
   const look=tok=>{ const c0=core(tok); if(c0.length<2) return null; const cs=[c0]; if(/^[وفبلك]/.test(c0)&&c0.length>=4) cs.push(c0.slice(1)); if(/^[وف][بلك]/.test(c0)&&c0.length>=5) cs.push(c0.slice(2));
     for(const c of cs){ if(GM.has(c)) return GM.get(c); } for(const c of cs){ for(const [k,m] of GM){ if(k.length>=3&&c.startsWith(k)&&/^(ه|ها|هم|هما|ك|كم|ي|نا|ات|ون|ين|ان|وا|ت|تا)$/.test(c.slice(k.length))) return m; } } return null; };
   const GLX0=p=>KW(p).replace(/(^|[\s«(\[–—"])([\u0621-\u0652\u0670\u0640]{2,})(?=$|[\s،.؛:!؟?»)\],"–—])/g,(a,pre,w)=>{ if(/<mark/.test(w)) return a; const m=look(w); return m?`${pre}<mark class="kw" data-ia data-m="${E(m)}" onclick="hxGl(this,event)">${w}</mark>`:a; });
-  const GLX=p=>String(p).split(/(﴿[^﴾]*﴾)/).map(x=>/^﴿/.test(x)?`<span class="qf">${String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}</span>`:(x?GLX0(x):"")).join("");
+  const GLX=p=>String(p).split(/(﴿[^﴾]*﴾)/).map(x=>/^﴿/.test(x)?`<span class="qf">${String(x).replace(/\u065E/g,"\u08F1").replace(/\u0656/g,"\u08F2").replace(/\u0657/g,"\u08F0").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])).split(/(\s+)/).map(w=>{ if(/^\s*$/.test(w)) return w; const m=look(w.replace(/[﴿﴾\u06DD٠-٩0-9]/g,"")); return m?`<mark class="kw" data-ia data-m="${E(m)}" onclick="hxGl(this,event)">${w}</mark>`:w; }).join("")}</span>`:(x?GLX0(x):"")).join("");
   D.bt.forEach((t,ti)=>{ const raw=String(t.body||"").split(/\n+/).map(x=>x.trim()).filter(Boolean), paras=[];
     raw.forEach(x=>{ const pv=paras[paras.length-1]; if(t.kind!=="poem"&&pv&&bare(pv).length>120&&!/[.!؟?:»"”)\]…]\s*$/.test(pv)) paras[paras.length-1]=pv+" "+x; else paras.push(x); });
     const pages=[];let cur=[],n=0;
@@ -116,7 +116,7 @@ function build(D){
   const add=()=>{document.body.appendChild(pop);document.body.appendChild(ov); const f=document.querySelector(".sl"); const ff=f?getComputedStyle(f).fontFamily:""; if(ff){pop.style.fontFamily=ff;ov.style.fontFamily=ff;}}; document.body?add():document.addEventListener("DOMContentLoaded",add);
   let on=null; const hide=()=>{pop.style.display="none"; if(on){on.classList.remove("on");on=null;}};
   window.hxGl=function(el,ev){ if(ev) ev.stopPropagation(); if(on===el){hide();return;} hide(); on=el; el.classList.add("on");
-    const f=document.querySelector(".sl"); if(f){pop.style.fontFamily=ov.style.fontFamily=getComputedStyle(f).fontFamily;} pop.innerHTML=`<b>${el.textContent}</b>${el.dataset.m}`; pop.style.display="block"; const r=el.getBoundingClientRect(), w=pop.offsetWidth, h=pop.offsetHeight;
+    const f=document.querySelector(".sl"); if(f){pop.style.fontFamily=ov.style.fontFamily=getComputedStyle(f).fontFamily;} pop.innerHTML=`<b${el.closest(".qf")?' style="font-family:\'Amiri Quran\',serif;font-weight:400"':""}>${el.textContent}</b>${el.dataset.m}`; pop.style.display="block"; const r=el.getBoundingClientRect(), w=pop.offsetWidth, h=pop.offsetHeight;
     pop.style.left=Math.max(8,Math.min(innerWidth-w-8,r.left+r.width/2-w/2))+"px"; pop.style.top=(r.top-h-12>8?r.top-h-12:r.bottom+12)+"px"; };
   window.hxMore=function(k){ const d=(window.HX_REST||{})[k]; if(!d) return; hide(); const f=document.querySelector(".sl"); if(f) ov.style.fontFamily=getComputedStyle(f).fontFamily;
     ov.innerHTML=`<div class="pn${d.poem?" poem":""}" data-ia><button class="x" data-ia onclick="hxClose()">✕</button><h3>📖 ${d.title} — بَقِيَّةُ النَّصِّ</h3>${d.html}${d.pages?`<p style="color:#7A5A2A;font-size:.75em">📖 كِتابُ الطّالِبِ ص ${d.pages}</p>`:""}</div>`; ov.style.display="flex"; };
