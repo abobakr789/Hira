@@ -40,8 +40,40 @@ body.edit [data-build-in].hid{opacity:.35;transform:none}
 #timer.end{background:#B0582F;animation:pulse .5s 4}
 @keyframes pulse{50%{transform:scale(1.08)}}
 #att{position:fixed;inset:64px 0 0 0;display:none;align-items:center;justify-content:center;background:rgba(14,22,33,.55);z-index:13;font:700 120px "Thmanyah Display",Tahoma,sans-serif;color:#FFF0C2}
-#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#18222E;color:#fff;padding:10px 20px;border-radius:14px;font:17px "Thmanyah Text",Tahoma,sans-serif;display:none;z-index:14}.qf{font-family:"Amiri Quran",serif!important;font-weight:400;font-size:1.08em}</style></head><body><div id="tb"><button class="x" id="bX">✕ خروج</button><b>عرض المعلم · اللهُ رَبّي</b><span class="cnt" id="pg"></span><span class="sp"></span>
-<select id="fx"><option value="fade">✨ تلاشٍ</option><option value="slide">✨ انزلاق</option><option value="zoom">✨ تكبير</option><option value="none">✨ بلا حركة</option></select>
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#18222E;color:#fff;padding:10px 20px;border-radius:14px;font:17px "Thmanyah Text",Tahoma,sans-serif;display:none;z-index:14}
+@keyframes rise{from{opacity:0;transform:translateY(34px) scale(.98);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08) translate(-1%,1%)}}
+@keyframes floaty{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-22px)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(-3deg)}}
+@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes unorbit{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+@keyframes wordin{from{opacity:0;transform:translateY(12px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@keyframes drawl{from{stroke-dashoffset:var(--L,3000)}to{stroke-dashoffset:0}}
+@keyframes arcin{from{opacity:0;stroke-width:4}to{opacity:1;stroke-width:34}}
+@keyframes pop{0%{opacity:0;transform:scale(.6)}70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+@keyframes barw{from{width:0}}
+@keyframes shine{from{background-position:-200% 0}to{background-position:200% 0}}
+body.fx-cinema .sl{transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1),filter .9s}
+body.fx-cinema .sl:not(.on){transform:scale(1.05);filter:blur(10px)}
+.sl.on>div:not([data-build-in]):not(.orb):not(.cvbg){animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.sl.on>div:nth-child(3){animation-delay:.08s}.sl.on>div:nth-child(4){animation-delay:.2s}.sl.on>div:nth-child(5){animation-delay:.35s}.sl.on>div:nth-child(6){animation-delay:.5s}.sl.on>div:nth-child(7){animation-delay:.65s}.sl.on>div:nth-child(8){animation-delay:.8s}.sl.on>div:nth-child(n+9){animation-delay:.95s}
+.sl.on .stag>*:not([data-build-in]){animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.sl.on .stag>*:nth-child(2){animation-delay:.12s}.sl.on .stag>*:nth-child(3){animation-delay:.24s}.sl.on .stag>*:nth-child(4){animation-delay:.36s}.sl.on .stag>*:nth-child(5){animation-delay:.48s}.sl.on .stag>*:nth-child(6){animation-delay:.6s}.sl.on .stag>*:nth-child(n+7){animation-delay:.72s}
+.orb{animation:floaty 14s ease-in-out infinite}
+.sl.on .cvbg{animation:kb 22s ease-in-out infinite alternate}
+.emo{animation:bob 5s ease-in-out infinite}
+.orbit{animation:orbit 40s linear infinite}.orbit .emo{animation:unorbit 40s linear infinite}
+.sl.on .tw{display:inline-block;animation:wordin .5s both}
+.sl:not(.on) .tw{opacity:0}
+.sl.on .draw{stroke-dasharray:3000;--L:3000;animation:drawl 3.2s .3s ease-in-out both}
+.sl.on .stn{animation:pop .6s both;transform-box:fill-box;transform-origin:center}
+.sl.on .arc{animation:arcin .7s both}.sl.on .arcn{animation:pop .5s both;transform-box:fill-box;transform-origin:center}
+.sl.on .hbar{animation:barw 1s .2s cubic-bezier(.2,.7,.2,1) both}
+.shine{background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%) 0 0/200% 100%;animation:shine 3.5s 1s ease-in-out infinite}
+body.edit .sl *{animation:none!important}
+@media (prefers-reduced-motion:reduce){.sl *,.sl{animation:none!important;transition:none!important}}
+.qf{font-family:"Amiri Quran",serif!important;font-weight:400;font-size:1.08em}</style></head><body><div id="tb"><button class="x" id="bX">✕ خروج</button><b>عرض المعلم · اللهُ رَبّي</b><span class="cnt" id="pg"></span><span class="sp"></span>
+<select id="fx"><option value="cinema">🎬 سينمائي</option><option value="fade">✨ تلاشٍ</option><option value="slide">✨ انزلاق</option><option value="zoom">✨ تكبير</option><option value="none">✨ بلا حركة</option></select>
 <button id="bPg">📈 قياس التقدّم</button><button id="bT">⏱ مؤقت</button><button id="bS">🔔 انتباه</button><button id="bNo">📝 الملاحظات</button><button id="bE">✏️ تعديل</button><button class="gold" id="bF">⛶ ملء الشاشة</button></div>
 <div class="pop" id="pP"><b>📈 قياس التقدّم</b><div class="ch"><button id="pgSlide">الانتقال إلى شريحة قياس التقدّم</button><a target="_top" href="../../../#/progress-report?lesson=4b3251de-e34f-4f25-b5e0-b5362537a2f8"><button>📊 تقارير القياس المباشر</button></a></div></div>
 <div class="pop" id="pT"><b>⏱ المؤقت</b><div class="ch"><button data-sec="30">30 ث</button><button data-sec="60">1 د</button><button data-sec="120">2 د</button><button data-sec="180">3 د</button><button data-sec="300">5 د</button><button data-sec="600">10 د</button><button data-sec="900">15 د</button></div><div style="margin-top:10px">أو اكتب الدقائق: <input id="tmin" type="number" min="0.5" max="90" step="0.5" style="width:80px;font:inherit"> <button id="tstop" style="font:inherit;border:1.5px solid #E5DCC8;background:#FBF7EF;border-radius:14px;padding:4px 10px">إيقاف</button></div></div>
@@ -88,7 +120,8 @@ body.edit [data-build-in].hid{opacity:.35;transform:none}
  <div style="flex:1;background:#fff;border-radius:32px;box-shadow:0 10px 28px rgba(31,42,60,.10);border-top:12px solid #3E9E5B;padding:30px;display:flex;flex-direction:column;align-items:flex-start;gap:16px"><p style="font-family:'Thmanyah Display','Cairo',Tahoma,sans-serif;font-size:40px;color:#3E9E5B">🏠 أُطَبِّقُ في الْبَيْتِ</p><p style="font-size:34px">☐ أَشْكُرُ رَبّي عَلى نِعَمِهِ وَأَقولُ: الْحَمْدُ لِلّٰهِ.</p><p style="font-size:34px">☐ أُحافِظُ عَلى نَظافَةِ جِسْمي.</p><p style="font-size:34px">☐ أَرْفُقُ بِمَخْلوقاتِ اللهِ وَلا أُؤْذيها.</p></div></div>
  <div style="position:absolute;right:120px;top:725px;width:1344px;zoom:1.25;display:flex;justify-content:center"><p style="font-family:'Thmanyah Display','Cairo',Tahoma,sans-serif;font-size:46px;color:#fff;background:#C2508A;padding:10px 46px;border-radius:34px">🏅 أَنا أُحِبُّ رَبّي</p></div><div style="position:absolute;left:120px;bottom:44px;display:flex;flex-direction:row;align-items:center;gap:12px"><p style="font-size:22px;color:#8A8475">اللهُ رَبّي · الصَّفُّ الْأَوَّلُ</p></div><aside>بطاقة الخروج: يقول كل طفل جملة «الله ربي لأنه ...»، ويأخذ مهمة البيت.</aside></section></div><button class="nav" id="nP" title="السابق">›</button><button class="nav" id="nN" title="التالي">‹</button></div>
 <div id="notes"></div><div id="timer"></div><div id="att">👀 انْتَبِهوا</div><div id="toast"></div>
-<script>(function(){document.querySelectorAll('.sl').forEach(function(s){for(var it=0;it<8;it++){var sr=s.getBoundingClientRect(),k=sr.height/1080,mx=0;s.querySelectorAll('p,h1,h2,h3,img').forEach(function(e){if(e.closest('[style*="position:absolute"]'))return;var b=e.getBoundingClientRect();mx=Math.max(mx,(b.bottom-sr.top)/k);});if(mx<=925)break;s.querySelectorAll('p,h2,h3').forEach(function(e){var f=parseFloat(e.style.fontSize);if(f&&!e.closest('[style*="position:absolute"]'))e.style.fontSize=Math.max(16,f*0.92)+'px';});}});})();
+<script>(function(){document.querySelectorAll('.sl').forEach(function(s){if(s.id=='cover')return;var kids=[].slice.call(s.children).filter(function(e){var cs=getComputedStyle(e);return e.tagName=='DIV'&&cs.position!='absolute'&&!e.classList.contains('orb')});if(kids.length<2)return;var sr=s.getBoundingClientRect(),k=sr.height/1080;var t0=(kids[1].getBoundingClientRect().top-sr.top)/k,bot=(kids[kids.length-1].getBoundingClientRect().bottom-sr.top)/k;var H=bot-t0;if(H<=0)return;var f=Math.min(1.45,(925-t0)/H);if(f<1.06)return;kids.slice(1).forEach(function(e){e.style.width=(1664/f)+'px';e.style.zoom=f.toFixed(3);});});})();
+(function(){document.querySelectorAll('.sl').forEach(function(s){for(var it=0;it<8;it++){var sr=s.getBoundingClientRect(),k=sr.height/1080,mx=0;s.querySelectorAll('p,h1,h2,h3,img').forEach(function(e){if(e.closest('[style*="position:absolute"]'))return;var b=e.getBoundingClientRect();mx=Math.max(mx,(b.bottom-sr.top)/k);});if(mx<=925)break;s.querySelectorAll('p,h2,h3').forEach(function(e){var f=parseFloat(e.style.fontSize);if(f&&!e.closest('[style*="position:absolute"]'))e.style.fontSize=Math.max(16,f*0.92)+'px';});}});})();
 const S=[...document.querySelectorAll('.sl')];let i=0,b=0,editing=false;const KEY='hiraa-deck-'+location.pathname;
 const $=x=>document.getElementById(x);
 const toast=t=>{const e=$('toast');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(()=>e.style.display='none',2200);};
@@ -104,7 +137,7 @@ const full=()=>document.fullscreenElement?document.exitFullscreen():document.doc
 const closeAll=()=>document.querySelectorAll('.pop').forEach(p=>p.style.display='none');
 const pop=(id,btn)=>{const p=$(id),open=p.style.display==='block';closeAll();if(!open){p.style.display='block';const r=btn.getBoundingClientRect();p.style.right=Math.max(8,innerWidth-r.right)+'px';}};
 // transitions
-const fxSel=$('fx');fxSel.value=localStorage.getItem('hiraa-deck-fx')||'fade';const setFx=()=>{document.body.className=document.body.className.replace(/fx-\S+/g,'').trim()+' fx-'+fxSel.value;localStorage.setItem('hiraa-deck-fx',fxSel.value);};fxSel.onchange=setFx;setFx();
+const fxSel=$('fx');fxSel.value=localStorage.getItem('hiraa-deck-fx2')||'cinema';const setFx=()=>{document.body.className=document.body.className.replace(/fx-\S+/g,'').trim()+' fx-'+fxSel.value;localStorage.setItem('hiraa-deck-fx2',fxSel.value);};fxSel.onchange=setFx;setFx();
 // sounds (Web Audio)
 let AC;const ac=()=>AC||(AC=new (window.AudioContext||window.webkitAudioContext)());
 function tone(f,d,type,vol,when){const c=ac(),o=c.createOscillator(),g=c.createGain();o.type=type||'sine';o.frequency.value=f;g.gain.setValueAtTime(vol||.3,c.currentTime+(when||0));g.gain.exponentialRampToValueAtTime(.001,c.currentTime+(when||0)+d);o.connect(g).connect(c.destination);o.start(c.currentTime+(when||0));o.stop(c.currentTime+(when||0)+d);}
