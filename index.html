@@ -36,7 +36,15 @@
   --font-ui: "Readex Pro", "Segoe UI", Tahoma, "Noto Sans Arabic", sans-serif;
   --font-brand: "Reem Kufi", "Readex Pro", Tahoma, sans-serif;
   --font-text: "Amiri", "Traditional Arabic", "Times New Roman", serif;
+  --font-deck-display: "ThmanyahDisplay", "Reem Kufi", "Readex Pro", serif;
+  --font-deck-text: "ThmanyahText", "Readex Pro", "Segoe UI", Tahoma, sans-serif;
   color-scheme: light;
+}
+@font-face { font-family: "ThmanyahDisplay"; font-weight: 800; src: url("art/fonts/thmanyahserifdisplay-Black.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "ThmanyahDisplay"; font-weight: 700; src: url("art/fonts/thmanyahserifdisplay-Bold.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "ThmanyahText"; font-weight: 400; src: url("art/fonts/thmanyahseriftext-Regular.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "ThmanyahText"; font-weight: 600; src: url("art/fonts/thmanyahseriftext-Medium.woff2") format("woff2"); font-display: swap; }
+:root {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -1138,7 +1146,7 @@ html[dir="ltr"] .tq-stem, html[dir="ltr"] .pv-q, html[dir="ltr"] .identity-card 
 .td-notes [contenteditable] { outline: 1px dashed #ffffff60; padding: 2px 4px; display: inline-block; min-width: 60%; }
 @media (max-width: 760px) { .td-thumbs { display: none; } }
 
-.td-slide { width: 1280px; height: 720px; background: #fff; color: #1B2A33; font-family: var(--font-ui); overflow: hidden; border: 10px solid #fff; box-shadow: inset 0 0 0 3px #D5DDE9; padding: 104px 70px 56px; box-sizing: border-box; line-height: 1.55; display: flex; flex-direction: column; justify-content: safe center; gap: 20px; }
+.td-slide { width: 1280px; height: 720px; background: #fff; color: #1B2A33; font-family: var(--font-deck-text); overflow: hidden; border: 10px solid #fff; box-shadow: inset 0 0 0 3px #D5DDE9; padding: 104px 70px 56px; box-sizing: border-box; line-height: 1.55; display: flex; flex-direction: column; justify-content: safe center; gap: 20px; }
 .td-slide > * { flex: none; }
 .td-slide .rv.hid { visibility: hidden; }
 .td-stage.show .td-slide [data-j], .td-stage.show .td-clues li, .td-stage.show .td-sc li { cursor: pointer; }
@@ -2206,7 +2214,7 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .ppt-card small { display: block; margin-top: 8px; }
 
 /* editable Hira slides (Arabic) */
-.tdf { position: absolute; inset: 0; overflow: hidden; font-family: "Readex Pro", "Noto Naskh Arabic", Arial, sans-serif; cursor: pointer; }
+.tdf { position: absolute; inset: 0; overflow: hidden; font-family: var(--font-deck-text); cursor: pointer; }
 .tdf-el { position: absolute; box-sizing: border-box; }
 .tdf-tx { display: flex; padding: 4px 10px; line-height: 1.45; white-space: pre-wrap; overflow: hidden; }
 .tdf-emo { display: flex; align-items: center; justify-content: center; line-height: 1; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
@@ -2430,6 +2438,7 @@ html[data-subj] .page-head .ph-art{opacity:.6}
 .rd-txt p,.rd-qq,.rd-opt,.rd-words span,.rd-steps,.rd-cover .muted{font-family:var(--rd-text)!important}
 .rd-txt p{line-height:2.15}
 .rd-cv-body h2,.rd-ttl,.rd-words b,.rd-rev h2,.rd-rev h3,.rd-res h2,.rd-res h3{font-family:var(--rd-head)!important;font-weight:700}
+
 </style>
 </head>
 <body>
@@ -2493,12 +2502,14 @@ html[data-subj] .page-head .ph-art{opacity:.6}
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
   <script>
-// المفتاح العام (anon) آمن للنشر؛ الصلاحيات مفروضة من قاعدة البيانات. لا تضع هنا مفتاح service_role.
-window.HIRAA_CONFIG = { supabaseUrl: "https://vsbktjbwjykgtkkqfblj.supabase.co", supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzYmt0amJ3anlrZ3Rra3FmYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM1NDc2MTYsImV4cCI6MjEwOTEyMzYxNn0.ZR43uZNPdpnw8vhEf5Qr2ThHjRTZC2seCICDjiMfeW8" };
-window.addEventListener("error", function (e) {
-  var m = document.getElementById("main");
-  if (m && !m.innerHTML.trim()) m.innerHTML = '<div class="wrap loading">حدث خطأ في تشغيل الصفحة: ' + String(e.message).replace(/[<>&]/g, "") + '</div>';
-});
+// إعدادات الاتصال بقاعدة بيانات حراء
+// هذا المفتاح عام وآمن للنشر: الصلاحيات مفروضة من قاعدة البيانات نفسها (RLS).
+// لا تضع هنا مفتاح service_role أبدًا.
+window.HIRAA_CONFIG = {
+  supabaseUrl: "https://vsbktjbwjykgtkkqfblj.supabase.co",
+  supabaseKey: "sb_publishable_MQzKol3KQ5mQ0W0BeQc_Eg_dCyWhxV6"
+};
+
 </script>
   <script>
 /* حراء — تطبيق صفحة واحدة يقرأ محتواه من Supabase */
@@ -10165,6 +10176,14 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     [/الرياضة|الصحة|القوة|الجسم|الغذاء|النظافة|health|sport|body/i, "football"], [/المدرسة|الطالب|school/i, "school"], [/الدعوة|النصيحة|الأمر بالمعروف|advice|da'?wah/i, "dawah"], [/المسجد|المساجد|mosque/i, "mosque2"]];
   const tdTopicArt = (l, c, g) => { const txt = [l && l.title_ar, l && l.title_en, c && c.idea].join(" "); for (const [re, k] of TOPIC_ART) if (re.test(txt)) return k;
     const kids = ["girlbook", "boywave", "boybook", "lantern", "girl2", "quranboy"]; return (g || 9) <= 6 ? kids[[...String((l && l.code) || "x")].reduce((s, ch) => s + ch.charCodeAt(0), 0) % kids.length] : "quran"; };
+  const TD_FREE_THEME = {"1E3A3F":{a:"#0F6E72",g1:"#FFFFFF",g2:"#F2FAF4",sh:"rgba(15,110,114,.18)"},"FDF1DC":{a:"#C4873A",g1:"#FFFFFF",g2:"#FFF6E4",sh:"rgba(196,135,58,.20)"},"EAF5F4":{a:"#0F6E72",g1:"#FFFFFF",g2:"#F2FAF4",sh:"rgba(15,110,114,.18)"},"F3E9FB":{a:"#6B46A8",g1:"#FFFFFF",g2:"#F7F1FD",sh:"rgba(107,70,168,.18)"},"FBF6EC":{a:"#B4532A",g1:"#FFFFFF",g2:"#FDF1EA",sh:"rgba(180,83,42,.16)"},"E9F3E6":{a:"#2F8F57",g1:"#FFFFFF",g2:"#EFFAF1",sh:"rgba(47,143,87,.18)"},"FCE8E4":{a:"#C9553A",g1:"#FFFFFF",g2:"#FFF0ED",sh:"rgba(201,85,58,.18)"}};
+  function tdFreeTheme(bg) { return TD_FREE_THEME[String(bg || "").toUpperCase()] || { a: "#0F6E72", g1: "#FFFFFF", g2: "#F6F3EC", sh: "rgba(20,30,40,.14)" }; }
+  function tdFreeDecor(i, th) { const V = ["blobs", "ring", "dots", "blobs2"], v = V[i % 4], a = th.a;
+    if (v === "blobs") return `<div class="tdf-el" style="left:-90px;top:-90px;width:260px;height:260px;border-radius:50%;background:${a};opacity:.10"></div><div class="tdf-el" style="right:-70px;bottom:-110px;width:300px;height:300px;border-radius:50%;background:${a};opacity:.08"></div>`;
+    if (v === "ring") return `<div class="tdf-el" style="right:-110px;top:-110px;width:260px;height:260px;border-radius:50%;border:14px solid ${a};opacity:.14"></div><div class="tdf-el" style="left:-80px;bottom:-100px;width:220px;height:220px;border-radius:50%;background:${a};opacity:.08"></div>`;
+    if (v === "dots") { let dots = ""; for (let k = 0; k < 15; k++) dots += `<span style="width:7px;height:7px;border-radius:50%;background:${a};opacity:${k % 3 === 0 ? .5 : .22};display:block"></span>`;
+      return `<div class="tdf-el" style="left:1150px;top:470px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px">${dots}</div><div class="tdf-el" style="left:-100px;bottom:-130px;width:280px;height:280px;border-radius:50%;background:${a};opacity:.09"></div>`; }
+    return `<div class="tdf-el" style="right:-60px;top:260px;width:170px;height:170px;border-radius:50%;background:${a};opacity:.10"></div><div class="tdf-el" style="left:-110px;top:-80px;width:230px;height:230px;border-radius:50%;background:${a};opacity:.08"></div>`; }
   function tdSlideHtml(s, ctx, i) {
     const d = s.d || {}, en = ctx.en, X = (v) => esc(v == null ? "" : v);
     const brand = `<div class="td-brand">${ctx.logo ? `<img src="${X(ctx.logo)}" alt="">` : ctx.schoolName ? "" : `<img class="td-hlogo" src="${TD_ART.logo}" alt="Hira">`}${ctx.schoolName ? `<b>${X(ctx.schoolName)}</b>` : ""}</div>`;
@@ -10238,16 +10257,21 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         b = head("🚪") + `<div class="td-exit"><div class="td-qr" id="tdqr${i}" data-url="${X(d.url)}"></div><div class="td-exit-t"><span ${tdE(0, "sub")}>${X(String(d.sub || "").replace(/\s*(حراء|Hira)\s*$/, ""))}</span>${hw}</div></div>`; break; }
       case "text": b = head("") + `<div class="td-free" ${tdE(0, "body")}>${X(d.body)}</div>`; break;
       case "pic": b = `<img class="td-pic" src="${X(d.src)}" alt="" draggable="false">`; break;
-      case "free": b = `<div class="tdf" style="background:${d.bg2 ? `linear-gradient(160deg,#${X(d.bg || "FBF6EC")},#${X(d.bg2)})` : "#" + X(d.bg || "FBF6EC")}">` + ((d.els || []).some((e) => e.l2) ? `<button class="tdf-l2btn" onclick="event.stopPropagation();document.body.classList.toggle('l2on')" title="Language support">عون لغوي · EN</button>` : "") + (d.els || []).map((e, j) => {
+      case "free": { const tdfTh = tdFreeTheme(d.bg);
+        b = `<div class="tdf" style="background:${d.bg2 ? `linear-gradient(160deg,#${X(d.bg || "FBF6EC")},#${X(d.bg2)})` : "#" + X(d.bg || "FBF6EC")}">` + tdFreeDecor(i, tdfTh) + ((d.els || []).some((e) => e.l2) ? `<button class="tdf-l2btn" onclick="event.stopPropagation();document.body.classList.toggle('l2on')" title="Language support">عون لغوي · EN</button>` : "") + (d.els || []).map((e, j) => {
           const pos = `left:${e.x}px;top:${e.y}px;width:${e.w}px;height:${e.h}px;`, rv = e.rv ? ` rv" data-rvg="${e.rv}` : "";
           const fx = `${e.grad ? `background:linear-gradient(${+e.gdir || 135}deg,#${X(e.fill)},#${X(e.grad)});` : ""}${e.shadow ? `box-shadow:${e.shadow === "hard" ? `7px 7px 0 #${X(e.sc || "1E3A3F")}` : "0 12px 30px rgba(20,30,40,.16)"};` : ""}${e.rot ? `transform:rotate(${+e.rot}deg);` : ""}${e.radius ? `border-radius:${+e.radius}px;` : ""}${e.op != null ? `opacity:${+e.op};` : ""}`;
-          if (e.k === "shape") return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:#${X(e.fill)};${e.line ? `border:${Math.max(2, Math.round((e.lw || 1.5) * 1.8))}px solid #${X(e.line)};` : ""}border-radius:${e.oval ? "50%" : e.rad ? "16px" : "0"};${fx}"></div>`;
+          if (e.k === "shape") { const okCard = e.fill === "FFFDF8" && e.line, okFlat = (e.fill === "EAF5F4" || e.fill === "F2FAF4" || e.fill === "FFFDF8") && !e.line;
+            if (okCard) return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:linear-gradient(160deg,${tdfTh.g1},${tdfTh.g2});border:2.5px solid #${X(e.line)}aa;border-radius:20px;box-shadow:0 14px 28px ${tdfTh.sh};${fx}"></div>`;
+            if (okFlat) return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:linear-gradient(160deg,${tdfTh.g1},${tdfTh.g2});border-radius:${e.oval ? "50%" : e.rad ? "18px" : "0"};box-shadow:0 8px 18px ${tdfTh.sh};${fx}"></div>`;
+            return `<div class="tdf-el tdf-sh${rv}" style="${pos}background:#${X(e.fill)};${e.line ? `border:${Math.max(2, Math.round((e.lw || 1.5) * 1.8))}px solid #${X(e.line)};` : ""}border-radius:${e.oval ? "50%" : e.rad ? "16px" : "0"};${fx}"></div>`; }
           if (e.k === "pic") return `<img class="tdf-el${rv}" src="${X(new URL(e.src, location.href.split("#")[0]).href)}" alt="" draggable="false" style="${pos}object-fit:${e.cover ? "cover" : "contain"};${e.rad ? "border-radius:16px;" : ""}${e.frame ? `background:#fff;padding:${+e.frame}px;` : ""}${fx}">`;
           if (e.k === "btn") return `<div role="button" tabindex="0" class="tdf-el tdf-btn" data-bk="1" style="${pos}display:flex;align-items:center;justify-content:center;">${X(e.text)}</div>`;
           if (e.k === "img") return `<div class="tdf-el tdf-emo${rv}" style="${pos}font-size:${Math.round(e.h * 0.82)}px" ${tdE(0, `els.${j}.emo`)}>${X(e.emo)}</div>`;
           const rtl = /[\u0600-\u06FF]/.test(e.text || ""), jc = e.align === "center" ? "center" : (e.align === "left") === rtl ? "flex-end" : "flex-start";
-          return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${e.fill ? `background:#${X(e.fill)};` : ""}${e.rad ? "border-radius:14px;" : ""}${fx}${e.ff === "naskh" ? "font-family:'Noto Naskh Arabic','Amiri',serif;line-height:2;" : e.ff === "brand" ? "font-family:'Reem Kufi','Readex Pro',sans-serif;" : ""}" ${tdE(0, `els.${j}.text`)}>${((t) => t.includes("<mark") ? `<span>${t}</span>` : t)(bkHL(X(e.text)))}</div>`;
-        }).join("") + `</div>`; break;
+          const isHead = (e.size || 0) >= 32 && e.bold, pillFill = e.fill === "F2FAF4" ? "background:linear-gradient(160deg,#F2FAF4,#E3F6E8);box-shadow:0 6px 14px rgba(47,143,87,.15);" : (e.fill ? `background:#${X(e.fill)};` : "");
+          return `<div class="tdf-el tdf-tx${rv}${e.l2 ? " tdf-l2" : ""}" dir="${rtl ? "rtl" : "ltr"}" style="${pos}font-size:${e.size}px;color:#${X(e.color)};font-weight:${e.bold ? 800 : 400};justify-content:${jc};text-align:${e.align || "start"};align-items:${e.va === "top" ? "flex-start" : "center"};${pillFill}${e.rad ? "border-radius:14px;" : ""}${fx}${e.ff === "naskh" ? "font-family:'Noto Naskh Arabic','Amiri',serif;line-height:2;" : e.ff === "brand" ? "font-family:'Reem Kufi','Readex Pro',sans-serif;" : isHead ? "font-family:var(--font-deck-display);line-height:1.35;" : ""}" ${tdE(0, `els.${j}.text`)}>${((t) => t.includes("<mark") ? `<span>${t}</span>` : t)(bkHL(X(e.text)))}</div>`;
+        }).join("") + (() => { const hd = (d.els || []).find((e) => e.k === "text" && e.size === 34 && e.bold); return hd ? `<div class="tdf-el" style="left:${hd.x}px;top:${hd.y + hd.h - 6}px;width:120px;height:8px;background:${tdfTh.a};border-radius:6px"></div>` : ""; })() + `</div>`; break; }
     }
     const imgs = (s.imgs || []).map((im, j) => `<div class="td-img" data-im="${j}" style="left:${im.x}px;top:${im.y}px;width:${im.w}px"><img src="${im.src}" alt="" draggable="false"><span class="td-imx" title="${CT("حذف", "Delete")}">✕</span><span class="td-imr"></span></div>`).join("");
     const ak = TD_ART_ICON[s.t]; if (ak && TD_ART[ak]) b = b.replace(/<div class="td-ic">[\s\S]*?<\/div>/, `<img class="td-icart a-${ak}" src="${TD_ART[ak]}" alt="" draggable="false">`);
