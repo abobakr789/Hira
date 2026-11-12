@@ -2420,3 +2420,19 @@ html[data-subj] .page-head .ph-art{opacity:.6}
 .rd-txt p,.rd-qq,.rd-opt,.rd-words span,.rd-steps,.rd-cover .muted{font-family:var(--rd-text)!important}
 .rd-txt p{line-height:2.15}
 .rd-cv-body h2,.rd-ttl,.rd-words b,.rd-rev h2,.rd-rev h3,.rd-res h2,.rd-res h3{font-family:var(--rd-head)!important;font-weight:700}
+
+/* ===== Hiraa unified type system: Thmanyah (UI + headings + texts) and the Mushaf font for the Qur'an ===== */
+@font-face { font-family: "ThmanyahSans"; font-weight: 400; src: url("art/fonts/thmanyahsans-Regular.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "ThmanyahSans"; font-weight: 500 600; src: url("art/fonts/thmanyahsans-Medium.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "ThmanyahSans"; font-weight: 700 900; src: url("art/fonts/thmanyahsans-Bold.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "HiraaQuran"; src: url("art/fonts/amiri-quran.woff2") format("woff2"); font-display: swap; }
+:root {
+  --font-ui: "ThmanyahSans", "Readex Pro", "Segoe UI", Tahoma, "Noto Sans Arabic", sans-serif;
+  --font-brand: "ThmanyahDisplay", "ThmanyahSans", "Reem Kufi", Tahoma, sans-serif;
+  --font-text: "ThmanyahText", "Amiri", "Traditional Arabic", serif;
+  --font-quran: "HiraaQuran", "Amiri Quran", "Amiri", serif;
+}
+body { font-family: var(--font-ui); }
+h1, h2, .page-head h1 { font-family: var(--font-brand); }
+.quran-ref, .td-quran, .td-basmala { font-family: var(--font-quran) !important; }
+.memo-text, .sm-ev-t, .bk-read, .gb-t, .ars-text, .ars-v b, .ars-v span { font-family: var(--font-text); }
