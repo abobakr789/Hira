@@ -205,3 +205,15 @@ mark{background:linear-gradient(180deg,transparent 55%,#FFE08A 55%);color:inheri
 p.en{font-family:"Thmanyah Text",Tahoma,sans-serif;text-align:left}.crit p.en,.pr p.en{font-size:32px}
 
 .qo{display:inline-block;margin-left:26px;unicode-bidi:isolate}
+
+.fbk{position:relative;height:600px}
+.fbk .fsp{position:absolute;inset:0;display:none;justify-content:center;align-items:center;gap:0}.fbk .fsp.on{display:flex}
+.fbk .fsp img{height:590px;width:auto;max-width:48%;object-fit:contain;background:#fff;box-shadow:0 16px 36px rgba(31,42,60,.18)}
+.fbk .fsp img:first-child{border-radius:0 24px 24px 0}.fbk .fsp img:last-child{border-radius:24px 0 0 24px;border-right:2px solid #E8DFCF}
+.fbnav{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:30px}
+.fbnav button{font:700 30px "Thmanyah Display";background:var(--a);color:#fff;border:0;border-radius:40px;padding:6px 30px;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.15)}
+.fbc2{font:700 30px "Thmanyah Display";color:var(--a);background:#fff;border-radius:30px;padding:4px 22px}
+.pw{display:flex;gap:40px;height:100%}.pwc{flex:1.2;display:flex;flex-direction:column;gap:18px}.pwc p{font-size:38px;font-weight:700}
+.pwt{flex:1;display:flex;gap:16px;align-items:center;justify-content:center}.pwt img{width:31%;border-radius:18px;box-shadow:0 10px 24px rgba(31,42,60,.14);background:#fff}
+.pwt img:nth-child(2){transform:translateY(-30px) rotate(2deg)}.pwt img:nth-child(1){transform:rotate(-3deg)}
+.opi{height:220px;width:auto;border-radius:16px;box-shadow:0 8px 18px rgba(31,42,60,.12)}

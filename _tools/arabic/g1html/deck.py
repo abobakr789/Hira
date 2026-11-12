@@ -96,6 +96,8 @@ def build(code, mode="site"):
     vcols=[l[1] for l in LV]
     # ---------- cover ----------
     cov=IMG("cover") or IMG("main")
+    book=code in STORYBOOK
+    if book: cov=A(BOOKP+"pg02.webp")
     ctitle=re.sub(r"\s*\([^)]*\)\s*$","",title) if kind=="letter" else title
     badge={"letter":L,"poem":"🎵","review":"🔁","text":"📖"}[kind]
     kick=bare(S["kicker"]).replace("اللغة العربية","اللُّغَةُ الْعَرَبِيَّةُ").replace("الصف الأول","الصَّفُّ الْأَوَّلُ")
@@ -139,6 +141,8 @@ def build(code, mode="site"):
         D.slide("listen",f"أَسْمَعُ صَوْتَ ({L}) 👂","لَحْظَةُ فُضولٍ",body,"[التهيئة السمعية] سمِّ كل صورة بصوت واضح. يقف الطلاب إذا بدأ الاسم بصوت الحرف، ثم انقر على البطاقة للتحقق.",mins=4,strat="أَسْمَعُ وَأَتَحَرَّكُ",bg="sky",dk="wave")
     else:
         H=S["hook"]; im=IMG(H.get("img","main"))
+        if code=="AR-Y1-N-T3-L08":
+            H={"head":"أَتَأَمَّلُ الْغِلافَ 🖼️","q":"ماذا يَحْمِلُ الطِّفْلُ في الْغِلافِ؟ وَماذا يَعْني الْقَلْبُ الْأَحْمَرُ؟","model":"يَحْمِلُ قَلْبًا أَحْمَرَ؛ فَالْقِصَّةُ عَنِ الْمَحَبَّةِ في رَمَضانَ.","note":"[التهيئة] اعرض غلاف القصة، واستمع إلى ثلاث إجابات."}; im=A(BOOKP+"pg02.webp")
         body=f'<div class="pd">{f"<div class=pdp2><img src={chr(34)}{im}{chr(34)} alt=></div>" if im else ""}<div class="pdc"><div class="cd"{B(1)}><p class="q">{clean_emoji_lead(H["q"])}</p><p class="tip c" style="margin-top:14px">💬 أُفَكِّرُ · أُشارِكُ زَميلي · نُخْبِرُ الصَّفَّ</p><p class="ans"{B(2,"pop")}>✓ {H["model"]}</p></div></div></div>'
         D.slide("hook",H["head"],"لَحْظَةُ فُضولٍ",body,H.get("note",""),mins=3,bg="sky",dk="wave")
     # ---------- goal ----------
@@ -158,6 +162,8 @@ def build(code, mode="site"):
     D.slide("vocab","كَنْزُ الْكَلِماتِ","كَلِماتٌ جَديدَةٌ",body,"[المفردات بالصور] اعرض الصورة، ودع الطلاب يسمّون الكلمة، ثم انقر على البطاقة لقلبها وقراءة المعنى.",mins=5,strat="الصّورَةُ وَالْكَلِمَةُ",bg="peach",dk="letter" if kind=="letter" else "blobs")
     # ---------- predict ----------
     PR=S["predict"]; im=IMG("main") or cov
+    if code=="AR-Y1-N-T3-L08":
+        PR={"q":"أَقْرَأُ الْعُنْوانَ «الْمَحَبَّةُ في رَمَضانَ»: ماذا يُحِبُّ النّاسُ في رَمَضانَ؟","model":"يُحِبّونَ الصِّيامَ وَالصَّلاةَ وَالْإِفْطارَ مَعَ الْأُسْرَةِ، وَمُساعَدَةَ الْآخَرينَ."}; im=A(BOOKP+"pg03.webp")
     body=f'<div class="pd">{f"<div class=pdp2><img src={chr(34)}{im}{chr(34)} alt=></div>" if im else ""}<div class="pdc"><div class="cd"{B(1)}><p class="q">👀 {clean_emoji_lead(PR["q"])}</p><p class="ans"{B(2,"pop")}>✓ {PR["model"]}</p></div><p class="tip"{B(3)}>💬 أُفَكِّرُ · أُشارِكُ زَميلي · نُخْبِرُ الصَّفَّ</p></div></div>'
     D.slide("predict","أَتَوَقَّعُ قَبْلَ الْقِراءَةِ","قَبْلَ الْقِراءَةِ",body,"اكتب توقعات الطلاب على السبورة، وارجع إليها بعد القراءة.",mins=3,strat="فَكِّرْ · زاوِجْ · شارِكْ",bg="rose",dk="ring")
     # ---------- text ----------
@@ -170,6 +176,15 @@ def build(code, mode="site"):
     body=f'<div class="story{" poem" if kind=="poem" else ""}" style="--fs:{fs}px">{f"<div class=sp2><img src={chr(34)}{im}{chr(34)} alt=></div>" if im else ""}<div class="stx">{txt}</div></div><div class="sbar">{hunt}<span>{full}</span></div>'
     st={"poem":"نُنْشِدُ مَعًا","text":"نَقْرَأُ مَعًا","review":"نَقْرَأُ مَعًا","letter":"نَقْرَأُ مَعًا"}[kind]
     D.slide("story",P.get("readhead",title),st,body,"[القراءة النموذجية] اقرأ قراءة معبّرة، ثم يقرأ الطلاب معك سطرًا سطرًا."+(" بعدها اضغط زر التلوين لنعدّ الحرف في النص." if kind=="letter" else ""),mins=6,strat="الْقِراءَةُ الْمُشْتَرَكَةُ",bg="cream",dk="wave")
+    if book:
+        spreads=[(k,k+1) for k in range(3,33,2)]
+        fbh='<div class="fbk" data-ia>'+"".join(f'<div class="fsp{" on" if j==0 else ""}"><img src="{A(BOOKP+f"pg{a:02d}.webp")}" alt=""><img src="{A(BOOKP+f"pg{b:02d}.webp")}" alt=""></div>' for j,(a,b) in enumerate(spreads))+'</div>'
+        nav=f'<div class="fbnav"><button data-ia onclick="fb(this,1)">→ السّابِقُ</button><span class="fbc2">1 / {len(spreads)}</span><button data-ia onclick="fb(this,-1)">التّالي ←</button></div>'
+        D.slide("book","نَقْرَأُ الْقِصَّةَ الْمُصَوَّرَةَ","كِتابُ الْقِصَّةِ",fbh+nav,"[القراءة المصوّرة] اقلب صفحات القصة بالزرّين (لا تنتقل الشريحة). اقرأ كل صفحتين قراءة معبّرة، واسأل: من في الصورة؟ ماذا يحب؟",mins=15,strat="الْقِراءَةُ الْمُشْتَرَكَةُ",bg="cream",dk="wave")
+        qs=["هَلْ عَبَّرَتِ الرُّسوماتُ عَنِ النَّصِّ تَعْبيرًا جَميلًا؟","ما اللَّوْحَةُ الَّتي أَعْجَبَتْكَ أَكْثَرَ؟ ارْفَعِ اللَّوْحَةَ لِيَراها زُمَلاؤُكَ.","هَلِ اتَّفَقْتُمْ أَمِ اخْتَلَفْتُمْ؟ عَمَّ تَتَحَدَّثُ هذِهِ اللَّوْحَةُ؟"]
+        thumbs="".join(f'<img src="{A(BOOKP+f"pg{p:02d}.webp")}" alt="">' for p in (4,16,28))
+        body=f'<div class="pw"><div class="pwc"><div class="cd"><span class="lb">🤝 الْمَهارَةُ: تَتَبُّعُ الْأَحْداثِ</span><p>تَبادَلْ مَعَ زَميلِكَ قِراءَةَ الْقِصَّةِ، وَانْظُرا إِلى رُسوماتِها:</p></div>'+"".join(f'<div class="cd ws"{B(k+1)}><b class="n">{k+1}</b><p>{q}</p></div>' for k,q in enumerate(qs))+f'</div><div class="pwt">{thumbs}</div></div>'
+        D.slide("pair","أَعْمَلُ مَعَ زَميلي","اعْمَلْ مَعَ زَميلِكَ",body,"[العمل الثنائي] من نشاط «اعمل مع زميلك» في الكتاب: يتبادل الزميلان القراءة، ويختار كل منهما لوحة ويتحدث عنها.",mins=6,strat="فَكِّرْ · زاوِجْ · شارِكْ",bg="mint",dk="dots")
     # ---------- video ----------
     if meta.get("vid"):
         vid=f'<video class="vid" controls preload="metadata" src="../../../{meta["vid"]}"></video>' if mode=="site" else f'<div class="vid ph">{emo_disc("🎬",200,"#fff")}<p>▶ فيديو الدَّرْسِ يَعْمَلُ عِنْدَ فَتْحِ الْعَرْضِ مِنَ الْمَنَصَّةِ</p></div>'
@@ -222,7 +237,7 @@ def build(code, mode="site"):
     D.slide("wordj",clean_emoji_lead(WJ["head"]),"رِحْلَتي مَعَ كَلِمَةٍ",body,"صوّت الطلاب بالأصابع (1، 2، 3)، ثم اكشف الإجابة.",mins=4,bg="rose",dk="dots")
     # ---------- order ----------
     OR=S["order"]; show=[1,2,0]
-    body='<p class="inst">الْأَحْداثُ مَخْلوطَةٌ! نُرَتِّبُها: ماذا جاءَ أَوَّلًا؟</p><div class="ord">'+"".join(f'<div class="oc"><div class="op">{emo_disc(["🌅","🌤️","🌙"][j],150,"#F3F6FB")}</div><p>{OR[j][2]}</p><b class="onum"{B(j+1,"pop")}>{j+1}</b></div>' for j in show)+'</div>'
+    body='<p class="inst">الْأَحْداثُ مَخْلوطَةٌ! نُرَتِّبُها: ماذا جاءَ أَوَّلًا؟</p><div class="ord">'+"".join(f'<div class="oc"><div class="op">{(f'<img class="opi" src="{A(BOOKP+["pg04.webp","pg16.webp","pg27.webp"][j])}" alt="">') if book else emo_disc(["🌅","🌤️","🌙"][j],150,"#F3F6FB")}</div><p>{OR[j][2]}</p><b class="onum"{B(j+1,"pop")}>{j+1}</b></div>' for j in show)+'</div>'
     D.slide("order",clean_emoji_lead(S.get("order_head","أُرَتِّبُ الْأَحْداثَ")),"إِعادَةُ السَّرْدِ",body,"يرتّب الطلاب شفويًّا، ثم اكشف الأرقام بالترتيب.",mins=5,strat=S.get("order_strategy","إِعادَةُ السَّرْدِ"),bg="sky",dk="stars")
     # ---------- groups ----------
     roles=[r.split(" ",1) for r in G.get("roles",["📖 الْقارِئُ","✏️ الْكاتِبُ","⏱ حارِسُ الْوَقْتِ","🎤 الْمُتَحَدِّثُ"])]
@@ -332,6 +347,8 @@ def fallback(S,P):
     S["words"]=[[w,m,e] for (w,m),e in zip(P["words"],["🔊","🌴","🤲","😊"])]
     S["kicker"]="اللغة العربية · الصف الأول · قصة"; S["byline"]="ميثاء الخياط · كِتابي ص 51"
     return S
+BOOKP="resources/slides/img/AR-Y1-N-T3-L08-"
+STORYBOOK={"AR-Y1-N-T3-L08","AR-Y1-N-T3-L09"}
 POOL=[]
 for d in ["g1t1","g1t2"]:
     import glob

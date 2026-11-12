@@ -27,6 +27,7 @@ def page(title,slides,lesson_id,code):
 function snd(k){try{SND[k]()}catch(e){}}
 function cnt(b){const i=b.querySelector('i');i.textContent=(+i.textContent||0)+1;snd('chime');}
 function rst(b){b.closest('.sl').querySelectorAll('.fc i').forEach(i=>i.textContent='0');}
+function fb(b,d){const s=b.closest('.sl'),P=[...s.querySelectorAll('.fbk .fsp')];let k=P.findIndex(p=>p.classList.contains('on'));k=Math.max(0,Math.min(P.length-1,k+d));P.forEach((p,j)=>p.classList.toggle('on',j===k));s.querySelector('.fbc2').textContent=(k+1)+' / '+P.length;}
 function redraw(box){box.classList.remove('go');void box.offsetWidth;box.classList.add('go');}
 function boom(el){snd('clap');const r=el.getBoundingClientRect();for(let k=0;k<26;k++){const s=document.createElement('span');s.className='boom';s.textContent=['🎉','⭐','✨','🌟','💫'][k%5];s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top+r.height/2)+'px';s.style.setProperty('--x',(Math.random()*900-450)+'px');s.style.setProperty('--y',(Math.random()*-600+100)+'px');document.body.appendChild(s);setTimeout(()=>s.remove(),1500);}}
 const _show=show;show=function(n,end){_show(n,end);const w=S[i].querySelector('.wbox');if(w)setTimeout(()=>redraw(w),300);};

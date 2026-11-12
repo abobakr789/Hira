@@ -244,6 +244,18 @@ mark{background:linear-gradient(180deg,transparent 55%,#FFE08A 55%);color:inheri
 p.en{font-family:"Thmanyah Text",Tahoma,sans-serif;text-align:left}.crit p.en,.pr p.en{font-size:32px}
 
 .qo{display:inline-block;margin-left:26px;unicode-bidi:isolate}
+
+.fbk{position:relative;height:600px}
+.fbk .fsp{position:absolute;inset:0;display:none;justify-content:center;align-items:center;gap:0}.fbk .fsp.on{display:flex}
+.fbk .fsp img{height:590px;width:auto;max-width:48%;object-fit:contain;background:#fff;box-shadow:0 16px 36px rgba(31,42,60,.18)}
+.fbk .fsp img:first-child{border-radius:0 24px 24px 0}.fbk .fsp img:last-child{border-radius:24px 0 0 24px;border-right:2px solid #E8DFCF}
+.fbnav{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:30px}
+.fbnav button{font:700 30px "Thmanyah Display";background:var(--a);color:#fff;border:0;border-radius:40px;padding:6px 30px;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.15)}
+.fbc2{font:700 30px "Thmanyah Display";color:var(--a);background:#fff;border-radius:30px;padding:4px 22px}
+.pw{display:flex;gap:40px;height:100%}.pwc{flex:1.2;display:flex;flex-direction:column;gap:18px}.pwc p{font-size:38px;font-weight:700}
+.pwt{flex:1;display:flex;gap:16px;align-items:center;justify-content:center}.pwt img{width:31%;border-radius:18px;box-shadow:0 10px 24px rgba(31,42,60,.14);background:#fff}
+.pwt img:nth-child(2){transform:translateY(-30px) rotate(2deg)}.pwt img:nth-child(1){transform:rotate(-3deg)}
+.opi{height:220px;width:auto;border-radius:16px;box-shadow:0 8px 18px rgba(31,42,60,.12)}
 </style></head><body><div id="tb"><button class="x" id="bX">✕ خروج</button><b>عرض المعلم · التمساح (ت)</b><span class="cnt" id="pg"></span><span class="sp"></span>
 <select id="fx" title="الانتقال بين الشرائح"><option value="fade">✨ تلاشٍ</option><option value="slide">✨ انزلاق</option><option value="zoom">✨ تكبير</option><option value="none">✨ بلا حركة</option></select>
 <button id="bPg">📈 قياس التقدّم</button><button id="bT">⏱ مؤقت</button><button id="bS">🔔 انتباه</button><button id="bNo">📝 الملاحظات</button><button id="bE">✏️ تعديل</button><button class="gold" id="bF">⛶ ملء الشاشة</button></div>
@@ -934,6 +946,7 @@ show((parseInt(location.hash.slice(1))||1)-1);
 function snd(k){try{SND[k]()}catch(e){}}
 function cnt(b){const i=b.querySelector('i');i.textContent=(+i.textContent||0)+1;snd('chime');}
 function rst(b){b.closest('.sl').querySelectorAll('.fc i').forEach(i=>i.textContent='0');}
+function fb(b,d){const s=b.closest('.sl'),P=[...s.querySelectorAll('.fbk .fsp')];let k=P.findIndex(p=>p.classList.contains('on'));k=Math.max(0,Math.min(P.length-1,k+d));P.forEach((p,j)=>p.classList.toggle('on',j===k));s.querySelector('.fbc2').textContent=(k+1)+' / '+P.length;}
 function redraw(box){box.classList.remove('go');void box.offsetWidth;box.classList.add('go');}
 function boom(el){snd('clap');const r=el.getBoundingClientRect();for(let k=0;k<26;k++){const s=document.createElement('span');s.className='boom';s.textContent=['🎉','⭐','✨','🌟','💫'][k%5];s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top+r.height/2)+'px';s.style.setProperty('--x',(Math.random()*900-450)+'px');s.style.setProperty('--y',(Math.random()*-600+100)+'px');document.body.appendChild(s);setTimeout(()=>s.remove(),1500);}}
 const _show=show;show=function(n,end){_show(n,end);const w=S[i].querySelector('.wbox');if(w)setTimeout(()=>redraw(w),300);};
