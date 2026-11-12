@@ -2436,3 +2436,5 @@ body { font-family: var(--font-ui); }
 h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .quran-ref, .td-quran, .td-basmala { font-family: var(--font-quran) !important; }
 .memo-text, .sm-ev-t, .bk-read, .gb-t, .ars-text, .ars-v b, .ars-v span { font-family: var(--font-text); }
+
+.qf { font-family: var(--font-quran); font-size: 1.12em; font-weight: 400; }
