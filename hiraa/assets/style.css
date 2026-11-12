@@ -18,7 +18,15 @@
   --font-ui: "Readex Pro", "Segoe UI", Tahoma, "Noto Sans Arabic", sans-serif;
   --font-brand: "Reem Kufi", "Readex Pro", Tahoma, sans-serif;
   --font-text: "Amiri", "Traditional Arabic", "Times New Roman", serif;
+  --font-deck-display: "ThmanyahDisplay", "Reem Kufi", "Readex Pro", serif;
+  --font-deck-text: "ThmanyahText", "Readex Pro", "Segoe UI", Tahoma, sans-serif;
   color-scheme: light;
+}
+@font-face { font-family: "ThmanyahDisplay"; font-weight: 800; src: url("art/fonts/thmanyahserifdisplay-Black.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "ThmanyahDisplay"; font-weight: 700; src: url("art/fonts/thmanyahserifdisplay-Bold.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "ThmanyahText"; font-weight: 400; src: url("art/fonts/thmanyahseriftext-Regular.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "ThmanyahText"; font-weight: 600; src: url("art/fonts/thmanyahseriftext-Medium.woff2") format("woff2"); font-display: swap; }
+:root {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -1120,7 +1128,7 @@ html[dir="ltr"] .tq-stem, html[dir="ltr"] .pv-q, html[dir="ltr"] .identity-card 
 .td-notes [contenteditable] { outline: 1px dashed #ffffff60; padding: 2px 4px; display: inline-block; min-width: 60%; }
 @media (max-width: 760px) { .td-thumbs { display: none; } }
 
-.td-slide { width: 1280px; height: 720px; background: #fff; color: #1B2A33; font-family: var(--font-ui); overflow: hidden; border: 10px solid #fff; box-shadow: inset 0 0 0 3px #D5DDE9; padding: 104px 70px 56px; box-sizing: border-box; line-height: 1.55; display: flex; flex-direction: column; justify-content: safe center; gap: 20px; }
+.td-slide { width: 1280px; height: 720px; background: #fff; color: #1B2A33; font-family: var(--font-deck-text); overflow: hidden; border: 10px solid #fff; box-shadow: inset 0 0 0 3px #D5DDE9; padding: 104px 70px 56px; box-sizing: border-box; line-height: 1.55; display: flex; flex-direction: column; justify-content: safe center; gap: 20px; }
 .td-slide > * { flex: none; }
 .td-slide .rv.hid { visibility: hidden; }
 .td-stage.show .td-slide [data-j], .td-stage.show .td-clues li, .td-stage.show .td-sc li { cursor: pointer; }
@@ -2188,7 +2196,7 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .ppt-card small { display: block; margin-top: 8px; }
 
 /* editable Hira slides (Arabic) */
-.tdf { position: absolute; inset: 0; overflow: hidden; font-family: "Readex Pro", "Noto Naskh Arabic", Arial, sans-serif; cursor: pointer; }
+.tdf { position: absolute; inset: 0; overflow: hidden; font-family: var(--font-deck-text); cursor: pointer; }
 .tdf-el { position: absolute; box-sizing: border-box; }
 .tdf-tx { display: flex; padding: 4px 10px; line-height: 1.45; white-space: pre-wrap; overflow: hidden; }
 .tdf-emo { display: flex; align-items: center; justify-content: center; line-height: 1; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
