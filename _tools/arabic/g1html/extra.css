@@ -1,0 +1,207 @@
+
+.sl{direction:rtl;color:#1F2A3C;font-family:"Thmanyah Text",Tahoma,sans-serif;font-size:38px}
+:where(.sl) :where(p){line-height:1.55}
+.dc{position:absolute;display:block;pointer-events:none}
+.bigL{font:700 900px/1 "Thmanyah Display",serif;opacity:.06}
+.hlogo{position:absolute;left:72px;top:46px;z-index:2}
+.ht{position:absolute;right:110px;top:40px;font:700 78px/1.45 "Thmanyah Display",serif;color:#102A4C;max-width:1300px}
+.ht::after{content:"";display:block;width:150px;height:10px;border-radius:6px;background:var(--a);margin-top:6px}
+.hrow{position:absolute;right:110px;top:186px;display:flex;gap:14px;align-items:center}
+.pill{font-size:27px;padding:5px 22px;border-radius:30px;background:var(--a2);color:var(--a);font-weight:700;white-space:nowrap}
+.pill.tm{background:#fff;color:#1F2A3C;box-shadow:0 4px 12px rgba(31,42,60,.10)}
+.pill.st{background:#F1ECFA;color:#6B46A8}.pill.cr{background:var(--a);color:#fff}
+.bd{position:absolute;top:262px;right:110px;left:110px;bottom:118px}
+.ft{position:absolute;left:72px;right:72px;bottom:24px;height:60px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#6B7785}
+.ftr{display:flex;align-items:center;gap:14px}.ftl{display:flex;padding-left:14px;border-left:2px solid #E4DDCC}
+.goal{background:rgba(255,255,255,.75);border-radius:30px;padding:6px 26px;color:var(--a);font-weight:700;box-shadow:0 4px 14px rgba(31,42,60,.06)}
+.dots{display:flex;gap:9px}.dots b{width:13px;height:13px;border-radius:50%}
+.L{color:#E2574C}
+.cd{background:#fff;border-radius:30px;box-shadow:0 16px 36px rgba(31,42,60,.10);padding:26px 34px;border-right:10px solid var(--a);position:relative}
+.ans{background:linear-gradient(160deg,#EAF7EE,#DDF2E3);color:#0B5D3B;border-radius:22px;padding:12px 24px;font-weight:700;margin-top:14px}
+.ans.big{font-size:40px;padding:18px 30px}
+.lb{display:inline-block;font-size:27px;font-weight:700;color:var(--a);background:var(--a2);border-radius:20px;padding:3px 18px;margin-bottom:10px}
+.n{display:inline-flex;align-items:center;justify-content:center;min-width:62px;height:62px;border-radius:50%;background:var(--c,var(--a));color:#fff;font:700 32px "Thmanyah Display";flex:none}
+.inst{font-size:36px;font-weight:700;color:#334;margin-bottom:22px}
+.tip{background:#FFF6DA;border-radius:24px;padding:14px 30px;font-size:34px;margin-top:24px;color:#5B4A12}.tip.c{text-align:center}
+[data-ia]{cursor:pointer}
+/* cover */
+.cvlogo{left:90px;top:60px}
+.cvpic{position:absolute;left:150px;top:300px;width:620px;height:640px}
+.cvsun{position:absolute;left:40px;top:70px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#FFE7A8 0%,#FBD38A 60%,#F6C26A 100%);box-shadow:0 30px 60px rgba(196,135,58,.25)}
+.cvpic svg{position:absolute;left:75px;top:80px}
+.cvL{position:absolute;right:-30px;top:20px;width:210px;height:210px;border-radius:44px;background:#E2574C;transform:rotate(8deg);box-shadow:10px 12px 0 #102A4C;display:flex;align-items:center;justify-content:center}
+.cvL span{font:700 170px/1 "Thmanyah Display";color:#fff;transform:rotate(-8deg);margin-top:20px}
+.cvtx{position:absolute;right:120px;top:210px;width:1000px}
+.cvk{font-size:34px;color:#B4532A;font-weight:700;background:#fff;display:inline-block;padding:6px 26px;border-radius:30px;box-shadow:0 6px 16px rgba(180,83,42,.12)}
+.cvt{font:700 112px/1.75 "Thmanyah Display",serif;color:#102A4C;margin:44px 0 34px}
+.cvs{font-size:42px;line-height:1.7;color:#3A4656}
+.cvv{display:flex;gap:18px;margin-top:40px}.cvv>span{font:700 40px "Thmanyah Display";color:#fff;background:var(--c);padding:10px 34px;border-radius:40px;box-shadow:0 8px 0 rgba(0,0,0,.12)}
+.cvb{position:absolute;right:120px;bottom:60px;font-size:30px;color:#6B7785}
+/* retrieval */
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-right:0;margin-left:170px}
+.rc{min-height:330px;display:flex;flex-direction:column}.rcI{font-size:64px}.rcQ{font-size:44px;font-weight:700;flex:1}
+.rc:nth-child(2){--a:#6B46A8}.rc:nth-child(3){--a:#C2571A}
+.link{margin-top:40px;--a:#1E7A5A}.link p{font-size:38px}
+.side{position:absolute}
+/* guess */
+.clues{width:1180px;display:flex;flex-direction:column;gap:20px}
+.clue{display:flex;align-items:center;gap:26px;background:#fff;border-radius:26px;padding:16px 26px;border-right:10px solid var(--c);box-shadow:0 10px 26px rgba(31,42,60,.08)}
+.clue .n{--c:inherit;background:var(--c)}.clue p{flex:1;font-size:38px;font-weight:700}.pts{font-size:26px;color:var(--c);background:#F6F2EA;border-radius:18px;padding:4px 16px;font-weight:700}
+.who{display:flex;align-items:center;gap:30px;background:linear-gradient(135deg,#FFF1C9,#FFE29A);border:4px dashed #E0A82E;border-radius:30px;padding:8px 34px;margin-top:6px}
+.who p{font-size:36px;font-weight:700}.bigA{font:700 110px/1.6 "Thmanyah Display";color:#E2574C}
+.detect{position:absolute;left:0;top:-20px;width:420px;text-align:center}.detect img{width:300px;height:340px;object-fit:contain;background:#fff;border-radius:50%;padding:20px;box-shadow:0 14px 30px rgba(31,42,60,.10)}.detect p{font-size:30px;color:#6B5A2A;margin-top:14px}
+/* listen */
+.snd{display:grid;grid-template-columns:repeat(7,1fr);gap:22px}
+.sc{background:#fff;border-radius:30px;box-shadow:0 12px 28px rgba(31,42,60,.10);height:470px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;border:5px solid transparent;transition:transform .2s}
+.sc:hover{transform:translateY(-6px)}.sc .pic{height:240px;display:flex;align-items:center}
+.sc .nm{font:700 48px "Thmanyah Display";margin-top:20px;opacity:0;transition:.3s}.sc .mk{position:absolute;top:-22px;left:-18px;width:76px;height:76px;border-radius:50%;color:#fff;font-size:44px;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.4);transition:.3s}
+.sc.shown .nm,.sc.shown .mk{opacity:1;transform:none}.sc.yes.shown{border-color:#3BA55C;background:#F0FAF3}.sc.no.shown{border-color:#E57373;background:#FDF1F1}
+.sc.yes .mk{background:#3BA55C}.sc.no .mk{background:#E57373}
+/* goal */
+.goalbox{background:#FFF6DA;border:3px solid #E9CF8A;border-radius:28px;padding:18px 34px;margin-bottom:24px}.goalbox p{font-size:38px}
+.crs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.crit{display:flex;align-items:center;gap:20px;background:#fff;border-radius:28px;padding:26px 28px;min-height:190px;border-right:12px solid var(--c);box-shadow:0 10px 26px rgba(31,42,60,.08);flex-wrap:wrap}
+.crit .vb,.pr .vb{font:700 30px "Thmanyah Display";color:var(--c);background:var(--c2,#F5F2EC);border-radius:18px;padding:4px 16px}
+.crit p{flex:1 1 60%;font-size:40px;font-weight:700}.tag{flex-basis:100%;font-size:28px;color:var(--c);font-weight:700;padding-right:84px}
+/* progress */
+.prs{display:flex;flex-direction:column;gap:16px}
+.pr{display:flex;align-items:center;gap:20px;background:#fff;border-radius:26px;padding:16px 24px;border-right:10px solid var(--c);box-shadow:0 8px 20px rgba(31,42,60,.07)}
+.pr p{flex:1;font-size:37px;font-weight:700}.fs{display:flex;gap:16px;direction:ltr}
+.fc{border:0;background:#F7F4EE;border-radius:22px;padding:6px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;font:700 30px "Thmanyah Display";color:#1F2A3C}.fc i{font-style:normal;min-width:30px}
+.fc:active{transform:scale(.94)}
+.leg{display:flex;gap:40px;justify-content:center;align-items:center;margin-top:18px;font-size:28px;color:#556}.leg>span{display:flex;align-items:center;gap:10px}
+.leg button{font:inherit;font-size:24px;border:2px solid #D8D2C4;background:#fff;border-radius:20px;padding:4px 16px;cursor:pointer}
+/* vocab */
+.vg{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;height:100%}
+.vc{position:relative;perspective:1600px;height:610px}
+.vf,.vb2{position:absolute;inset:0;border-radius:34px;backface-visibility:hidden;transition:transform .6s;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 16px 34px rgba(31,42,60,.12)}
+.vf{background:#fff;border-bottom:12px solid var(--a)}.vb2{background:linear-gradient(160deg,#FFF6EC,#FDE6D3);transform:rotateY(180deg);padding:30px}
+.vc.fl .vf{transform:rotateY(-180deg)}.vc.fl .vb2{transform:rotateY(0)}
+.vp{height:250px;display:flex;align-items:center}.vw{font:700 66px/1.65 "Thmanyah Display";margin-top:10px}.vw.s{font-size:60px}
+.vh{font-size:28px;background:var(--a2);color:var(--a);border-radius:20px;padding:2px 16px;font-weight:700}.vf small{font-size:22px;color:#98A0AA;margin-top:14px}
+.vm{font-size:38px;text-align:center;font-weight:700;margin-top:16px}
+/* predict */
+.pd{display:flex;gap:60px;align-items:center;height:100%}.pdp{position:relative;width:520px;flex:none;display:flex;justify-content:center}
+.pdq{position:absolute;left:30px;top:0;font:700 150px "Thmanyah Display";color:#B0395F;opacity:.85;transform:rotate(-12deg)}
+.pdc{flex:1;display:flex;flex-direction:column;gap:26px}.q{font-size:44px;font-weight:700}
+/* story */
+.story{display:flex;gap:50px;align-items:center;background:#fff;border-radius:40px;padding:40px 60px;box-shadow:0 20px 44px rgba(31,42,60,.10);border:4px solid #F1E4CC;height:560px}
+.sp{flex:none;width:300px}.stx{flex:1;display:flex;flex-direction:column;gap:24px}
+.stx p{font:600 70px/1.75 "Thmanyah Text",serif;color:#102A4C}
+.stx .L{color:inherit;transition:color .3s,background .3s;border-radius:12px}
+#story.hunt .stx .L{color:#fff;background:#E2574C;padding:0 6px}
+mark{background:linear-gradient(180deg,transparent 55%,#FFE08A 55%);color:inherit;padding:0 4px}
+.sbar{display:flex;justify-content:space-between;align-items:center;margin-top:22px}.sbar button{font:700 34px "Thmanyah Display";background:#E2574C;color:#fff;border:0;border-radius:40px;padding:12px 36px;cursor:pointer;box-shadow:0 8px 0 #A93B32}
+.sbar span{font-size:28px;color:#7A6A55}
+/* video */
+.vw2{display:flex;justify-content:center}.vid{width:1160px;height:600px;border-radius:34px;background:#102A4C;box-shadow:0 20px 44px rgba(31,42,60,.22)}
+.vid.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(160deg,#DCE8F7,#fff)}.vid.ph p{font-size:34px;color:#2F64A8;font-weight:700;margin-top:20px}
+.vtip{position:absolute;bottom:0;right:0;left:0;text-align:center}.vtip p{display:inline-block;font-size:32px;background:#fff;border-radius:30px;padding:8px 30px}
+/* harakat */
+.hk{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}.hc .hg{margin:0 0 6px}
+.hc{background:#fff;border-radius:38px;text-align:center;padding:26px;box-shadow:0 16px 34px rgba(31,42,60,.10);border-top:16px solid var(--c)}
+.hn{font:700 44px "Thmanyah Display";color:var(--c)}.hg{display:block;font:700 160px/1.75 "Thmanyah Display";color:var(--c)}
+.hm{font-size:32px;color:#556}.he{font-size:36px;font-weight:700;margin-top:6px}
+/* madd */
+.md{display:flex;flex-direction:column;gap:30px;padding:0 40px}
+.mr{display:flex;align-items:center;gap:40px;background:#fff;border-radius:34px;padding:10px 40px;box-shadow:0 12px 28px rgba(31,42,60,.08)}
+.ms,.ml{font:700 116px/1.7 "Thmanyah Display";color:var(--c);min-width:180px;text-align:center}
+.mbar{flex:1;height:22px;background:#EEF0F3;border-radius:12px;overflow:hidden}.mbar i{display:block;height:100%;width:0;background:linear-gradient(270deg,var(--c),transparent);border-radius:12px;transition:width 1.4s ease .2s}
+.mr:not(.hid) .mbar i{width:100%}
+.mt{font-size:32px;font-weight:700;color:var(--c);background:#F6F3EE;border-radius:20px;padding:6px 20px;min-width:240px;text-align:center}
+/* write */
+.wr{display:flex;gap:60px;align-items:center;height:100%}
+.wbox{width:470px;height:600px;flex:none;background:#fff;border-radius:40px;box-shadow:0 18px 40px rgba(31,42,60,.12);display:flex;align-items:center;justify-content:center;position:relative}
+.trace{width:380px;height:500px}
+.t1{stroke-dasharray:300;stroke-dashoffset:300}.t2,.t3{opacity:0}
+.sl.on .wbox.go .t1{animation:draw 1.6s ease forwards .3s}.sl.on .wbox.go .t2{animation:fade .6s forwards 2s}.sl.on .wbox.go .t3{animation:fade .6s forwards 0s}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}
+.rp{position:absolute;bottom:-26px;background:#102A4C;color:#fff;font-size:26px;border-radius:30px;padding:6px 24px}
+.wst{flex:1;display:flex;flex-direction:column;gap:22px}.ws{display:flex;gap:24px;align-items:center}.ws p{font-size:42px;font-weight:700}
+/* where */
+.whq{margin-bottom:30px}.opts{display:flex;gap:20px;margin-top:14px}.opts>span{font-size:36px;background:#F6F3EE;border-radius:22px;padding:8px 28px}.opts>.ok{background:#DDF2E3;color:#0B5D3B;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:18px}.chips>span{font:700 48px/1.75 "Thmanyah Display";background:#fff;border-radius:26px;padding:6px 30px;box-shadow:0 8px 18px rgba(31,42,60,.08)}
+.chips.sm{justify-content:center;margin-top:30px}.chips.sm>span{font:700 32px "Thmanyah Text"}
+.count{display:inline-block;margin-top:24px;font-size:40px;font-weight:700;color:#B0395F;background:#fff;border-radius:30px;padding:8px 30px}
+/* order */
+.ord{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:56px}
+.oc{background:#fff;border-radius:34px;box-shadow:0 14px 30px rgba(31,42,60,.10);padding:26px;text-align:center;position:relative}
+.op{height:230px;display:flex;align-items:center;justify-content:center}.op svg{max-height:220px}.oc p{font-size:40px;font-weight:700;margin-top:18px;min-height:110px}
+.onum{position:absolute;top:-30px;right:-24px;width:96px;height:96px;border-radius:50%;background:#2F64A8;color:#fff;font:700 54px "Thmanyah Display";display:flex;align-items:center;justify-content:center;box-shadow:0 8px 0 #1C4378}
+/* groups */
+.gm{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.gmc{background:var(--c2);border-radius:30px;padding:34px 30px;min-height:250px;border-bottom:10px solid var(--c);display:flex;flex-direction:column;gap:6px}
+.lvt{font-size:26px;font-weight:700;color:#fff;background:var(--c);border-radius:18px;padding:2px 16px;align-self:flex-start}.gmc b{font:700 54px/1.6 "Thmanyah Display";color:var(--c)}.gmc small{font-size:30px;color:#556}
+.roles{display:flex;justify-content:center;gap:28px;margin-top:44px}.roles>span{display:flex;align-items:center;gap:12px;background:#fff;border-radius:30px;padding:8px 28px;font-size:38px;font-weight:700;box-shadow:0 8px 18px rgba(31,42,60,.08)}.roles i{font-style:normal;font-size:40px}
+.flow{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:44px;background:#EEF4FB;border-radius:30px;padding:22px;font-size:38px;font-weight:700;color:#2F64A8}.flow b{font-size:36px}
+.gw{display:flex;gap:34px;height:100%}.gwm{flex:1.25;display:flex;flex-direction:column;gap:24px}.gws{flex:1;display:flex;flex-direction:column;gap:24px}
+.gw .cd{--a:var(--c);--a2:var(--c2)}
+.gt{font:700 56px/1.75 "Thmanyah Display";text-align:center}
+.gsteps p{display:flex;align-items:center;gap:18px;font-size:42px;font-weight:700;margin-top:10px}.gsteps p b{width:54px;height:54px;border-radius:50%;background:var(--c2);color:var(--c);display:flex;align-items:center;justify-content:center;font:700 30px "Thmanyah Display";flex:none}
+.gch{position:relative;background:linear-gradient(160deg,#FFF6D6,#FFE7A3);border:4px dashed #D9A532;border-radius:32px;padding:30px 34px 30px 110px;flex:1}
+.gch svg{position:absolute;left:24px;top:24px}.gch .lb{--a:#8A5A00;--a2:#fff}.gch p{font-size:44px;font-weight:700}
+.gmeta{display:flex;flex-direction:column;gap:12px}.gmeta p{background:#fff;border-radius:22px;padding:14px 26px;font-size:34px;box-shadow:0 6px 14px rgba(31,42,60,.06)}
+/* models */
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:28px}.mac{--a:var(--c);min-height:280px}.mac .lvt{margin-bottom:12px;display:inline-block}.mac p{font-size:42px;font-weight:700}
+/* true false */
+.tf{display:flex;flex-direction:column;gap:26px}.tfr{display:grid;grid-template-columns:1.25fr 1fr;gap:24px}
+.tfq{display:flex;align-items:center;gap:22px;padding:16px 26px}.tfq p{font-size:42px;font-weight:700}
+.tfa{display:flex;align-items:center;gap:18px;border-radius:26px;padding:12px 26px}.tfa b{font-size:52px}.tfa p{font-size:36px;font-weight:700}
+.tfa.y{background:#DDF2E3;color:#0B5D3B}.tfa.x{background:#FBE1E1;color:#9B2C2C}
+/* feedback */
+.fbi{--a:#F2A93B;text-align:center}.fbi p{font-size:38px;font-weight:700}
+.fb{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:34px}
+.fbc{background:#fff;border-radius:34px;padding:40px 30px;text-align:center;box-shadow:0 14px 30px rgba(31,42,60,.10);border-top:12px solid #F2A93B}.fbc.w{border-color:#3BA55C}
+.fbc b{display:block;font:700 40px "Thmanyah Display";margin:10px 0}.fbc p{font-size:46px;color:#556}.wi{font-size:80px}
+/* value */
+.val{display:flex;gap:40px;height:100%}.vlp{width:380px;flex:none;display:flex;align-items:center;justify-content:center}.vlp img{width:360px;height:520px;object-fit:contain;background:#fff;border-radius:200px 200px 40px 40px;padding:30px;box-shadow:0 18px 40px rgba(31,42,60,.10)}
+.vlc{flex:1;display:flex;flex-direction:column;gap:22px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.row2 .cd:nth-child(2){--a:#1E7A5A;--a2:#D7EEE2}
+.row2 p,.dil p{font-size:38px;font-weight:700}.dil{display:flex;align-items:center;gap:24px;--a:#C2571A}.clk{flex:none}
+/* quick */
+.qq{display:flex;flex-direction:column;gap:16px}.qr{display:flex;align-items:center;gap:24px;background:#fff;border-radius:26px;padding:12px 26px;border-right:10px solid var(--c);box-shadow:0 8px 20px rgba(31,42,60,.07)}
+.qr>div{flex:1}.qr .q{font-size:44px}.qr .o{font-size:32px;color:#667}.qa{font-size:34px;font-weight:700;background:#DDF2E3;color:#0B5D3B;border-radius:20px;padding:8px 24px;white-space:nowrap}
+/* exit */
+.ex{display:grid;grid-template-columns:1fr 1fr;gap:30px}.exq p{font-size:42px;font-weight:700}
+.exb{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:30px}.eb{display:flex;align-items:center;gap:24px;border-radius:30px;padding:20px 30px}.eb p{font-size:42px;font-weight:700}.eb.g{background:#E3F4E8}.eb.y{background:#FFF3D1}
+.note{margin-top:26px;font-size:30px;color:#556;display:flex;align-items:center;gap:12px;justify-content:center}
+/* home */
+.hmx{display:flex;gap:50px;height:100%;align-items:center}.hmp{width:520px;flex:none}.hmp img{width:520px;height:420px;object-fit:contain;background:#fff;border-radius:40px;padding:30px;box-shadow:0 18px 40px rgba(31,42,60,.10)}
+.hmc{flex:1;display:flex;flex-direction:column;gap:24px}.hmc p{font-size:42px;font-weight:700}.hmt{--a:#B07A12;--a2:#FBEBC2}
+.bye{font:700 52px "Thmanyah Display";color:#C2571A;display:flex;align-items:center;gap:14px;justify-content:center;margin-top:10px}
+.boom{position:fixed;font-size:60px;pointer-events:none;z-index:20;animation:boom 1.4s ease-out forwards}
+@keyframes boom{to{transform:translate(var(--x),var(--y)) rotate(360deg);opacity:0}}
+/* generic engine */
+.emd{border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 -10px 0 rgba(0,0,0,.04),0 10px 24px rgba(31,42,60,.10);font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;line-height:1}
+.cvpic.g .cvimg{position:absolute;left:110px;top:110px;width:380px;height:460px;object-fit:contain;background:#fff;border-radius:28px;padding:14px;box-shadow:0 22px 44px rgba(31,42,60,.18);transform:rotate(-3deg)}
+.cvL.e span{font-size:120px;margin-top:0;transform:none}
+.cvt.s{font-size:92px}
+.rt{font:700 52px/1.7 "Thmanyah Display";color:#102A4C}
+.pdp2{width:520px;flex:none;display:flex;justify-content:center}.pdp2 img{max-width:500px;max-height:560px;object-fit:contain;background:#fff;border-radius:34px;padding:18px;box-shadow:0 18px 40px rgba(31,42,60,.14);transform:rotate(2deg)}
+.sp2{width:330px;flex:none}.sp2 img{width:320px;height:400px;object-fit:contain;background:#fff;border-radius:26px;padding:10px;box-shadow:0 10px 26px rgba(31,42,60,.12);transform:rotate(-2deg)}
+.story.lg .stx p{font-size:44px;line-height:1.85}.story.lg{height:600px}.story.poem .stx{text-align:center}.story.poem .stx p{font-size:52px;line-height:1.7}
+.sl.hunt .stx .L{color:#fff!important;background:#E2574C;border-radius:10px}
+.hg.s{font-size:120px;line-height:1.9}
+.hc.tx{display:flex;flex-direction:column}.htx{font-size:38px;flex:1;display:flex;align-items:center;justify-content:center;text-align:center;margin-top:16px}
+.mt2{display:flex;flex-direction:column;gap:20px;padding:0 40px}.mrow{display:grid;grid-template-columns:1fr 80px 1.4fr;align-items:center;gap:16px}
+.ml2{background:#fff;border-radius:26px;padding:16px 28px;font:700 46px/1.6 "Thmanyah Display";text-align:center;box-shadow:0 10px 22px rgba(31,42,60,.08)}.mrow>b{font-size:48px;color:var(--a);text-align:center}.mr2{font-size:40px;margin-top:0;text-align:center}
+.tw{fill:transparent;stroke:#102A4C;stroke-width:6;stroke-dasharray:1400;stroke-dashoffset:1400}
+.sl.on .wbox.go .tw{animation:tdraw 2.6s ease forwards .2s}
+@keyframes tdraw{70%{stroke-dashoffset:0;fill:transparent}100%{stroke-dashoffset:0;fill:#102A4C}}
+.spk{display:flex;flex-direction:column;gap:30px;padding:20px 80px}.spf p{font:700 58px/1.7 "Thmanyah Display";text-align:center}.inst.c{text-align:center;color:var(--a)}
+.q2{font-size:38px;margin-top:6px;color:#445}
+.dq{font-size:70px;flex:none}
+.gt.sm{font-size:40px}
+
+.md{gap:22px}.mr{padding:4px 40px}.ms,.ml{font-size:100px;line-height:1.6}
+.qq{gap:12px}.qr{padding:8px 24px}.qr .q{font-size:36px;line-height:1.45}.qr .o{font-size:28px;line-height:1.5}
+.wrv{font:700 44px/1.6 "Thmanyah Display";color:#fff;background:var(--c);border-radius:24px;padding:2px 26px;white-space:nowrap}
+
+.story{height:auto;min-height:420px;max-height:640px;overflow:hidden}.stx p{font-size:var(--fs,70px)!important;line-height:1.75!important}.story.poem .stx p{font-size:calc(var(--fs,70px)*.85)!important}
+
+.ht.s{font-size:60px}.mac p{font-size:var(--mfs,42px)!important;line-height:1.6}.mg .mac{min-height:0}
+.story{max-height:580px}
+
+.vph{width:270px;height:250px;object-fit:contain;background:#fff;border-radius:30px;border:8px solid #fff;box-shadow:0 10px 24px rgba(31,42,60,.14)}
+p.en{font-family:"Thmanyah Text",Tahoma,sans-serif;text-align:left}.crit p.en,.pr p.en{font-size:32px}
+
+.qo{display:inline-block;margin-left:26px;unicode-bidi:isolate}
