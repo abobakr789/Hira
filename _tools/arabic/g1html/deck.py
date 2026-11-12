@@ -38,6 +38,25 @@ class Deck:
         hd=f'<div class="hlogo">{logo(196)}</div><h2 class="ht{" s" if len(bare(re.sub("<[^>]+>","",title)))>32 else ""}">{title}</h2><div class="hrow">{chips}</div>'
         ft=f'<div class="ft"><div class="ftr"><span class="ftl">{logo(92)}</span><span>{s.title}</span></div><div class="goal">🎯 {s.strip}</div><div class="dots"><b style="background:#E2574C"></b><b style="background:#F2A93B"></b><b style="background:#1E7A5A"></b><b style="background:#2F64A8"></b></div></div>'
         s.SL.append(f'<section class="sl" id="{sid}" style="--bg:{bgc};--a:{a};--a2:{a2};background:{bgc}">{deco(dk,a,s.big)}{hd}<div class="bd">{body}</div>{ft}<aside>{note}</aside></section>')
+FILL={"Meaning: …","Meaning: ...","Do you know it?","هَلْ تَعْرِفُ مَعْناها؟"}
+def rq(c):
+    a=c[1] or ""; b=c[2] or ""
+    if b in FILL or not b.strip(): return a
+    if bare(a).startswith("سؤال من"): return b
+    return (a+" "+b).strip()
+LAT=re.compile(r"\(?[A-Za-z](?:[A-Za-z0-9 ,'’/&\-\.:;]*[A-Za-z0-9])?[\?!\.]*\)?")
+def bidify(html):
+    out=[]; svg=0
+    for part in re.split(r"(<[^>]+>)",html):
+        if part.startswith("<"):
+            t=part.lower()
+            if t.startswith("<svg"): svg+=1
+            elif t.startswith("</svg"): svg-=1
+            out.append(part); continue
+        if svg or not re.search(r"[A-Za-z]",part): out.append(part); continue
+        if not re.search(r"[\u0600-\u06FF]",part): out.append(f'<bdi dir="ltr">{part}</bdi>' if part.strip() else part); continue
+        out.append(LAT.sub(lambda m:f'<bdi dir="ltr">{m.group(0)}</bdi>',part))
+    return "".join(out)
 def emo_disc(e,size=190,bg="#FFF"): return f'<div class="emd" style="width:{size}px;height:{size}px;font-size:{int(size*.58)}px;background:{bg}">{e}</div>'
 def opt_idx(model):
     m=re.search(r"\((أ|ب|ج)\)",model or ""); return {"أ":0,"ب":1,"ج":2}.get(m.group(1),0) if m else 0
@@ -112,7 +131,7 @@ def build(code, mode="site"):
     # ---------- retrieval ----------
     R=S["retrieval"]
     cards=R.get("cards") or [[["📌","💡","🔁"][i%3],None,q.rstrip(":： "),a] for i,(q,a) in enumerate(R.get("qa",[]))]
-    body='<div class="row3">'+"".join(f'<div class="cd rc"{B(k*2+1)}><div class="rcI">{c[0]}</div><p class="rcQ">{(c[1]+" ") if c[1] else ""}{c[2]}</p><p class="ans"{B(k*2+2,"pop")}>✓ {c[3]}</p></div>' for k,c in enumerate(cards[:3]))+'</div>'
+    body='<div class="row3">'+"".join(f'<div class="cd rc"{B(k*2+1)}><div class="rcI">{c[0]}</div><p class="rcQ">{rq(c)}</p><p class="ans"{B(k*2+2,"pop")}>✓ {c[3]}</p></div>' for k,c in enumerate(cards[:3]))+'</div>'
     body+=f'<div class="cd link"{B(7)}><p>{R["link"]}</p></div><img class="side" src="{A("art/boywave.webp")}" alt="" style="left:30px;top:-40px;width:150px">'
     D.slide("retrieve","قَبْلَ أَنْ نَبْدَأَ..","نَتَذَكَّرُ وَنَرْبِطُ",body,R.get("note","[استرجاع]"),mins=3,bg="mint",dk="ring")
     # ---------- guess ----------
@@ -128,7 +147,7 @@ def build(code, mode="site"):
         cols=["#A0612F","#2F64A8","#1E7A5A","#C2571A"]
         rows=[]
         for k,(w,m,e,ph) in enumerate(words):
-            q=(f"تَبْدَأُ بِحَرْفِ ({bare(w)[0]})، وَصورَتُها: {e}") if "بِـ (" in m else (f'<span dir="ltr">In English: «{m}» {e}</span>' if nn else f"مَعْناها: «{m}» {e}")
+            q=(f"تَبْدَأُ بِحَرْفِ ({bare(w)[0]})، وَصورَتُها: {e}") if "بِـ (" in m else (f'{e} <span dir="ltr">{m}</span>' if nn else f"مَعْناها: «{m}» {e}")
             rows.append(f'<div class="clue" style="--c:{cols[k]}"{B(k*2+1,"left")}><b class="n">{k+1}</b><p>{q}</p><span class="wrv"{B(k*2+2,"pop")}>{w}</span></div>')
         body='<div class="clues">'+"".join(rows)+f'</div><div class="detect"><img src="{A("art/lensboy.webp")}" alt=""><p>مَنْ يُخَمِّنُ الْكَلِمَةَ أَوَّلًا يَرْبَحُ نُقْطَةً!</p></div>'
         D.slide("guess","خَمِّنِ الْكَلِمَةَ!","تَحَدّي الْمُحَقِّقينَ",body,"[التهيئة: تحدّي المحققين] اعرض التلميح، ويخمّن الطلاب الكلمة من الدرس، ثم اكشفها بالنقر.",mins=3,bg="butter",dk="stars")
@@ -222,7 +241,7 @@ def build(code, mode="site"):
     D.slide("speak",clean_emoji_lead(SP["head"]),"شاهِدْني أَتَحَدَّثُ",body,"نمذج الإجابة أولًا، ثم يتحدث الطلاب في أزواج.",mins=4,bg="peach",dk="dots")
     # ---------- wordj ----------
     WJ=S["wordj"]; ci=opt_idx(WJ["model"])
-    body=f'<div class="wh"><div class="cd whq"><p class="q">{WJ["sent"]}</p><p class="q2">{WJ["q"]}</p><div class="opts">'+"".join(f'<span{B(1,"pop") if j==ci else ""} class="{"ok" if j==ci else ""}">{j+1}. <bdi>{strip_lab(o)}</bdi>{" ✓" if j==ci else ""}</span>' for j,o in enumerate(WJ["opts"]))+f'</div><p class="ans"{B(2,"pop")}>✓ {re.sub(r"^\(.\):?\s*","",WJ["model"])}</p></div>'
+    body=f'<div class="wh"><div class="cd whq"><p class="q">{WJ["sent"]}</p><p class="q2">{WJ["q"]}</p><div class="opts">'+"".join(f'<span{B(1,"pop") if j==ci else ""} class="{"ok" if j==ci else ""}"><i class="ob">{j+1}</i><bdi>{strip_lab(o)}</bdi>{" ✓" if j==ci else ""}</span>' for j,o in enumerate(WJ["opts"]))+f'</div><p class="ans"{B(2,"pop")}>✓ {re.sub(r"^\(.\):?\s*","",WJ["model"])}</p></div>'
     if kind=="letter":
         ch="ه" if L=="هـ" else L; chs={"أ":"أإآ"}.get(ch,ch)
         seen=[]
@@ -325,7 +344,7 @@ def build(code, mode="site"):
     for q,opts,ci in Q[:5]:
         o=list(opts); right=o[ci]; rnd.shuffle(o); QQ.append((q,o,o.index(right)+1))
     qc=["#A0612F","#2F64A8","#1E7A5A","#C2571A","#6B46A8"]
-    body='<div class="qq">'+"".join(f'<div class="qr" style="--c:{qc[k]}"><b class="n">{k+1}</b><div><p class="q">{q}</p><p class="o">{"".join(f'<span class="qo">{j+1}) <bdi>{x}</bdi></span>' for j,x in enumerate(o))}</p></div><span class="qa"{B(k+1,"pop")}>الْإِجابَةُ: {a}</span></div>' for k,(q,o,a) in enumerate(QQ))+'</div>'
+    body='<div class="qq">'+"".join(f'<div class="qr" style="--c:{qc[k]}"><b class="n">{k+1}</b><div><p class="q">{q}</p><p class="o">{"".join(f'<span class="qo"><i class="ob">{j+1}</i><bdi>{x}</bdi></span>' for j,x in enumerate(o))}</p></div><span class="qa"{B(k+1,"pop")}>الْإِجابَةُ: {a}</span></div>' for k,(q,o,a) in enumerate(QQ))+'</div>'
     D.slide("quick","تَحَدّي حِراءَ السَّريعُ",f"{len(QQ)} أَسْئِلَةٍ · 5 دَقائِقَ",body,"يجيب الطلاب بالأصابع (1، 2، 3)، ثم اكشف الإجابة. سجّل نقاط المجموعات.",mins=5,bg="mint",dk="ring")
     prog("progress2","قِياسُ التَّقَدُّمِ: بَعْدَ الدَّرْسِ","كَمْ تَقَدَّمْتُ؟","أَرْفَعُ يَدي مَرَّةً أُخْرى، وَأُقارِنُ: في أَيِّ مِعْيارٍ تَقَدَّمْتُ؟","lilac")
     # ---------- exit ----------
@@ -338,7 +357,7 @@ def build(code, mode="site"):
 <div class="cd"{B(1)}><span class="lb">🏠 مَعَ أُسْرَتي</span><p>{HM["family"]}</p></div><div class="cd hmt"{B(2)}><span class="lb">🎯 مُهِمَّةُ أَداءٍ صَغيرَةٌ</span><p>{HM["task"]}</p></div>
 <p class="bye"{B(3,"pop")}>أَحْسَنْتُمْ يا أَبْطالَ {logo(120)} 🌟</p></div></div>'''
     D.slide("home","رِسالَتي إِلى الْبَيْتِ","أَتَعَلَّمُ مَعَ أُسْرَتي",body,"[التكليف ومهمة الأداء] ذكّر الطلاب بالمهمة، وحدّد موعد عرضها.",mins=1,bg="peach",dk="stars")
-    return page(bare(title),"".join(D.SL),meta["id"],code), len(D.SL)
+    return page(bare(title),bidify("".join(D.SL)),meta["id"],code), len(D.SL)
 def fallback(S,P):
     S=dict(S)
     S["title"]="قِصَّةُ: الْمَحَبَّةُ في رَمَضانَ"; S["strip"]="أَقْرَأُ الْقِصَّةَ وَأَفْهَمُها"
