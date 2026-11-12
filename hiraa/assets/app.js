@@ -3072,6 +3072,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const liveS = isStudent() && !lockedForMe ? ((await sb.from("progress_sessions").select("id, phase").eq("lesson_id", l.id).neq("phase", "closed").limit(1)).data || [])[0] : null;
     state._liveBanner = liveS ? `<a class="pg-banner" href="#/progress?s=${liveS.id}">✍️ ${nn || LANG === "en" ? "Your teacher opened the progress measure:" : "معلمك فتح قياس التقدّم الآن:"} <b>${liveS.phase === "before" ? (nn || LANG === "en" ? "write what you know" : "اكتب ما تعرفه") : (nn || LANG === "en" ? "write what you learned" : "اكتب ما استفدته")}</b> ←</a>` : "";
     const P2 = (l.periods || 1) > 1;
+    // Islamic Education lessons with a new Hiraa pack (resources/ie/...): the uploaded levelled sheets replace the old auto-generated papers
+    const IEPACK = subject === "islamic" && res.some((r) => /^resources\/ie\//.test(r.url || ""));
+    const pmOnlyHtml = `<div class="papers-box"><h3>${CT("📈 قياس التقدّم", "📈 Progress measure")}</h3><div class="papers-grid">${P2 ? `<button class="paper-card pp-open" data-kind="pm" data-part="1"><span>📈</span><b>${CT("قياس التقدّم", "Progress measure")}</b><small>${CT("الحصة الأولى", "Lesson 1")}</small></button><button class="paper-card pp-open" data-kind="pm" data-part="2"><span>📈</span><b>${CT("قياس التقدّم", "Progress measure")}</b><small>${CT("الحصة الثانية", "Lesson 2")}</small></button>` : `<button class="paper-card pp-open" data-kind="pm" data-part="1"><span>📈</span><b>${CT("قياس التقدّم", "Progress measure")}</b><small>${CT("قبل الحصة وبعدها", "Before and after the lesson")}</small></button>`}</div></div>`;
     const papersHtml = `<div class="papers-box"><h3>${CT("📄 أوراق الحصة: جاهزة للطباعة والتعديل", "📄 Lesson papers: ready to print and edit")}</h3><p class="muted">${CT("تُبنى من محتوى الدرس ومعايير النجاح. عدّل أي ورقة بالكتابة عليها مباشرة، واحفظ نسختك، ثم اطبعها.", "Built from the lesson content and success criteria. Edit any sheet by typing on it, save your copy, then print.")}</p>
       <div class="papers-grid">
         <button class="paper-card pp-open" data-kind="ws"><span>📝</span><b>${CT("ورقة العمل", "Worksheet")}</b><small>${CT("نسختان في صفحة للقصّ", "Two copies per page to cut")}</small></button>
@@ -3177,12 +3180,15 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         ["parent", nnEn ? "For parents" : "ولي الأمر", parentNoteHtml()],
         ["res", nnEn ? "Resources" : "المصادر", arSourcesHtml() + (lockedForMe ? "" : (() => { const fs = res.filter((r) => ["file", "interactive", "link"].includes(r.kind)); const tf = fs.filter((r) => r.audience === "teacher"), sf = fs.filter((r) => r.audience !== "teacher");
           return (isStaff() && tf.length ? `<h3 class="res-group">مواد المعلم <span class="pill warn">لا تظهر للطلاب</span></h3>${resItems(tf)}` : "") + (sf.length ? `<h3 class="res-group">مواد الطالب</h3>${resItems(sf)}` : ""); })())]
+      ] : IEPACK ? [
+        ["work", nnEn ? "Worksheets" : "أوراق العمل", (isStaff() && summary && !lockedForMe ? pmOnlyHtml : "") + resList(["worksheet", "file"], "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
+        ["group", nnEn ? "Group work" : "العمل الجماعي", resList(["group_pack"], "لم تُضف مهام المجموعات لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
       ] : [
         ["work", "أوراق العمل", (isStaff() && summary && !lockedForMe ? papersHtml : "") + resList(["worksheet", "group_pack", "file", "interactive", "link"], isStaff() && summary ? CT("لا توجد ملفات مرفوعة إضافية", "No extra uploaded files") : "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
       ]),
       ...(subject === "arabic" && (bookTx || isSuper()) ? [["booktext", nnEn ? "📖 Book text" : "📖 نص الكتاب", bookTxHtml()]] : []),
       ["video", nnEn ? "Video" : "الفيديو", videoHtml],
-      ...((subject === "islamic" || subject === "igcse") || ev.length ? [["evidence", (subject === "islamic" || subject === "igcse") ? CT("المصادر", "Sources") : "الشواهد", (subject === "islamic" || subject === "igcse") ? srcHtml : evHtml]] : []),
+      ...((subject === "islamic" || subject === "igcse") || ev.length ? [["evidence", (subject === "islamic" || subject === "igcse") ? CT("المصادر", "Sources") : "الشواهد", (subject === "islamic" || subject === "igcse") ? (IEPACK ? (lockedForMe ? lockedMsg : resItems(res.filter((r) => /sources-concept-card/.test(r.url || "")))) : srcHtml) : evHtml]] : []),
       ["identity", nnEn ? "National identity" : "الهوية الوطنية", idHtml],
       ["outcomes", nnEn ? "Learning outcomes" : "نواتج التعلم", outHtml],
       ...(gameItems.length ? [["games", nnEn ? "🎮 Lesson game" : "🎮 لعبة الدرس", lockedForMe ? lockedMsg : gamePanel(l, gameItems)]] : []),
