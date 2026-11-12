@@ -4,33 +4,32 @@
 @font-face{font-family:TD;src:url("../../../art/fonts/thmanyahserifdisplay-Bold.woff2");font-weight:700}
 @font-face{font-family:QF;src:url("../../../art/fonts/amiri-quran.woff2")}
 @page{size:A4;margin:10mm} *{box-sizing:border-box}
-body{margin:0;font-family:TT,"DejaVu Sans",serif;direction:ltr;color:#1F2A3C;font-size:12.5pt;line-height:1.55}
-.page{width:190mm;height:277mm;overflow:hidden;page-break-after:always;position:relative}
-.hd{display:flex;justify-content:space-between;align-items:center;border-radius:16px;padding:10px 16px;margin-bottom:8px}
-.hd .t{font-family:TD;font-size:17pt;line-height:1.3} .hd .m{font-size:9pt;color:#5B6472}
+body{margin:0;font-family:TT,"DejaVu Sans",serif;direction:ltr;color:#1F2A3C;font-size:18pt;line-height:1.55;background:#E9E3D6}
+.page{width:190mm;height:277mm;overflow:hidden;page-break-after:always;position:relative;background:#fff;margin:12px auto;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+.fit{padding:2mm}
+.hd{display:flex;justify-content:space-between;align-items:center;border-radius:18px;padding:8px 14px;margin-bottom:6px}
+.hd .t{font-family:TD;font-size:21pt;line-height:1.25} .hd .m{font-size:9pt;color:#5B6472}
 .pill{border-radius:20px;padding:4px 14px;font-weight:700;color:#fff;font-size:10.5pt;white-space:nowrap}
-.nm{display:flex;justify-content:space-between;font-size:10.5pt;color:#5B6472;margin:2px 6px 8px}
-.goal{border-radius:12px;padding:7px 14px;margin:6px 0;font-weight:700;background:#FFF0C2;border-left:6px solid #D7A33B}
-.strip{display:flex;gap:6px;margin:6px 0} .strip div{flex:1;border:1.5px solid #ddd;border-radius:10px;padding:4px 8px;font-size:9pt;color:#777} .strip div.on{font-weight:700}
-.txt{border:2px solid #6FB59A;border-radius:14px;padding:10px 16px;margin:8px 0;background:#F6FBF8}
-.txt .h{color:#3F6E5B;font-weight:700;font-size:11pt}
-.qt{font-family:QF;direction:rtl;font-size:16pt;line-height:2.1;text-align:justify} .ht{font-family:TD;direction:rtl;font-size:14.5pt;line-height:2;text-align:center}
+.nm{display:flex;justify-content:space-between;font-size:11pt;color:#5B6472;margin:2px 8px 6px}
+.q{border:2px solid #E5DCC8;border-radius:18px;padding:8px 12px;margin:8px 0;break-inside:avoid}
+.qh{font-weight:700;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start} .n{min-width:28px;height:28px;border-radius:14px;color:#fff;text-align:center;line-height:28px;font-size:12pt;flex:none}
+.row{display:flex;align-items:center;gap:10px;margin:6px 0} .row .s{flex:1}
+.pics{display:flex;gap:10px} .pic{width:59pt;height:59pt;border:2px dashed #C9BFA8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Noto Color Emoji','Apple Color Emoji','Segoe UI Emoji',sans-serif;font-size:28pt}
+.th{display:flex;gap:8px} .th span{width:46pt;height:46pt;border:2px dashed #C9BFA8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Noto Color Emoji','Apple Color Emoji','Segoe UI Emoji',sans-serif;font-size:21pt}
+.mt{display:flex;justify-content:space-between;gap:40px} .mt .c{flex:1;display:flex;flex-direction:column;gap:10px} .mt .c div{border:2px solid #E5DCC8;border-radius:14px;padding:6px 10px;display:flex;align-items:center;gap:8px;min-height:43pt} .dot{width:12px;height:12px;border-radius:6px;background:#1F2A3C;flex:none}
+.bank{display:flex;flex-wrap:wrap;gap:8px;border:2px dashed #D7A33B;background:#FFF8E6;border-radius:14px;padding:6px 10px;margin-bottom:6px} .bank span{background:#fff;border-radius:10px;padding:2px 12px;font-weight:700}
+.gap{display:inline-block;min-width:108pt;border-bottom:2px dotted #6B7280}
+.ln{border-bottom:2px dotted #9aa;height:39pt}
+.trace{font-family:TD;font-size:28pt;color:#D6CFBF;letter-spacing:1px}
+.box{border:2px dashed #C9BFA8;border-radius:16px}
+.opts{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0} .opts span{border:2px solid #ccc;border-radius:12px;padding:2px 12px} .opts span::before{content:"◯ ";color:#999}
+table{width:100%;border-collapse:collapse} td,th{border:2px solid #E5DCC8;padding:6px;text-align:left} th{background:#F6EFE0}
+.self{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-around;border-top:2px solid #eee;padding:6px 0;font-size:11pt;background:#fff}
 .qf{font-family:QF;font-size:1.1em}
-.trn{font-style:italic;font-size:10.5pt;color:#444}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px} .chips span{background:#FFF4D6;border-radius:8px;padding:2px 10px;font-size:9.5pt}
-.q{border:1.5px solid #E5DCC8;border-radius:14px;padding:9px 14px;margin:8px 0;break-inside:avoid}
-.qh{font-weight:700;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start} .n{min-width:26px;height:26px;border-radius:13px;color:#fff;text-align:center;line-height:26px;font-size:11pt}
-.mcq{margin:4px 0 8px} .opts{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0} .opts span{border:1.5px solid #ccc;border-radius:10px;padding:2px 12px} .opts span::before{content:"◯ ";color:#999}
-.ln{border-bottom:1.5px dotted #9aa;height:28px}
-table{width:100%;border-collapse:collapse;font-size:11pt} td,th{border:1.5px solid #D9CDB4;padding:6px;vertical-align:top;text-align:left} th{background:#F6EFE0}
-.self{display:flex;justify-content:space-around;border-top:2px solid #eee;padding-top:6px;font-size:10.5pt;position:absolute;bottom:0;left:0;right:0;background:#fff}
-.box{border:1.5px dashed #bbb;border-radius:12px}
-.gc{border:2px dashed #ccc;border-radius:18px;padding:10px;margin:8px 0}
-.row{display:flex;gap:8px;flex-wrap:wrap;font-size:10pt} .row span{background:#F2F2F2;border-radius:10px;padding:2px 10px}
-.inner{border-radius:12px;padding:8px 12px;margin:6px 0;border:1.5px solid #ddd}
-.star{background:#FFF0C2;border:1.5px dashed #D7A33B;border-radius:12px;padding:6px 12px;margin:6px 0}
-.foot{display:flex;justify-content:center;gap:10px;font-size:10pt} .foot span{border:1.5px solid #ddd;border-radius:14px;padding:2px 12px}
-
-body{background:#E9E3D6}.page{background:#fff;margin:12px auto;box-shadow:0 2px 12px rgba(0,0,0,.12);padding:0}
+.big{font-family:'Noto Color Emoji','Apple Color Emoji','Segoe UI Emoji',sans-serif;font-size:43pt}
+.gc{border:3px dashed #ccc;border-radius:22px;padding:10px;margin:8px 0}
+.star{background:#FFF0C2;border:2px dashed #D7A33B;border-radius:14px;padding:6px 12px;margin:6px 0}
+.k{border-radius:14px;padding:8px 12px;margin:6px 0;border:2px solid #ddd;font-size:11pt}
 .pb{position:fixed;top:12px;right:12px;z-index:9;font:700 16px TT,Tahoma,sans-serif;background:#D7A33B;color:#1F2A3C;border:0;border-radius:20px;padding:8px 18px;cursor:pointer}
-@media print{body{background:#fff}.page{margin:0;box-shadow:none}.pb{display:none}}</style></head><body><button class="pb" onclick="print()">🖨️ Print</button><div class='page'><div class='fit'><div class='hd' style='background:#DCEAE4'><div><div class='t'>Adapted activity: Surat Al-Kafirun</div><div class='m'>Islamic Education · Grade 2 · Non-Arabic speakers · My Faith Guides Me · Textbook V1 p.40</div></div><div style='display:flex;align-items:center;gap:10px;flex-direction:row'><span class='pill' style='background:#3F6E5B'>For People of Determination</span><img src="../../../art/brand/hiraa-lockup-light.svg" alt="حراء" style="width:150px;height:60px;object-fit:contain"></div></div><div class='nm'><span>Name: ........................................</span><span>Class: ........</span><span>Date: ..............</span></div><div class='goal'>🎯 I can read and understand the main idea of the lesson.</div><div class='txt' style='font-size:14pt'>Surat Al-Kafirun teaches that a Muslim worships Allah alone, while living peacefully with others.</div><div class='q'><div class='qh'><span class='n' style='background:#5E6672'>1</span><span><span class="qf">﴿Say: O disbelievers, I do not worship...﴾</span></span></div><div class='opts'><span>what you worship</span><span>Allah</span><span>anything good</span></div></div><div class='q'><div class='qh'><span class='n' style='background:#5E6672'>2</span><span><span class="qf">﴿For you is your religion and for me...﴾</span></span></div><div class='opts'><span>is my religion</span><span>is your money</span><span>nothing</span></div></div><div class='q'><div class='qh'><span class='n' style='background:#5E6672'>3</span><span>Tick ✓ the true statement and cross ✗ the false one:</span></div><table style='font-size:13pt'><tr><td>A Muslim worships Allah alone.</td><td style='width:70px'></td></tr><tr><td>The Prophet ﷺ agreed to worship idols.</td><td style='width:70px'></td></tr></table></div><div class='q'><div class='qh'><span class='n' style='background:#5E6672'>4</span><span>Complete the sentence:</span></div><div style='font-size:14pt;line-height:2.4'>I will make sure to ..................................................</div></div></div><div class='self'><span>How do I feel?</span><span>🟢 I can do it alone</span><span>🟡 I need some help</span><span>🔴 I don’t understand yet</span></div></div><script>document.fonts.ready.then(function(){(function(){var H=277*96/25.4;document.querySelectorAll('.page').forEach(function(p){var f=p.querySelector('.fit');var s=p.querySelector('.self');var hh=H-(s?s.offsetHeight+6:0);var h=f.scrollHeight;if(h>hh){f.style.zoom=(hh/h*0.99).toFixed(4);}});})();});</script></body></html>
+@media print{body{background:#fff}.page{margin:0;box-shadow:none}.pb{display:none}}
+</style></head><body><button class="pb" onclick="print()">🖨️ Print</button><div class='page'><div class='fit'><div class='hd' style='background:#DCEAE4'><div><div class='t'>Adapted activity: Surat Al-Kafirun</div><div class='m'>Islamic Education · Grade 2 · V1 p.40</div></div><div style='display:flex;align-items:center;gap:10px'><span class='pill' style='background:#3F6E5B'>I can do it!</span><img src="../../../art/brand/hiraa-lockup-light.svg" alt="حراء" style="width:120px;height:48px;object-fit:contain"></div></div><div class='nm'><span>Name: ......................</span><span>Date: ..........</span></div><div style='text-align:center;margin:10px 0'><span class='big' style='font-size:54pt'>🕋🚫</span></div><div class='k' style='font-size:21pt;text-align:center;background:#F6FBF8;border-color:#BFE3CC'>Surat Al-Kafirun teaches that a Muslim worships Allah alone, while living peacefully…</div><div class='q'><div class='qh'><span class='n' style='background:#5E6672'>1</span><span>Colour the right picture:</span></div><div class='row'><span class='s'>Some people of Makkah asked the Prophet ﷺ to worship…</span><div class='pics'><div class=pic>🕋</div><div class=pic>🚫</div><div class=pic>🤝</div></div></div><div class='row'><span class='s'>Allah told him to say: «I do not worship what…</span><div class='pics'><div class=pic>🕋</div><div class=pic>🚫</div><div class=pic>🤝</div></div></div></div><div class='q'><div class='qh'><span class='n' style='background:#5E6672'>2</span><span>Colour 👍 if the sentence is true and 👎 if it is false:</span></div><div class='row'><span class='s'>A Muslim worships Allah alone.</span><div class='th'><span>👍</span><span>👎</span></div></div><div class='row'><span class='s'>The Prophet ﷺ agreed to worship idols.</span><div class='th'><span>👍</span><span>👎</span></div></div></div></div><div class='self'><span>How do I feel?</span><span>😀 I know it well</span><span>🙂 A little</span><span>😟 I need help</span></div></div><script>document.fonts.ready.then(function(){(function(){var H=277*96/25.4;document.querySelectorAll('.page').forEach(function(p){var f=p.querySelector('.fit');var s=p.querySelector('.self');var hh=H-(s?s.offsetHeight+6:0);var h=f.scrollHeight;if(h>hh){f.style.zoom=(hh/h*0.99).toFixed(4);}});})();});</script></body></html>

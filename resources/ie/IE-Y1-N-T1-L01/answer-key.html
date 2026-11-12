@@ -4,33 +4,32 @@
 @font-face{font-family:TD;src:url("../../../art/fonts/thmanyahserifdisplay-Bold.woff2");font-weight:700}
 @font-face{font-family:QF;src:url("../../../art/fonts/amiri-quran.woff2")}
 @page{size:A4;margin:10mm} *{box-sizing:border-box}
-body{margin:0;font-family:TT,"DejaVu Sans",serif;direction:rtl;color:#1F2A3C;font-size:12.5pt;line-height:1.55}
-.page{width:190mm;height:277mm;overflow:hidden;page-break-after:always;position:relative}
-.hd{display:flex;justify-content:space-between;align-items:center;border-radius:16px;padding:10px 16px;margin-bottom:8px}
-.hd .t{font-family:TD;font-size:17pt;line-height:1.3} .hd .m{font-size:9pt;color:#5B6472}
+body{margin:0;font-family:TT,"DejaVu Sans",serif;direction:rtl;color:#1F2A3C;font-size:21pt;line-height:1.55;background:#E9E3D6}
+.page{width:190mm;height:277mm;overflow:hidden;page-break-after:always;position:relative;background:#fff;margin:12px auto;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+.fit{padding:2mm}
+.hd{display:flex;justify-content:space-between;align-items:center;border-radius:18px;padding:8px 14px;margin-bottom:6px}
+.hd .t{font-family:TD;font-size:24pt;line-height:1.25} .hd .m{font-size:9pt;color:#5B6472}
 .pill{border-radius:20px;padding:4px 14px;font-weight:700;color:#fff;font-size:10.5pt;white-space:nowrap}
-.nm{display:flex;justify-content:space-between;font-size:10.5pt;color:#5B6472;margin:2px 6px 8px}
-.goal{border-radius:12px;padding:7px 14px;margin:6px 0;font-weight:700;background:#FFF0C2;border-right:6px solid #D7A33B}
-.strip{display:flex;gap:6px;margin:6px 0} .strip div{flex:1;border:1.5px solid #ddd;border-radius:10px;padding:4px 8px;font-size:9pt;color:#777} .strip div.on{font-weight:700}
-.txt{border:2px solid #6FB59A;border-radius:14px;padding:10px 16px;margin:8px 0;background:#F6FBF8}
-.txt .h{color:#3F6E5B;font-weight:700;font-size:11pt}
-.qt{font-family:QF;direction:rtl;font-size:16pt;line-height:2.1;text-align:justify} .ht{font-family:TD;direction:rtl;font-size:14.5pt;line-height:2;text-align:center}
+.nm{display:flex;justify-content:space-between;font-size:11pt;color:#5B6472;margin:2px 8px 6px}
+.q{border:2px solid #E5DCC8;border-radius:18px;padding:8px 12px;margin:8px 0;break-inside:avoid}
+.qh{font-weight:700;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start} .n{min-width:28px;height:28px;border-radius:14px;color:#fff;text-align:center;line-height:28px;font-size:12pt;flex:none}
+.row{display:flex;align-items:center;gap:10px;margin:6px 0} .row .s{flex:1}
+.pics{display:flex;gap:10px} .pic{width:69pt;height:69pt;border:2px dashed #C9BFA8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Noto Color Emoji','Apple Color Emoji','Segoe UI Emoji',sans-serif;font-size:33pt}
+.th{display:flex;gap:8px} .th span{width:54pt;height:54pt;border:2px dashed #C9BFA8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Noto Color Emoji','Apple Color Emoji','Segoe UI Emoji',sans-serif;font-size:25pt}
+.mt{display:flex;justify-content:space-between;gap:40px} .mt .c{flex:1;display:flex;flex-direction:column;gap:10px} .mt .c div{border:2px solid #E5DCC8;border-radius:14px;padding:6px 10px;display:flex;align-items:center;gap:8px;min-height:50pt} .dot{width:12px;height:12px;border-radius:6px;background:#1F2A3C;flex:none}
+.bank{display:flex;flex-wrap:wrap;gap:8px;border:2px dashed #D7A33B;background:#FFF8E6;border-radius:14px;padding:6px 10px;margin-bottom:6px} .bank span{background:#fff;border-radius:10px;padding:2px 12px;font-weight:700}
+.gap{display:inline-block;min-width:126pt;border-bottom:2px dotted #6B7280}
+.ln{border-bottom:2px dotted #9aa;height:46pt}
+.trace{font-family:TD;font-size:33pt;color:#D6CFBF;letter-spacing:1px}
+.box{border:2px dashed #C9BFA8;border-radius:16px}
+.opts{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0} .opts span{border:2px solid #ccc;border-radius:12px;padding:2px 12px} .opts span::before{content:"◯ ";color:#999}
+table{width:100%;border-collapse:collapse} td,th{border:2px solid #E5DCC8;padding:6px;text-align:right} th{background:#F6EFE0}
+.self{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-around;border-top:2px solid #eee;padding:6px 0;font-size:11pt;background:#fff}
 .qf{font-family:QF;font-size:1.1em}
-.trn{font-style:italic;font-size:10.5pt;color:#444}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px} .chips span{background:#FFF4D6;border-radius:8px;padding:2px 10px;font-size:9.5pt}
-.q{border:1.5px solid #E5DCC8;border-radius:14px;padding:9px 14px;margin:8px 0;break-inside:avoid}
-.qh{font-weight:700;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start} .n{min-width:26px;height:26px;border-radius:13px;color:#fff;text-align:center;line-height:26px;font-size:11pt}
-.mcq{margin:4px 0 8px} .opts{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0} .opts span{border:1.5px solid #ccc;border-radius:10px;padding:2px 12px} .opts span::before{content:"◯ ";color:#999}
-.ln{border-bottom:1.5px dotted #9aa;height:28px}
-table{width:100%;border-collapse:collapse;font-size:11pt} td,th{border:1.5px solid #D9CDB4;padding:6px;vertical-align:top;text-align:right} th{background:#F6EFE0}
-.self{display:flex;justify-content:space-around;border-top:2px solid #eee;padding-top:6px;font-size:10.5pt;position:absolute;bottom:0;left:0;right:0;background:#fff}
-.box{border:1.5px dashed #bbb;border-radius:12px}
-.gc{border:2px dashed #ccc;border-radius:18px;padding:10px;margin:8px 0}
-.row{display:flex;gap:8px;flex-wrap:wrap;font-size:10pt} .row span{background:#F2F2F2;border-radius:10px;padding:2px 10px}
-.inner{border-radius:12px;padding:8px 12px;margin:6px 0;border:1.5px solid #ddd}
-.star{background:#FFF0C2;border:1.5px dashed #D7A33B;border-radius:12px;padding:6px 12px;margin:6px 0}
-.foot{display:flex;justify-content:center;gap:10px;font-size:10pt} .foot span{border:1.5px solid #ddd;border-radius:14px;padding:2px 12px}
-
-body{background:#E9E3D6}.page{background:#fff;margin:12px auto;box-shadow:0 2px 12px rgba(0,0,0,.12);padding:0}
+.big{font-family:'Noto Color Emoji','Apple Color Emoji','Segoe UI Emoji',sans-serif;font-size:50pt}
+.gc{border:3px dashed #ccc;border-radius:22px;padding:10px;margin:8px 0}
+.star{background:#FFF0C2;border:2px dashed #D7A33B;border-radius:14px;padding:6px 12px;margin:6px 0}
+.k{border-radius:14px;padding:8px 12px;margin:6px 0;border:2px solid #ddd;font-size:11pt}
 .pb{position:fixed;top:12px;left:12px;z-index:9;font:700 16px TT,Tahoma,sans-serif;background:#D7A33B;color:#1F2A3C;border:0;border-radius:20px;padding:8px 18px;cursor:pointer}
-@media print{body{background:#fff}.page{margin:0;box-shadow:none}.pb{display:none}}</style></head><body><button class="pb" onclick="print()">🖨️ طباعة</button><div class='page'><div class='fit'><div class='hd' style='background:#DCEAE4'><div><div class='t'>مِفْتاحُ الْإِجابَةِ: الله ربّي</div><div class='m'>التَّرْبِيَةُ الْإِسْلامِيَّةُ · الصَّفُّ الْأَوَّلُ · أُحِبُّ رَبّي · الْكِتابُ م1 ص10</div></div><div style='display:flex;align-items:center;gap:10px;flex-direction:row'><span class='pill' style='background:#3F6E5B'>لِـالْمُعَلِّمِ</span><img src="../../../art/brand/hiraa-lockup-light.svg" alt="حراء" style="width:150px;height:60px;object-fit:contain"></div></div><div class='inner' style='border-color:#9A5A26;background:#F7E9DC'><b>بُرونْزِيٌّ:</b> 1 - الله &nbsp;|&nbsp; 2 - الله &nbsp;|&nbsp; 3 - خلقني وأعطاني كل شيء &nbsp;|&nbsp; 4 - ربّ العالمين ← خالق كل المخلوقات ومدبّر أمرها &nbsp;|&nbsp; 5 - ✓ · ✗</div><div class='inner' style='border-color:#5E6672;background:#EDEFF2'><b>فِضِّيٌّ:</b> 1 - الحمد لله &nbsp;|&nbsp; 2 - الحمد لله &nbsp;|&nbsp; 3 - الله يجعل الشمس تشرق كل صباح وتغيب كل مساء. &nbsp;|&nbsp; 4 - إِجاباتٌ مَفْتوحَةٌ تُقْبَلُ إِذا وافَقَتِ الدَّليلَ؛ يُسْتَرْشَدُ بِـ: الله خالقي ورازقي. · أشكر الله دائمًا.</div><div class='inner' style='border-color:#A87A0C;background:#FBF1D3'><b>ذَهَبِيٌّ:</b> 1 - إِجاباتٌ مَفْتوحَةٌ تُقْبَلُ إِذا وافَقَتِ الدَّليلَ؛ يُسْتَرْشَدُ بِـ: الله علّم الحيوانات كيف تجد طعامها، وحفظ الطيور وهي تطير. &nbsp;|&nbsp; 2 - الله خلقني وخلق كل شيء، وأعطاني العينين والأذنين والطعام والماء وأمي وأبي. أقول: الحمد لله.…</div><div class='inner' style='border-color:#5546A3;background:#EEEAFB'><b>ماسِيٌّ:</b> 1 - إِجاباتٌ مَفْتوحَةٌ تُقْبَلُ إِذا وافَقَتِ الدَّليلَ؛ يُسْتَرْشَدُ بِـ:  &nbsp;|&nbsp; 2 - إِجاباتٌ مَفْتوحَةٌ تُقْبَلُ إِذا وافَقَتِ الدَّليلَ؛ يُسْتَرْشَدُ بِـ: الله خالقي ورازقي. · أشكر الله دائمًا. &nbsp;|&nbsp; 3 - إِجاباتٌ مَفْتوحَةٌ تُقْبَلُ إِذا وافَقَتِ الدَّليلَ؛ يُسْتَرْشَدُ بِـ: أشكر ربّي على نِعَمه وأقول: الحمد لله. · أحافظ على نظافة جسمي ونِعَم الله عليّ. · أرفق بمخلوقات الله ولا أؤذيها.</div><div class='inner' style='border-color:#3F6E5B;background:#DCEAE4'><b>أَصْحابِ الْهِمَمِ:</b> 1 - الله | 2 - الله | 3 - ✓ · ✗ | 4 - أشكر ربّي على نِعَمه وأقول: الحمد لله. · أحافظ على نظافة جسمي ونِعَم الله عليّ.</div><div class='inner'><b>الْعَمَلُ الْجَماعِيُّ:</b> بُرونْزِيٌّ: الله يجعل الشمس تشرق كل صباح وتغيب كل مساء. · فِضِّيٌّ: الله علّم الحيوانات كيف تجد طعامها، وحفظ الطيور وهي تطير. · ذَهَبِيٌّ: الله يُنزل المطر، فتخضرّ الأرض وتنبت النباتات. · ماسِيٌّ: الله بيده أمر كل شيء، فأطلب منه كل ما أحتاج.</div></div></div><script>document.fonts.ready.then(function(){(function(){var H=277*96/25.4;document.querySelectorAll('.page').forEach(function(p){var f=p.querySelector('.fit');var s=p.querySelector('.self');var hh=H-(s?s.offsetHeight+6:0);var h=f.scrollHeight;if(h>hh){f.style.zoom=(hh/h*0.99).toFixed(4);}});})();});</script></body></html>
+@media print{body{background:#fff}.page{margin:0;box-shadow:none}.pb{display:none}}
+</style></head><body><button class="pb" onclick="print()">🖨️ طِباعَةٌ</button><div class='page'><div class='fit'><div class='hd' style='background:#DCEAE4'><div><div class='t'>مِفْتاحُ الْإِجابَةِ: الله ربّي</div><div class='m'>التَّرْبِيَةُ الْإِسْلامِيَّةُ · الصَّفُّ الْأَوَّلُ · م1 ص10</div></div><div style='display:flex;align-items:center;gap:10px'><span class='pill' style='background:#3F6E5B'>👩‍🏫</span><img src="../../../art/brand/hiraa-lockup-light.svg" alt="حراء" style="width:120px;height:48px;object-fit:contain"></div></div><div class='k' style='border-color:#9A5A26;background:#F7E9DC'><b>بُرونْزِيٌّ:</b> 1 - ☀️ · 🐦 &nbsp;|&nbsp; 2 - 👍 · 👎</div><div class='k' style='border-color:#5E6672;background:#EDEFF2'><b>فِضِّيٌّ:</b> 1 - 🌱 · 🤲 &nbsp;|&nbsp; 2 - ☀️ ← الله يجعل الشمس تشرق كل صباح… · 🐦 ← الله علّم الحيوانات كيف تجد طعامها،… · 🌱 ← الله يُنزل المطر، فتخضرّ الأرض وتنبت…</div><div class='k' style='border-color:#A87A0C;background:#FBF1D3'><b>ذَهَبِيٌّ:</b> 1 - مساء · تطير &nbsp;|&nbsp; 2 - الله ربّي</div><div class='k' style='border-color:#5546A3;background:#EEEAFB'><b>ماسِيٌّ:</b> 1 - إِجابَةٌ مَفْتوحَةٌ: تُقْبَلُ إِذا وافَقَتِ الدَّرْسَ، مِثْلُ: الله يجعل الشمس تشرق كل صباح وتغيب كل مساء. &nbsp;|&nbsp; 2 - إِجابَةٌ مَفْتوحَةٌ: تُقْبَلُ إِذا وافَقَتِ الدَّرْسَ، مِثْلُ: أشكر ربّي على نِعَمه وأقول: الحمد لله. · أحافظ على نظافة جسمي ونِعَم الله عليّ.</div><div class='k'><b>نَشاطُ أَصْحابِ الْهِمَمِ: </b> 1) ☀️ · 🐦 | 2) 👍 · 👎</div></div></div><script>document.fonts.ready.then(function(){(function(){var H=277*96/25.4;document.querySelectorAll('.page').forEach(function(p){var f=p.querySelector('.fit');var s=p.querySelector('.self');var hh=H-(s?s.offsetHeight+6:0);var h=f.scrollHeight;if(h>hh){f.style.zoom=(hh/h*0.99).toFixed(4);}});})();});</script></body></html>
