@@ -2441,3 +2441,19 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 
 .htmlv { display: block; width: 100%; height: 82vh; min-height: 620px; border: 0; border-radius: 12px; background: #E9E3D6; margin-top: 10px; }
 .htmlv-card { margin-bottom: 14px; }
+
+/* البحث عن درس بالاسم داخل صفحة الصف */
+.lsrch-bar { padding: 18px 0 0; }
+.lsrch { position: relative; max-width: 460px; }
+.lsrch-box { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line, #DCD3C2); border-radius: 12px; background: #fff; padding: 0 12px; height: 42px; }
+.lsrch-box span { opacity: .6; font-size: .95rem; }
+.lsrch-box input { flex: 1; border: 0; outline: 0; background: transparent; font: inherit; font-family: var(--font-text); color: inherit; height: 100%; min-width: 0; }
+.lsrch-res { position: absolute; z-index: 40; inset-inline: 0; top: calc(100% + 6px); background: #fff; border: 1px solid var(--line, #DCD3C2); border-radius: 12px; box-shadow: 0 12px 28px rgba(0,0,0,.12); overflow: hidden; max-height: 58vh; overflow-y: auto; }
+.lsrch-row { display: block; padding: 10px 14px; text-decoration: none; color: inherit; border-bottom: 1px solid var(--line, #EFE9DD); }
+.lsrch-row:last-child { border-bottom: 0; }
+.lsrch-row:hover { background: #F7F3EA; }
+.lsrch-row .t { display: block; font-weight: 600; }
+.lsrch-row .m { display: block; font-size: .82rem; opacity: .62; margin-top: 2px; }
+.lsrch-row.locked .t { opacity: .62; }
+.lsrch-none { padding: 14px; font-size: .9rem; opacity: .7; }
+@media (max-width: 720px) { .lsrch { max-width: none; } }

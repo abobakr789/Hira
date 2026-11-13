@@ -2809,12 +2809,19 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         </div>
       </div>
     </div></section>
+    <section class="lsrch-bar"><div class="wrap"><div class="lsrch">
+      <label class="lsrch-box"><span aria-hidden="true">🔎</span>
+        <input type="search" id="lsrchIn" autocomplete="off" placeholder="${LANG === "en" ? "Search for a lesson by name…" : "ابحث عن درس بالاسم في الفصول الثلاثة…"}" aria-label="${LANG === "en" ? "Search lessons" : "البحث عن درس"}">
+      </label>
+      <div class="lsrch-res" id="lsrchRes" hidden></div>
+    </div></div></section>
     ${subject === "arabic" && (track === "igcse" || track === "gcse" || track === "alevel") ? `<section class="section" style="padding-top:26px;padding-bottom:0"><div class="wrap" id="arMocksPane" data-q="${track}"></div></section>${(() => { setTimeout(fillArMocks, 0); return ""; })()}` : ""}
       ${testsView ? `<section class="section" style="padding-top:36px"><div class="wrap" id="testsPane"><div class="loading">جارٍ التحميل…</div></div></section>`
       : `<section class="section" style="padding-top:44px"><div class="wrap layout-2">
       <div>${ctlBar}${!state.session ? visitorGate(term) : gradeClosed ? `<div class="grade-gate">${accessBox(gAcc, year).replace('class="empty locked-box access-box"', 'class="gate-in"')}</div>` : ""}${!gradeClosed && isStudent() && termAll && !termOpenN ? `<div class="notice locked-note">${lockIcon} ${LANG === "en" ? "Lessons of this term open one by one when your teacher starts them." : "دروس هذا الفصل الدراسي تُفتح تباعًا حين يبدؤها معلمك."}</div>` : ""}${chipsHtml}${unitsBlock}</div>
       <aside class="side-card"><h3>نواتج التعلم للصف</h3>${outcomesHtml}</aside>
     </div></section>`}`);
+    lessonSearch(units, { nn, year, sid, locks, gradeClosed, ctl, ctlOpen, href });
     if (testsView) renderTestsPane(Number(year), sid, track);
     if (!ctl) return;
     const meId = state.session.user.id, again = () => pageYear(year, params);
@@ -9578,6 +9585,41 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
 
 
+  /* ===== البحث عن درس بالاسم داخل الصف (الفصول الثلاثة معًا) ===== */
+  function lessonSearch(units, o) {
+    const inp = document.getElementById("lsrchIn"), box = document.getElementById("lsrchRes");
+    if (!inp || !box) return;
+    const rows = [];
+    (units || []).forEach((u) => (u.lessons || []).slice().sort((a, b) => a.sort_order - b.sort_order).forEach((l) => {
+      rows.push({ code: l.code, id: l.id, term: u.term,
+        unit: (o.nn && u.title_en ? u.title_en : u.title_ar) || "",
+        title: (o.nn && l.title_en ? l.title_en : l.title_ar) || "",
+        alt: (o.nn ? l.title_ar : l.title_en) || "" });
+    }));
+    rows.forEach((r) => { r.n = mkN(r.title + " " + r.alt + " " + r.unit); });
+    const lockedOf = (r) => o.ctl ? !(o.ctl.lock_lessons ? o.ctlOpen.has(r.id) : true)
+      : !state.session || o.gradeClosed || isLocked(o.locks, r.id, o.year, o.sid);
+    const T = (ar, en) => (LANG === "en" ? en : ar);
+    let open = false;
+    const close = () => { open = false; box.hidden = true; box.innerHTML = ""; };
+    const draw = () => {
+      const q = mkN(inp.value);
+      if (q.length < 2) { close(); return; }
+      const hits = rows.filter((r) => r.n.includes(q)).slice(0, 12);
+      open = true; box.hidden = false;
+      box.innerHTML = hits.length ? hits.map((r) => {
+        const lk = lockedOf(r);
+        return `<a class="lsrch-row${lk ? " locked" : ""}" href="#/lesson/${esc(r.code)}">
+          <span class="t">${esc(r.title)}</span>
+          <span class="m">${esc(TERMS[r.term] || "")}${r.unit ? " · " + esc(r.unit) : ""}${lk ? " · " + T("مقفل", "Locked") : ""}</span></a>`;
+      }).join("") : `<div class="lsrch-none">${T("لا درس بهذا الاسم في هذا الصف والمسار.", "No lesson with this name in this grade and track.")}</div>`;
+    };
+    inp.addEventListener("input", draw);
+    inp.addEventListener("focus", () => { if (inp.value.trim()) draw(); });
+    inp.addEventListener("keydown", (e) => { if (e.key === "Escape") { inp.value = ""; close(); } });
+    document.addEventListener("click", (e) => { if (open && !box.contains(e.target) && e.target !== inp) close(); });
+  }
+
   function gradeBooksLink(y) {
     if (!state.session) return; const m = document.getElementById("main"); if (!m || document.getElementById("gbLink")) return;
     const s = document.createElement("section"); s.className = "section"; s.id = "gbLink"; s.style.paddingTop = "0";
@@ -12470,7 +12512,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (p0 === "grades") return pageGrades(params);
       if (p0 === "year" && /^\d+$/.test(parts[1] || "")) {
         const y = Number(parts[1]);
-        if (y >= 1 && y <= 13) return pageYear(y, params).then(() => gradeBooksLink(y));
+        if (y >= 1 && y <= 13) return pageYear(y, params);
       }
       if (p0 === "lesson" && parts[1]) return pageLesson(decodeURIComponent(parts[1]));
       if (p0 === "login") return pageLogin();

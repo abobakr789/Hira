@@ -2439,8 +2439,6 @@ html[data-subj] .page-head .ph-art{opacity:.6}
 .rd-txt p{line-height:2.15}
 .rd-cv-body h2,.rd-ttl,.rd-words b,.rd-rev h2,.rd-rev h3,.rd-res h2,.rd-res h3{font-family:var(--rd-head)!important;font-weight:700}
 
-</style>
-<style id="hiraa-type">
 /* ===== Hiraa unified type system: Thmanyah (UI + headings + texts) and the Mushaf font for the Qur'an ===== */
 @font-face { font-family: "ThmanyahSans"; font-weight: 400; src: url("art/fonts/thmanyahsans-Regular.woff2") format("woff2"); font-display: swap; }
 @font-face { font-family: "ThmanyahSans"; font-weight: 500 600; src: url("art/fonts/thmanyahsans-Medium.woff2") format("woff2"); font-display: swap; }
@@ -2461,6 +2459,23 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 
 .htmlv { display: block; width: 100%; height: 82vh; min-height: 620px; border: 0; border-radius: 12px; background: #E9E3D6; margin-top: 10px; }
 .htmlv-card { margin-bottom: 14px; }
+
+/* البحث عن درس بالاسم داخل صفحة الصف */
+.lsrch-bar { padding: 18px 0 0; }
+.lsrch { position: relative; max-width: 460px; }
+.lsrch-box { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line, #DCD3C2); border-radius: 12px; background: #fff; padding: 0 12px; height: 42px; }
+.lsrch-box span { opacity: .6; font-size: .95rem; }
+.lsrch-box input { flex: 1; border: 0; outline: 0; background: transparent; font: inherit; font-family: var(--font-text); color: inherit; height: 100%; min-width: 0; }
+.lsrch-res { position: absolute; z-index: 40; inset-inline: 0; top: calc(100% + 6px); background: #fff; border: 1px solid var(--line, #DCD3C2); border-radius: 12px; box-shadow: 0 12px 28px rgba(0,0,0,.12); overflow: hidden; max-height: 58vh; overflow-y: auto; }
+.lsrch-row { display: block; padding: 10px 14px; text-decoration: none; color: inherit; border-bottom: 1px solid var(--line, #EFE9DD); }
+.lsrch-row:last-child { border-bottom: 0; }
+.lsrch-row:hover { background: #F7F3EA; }
+.lsrch-row .t { display: block; font-weight: 600; }
+.lsrch-row .m { display: block; font-size: .82rem; opacity: .62; margin-top: 2px; }
+.lsrch-row.locked .t { opacity: .62; }
+.lsrch-none { padding: 14px; font-size: .9rem; opacity: .7; }
+@media (max-width: 720px) { .lsrch { max-width: none; } }
+
 </style>
 </head>
 <body>
@@ -2524,14 +2539,12 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
   <script>
-// إعدادات الاتصال بقاعدة بيانات حراء
-// هذا المفتاح عام وآمن للنشر: الصلاحيات مفروضة من قاعدة البيانات نفسها (RLS).
-// لا تضع هنا مفتاح service_role أبدًا.
-window.HIRAA_CONFIG = {
-  supabaseUrl: "https://vsbktjbwjykgtkkqfblj.supabase.co",
-  supabaseKey: "sb_publishable_MQzKol3KQ5mQ0W0BeQc_Eg_dCyWhxV6"
-};
-
+// المفتاح العام (anon) آمن للنشر؛ الصلاحيات مفروضة من قاعدة البيانات. لا تضع هنا مفتاح service_role.
+window.HIRAA_CONFIG = { supabaseUrl: "https://vsbktjbwjykgtkkqfblj.supabase.co", supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzYmt0amJ3anlrZ3Rra3FmYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM1NDc2MTYsImV4cCI6MjEwOTEyMzYxNn0.ZR43uZNPdpnw8vhEf5Qr2ThHjRTZC2seCICDjiMfeW8" };
+window.addEventListener("error", function (e) {
+  var m = document.getElementById("main");
+  if (m && !m.innerHTML.trim()) m.innerHTML = '<div class="wrap loading">حدث خطأ في تشغيل الصفحة: ' + String(e.message).replace(/[<>&]/g, "") + '</div>';
+});
 </script>
   <script>
 /* حراء — تطبيق صفحة واحدة يقرأ محتواه من Supabase */
@@ -5345,12 +5358,19 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         </div>
       </div>
     </div></section>
+    <section class="lsrch-bar"><div class="wrap"><div class="lsrch">
+      <label class="lsrch-box"><span aria-hidden="true">🔎</span>
+        <input type="search" id="lsrchIn" autocomplete="off" placeholder="${LANG === "en" ? "Search for a lesson by name…" : "ابحث عن درس بالاسم في الفصول الثلاثة…"}" aria-label="${LANG === "en" ? "Search lessons" : "البحث عن درس"}">
+      </label>
+      <div class="lsrch-res" id="lsrchRes" hidden></div>
+    </div></div></section>
     ${subject === "arabic" && (track === "igcse" || track === "gcse" || track === "alevel") ? `<section class="section" style="padding-top:26px;padding-bottom:0"><div class="wrap" id="arMocksPane" data-q="${track}"></div></section>${(() => { setTimeout(fillArMocks, 0); return ""; })()}` : ""}
       ${testsView ? `<section class="section" style="padding-top:36px"><div class="wrap" id="testsPane"><div class="loading">جارٍ التحميل…</div></div></section>`
       : `<section class="section" style="padding-top:44px"><div class="wrap layout-2">
       <div>${ctlBar}${!state.session ? visitorGate(term) : gradeClosed ? `<div class="grade-gate">${accessBox(gAcc, year).replace('class="empty locked-box access-box"', 'class="gate-in"')}</div>` : ""}${!gradeClosed && isStudent() && termAll && !termOpenN ? `<div class="notice locked-note">${lockIcon} ${LANG === "en" ? "Lessons of this term open one by one when your teacher starts them." : "دروس هذا الفصل الدراسي تُفتح تباعًا حين يبدؤها معلمك."}</div>` : ""}${chipsHtml}${unitsBlock}</div>
       <aside class="side-card"><h3>نواتج التعلم للصف</h3>${outcomesHtml}</aside>
     </div></section>`}`);
+    lessonSearch(units, { nn, year, sid, locks, gradeClosed, ctl, ctlOpen, href });
     if (testsView) renderTestsPane(Number(year), sid, track);
     if (!ctl) return;
     const meId = state.session.user.id, again = () => pageYear(year, params);
@@ -12114,6 +12134,41 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
 
 
+  /* ===== البحث عن درس بالاسم داخل الصف (الفصول الثلاثة معًا) ===== */
+  function lessonSearch(units, o) {
+    const inp = document.getElementById("lsrchIn"), box = document.getElementById("lsrchRes");
+    if (!inp || !box) return;
+    const rows = [];
+    (units || []).forEach((u) => (u.lessons || []).slice().sort((a, b) => a.sort_order - b.sort_order).forEach((l) => {
+      rows.push({ code: l.code, id: l.id, term: u.term,
+        unit: (o.nn && u.title_en ? u.title_en : u.title_ar) || "",
+        title: (o.nn && l.title_en ? l.title_en : l.title_ar) || "",
+        alt: (o.nn ? l.title_ar : l.title_en) || "" });
+    }));
+    rows.forEach((r) => { r.n = mkN(r.title + " " + r.alt + " " + r.unit); });
+    const lockedOf = (r) => o.ctl ? !(o.ctl.lock_lessons ? o.ctlOpen.has(r.id) : true)
+      : !state.session || o.gradeClosed || isLocked(o.locks, r.id, o.year, o.sid);
+    const T = (ar, en) => (LANG === "en" ? en : ar);
+    let open = false;
+    const close = () => { open = false; box.hidden = true; box.innerHTML = ""; };
+    const draw = () => {
+      const q = mkN(inp.value);
+      if (q.length < 2) { close(); return; }
+      const hits = rows.filter((r) => r.n.includes(q)).slice(0, 12);
+      open = true; box.hidden = false;
+      box.innerHTML = hits.length ? hits.map((r) => {
+        const lk = lockedOf(r);
+        return `<a class="lsrch-row${lk ? " locked" : ""}" href="#/lesson/${esc(r.code)}">
+          <span class="t">${esc(r.title)}</span>
+          <span class="m">${esc(TERMS[r.term] || "")}${r.unit ? " · " + esc(r.unit) : ""}${lk ? " · " + T("مقفل", "Locked") : ""}</span></a>`;
+      }).join("") : `<div class="lsrch-none">${T("لا درس بهذا الاسم في هذا الصف والمسار.", "No lesson with this name in this grade and track.")}</div>`;
+    };
+    inp.addEventListener("input", draw);
+    inp.addEventListener("focus", () => { if (inp.value.trim()) draw(); });
+    inp.addEventListener("keydown", (e) => { if (e.key === "Escape") { inp.value = ""; close(); } });
+    document.addEventListener("click", (e) => { if (open && !box.contains(e.target) && e.target !== inp) close(); });
+  }
+
   function gradeBooksLink(y) {
     if (!state.session) return; const m = document.getElementById("main"); if (!m || document.getElementById("gbLink")) return;
     const s = document.createElement("section"); s.className = "section"; s.id = "gbLink"; s.style.paddingTop = "0";
@@ -15006,7 +15061,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (p0 === "grades") return pageGrades(params);
       if (p0 === "year" && /^\d+$/.test(parts[1] || "")) {
         const y = Number(parts[1]);
-        if (y >= 1 && y <= 13) return pageYear(y, params).then(() => gradeBooksLink(y));
+        if (y >= 1 && y <= 13) return pageYear(y, params);
       }
       if (p0 === "lesson" && parts[1]) return pageLesson(decodeURIComponent(parts[1]));
       if (p0 === "login") return pageLogin();
