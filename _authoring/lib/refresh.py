@@ -5,7 +5,8 @@ sys.path.insert(0, '/tmp/g5/lib'); sys.path.insert(0, '/tmp/g5'); sys.path.inser
 import deck, adv, fx
 
 REPO = '/tmp/hpush/resources/ssd'
-AMODS = ('adv_u1', 'adv_u2', 'adv_t2u1', 'adv_t2u2', 'adv_t2u3')
+AMODS = ('adv_u1', 'adv_u2', 'adv_t2u1', 'adv_t2u2', 'adv_t2u3',
+         'adv_t3u1', 'adv_t3u2')
 A = {}
 for m in AMODS:
     try:
