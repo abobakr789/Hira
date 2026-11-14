@@ -1,0 +1,5 @@
+update lessons set objective_ar='أحلّل قصة «الوجه الآخر» للكاتب الإماراتي علي أبو الريش إلى عناصرها، وأحدّد المفاجأة والرمز ووجهة النظر، وأوازن بينها وبين قصص المجموعة القصصية «كلنا كلنا نحب البحر».' where code='AR-Y8-N-T3-L05';
+update success_criteria set statement_ar='أحدّد الوجهين الظاهر والخفي.' where sort_order=1 and lesson_id=(select id from lessons where code='AR-Y8-N-T3-L05');
+update success_criteria set statement_ar='أحلّل المفاجأة والرمز ووجهة نظر الكاتب.' where sort_order=2 and lesson_id=(select id from lessons where code='AR-Y8-N-T3-L05');
+update success_criteria set statement_ar='أكتب استجابة أدبية أقارن فيها بين قصتين من المجموعة.' where sort_order=3 and lesson_id=(select id from lessons where code='AR-Y8-N-T3-L05');
+update lesson_summaries set content=content||'{"hook": "كاتب يحلم بأن يكون له «شأن عظيم»… ثم يرى ورق الجرائد يُلفّ به الخبز!", "idea": "قصة يكتب فيها الراوي مقالًا عن معاناة السمّاك متذكّرًا وعد أمّه «سيكون لك شأن عظيم»، ثم يفاجأ بصفحة الجريدة تُلفّ بها الأرغفة، فيرى «الوجه الآخر» للكتابة."}'::jsonb where lesson_id=(select id from lessons where code='AR-Y8-N-T3-L05');
