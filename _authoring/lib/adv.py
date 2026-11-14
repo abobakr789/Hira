@@ -182,7 +182,7 @@ def exitcard(apply_items, badge):
 
 
 TIER_BOX = re.compile(
-    r"<div style=\"width:640px;background:#F1F6FB;border-radius:22px;padding:16px 30px\">.*?</div>",
+    r"<div style=\"width:620px;background:#F1F6FB;border-radius:22px;padding:16px 30px\">.*?</div>",
     re.S)
 
 
@@ -191,7 +191,7 @@ def tiers(section_html, t1, t2, t3):
     rows = ''.join(
         f'<p style="font-size:23px;line-height:1.6;color:{c}"><b>{s}</b> {t}</p>'
         for s, t, c in (('★', t1, '#A8741F'), ('★★', t2, BLUE), ('★★★', t3, GREEN)))
-    box = (f'<div style="width:640px;background:#F1F6FB;border-radius:22px;padding:14px 26px;'
+    box = (f'<div style="width:620px;background:#F1F6FB;border-radius:22px;padding:14px 26px;'
            f'display:flex;flex-direction:column;gap:4px">'
            f'<p style="font-size:23px;color:{MUTED}"><b>دَعْمٌ مَرِنٌ · هَدَفٌ واحِدٌ</b></p>'
            f'{rows}</div>')
