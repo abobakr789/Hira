@@ -239,3 +239,77 @@ def with_model(section_html, body, label='💡 الْإِجابَةُ النَّ
     return (section_html[:i]
             + MODEL_BTN.format(label=label, body=body)
             + section_html[i:])
+
+
+def progress(levs, after=False):
+    """قياس التقدّم بسلّم من 1 إلى 5 لكل معيار نجاح — على نمط التربية الإسلامية."""
+    tones = ['#C9822B', GREEN, BLUE, '#B8292F', PLUM]
+    n = max(1, len(levs))
+    dot = 62 if n >= 5 else 76          # أقلّ معايير ⇒ صفوف أوسع تملأ الشريحة
+    pad = 14 if n >= 5 else 30
+    rows = ''
+    for i, lv in enumerate(levs):
+        c = tones[i % len(tones)]
+        dots = ''.join(
+            f'<p style="width:{dot}px;height:{dot}px;border-radius:{dot // 2}px;'
+            f'background:{c}1F;'
+            f'color:{c};font-size:{dot // 2 + 2}px;display:flex;align-items:center;'
+            f'justify-content:center;flex:none">{n}</p>' for n in range(1, 6))
+        rows += (
+            f'<div style="display:flex;align-items:stretch;gap:0;background:#fff;'
+            f'border-radius:22px;box-shadow:{SHADOW};overflow:hidden">'
+            f'<div style="width:12px;background:{c}"></div>'
+            f'<div style="flex:none;width:64px;display:flex;align-items:center;'
+            f'justify-content:center"><p style="font-size:28px;color:{c};'
+            f'background:{c}1F;width:44px;height:44px;border-radius:12px;display:flex;'
+            f'align-items:center;justify-content:center">{i + 1}</p></div>'
+            f'<div style="flex:1;display:flex;align-items:center;padding:{pad}px 10px">'
+            f'<p style="font-size:31px;line-height:1.5;color:{INK}">{lv}</p></div>'
+            f'<div style="flex:none;display:flex;gap:14px;align-items:center;'
+            f'padding:{pad}px 24px">{dots}</div></div>')
+    note = ('أُعيدُ تَقْييمَ نَفْسي الْآنَ بَعْدَ الدَّرْسِ، وَأُقارِنُهُ بِتَقْييمي في بِدايَةِ الْحِصَّةِ.'
+            if after else
+            'أُقَيِّمُ نَفْسي مِنْ 1 إِلى 5 في كُلِّ مِعْيارٍ <b>قَبْلَ</b> الدَّرْسِ، وَأَحْتَفِظُ بِتَقْييمي.')
+    return (
+        _head('📈 قِياسُ التَّقَدُّمِ', '2 دَقيقَتانِ',
+              'بَعْدَ الدَّرْسِ' if after else 'قَبْلَ الدَّرْسِ',
+              accent=BLUE, chip='كَمْ تَقَدَّمْتُ؟' if after else 'أَيْنَ أَنا الْآنَ؟') +
+        f'<div style="position:absolute;right:120px;top:292px;width:1680px;'
+        f'display:flex;flex-direction:column;gap:16px">'
+        f'<div style="background:#E8F1FA;border-right:10px solid {BLUE};border-radius:18px;'
+        f'padding:14px 26px"><p style="font-size:27px;color:{INK}">{note}</p></div>'
+        f'{rows}'
+        f'<p style="font-size:23px;color:{MUTED};align-self:flex-end">'
+        f'1 = لَمْ أَصِلْ بَعْدُ · 5 = أَسْتَطيعُ أَنْ أَشْرَحَهُ لِغَيْري</p></div>')
+
+
+FB_CRITERIA = ['دَليلٌ مِنَ النَّصِّ', 'مِثالٌ واقِعِيٌّ', 'لُغَةٌ سَليمَةٌ', 'رَبْطٌ بِالْوَطَنِ']
+
+
+def feedback():
+    """نجمتان وأمنية ببدايات جُمَلٍ ومعايير حُكْمٍ — على نمط التربية الإسلامية."""
+    stems = [('★ النَّجْمَةُ الْأولى', '«أَعْجَبَني في عَرْضِكُمْ …»', GOLD),
+             ('★ النَّجْمَةُ الثّانِيَةُ', '«كانَ دَليلُكُمْ مُقْنِعًا لِأَنَّ …»', BLUE),
+             ('✦ الْأُمْنِيَةُ', '«أَتَمَنّى لَوْ أَضَفْتُمْ …»', '#B8292F')]
+    cards = ''.join(
+        f'<div style="flex:1;background:#fff;border-radius:26px;padding:24px 26px;'
+        f'box-shadow:{SHADOW};border-top:8px solid {c};display:flex;'
+        f'flex-direction:column;gap:14px;align-items:center;justify-content:center">'
+        f'<p style="font-size:26px;color:{c};background:{c}1F;padding:5px 20px;'
+        f'border-radius:18px">{t}</p>'
+        f'<p style="font-size:31px;line-height:1.6;color:{INK};text-align:center">{s}</p>'
+        f'</div>' for t, s, c in stems)
+    chips = ''.join(
+        f'<p style="flex:1;font-size:26px;color:{INK};background:#fff;border-radius:18px;'
+        f'padding:14px 10px;text-align:center;box-shadow:{SHADOW}">✓ {c}</p>'
+        for c in FB_CRITERIA)
+    return (
+        _head('⭐ التَّغْذِيَةُ الرّاجِعَةُ مِنَ الْأَقْرانِ', '3 دَقائِقَ',
+              'نَجْمَتانِ وَأُمْنِيَةٌ', accent=GOLD) +
+        f'<div style="position:absolute;right:120px;top:292px;width:1680px;'
+        f'display:flex;flex-direction:column;gap:20px">'
+        f'<div style="background:#FFF6E0;border:3px solid #E6C98A;border-radius:20px;'
+        f'padding:14px 26px"><p style="font-size:27px;color:{INK}">'
+        f'تَعْليقُكَ عَلى عَرْضِ زُمَلائِكَ نَصيحَةٌ: سِرُّها اللُّطْفُ، وَغايَتُها التَّحْسينُ.</p></div>'
+        f'<div style="display:flex;gap:22px;align-items:stretch;min-height:300px">{cards}</div>'
+        f'<div style="display:flex;gap:16px">{chips}</div></div>')
