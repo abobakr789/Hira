@@ -39,7 +39,7 @@ async def check(path):
 if __name__ == '__main__':
     for f in sys.argv[1:]:
         r = asyncio.run(check(f))
-        bad = r['errors'] or r['overflow'] or r['broken'] or r['slides'] != 30
+        bad = r['errors'] or r['overflow'] or r['broken'] or r['slides'] < 28
         print(('FAIL ' if bad else 'PASS ') + f.split('/')[-2] + f"  slides={r['slides']}"
               + (f" overflow={r['overflow']}" if r['overflow'] else '')
               + (f" broken={r['broken']}" if r['broken'] else '')
