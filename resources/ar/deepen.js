@@ -268,7 +268,7 @@ html[data-tr=flip-r]::view-transition-new(slide){animation:vt-flip-in-r .8s .15s
   .ch{width:100%;display:flex;flex-direction:column;gap:22px}.chb{display:flex;align-items:flex-end;justify-content:center;gap:60px;height:470px;padding:0 40px;border-bottom:4px solid #C9B98F}
   .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;width:200px}
   .bar i{display:block;width:100%;height:0;border-radius:22px 22px 0 0;background:linear-gradient(180deg,var(--c),color-mix(in srgb,var(--c) 65%,#fff));transition:height 1.4s cubic-bezier(.2,.8,.2,1) var(--d)}
-  .sl.on .bar:not(.hid) i{height:calc(var(--h) - 60px)}
+  .sl.on .bar:not(.hid) i{height:max(14px,calc(var(--h) * .8))}
   .bv{font-size:40px;font-weight:800;color:var(--c);margin-bottom:6px}.bl{position:absolute;transform:translateY(54px);font-size:28px;font-weight:700;color:#444;text-align:center;width:240px}
   .bar{position:relative}.chq{margin-top:50px}
   .f4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;width:100%}
