@@ -56,11 +56,38 @@ I = {
  'wheel': '<circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="9"/>'
           '<path d="M50 20v12M50 68v12M20 50h12M68 50h12"/>',
  'factory': '<path d="M16 80V48l18 12V48l18 12V34l32 22v24z"/><path d="M12 80h80"/><path d="M68 34V18h10v22"/>',
+ 'temple': '<path d="M50 14l34 20H16z"/><path d="M24 34v38M40 34v38M60 34v38M76 34v38"/>'
+           '<path d="M14 80h72"/>',
+ 'pot': '<path d="M34 30h32"/><path d="M30 38c-6 8-8 16-8 22a28 28 0 0056 0c0-6-2-14-8-22z"/>'
+        '<path d="M26 54h48"/>',
+ 'crown': '<path d="M18 68l-6-34 20 14 18-26 18 26 20-14-6 34z"/><path d="M18 76h64"/>',
+ 'river': '<path d="M20 26c14 10 6 22 0 32s10 18 0 26"/><path d="M50 26c14 10 6 22 0 32s10 18 0 26"/>'
+          '<path d="M80 26c-14 10-6 22 0 32s-10 18 0 26"/>',
+ 'wheat': '<path d="M50 84V36"/><path d="M50 40c-10-2-16-8-16-18 10 0 16 6 16 18z"/>'
+          '<path d="M50 40c10-2 16-8 16-18-10 0-16 6-16 18z"/>'
+          '<path d="M50 58c-10-2-16-8-16-18 10 0 16 6 16 18z"/>'
+          '<path d="M50 58c10-2 16-8 16-18-10 0-16 6-16 18z"/>',
+ 'palette': '<path d="M50 18a32 32 0 100 64c6 0 8-4 6-8-3-6 1-10 7-10h7a12 12 0 0012-12c0-19-15-34-32-34z"/>'
+            '<circle cx="36" cy="40" r="4" fill="currentColor"/><circle cx="52" cy="32" r="4" fill="currentColor"/>'
+            '<circle cx="66" cy="44" r="4" fill="currentColor"/>',
+ 'pen': '<path d="M24 76l6-16 34-34 10 10-34 34z"/><path d="M60 30l10 10"/><path d="M22 80h20"/>',
+ 'lamp': '<path d="M30 44h40l-6 22H36z"/><path d="M50 44V26"/><path d="M38 26h24"/><path d="M34 74h32"/>',
+ 'bridge': '<path d="M12 56c14 0 20-14 38-14s24 14 38 14"/><path d="M12 56v18M88 56v18"/>'
+           '<path d="M34 50v24M50 46v28M66 50v24"/>',
  'anchor': '<circle cx="50" cy="26" r="7"/><path d="M50 33v47"/><path d="M32 46h36"/>'
            '<path d="M22 58c0 14 12 24 28 24s28-10 28-24"/>',
 }
 _DEF = 'star'
 _HINT = [
+ (('اتِّصالُ', 'اتِّصال', 'تَواصُل', 'تَبادُل'), 'bridge'),
+ (('حَضارَة', 'حَضارات', 'حَضارِيّ'), 'temple'),
+ (('مُقَوِّمات', 'مُقَوِّم', 'أَسْباب', 'عَوامِل قِيام'), 'crown'),
+ (('تُرْبَة', 'خَصْبَة', 'زِراعَة', 'مَحاصيل', 'حَصاد'), 'wheat'),
+ (('نَهْر', 'أَنْهار', 'ضِفاف', 'وِديان'), 'river'),
+ (('فَنّ', 'فُنون', 'إِبْداع', 'زَخْرَفَة', 'عِمارَة'), 'palette'),
+ (('كِتابَة', 'خَطّ', 'نَقْش', 'تَدْوين'), 'pen'),
+ (('آثار', 'أَثَر', 'قِطَع', 'فَخّار', 'مُتْحَف'), 'pot'),
+ (('عُلوم', 'عالِم', 'اخْتِراع', 'ابْتِكار', 'مَعْرِفَة'), 'lamp'),
  (('مَوْقِع', 'موقع', 'فَلَك', 'خَريط'), 'compass'),
  (('مُناخ', 'مناخ', 'رِياح', 'طَوْز'), 'wind'),
  (('نَبات', 'نبات', 'شَجَر', 'غاف', 'مانْجْروف', 'قُرْم'), 'tree'),
@@ -129,9 +156,13 @@ def svg_icon(name, size=76, stroke=3.2):
 
 
 # ───────────────────────────── الأنماط ─────────────────────────────
+MARK_A = "/* ==HIRAA-FX-START== */"
+MARK_B = "/* ==HIRAA-FX-END== */"
+
 STYLE = """
+/* ==HIRAA-FX-START== */
 /* ===== حراء: تفاعل وحركة (الدراسات الاجتماعية) ===== */
-.flipw{perspective:1400px;flex:1;min-width:0}
+.flipw{perspective:1400px;flex:1;min-width:0;cursor:pointer}
 .flipc{position:relative;width:100%;height:330px;transform-style:preserve-3d;
  transition:transform .72s cubic-bezier(.3,1.3,.4,1),box-shadow .3s;cursor:pointer;border-radius:34px}
 .flipc.flipped{transform:rotateY(180deg)}
@@ -151,7 +182,7 @@ STYLE = """
 .flipc.flipped .fliph{display:none}
 
 /* صحّح وعلّل */
-.cq{position:relative;background:#fff;border-radius:26px;padding:20px 22px 18px;
+.cq{position:relative;overflow:hidden;min-height:186px;background:#fff;border-radius:26px;padding:20px 22px 18px;
  box-shadow:0 10px 26px rgba(31,42,60,.10);border-inline-start:8px solid #CBD3DD;
  transition:border-color .35s,box-shadow .35s,transform .35s}
 .cq.ok{border-inline-start-color:#2E8B6B;box-shadow:0 12px 30px rgba(46,139,107,.22)}
@@ -169,15 +200,15 @@ STYLE = """
 .cbtn.f.sel{background:#C0392B;color:#fff}
 .cmark{position:absolute;inset-inline-end:18px;top:14px;font-size:34px;opacity:0;transform:scale(.4)}
 .cq.ok .cmark,.cq.no .cmark{opacity:1;transform:none;transition:opacity .35s .1s,transform .45s .1s cubic-bezier(.2,.9,.3,1.5)}
-.why{position:relative;display:inline-block;font-size:22px;color:#6B5BA8;border:2px dashed #B9AEE2;
+.why{display:inline-block;font-size:22px;color:#6B5BA8;border:2px dashed #B9AEE2;
  border-radius:18px;padding:4px 16px;cursor:help;background:#F7F4FF;transition:background .25s}
 .why:hover{background:#EDE7FF}
-.whyb{position:absolute;inset-inline-start:0;bottom:calc(100% + 12px);width:600px;max-width:62vw;
- background:#2A2140;color:#fff;border-radius:18px;padding:14px 18px;font-size:21px;line-height:1.55;
- box-shadow:0 18px 40px rgba(20,14,40,.4);opacity:0;visibility:hidden;transform:translateY(10px) scale(.97);
- transition:opacity .3s,transform .3s,visibility .3s;z-index:6;text-align:start}
-.why:hover .whyb,.why.open .whyb{opacity:1;visibility:visible;transform:none}
-.whyb::after{content:"";position:absolute;inset-inline-start:34px;top:100%;border:10px solid transparent;border-top-color:#2A2140}
+.whyb{position:absolute;inset:0;background:linear-gradient(140deg,#2A2140,#453a63);color:#fff;
+ border-radius:26px;padding:22px 26px;font-size:23px;line-height:1.6;display:flex;align-items:center;
+ opacity:0;visibility:hidden;transform:scale(.97);text-align:start;z-index:4;
+ transition:opacity .3s,transform .35s cubic-bezier(.2,.9,.3,1.2),visibility .3s}
+.cq.why-on .whyb{opacity:1;visibility:visible;transform:none}
+.whyb b{display:block;font-size:19px;opacity:.7;margin-bottom:6px}
 
 /* لوحات مرسومة بدل صور الكتاب */
 .scn{position:relative;width:100%;height:100%;border-radius:24px;overflow:hidden;
@@ -200,13 +231,15 @@ STYLE = """
 @media (prefers-reduced-motion:reduce){
  .flipc,.cq,.cmark,.whyb{transition-duration:.01ms!important;animation:none!important}
 }
+/* ==HIRAA-FX-END== */
 """
 
 
 def add_style(html):
-    """يُدرج الأنماط مرّة واحدة قبل </style>."""
-    if 'حراء: تفاعل وحركة' in html:
-        return html
+    """يُدرج الأنماط، ويستبدلُ ما أُدرِج سابقًا حتى تَصِلَ التحديثات."""
+    a, b = html.find(MARK_A), html.find(MARK_B)
+    if a != -1 and b != -1:
+        return html[:a] + STYLE.strip() + html[b + len(MARK_B):]
     i = html.index('</style>')
     return html[:i] + STYLE + html[i:]
 
@@ -224,7 +257,9 @@ def flip_cards(words, icons=None):
         ic = (icons or {}).get(w) or icon_for(w)
         fs = 34 if len(w) > 14 else 42
         out.append(
-            f'<div class="flipw"><div class="flipc" onclick="this.classList.toggle(\'flipped\')">'
+            f'<div class="flipw" data-ia onclick="event.stopPropagation();'
+            f'this.firstElementChild.classList.toggle(\'flipped\')">'
+            f'<div class="flipc">'
             f'<div class="flipf" style="border-top:12px solid {c}">'
             f'<div class="ic" style="color:{c};background:{soft};border-radius:50%;padding:18px">{svg_icon(ic)}</div>'
             f'<p style="font-family:\'Thmanyah Display\',\'Cairo\',Tahoma,sans-serif;'
@@ -240,7 +275,8 @@ def flip_cards(words, icons=None):
 # ───────────────────────────── شريحة النقد ─────────────────────────────
 def critique_ix(claims):
     """claims: [(نصّ, صواب؟, تعليل)] -> شريحة تفاعلية: ضغط + كشف بالمرور."""
-    js = ("var c=this.parentNode.parentNode;"
+    js = ("event.stopPropagation();"
+          "var c=this.parentNode.parentNode;"
           "c.classList.remove('ok','no');void c.offsetWidth;"
           "c.parentNode.querySelectorAll('.cbtn').forEach(function(b){b.classList.remove('sel')});"
           "this.classList.add('sel');"
@@ -257,8 +293,14 @@ def critique_ix(claims):
             f'<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">'
             f'<button class="cbtn t" data-ia data-v="t" onclick="{js}">صَحيحٌ</button>'
             f'<button class="cbtn f" data-ia data-v="f" onclick="{js}">خَطَأٌ</button>'
-            f'<span class="why" data-ia onclick="this.classList.toggle(\'open\')">عَلِّلْ'
-            f'<span class="whyb" data-ia>{why}</span></span></div></div>')
+            f'<span class="why" data-ia'
+            f' onmouseenter="this.closest(\'.cq\').classList.add(\'why-on\')"'
+            f' onmouseleave="this.closest(\'.cq\').classList.remove(\'why-on\')"'
+            f' onclick="event.stopPropagation();'
+            f'this.closest(\'.cq\').classList.toggle(\'why-on\')">عَلِّلْ</span></div>'
+            f'<div class="whyb" data-ia onclick="event.stopPropagation();'
+            f'this.closest(\'.cq\').classList.remove(\'why-on\')">'
+            f'<span><b>التَّعْليلُ</b>{why}</span></div></div>')
     return ('<div class="stag" style="position:absolute;right:100px;top:250px;width:1400px;zoom:1.2;'
             'display:grid;grid-template-columns:1fr 1fr;gap:22px 26px">' + ''.join(cells) + '</div>')
 
@@ -339,3 +381,12 @@ def replace_stag(section, new_html):
 def stag_wrap(inner, top=250, gap=26, zoom=1.2):
     return (f'<div class="stag" style="position:absolute;right:100px;top:{top}px;width:1400px;'
             f'zoom:{zoom};display:flex;gap:{gap}px;align-items:stretch">{inner}</div>')
+
+
+NAV_OLD = "if(!editing&&!e.target.closest('.nav'))next();"
+NAV_NEW = "if(!editing&&!e.target.closest('.nav')&&!e.target.closest('[data-ia]'))next();"
+
+
+def guard_nav(html):
+    """النقرُ داخلَ عنصرٍ تفاعليٍّ لا ينقلُ إلى الشريحةِ التالية."""
+    return html.replace(NAV_OLD, NAV_NEW)

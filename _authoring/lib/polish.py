@@ -51,8 +51,9 @@ def run(code):
     p = f'{REPO}/{code}/teacher-deck.html'
     h = open(p, encoding='utf-8').read()
 
-    # 1) الأنماط
+    # 1) الأنماط وحارسُ التنقّل
     h = fx.add_style(h)
+    h = fx.guard_nav(h)
 
     # 2) حذف «الجسر إلى الكتابة»
     h = fx.drop(h, 'bridge')
