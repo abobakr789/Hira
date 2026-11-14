@@ -225,7 +225,7 @@ STYLE = """
 .why:hover{background:#EDE7FF}
 .whyb{position:absolute;inset:0;background:linear-gradient(140deg,#2A2140,#453a63);color:#fff;
  border-radius:26px;padding:22px 26px;font-size:23px;line-height:1.6;display:flex;align-items:center;
- opacity:0;visibility:hidden;transform:scale(.97);text-align:start;z-index:4;
+ opacity:0;visibility:hidden;transform:scale(.97);text-align:start;z-index:4;pointer-events:none;
  transition:opacity .3s,transform .35s cubic-bezier(.2,.9,.3,1.2),visibility .3s}
 .cq.why-on .whyb{opacity:1;visibility:visible;transform:none}
 .whyb b{display:block;font-size:19px;opacity:.7;margin-bottom:6px}
@@ -319,9 +319,11 @@ def critique_ix(claims):
             f'<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">'
             f'<button class="cbtn t" data-ia data-v="t" onclick="{js}">صَحيحٌ</button>'
             f'<button class="cbtn f" data-ia data-v="f" onclick="{js}">خَطَأٌ</button>'
-            f'<span class="why" data-ia'
-            f' onmouseenter="this.closest(\'.cq\').classList.add(\'why-on\')"'
-            f' onmouseleave="this.closest(\'.cq\').classList.remove(\'why-on\')"'
+            f'<span class="why" data-ia tabindex="0"'
+            f' onpointerenter="this.closest(\'.cq\').classList.add(\'why-on\')"'
+            f' onpointerleave="this.closest(\'.cq\').classList.remove(\'why-on\')"'
+            f' onfocus="this.closest(\'.cq\').classList.add(\'why-on\')"'
+            f' onblur="this.closest(\'.cq\').classList.remove(\'why-on\')"'
             f' onclick="event.stopPropagation();'
             f'this.closest(\'.cq\').classList.toggle(\'why-on\')">عَلِّلْ</span></div>'
             f'<div class="whyb" data-ia onclick="event.stopPropagation();'
@@ -416,3 +418,19 @@ NAV_NEW = "if(!editing&&!e.target.closest('.nav')&&!e.target.closest('[data-ia]'
 def guard_nav(html):
     """النقرُ داخلَ عنصرٍ تفاعليٍّ لا ينقلُ إلى الشريحةِ التالية."""
     return html.replace(NAV_OLD, NAV_NEW)
+
+
+def replace_scene(section, new_scene):
+    """يستبدلُ لوحةً مرسومةً قائمةً بمطابقةٍ متوازنةٍ، فلا يبتلعُ ما بعدَها."""
+    i = section.find('<div class="scn"')
+    if i < 0:
+        return section
+    j = _match_div(section, i)
+    return section[:i] + new_scene + section[j:]
+
+
+def set_scene(section, icon, caption='', tone='cool'):
+    """يضعُ اللوحةَ مكانَ صورةِ الكتابِ، أو يستبدلُ لوحةً موجودةً."""
+    if 'class="scn"' in section:
+        return replace_scene(section, scene(icon, caption, tone))
+    return IMG_RE.sub(lambda _m: scene(icon, caption, tone), section, count=1)

@@ -15,7 +15,6 @@ for m in AMODS:
 
 WORD = re.compile(r'font-size:\d+px;color:(#[0-9A-Fa-f]{6});text-align:center">([^<]+)</p>')
 MEAN = re.compile(r'line-height:1\.6;color:#1F2A3C">([^<]+)</p>')
-SCN = re.compile(r'<div class="scn".*?</div>\s*</div>\s*</div>', re.S)
 PLAN = {'predict': ('bulb', 'أَتَوَقَّعُ', 'plum'), 'learn2': (None, '', 'cool'),
         'learn3': (None, '', 'green'), 'learn4': (None, '', 'sand')}
 
@@ -46,7 +45,7 @@ def run(code):
         if not s or 'class="scn"' not in s:
             continue
         icon = ic or fx.icon_for_text(' '.join(deck.texts(s)))
-        ns = SCN.sub(lambda _m: fx.scene(icon, cap, tone), s, count=1)
+        ns = fx.set_scene(s, icon, cap, tone)
         h = h.replace(s, ns, 1); d = dict(deck.split_sections(h)[1])
 
     open(p, 'w', encoding='utf-8').write(h)
