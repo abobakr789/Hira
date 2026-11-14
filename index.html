@@ -2476,6 +2476,29 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .lsrch-none { padding: 14px; font-size: .9rem; opacity: .7; }
 @media (max-width: 720px) { .lsrch { max-width: none; } }
 
+/* ===== صوت كتاب حراء ===== */
+.rd-snd { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.rd-snd-b { display: inline-flex; align-items: center; gap: 10px; border: 0; cursor: pointer; font: inherit; font-weight: 700; font-size: 1.15rem; color: #FFFDF7; background: linear-gradient(135deg, #0F6E72, #13888D); border-radius: 99px; padding: 12px 26px; box-shadow: 0 4px 0 #0A4A4D, 0 10px 22px rgba(15,110,114,.28); transition: transform .12s, box-shadow .12s, background .2s; }
+.rd-snd-b:hover { transform: translateY(-1px); box-shadow: 0 5px 0 #0A4A4D, 0 14px 26px rgba(15,110,114,.32); }
+.rd-snd-b:active { transform: translateY(3px); box-shadow: 0 1px 0 #0A4A4D; }
+.rd-snd-b:disabled { background: #BDB6A8; box-shadow: 0 4px 0 #9A9385; cursor: not-allowed; }
+.rd-snd-i { font-size: 1.3rem; line-height: 1; }
+.rd-snd.on .rd-snd-b { background: linear-gradient(135deg, #B88D3A, #D4AA55); color: #102A4C; box-shadow: 0 4px 0 #8E6C27, 0 10px 22px rgba(184,141,58,.3); }
+.rd-snd-r { border: 2px solid #D4AA55; background: #FFFDF7; color: #0F6E72; cursor: pointer; font-size: 1.3rem; line-height: 1; width: 44px; height: 44px; border-radius: 50%; transition: background .15s, transform .12s; }
+.rd-snd-r:hover { background: #FFF4DC; transform: rotate(-40deg); }
+.rd-snd-p { flex: 1 1 160px; max-width: 260px; height: 8px; background: #EEE6D6; border-radius: 99px; overflow: hidden; }
+.rd-snd-p i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #0F6E72, #D4AA55); transition: width .2s linear; }
+.rd-snd-a { display: inline-flex; align-items: center; gap: 7px; font-size: .95rem; color: #5C5445; cursor: pointer; user-select: none; }
+.rd-snd-a input { width: 18px; height: 18px; accent-color: #0F6E72; cursor: pointer; }
+.rd-snd.bad .rd-snd-p, .rd-snd.bad .rd-snd-a { display: none; }
+.rd-snd.on .rd-snd-i { animation: rdSndPulse 1s ease-in-out infinite; }
+@keyframes rdSndPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+.rd-page .rd-snd { margin-bottom: 14px; }
+.rd-snd-cv { justify-content: flex-start; margin: 14px 0 0; }
+.rd-snd-cv .rd-snd-b { background: #FFFDF7; color: #102A4C; box-shadow: 0 4px 0 #D4AA55; font-size: 1rem; padding: 9px 20px; }
+.rd-snd-cv .rd-snd-p, .rd-snd-cv .rd-snd-r { display: none; }
+@media (prefers-reduced-motion: reduce) { .rd-snd.on .rd-snd-i { animation: none; } .rd-snd-r:hover { transform: none; } }
+
 </style>
 </head>
 <body>
@@ -4124,6 +4147,36 @@ window.addEventListener("error", function (e) {
       ${sc.map((c, i) => { const lv = LV[Math.min((c.solo || i + 1) - 1, 3)]; return `<div class="gb-sc"><span class="gb-n" style="background:${lv[0]}">${i + 1}</span><span class="gb-t">${en ? "I can " : "أَسْتَطيعُ أَنْ "}${esc(en && c.statement_en ? c.statement_en : String(c.statement_ar).replace(/^أَسْتَطيعُ أَنْ\s*/, ""))}</span><span class="gb-lv" style="color:${lv[0]}">${lv[1]} ${"|".repeat(Math.min(c.solo || i + 1, 4))}</span></div>`; }).join("")}</div>`;
   }
   // ===== كتاب حراء: a short Hiraa-written book per lesson — the student reads it page by page, then answers 5 questions; the teacher sees who read and how they did =====
+  // صوت كتاب حراء: الملفات في مخزن reader-audio، ومفاتيحها title وp1..pN وwords
+  const rdSndBase = () => ((window.HIRAA_CONFIG && window.HIRAA_CONFIG.supabaseUrl) || "") + "/storage/v1/object/public/reader-audio/";
+  const rdSndSrc = (R, key) => { const f = R && R.audio && R.audio[key]; if (!f) return null; return /^https?:/i.test(f) ? f : rdSndBase() + String(f).split("/").map(encodeURIComponent).join("/"); };
+  const rdSndAuto = () => { try { return localStorage.getItem("rdSndAuto") !== "0"; } catch (e) { return true; } };
+  const rdSndSetAuto = (v) => { try { localStorage.setItem("rdSndAuto", v ? "1" : "0"); } catch (e) {} };
+  let rdSndCur = null;
+  const rdSndStop = () => { if (rdSndCur) { try { rdSndCur.pause(); } catch (e) {} rdSndCur = null; } };
+  // يبني مشغّلًا داخل العنصر host؛ auto يعني أن يبدأ وحده متى سمح المتصفّح
+  function rdSnd(host, src, en, auto) {
+    if (!host) return; const T2 = (a, b) => (en ? b : a);
+    if (!src) { host.hidden = true; return; } host.hidden = false;
+    host.innerHTML = `<button class="rd-snd-b" type="button"><span class="rd-snd-i" aria-hidden="true">🔊</span><span class="rd-snd-t">${T2("اِسْتَمِعْ", "Listen")}</span></button>
+      <button class="rd-snd-r" type="button" title="${T2("مِنَ الْبِدايَةِ", "From the start")}" aria-label="${T2("أَعِدِ الِاسْتِماعَ مِنَ الْبِدايَةِ", "Replay from the start")}" hidden>↻</button>
+      <div class="rd-snd-p" aria-hidden="true"><i></i></div>
+      ${auto === null ? "" : `<label class="rd-snd-a"><input type="checkbox" ${rdSndAuto() ? "checked" : ""}> ${T2("يَعْمَلُ وَحْدَهُ", "Play on its own")}</label>`}`;
+    const b = host.querySelector(".rd-snd-b"), rb = host.querySelector(".rd-snd-r"),
+      bar = host.querySelector(".rd-snd-p i"), cb = host.querySelector(".rd-snd-a input");
+    const au = new Audio(src); au.preload = "auto";
+    const lbl = (t, ic) => { host.querySelector(".rd-snd-t").textContent = t; host.querySelector(".rd-snd-i").textContent = ic; };
+    const idle = () => { host.classList.remove("on"); lbl(T2("اِسْتَمِعْ", "Listen"), "🔊"); b.setAttribute("aria-label", T2("اِسْتَمِعْ إِلى هذِهِ الصَّفْحَةِ", "Listen to this page")); };
+    au.onplay = () => { host.classList.add("on"); lbl(T2("أَوْقِفْ", "Pause"), "⏸"); b.setAttribute("aria-label", T2("أَوْقِفِ الِاسْتِماعَ", "Pause")); rb.hidden = false; };
+    au.onpause = idle; au.onended = () => { idle(); bar.style.width = "100%"; };
+    au.ontimeupdate = () => { if (au.duration) bar.style.width = Math.round(au.currentTime * 100 / au.duration) + "%"; };
+    au.onerror = () => { host.classList.add("bad"); lbl(T2("تَعَذَّرَ تَشْغيلُ الصَّوْتِ", "Audio unavailable"), "⚠️"); b.disabled = true; rb.hidden = true; };
+    const go = () => { rdSndStop(); rdSndCur = au; const p = au.play(); if (p && p.catch) p.catch(() => idle()); };
+    b.onclick = () => { if (au.paused) go(); else au.pause(); };
+    rb.onclick = () => { au.currentTime = 0; go(); };
+    if (cb) cb.onchange = () => { rdSndSetAuto(cb.checked); if (cb.checked && au.paused) go(); };
+    idle(); if (auto && rdSndAuto()) go();
+  }
   function rdBook(box, R, en, opt) {
     const T2 = (a, b) => (en ? b : a), pages = R.pages || [], words = (R.words || []).filter((w) => w && w[0]);
     const all = pages.length + (words.length ? 1 : 0);
@@ -4139,13 +4192,14 @@ window.addEventListener("error", function (e) {
       box.innerHTML = `<div class="rd-book">
         <div class="rd-top"><button class="btn btn-ghost btn-small" id="rdClose">✖ ${T2("إِغْلاقُ الْكِتابِ", "Close the book")}</button><span class="rd-ttl">${esc(R.title)}</span><span class="rd-n"><bdi dir="ltr">${i + 1} / ${all}</bdi></span></div>
         <div class="rd-bar"><i style="width:${Math.round((i + 1) * 100 / all)}%"></i></div>
-        <div class="rd-page" dir="rtl">${pageHtml()}<div class="rd-pn">${i + 1}</div></div>
+        <div class="rd-page" dir="rtl">${pageHtml()}<div class="rd-snd" id="rdSnd" hidden></div><div class="rd-pn">${i + 1}</div></div>
         <div class="rd-nav"><button class="btn btn-ghost" id="rdPrev" ${i === 0 ? "disabled" : ""}>→ ${T2("السّابِقَةُ", "Back")}</button>
           ${i < all - 1 ? `<button class="btn btn-primary" id="rdNext">${T2("التّالِيَةُ", "Next")} ←</button>` : `<button class="btn btn-dawn" id="rdEnd">🎉 ${T2("أَنْهَيْتُ الْكِتابَ", "I finished the book")}</button>`}</div></div>`;
-      box.querySelector("#rdClose").onclick = () => { flush(true); opt.back(); };
-      box.querySelector("#rdPrev").onclick = () => { if (i > 0) { i--; draw(); } };
-      const nx = box.querySelector("#rdNext"); if (nx) nx.onclick = () => { i++; draw(); flush(); box.scrollIntoView({ block: "start", behavior: "smooth" }); };
-      const en2 = box.querySelector("#rdEnd"); if (en2) en2.onclick = () => { flush(true); opt.done(); };
+      rdSnd(box.querySelector("#rdSnd"), rdSndSrc(R, i < pages.length ? "p" + (i + 1) : "words"), en, true);
+      box.querySelector("#rdClose").onclick = () => { rdSndStop(); flush(true); opt.back(); };
+      box.querySelector("#rdPrev").onclick = () => { if (i > 0) { rdSndStop(); i--; draw(); } };
+      const nx = box.querySelector("#rdNext"); if (nx) nx.onclick = () => { rdSndStop(); i++; draw(); flush(); box.scrollIntoView({ block: "start", behavior: "smooth" }); };
+      const en2 = box.querySelector("#rdEnd"); if (en2) en2.onclick = () => { rdSndStop(); flush(true); opt.done(); };
     };
     draw();
   }
@@ -4184,7 +4238,8 @@ window.addEventListener("error", function (e) {
     const T2 = (a, b) => (en ? b : a);
     if (!R) { box.innerHTML = `<div class="empty"><strong>📘 ${T2("لم يُكتب كتاب حراء لهذا الدرس بعد", "No Hiraa book for this lesson yet")}</strong>${T2("كتاب قصير من تأليف حراء يقرؤه الطالب صفحة صفحة، ثم يجيب عن خمسة أسئلة، وتصلك النتيجة هنا.", "A short Hiraa-written book the student reads page by page, then answers five questions; results reach you here.")}</div>`; return; }
     const total = (R.pages || []).length + ((R.words || []).length ? 1 : 0);
-    const cover = (extra) => `<div class="rd-cover"><div class="rd-cv-art" aria-hidden="true">${esc(R.cover || "📘")}</div><div class="rd-cv-body"><span class="rd-brand">📘 ${T2("كِتابُ حِراءٍ", "Hiraa book")}</span><h2>${esc(R.title)}</h2><p class="muted">${T2("صَفَحاتٌ", "Pages")}: ${total} · ${T2("ثُمَّ خَمْسَةُ أَسْئِلَةٍ", "then five questions")}</p>${extra}</div></div>`;
+    const cover = (extra) => `<div class="rd-cover"><div class="rd-cv-art" aria-hidden="true">${esc(R.cover || "📘")}</div><div class="rd-cv-body"><span class="rd-brand">📘 ${T2("كِتابُ حِراءٍ", "Hiraa book")}</span><h2>${esc(R.title)}</h2><p class="muted">${T2("صَفَحاتٌ", "Pages")}: ${total} · ${T2("ثُمَّ خَمْسَةُ أَسْئِلَةٍ", "then five questions")}</p><div class="rd-snd rd-snd-cv" id="rdSndCv" hidden></div>${extra}</div></div>`;
+    const coverSnd = () => rdSnd(box.querySelector("#rdSndCv"), rdSndSrc(R, "title"), en, null);
     if (isStudent()) {
       const me = state.session.user.id;
       const home = async () => {
@@ -4196,6 +4251,7 @@ window.addEventListener("error", function (e) {
           <div class="${sc ? "ok" : ""}"><span>2</span>${T2("أُجيبُ عَنْ خَمْسَةِ أَسْئِلَةٍ", "I answer five questions")} ${sc ? `✅ <b><bdi dir="ltr">${rr.score}/${rr.max_score}</bdi></b>` : ""}</div></div>
           <div class="rd-nav"><button class="btn btn-primary" id="rdRead">📖 ${done ? T2("أَقْرَأُ مَرَّةً أُخْرى", "Read again") : rr ? T2("أُكْمِلُ الْقِراءَةَ", "Continue reading") : T2("أَبْدَأُ الْقِراءَةَ", "Start reading")}</button>
           ${done ? `<button class="btn btn-dawn" id="rdQz">❓ ${sc ? T2("أُجيبُ مَرَّةً أُخْرى", "Answer again") : T2("أُجيبُ عَنِ الْأَسْئِلَةِ", "Answer the questions")}</button>` : `<span class="muted">🔒 ${T2("تُفْتَحُ الْأَسْئِلَةُ بَعْدَ أَنْ أُنْهِيَ الْكِتابَ", "Questions open after I finish the book")}</span>`}</div>`)}</div>`;
+        coverSnd();
         box.querySelector("#rdRead").onclick = () => read(done ? 0 : (rr && rr.pages_seen) || 0);
         const qz = box.querySelector("#rdQz"); if (qz) qz.onclick = quiz;
       };
@@ -4208,6 +4264,7 @@ window.addEventListener("error", function (e) {
     const preview = () => rdBook(box, R, en, { back: staff, done: () => rdQuiz(box, R, en, { submit: false, back: staff, reread: preview }) });
     const staff = async () => {
       box.innerHTML = `<div class="rd-wrap">${cover(`<div class="rd-nav"><button class="btn btn-primary" id="rdPv">📖 ${T2("معاينة الكتاب والأسئلة", "Preview the book and questions")}</button></div>`)}<div id="rdRep" class="rd-rep"><div class="loading">${T2("جارٍ التحميل…", "Loading…")}</div></div></div>`;
+      coverSnd();
       box.querySelector("#rdPv").onclick = preview;
       const rep = box.querySelector("#rdRep");
       if (!isStaff() || !state.session) { rep.innerHTML = ""; return; }
