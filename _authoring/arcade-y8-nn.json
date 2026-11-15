@@ -1,0 +1,120 @@
+{
+"Y8-NN-T1-L01": {"sort": {"title": "Ya-Sin 1–12: deniers or those who benefit?", "cats": [
+ {"name": "The stubborn deniers", "icon": "⛓️", "items": ["Refused the truth stubbornly", "Like chains to their chins", "Barriers before and behind them", "Cannot see guidance"]},
+ {"name": "Those who benefit from warning", "icon": "🌱", "items": ["Follow the Qur'an", "Fear Allah unseen"]}]},
+ "seq": {"title": "Order the topics of verses 1–12", "steps": ["Oath by the wise Qur'an", "The Prophet ﷺ is a messenger", "The stubborn deniers", "Who benefits from the warning"]}},
+"Y8-NN-T1-L02": {"sort": {"title": "Which madd?", "cats": [
+ {"name": "Natural (2 counts)", "icon": "〰️", "items": ["qala", "yaqulu", "qila"]},
+ {"name": "Connected (muttasil)", "icon": "🔗", "items": ["ja'a", "as-sama'", "Hamzah in the same word"]},
+ {"name": "Separated (munfasil)", "icon": "↔️", "items": ["bima unzila", "Hamzah at the start of the next word"]}]}},
+"Y8-NN-T1-L03": {"sort": {"title": "Actions are by intentions", "cats": [
+ {"name": "Habit turned into worship", "icon": "✨", "items": ["Studying to serve the Ummah", "Washing with the intention of ghusl"]},
+ {"name": "Good deed ruined by intention", "icon": "⚠️", "items": ["Charity to be praised"]},
+ {"name": "What intention does", "icon": "🎯", "items": ["Separates worship from habit", "Separates one worship from another", "Need not be said aloud"]}]}},
+"Y8-NN-T1-L04": {"sort": {"title": "Sincerity or showing off?", "cats": [
+ {"name": "Sincerity", "icon": "💎", "items": ["Hiding some good deeds", "Acting the same seen or unseen", "Remembering Allah sees you", "Praying for sincerity"]},
+ {"name": "Showing off", "icon": "🎭", "items": ["Doing deeds for praise", "The minor shirk"]}]}},
+"Y8-NN-T1-L05": {"sort": {"title": "Lawful or unlawful earnings?", "cats": [
+ {"name": "Unlawful", "icon": "⛔", "items": ["Interest", "Bribery", "Cheating", "Theft", "Gambling"]},
+ {"name": "Fruits of lawful earnings", "icon": "🌱", "items": ["Blessing", "Accepted du'a"]}]}},
+"Y8-NN-T1-L06": {"sort": {"title": "Security", "cats": [
+ {"name": "Keeps security", "icon": "🛡️", "items": ["Follow the law", "Report crimes", "Protect public property", "Beware of online fraud"]},
+ {"name": "Threatens security", "icon": "⚠️", "items": ["Spreading rumours", "Harming others with tongue or hand"]}]}},
+"Y8-NN-T1-L07": {"sort": {"title": "The town's claims and the messengers' replies", "cats": [
+ {"name": "The town's claims", "icon": "🗯️", "items": ["You are only humans like us", "You are liars", "We see bad luck in you"]},
+ {"name": "The messengers' replies", "icon": "📜", "items": ["Our job is clear conveying", "Your bad luck is with you", "Caused by your own disbelief"]}]},
+ "seq": {"title": "Order the story of the town", "steps": ["Two messengers were sent", "The town rejected them", "Allah supported them with a third", "People: «You are only humans like us»", "People: «We see bad luck in you»", "The messengers: «Your bad luck is with you»"]}},
+"Y8-NN-T1-L08": {"seq": {"title": "Order the path of nearness in the hadith", "steps": ["Doing the obligatory acts", "Drawing near with extra deeds", "Allah loves His servant", "Guidance and answered prayers"]}},
+"Y8-NN-T1-L09": {"sort": {"title": "Qadar: right or wrong understanding?", "cats": [
+ {"name": "Right understanding", "icon": "✅", "items": ["Work and take the means", "Calm in hardship", "No envy", "No arrogance in success"]},
+ {"name": "Wrong understanding", "icon": "❌", "items": ["Not studying and blaming qadar", "Stopping work"]}]},
+ "seq": {"title": "Order the levels of belief in qadar", "steps": ["Allah knew", "Allah wrote", "Allah willed", "Allah created"]}},
+"Y8-NN-T1-L10": {"sort": {"title": "Prayers for special occasions", "cats": [
+ {"name": "Eclipse prayer", "icon": "🌘", "items": ["Two standings and two bowings in each unit", "Say takbir and give charity"]},
+ {"name": "Rain prayer", "icon": "🌧️", "items": ["When rain is delayed", "Much asking for forgiveness"]},
+ {"name": "Istikharah", "icon": "🤲", "items": ["When unsure about a lawful matter", "Proceed with what becomes easy"]}]}},
+"Y8-NN-T1-L11": {"sort": {"title": "Ash-Shifa' bint 'Abdullah", "cats": [
+ {"name": "Teacher", "icon": "✍️", "items": ["Knew writing before Islam", "Taught Hafsah writing"]},
+ {"name": "Healer", "icon": "🩺", "items": ["Known for skill in healing"]},
+ {"name": "In the market", "icon": "⚖️", "items": ["Checking scales", "Stopping cheating"]}]}},
+"Y8-NN-T2-L01": {"sort": {"title": "The believer of Ya-Sin and his people", "cats": [
+ {"name": "The believing man", "icon": "🏃", "items": ["Came running to defend the messengers", "Called his people to follow them", "Declared his faith bravely", "Advised them even after death"]},
+ {"name": "His people", "icon": "🏚️", "items": ["Killed him", "Destroyed by a single blast"]}]},
+ "seq": {"title": "Order the story", "steps": ["A man came running from the far side of the city", "He called his people to follow the messengers", "He asked: why not worship my Creator?", "He declared his faith and was killed", "He was told: «Enter Paradise»", "The town was destroyed by a single blast"]}},
+"Y8-NN-T2-L02": {"sort": {"title": "The three mosques", "cats": [
+ {"name": "Al-Masjid Al-Haram", "icon": "🕋", "items": ["In Makkah", "Has the Ka'bah"]},
+ {"name": "The Prophet's Mosque", "icon": "🕌", "items": ["In Madinah", "Built by the Prophet ﷺ"]},
+ {"name": "Al-Masjid Al-Aqsa", "icon": "🏛️", "items": ["In Jerusalem", "The first qiblah", "Destination of the Night Journey"]}]}},
+"Y8-NN-T2-L03": {"sort": {"title": "Conquest of Makkah", "cats": [
+ {"name": "Safety announced for", "icon": "🛡️", "items": ["Anyone in Abu Sufyan's house", "Anyone in their own home", "Anyone in the mosque"]},
+ {"name": "Lessons", "icon": "💡", "items": ["Humility in victory", "Forgiveness when able", "Breaking a treaty has consequences"]}]},
+ "seq": {"title": "Order the events", "steps": ["Quraysh broke the treaty", "March in Ramadan 8 AH with 10,000", "Abu Sufyan became Muslim", "The Prophet ﷺ entered humbly", "The idols were removed", "«Go, you are free»"]}},
+"Y8-NN-T2-L04": {"sort": {"title": "Manners of travel", "cats": [
+ {"name": "Before", "icon": "🧳", "items": ["Pray istikharah", "Get parents' approval", "Repay debts", "Choose good company"]},
+ {"name": "During", "icon": "✈️", "items": ["Say the travel du'a", "Use the concessions", "Make du'a", "Respect local laws"]},
+ {"name": "After", "icon": "🏠", "items": ["Return quickly to family", "«Returning, repenting, worshipping»"]}]}},
+"Y8-NN-T2-L05": {"sort": {"title": "'Umrah", "cats": [
+ {"name": "Pillars", "icon": "🕋", "items": ["Ihram from the miqat", "Tawaf: seven circuits", "Sa'y: seven laps"]},
+ {"name": "Forbidden in ihram", "icon": "⛔", "items": ["Cutting hair or nails", "Perfume", "Stitched clothes for men", "Hunting"]}]},
+ "seq": {"title": "Order the steps of 'Umrah", "steps": ["Ihram from the miqat", "Tawaf around the Ka'bah", "Sa'y between Safa and Marwah", "Shaving or shortening the hair"]}},
+"Y8-NN-T2-L06": {"sort": {"title": "Ya-Sin 33–54", "cats": [
+ {"name": "Signs of Allah's power", "icon": "🌍", "items": ["Dead land revived by rain", "Night stripped from day", "The sun running to its resting place", "The moon's phases", "Ships carrying people"]},
+ {"name": "The deniers", "icon": "🗯️", "items": ["Mock the warning", "Taken by a single blast while arguing"]}]},
+ "seq": {"title": "Order the topics of verses 33–54", "steps": ["The dead land", "Night, sun and moon", "Ships and mercy", "The blast and the resurrection"]}},
+"Y8-NN-T2-L07": {"sort": {"title": "Which madd?", "cats": [
+ {"name": "Necessary (6 counts)", "icon": "🔒", "items": ["ad-dallin", "at-tammah", "«lam» in Alif Lam Mim"]},
+ {"name": "Madd due to stopping", "icon": "⏸️", "items": ["Stopping on al-'alamin", "2, 4 or 6 counts"]},
+ {"name": "Two counts", "icon": "〰️", "items": ["«Ta-Ha»"]}]},
+ "seq": {"title": "Order the madds from strongest to weakest", "steps": ["Necessary", "Connected", "Due to stopping", "Separated", "Natural"]}},
+"Y8-NN-T2-L08": {"sort": {"title": "The palm tree and the believer", "cats": [
+ {"name": "The palm tree", "icon": "🌴", "items": ["Always green", "Every part is useful", "Deep roots", "Survives heat and thirst"]},
+ {"name": "The believer", "icon": "🧑", "items": ["Firm in faith", "Useful to society", "Constant in good deeds"]}]},
+ "seq": {"title": "Order the hadith of the palm tree", "steps": ["The Prophet ﷺ asked about a tree", "Ibn 'Umar thought of the palm but was shy", "The Prophet ﷺ: «It is the palm tree»", "'Umar wished his son had spoken"]}},
+"Y8-NN-T2-L09": {"sort": {"title": "Social solidarity", "cats": [
+ {"name": "Strengthens it", "icon": "🤝", "items": ["Brotherhood in faith", "Cooperation in good", "Zakah", "Rights of neighbours and relatives", "Justice", "Volunteering in crises"]},
+ {"name": "Threatens it", "icon": "⚠️", "items": ["Rumours", "Bullying", "Racism", "Backbiting", "Selfishness", "Extremist ideas"]}]}},
+"Y8-NN-T2-L10": {"sort": {"title": "Frightening others or harmless joking?", "cats": [
+ {"name": "Forbidden frightening", "icon": "🚫", "items": ["Threats", "Pointing weapons in jest", "Frightening pranks", "Hiding people's things", "Scary messages", "Cyberbullying"]},
+ {"name": "Allowed joking", "icon": "😊", "items": ["Truthful and harmless"]}]}},
+"Y8-NN-T2-L11": {"sort": {"title": "The Prophet ﷺ at home", "cats": [
+ {"name": "With his wives", "icon": "🏠", "items": ["Helped with chores", "Mended his clothes", "Raced 'A'ishah", "Honoured Khadijah's memory"]},
+ {"name": "With children", "icon": "👶", "items": ["Carried his grandsons", "Kissed children", "Stood to welcome Fatimah"]},
+ {"name": "Being best to my family", "icon": "💚", "items": ["Smile", "Help at home", "Apologise when wrong", "Time away from screens"]}]}},
+"Y8-NN-T3-L01": {"sort": {"title": "Ya-Sin 55–68", "cats": [
+ {"name": "People of Paradise", "icon": "🌸", "items": ["Busy enjoying themselves", "Reclining in shade", "Whatever they ask for", "Peace from a Merciful Lord"]},
+ {"name": "The criminals", "icon": "🔥", "items": ["Separated from the believers", "Mouths sealed", "Hands speak, feet testify"]}]},
+ "seq": {"title": "Order the topics of verses 55–68", "steps": ["Joy of the people of Paradise", "The criminals separated", "Their limbs testify", "Allah's power to change them"]}},
+"Y8-NN-T3-L02": {"sort": {"title": "A good or a bad practice?", "cats": [
+ {"name": "Good practice", "icon": "🌱", "items": ["Starting a charity project", "Being first to give", "A good class habit", "Sharing useful knowledge"]},
+ {"name": "Bad practice", "icon": "⚠️", "items": ["Starting a harmful online trend"]},
+ {"name": "Rejected", "icon": "🚫", "items": ["Inventing new worship"]}]},
+ "seq": {"title": "Order the story behind the hadith", "steps": ["Poor people came", "The Companions were slow to give", "A man brought a bag of silver", "Others followed", "The Prophet ﷺ spoke of starting a good practice"]}},
+"Y8-NN-T3-L03": {"sort": {"title": "Types of oaths", "cats": [
+ {"name": "Unintended oath", "icon": "💬", "items": ["Said out of habit", "No expiation"]},
+ {"name": "False oath (ghamus)", "icon": "⛔", "items": ["False oath about the past", "A major sin needing repentance"]},
+ {"name": "Deliberate oath", "icon": "📌", "items": ["About the future", "Expiation if broken"]},
+ {"name": "Expiation", "icon": "🍞", "items": ["Feed ten poor people", "Or clothe them", "If unable, fast three days"]}]}},
+"Y8-NN-T3-L04": {"sort": {"title": "Hunayn: defeat and victory", "cats": [
+ {"name": "Causes of the setback", "icon": "⚠️", "items": ["Pride in numbers", "The ambush in the valley"]},
+ {"name": "Causes of victory", "icon": "🏆", "items": ["The Prophet ﷺ stood firm", "The Companions returned", "Victory is from Allah"]}]},
+ "seq": {"title": "Order the events of Hunayn", "steps": ["Hawazin and Thaqif gathered an army", "The Muslims marched with 12,000", "Some were proud of their numbers", "The ambush; many fled", "The Prophet ﷺ stood firm", "The Companions returned and won"]}},
+"Y8-NN-T3-L05": {"sort": {"title": "Healthy or harmful?", "cats": [
+ {"name": "Healthy", "icon": "💪", "items": ["Moderate eating", "Wudu' and miswak", "Racing and swimming", "Seeking treatment"]},
+ {"name": "Harmful", "icon": "🚫", "items": ["Wasting food", "Smoking", "Drugs", "Overeating"]}]}},
+"Y8-NN-T3-L06": {"sort": {"title": "Ya-Sin 69–83", "cats": [
+ {"name": "Signs of power", "icon": "🌍", "items": ["Cattle made for people", "Creating humans the first time", "«Be» and it is"]},
+ {"name": "The deniers' claims", "icon": "🗯️", "items": ["The Qur'an is poetry", "Who will give life to old bones?"]}]},
+ "seq": {"title": "Order the topics of verses 69–83", "steps": ["The Qur'an is not poetry", "The blessing of cattle", "The argument of the old bone", "«Be» and it is"]}},
+"Y8-NN-T3-L07": {"sort": {"title": "Keeping family ties", "cats": [
+ {"name": "How", "icon": "📞", "items": ["Visiting", "Calling", "Helping", "Attending occasions"]},
+ {"name": "The true keeper of ties", "icon": "💚", "items": ["Reconnects when others cut him off"]},
+ {"name": "Not true keeping of ties", "icon": "🔁", "items": ["Only returning the favour"]}]}},
+"Y8-NN-T3-L08": {"sort": {"title": "Knowledge raises people", "cats": [
+ {"name": "In the Qur'an and Sunnah", "icon": "📖", "items": ["The first word was «Read»", "Allah raises the people of knowledge", "A path to Paradise"]},
+ {"name": "In the UAE", "icon": "🇦🇪", "items": ["Rose through education", "Reached Mars"]}]}},
+"Y8-NN-T3-L09": {"sort": {"title": "The UAE reads", "cats": [
+ {"name": "UAE reading initiatives", "icon": "📚", "items": ["Arab Reading Challenge", "March reading month", "Mohammed bin Rashid Library", "Sharjah World Book Capital 2019"]},
+ {"name": "Why «in the name of your Lord»?", "icon": "🌟", "items": ["Knowledge leads to knowing Allah", "Knowledge benefits people", "Not arrogance"]}]},
+ "seq": {"title": "Order the first revelation", "steps": ["The Prophet ﷺ in the Cave of Hira'", "Jibril said: «Read»", "The first verses of Al-'Alaq were revealed"]}},
+"Y8-NN-T3-L10": {"seq": {"title": "Order Ash-Shafi'i's life", "steps": ["Born in Gaza in 150 AH", "Grew up poor in Makkah", "Memorised the Qur'an by seven", "Studied with Imam Malik in Madinah", "Studied in Iraq", "Settled in Egypt", "Died in Egypt in 204 AH"]}}
+}

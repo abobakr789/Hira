@@ -1,0 +1,113 @@
+{
+"Y9-NN-T1-L01": {"sort": {"title": "Al-Hujurat 1–10: manners commanded or forbidden?", "cats": [
+ {"name": "Commanded", "icon": "✅", "items": ["Lowering the voice before the Prophet ﷺ", "Verifying news before sharing", "Making peace between believers with justice"]},
+ {"name": "Forbidden", "icon": "🚫", "items": ["Putting your opinion before Allah and His Messenger", "Raising your voice above the Prophet's ﷺ", "Calling people from behind their doors", "Believing a wrongdoer's news without checking"]}]},
+ "seq": {"title": "Order the topics of verses 1–10", "steps": ["Manners with Allah and His Messenger", "Manners of calling people", "Verifying news", "Making peace between believers"]}},
+"Y9-NN-T1-L02": {"seq": {"title": "Order the seven destroyers as in the hadith", "steps": ["Associating partners with Allah", "Magic", "Killing a soul unjustly", "Consuming interest", "Consuming an orphan's wealth", "Fleeing from battle", "Slandering chaste believing women"]}},
+"Y9-NN-T1-L03": {"sort": {"title": "Al-Ghafur and Al-'Adl", "cats": [
+ {"name": "Believing in Al-Ghafur makes me…", "icon": "🤍", "items": ["Never despair after a sin", "Hurry to repent", "Forgive others"]},
+ {"name": "Believing in Al-'Adl makes me…", "icon": "⚖️", "items": ["Fear wronging anyone", "Return people's rights", "Be fair with my siblings", "Trust that my right won't be lost"]}]}},
+"Y9-NN-T1-L04": {"sort": {"title": "Manners of advice", "cats": [
+ {"name": "Giving advice", "icon": "🗣️", "items": ["Be sincere", "Advise privately", "Speak gently", "Know what you're talking about", "Choose the right time"]},
+ {"name": "Receiving advice", "icon": "👂", "items": ["Accept it humbly", "Thank the person"]},
+ {"name": "Not advice", "icon": "🚫", "items": ["Advising in public to expose"]}]}},
+"Y9-NN-T1-L05": {"sort": {"title": "Zakah", "cats": [
+ {"name": "Conditions", "icon": "📋", "items": ["Islam", "Full ownership", "Reaching the nisab", "A full lunar year"]},
+ {"name": "Who receives it", "icon": "👥", "items": ["The poor", "The needy", "Debtors", "Stranded travellers", "Zakah workers"]}]}},
+"Y9-NN-T1-L06": {"sort": {"title": "Al-Hujurat 11–13: which verse?", "cats": [
+ {"name": "Verse 11", "icon": "🙊", "items": ["Don't mock others", "Don't insult each other", "No offensive nicknames"]},
+ {"name": "Verse 12", "icon": "🔍", "items": ["Avoid much suspicion", "Don't spy", "Don't backbite"]},
+ {"name": "Verse 13", "icon": "🌍", "items": ["One human origin", "Nations are to know one another", "Nobility is by righteousness"]}]},
+ "seq": {"title": "Order the topics of verses 11–13", "steps": ["No mocking or insulting", "No suspicion, spying or backbiting", "The measure of nobility"]}},
+"Y9-NN-T1-L07": {"sort": {"title": "Lawful, unlawful or doubtful?", "cats": [
+ {"name": "Clearly lawful", "icon": "✅", "items": ["Eating good food", "Honest trade"]},
+ {"name": "Clearly unlawful", "icon": "⛔", "items": ["Alcohol", "Interest", "Stealing", "Lying"]},
+ {"name": "Doubtful", "icon": "❔", "items": ["A product with unknown ingredients"]}]}},
+"Y9-NN-T1-L08": {"sort": {"title": "The religion is sincere advice: to whom?", "cats": [
+ {"name": "To Allah and His Book", "icon": "📖", "items": ["Worship Him sincerely", "Read and follow His Book"]},
+ {"name": "To the Messenger", "icon": "🌟", "items": ["Follow his Sunnah"]},
+ {"name": "To leaders", "icon": "🏛️", "items": ["Obey in good", "Pray for them", "Advise wisely"]},
+ {"name": "To people", "icon": "🤝", "items": ["Want good for them", "Don't cheat them"]}]},
+ "seq": {"title": "Order as in the hadith", "steps": ["Allah", "His Book", "His Messenger", "Leaders of the Muslims", "Their common people"]}},
+"Y9-NN-T1-L09": {"sort": {"title": "Hajj", "cats": [
+ {"name": "Pillars of Hajj", "icon": "🕋", "items": ["Ihram", "Standing at 'Arafah", "Tawaf al-ifadah", "Sa'y"]},
+ {"name": "Who must perform it", "icon": "📋", "items": ["Once in a lifetime", "Those who are able"]}]},
+ "seq": {"title": "Order the days of Hajj", "steps": ["8th: Mina", "9th: 'Arafah", "Night in Muzdalifah", "10th: stoning, sacrifice, shaving, tawaf", "11th–13th: stoning in Mina", "Farewell tawaf"]}},
+"Y9-NN-T1-L10": {"sort": {"title": "The Farewell Sermon", "cats": [
+ {"name": "What the sermon declared", "icon": "📜", "items": ["Sanctity of life, wealth and honour", "Abolishing interest", "Kindness to women", "No Arab is better than a non-Arab except by taqwa"]},
+ {"name": "After the Hajj", "icon": "🕊️", "items": ["He died on Monday 12 Rabi' al-Awwal 11 AH", "Abu Bakr steadied the people"]}]},
+ "seq": {"title": "Order the events", "steps": ["The Farewell Hajj in 10 AH", "The sermon at 'Arafah", "The verse on perfecting the religion", "The Prophet's ﷺ death in 11 AH", "Abu Bakr steadies the people"]}},
+"Y9-NN-T2-L01": {"sort": {"title": "Islam and iman", "cats": [
+ {"name": "True believers", "icon": "💎", "items": ["Believe without doubt", "Strive with wealth and selves", "See guidance as Allah's favour"]},
+ {"name": "The Bedouins' mistakes", "icon": "⚠️", "items": ["Claiming faith before it entered their hearts", "Counting their Islam as a favour"]}]},
+ "seq": {"title": "Order the topics of verses 14–18", "steps": ["Islam vs iman", "Qualities of true believers", "Guidance is Allah's favour", "Allah knows the unseen"]}},
+"Y9-NN-T2-L02": {"sort": {"title": "Women are the twin halves of men", "cats": [
+ {"name": "Equal in", "icon": "⚖️", "items": ["Humanity", "Dignity", "Duties", "Reward"]},
+ {"name": "Role models", "icon": "🌟", "items": ["Khadijah", "'A'ishah", "Umm Salamah", "Rufaidah", "Nusaybah"]}]}},
+"Y9-NN-T2-L03": {"sort": {"title": "Justice or injustice?", "cats": [
+ {"name": "Justice", "icon": "⚖️", "items": ["Fairness between siblings", "Fairness in group work", "Honest testimony", "Fair speech about others", "Justice even with enemies"]},
+ {"name": "Injustice", "icon": "⛔", "items": ["Favouring the powerful in judgement", "Being unjust because of hatred"]}]}},
+"Y9-NN-T2-L04": {"sort": {"title": "Lawful or forbidden food and drink?", "cats": [
+ {"name": "Lawful", "icon": "✅", "items": ["Good things provided by Allah", "Properly slaughtered land animals", "Fish", "Locusts"]},
+ {"name": "Forbidden", "icon": "⛔", "items": ["Dead animals", "Blood", "Pork", "Predators with fangs", "Birds with talons", "Alcohol and every intoxicant", "Drugs"]}]}},
+"Y9-NN-T2-L05": {"sort": {"title": "Imam Muslim and his Sahih", "cats": [
+ {"name": "About his Sahih", "icon": "📚", "items": ["Collected over about 15 years", "From around 300,000 hadiths", "About 3,000 without repetition", "Second after Sahih al-Bukhari"]},
+ {"name": "His method", "icon": "📏", "items": ["Connected chains", "Trustworthy, precise narrators", "All chains gathered in one place"]}]},
+ "seq": {"title": "Order Imam Muslim's life", "steps": ["Born in Nishapur around 206 AH", "Travelled to Iraq, Hijaz, Syria and Egypt", "Compiled his Sahih", "Died in 261 AH"]}},
+"Y9-NN-T2-L06": {"sort": {"title": "Types of security", "cats": [
+ {"name": "Types", "icon": "🛡️", "items": ["Intellectual (from extremism)", "Social", "Economic", "Health", "Digital", "Food"]},
+ {"name": "My role", "icon": "🧑", "items": ["Obey the law", "Report wrongdoing", "Don't spread rumours", "Protect your data"]}]}},
+"Y9-NN-T2-L07": {"sort": {"title": "Al-Waqi'ah: the three groups", "cats": [
+ {"name": "The foremost", "icon": "🏆", "items": ["Raced to good deeds", "Brought nearest to Allah", "Gardens of bliss", "Hear only «Peace, peace»"]},
+ {"name": "People of the right", "icon": "🤲", "items": ["One of the three groups — of Paradise"]},
+ {"name": "People of the left", "icon": "🔥", "items": ["One of the three groups — of Hell"]}]},
+ "seq": {"title": "Order the topics of verses 1–26", "steps": ["The Event happens", "The earth shakes, mountains become dust", "People divided into three groups", "The bliss of the foremost"]}},
+"Y9-NN-T2-L08": {"sort": {"title": "People of the right or of the left?", "cats": [
+ {"name": "People of the right", "icon": "🌳", "items": ["Thornless lote trees", "Layered banana trees", "Extended shade", "Flowing water", "Endless fruit"]},
+ {"name": "People of the left", "icon": "🔥", "items": ["Scorching wind", "Boiling water", "Black smoke", "The zaqqum tree"]}]}},
+"Y9-NN-T2-L09": {"sort": {"title": "Easy or hard? Hope or driving away?", "cats": [
+ {"name": "Glad tidings and ease", "icon": "🌱", "items": ["Telling people of Allah's mercy", "Gentleness with mistakes", "Joining hope and fear"]},
+ {"name": "Driving away and hardship", "icon": "🚫", "items": ["Harshness", "Making easy things hard", "Spreading despair"]}]},
+ "seq": {"title": "Order the story of the Bedouin in the mosque", "steps": ["A Bedouin urinated in the mosque", "The Companions rushed at him", "The Prophet ﷺ said: «Leave him»", "«You were sent to make things easy»"]}},
+"Y9-NN-T2-L11": {"sort": {"title": "The Prophetic way with young people", "cats": [
+ {"name": "His way", "icon": "🤝", "items": ["Welcome rather than reject", "Dialogue for mind and heart", "A gentle touch", "A du'a for him", "Reject the sin, not the person"]},
+ {"name": "The opposite", "icon": "🚫", "items": ["Rejection", "Harshness", "Shaming the person"]}]},
+ "seq": {"title": "Order the story of the young man", "steps": ["A young man asked permission for zina", "The Prophet ﷺ said: «Come closer»", "He asked: would you like it for your mother?", "He asked about his daughter and sister", "He placed his hand on him and prayed for him"]}},
+"Y9-NN-T3-L01": {"sort": {"title": "Al-Waqi'ah 57–74: who does it?", "cats": [
+ {"name": "People do it", "icon": "🧑‍🌾", "items": ["Planting seeds", "Lighting a fire", "Drinking water"]},
+ {"name": "Only Allah", "icon": "🌧️", "items": ["Creating human life", "Making crops grow", "Sending rain from the clouds", "Keeping water fresh, not salty", "Creating the tree for fire"]}]},
+ "seq": {"title": "Order the signs in verses 57–74", "steps": ["Creating human life", "Making crops grow", "Sending down rain", "The tree for fire"]}},
+"Y9-NN-T3-L02": {"sort": {"title": "Ra': heavy or light?", "cats": [
+ {"name": "Heavy (tafkhim)", "icon": "🔊", "items": ["With fathah", "With dammah", "Sukun after fathah or dammah"]},
+ {"name": "Light (tarqiq)", "icon": "🔉", "items": ["With kasrah", "Sukun after kasrah, no heavy letter after", "Stopping after ya'"]}]}},
+"Y9-NN-T3-L03": {"sort": {"title": "No harm and no returning harm: where?", "cats": [
+ {"name": "Neighbours", "icon": "🏘️", "items": ["Blocking their light", "Noise at night"]},
+ {"name": "Trade and environment", "icon": "🌍", "items": ["Cheating", "Hoarding", "Pollution"]},
+ {"name": "School", "icon": "🎒", "items": ["Harmful jokes", "Revenge"]}]}},
+"Y9-NN-T3-L04": {"sort": {"title": "Allah's laws in society", "cats": [
+ {"name": "The law of change", "icon": "🔄", "items": ["Change starts from within", "Blessings lost through sin and injustice"]},
+ {"name": "Other laws", "icon": "⏳", "items": ["Testing", "Truth competing with falsehood", "Downfall of oppressors", "Results follow causes"]},
+ {"name": "Why it matters", "icon": "💡", "items": ["Understanding history", "Planning", "Avoiding laziness and despair"]}]}},
+"Y9-NN-T3-L05": {"sort": {"title": "Intellectual tolerance and its limits", "cats": [
+ {"name": "Tolerance", "icon": "🤝", "items": ["Respect different opinions", "Discuss wisely", "Argue in the best way", "My view may be wrong"]},
+ {"name": "No compromise", "icon": "🛡️", "items": ["Core beliefs"]}]}},
+"Y9-NN-T3-L06": {"sort": {"title": "The five rulings and supporting rulings", "cats": [
+ {"name": "The five rulings", "icon": "📏", "items": ["Obligatory", "Recommended", "Forbidden", "Disliked", "Permissible"]},
+ {"name": "Cause", "icon": "⏰", "items": ["Prayer time"]},
+ {"name": "Condition", "icon": "💧", "items": ["Purity for prayer"]},
+ {"name": "Preventer", "icon": "⛔", "items": ["Menstruation"]}]}},
+"Y9-NN-T3-L07": {"sort": {"title": "Al-Waqi'ah 75–96: the end after death", "cats": [
+ {"name": "Those brought near", "icon": "🌸", "items": ["Rest", "Paradise"]},
+ {"name": "People of the right", "icon": "🤲", "items": ["Peace"]},
+ {"name": "The deniers", "icon": "🔥", "items": ["Boiling water", "Hellfire"]}]},
+ "seq": {"title": "Order the topics of verses 75–96", "steps": ["The oath by the positions of the stars", "Taking the message lightly", "The soul reaches the throat", "The three ends"]}},
+"Y9-NN-T3-L08": {"seq": {"title": "Order the six rights as in the hadith", "steps": ["Greet him when you meet", "Accept his invitation", "Advise him when he asks", "Say «yarhamuk Allah» when he sneezes", "Visit him when sick", "Follow his funeral"]}},
+"Y9-NN-T3-L09": {"sort": {"title": "Markets, roads and public places", "cats": [
+ {"name": "Market manners", "icon": "🛒", "items": ["Honesty", "Being easy-going", "Full measure", "No false oaths"]},
+ {"name": "Rights of the road", "icon": "🛣️", "items": ["Lower the gaze", "Don't cause harm", "Return greetings", "Follow traffic rules"]},
+ {"name": "Public facilities", "icon": "🏞️", "items": ["Keep them clean", "Queue properly", "Respect the elderly and people of determination"]}]}},
+"Y9-NN-T3-L10": {"seq": {"title": "Order Imam Ahmad's life", "steps": ["Born in Baghdad in 164 AH", "Raised by his mother", "Travelled and studied with Ash-Shafi'i", "Imprisoned and flogged but stayed firm", "Forgave those who harmed him", "Died in 241 AH"]}},
+"Y9-NN-T3-L11": {"sort": {"title": "Blind imitation or wise choice?", "cats": [
+ {"name": "Blind imitation", "icon": "🙈", "items": ["Dangerous online challenges", "Copying celebrities", "Sharing news because everyone does", "Following extremist accounts", "Following ancestors without knowledge"]},
+ {"name": "Wise choice", "icon": "✅", "items": ["Is it useful?", "Does it fit my faith and values?", "What are the consequences?"]}]}}
+}

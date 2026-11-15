@@ -1,0 +1,130 @@
+{
+"Y7-NN-T1-L01": {"sort": {"title": "Surat Qaf 1–15: signs of resurrection or nations that denied?", "cats": [
+ {"name": "Signs of resurrection", "icon": "🌧️", "items": ["The sky built without cracks", "The earth spread with firm mountains", "Blessed rain", "Reviving dead land with rain", "Tall palm trees"]},
+ {"name": "Nations that denied their messengers", "icon": "🏚️", "items": ["People of Nuh", "Thamud", "'Ad", "Pharaoh"]}]},
+ "seq": {"title": "Order the topics of verses 1–15", "steps": ["The oath and the disbelievers' amazement", "Allah knows what the earth takes from their bodies", "Signs in the sky, earth and rain", "Lessons from earlier nations"]}},
+"Y7-NN-T1-L02": {"seq": {"title": "Order the seven as in the hadith", "steps": ["A just leader", "A young person raised in worship", "A heart attached to the mosques", "Two who love each other for Allah", "One who refuses sin saying «I fear Allah»", "One who gives charity secretly", "One who remembers Allah alone and weeps"]}},
+"Y7-NN-T1-L03": {"sort": {"title": "Rewards for those who pray", "cats": [
+ {"name": "Walking to the mosque", "icon": "🌟", "items": ["Complete light on the Day of Resurrection", "Each step raises a rank", "Each step removes a sin"]},
+ {"name": "Praying in congregation", "icon": "🕌", "items": ["Angels pray for him in his place", "'Isha' like half the night", "Fajr like the whole night"]}]}},
+"Y7-NN-T1-L04": {"sort": {"title": "Evidence of Allah's oneness", "cats": [
+ {"name": "Evidence of order", "icon": "⚙️", "items": ["The universe is perfectly ordered", "Two gods would cause chaos"]},
+ {"name": "Evidence of creation", "icon": "🌍", "items": ["Everything is created and in need", "Nothing creates itself from nothing"]},
+ {"name": "Surat Al-Ikhlas", "icon": "📖", "items": ["Allah is One", "The Eternal Refuge", "Equals a third of the Qur'an"]}]}},
+"Y7-NN-T1-L05": {"sort": {"title": "Muraqabah: which situation?", "cats": [
+ {"name": "Remembering Allah sees", "icon": "👁️", "items": ["The girl refuses to mix water into milk", "Honesty in tests", "Honest trade", "Sincere worship when no one watches"]},
+ {"name": "Forgetting Allah sees", "icon": "🚫", "items": ["Mixing milk because 'Umar can't see", "Cheating in a test", "Wrongdoing in secret"]}]},
+ "seq": {"title": "Order the milk-seller's story", "steps": ["'Umar walked at night", "He heard a mother tell her daughter to mix the milk", "The girl: «'Umar's Lord sees us»", "'Umar admired her honesty", "'Umar ibn 'Abd al-'Aziz was among her descendants"]}},
+"Y7-NN-T1-L06": {"sort": {"title": "Habits of fitrah", "cats": [
+ {"name": "Habits of fitrah", "icon": "✨", "items": ["Circumcision", "Trimming the moustache", "Clipping the nails", "Removing underarm hair", "The miswak", "Washing the knuckles"]},
+ {"name": "Benefits", "icon": "🦷", "items": ["Purifies the mouth", "Pleases the Lord", "Protects the gums", "Reduces infection"]}]}},
+"Y7-NN-T1-L07": {"sort": {"title": "Surat Qaf 16–30: when does it happen?", "cats": [
+ {"name": "In this life", "icon": "🧑", "items": ["Allah knows what the soul whispers", "Two angels record everything"]},
+ {"name": "At death", "icon": "🕯️", "items": ["The agony of death"]},
+ {"name": "On the Day of Judgement", "icon": "📯", "items": ["The Trumpet is blown", "A driver and a witness with every soul", "The record is presented", "The devil-companion disowns him", "Hell says «Is there more?»"]}]},
+ "seq": {"title": "Order the scenes in verses 16–30", "steps": ["Allah knows us; angels record", "The agony of death", "The Trumpet", "Every soul with a driver and a witness", "The record and the disowning companion", "Hell asked «Are you full?»"]}},
+"Y7-NN-T1-L08": {"sort": {"title": "Repentance", "cats": [
+ {"name": "Conditions", "icon": "📋", "items": ["Stop the sin", "Regret it", "Decide never to return", "Give back people's rights"]},
+ {"name": "When the door closes", "icon": "🚪", "items": ["When the soul reaches the throat", "When the sun rises from the west"]},
+ {"name": "Allah's love", "icon": "🤍", "items": ["Happier than the man who found his lost camel", "The best of those who err repent"]}]}},
+"Y7-NN-T1-L09": {"sort": {"title": "Al-Mughith and Al-Halim", "cats": [
+ {"name": "Allah relieves", "icon": "🌧️", "items": ["Answers the one in distress", "Sent angels at Badr"]},
+ {"name": "Allah is forbearing", "icon": "⏳", "items": ["Doesn't rush to punish", "Gives time to repent", "Still provides for sinners"]},
+ {"name": "Living by these names", "icon": "🧑", "items": ["Turn to Allah first in hardship", "Never lose hope", "Don't rush to anger"]}]}},
+"Y7-NN-T1-L10": {"sort": {"title": "Ghusl: required or recommended?", "cats": [
+ {"name": "Required", "icon": "💧", "items": ["After janabah", "After menstruation", "After post-natal bleeding"]},
+ {"name": "Recommended", "icon": "🌟", "items": ["For Jumu'ah", "For the two Eids", "For ihram"]}]},
+ "seq": {"title": "Order how to do ghusl", "steps": ["Intention and Bismillah", "Wash the hands", "Make wudu'", "Pour water over the head three times", "The right side then the left, rubbing"]}},
+"Y7-NN-T1-L11": {"sort": {"title": "Tayammum or wiping over khuffs?", "cats": [
+ {"name": "Tayammum", "icon": "🏜️", "items": ["When there is no water", "Strike clean earth with the palms", "Wipe the face and hands", "Broken by finding water"]},
+ {"name": "Wiping over khuffs", "icon": "🥾", "items": ["Put on in a state of wudu'", "One day and night for a resident", "Three days for a traveller", "Wipe the top of the foot"]}]},
+ "seq": {"title": "Order how to do tayammum", "steps": ["Make the intention", "Strike the earth with the palms", "Wipe the face", "Wipe the hands"]}},
+"Y7-NN-T1-L12": {"sort": {"title": "The Battle of the Trench: means and victory", "cats": [
+ {"name": "Taking the means", "icon": "🪓", "items": ["Consultation", "Salman's trench idea", "The Prophet ﷺ dug with them"]},
+ {"name": "Victory from Allah", "icon": "🌬️", "items": ["A fierce cold wind", "Unseen forces", "The armies left"]}]},
+ "seq": {"title": "Order the events", "steps": ["Tribes gathered about 10,000 fighters", "The Prophet ﷺ consulted his Companions", "Salman suggested a trench", "The trench was dug", "A month-long siege; Banu Qurayzah broke their treaty", "Allah sent the wind and the armies left"]}},
+"Y7-NN-T2-L01": {"sort": {"title": "Surat Qaf 31–45", "cats": [
+ {"name": "People of Paradise", "icon": "🌸", "items": ["Turn often to Allah", "Guard His limits", "Fear the Most Merciful unseen", "Come with a repentant heart"]},
+ {"name": "What the Prophet ﷺ was told", "icon": "🤲", "items": ["Be patient with what they say", "Glorify Allah before sunrise and sunset", "Remind with the Qur'an"]}]},
+ "seq": {"title": "Order the topics of verses 31–45", "steps": ["Paradise brought near", "Nations destroyed before", "Creation in six days and patience", "The Day of coming out"]}},
+"Y7-NN-T2-L02": {"sort": {"title": "Rules of the silent mim", "cats": [
+ {"name": "Hidden (ikhfa' shafawi)", "icon": "🌫️", "items": ["Before ba'", "Nasal sound for two counts", "Lips lightly closed"]},
+ {"name": "Merged (idgham shafawi)", "icon": "🔗", "items": ["Before another mim", "One stressed mim with ghunnah"]},
+ {"name": "Clear (izhar shafawi)", "icon": "🔊", "items": ["Before any other letter", "Extra care before waw and fa'"]}]}},
+"Y7-NN-T2-L03": {"sort": {"title": "Balanced spending", "cats": [
+ {"name": "Balanced", "icon": "⚖️", "items": ["Plan pocket money", "Save some", "Give some in charity", "Enjoy good things"]},
+ {"name": "Waste", "icon": "🗑️", "items": ["Throwing away food", "Replacing things only for fashion"]},
+ {"name": "Arrogance", "icon": "🚫", "items": ["Spending to show off"]}]}},
+"Y7-NN-T2-L04": {"sort": {"title": "Imam Abu Hanifah", "cats": [
+ {"name": "His character", "icon": "🌿", "items": ["Honest cloth merchant", "Generous to poor students", "Refused to become a judge"]},
+ {"name": "His method", "icon": "📏", "items": ["Used analogy where there was no text", "Discussed questions with students", "Take no opinion without knowing its source"]}]},
+ "seq": {"title": "Order Abu Hanifah's life", "steps": ["Born in Kufa in 80 AH", "Worked as a cloth merchant", "Studied with Hammad for eighteen years", "Refused to be a judge, even when imprisoned", "Died in Baghdad in 150 AH"]},
+ "seq2": {"title": "Order Abu Hanifah's sources", "steps": ["The Qur'an", "The Sunnah", "The Companions' sayings", "Analogy (qiyas)"]}},
+"Y7-NN-T2-L05": {"sort": {"title": "Sciences of Arab-Islamic civilisation", "cats": [
+ {"name": "Medicine", "icon": "🩺", "items": ["Ibn Sina's Canon of Medicine", "Al-Zahrawi's surgical tools", "Hospitals"]},
+ {"name": "Mathematics", "icon": "🔢", "items": ["Al-Khwarizmi's algebra"]},
+ {"name": "Optics and astronomy", "icon": "🔭", "items": ["Ibn al-Haytham's optics", "Observatories"]},
+ {"name": "Its influence", "icon": "🌍", "items": ["Reached Europe through Andalusia", "English words from Arabic"]}]}},
+"Y7-NN-T2-L06": {"sort": {"title": "Surat Ar-Rahman 1–25: where is the blessing?", "cats": [
+ {"name": "On land", "icon": "🌴", "items": ["Fruit", "Palm trees", "Grain", "Fragrant plants"]},
+ {"name": "In the seas", "icon": "🌊", "items": ["Fresh and salt seas with a barrier", "Pearls and coral", "Ships like mountains"]}]},
+ "seq": {"title": "Order the topics of verses 1–25", "steps": ["Teaching the Qur'an and speech", "Sun, moon and the balance", "Blessings of the earth", "Humans from clay, jinn from fire", "The two seas, pearls and ships"]}},
+"Y7-NN-T2-L07": {"sort": {"title": "The heart", "cats": [
+ {"name": "Diseases of the heart", "icon": "💔", "items": ["Arrogance", "Envy", "Showing off", "Hatred"]},
+ {"name": "Cures", "icon": "💚", "items": ["Remembering Allah", "Reciting the Qur'an", "Sincerity", "Thinking well of others", "Du'a for a firm heart"]}]}},
+"Y7-NN-T2-L08": {"sort": {"title": "The religion is easy", "cats": [
+ {"name": "Lawful ease", "icon": "🌤️", "items": ["Shortening prayer when travelling", "Not fasting when sick", "Tayammum without water", "Praying sitting if you cannot stand"]},
+ {"name": "Not ease but neglect", "icon": "🚫", "items": ["Dropping duties", "Leaving prayer"]},
+ {"name": "Best deeds", "icon": "✅", "items": ["Regular deeds even if small"]}]}},
+"Y7-NN-T2-L09": {"sort": {"title": "Reflection", "cats": [
+ {"name": "Fruits of reflection", "icon": "🌱", "items": ["More faith", "Humility", "Gratitude", "Science and discovery"]},
+ {"name": "We reflect on", "icon": "🌌", "items": ["Allah's creation", "The camels", "The heavens and earth"]}]},
+ "seq": {"title": "How to reflect: order the steps", "steps": ["Choose one blessing", "How does it work?", "Why was it created?", "What if it disappeared?", "How do I thank Allah?"]}},
+"Y7-NN-T2-L10": {"sort": {"title": "The prophets worked: which job?", "cats": [
+ {"name": "Carpenter", "icon": "🪚", "items": ["Nuh"]},
+ {"name": "Blacksmith", "icon": "⚒️", "items": ["Dawud"]},
+ {"name": "Shepherd and trader", "icon": "🐑", "items": ["Muhammad ﷺ"]},
+ {"name": "Conditions of work", "icon": "📋", "items": ["Lawful", "Good intention", "Excellence and honesty", "No distraction from obligatory worship"]}]}},
+"Y7-NN-T2-L11": {"sort": {"title": "The traveller's prayer: shortened or not?", "cats": [
+ {"name": "Shortened to two", "icon": "✂️", "items": ["Dhuhr", "'Asr", "'Isha'"]},
+ {"name": "Not shortened", "icon": "🔒", "items": ["Maghrib", "Fajr"]}]},
+ "seq": {"title": "Order the sick person's prayer by ability", "steps": ["Standing", "Sitting", "On the side"]}},
+"Y7-NN-T3-L01": {"sort": {"title": "Surat Ar-Rahman 26–53", "cats": [
+ {"name": "The wrongdoers", "icon": "🔥", "items": ["Known by their marks", "Seized by forelocks and feet"]},
+ {"name": "Who fears standing before his Lord", "icon": "🌳", "items": ["Two gardens with branches", "Flowing springs", "Every fruit in pairs", "Fruit close enough to pick"]}]},
+ "seq": {"title": "Order the topics of verses 26–53", "steps": ["Everyone perishes; Allah remains", "No escape from Allah", "The sky splits; the wrongdoers seized", "Two gardens for the God-fearing"]}},
+"Y7-NN-T3-L02": {"sort": {"title": "Caring for orphans", "cats": [
+ {"name": "Islam commands", "icon": "💚", "items": ["Be kind to them", "Sponsor them through trusted charities", "Teach them", "Make them happy"]},
+ {"name": "Islam forbids", "icon": "🚫", "items": ["Oppressing them", "Taking their money"]}]},
+ "seq": {"title": "Order the Prophet's ﷺ early life as an orphan", "steps": ["His father died before he was born", "His mother died when he was six", "Allah gave him shelter"]}},
+"Y7-NN-T3-L03": {"sort": {"title": "Humility or arrogance?", "cats": [
+ {"name": "Humility", "icon": "🌿", "items": ["Sitting on the ground", "Eating with servants", "Mending one's clothes", "Greeting children", "Listening to young and old"]},
+ {"name": "Arrogance", "icon": "🚫", "items": ["Rejecting the truth", "Looking down on people", "Walking proudly", "Turning the cheek away"]}]}},
+"Y7-NN-T3-L04": {"sort": {"title": "Duha or night prayer?", "cats": [
+ {"name": "Duha", "icon": "☀️", "items": ["After the sun has risen", "At least two units", "Charity for every joint"]},
+ {"name": "Night prayer", "icon": "🌙", "items": ["Best prayer after the obligatory", "Best in the last third of the night", "Two by two", "Ended with Witr"]}]}},
+"Y7-NN-T3-L05": {"sort": {"title": "Hudaybiyah: terms and results", "cats": [
+ {"name": "Terms", "icon": "📜", "items": ["Ten years of peace", "Return this year, 'Umrah next year", "Tribes may ally with either side"]},
+ {"name": "Results", "icon": "🌱", "items": ["Islam spread", "More people became Muslim", "Called «a clear victory»"]}]},
+ "seq": {"title": "Order the events of Hudaybiyah", "steps": ["Set out with about 1,400 for 'Umrah", "Quraysh stopped them", "Rumour that 'Uthman was killed", "The pledge under the tree", "The treaty", "Umm Salamah's advice", "Surat Al-Fath revealed"]}},
+"Y7-NN-T3-L06": {"sort": {"title": "Ar-Rahman: higher or lower gardens?", "cats": [
+ {"name": "The two higher gardens", "icon": "🌸", "items": ["Furnishings lined with brocade", "The reward of goodness is goodness"]},
+ {"name": "The two lower gardens", "icon": "🌿", "items": ["Deep green", "Gushing springs", "Fruit, palms and pomegranates"]},
+ {"name": "Ihsan", "icon": "✨", "items": ["Worship as if you see Him", "Excellent work", "Forgiving"]}]}},
+"Y7-NN-T3-L07": {"sort": {"title": "Society is one ship", "cats": [
+ {"name": "Protects the ship", "icon": "⛵", "items": ["Stopping wrongdoing", "Kindness and justice to all", "Respecting others' rights"]},
+ {"name": "Makes a hole", "icon": "🕳️", "items": ["Saying «it's not my business»", "Ignoring wrongdoing"]},
+ {"name": "UAE coexistence", "icon": "🇦🇪", "items": ["200+ nationalities", "Ministry of Tolerance", "Abrahamic Family House"]}]},
+ "seq": {"title": "Order the parable of the ship", "steps": ["People drew lots for places", "Some above, some below", "Those below wanted to make a hole for water", "If allowed, all drown", "If stopped, all are saved"]}},
+"Y7-NN-T3-L08": {"sort": {"title": "Manners of gatherings", "cats": [
+ {"name": "Entering and sitting", "icon": "🚪", "items": ["Greet when you enter", "Sit where there is space", "Make room for others"]},
+ {"name": "Talking", "icon": "🗣️", "items": ["Don't interrupt", "Let elders speak first", "No whispering that leaves someone out", "Keep the secrets"]},
+ {"name": "Leaving", "icon": "👋", "items": ["Greet when you leave", "The expiation du'a"]}]}},
+"Y7-NN-T3-L09": {"sort": {"title": "Rufaidah al-Aslamiyyah", "cats": [
+ {"name": "Knowledge", "icon": "📚", "items": ["Learned medicine from her father", "Taught women nursing"]},
+ {"name": "Work", "icon": "⛺", "items": ["A tent beside the mosque", "Treated the wounded", "Sa'd ibn Mu'adh moved to her tent"]},
+ {"name": "Giving", "icon": "💚", "items": ["Worked without pay", "Spent her own money on patients"]}]}},
+"Y7-NN-T3-L10": {"sort": {"title": "Poverty: causes and solutions", "cats": [
+ {"name": "Causes", "icon": "⚠️", "items": ["War", "Corruption", "Unfair distribution", "Weak education", "Unemployment", "Waste"]},
+ {"name": "Islam's solutions", "icon": "🌱", "items": ["Zakah", "Charity and waqf", "Banning interest and hoarding", "Encouraging work"]}]}}
+}
