@@ -5131,7 +5131,7 @@ window.HiraArcade = (function () {
     const lines = String(bt.body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
     const ov = document.createElement("div"); ov.id = "bkOv"; ov.className = "bk-ov"; ov.setAttribute("dir", "rtl");
     ov.innerHTML = `<div class="bk-ov-in"><div class="bk-ov-hd"><b>${bt.kind === "study" ? "📘" : "📖"} ${bkHL(esc(bt.title || (bt.kind === "study" ? "نص الدرس" : "نص الكتاب")))}</b>${bt.pages ? `<span class="pill">ص ${esc(bt.pages)}</span>` : ""}${bt.kind === "study" ? '<span class="pill">من إعداد حراء</span>' : ""}<button type="button" class="bk-ov-x" aria-label="إغلاق">✕ رجوع إلى العرض</button></div>
-      <div class="bk-read"${bt.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${lines.map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div></div>`;
+      ${((h) => TIL.musHtml(bt.body, h, {}) || h)(`<div class="bk-read"${bt.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${lines.map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>`)}</div>`;
     const close = () => { ov.remove(); document.removeEventListener("keydown", onKey, true); };
     const onKey = (ev) => { if (ev.key === "Escape") { ev.stopPropagation(); ev.preventDefault(); close(); } else if (["ArrowLeft", "ArrowRight", " ", "PageDown", "PageUp"].includes(ev.key)) ev.stopPropagation(); };
     ov.addEventListener("click", (ev) => { ev.stopPropagation(); if (ev.target === ov || ev.target.closest(".bk-ov-x")) close(); });
@@ -6346,7 +6346,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const bookLines = (t) => String(t || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
     const bookTxHtml = () => {
       const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">${bookTx.kind === "study" ? "📘" : "📖"} ${esc(bookTx.title || (bookTx.kind === "study" ? "نص الدرس" : "نص الكتاب"))}${bookTx.pages ? ` <span class="pill">كتاب الطالب ص ${esc(bookTx.pages)}</span>` : ""}${bookTx.kind === "study" ? ' <span class="pill">من إعداد حراء</span>' : ""}</h3>
-        <div dir="rtl" class="bk-read" style="${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div>
+        ${((h) => TIL.musHtml(bookTx.body, h, { tr: nn ? "en" : "", en: nnEn }) || h)(`<div dir="rtl" class="bk-read" style="${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div>`)}
         <div style="margin-top:12px"><button class="btn btn-ghost btn-small" id="btxPrint">🖨️ طباعة النص للطالب</button></div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
       const ed = isSuper() ? `<div class="form-card" style="margin-top:14px"><h3 style="margin-top:0">✏️ إضافة نص الكتاب أو تعديله</h3>
         <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option></select></div>
@@ -6553,8 +6553,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const quiz = (sm.quiz || []).slice(0, 2);
       return `<div class="ars"${nnEn ? ' dir="ltr"' : ""}>
         ${goalBlock(l, nnEn) ? card("ars-goal ars-wide", "🎯", nnEn ? "My goal today" : "هَدَفي الْيَوْمَ", goalBlock(l, nnEn)) : ""}
-        ${bookTx && bookTx.body ? card("ars-book ars-wide", "📖", nnEn ? "The lesson text" : "نَصُّ الدَّرْسِ", `${sm.idea ? `<p>${esc(sm.idea)}</p>` : ""}<div class="ars-text">${((sm.key && sm.key.length) ? sm.key : bookLines(bookTx.body).slice(0, 3)).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
-          <details class="ars-full"><summary>📖 ${nnEn ? "Read the full text" : "أَقْرَأُ النَّصَّ كامِلًا"}${bookTx.pages ? ` (${esc(bookTx.title || "")} · ص ${esc(bookTx.pages)})` : ""}</summary><div class="bk-read"${bookTx.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div></details>
+        ${bookTx && bookTx.body ? card("ars-book ars-wide", "📖", nnEn ? "The lesson text" : "نَصُّ الدَّرْسِ", `${sm.idea ? `<p>${esc(sm.idea)}</p>` : ""}${((h) => TIL.musHtml(bookTx.body, h, { tr: nn ? "en" : "", en: nnEn }) || h)(`<div class="ars-text">${((sm.key && sm.key.length) ? sm.key : bookLines(bookTx.body).slice(0, 3)).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
+          <details class="ars-full"><summary>📖 ${nnEn ? "Read the full text" : "أَقْرَأُ النَّصَّ كامِلًا"}${bookTx.pages ? ` (${esc(bookTx.title || "")} · ص ${esc(bookTx.pages)})` : ""}</summary><div class="bk-read"${bookTx.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div></details>`)}
           <p class="muted" style="margin-top:8px">${nnEn ? "You will also find it in the lesson slides." : "وَأَجِدُهُ أَيْضًا في شَرائِحِ الدَّرْسِ."}</p>`)
           + ((sm.words || []).length ? card("ars-dict ars-wide", "🔤", nnEn ? "Word meanings" : "مَعاني الْكَلِماتِ", `<div class="ars-vocab">${sm.words.map((w) => `<div class="ars-v"><b>${esc(w[0])}</b><span>${esc(w[1])}</span></div>`).join("")}</div>`) : "") : ""}
         ${bookTx && bookTx.body ? "" : card("ars-book", "📖", nnEn ? "My textbook" : "كتابي المدرسي", nnEn ? `<p>Read «${esc(story)}» in your student book${l.book_pages ? ` (page ${esc(String(l.book_pages).replace(/^ص\s*/, ""))})` : ""} with your teacher.</p>` : `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
@@ -13726,8 +13726,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (!(SET.rep >= 0)) SET.rep = 1; if (!SET.spd) SET.spd = 1; if (!SET.mode) SET.mode = "ayah";
     const save = () => { try { localStorage.setItem("hiraa-tilawa", JSON.stringify(SET)); } catch (e) {} };
     const REPS = [1, 3, 5, 7, 0], SPDS = [1, 0.85, 0.7];
-    const E = { au: null, bar: null, i: 0, done: 0, loop: 0, t1: 0, on: false, loading: false, gap: false, hold: null, gapEnd: 0, tk: 0, ov: null, hw: null };
+    const E = { ovk: null, au: null, bar: null, i: 0, done: 0, loop: 0, t1: 0, on: false, loading: false, gap: false, hold: null, gapEnd: 0, tk: 0, ov: null, hw: null };
     const BARS = new Set();
+    const cur = (b) => E.ovk || b._til[E.i];
+    const kk = (k) => k[0] + ":" + k[1];
     const urlOf = (s) => (TM.ov && TM.ov[s]) || TM.url + s + ".mp3";
     const span = (s, a) => { const st = TM.st[s - 1]; return [st[a - 1] / 100, (a < st.length ? st[a] : TM.end[s - 1]) / 100]; };
     /* توقيت الكلمات (art/tilawa/words/N.json): لتشغيل العبارة المقتبسة وحدها. لا يوجد للرعد وإبراهيم (تسجيل آخر) */
@@ -13748,7 +13750,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (DL.busy || !hasC()) return;
       const ss = docSurahs(doc), urls = [];
       ss.forEach((s) => { urls.push(urlOf(s)); if (!(TM.ov && TM.ov[s])) urls.push(BASE + "words/" + s + ".json"); });
-      urls.push(BASE + "timings.json", BASE + "quran-index.json");
+      urls.push(BASE + "timings.json", BASE + "quran-index.json", ...musFiles(doc));
       const audio = urls.filter((u) => /\.mp3$/.test(u) && !SAVED.has(u));
       Promise.all(audio.map((u) => fetch(u, { method: "HEAD" }).then((r) => +r.headers.get("content-length") || 0).catch(() => 0))).then((sz) => {
         const total = sz.reduce((a, c) => a + c, 0);
@@ -13835,7 +13837,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     function endAyah() {
       if (E.gap) return;
       if (!SET.echo) return next();
-      const [t0, t1] = E.ov || spanK(E.bar, E.bar._til[E.i]);
+      const [t0, t1] = E.ov || spanK(E.bar, cur(E.bar));
       audio().pause(); E.gap = true; setHi(E.bar, null); E.hw = null; E.hold = null;
       E.gapEnd = Date.now() + Math.min(60, (t1 - t0) / SET.spd + 1) * 1000; paint(E.bar);
     }
@@ -13870,28 +13872,28 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     }
     function hiWord() {
       const b = E.bar; if (!b || !b._words || !b._words.length) return;
-      const k = b._til[E.i], sg = segsOf(k[0], k[1]); let w = 0;
+      const k = cur(b), K = kk(k), sg = segsOf(k[0], k[1]); let w = 0;
       if (E.ov && E.ovw) w = E.on && !E.gap ? E.ovw : 0;   // كلمة واحدة مضغوطة: تُظلَّل هي وحدها
       else if (sg && E.on && !E.gap) { const t = E.au.currentTime; for (const x of sg) { if (x[1] <= t + 0.03) w = x[0]; else break; } }
-      const key = E.i + ":" + w; if (E.hw === key) return; E.hw = key;
-      setHi(b, w ? b._words.filter((x) => x.li === E.i && x.w === w).map((x) => x.r) : null);
+      const key = K + ":" + w; if (E.hw === key) return; E.hw = key;
+      setHi(b, w ? b._words.filter((x) => x.k === K && x.w === w).map((x) => x.r) : null);
     }
     /* الضغط على كلمة: تُتلى وحدها (مع التكرار والسرعة) */
     function playWord(b, x) {
-      const k = b._til[x.li]; if (!k) return;
+      const k = b._base[x.li]; if (!k) return;
       ready().then(() => getW(k[0])).then(() => {
         const sp = wordSpan([k[0], k[1], x.w, x.w]);
         if (!sp) { try { toast(tx("لا يتوفر توقيت الكلمات لهذه الآية؛ استمع إليها كاملة.", "Word timing is not available for this ayah.")); } catch (e) {} return; }
-        stop(); E.bar = b; E.i = x.li; E.done = 0; E.loop = 0; E.ov = sp; E.ovw = x.w; seekPlay(); BARS.forEach(paint);
+        stop(); E.bar = b; E.i = 0; E.done = 0; E.loop = 0; E.ov = sp; E.ovw = x.w; E.ovk = [k[0], k[1]]; seekPlay(); BARS.forEach(paint);
       }).catch(fail);
     }
     function seekPlay() {
       E.gap = false; E.hold = null; E.hw = null;
-      const b = E.bar, s = b._til[E.i][0], [t0, t1] = E.ov || spanK(b, b._til[E.i]), au = audio(), u = urlOf(s);
+      const b = E.bar, s = cur(b)[0], [t0, t1] = E.ov || spanK(b, cur(b)), au = audio(), u = urlOf(s);
       E.t1 = t1; E.on = true; E.loading = true;
       const go = () => { try { au.currentTime = t0; } catch (e) {} au.playbackRate = SET.spd; au.play().catch((e) => { if (e && e.name === "NotAllowedError") stop(); else fail(); }); };
       if (au._u !== u) { au._u = u; srcFor(s).then((src) => { if (au._u !== u) return; au.src = src; au.addEventListener("loadedmetadata", go, { once: true }); au.load(); }); } else go();
-      paint(b); if (b._onAyah) b._onAyah(b._til[E.i]);
+      paint(b); if (b._onAyah) b._onAyah(cur(b)); capShow(b);
     }
     function next() {
       const b = E.bar, n = b._til.length, R = SET.rep === 0 ? Infinity : SET.rep;
@@ -13917,11 +13919,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       }).catch(fail);
     }
     function stop() {
-      const b = E.bar; E.on = false; E.loading = false; E.gap = false; E.hold = null; E.ov = null; E.ovw = 0; E.hw = null; if (E.au) E.au.pause();
+      const b = E.bar; E.on = false; E.loading = false; E.gap = false; E.hold = null; E.ov = null; E.ovw = 0; E.ovk = null; E.hw = null; if (E.au) E.au.pause();
       if (b) setHi(b, null);
-      if (b) { if (b._onAyah) b._onAyah(null); paint(b); }
+      if (b) { capHide(b); if (b._onAyah) b._onAyah(null); paint(b); }
     }
-    function step(d) { if (!E.on) return; const n = E.bar._til.length; E.ov = null; E.i = (E.i + d + n) % n; E.done = 0; seekPlay(); }
+    function step(d) { if (!E.on) return; const n = E.bar._til.length; E.ov = null; E.ovk = null; E.i = (E.i + d + n) % n; E.done = 0; seekPlay(); }
 
     function paint(b) { if (b) inDoc(b.ownerDocument, () => paint0(b)); }
     function paint0(b) {
@@ -13934,7 +13936,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       q(".til-spd").textContent = SET.spd === 1 ? tx("السرعة: عادية", "Speed: normal") : SET.spd === 0.85 ? tx("السرعة: أبطأ", "Speed: slower") : tx("السرعة: بطيئة", "Speed: slow");
       const md = q(".til-mode"); if (md) md.textContent = SET.mode === "ayah" ? tx("كرّر كل آية", "Repeat each ayah") : tx("كرّر المقطع", "Repeat passage");
       const st = q(".til-st"), L = b._til;
-      if (gap) { const [, a] = L[E.i], left = Math.ceil((E.hold != null ? E.hold : E.gapEnd - Date.now()) / 1000);
+      if (gap) { const [, a] = cur(b), left = Math.ceil((E.hold != null ? E.hold : E.gapEnd - Date.now()) / 1000);
         st.textContent = tx("دورك: ردّد الآية ", "Your turn: repeat ayah ") + iso(a) + " · " + iso(Math.max(0, left)) + tx(" ث", "s"); }
       const dl = q(".til-dl"); if (dl) { const d = b.ownerDocument, sv = !!docSaved(d);
         dl.textContent = DL.busy === d ? tx("جارٍ التنزيل ", "Downloading ") + iso(DL.pct + "%") : sv ? tx("✓ محفوظة للحصة", "✓ Saved for class") : tx("⬇ تنزيل للحصة", "⬇ Save for class");
@@ -13943,9 +13945,70 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         hd.textContent = H[b._hide || 0]; hd.classList.toggle("sel", !!b._hide); }
       const wd = q(".til-word"); if (wd) { wd.textContent = (b._wordMode ? "✓ " : "") + tx("كلمة كلمة", "Word by word"); wd.classList.toggle("sel", !!b._wordMode); }
       const pt = q(".til-part"); if (pt) pt.textContent = b._whole ? tx("المقطع: الآية كاملة", "Play: whole ayah") : tx("المقطع: العبارة فقط", "Play: quoted phrase");
-      if (gap) {} else if (on && TM) { const [s, a] = L[E.i]; st.textContent = `${tx("سورة", "Surah")} ${tx(TM.names[s - 1][0], TM.names[s - 1][1])} · ${tx("الآية", "Ayah")} ${iso(a)}` + (L.length > 1 ? ` ${iso(`(${E.i + 1}/${L.length})`)}` : "") + (E.ov ? tx(" · كلمة", " · word") : part(b, L[E.i]) ? tx(" · العبارة", " · phrase") : ""); }
+      if (gap) {} else if (on && TM) { const [s, a] = cur(b); st.textContent = `${tx("سورة", "Surah")} ${tx(TM.names[s - 1][0], TM.names[s - 1][1])} · ${tx("الآية", "Ayah")} ${iso(a)}` + (L.length > 1 && !E.ovk ? ` ${iso(`(${E.i + 1}/${L.length})`)}` : "") + (E.ov ? tx(" · كلمة", " · word") : part(b, L[E.i]) ? tx(" · العبارة", " · phrase") : ""); }
       else st.textContent = tx("بصوت الشيخ خليفة الطنيجي", "Sheikh Khalifa Al-Tunaiji");
-      (b._spans || []).forEach((sp, k) => sp && sp.classList.toggle("til-now", on && k === E.i));
+      const ck = on ? kk(cur(b)) : ""; (b._spans || []).forEach((sp, k) => sp && sp.classList.toggle("til-now", on && kk(b._base[k]) === ck));
+      const rg = q(".til-rng"); if (rg) { const R = b._til, a1 = R[0][1], a2 = R[R.length - 1][1];
+        rg.textContent = tx("الآيات ", "Ayat ") + iso(a1 === a2 ? a1 : a1 + "–" + a2) + " ▾"; rg.classList.toggle("sel", !!b._rng); }
+    }
+
+    /* ===== آية خارج المعروض (عند «أكمل السورة» أو اختيار آيات أخرى): تظهر بخط المصحف فوق المشغّل أثناء تلاوتها ===== */
+    function capHide(b) { const c = b.querySelector(".til-cap"); if (c) c.remove(); if (b._words) b._words = b._words.filter((x) => !x.cap); }
+    function capShow(b) {
+      const k = cur(b), K = kk(k), shown = (b._base || []).some((x) => kk(x) === K);
+      if (shown || !b._rng || E.ovk) return capHide(b);
+      const old = b.querySelector(".til-cap"); if (old && old.dataset.k === K) return;
+      getQ("ar/" + k[0] + ".json").then((ar) => inDoc(b.ownerDocument, () => {
+        if (!E.on || E.bar !== b || kk(cur(b)) !== K) return;
+        capHide(b); const d = b.ownerDocument, c = d.createElement("div"); c.className = "til-cap"; c.dir = "rtl"; c.dataset.k = K; c.style.setProperty("display", "block", "important");
+        c.innerHTML = `<span class="til-cap-t">${hx(mtext(ar[k[1] - 1] || ""))}</span>\u00A0<span class="til-cap-n">${adig(k[1])}</span>`;
+        ["pointerdown", "mousedown", "touchstart", "click", "wheel"].forEach((t) => c.addEventListener(t, (e) => e.stopPropagation()));
+        b.appendChild(c);
+        if (!IX.at2) { IX.at2 = {}; IX.keys.forEach((x, i) => (IX.at2[x[0] + ":" + x[1]] = i)); }
+        const i = IX.at2[K], tEl = c.querySelector(".til-cap-t"), Tx = tEl.textContent;
+        if (i != null && b._words) mapWords(Tx, { a: 0, b: Tx.length }, [i, i, 0, 0, 0, IX.offs[i], 0]).forEach((x) => { const r = rangeAt(tEl, x.a, x.z); if (r) b._words.push({ li: -1, k: K, w: x.w, r, cap: 1 }); });
+        E.hw = null;
+        try { if (c.getBoundingClientRect().top < 4) { c.style.bottom = "auto"; c.style.top = "calc(100% + .35em)"; } } catch (e) {}
+      })).catch(() => {});
+    }
+
+    /* ===== اختيار الآيات: المعروضة، أو إكمال السورة، أو من آية إلى آية (سورة واحدة) ===== */
+    const rangeOK = (list, opt) => !(opt && opt.noRange) && TM && list.length && list.every((k) => k[0] === list[0][0]) && TM.st[list[0][0] - 1].length > 1;
+    function setRange(b, a1, a2) {
+      const s = b._base[0][0], N = TM.st[s - 1].length; a1 = Math.max(1, Math.min(N, a1 | 0)); a2 = Math.max(a1, Math.min(N, a2 | 0));
+      const B0 = b._base, same = a1 === B0[0][1] && a2 === B0[B0.length - 1][1];
+      const was = E.on && E.bar === b; if (was) stop();
+      if (same) { b._til = B0; b._rng = null; }
+      else { const L = []; for (let a = a1; a <= a2; a++) L.push([s, a]); b._til = L; b._rng = [a1, a2]; }
+      E.done = 0; E.loop = 0; BARS.forEach(paint);
+      return b._til;
+    }
+    function rngPanel(b) {
+      const old = b.querySelector(".til-rp"); if (old) { old.remove(); return; }
+      inDoc(b.ownerDocument, () => {
+        const d = b.ownerDocument, s = b._base[0][0], N = TM.st[s - 1].length, B0 = b._base, b1 = B0[0][1], b2 = B0[B0.length - 1][1], R = b._til;
+        const p = d.createElement("div"); p.className = "til-rp"; p.dir = b.dir;
+        const opts = (v) => Array.from({ length: N }, (_, i) => `<option value="${i + 1}"${i + 1 === v ? " selected" : ""}>${i + 1}</option>`).join("");
+        const C = (a, t, on) => `<button type="button" class="til-b til-c${on ? " sel" : ""}" data-r="${a}">${t}</button>`;
+        const r = (a, z) => iso(a === z ? a : a + "–" + z);
+        p.innerHTML = `<div class="til-rp-h">${tx("سورة", "Surah")} ${tx(TM.names[s - 1][0], TM.names[s - 1][1])} · ${iso(N)} ${tx("آية", "ayat")}</div>` +
+          C("shown", tx("المعروضة ", "Shown ") + r(b1, b2), !b._rng) +
+          (b2 < N ? C("rest", tx("أكمل السورة ", "Rest of surah ") + r(b1, N), b._rng && b._rng[0] === b1 && b._rng[1] === N) : "") +
+          (b1 > 1 ? C("all", tx("السورة كاملة ", "Whole surah ") + r(1, N), b._rng && b._rng[0] === 1 && b._rng[1] === N) : "") +
+          `<span class="til-rp-ft"><label>${tx("من آية", "From")} <select class="til-a1">${opts(R[0][1])}</select></label>
+          <label>${tx("إلى آية", "to")} <select class="til-a2">${opts(R[R.length - 1][1])}</select></label>${C("go", tx("▶ استمع", "▶ Listen"), false)}</span>`;
+        const sw = (e) => e.stopPropagation(); ["pointerdown", "mousedown", "touchstart", "keydown", "keyup", "wheel", "click", "change"].forEach((t) => p.addEventListener(t, sw));
+        const a1 = p.querySelector(".til-a1"), a2 = p.querySelector(".til-a2");
+        a1.addEventListener("change", () => { if (+a2.value < +a1.value) a2.value = a1.value; });
+        a2.addEventListener("change", () => { if (+a2.value < +a1.value) a1.value = a2.value; });
+        p.addEventListener("click", (e) => {
+          const c = e.target.closest("[data-r]"); if (!c) return; e.preventDefault(); const v = c.dataset.r;
+          if (v === "shown") setRange(b, b1, b2); else if (v === "rest") setRange(b, b1, N); else if (v === "all") setRange(b, 1, N); else setRange(b, +a1.value, +a2.value);
+          p.remove(); if (b._onRange) b._onRange(b._til); start(b, 0);
+        });
+        b.appendChild(p);
+        try { if (p.getBoundingClientRect().top < 4) { p.style.bottom = "auto"; p.style.top = "calc(100% + .35em)"; } } catch (e) {}
+      });
     }
 
     /* ===== الشريط تحت النص ===== */
@@ -13960,6 +14023,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         (multi ? B("til-prev", "prev", tx("الآية السابقة", "Previous ayah")) + B("til-next", "next", tx("الآية التالية", "Next ayah")) : "") +
         B("til-rep", "rep", tx("عدد مرات التكرار", "Times to repeat")) +
         B("til-echo", "echo", tx("بعد كل آية يسكت الشيخ قدر مدتها ليرددها الطالب", "After each ayah the sheikh pauses so the student can repeat it")) +
+        (rangeOK(list, opt) ? B("til-rng", "rng", tx("اختر الآيات: المعروضة، أو إكمال السورة، أو من آية إلى آية", "Choose the ayat: those shown, the rest of the surah, or from one ayah to another")) : "") +
         (list.some((k) => k[2] || k[3]) ? B("til-part", "part", tx("العبارة المقتبسة وحدها، أو الآية كاملة", "Only the quoted words, or the whole ayah")) : "") +
         (multi ? B("til-mode til-x", "mode", tx("طريقة التكرار", "How to repeat")) : "") +
         B("til-spd til-x", "spd", tx("سرعة التلاوة", "Recitation speed")) +
@@ -13970,8 +14034,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         `<span class="til-st"></span>`;
       b.querySelector(".til-stop").textContent = tx("■ إيقاف", "■ Stop"); b.querySelector(".til-more").textContent = "⋯";
       if (multi) { b.querySelector(".til-prev").textContent = tx("→ السابقة", "← Prev"); b.querySelector(".til-next").textContent = tx("التالية ←", "Next →"); }
-      b._til = list; b._onAyah = opt.onAyah || null; b._spans = opt.spans || null; b._src = opt.src || null;
+      b._til = list; b._base = list; b._onAyah = opt.onAyah || null; b._spans = opt.spans || null; b._src = opt.src || null;
       b._words = opt.words || null; b._blocks = opt.blocks || [];
+      if (b._words) b._words.forEach((x) => { if (!x.k && list[x.li]) x.k = kk(list[x.li]); });
       if (b._words && b._words.length) b._blocks.forEach((bl) => bl.addEventListener("click", (e) => {
         if ((!b._wordMode && !b._hide) || bl.isContentEditable) return;
         const d = bl.ownerDocument; let n = null, o = 0;
@@ -13996,6 +14061,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         else if (a === "spd") { SET.spd = SPDS[(SPDS.indexOf(SET.spd) + 1) % SPDS.length]; if (E.au && E.bar === b) E.au.playbackRate = SET.spd; save(); }
         else if (a === "mode") { SET.mode = SET.mode === "ayah" ? "range" : "ayah"; save(); }
         else if (a === "more") { b.classList.toggle("open"); }
+        else if (a === "rng") { rngPanel(b); return; }
         else if (a === "dl") { const d = b.ownerDocument; ready().then(() => (SAVED ? 0 : loadSaved())).then(() => { if (DL.busy) return; if (docSaved(d)) removeSaved(d); else download(d); }); }
         else if (a === "hide") { b._hide = ((b._hide || 0) + 1) % 5; b._revealed = new Set(); applyHide(b.ownerDocument); }
         else if (a === "word") { b._wordMode = !b._wordMode; b._blocks.forEach((bl) => { bl.style.cursor = b._wordMode ? "pointer" : ""; if (b._wordMode) bl.setAttribute("data-til-cur", ""); else bl.removeAttribute("data-til-cur"); }); }
@@ -14003,7 +14069,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         else if (a === "echo") { SET.echo = !SET.echo; save(); if (!SET.echo && E.gap && E.bar === b) { E.gap = false; next(); } }
         BARS.forEach(paint); k.blur && k.blur();
       });
-      if (b._spans) b._spans.forEach((sp, k) => sp && sp.addEventListener("click", (e) => { e.stopPropagation(); start(b, k); }));
+      if (b._spans) b._spans.forEach((sp, k) => sp && sp.addEventListener("click", (e) => { e.stopPropagation(); const K = kk(b._base[k]); start(b, Math.max(0, b._til.findIndex((x) => kk(x) === K))); }));
       BARS.add(b); paint(b); return b;
     }
 
@@ -14043,6 +14109,13 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
 @media print{::highlight(til-hide){color:inherit;background-color:transparent}}
 .til-bar.til-abs{padding:.15em;gap:.25em}.til-bar.til-abs .til-rep,.til-bar.til-abs .til-echo,.til-bar.til-abs .til-word,.til-bar.til-abs .til-hide,.til-bar.til-abs .til-dl,.til-bar.til-abs .til-more,.til-bar.til-abs .til-x,.til-bar.til-abs.on .til-st{display:none}
 .til-hid{visibility:hidden!important}
+.til-bar .til-rng.sel{background:#E6F2EC;border-color:#0F7A55;color:#0F7A55;font-weight:700}
+.til-rp{position:absolute;bottom:calc(100% + .35em);inset-inline-start:0;z-index:30;display:flex;flex-wrap:wrap;gap:.4em;align-items:center;max-width:min(36em,92vw);padding:.6em .7em;background:#fff;border:1px solid rgba(16,42,76,.22);border-radius:1em;box-shadow:0 8px 24px rgba(16,42,76,.18)}
+.til-cap{position:absolute;bottom:calc(100% + .35em);inset-inline:0;z-index:29;padding:.5em .9em;background:#FFFDF6;border:1px solid rgba(15,122,85,.35);border-radius:1em;box-shadow:0 8px 24px rgba(16,42,76,.16);font-family:HiraaMushaf,'Amiri Quran',serif;font-size:1.75em;line-height:1.85;text-align:center;color:#14243F}
+.til-cap-t,.til-cap-n{display:inline!important}.til-cap-n{font-size:.8em;color:#0F7A55}
+.til-rp-h{flex-basis:100%;font-weight:700;opacity:.8}.til-rp .til-c.sel{background:#E6F2EC;border-color:#0F7A55;color:#0F7A55;font-weight:700}
+.til-rp-ft{display:flex;flex-wrap:wrap;gap:.4em;align-items:center;flex-basis:100%}.til-rp select{font:inherit;padding:.2em .3em;border-radius:.5em;border:1px solid rgba(16,42,76,.25);background:#fff;color:#102A4C}
+.til-bar.til-abs .til-rng{display:none}
 .til-ay{cursor:pointer;border-radius:.25em;transition:background .2s}
 .til-ay.til-now{background:rgba(15,122,85,.15);box-shadow:0 0 0 .14em rgba(15,122,85,.15)}
 @media print{.til-bar{display:none!important}.til-ay.til-now{background:none;box-shadow:none}}`;
@@ -14054,7 +14127,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       root.querySelectorAll("[data-til-cur]").forEach((x) => { x.style.cursor = ""; x.removeAttribute("data-til-cur"); if (!x.getAttribute("style")) x.removeAttribute("style"); });
       return root;
     }
-    function css(doc) { if (doc.getElementById("til-css")) return; const s = doc.createElement("style"); s.id = "til-css"; s.textContent = CSS; (doc.head || doc.documentElement).appendChild(s); }
+    function css(doc) { if (doc.getElementById("til-css")) return; const s = doc.createElement("style"); s.id = "til-css"; s.textContent = CSS + "\n" + MCSS; (doc.head || doc.documentElement).appendChild(s); }
 
     /* ===== المسح: كل كتلة نصٍّ فيها آيات تأخذ شريطًا واحدًا؛ والكتل المتجاورة لآيات متتالية تُجمع في شريط واحد ===== */
     const DONE = new WeakSet();
@@ -14153,6 +14226,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
     function scan(doc) {
       if (!doc.body) return;
       css(doc); upgradeRec(doc);
+      doc.querySelectorAll(".mus[data-mus]:not([data-mus-on])").forEach(musMount);
       if (!/[﴿﴾]/.test(doc.body.textContent || "")) return;
       ready().then(() => scanNow(doc)).catch((e) => { try { console.error("TIL scan", e && e.stack); } catch (x) {} });
     }
@@ -14199,6 +14273,125 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
         const bf = parseFloat(x.style.fontSize) || 16; x.style.fontSize = Math.max(13, bf * 0.96) + "px";
       });
     }
+    /* ===== المصحف في نص الدرس (دروس القرآن الكريم): خط المصحف (مجمع الملك فهد، حفص)، من آية إلى آية،
+       والترجمة والحروف اللاتينية اختياريتان، مع التلاوة وتظليل الكلمة. البيانات في art/quran/:
+       ar/N.json نص المنصة (quran_ayahs)، lat/N.json حروف لاتينية لكل كلمة، tr/<لغة>/N.json الترجمة (من quran.com) ===== */
+    const QB = new URL("art/quran/", document.baseURI).href, FONT = new URL("art/fonts/uthmanic-hafs.woff2", document.baseURI).href;
+    const MS = (() => { try { return JSON.parse(localStorage.getItem("hiraa-mushaf") || "{}"); } catch (e) { return {}; } })();
+    const msave = () => { try { localStorage.setItem("hiraa-mushaf", JSON.stringify(MS)); } catch (e) {} };
+    const LANGS = [["en", "English"], ["ur", "اردو"], ["fr", "Français"], ["id", "Bahasa Indonesia"], ["ms", "Bahasa Melayu"], ["tr", "Türkçe"], ["ru", "Русский"],
+      ["es", "Español"], ["de", "Deutsch"], ["zh", "中文"], ["hi", "हिन्दी"], ["bn", "বাংলা"], ["ml", "മലയാളം"], ["tl", "Tagalog"]];
+    const TRBY = { en: "Saheeh International", ur: "محمد جوناگڑھی", fr: "Muhammad Hamidullah", id: "Kementerian Agama RI", ms: "Abdullah Muhammad Basmeih", tr: "Diyanet İşleri",
+      ru: "Эльмир Кулиев", es: "Isa García", de: "Bubenheim & Elyas", zh: "马坚", hi: "अज़ीज़ुल हक़ उमरी", bn: "আবু বকর মুহাম্মাদ যাকারিয়া", ml: "അബ്ദുൽ ഹമീദ്, കുഞ്ഞി മുഹമ്മദ്", tl: "Dar Al-Salam" };
+    const QD = {};
+    const getQ = (p) => QD[p] || (QD[p] = getJ(QB + p).catch((e) => { delete QD[p]; throw e; }));
+    const adig = (n) => String(n).replace(/\d/g, (d) => String.fromCharCode(0x660 + +d));
+    const hx = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+    const mtext = (t) => String(t).replace(/\u08F1/g, "\u065E").replace(/\u0640/g, "");   /* بترميز خط المجمع: تنوين الضم المتتابع، وبلا تطويل */
+    /* نص الدرس: «سورة البروج (1–22)» ثم سطر لكل آية «﴿...﴾ (1)» (وقد تليه ترجمة) → قارئ المصحف، وإلا null */
+    function musHtml(body, fallback, o) {
+      o = o || {}; const L = String(body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
+      const h = (L[0] || "").match(/^(?:سورة|Surah|Surat)\s+.+?\(\s*(\d+)\s*(?:[–—-]\s*(\d+))?\s*\)\s*$/i); if (!h) return null;
+      const a = +h[1], z = +(h[2] || h[1]), ay = [];
+      L.slice(1).forEach((x) => { const m = x.match(/^﴿([^﴿﴾]+)﴾\s*\(\s*(\d+)\s*\)$/); if (m) ay.push([+m[2], m[1]]); });
+      if (z < a || ay.length !== z - a + 1 || ay.some((x, i) => x[0] !== a + i)) return null;
+      return `<div class="mus" data-no-tilawa data-mus="${a}-${z}" data-mus-q="${hx(JSON.stringify(ay.slice(0, 4).map((x) => x[1])))}"${o.tr ? ` data-mus-tr="${hx(o.tr)}"` : ""}${o.en ? ' data-mus-en="1"' : ""}>${fallback || ""}</div>`;
+    }
+    function musMount(el) {
+      el.setAttribute("data-mus-on", "1");
+      const [la, lz] = el.dataset.mus.split("-").map(Number); let q = []; try { q = JSON.parse(el.dataset.musQ || "[]"); } catch (e) {}
+      ready().then(() => {
+        let s = 0;
+        for (let k = 0; k < q.length && !s; k++) { const r = find(q[k], { s: new Set(), n: la + k, prev: null }); if (r && r[0] === r[1] && IX.keys[r[0]][1] === la + k) s = IX.keys[r[0]][0]; }
+        if (!s || TM.st[s - 1].length < lz) return;               // لم تُعرف السورة: يبقى النص كما هو
+        const st = { s, la, lz, a1: la, a2: lz, N: TM.st[s - 1].length, en: !!el.dataset.musEn,
+          tr: MS.tr !== undefined ? MS.tr : (el.dataset.musTr || ""), lat: MS.lat !== undefined ? !!MS.lat : false, fs: MS.fs || 1 };
+        el._mus = st; musRender(el);
+      }).catch((e) => { try { console.error("TIL mushaf", e && e.stack); } catch (x) {} });
+    }
+    function musRender(el) {
+      const st = el._mus, d = el.ownerDocument, T = (ar, en) => (st.en ? en : ar), s = st.s;
+      const need = ["ar/" + s + ".json", "ar/1.json"]; if (st.lat) need.push("lat/" + s + ".json"); if (st.tr) need.push("tr/" + st.tr + "/" + s + ".json");
+      Promise.all([...need.map(getQ), getW(s)]).then(([ar, ar1, ...rest]) => {
+        const lat = st.lat ? rest.shift() : null, tr = st.tr ? rest.shift() : null, rtl = st.tr === "ur";
+        if (el._bar && E.bar === el._bar) stop();
+        const opt = (v) => Array.from({ length: st.N }, (_, i) => `<option value="${i + 1}"${i + 1 === v ? " selected" : ""}>${i + 1}</option>`).join("");
+        const Bt = (a, t, on, ti) => `<button type="button" class="mus-b${on ? " sel" : ""}" data-m="${a}"${ti ? ` title="${hx(ti)}"` : ""}>${t}</button>`;
+        const lesson = st.a1 === st.la && st.a2 === st.lz, rows = !!(lat || tr);
+        let h = `<div class="mus-hd"><span class="mus-ttl">${hx("سُورَةُ " + TM.names[s - 1][0])}</span></div>
+          <div class="mus-tools" dir="${st.en ? "ltr" : "rtl"}">
+            <span class="mus-g"><label>${T("من الآية", "From ayah")} <select class="mus-a1">${opt(st.a1)}</select></label><label>${T("إلى", "to")} <select class="mus-a2">${opt(st.a2)}</select></label>
+            ${Bt("lesson", T("آيات الدرس", "Lesson ayat") + " " + iso(st.la === st.lz ? st.la : st.la + "–" + st.lz), lesson)}
+            ${st.lz < st.N ? Bt("rest", T("أكمل السورة", "Rest of surah"), st.a1 === st.la && st.a2 === st.N && !lesson) : ""}
+            ${st.la > 1 || st.lz < st.N ? Bt("all", T("السورة كاملة", "Whole surah"), st.a1 === 1 && st.a2 === st.N && !lesson) : ""}</span>
+            <span class="mus-g"><label>${T("الترجمة", "Translation")} <select class="mus-tr"><option value="">${T("بلا ترجمة", "None")}</option>${LANGS.map(([c, n]) => `<option value="${c}"${c === st.tr ? " selected" : ""}>${n}</option>`).join("")}</select></label>
+            ${Bt("lat", (st.lat ? "✓ " : "") + T("حروف لاتينية", "Transliteration"), st.lat, T("قراءة الآيات بالحروف اللاتينية", "The ayat in Latin letters"))}
+            ${Bt("fs-", "A−", false, T("تصغير الخط", "Smaller text"))}${Bt("fs+", "A+", false, T("تكبير الخط", "Larger text"))}</span>
+          </div><div class="mus-page${rows ? " mus-rows" : ""}" style="font-size:${(st.fs * 100).toFixed(0)}%">`;
+        if (st.a1 === 1 && s !== 1 && s !== 9) h += `<div class="mus-bsm">${hx(mtext(ar1[0]))}</div>`;
+        let flow = "";
+        for (let a = st.a1; a <= st.a2; a++) {
+          const ayah = `<span class="mus-ay" data-a="${a}"><span class="mus-t">${hx(mtext(ar[a - 1]))}</span> <span class="mus-n">${adig(a)}</span></span>`;
+          if (!rows) { flow += ayah + " "; continue; }
+          h += `<div class="mus-row" data-a="${a}"><div class="mus-ar">${ayah}</div>` +
+            (lat ? `<div class="mus-lat" dir="ltr">${(lat[a - 1] || []).map((w, i) => `<span data-w="${i + 1}">${hx(w)}</span>`).join(" ")} <span class="mus-ln">(${a})</span></div>` : "") +
+            (tr ? `<div class="mus-trn" dir="${rtl ? "rtl" : "ltr"}" lang="${st.tr}">${hx(tr[a - 1] || "")} <span class="mus-ln">(${a})</span></div>` : "") + `</div>`;
+        }
+        if (!rows) h += `<div class="mus-flow">${flow}</div>`;
+        h += `</div>` + (tr ? `<div class="mus-src" dir="${st.en ? "ltr" : "rtl"}">${T("الترجمة: ", "Translation: ")}${hx(TRBY[st.tr] || "")}${T(" — معاني القرآن الكريم، وليست قرآنًا.", " — a translation of the meanings, not the Qur'an itself.")}</div>` : "");
+        el.innerHTML = `<div class="mus-box" dir="rtl">${h}</div>`;
+        /* التلاوة: الآيات المختارة، وكل كلمة ومقابلها اللاتيني تُظلَّل أثناء التلاوة */
+        const page = el.querySelector(".mus-page"), list = [], spans = [], words = [];
+        if (!IX.at2) { IX.at2 = {}; IX.keys.forEach((k, i) => (IX.at2[k[0] + ":" + k[1]] = i)); }
+        for (let a = st.a1; a <= st.a2; a++) {
+          const li = list.length, i = IX.at2[s + ":" + a]; list.push([s, a]);
+          const ayEl = page.querySelector(`.mus-ay[data-a="${a}"]`), tEl = ayEl.querySelector(".mus-t"), row = ayEl.closest(".mus-row");
+          spans.push(row || ayEl);
+          const Tx = tEl.textContent;
+          mapWords(Tx, { a: 0, b: Tx.length }, [i, i, 0, 0, 0, IX.offs[i], 0]).forEach((x) => { const r = rangeAt(tEl, x.a, x.z); if (r) words.push({ li, w: x.w, r }); });
+          if (row) row.querySelectorAll(".mus-lat [data-w]").forEach((sp) => { const r = d.createRange(); r.selectNodeContents(sp); words.push({ li, w: +sp.dataset.w, r }); });
+        }
+        const b = bar(d, list, { words, blocks: [page], spans, src: page, noRange: true });
+        b.classList.add("mus-bar"); page.insertAdjacentElement("afterend", b); el._bar = b; paint(b);
+        /* الأدوات */
+        const box = el.querySelector(".mus-box"), a1 = box.querySelector(".mus-a1"), a2 = box.querySelector(".mus-a2");
+        const set = (x, y) => { st.a1 = Math.max(1, Math.min(st.N, x)); st.a2 = Math.max(st.a1, Math.min(st.N, y)); musRender(el); };
+        a1.onchange = () => set(+a1.value, Math.max(+a1.value, +a2.value));
+        a2.onchange = () => set(Math.min(+a1.value, +a2.value), +a2.value);
+        box.querySelector(".mus-tr").onchange = (e) => { st.tr = e.target.value; MS.tr = st.tr; msave(); musRender(el); };
+        box.querySelector(".mus-tools").addEventListener("click", (e) => {
+          const k = e.target.closest("[data-m]"); if (!k) return; const m = k.dataset.m;
+          if (m === "lesson") set(st.la, st.lz); else if (m === "rest") set(st.la, st.N); else if (m === "all") set(1, st.N);
+          else if (m === "lat") { st.lat = !st.lat; MS.lat = st.lat; msave(); musRender(el); }
+          else if (m === "fs-" || m === "fs+") { st.fs = Math.max(0.7, Math.min(1.8, Math.round((st.fs + (m === "fs+" ? 0.1 : -0.1)) * 10) / 10)); MS.fs = st.fs; msave(); page.style.fontSize = (st.fs * 100).toFixed(0) + "%"; }
+        });
+      }).catch((e) => { try { console.error("TIL mushaf", e && e.stack); } catch (x) {} });
+    }
+    const musFiles = (doc) => { const o = []; doc.querySelectorAll(".mus[data-mus-on]").forEach((el) => { const st = el._mus; if (!st) return;
+      o.push(QB + "ar/" + st.s + ".json", QB + "ar/1.json", QB + "lat/" + st.s + ".json"); if (st.tr) o.push(QB + "tr/" + st.tr + "/" + st.s + ".json"); }); return [...new Set(o)]; };
+    const MCSS = `@font-face{font-family:"HiraaMushaf";src:url("${FONT}") format("woff2");font-display:swap}
+.form-card:has(.mus[data-mus-on]){max-width:min(1000px,100%)}
+.mus-box{background:#FFFDF6;border:1px solid #E3D3A8;border-radius:18px;padding:14px 16px 12px;box-shadow:inset 0 0 0 5px #FBF4E2,inset 0 0 0 6px #E9DBB4}
+.mus-hd{text-align:center;margin:2px 0 10px}.mus-ttl{display:inline-block;font-family:"ThmanyahDisplay","ThmanyahSans",serif;font-weight:700;font-size:1.25rem;color:#0F5E44;
+padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:linear-gradient(#FFF9E8,#F6E9C6)}
+.mus-tools{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;align-items:center;margin:0 0 10px;font-family:"ThmanyahSans","Readex Pro",system-ui,sans-serif;font-size:14px;color:#102A4C}
+.mus-g{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center}.mus-tools label{display:inline-flex;gap:4px;align-items:center;white-space:nowrap}
+.mus-tools select{font:inherit;padding:.25em .4em;border-radius:.6em;border:1px solid rgba(16,42,76,.25);background:#fff;color:#102A4C;max-width:11em}
+.mus-b{appearance:none;font:inherit;cursor:pointer;padding:.3em .75em;border-radius:999px;border:1px solid rgba(16,42,76,.22);background:#fff;color:#102A4C;white-space:nowrap}
+.mus-b:hover{background:#F6EEDC}.mus-b.sel{background:#E6F2EC;border-color:#0F7A55;color:#0F7A55;font-weight:700}
+.mus-page{font-family:"HiraaMushaf","HiraaQuran","Amiri Quran",serif;color:#14243F;font-size:100%}
+.mus-flow,.mus-ar,.mus-bsm{font-size:clamp(24px,2.6vw,34px);line-height:2.15;font-weight:400}
+.mus-flow{text-align:justify;text-align-last:center}.mus-bsm{text-align:center;margin-bottom:.1em}
+.mus-n{font-family:"HiraaMushaf",serif;color:#0F5E44;white-space:nowrap}
+.mus-ay{cursor:pointer;border-radius:.3em;transition:background .2s}.mus-ay:hover{background:rgba(201,168,92,.13)}
+.mus-ay.til-now,.mus-row.til-now .mus-ay{background:rgba(15,122,85,.12)}.mus-row.til-now{background:rgba(15,122,85,.05)}
+.mus-row{padding:.35em .55em;border-bottom:1px dashed #E7DAB8;border-radius:.6em}.mus-row:last-child{border-bottom:0}
+.mus-lat{font-family:"ThmanyahSans","Readex Pro",system-ui,sans-serif;font-style:italic;font-size:17px;color:#7A5A12;line-height:1.7;text-align:left;margin:.1em 0}
+.mus-trn{font-family:"ThmanyahSans","Readex Pro","Noto Sans","Noto Nastaliq Urdu",system-ui,sans-serif;font-size:17px;line-height:1.75;color:#2B3B55;margin:.15em 0 .2em}
+.mus-trn[dir=ltr]{text-align:left}.mus-ln{opacity:.55;font-style:normal;font-size:.85em}
+.mus-src{font-family:"ThmanyahSans",system-ui,sans-serif;font-size:12.5px;opacity:.7;text-align:center;margin-top:6px}
+.mus-bar{margin-inline:auto}
+@media print{.mus-tools{display:none}.mus-box{box-shadow:none}}`;
     /* الشريط يظهر ويختفي مع نصه (ظهور العناصر خطوة خطوة في العروض) */
     setInterval(() => {
       BARS.forEach((b) => {
@@ -14212,7 +14405,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
     window.addEventListener("hashchange", () => stop());
     if (hasC()) loadSaved().then(() => BARS.forEach(paint));
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => hook(document)); else hook(document);
-    return { strip, bar, start, stop, ready, find: (t) => (IX ? find(t, { s: new Set(), n: 0, prev: null }) : null), keys: () => IX && IX.keys, skel };
+    return { strip, bar, start, stop, ready, musHtml, find: (t) => (IX ? find(t, { s: new Set(), n: 0, prev: null }) : null), keys: () => IX && IX.keys, skel };
   })();
 
 
