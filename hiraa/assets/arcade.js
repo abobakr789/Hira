@@ -1,0 +1,348 @@
+/* =================== ساحة ألعاب حراء (HiraArcade) ===================
+   محرّك واحد يعمل مع أيّ درس في أيّ مادّة. لا يحتاج محتوى جديدًا:
+   يقرأ عناصر لعبة الدرس (game_items) وكلمات الملخّص وأسئلته (lesson_summaries)
+   وكلمات «كتاب حراء» (lesson_readers)، ويجمعها من الدرس أو من الوحدة كلّها.
+   الألعاب: ذاكرة الكلمات · برج المعرفة · سلّم التحدّي.
+   القرآن الكريم لا يدخل هذه الألعاب (لا ترتيب آيات، ولا نصّ فيه ﴿ ﴾).
+   الاستعمال: HiraArcade.mount(el, { lessons, focusId, en, onFinish, classic }) */
+window.HiraArcade = (function () {
+  "use strict";
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const norm = (s) => String(s || "").replace(/[ً-ٰٟۖ-ۭـ]/g, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه")
+    .replace(/^ال/, "").replace(/[^\p{L}\p{N}\s]/gu, "").replace(/\s+/g, " ").trim().toLowerCase();
+  const ICON = /(?:\p{Extended_Pictographic}|\d️?⃣)(?:[️‍\u{1F3FB}-\u{1F3FF}]|\p{Extended_Pictographic})*/u;
+  const splitIcon = (t) => { t = String(t || "").trim(); const m = t.match(ICON); if (!m) return { text: t, icon: "" }; return { text: t.replace(m[0], "").replace(/\s+/g, " ").trim(), icon: m[0] }; };
+  const QURANIC = (t) => /[﴿﴾]/.test(String(t || ""));
+  const reduced = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- الأصوات: تُولَّد في المتصفّح، بلا موسيقى ولا طبول ---------- */
+  const SND = (() => {
+    let ctx = null, on = true;
+    try { on = localStorage.getItem("hiraArcSnd") !== "0"; } catch (e) { /* */ }
+    const ac = () => { if (!ctx) { const C = window.AudioContext || window.webkitAudioContext; if (!C) return null; ctx = new C(); } if (ctx.state === "suspended") ctx.resume(); return ctx; };
+    const tone = (f, t0, dur, type, vol, f2) => { const c = ac(); if (!c) return; const o = c.createOscillator(), g = c.createGain(), t = c.currentTime + t0;
+      o.type = type || "sine"; o.frequency.setValueAtTime(f, t); if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + dur);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol || 0.08, t + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g).connect(c.destination); o.start(t); o.stop(t + dur + 0.02); };
+    const clap = (t0) => { const c = ac(); if (!c) return; const n = Math.floor(c.sampleRate * 0.03), b = c.createBuffer(1, n, c.sampleRate), d = b.getChannelData(0);
+      for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 2.5);
+      const s = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(); s.buffer = b; f.type = "bandpass"; f.frequency.value = 1100 + Math.random() * 900; f.Q.value = 0.9;
+      g.gain.value = 0.18; s.connect(f).connect(g).connect(c.destination); s.start(c.currentTime + t0); };
+    const play = {
+      tick: () => tone(1250, 0, 0.04, "triangle", 0.035),
+      flip: () => tone(700, 0, 0.07, "sine", 0.05, 950),
+      ok: () => { tone(784, 0, 0.12, "sine", 0.09); tone(1046, 0.09, 0.18, "sine", 0.09); },
+      coin: () => { tone(988, 0, 0.08, "square", 0.035); tone(1319, 0.07, 0.22, "square", 0.035); },
+      combo: () => [784, 988, 1175, 1568].forEach((f, i) => tone(f, i * 0.07, 0.16, "sine", 0.08)),
+      no: () => tone(220, 0, 0.22, "triangle", 0.07, 170),
+      drop: () => tone(150, 0, 0.16, "sine", 0.14, 85),
+      win: () => { [523, 659, 784, 1046].forEach((f, i) => tone(f, i * 0.11, 0.3, "sine", 0.08)); for (let k = 0; k < 34; k++) clap(0.35 + Math.random() * 1.5); },
+      cheer: () => { for (let k = 0; k < 14; k++) clap(Math.random() * 0.7); }
+    };
+    return { get on() { return on; }, toggle() { on = !on; try { localStorage.setItem("hiraArcSnd", on ? "1" : "0"); } catch (e) { /* */ } return on; },
+      p(k) { if (on && play[k]) try { play[k](); } catch (e) { /* */ } } };
+  })();
+
+  /* ---------- جمع المادّة من بيانات الدرس أو الوحدة ---------- */
+  // lessons: [{ id, title, items:[{game,source,payload}], words:[[a,b]], quiz:[[text,bool]], rw:[[a,b]] }]
+  function buildPool(lessons) {
+    const pairs = [], tf = [], mcq = [], seenP = new Set(), seenT = new Set(), seenQ = new Set();
+    const addPair = (a, b, lid) => {
+      if (!a || !b || QURANIC(a) || QURANIC(b)) return;
+      const A = splitIcon(a), B = splitIcon(b); const term = A.text || a; if (!term) return;
+      const k = norm(term); if (!k || seenP.has(k)) return; seenP.add(k);
+      pairs.push({ k, a: term, b: B.text, icon: B.icon || A.icon, lid });
+    };
+    const addTF = (text, answer, lid) => { if (!text || QURANIC(text) || typeof answer !== "boolean") return; const k = norm(text); if (seenT.has(k)) return; seenT.add(k); tf.push({ k, text, answer, lid }); };
+    (lessons || []).forEach((L) => {
+      (L.items || []).forEach((it) => {
+        const p = it.payload || {}; if (it.source === "quran" || it.source === "hadith") return;
+        if (it.game === "match") (p.pairs || []).forEach((x) => addPair(x[0], x[1], L.id));
+        else if (it.game === "tf") addTF(p.text, p.answer, L.id);
+        else if (it.game === "mcq") {
+          const m = String(p.q || "").match(/^ما معنى «(.+)»؟$/);
+          if (m) addPair(m[1], p.answer, L.id); // نعيد توليد البدائل من كلمات الوحدة نفسها
+          else if (p.q && p.answer && Array.isArray(p.options) && p.options.includes(p.answer) && !QURANIC(p.q) && !p.options.some(QURANIC)) {
+            const k = norm(p.q); if (!seenQ.has(k)) { seenQ.add(k); mcq.push({ k, q: p.q, answer: p.answer, options: [...new Set(p.options)], lid: L.id }); }
+          }
+        }
+      });
+      (L.words || []).forEach((w) => Array.isArray(w) && addPair(w[0], w[1], L.id));
+      (L.rw || []).forEach((w) => Array.isArray(w) && addPair(w[0], w[1], L.id));
+      (L.quiz || []).forEach((q) => Array.isArray(q) && addTF(q[0], q[1], L.id));
+    });
+    // معنى واحد مكرّر لعدّة كلمات (مثل «تبدأ بحرف أ») لا يميّز بينها: نكتفي بالصورة، أو نُبقي أوّلها
+    const cnt = {}; pairs.forEach((p) => { if (p.b) cnt[norm(p.b)] = (cnt[norm(p.b)] || 0) + 1; });
+    const seenB = new Set();
+    const clean = pairs.filter((p) => {
+      if (!p.b || cnt[norm(p.b)] < 2) return true;
+      if (p.icon) { p.b = ""; return true; }
+      if (seenB.has(norm(p.b))) return false; seenB.add(norm(p.b)); return true;
+    });
+    return { pairs: clean, tf, mcq };
+  }
+
+  /* ---------- صناعة الأسئلة ---------- */
+  const labelOf = (p) => p.b || p.icon;
+  const labelKey = (p) => (p.b ? norm(p.b) : p.icon); // الصورة وحدها مفتاحها رمزها
+  // نوع الزوج: كلمة/معنى، أو كلمة/صورة، أو تقطيع (أ + سد). البدائل تُؤخذ من النوع نفسه فقط
+  const kindOf = (p) => (p.b ? "t" : "i") + (/\s[+=]\s|\+/.test(p.a + " " + p.b) ? "s" : "");
+  function pairQ(pool, p, dir, n, T) {
+    const kd = kindOf(p);
+    const others = shuffle(pool.pairs.filter((x) => x !== p && kindOf(x) === kd)).sort((x, y) => (y.lid === p.lid) - (x.lid === p.lid));
+    if (dir === "ab") {
+      if (!labelOf(p)) return null;
+      const used = new Set([labelKey(p)]), opts = [{ t: p.b, icon: p.icon, ok: true }];
+      for (const o of others) { if (opts.length >= n) break; const K = labelKey(o); if (!K || used.has(K) || (!p.b && !o.icon) || (p.b && !o.b)) continue; used.add(K); opts.push({ t: o.b, icon: o.icon, ok: false }); }
+      if (opts.length < Math.min(n, 3)) return null;
+      return { type: "mcq", key: "p:" + p.k, lid: p.lid, diff: n >= 4 ? 3 : 2, prompt: p.b ? T(`ما معنى «${p.a}»؟`, `What does “${p.a}” mean?`) : T(`اختر الصورة المناسبة: «${p.a}»`, `Choose the picture: “${p.a}”`), options: shuffle(opts), solution: p.b ? `${p.a}: ${p.b}` : `${p.a} ${p.icon}` };
+    }
+    const used = new Set([p.k]), opts = [{ t: p.a, ok: true }];
+    for (const o of others) { if (opts.length >= n) break; if (used.has(o.k) || labelKey(o) === labelKey(p)) continue; used.add(o.k); opts.push({ t: o.a, ok: false }); }
+    if (opts.length < Math.min(n, 3)) return null;
+    return { type: "mcq", key: "p:" + p.k, lid: p.lid, diff: 3, big: p.b ? "" : p.icon,
+      prompt: p.b ? T(`أيّ كلمة تعني: ${p.icon ? p.icon + " " : ""}«${p.b}»؟`, `Which word means: “${p.b}”?`) : T("ما اسم هذه الصورة؟", "What is this picture called?"), options: shuffle(opts), solution: `${p.a}: ${p.b || p.icon}` };
+  }
+  const tfQ = (t, T) => ({ type: "tf", key: "t:" + t.k, lid: t.lid, diff: 1, prompt: t.text, answer: t.answer, solution: T(t.answer ? "العبارة صحيحة." : "العبارة خطأ.", t.answer ? "The statement is true." : "The statement is false.") + " " + t.text });
+  const mcqQ = (m) => ({ type: "mcq", key: "m:" + m.k, lid: m.lid, diff: 3, prompt: m.q, options: shuffle(m.options.map((o) => ({ t: o, ok: o === m.answer }))), solution: m.answer });
+
+  // كل الأسئلة الممكنة، سؤال واحد لكل كلمة في الجولة
+  function bank(pool, T, focusId) {
+    const out = [];
+    pool.tf.forEach((t) => out.push(tfQ(t, T)));
+    pool.mcq.forEach((m) => out.push(mcqQ(m)));
+    pool.pairs.forEach((p) => {
+      const dirs = shuffle(["ab", "ba"]); let q = null;
+      for (const d of dirs) { q = pairQ(pool, p, d, d === "ab" ? 3 : 4, T); if (q) break; }
+      if (q) out.push(q);
+    });
+    // أسئلة الدرس الحالي أولًا، ثم بقيّة الوحدة
+    return shuffle(out).sort((a, b) => (b.lid === focusId) - (a.lid === focusId));
+  }
+  // يُرتّب الجولة بحيث لا يتتابع نوع واحد كثيرًا
+  function interleave(qs) {
+    const tf = qs.filter((q) => q.type === "tf"), mc = qs.filter((q) => q.type !== "tf"), out = [];
+    while (tf.length || mc.length) { if (mc.length) out.push(mc.shift()); if (mc.length && Math.random() < 0.5) out.push(mc.shift()); if (tf.length) out.push(tf.shift()); }
+    return out;
+  }
+
+  /* ---------- الرسوم الصغيرة على بطاقات القائمة ---------- */
+  const ART = {
+    memory: `<svg viewBox="0 0 120 84" aria-hidden="true"><g transform="rotate(-8 40 44)"><rect x="18" y="14" width="40" height="56" rx="8" fill="#102A4C"/><path d="M38 30l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#D4AA55"/></g><g transform="rotate(7 80 44)"><rect x="60" y="12" width="40" height="56" rx="8" fill="#FFF7E6" stroke="#D4AA55" stroke-width="3"/><circle cx="80" cy="34" r="9" fill="#14A37F"/><rect x="68" y="50" width="24" height="5" rx="2.5" fill="#102A4C"/></g></svg>`,
+    tower: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="20" y="76" width="80" height="6" rx="3" fill="#C9D2DE"/><rect x="38" y="60" width="44" height="14" rx="4" fill="#102A4C"/><rect x="40" y="45" width="40" height="14" rx="4" fill="#14A37F"/><rect x="36" y="30" width="48" height="14" rx="4" fill="#E8833A"/><rect x="40" y="15" width="40" height="14" rx="4" fill="#D4AA55"/><path d="M60 2l3 6 7 1-5 4 1 7-6-3-6 3 1-7-5-4 7-1z" fill="#D4AA55"/></svg>`,
+    ladder: `<svg viewBox="0 0 120 84" aria-hidden="true"><path d="M42 80L52 6M78 80L68 6" stroke="#102A4C" stroke-width="5" stroke-linecap="round"/>${[68, 54, 40, 26, 12].map((y, i) => `<path d="M${45 + i * 1.4} ${y}H${75 - i * 1.4}" stroke="${i === 4 ? "#D4AA55" : "#7C8DA6"}" stroke-width="4" stroke-linecap="round"/>`).join("")}<circle cx="96" cy="16" r="9" fill="#D4AA55"/><path d="M92 16l3 3 6-6" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`,
+    classic: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="22" y="14" width="76" height="56" rx="12" fill="#E7ECF4"/><rect x="34" y="28" width="52" height="8" rx="4" fill="#102A4C"/><rect x="34" y="44" width="22" height="12" rx="6" fill="#14A37F"/><rect x="64" y="44" width="22" height="12" rx="6" fill="#E8833A"/></svg>`
+  };
+
+  /* ---------- المحرّك ---------- */
+  function mount(root, cfg) {
+    const en = !!cfg.en, T = (a, b) => (en ? b : a);
+    const all = cfg.lessons || [], focus = all.find((x) => x.id === cfg.focusId) || all[0] || { id: null };
+    const poolL = buildPool([focus]), poolU = buildPool(all);
+    const sizeOf = (p) => p.tf.length + p.mcq.length + p.pairs.length;
+    let scope = sizeOf(poolL) >= 8 || all.length < 2 ? "lesson" : "unit";
+    const pool = () => (scope === "lesson" ? poolL : poolU);
+    const unitExtra = all.length > 1 && sizeOf(poolU) > sizeOf(poolL);
+
+    root.classList.add("arc"); root.setAttribute("dir", en ? "ltr" : "rtl");
+    const hud = (title, extra) => `<div class="arc-hud"><button class="arc-back" type="button">${T("→ الألعاب", "← Games")}</button><b class="arc-title">${title}</b>${extra || ""}<button class="arc-snd" type="button" aria-label="${T("الصوت", "Sound")}">${SND.on ? "🔊" : "🔇"}</button></div>`;
+    const bindHud = () => {
+      const b = root.querySelector(".arc-back"); if (b) b.onclick = () => { SND.p("tick"); menu(); };
+      const s = root.querySelector(".arc-snd"); if (s) s.onclick = () => { s.textContent = SND.toggle() ? "🔊" : "🔇"; SND.p("tick"); };
+    };
+
+    function menu() {
+      const P = pool(), qn = bank(P, T, focus.id).length, pn = new Set(P.pairs.map(labelKey).filter(Boolean)).size;
+      const card = (k, title, desc, tag, ok, n) => `<button class="arc-card arc-c-${k}" type="button" data-g="${k}" ${ok ? "" : "disabled"}>
+          <span class="arc-art">${ART[k]}</span><span class="arc-ct"><b>${title}</b><span>${desc}</span><em>${ok ? tag : T("لا تكفي مادّة هذا الدرس لهذه اللعبة", "Not enough material in this lesson")}</em></span>${ok && n ? `<i class="arc-n">${n}</i>` : ""}</button>`;
+      root.innerHTML = `<div class="arc-menu">
+        <div class="arc-head"><div><h2>${T("ساحة الألعاب", "Game arena")}</h2><p>${T("اختر لعبتك. كلّ إجابة صحيحة ترفع رصيدك، والجولة الكاملة تضاعف الفرحة.", "Pick a game. Every right answer adds to your points.")}</p></div>
+          ${unitExtra ? `<div class="arc-scope" role="group" aria-label="${T("مصدر الأسئلة", "Question source")}"><button type="button" data-s="lesson" aria-pressed="${scope === "lesson"}">${T("هذا الدرس", "This lesson")}</button><button type="button" data-s="unit" aria-pressed="${scope === "unit"}">${T("الوحدة كلّها", "Whole unit")}</button></div>` : ""}</div>
+        <div class="arc-grid">
+          ${card("memory", T("ذاكرة الكلمات", "Word memory"), T("اقلب بطاقتين، وطابق الكلمة بمعناها بأقلّ عدد من المحاولات.", "Flip two cards and match each word with its meaning."), T("المفردات · كلّ الأعمار", "Vocabulary · all ages"), pn >= 3, Math.min(6, pn) ? `${Math.min(6, pn)} ${T("أزواج", "pairs")}` : "")}
+          ${card("tower", T("برج المعرفة", "Knowledge tower"), T("كلّ إجابة صحيحة تضع حجرًا، وثلاث متتالية تمنحك حجرًا ذهبيًّا بنقاط مضاعفة.", "Each right answer adds a block; three in a row earns a golden block."), T("الاسترجاع · كلّ الأعمار", "Recall · all ages"), qn >= 4, `${Math.min(10, qn)} ${T("أسئلة", "questions")}`)}
+          ${card("ladder", T("سلّم التحدّي", "Challenge ladder"), T("أسئلة تصعد درجة درجة، ومعك ثلاث وسائل مساعدة. هل تبلغ القمّة؟", "Questions get harder rung by rung, with three lifelines. Can you reach the top?"), T("التحدّي · الصفّ الثالث فما فوق", "Challenge · Grade 3+"), qn >= 5, `${Math.min(10, qn)} ${T("درجات", "rungs")}`)}
+          ${cfg.classic ? card("classic", T("الجولة الكلاسيكية", "Classic round"), T("صح أو خطأ، واختر، وصِل، ورتّب الآية أو الحديث أو الجملة.", "True/false, choose, match and order."), T("لعبة الدرس الأصلية", "The original lesson game"), true, "") : ""}
+        </div></div>`;
+      root.querySelectorAll("[data-s]").forEach((b) => b.onclick = () => { scope = b.dataset.s; SND.p("tick"); menu(); });
+      root.querySelectorAll("[data-g]").forEach((b) => b.onclick = () => { SND.p("tick"); const g = b.dataset.g; if (g === "classic") { root.innerHTML = ""; cfg.classic(); } else ({ memory, tower, ladder })[g](); });
+    }
+
+    /* ----- شاشة النهاية ----- */
+    function finish(mode, score, max, opts) {
+      const r = max ? score / max : 0, stars = opts.stars != null ? opts.stars : (r === 1 ? 3 : r >= 0.6 ? 2 : r > 0 ? 1 : 0);
+      const msg = stars === 3 ? T("ممتاز! جولة كاملة", "Perfect round!") : stars === 2 ? T("أحسنت! أنت قريب من القمّة", "Well done! Almost perfect") : T("بداية طيّبة، جرّب مرّة أخرى", "Good start, try again");
+      root.innerHTML = `${hud(opts.title)}<div class="arc-end">
+          <div class="arc-medal">${opts.medal || "🏅"}</div>
+          <div class="arc-stars" aria-label="${stars} / 3">${[0, 1, 2].map((i) => `<i class="${i < stars ? "on" : ""}" style="--d:${i * 0.18}s">★</i>`).join("")}</div>
+          <h3>${msg}</h3><p class="arc-big">${opts.big || `${score} / ${max}`}</p>${opts.sub ? `<p class="arc-sub">${opts.sub}</p>` : ""}
+          <p class="arc-pts" aria-live="polite">${T("جارٍ حفظ نقاطك…", "Saving your points…")}</p>
+          ${opts.missed && opts.missed.length ? `<details class="arc-review" open><summary>${T("راجع ما فاتك", "Review what you missed")} (${opts.missed.length})</summary><ul>${opts.missed.map((q) => `<li><span dir="auto">${esc(q.prompt)}</span><b dir="auto">${esc(q.solution)}</b></li>`).join("")}</ul></details>` : ""}
+          <div class="arc-acts"><button class="arc-btn gold" type="button" data-again>${T("🔁 العب مرّة أخرى", "🔁 Play again")}</button><button class="arc-btn" type="button" data-menu>${T("🎮 لعبة أخرى", "🎮 Another game")}</button></div></div>`;
+      bindHud();
+      root.querySelector("[data-again]").onclick = () => { SND.p("tick"); ({ memory, tower, ladder })[mode](); };
+      root.querySelector("[data-menu]").onclick = () => { SND.p("tick"); menu(); };
+      if (stars === 3) { SND.p("win"); burst(); } else if (stars >= 1) SND.p("cheer");
+      const el = root.querySelector(".arc-pts");
+      Promise.resolve(cfg.onFinish ? cfg.onFinish(mode, score, max) : "").then((h) => { el.innerHTML = h || ""; }).catch(() => { el.textContent = ""; });
+    }
+    function burst() {
+      if (reduced()) return;
+      const box = document.createElement("div"); box.className = "arc-confetti";
+      box.innerHTML = Array.from({ length: 46 }, (_, k) => `<i style="left:${Math.random() * 100}%;animation-delay:${Math.random() * 0.7}s;background:${["#102A4C", "#D4AA55", "#14A37F", "#E8833A", "#5B7FD1"][k % 5]}"></i>`).join("");
+      document.body.appendChild(box); setTimeout(() => box.remove(), 2800);
+    }
+
+    /* ----- لوحة السؤال المشتركة (البرج والسلّم) ----- */
+    function qHtml(q) {
+      const opts = q.type === "tf"
+        ? `<div class="arc-opts tf"><button class="arc-opt" type="button" data-v="1"><i>✓</i> ${T("صح", "True")}</button><button class="arc-opt" type="button" data-v="0"><i>✗</i> ${T("خطأ", "False")}</button></div>`
+        : `<div class="arc-opts${q.options.every((o) => !o.t && o.icon) ? " pics" : ""}">${q.options.map((o, i) => `<button class="arc-opt" type="button" data-i="${i}" dir="auto">${o.icon ? `<span class="arc-ic">${o.icon}</span>` : ""}${o.t ? `<span>${esc(o.t)}</span>` : ""}</button>`).join("")}</div>`;
+      return `<div class="arc-q"><p class="arc-kind">${q.type === "tf" ? T("صح أم خطأ؟", "True or false?") : T("اختر الإجابة", "Choose the answer")}</p>
+        ${q.big ? `<div class="arc-bigic">${q.big}</div>` : ""}<p class="arc-prompt" dir="auto">${esc(q.prompt)}</p>${opts}<div class="arc-fb" aria-live="polite"></div></div>`;
+    }
+    // يربط الأزرار، ويستدعي done(ok) مرّة واحدة
+    function bindQ(box, q, done, opts) {
+      let locked = false;
+      const pick = (btn, ok) => {
+        if (locked) return; if (!ok && opts && opts.second && opts.second()) { btn.classList.add("no"); btn.disabled = true; SND.p("no"); box.querySelector(".arc-fb").innerHTML = `<b class="warn">${T("🛟 فرصة ثانية، حاول مرّة أخرى", "🛟 Second chance, try again")}</b>`; return; }
+        locked = true; box.querySelectorAll(".arc-opt").forEach((b) => { b.disabled = true; });
+        btn.classList.add(ok ? "ok" : "no");
+        if (!ok) { const right = q.type === "tf" ? box.querySelector(`[data-v="${q.answer ? 1 : 0}"]`) : box.querySelector(`[data-i="${q.options.findIndex((o) => o.ok)}"]`); if (right) right.classList.add("ok"); }
+        const fb = box.querySelector(".arc-fb");
+        fb.innerHTML = ok ? `<b class="good">${en ? "Excellent!" : ["أحسنت!", "ممتاز!", "رائع!", "بارك الله فيك!"][Math.floor(Math.random() * 4)]}</b>`
+          : `<b class="bad">${T("الصواب:", "Correct answer:")}</b> <span dir="auto">${esc(q.solution)}</span>`;
+        done(ok);
+      };
+      if (q.type === "tf") box.querySelectorAll("[data-v]").forEach((b) => b.onclick = () => pick(b, (b.dataset.v === "1") === q.answer));
+      else box.querySelectorAll("[data-i]").forEach((b) => b.onclick = () => pick(b, !!q.options[Number(b.dataset.i)].ok));
+    }
+    const nextBtn = (box, label, fn, auto) => {
+      const fb = box.querySelector(".arc-fb"), b = document.createElement("button");
+      b.type = "button"; b.className = "arc-btn arc-next"; b.textContent = label; b.onclick = () => { clearTimeout(t); fn(); }; fb.appendChild(b);
+      const t = auto ? setTimeout(fn, auto) : 0; if (!auto) b.focus({ preventScroll: true });
+    };
+
+    /* ========== 1) ذاكرة الكلمات ========== */
+    function memory() {
+      const P = pool();
+      // أزواج لا يتكرّر فيها معنى ولا صورة، حتى لا تحتمل البطاقة أكثر من شريك
+      // ونوع واحد في الجولة (كلمة/معنى، أو كلمة/صورة، أو تقطيع)، ولا يتشابه نصّ بطاقتين
+      const order = shuffle(P.pairs).sort((a, b) => (b.lid === focus.id) - (a.lid === focus.id));
+      const kc = {}; order.forEach((p) => { kc[kindOf(p)] = (kc[kindOf(p)] || 0) + 1; });
+      const kind = Object.keys(kc).sort((a, b) => kc[b] - kc[a])[0];
+      const sq = (x) => norm(x).replace(/\s/g, "");
+      const pick = (strict) => { const seenL = new Set(), seenT = new Set(), out = [];
+        for (const p of order) {
+          if (out.length >= 6) break; if (strict && kindOf(p) !== kind) continue;
+          const K = labelKey(p), ta = sq(p.a), tb = p.b ? sq(p.b) : "";
+          if (!K || seenL.has(K) || seenT.has(ta) || (tb && seenT.has(tb))) continue;
+          seenL.add(K); seenT.add(ta); if (tb) seenT.add(tb); out.push(p);
+        } return out; };
+      let chosen = pick(true); if (chosen.length < 3) chosen = pick(false);
+      const N = chosen.length;
+      const cards = shuffle(chosen.flatMap((p, i) => [{ i, side: "a", text: p.a, icon: "" }, { i, side: "b", text: p.b, icon: p.icon }]));
+      let open = [], moves = 0, found = 0, busy = false;
+      root.innerHTML = `${hud(T("ذاكرة الكلمات", "Word memory"), `<span class="arc-pill">${T("المحاولات", "Moves")} <b data-moves>0</b></span><span class="arc-pill">${T("الأزواج", "Pairs")} <b data-found>0</b>/${N}</span>`)}
+        <p class="arc-tip">${(() => { const k = kindOf(chosen[0] || {}); return /s/.test(k) ? T("طابق الكلمة المقطّعة بالكلمة كاملة.", "Match each split word with the whole word.")
+          : k === "i" ? T("طابق كلّ كلمة (الشريط الذهبيّ) بصورتها (الشريط الأخضر).", "Match each word (gold) with its picture (green).")
+          : T("طابق كلّ كلمة (الشريط الذهبيّ) بمعناها (الشريط الأخضر).", "Match each word (gold) with its meaning (green)."); })()}</p>
+        <div class="arc-mem n${cards.length}">${cards.map((c, k) => `<button class="arc-mc" type="button" data-k="${k}" aria-label="${T("بطاقة", "Card")} ${k + 1}">
+          <span class="arc-mc-in"><span class="arc-mc-back"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4l4.5 9.5 10.5 1.5-7.5 7.3 1.8 10.4L20 27.8l-9.3 4.9 1.8-10.4L5 15l10.5-1.5z" fill="none" stroke="#D4AA55" stroke-width="2"/></svg></span>
+          <span class="arc-mc-face ${c.side}"><small>${c.side === "a" ? T("كلمة", "Word") : T("معنى", "Meaning")}</small>${c.icon ? `<span class="arc-ic">${c.icon}</span>` : ""}${c.text ? `<span class="arc-mc-t" dir="auto">${esc(c.text)}</span>` : ""}</span></span></button>`).join("")}</div>`;
+      bindHud();
+      const el = root.querySelectorAll(".arc-mc");
+      el.forEach((b) => b.onclick = () => {
+        const k = Number(b.dataset.k); if (busy || b.classList.contains("up") || b.classList.contains("done")) return;
+        b.classList.add("up"); SND.p("flip"); open.push(k);
+        if (open.length < 2) return;
+        moves++; root.querySelector("[data-moves]").textContent = moves;
+        const [x, y] = open; open = [];
+        if (cards[x].i === cards[y].i && cards[x].side !== cards[y].side) {
+          found++; root.querySelector("[data-found]").textContent = found;
+          setTimeout(() => { el[x].classList.add("done"); el[y].classList.add("done"); SND.p(found === N ? "combo" : "ok"); }, 260);
+          if (found === N) setTimeout(() => {
+            const extra = moves - N, stars = extra <= 1 ? 3 : extra <= N ? 2 : 1, score = Math.max(1, N - Math.floor(extra / 2));
+            finish("memory", score, N, { title: T("ذاكرة الكلمات", "Word memory"), stars, medal: "🧠", big: `${moves} ${T("محاولة", "moves")}`, sub: T(`طابقت ${N} أزواج. أقلّ عدد ممكن: ${N} محاولات.`, `You matched ${N} pairs. Fewest possible: ${N} moves.`) });
+          }, 1100);
+        } else { busy = true; setTimeout(() => { el[x].classList.remove("up"); el[y].classList.remove("up"); el[x].classList.add("shake"); el[y].classList.add("shake"); SND.p("no"); setTimeout(() => { el[x].classList.remove("shake"); el[y].classList.remove("shake"); busy = false; }, 380); }, 850); }
+      });
+    }
+
+    /* ========== 2) برج المعرفة ========== */
+    function tower() {
+      const qs = interleave(bank(pool(), T, focus.id).slice(0, 10)), n = qs.length;
+      let i = 0, right = 0, streak = 0, pts = 0; const missed = [];
+      const COLORS = ["#102A4C", "#14A37F", "#E8833A", "#5B7FD1", "#C2477F", "#2E8CA8"];
+      root.innerHTML = `${hud(T("برج المعرفة", "Knowledge tower"), `<span class="arc-pill">⭐ <b data-pts>0</b></span><span class="arc-pill arc-flame" hidden>🔥 <b data-st>0</b></span>`)}
+        <div class="arc-play"><div class="arc-tower" aria-label="${T("البرج", "Tower")}"><div class="arc-sky"><span class="arc-crown" hidden>👑</span><div class="arc-stack"></div></div><div class="arc-base"></div><p class="arc-h"><b data-h>0</b> / ${n}</p></div><div class="arc-qbox"></div></div>`;
+      bindHud();
+      const stack = root.querySelector(".arc-stack"), qbox = root.querySelector(".arc-qbox"), towerEl = root.querySelector(".arc-tower");
+      const draw = () => {
+        const q = qs[i]; qbox.innerHTML = `<div class="arc-prog">${qs.map((_, k) => `<i class="${k < i ? "d" : k === i ? "c" : ""}"></i>`).join("")}</div>` + qHtml(q);
+        bindQ(qbox, q, (ok) => {
+          if (ok) {
+            right++; streak++; const gold = streak >= 3, add = gold ? 200 : 100; pts += add;
+            const blk = document.createElement("div"); blk.className = "arc-blk" + (gold ? " gold" : "");
+            blk.style.background = gold ? "" : COLORS[(right - 1) % COLORS.length]; blk.innerHTML = gold ? "★" : String(right);
+            blk.style.width = (78 + ((right * 37) % 16)) + "%"; stack.appendChild(blk);
+            SND.p("drop"); setTimeout(() => SND.p(gold ? "combo" : "coin"), 140);
+            const flo = document.createElement("span"); flo.className = "arc-float"; flo.dir = "ltr"; flo.textContent = `+${add}${gold ? " ×2" : ""}`; qbox.querySelector(".arc-fb").prepend(flo);
+          } else { streak = 0; missed.push(q); SND.p("no"); if (!reduced()) { towerEl.classList.add("wob"); setTimeout(() => towerEl.classList.remove("wob"), 600); } }
+          root.querySelector("[data-pts]").textContent = pts; root.querySelector("[data-h]").textContent = right;
+          const fl = root.querySelector(".arc-flame"); fl.hidden = streak < 2; root.querySelector("[data-st]").textContent = streak;
+          const last = i === n - 1;
+          nextBtn(qbox, last ? T("النتيجة ←", "Result →") : T("التالي ←", "Next →"), () => { i++; if (i < n) draw(); else end(); }, ok ? 1300 : 0);
+        });
+      };
+      const end = () => { if (right === n) root.querySelector(".arc-crown").hidden = false;
+        finish("tower", right, n, { title: T("برج المعرفة", "Knowledge tower"), medal: right === n ? "👑" : "🏰", sub: T(`ارتفاع برجك ${right} طوابق · ${pts} نجمة`, `Your tower is ${right} blocks high · ${pts} stars`), missed }); };
+      draw();
+    }
+
+    /* ========== 3) سلّم التحدّي ========== */
+    function ladder() {
+      const B = bank(pool(), T, focus.id), P = pool();
+      // نعيد بناء أسئلة الكلمات بأربعة خيارات لرفع الصعوبة في الدرجات العليا
+      const hard = shuffle(P.pairs).map((p) => pairQ(P, p, Math.random() < 0.6 ? "ba" : "ab", 4, T)).filter(Boolean);
+      const byD = { 1: shuffle(B.filter((q) => q.diff === 1)), 2: shuffle(B.filter((q) => q.diff === 2)), 3: shuffle(B.filter((q) => q.diff === 3).concat(hard)) };
+      const used = new Set(), take = (d) => { for (const k of [d, d === 1 ? 2 : d - 1, d === 3 ? 2 : 3, 1, 2, 3]) { const L = byD[k]; while (L && L.length) { const q = L.shift(); if (!used.has(q.key)) { used.add(q.key); return q; } } } return null; };
+      const plan = [1, 1, 2, 2, 2, 3, 3, 3, 3, 3], rungs = [];
+      for (const d of plan) { const q = take(d); if (!q) break; rungs.push(q); }
+      const n = rungs.length; let i = 0; const life = { cut: true, swap: true, second: true }; let secondArmed = false; const missed = [];
+      root.innerHTML = `${hud(T("سلّم التحدّي", "Challenge ladder"))}
+        <div class="arc-play"><div class="arc-lad">${rungs.map((_, k) => `<div class="arc-rung" data-r="${n - 1 - k}"><span>${n - k}</span></div>`).join("")}</div><div class="arc-qbox"></div></div>`;
+      bindHud();
+      const qbox = root.querySelector(".arc-qbox");
+      const paintLad = () => root.querySelectorAll(".arc-rung").forEach((r) => { const k = Number(r.dataset.r); r.className = "arc-rung" + (k < i ? " done" : k === i ? " cur" : "") + (k === n - 1 ? " top" : ""); });
+      const zone = (k) => (k < 3 ? T("تمهيد", "Warm-up") : k < 7 ? T("تحدٍّ", "Challenge") : T("القمّة", "Summit"));
+      const draw = () => {
+        paintLad(); const q = rungs[i]; secondArmed = false;
+        qbox.innerHTML = `<div class="arc-life">
+            <button type="button" data-l="cut" ${life.cut && q.type === "mcq" && q.options.length > 2 ? "" : "disabled"} title="${T("يحذف خيارين خاطئين", "Removes wrong options")}">✂️ <span>${T("حذف خيارين", "50 : 50")}</span></button>
+            <button type="button" data-l="swap" ${life.swap && (byD[1].length + byD[2].length + byD[3].length) ? "" : "disabled"} title="${T("سؤال آخر بالصعوبة نفسها", "Another question")}">🔄 <span>${T("سؤال بديل", "Swap")}</span></button>
+            <button type="button" data-l="second" ${life.second ? "" : "disabled"} title="${T("إن أخطأت تحاول مرّة أخرى", "Retry if wrong")}">🛟 <span>${T("فرصة ثانية", "Second chance")}</span></button></div>
+          <p class="arc-zone">${T("الدرجة", "Rung")} <b>${i + 1}</b> ${T("من", "of")} ${n} · ${zone(i)}</p>` + qHtml(q);
+        qbox.querySelector('[data-l="cut"]').onclick = (e) => { life.cut = false; e.currentTarget.disabled = true; SND.p("tick");
+          const wrong = shuffle([...qbox.querySelectorAll("[data-i]")].filter((b) => !q.options[Number(b.dataset.i)].ok)); wrong.slice(0, q.options.length > 3 ? 2 : 1).forEach((b) => { b.disabled = true; b.classList.add("gone"); }); };
+        qbox.querySelector('[data-l="swap"]').onclick = () => { const d = q.diff, nq = take(d); if (!nq) return; life.swap = false; rungs[i] = nq; SND.p("flip"); draw(); };
+        qbox.querySelector('[data-l="second"]').onclick = (e) => { life.second = false; secondArmed = true; e.currentTarget.disabled = true; e.currentTarget.classList.add("armed"); SND.p("tick"); };
+        bindQ(qbox, q, (ok) => {
+          qbox.querySelectorAll("[data-l]").forEach((b) => { b.disabled = true; });
+          if (ok) { SND.p(i === n - 1 ? "combo" : "ok"); i++; paintLad();
+            nextBtn(qbox, i < n ? T("اصعد ←", "Climb →") : T("القمّة! ←", "Summit! →"), () => (i < n ? draw() : end(true)), 1200);
+          } else { missed.push(q); SND.p("no"); nextBtn(qbox, T("النتيجة ←", "Result →"), () => end(false), 0); }
+        }, { second: () => { if (!secondArmed) return false; secondArmed = false; return true; } });
+      };
+      const end = (top) => finish("ladder", i, n, { title: T("سلّم التحدّي", "Challenge ladder"), stars: top ? 3 : i >= n * 0.6 ? 2 : i > 0 ? 1 : 0, medal: top ? "🏆" : "🪜",
+        big: `${i} / ${n}`, sub: top ? T("بلغت القمّة! ما شاء الله", "You reached the summit!") : T(`صعدت ${i} درجات. حاول أن تبلغ القمّة في الجولة القادمة.`, `You climbed ${i} rungs. Aim for the top next time.`), missed });
+      draw();
+    }
+
+    menu();
+    return { menu, pool: () => ({ lesson: poolL, unit: poolU }) };
+  }
+
+  return { mount, buildPool, sound: SND };
+})();

@@ -2937,7 +2937,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     setNav("grades");
     loading();
     const { data: l, error } = await sb.from("lessons")
-      .select(`id, code, title_ar, title_en, axis_code, book_pages, overview_ar, periods, objective_ar, objective_en,
+      .select(`id, code, unit_id, title_ar, title_en, axis_code, book_pages, overview_ar, periods, objective_ar, objective_en,
         units(term, title_ar, title_en, year_group, track, subject_id),
         lesson_resources(id, kind, part, title_ar, url, storage_path, sort_order, audience, meta),
         evidences(kind, text_ar, full_ar, full_en, translation_en, surah_no, ayah_from, ayah_to, source, hadith_grade, is_verified, sort_order),
@@ -3260,7 +3260,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       ...((subject === "islamic" || subject === "igcse") || ev.length ? [["evidence", (subject === "islamic" || subject === "igcse") ? CT("المصادر", "Sources") : "الشواهد", (subject === "islamic" || subject === "igcse") ? (IEPACK ? (lockedForMe ? lockedMsg : resItems(res.filter((r) => /sources-concept-card/.test(r.url || "")))) : srcHtml) : evHtml]] : []),
       ["identity", nnEn ? "National identity" : "الهوية الوطنية", idHtml],
       ["outcomes", nnEn ? "Learning outcomes" : "نواتج التعلم", outHtml],
-      ...(gameItems.length ? [["games", nnEn ? "🎮 Lesson game" : "🎮 لعبة الدرس", lockedForMe ? lockedMsg : gamePanel(l, gameItems)]] : []),
+      ...((gameItems.length || arcHas(summary, reader)) ? [["games", nnEn ? "🎮 Games" : "🎮 ألعاب الدرس", lockedForMe ? lockedMsg : `<div id="arcBox"></div>`]] : []),
       ["quiz", nnEn ? "Exit card" : "بطاقة الخروج", quizHtml],
       ["recite", nnEn ? "Recitation" : "التسميع", recHtml]
     ];
@@ -3299,7 +3299,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const wire = (k) => {
       if (k === "quiz") { const eb = document.getElementById("editTicket"); if (eb) eb.onclick = () => ticketEditor(l, u, ticket); }
       if (k === "recite" && isStudent() && !lockedForMe) recorder(l, nn);
-      if (k === "games" && !lockedForMe && gameItems.length) runGame(l, gameItems);
+      if (k === "games" && !lockedForMe) arcadeRun(l, gameItems, summary, reader, nnEn);
       if (k === "cards" && !lockedForMe) fcRun(l, fcCards, nnEn);
       if (k === "reader") { const rb = document.getElementById("rdBox"); if (rb) readerRun(rb, l, u, reader, nnEn); }
       if (k === "prog") { const pb = document.getElementById("pgBox"); if (pb) (isStaff() ? progTeacher(pb, l, u, nnEn) : progStudent(pb, l, nnEn)); }
@@ -11310,6 +11310,39 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       <p class="muted">${LANG === "en" ? (items.some((x) => ["tf", "mcq", "match"].includes(x.game)) ? "Questions on the lesson: true or false, choose, match" + (items.some((x) => ["order", "complete"].includes(x.game)) ? ", and put the verse in order" : "") + ". 10 points per correct answer, +20 for a perfect round." : "Put the words in order and complete the missing word. 10 points for each correct answer, +20 for a perfect round.") : (state.pageSubject === "arabic" ? "أسئلة على محتوى الدرس: صح أم خطأ، واختر الإجابة، وصِل الكلمة بصورتها، ورتّب الكلمات لتكوّن جملة. لكل إجابة صحيحة 10 نقاط، و20 نقطة إضافية للجولة الكاملة." : items.some((x) => ["tf", "mcq", "match"].includes(x.game)) ? "أسئلة على محتوى الدرس: صح أم خطأ، واختر الإجابة، وصِل المتشابهات" + (items.some((x) => ["order", "complete"].includes(x.game)) ? "، ورتّب الآية أو الحديث" : "") + ". لكل إجابة صحيحة 10 نقاط، و20 نقطة إضافية للجولة الكاملة." : "رتّب كلمات الآية أو الحديث، وأكمل الكلمة الناقصة. لكل إجابة صحيحة 10 نقاط، و20 نقطة إضافية للجولة الكاملة.")}</p>
       <button class="btn btn-dawn" id="gameStart">${LANG === "en" ? "Play" : "ابدأ اللعب"}</button></div></div>
       <div id="gameStage"></div>`;
+  }
+  /* ساحة الألعاب: ذاكرة الكلمات · برج المعرفة · سلّم التحدّي (المحرّك في arcade.js) */
+  function arcHas(summary, reader) {
+    const c = (summary && summary.content) || {};
+    return !!((c.words && c.words.length) || (c.quiz && c.quiz.length) || (reader && reader.words && reader.words.length));
+  }
+  async function arcadeRun(l, gameItems, summary, reader, en) {
+    const box = document.getElementById("arcBox"); if (!box || !window.HiraArcade) return;
+    box.innerHTML = `<p class="muted">${en ? "Loading games…" : "جارٍ تجهيز الألعاب…"}</p>`;
+    const c = (summary && summary.content) || {};
+    const lessons = [{ id: l.id, title: l.title_ar, items: gameItems, words: c.words || [], quiz: c.quiz || [], rw: (reader && reader.words) || [] }];
+    if (l.unit_id) {
+      try {
+        const { data } = await sb.from("lessons").select("id, sort_order, title_ar, game_items(game, source, payload, sort_order), lesson_summaries(content)").eq("unit_id", l.unit_id).neq("id", l.id).order("sort_order");
+        (data || []).forEach((x) => { const ls = Array.isArray(x.lesson_summaries) ? x.lesson_summaries[0] : x.lesson_summaries; const k = (ls && ls.content) || {};
+          lessons.push({ id: x.id, title: x.title_ar, items: x.game_items || [], words: k.words || [], quiz: k.quiz || [] }); });
+      } catch (e) { /* الدرس وحده يكفي */ }
+    }
+    if (!document.body.contains(box)) return;
+    const cfg = { lessons, focusId: l.id, en,
+      classic: gameItems.length ? () => {
+        box.innerHTML = `<button class="btn btn-ghost btn-small" id="arcBack" type="button">${en ? "← Games" : "→ الألعاب"}</button>` + gamePanel(l, gameItems);
+        document.getElementById("arcBack").onclick = () => window.HiraArcade.mount(box, cfg);
+        runGame(l, gameItems);
+      } : null,
+      onFinish: async (mode, score, max) => {
+        if (!isStudent()) return en ? "Teacher preview: points are not counted." : "معاينة المعلم: لا تُحتسب النقاط.";
+        const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: Math.min(score, max), p_max: Math.min(Math.max(max, 1), 30) });
+        if (error || !data) return "";
+        return data.capped ? (en ? "You reached today's limit for this lesson. Try another lesson!" : "بلغت حدّ النقاط اليوميّ لهذا الدرس، جرّب درسًا آخر!")
+          : `<b>+${data.points}</b> ${en ? "points" : "نقطة"} · ${en ? "Total" : "رصيدك"} <b>${data.total}</b>${data.streak > 1 ? ` · 🔥 ${data.streak} ${en ? "days in a row" : "أيام متتالية"}` : ""}`;
+      } };
+    window.HiraArcade.mount(box, cfg);
   }
   function runGame(l, items) {
     const stage = document.getElementById("gameStage"), startBtn = document.getElementById("gameStart");
