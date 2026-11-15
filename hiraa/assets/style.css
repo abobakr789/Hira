@@ -2480,3 +2480,17 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .rd-snd-cv .rd-snd-b { background: #FFFDF7; color: #102A4C; box-shadow: 0 4px 0 #D4AA55; font-size: 1rem; padding: 9px 20px; }
 .rd-snd-cv .rd-snd-p, .rd-snd-cv .rd-snd-r { display: none; }
 @media (prefers-reduced-motion: reduce) { .rd-snd.on .rd-snd-i { animation: none; } .rd-snd-r:hover { transform: none; } }
+
+/* benchmark reading passages & listening stimuli (shared by several questions) */
+.bench-stim { background: var(--dawn-soft); border: 1px solid var(--line); border-radius: var(--radius-s); padding: 14px 18px; margin: 0 0 18px; }
+.bench-stim summary { cursor: pointer; font-family: var(--font-text); font-size: 1.25rem; font-weight: 700; color: var(--ink); }
+.bench-stim h2 { font-family: var(--font-text); font-size: 1.3rem; margin: 6px 0; }
+.bench-stim .bs-kind { display: inline-block; font-family: var(--font-ui); font-size: .8rem; font-weight: 600; background: var(--paper); color: var(--hira); border-radius: 999px; padding: 1px 10px; margin-inline-end: 6px; vertical-align: middle; }
+.bench-stim .bs-body { max-height: 46vh; overflow: auto; margin-top: 10px; }
+.bench-stim .bs-body p { font-family: var(--font-text); font-size: 1.2rem; line-height: 2.1; margin: 0 0 10px; }
+.bench-stim .bs-body sup { color: var(--muted); font-family: var(--font-ui); font-size: .7rem; }
+.bench-stim audio { width: 100%; margin-top: 6px; }
+.bs-tbl { width: 100%; border-collapse: collapse; margin-top: 8px; background: var(--paper); }
+.bs-tbl caption { text-align: start; font-weight: 600; color: var(--muted); padding-bottom: 6px; }
+.bs-tbl th, .bs-tbl td { border: 1px solid var(--line); padding: 6px 10px; text-align: start; }
+.bs-tbl th { background: var(--stone); }

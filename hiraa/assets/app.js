@@ -5471,8 +5471,22 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     }
     const [{ data: a }, { data: aq }] = await Promise.all([
       sb.from("assessments").select("title_ar, title_en, year_group, track, kind").eq("id", id).single(),
-      sb.from("assessment_questions").select("sort_order, points, questions(id, stem_ar, stem_en, options, audio_url, qtype)").eq("assessment_id", id).order("sort_order")
+      sb.from("assessment_questions").select("sort_order, points, questions(id, stem_ar, stem_en, options, audio_url, qtype, stimulus_id)").eq("assessment_id", id).order("sort_order")
     ]);
+    // reading passages / listening stimuli shared by several benchmark questions
+    const stimIds = [...new Set((aq || []).map((x) => x.questions && x.questions.stimulus_id).filter(Boolean))];
+    const STIM = {};
+    if (stimIds.length) { const { data: st } = await sb.from("bench_stimuli").select("id, kind_ar, title_ar, paras, tbl, is_audio, audio_url").in("id", stimIds); (st || []).forEach((s) => { STIM[s.id] = s; }); }
+    const stimHtml = (q) => {
+      const s = q.stimulus_id && STIM[q.stimulus_id]; if (!s) return "";
+      if (s.is_audio) return `<div class="bench-stim audio"><span class="bs-kind">${esc(s.kind_ar || "")}</span><h2>${esc(s.title_ar)}</h2>
+        ${s.audio_url ? `<audio controls preload="none" src="${esc(s.audio_url)}"></audio><p class="muted small">استمع إلى النص مرتين، ثم أجب.</p>` : `<p class="muted small">🎧 يُسمَع هذا النص مرتين بصوت المعلم قبل الإجابة، ولا يُعرض مكتوبًا للطالب.</p>`}</div>`;
+      const paras = Array.isArray(s.paras) ? s.paras : [];
+      const t = s.tbl;
+      return `<details class="bench-stim" open><summary><span class="bs-kind">${esc(s.kind_ar || "")}</span> ${esc(s.title_ar)}</summary>
+        <div class="bs-body">${paras.map((p, k) => `<p>${esc(p)} <sup>${k + 1}</sup></p>`).join("")}
+        ${t && t.rows ? `<table class="bs-tbl"><caption>${esc(t.caption || "")}</caption>${t.head ? `<thead><tr>${t.head.map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead>` : ""}<tbody>${t.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>` : ""}</div></details>`;
+    };
     let qs = (aq || []).map((x) => x.questions ? { ...x.questions, pts: x.points } : null).filter(Boolean).map((q) => ({ ...q, opts: Array.isArray(q.options) ? shuffle(q.options) : [], rightSh: q.options && q.options.right ? shuffle(q.options.right) : null }));
     const practice = a && a.kind === "unit_practice", unitTest = a && a.kind === "unit_test";
     if (practice || unitTest) { const pk = "hira-set-" + att; let ids = null; try { ids = JSON.parse(localStorage.getItem(pk) || "null"); } catch (e) {}
@@ -5489,6 +5503,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div class="test-top" ${nn ? 'dir="ltr"' : ""}><strong>${esc(tTitle(a))}</strong><span>${nn ? `${answered} of ${qs.length} answered` : `${answered} من ${qs.length} أُجيب`}</span></div>
         <div class="test-progress"><span style="width:${Math.round(((i + 1) / qs.length) * 100)}%"></span></div>
         <p class="q-num" ${nn ? 'dir="ltr"' : ""}>${nn ? `Question ${i + 1} of ${qs.length}` : `السؤال ${i + 1} من ${qs.length}`}</p>
+        ${stimHtml(q)}
         <div class="q-stem-row" ${nn ? 'dir="ltr"' : ""}><button class="speak-btn" data-say="stem" aria-label="${nn ? "Read aloud" : "استمع للسؤال"}">${spk}</button>
           <h1 class="q-stem">${esc(nn && q.stem_en ? q.stem_en : q.stem_ar)}</h1></div>
         ${qTypeBody(q, answers, nn, spk)}
