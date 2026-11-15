@@ -185,7 +185,9 @@ window.HiraArcade = (function () {
       root.querySelector("[data-menu]").onclick = () => { SND.p("tick"); menu(); };
       if (stars === 3) { SND.p("win"); burst(); } else if (stars >= 1) SND.p("cheer");
       const el = root.querySelector(".arc-pts");
-      Promise.resolve(cfg.onFinish ? cfg.onFinish(mode, score, max) : "").then((h) => { el.innerHTML = h || ""; }).catch(() => { el.textContent = ""; });
+      // ما يصل إلى تقرير المعلم: نصّ السؤال الذي أخطأ فيه الطالب (أو الكلمة التي خلط فيها)
+      const report = opts.report || (opts.missed || []).map((q) => q.prompt);
+      Promise.resolve(cfg.onFinish ? cfg.onFinish(mode, score, max, report) : "").then((h) => { el.innerHTML = h || ""; }).catch(() => { el.textContent = ""; });
     }
     function burst() {
       if (reduced()) return;
@@ -243,7 +245,7 @@ window.HiraArcade = (function () {
       let chosen = pick(true); if (chosen.length < 3) chosen = pick(false);
       const N = chosen.length;
       const cards = shuffle(chosen.flatMap((p, i) => [{ i, side: "a", text: p.a, icon: "" }, { i, side: "b", text: p.b, icon: p.icon }]));
-      let open = [], moves = 0, found = 0, busy = false;
+      let open = [], moves = 0, found = 0, busy = false; const seen = new Set(), confused = new Set();
       root.innerHTML = `${hud(T("ذاكرة الكلمات", "Word memory"), `<span class="arc-pill">${T("المحاولات", "Moves")} <b data-moves>0</b></span><span class="arc-pill">${T("الأزواج", "Pairs")} <b data-found>0</b>/${N}</span>`)}
         <p class="arc-tip">${(() => { const k = kindOf(chosen[0] || {}); return /s/.test(k) ? T("طابق الكلمة المقطّعة بالكلمة كاملة.", "Match each split word with the whole word.")
           : k === "i" ? T("طابق كلّ كلمة (الشريط الذهبيّ) بصورتها (الشريط الأخضر).", "Match each word (gold) with its picture (green).")
@@ -259,12 +261,14 @@ window.HiraArcade = (function () {
         if (open.length < 2) return;
         moves++; root.querySelector("[data-moves]").textContent = moves;
         const [x, y] = open; open = [];
+        const wasSeen = seen.has(x) && seen.has(y); seen.add(x); seen.add(y);
+        if (cards[x].i !== cards[y].i && wasSeen) confused.add(chosen[cards[x].side === "a" ? cards[x].i : cards[y].i].a); // رأى البطاقتين قبلُ وأخطأ: خلط حقيقيّ
         if (cards[x].i === cards[y].i && cards[x].side !== cards[y].side) {
           found++; root.querySelector("[data-found]").textContent = found;
           setTimeout(() => { el[x].classList.add("done"); el[y].classList.add("done"); SND.p(found === N ? "combo" : "ok"); }, 260);
           if (found === N) setTimeout(() => {
             const extra = moves - N, stars = extra <= 1 ? 3 : extra <= N ? 2 : 1, score = Math.max(1, N - Math.floor(extra / 2));
-            finish("memory", score, N, { title: T("ذاكرة الكلمات", "Word memory"), stars, medal: "🧠", big: `${moves} ${T("محاولة", "moves")}`, sub: T(`طابقت ${N} أزواج. أقلّ عدد ممكن: ${N} محاولات.`, `You matched ${N} pairs. Fewest possible: ${N} moves.`) });
+            finish("memory", score, N, { title: T("ذاكرة الكلمات", "Word memory"), stars, medal: "🧠", big: `${moves} ${T("محاولة", "moves")}`, sub: T(`طابقت ${N} أزواج. أقلّ عدد ممكن: ${N} محاولات.`, `You matched ${N} pairs. Fewest possible: ${N} moves.`), report: [...confused] });
           }, 1100);
         } else { busy = true; setTimeout(() => { el[x].classList.remove("up"); el[y].classList.remove("up"); el[x].classList.add("shake"); el[y].classList.add("shake"); SND.p("no"); setTimeout(() => { el[x].classList.remove("shake"); el[y].classList.remove("shake"); busy = false; }, 380); }, 850); }
       });

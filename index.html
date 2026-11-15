@@ -2664,6 +2664,25 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
   .arc *, .arc *::before, .arc *::after { animation: none !important; transition: none !important; }
 }
 
+/* تقرير ألعاب الفصل (للمعلم) */
+.arc-rep { margin-top: 22px; border: 1.5px solid var(--line); border-radius: 18px; padding: 16px 18px; background: var(--paper); display: grid; gap: 10px; }
+.arc-rep h3 { margin: 0; color: var(--hira); } .arc-rep h4 { margin: 6px 0 0; color: var(--hira); font-size: 1rem; } .arc-rep p { margin: 0; }
+.arc-rep-cls { display: flex; flex-wrap: wrap; gap: 6px; }
+.arc-rep-k { display: flex; flex-wrap: wrap; gap: 10px; }
+.arc-rep-k > div { background: var(--stone); border-radius: 12px; padding: 8px 14px; display: grid; font-size: .82rem; color: var(--muted); }
+.arc-rep-k > div b { font-size: 1.3rem; color: var(--hira); font-variant-numeric: tabular-nums; }
+.arc-rep-k .arc-rep-modes { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+.arc-rep-miss { margin: 0; padding-inline-start: 22px; display: grid; gap: 8px; }
+.arc-rep-miss li { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; }
+.arc-rep-miss li span { min-width: 0; }
+.arc-rep-miss li i { grid-column: 1; height: 6px; border-radius: 3px; background: linear-gradient(to left, #E8833A var(--w), var(--stone-2) var(--w)); }
+[dir="ltr"] .arc-rep-miss li i { background: linear-gradient(to right, #E8833A var(--w), var(--stone-2) var(--w)); }
+.arc-rep-miss li b { grid-row: 1 / span 2; grid-column: 2; font-size: .85rem; color: #B5561A; white-space: nowrap; }
+.arc-rep-st { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+.arc-rep-st > div { display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: baseline; border: 1px solid var(--line); border-radius: 10px; padding: 6px 10px; }
+.arc-rep-st > div span { margin-inline-end: auto; } .arc-rep-st > div b { color: #157A55; } .arc-rep-st > div small { width: 100%; color: var(--muted); font-size: .78rem; }
+.arc-rep-st > div.off { opacity: .6; }
+
 </style>
 </head>
 <body>
@@ -2922,7 +2941,9 @@ window.HiraArcade = (function () {
       root.querySelector("[data-menu]").onclick = () => { SND.p("tick"); menu(); };
       if (stars === 3) { SND.p("win"); burst(); } else if (stars >= 1) SND.p("cheer");
       const el = root.querySelector(".arc-pts");
-      Promise.resolve(cfg.onFinish ? cfg.onFinish(mode, score, max) : "").then((h) => { el.innerHTML = h || ""; }).catch(() => { el.textContent = ""; });
+      // ما يصل إلى تقرير المعلم: نصّ السؤال الذي أخطأ فيه الطالب (أو الكلمة التي خلط فيها)
+      const report = opts.report || (opts.missed || []).map((q) => q.prompt);
+      Promise.resolve(cfg.onFinish ? cfg.onFinish(mode, score, max, report) : "").then((h) => { el.innerHTML = h || ""; }).catch(() => { el.textContent = ""; });
     }
     function burst() {
       if (reduced()) return;
@@ -2980,7 +3001,7 @@ window.HiraArcade = (function () {
       let chosen = pick(true); if (chosen.length < 3) chosen = pick(false);
       const N = chosen.length;
       const cards = shuffle(chosen.flatMap((p, i) => [{ i, side: "a", text: p.a, icon: "" }, { i, side: "b", text: p.b, icon: p.icon }]));
-      let open = [], moves = 0, found = 0, busy = false;
+      let open = [], moves = 0, found = 0, busy = false; const seen = new Set(), confused = new Set();
       root.innerHTML = `${hud(T("ذاكرة الكلمات", "Word memory"), `<span class="arc-pill">${T("المحاولات", "Moves")} <b data-moves>0</b></span><span class="arc-pill">${T("الأزواج", "Pairs")} <b data-found>0</b>/${N}</span>`)}
         <p class="arc-tip">${(() => { const k = kindOf(chosen[0] || {}); return /s/.test(k) ? T("طابق الكلمة المقطّعة بالكلمة كاملة.", "Match each split word with the whole word.")
           : k === "i" ? T("طابق كلّ كلمة (الشريط الذهبيّ) بصورتها (الشريط الأخضر).", "Match each word (gold) with its picture (green).")
@@ -2996,12 +3017,14 @@ window.HiraArcade = (function () {
         if (open.length < 2) return;
         moves++; root.querySelector("[data-moves]").textContent = moves;
         const [x, y] = open; open = [];
+        const wasSeen = seen.has(x) && seen.has(y); seen.add(x); seen.add(y);
+        if (cards[x].i !== cards[y].i && wasSeen) confused.add(chosen[cards[x].side === "a" ? cards[x].i : cards[y].i].a); // رأى البطاقتين قبلُ وأخطأ: خلط حقيقيّ
         if (cards[x].i === cards[y].i && cards[x].side !== cards[y].side) {
           found++; root.querySelector("[data-found]").textContent = found;
           setTimeout(() => { el[x].classList.add("done"); el[y].classList.add("done"); SND.p(found === N ? "combo" : "ok"); }, 260);
           if (found === N) setTimeout(() => {
             const extra = moves - N, stars = extra <= 1 ? 3 : extra <= N ? 2 : 1, score = Math.max(1, N - Math.floor(extra / 2));
-            finish("memory", score, N, { title: T("ذاكرة الكلمات", "Word memory"), stars, medal: "🧠", big: `${moves} ${T("محاولة", "moves")}`, sub: T(`طابقت ${N} أزواج. أقلّ عدد ممكن: ${N} محاولات.`, `You matched ${N} pairs. Fewest possible: ${N} moves.`) });
+            finish("memory", score, N, { title: T("ذاكرة الكلمات", "Word memory"), stars, medal: "🧠", big: `${moves} ${T("محاولة", "moves")}`, sub: T(`طابقت ${N} أزواج. أقلّ عدد ممكن: ${N} محاولات.`, `You matched ${N} pairs. Fewest possible: ${N} moves.`), report: [...confused] });
           }, 1100);
         } else { busy = true; setTimeout(() => { el[x].classList.remove("up"); el[y].classList.remove("up"); el[x].classList.add("shake"); el[y].classList.add("shake"); SND.p("no"); setTimeout(() => { el[x].classList.remove("shake"); el[y].classList.remove("shake"); busy = false; }, 380); }, 850); }
       });
@@ -14421,14 +14444,56 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
         document.getElementById("arcBack").onclick = () => window.HiraArcade.mount(box, cfg);
         runGame(l, gameItems);
       } : null,
-      onFinish: async (mode, score, max) => {
+      onFinish: async (mode, score, max, missed) => {
+        if (!state.session) return en ? "Sign in to save your points." : "سجّل الدخول لتُحفظ نقاطك.";
         if (!isStudent()) return en ? "Teacher preview: points are not counted." : "معاينة المعلم: لا تُحتسب النقاط.";
-        const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: Math.min(score, max), p_max: Math.min(Math.max(max, 1), 30) });
+        const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: Math.min(score, max), p_max: Math.min(Math.max(max, 1), 30), p_mode: mode, p_missed: (missed || []).slice(0, 10) });
         if (error || !data) return "";
         return data.capped ? (en ? "You reached today's limit for this lesson. Try another lesson!" : "بلغت حدّ النقاط اليوميّ لهذا الدرس، جرّب درسًا آخر!")
           : `<b>+${data.points}</b> ${en ? "points" : "نقطة"} · ${en ? "Total" : "رصيدك"} <b>${data.total}</b>${data.streak > 1 ? ` · 🔥 ${data.streak} ${en ? "days in a row" : "أيام متتالية"}` : ""}`;
       } };
     window.HiraArcade.mount(box, cfg);
+    if (isStaff()) { let rep = document.getElementById("arcRep"); if (!rep) { rep = document.createElement("section"); rep.id = "arcRep"; rep.className = "arc-rep"; box.after(rep); } gameReport(rep, l, en); }
+  }
+  /* تقرير ألعاب الفصل للمعلم: من لعب، وأين أخطأ الفصل */
+  async function gameReport(rep, l, en) {
+    const T = (a, b) => (en ? b : a), u = l.units || {}, me = state.session.user.id;
+    const { data: all } = await sb.from("classes").select("id, name, class_teachers(teacher_id)").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).order("name");
+    const mine = state.profile.role === "teacher" ? (all || []).filter((c) => (c.class_teachers || []).some((x) => x.teacher_id === me)) : (all || []);
+    const head = `<h3>📊 ${T("تقرير ألعاب الفصل", "Class game report")}</h3><p class="muted">${T("من لعب هذا الدرس، ونسبة الإتقان، وأكثر ما أخطأ فيه الطلاب.", "Who played this lesson, their mastery, and what the class got wrong most.")}</p>`;
+    if (!mine.length) { rep.innerHTML = head + `<p class="muted">${T("لا فصول لك في هذا الصف والمسار.", "You have no classes in this grade and track.")}</p>`; return; }
+    rep.innerHTML = head + `<div class="arc-rep-cls" role="group">${mine.map((c, i) => `<button type="button" class="chip tc" data-rc="${c.id}" aria-pressed="${i === 0}">${esc(c.name)}</button>`).join("")}</div><div class="arc-rep-body"></div>`;
+    const body = rep.querySelector(".arc-rep-body");
+    // العدد مع المعدود: طالب واحد، طالبان، 3 طلاب، 11 طالبًا
+    const cnt = (n, one, two, few, many, enOne, enMany) => en ? `${n} ${n === 1 ? enOne : enMany}` : n === 1 ? `${one} واحد` : n === 2 ? two : `${n} ${n <= 10 ? few : many}`;
+    const stN = (n) => cnt(n, "طالب", "طالبان", "طلاب", "طالبًا", "student", "students");
+    const rdN = (n) => (en ? cnt(n, "", "", "", "", "round", "rounds") : n === 1 ? "جولة واحدة" : n === 2 ? "جولتان" : `${n} ${n <= 10 ? "جولات" : "جولة"}`);
+    const MODE = { classic: T("الكلاسيكية", "Classic"), memory: T("الذاكرة", "Memory"), tower: T("البرج", "Tower"), ladder: T("السلّم", "Ladder") };
+    const load = async (cid) => {
+      body.innerHTML = `<p class="muted">${T("جارٍ التحميل…", "Loading…")}</p>`;
+      const { data: st } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cid);
+      const ids = (st || []).map((s) => s.student_id);
+      if (!ids.length) { body.innerHTML = `<p class="muted">${T("لا طلاب في هذا الفصل بعد.", "No students in this class yet.")}</p>`; return; }
+      const { data: gp } = await sb.from("game_plays").select("user_id, score, max_score, mode, missed, played_at").eq("lesson_id", l.id).in("user_id", ids).order("played_at", { ascending: false });
+      const P = gp || [], by = {}, miss = {}, modes = {};
+      P.forEach((p) => {
+        const s = by[p.user_id] || (by[p.user_id] = { n: 0, best: 0, last: p.played_at }); s.n++; s.best = Math.max(s.best, p.max_score ? p.score / p.max_score : 0);
+        if (p.mode) modes[p.mode] = (modes[p.mode] || 0) + 1;
+        (p.missed || []).forEach((t) => { (miss[t] || (miss[t] = new Set())).add(p.user_id); });
+      });
+      const played = Object.keys(by).length, avg = played ? Math.round(100 * Object.values(by).reduce((a, s) => a + s.best, 0) / played) : 0;
+      const top = Object.entries(miss).map(([t, s]) => [t, s.size]).sort((a, b) => b[1] - a[1]).slice(0, 8);
+      const name = (s) => (s.profiles && s.profiles.full_name_ar) || "—";
+      const rows = (st || []).map((s) => ({ s, r: by[s.student_id] })).sort((a, b) => (b.r ? b.r.best : -1) - (a.r ? a.r.best : -1));
+      const day = (d) => { const x = new Date(d); return `${x.getDate()}/${x.getMonth() + 1}`; };
+      body.innerHTML = `<div class="arc-rep-k"><div><b>${T(`${played} من ${ids.length}`, `${played} of ${ids.length}`)}</b>${T("لعبوا", "played")}</div><div><b>${avg}%</b>${T("متوسّط أفضل نتيجة", "avg best score")}</div><div><b>${P.length}</b>${T("عدد الجولات", "rounds")}</div>
+          <div class="arc-rep-modes">${Object.entries(modes).map(([m, n]) => `<span>${MODE[m] || m} <b>${n}</b></span>`).join("") || `<span class="muted">${T("لا جولات بعد", "No rounds yet")}</span>`}</div></div>
+        ${top.length ? `<h4>${T("أكثر ما أخطأ فيه الفصل", "Most missed by the class")}</h4><ol class="arc-rep-miss">${top.map(([t, n]) => `<li><span dir="auto">${esc(t)}</span><i style="--w:${Math.round(100 * n / Math.max(played, 1))}%"></i><b>${stN(n)}</b></li>`).join("")}</ol>
+          <p class="muted" style="font-size:.85rem">${T("اقتراح: ابدأ الحصة القادمة بسؤالين من أعلى هذه القائمة.", "Tip: open the next lesson with two items from the top of this list.")}</p>` : ""}
+        <h4>${T("الطلاب", "Students")}</h4><div class="arc-rep-st">${rows.map(({ s, r }) => `<div class="${r ? "" : "off"}"><span>${esc(name(s))}</span>${r ? `<b>${Math.round(r.best * 100)}%</b><small>${rdN(r.n)} · ${day(r.last)}</small>` : `<small>${T("لم يلعب بعد", "Not played yet")}</small>`}</div>`).join("")}</div>`;
+    };
+    rep.querySelectorAll("[data-rc]").forEach((b) => b.onclick = () => { rep.querySelectorAll("[data-rc]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); load(b.dataset.rc); });
+    load(mine[0].id);
   }
   function runGame(l, items) {
     const stage = document.getElementById("gameStage"), startBtn = document.getElementById("gameStart");
@@ -14505,7 +14570,8 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       document.getElementById("gCert").onclick = () => printAppreciation({ title: (en && l.title_en ? l.title_en : l.title_ar), score, max, en, kind: "game" });
       const pts = document.getElementById("gPts");
       if (!isStudent()) { pts.textContent = en ? "Teacher preview: points are not counted." : "معاينة المعلم: لا تُحتسب النقاط."; return; }
-      const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: score, p_max: max });
+      const missed = ch.filter((_, k) => !res[k]).map((c) => c.text || c.q || (c.ref ? (c.type === "order" ? "رتّب: " : "أكمل: ") + c.ref : c.pairs ? "صِل: " + c.pairs.map((p) => p[0]).join("، ") : "")).filter(Boolean).slice(0, 10);
+      const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: score, p_max: max, p_mode: "classic", p_missed: missed });
       if (error) { pts.textContent = ""; return; }
       pts.innerHTML = data.capped ? (en ? "You reached today's limit for this lesson. Try another lesson!" : "بلغت حد النقاط اليومي لهذا الدرس، جرّب درسًا آخر!")
         : `<b>+${data.points}</b> ${en ? "points" : "نقطة"} · ${en ? "Total" : "رصيدك"} <b>${data.total}</b>${data.streak > 1 ? ` · 🔥 ${data.streak} ${en ? "days in a row" : "أيام متتالية"}` : ""}`;

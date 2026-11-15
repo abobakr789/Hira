@@ -11335,14 +11335,56 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
         document.getElementById("arcBack").onclick = () => window.HiraArcade.mount(box, cfg);
         runGame(l, gameItems);
       } : null,
-      onFinish: async (mode, score, max) => {
+      onFinish: async (mode, score, max, missed) => {
+        if (!state.session) return en ? "Sign in to save your points." : "سجّل الدخول لتُحفظ نقاطك.";
         if (!isStudent()) return en ? "Teacher preview: points are not counted." : "معاينة المعلم: لا تُحتسب النقاط.";
-        const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: Math.min(score, max), p_max: Math.min(Math.max(max, 1), 30) });
+        const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: Math.min(score, max), p_max: Math.min(Math.max(max, 1), 30), p_mode: mode, p_missed: (missed || []).slice(0, 10) });
         if (error || !data) return "";
         return data.capped ? (en ? "You reached today's limit for this lesson. Try another lesson!" : "بلغت حدّ النقاط اليوميّ لهذا الدرس، جرّب درسًا آخر!")
           : `<b>+${data.points}</b> ${en ? "points" : "نقطة"} · ${en ? "Total" : "رصيدك"} <b>${data.total}</b>${data.streak > 1 ? ` · 🔥 ${data.streak} ${en ? "days in a row" : "أيام متتالية"}` : ""}`;
       } };
     window.HiraArcade.mount(box, cfg);
+    if (isStaff()) { let rep = document.getElementById("arcRep"); if (!rep) { rep = document.createElement("section"); rep.id = "arcRep"; rep.className = "arc-rep"; box.after(rep); } gameReport(rep, l, en); }
+  }
+  /* تقرير ألعاب الفصل للمعلم: من لعب، وأين أخطأ الفصل */
+  async function gameReport(rep, l, en) {
+    const T = (a, b) => (en ? b : a), u = l.units || {}, me = state.session.user.id;
+    const { data: all } = await sb.from("classes").select("id, name, class_teachers(teacher_id)").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).order("name");
+    const mine = state.profile.role === "teacher" ? (all || []).filter((c) => (c.class_teachers || []).some((x) => x.teacher_id === me)) : (all || []);
+    const head = `<h3>📊 ${T("تقرير ألعاب الفصل", "Class game report")}</h3><p class="muted">${T("من لعب هذا الدرس، ونسبة الإتقان، وأكثر ما أخطأ فيه الطلاب.", "Who played this lesson, their mastery, and what the class got wrong most.")}</p>`;
+    if (!mine.length) { rep.innerHTML = head + `<p class="muted">${T("لا فصول لك في هذا الصف والمسار.", "You have no classes in this grade and track.")}</p>`; return; }
+    rep.innerHTML = head + `<div class="arc-rep-cls" role="group">${mine.map((c, i) => `<button type="button" class="chip tc" data-rc="${c.id}" aria-pressed="${i === 0}">${esc(c.name)}</button>`).join("")}</div><div class="arc-rep-body"></div>`;
+    const body = rep.querySelector(".arc-rep-body");
+    // العدد مع المعدود: طالب واحد، طالبان، 3 طلاب، 11 طالبًا
+    const cnt = (n, one, two, few, many, enOne, enMany) => en ? `${n} ${n === 1 ? enOne : enMany}` : n === 1 ? `${one} واحد` : n === 2 ? two : `${n} ${n <= 10 ? few : many}`;
+    const stN = (n) => cnt(n, "طالب", "طالبان", "طلاب", "طالبًا", "student", "students");
+    const rdN = (n) => (en ? cnt(n, "", "", "", "", "round", "rounds") : n === 1 ? "جولة واحدة" : n === 2 ? "جولتان" : `${n} ${n <= 10 ? "جولات" : "جولة"}`);
+    const MODE = { classic: T("الكلاسيكية", "Classic"), memory: T("الذاكرة", "Memory"), tower: T("البرج", "Tower"), ladder: T("السلّم", "Ladder") };
+    const load = async (cid) => {
+      body.innerHTML = `<p class="muted">${T("جارٍ التحميل…", "Loading…")}</p>`;
+      const { data: st } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cid);
+      const ids = (st || []).map((s) => s.student_id);
+      if (!ids.length) { body.innerHTML = `<p class="muted">${T("لا طلاب في هذا الفصل بعد.", "No students in this class yet.")}</p>`; return; }
+      const { data: gp } = await sb.from("game_plays").select("user_id, score, max_score, mode, missed, played_at").eq("lesson_id", l.id).in("user_id", ids).order("played_at", { ascending: false });
+      const P = gp || [], by = {}, miss = {}, modes = {};
+      P.forEach((p) => {
+        const s = by[p.user_id] || (by[p.user_id] = { n: 0, best: 0, last: p.played_at }); s.n++; s.best = Math.max(s.best, p.max_score ? p.score / p.max_score : 0);
+        if (p.mode) modes[p.mode] = (modes[p.mode] || 0) + 1;
+        (p.missed || []).forEach((t) => { (miss[t] || (miss[t] = new Set())).add(p.user_id); });
+      });
+      const played = Object.keys(by).length, avg = played ? Math.round(100 * Object.values(by).reduce((a, s) => a + s.best, 0) / played) : 0;
+      const top = Object.entries(miss).map(([t, s]) => [t, s.size]).sort((a, b) => b[1] - a[1]).slice(0, 8);
+      const name = (s) => (s.profiles && s.profiles.full_name_ar) || "—";
+      const rows = (st || []).map((s) => ({ s, r: by[s.student_id] })).sort((a, b) => (b.r ? b.r.best : -1) - (a.r ? a.r.best : -1));
+      const day = (d) => { const x = new Date(d); return `${x.getDate()}/${x.getMonth() + 1}`; };
+      body.innerHTML = `<div class="arc-rep-k"><div><b>${T(`${played} من ${ids.length}`, `${played} of ${ids.length}`)}</b>${T("لعبوا", "played")}</div><div><b>${avg}%</b>${T("متوسّط أفضل نتيجة", "avg best score")}</div><div><b>${P.length}</b>${T("عدد الجولات", "rounds")}</div>
+          <div class="arc-rep-modes">${Object.entries(modes).map(([m, n]) => `<span>${MODE[m] || m} <b>${n}</b></span>`).join("") || `<span class="muted">${T("لا جولات بعد", "No rounds yet")}</span>`}</div></div>
+        ${top.length ? `<h4>${T("أكثر ما أخطأ فيه الفصل", "Most missed by the class")}</h4><ol class="arc-rep-miss">${top.map(([t, n]) => `<li><span dir="auto">${esc(t)}</span><i style="--w:${Math.round(100 * n / Math.max(played, 1))}%"></i><b>${stN(n)}</b></li>`).join("")}</ol>
+          <p class="muted" style="font-size:.85rem">${T("اقتراح: ابدأ الحصة القادمة بسؤالين من أعلى هذه القائمة.", "Tip: open the next lesson with two items from the top of this list.")}</p>` : ""}
+        <h4>${T("الطلاب", "Students")}</h4><div class="arc-rep-st">${rows.map(({ s, r }) => `<div class="${r ? "" : "off"}"><span>${esc(name(s))}</span>${r ? `<b>${Math.round(r.best * 100)}%</b><small>${rdN(r.n)} · ${day(r.last)}</small>` : `<small>${T("لم يلعب بعد", "Not played yet")}</small>`}</div>`).join("")}</div>`;
+    };
+    rep.querySelectorAll("[data-rc]").forEach((b) => b.onclick = () => { rep.querySelectorAll("[data-rc]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); load(b.dataset.rc); });
+    load(mine[0].id);
   }
   function runGame(l, items) {
     const stage = document.getElementById("gameStage"), startBtn = document.getElementById("gameStart");
@@ -11419,7 +11461,8 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       document.getElementById("gCert").onclick = () => printAppreciation({ title: (en && l.title_en ? l.title_en : l.title_ar), score, max, en, kind: "game" });
       const pts = document.getElementById("gPts");
       if (!isStudent()) { pts.textContent = en ? "Teacher preview: points are not counted." : "معاينة المعلم: لا تُحتسب النقاط."; return; }
-      const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: score, p_max: max });
+      const missed = ch.filter((_, k) => !res[k]).map((c) => c.text || c.q || (c.ref ? (c.type === "order" ? "رتّب: " : "أكمل: ") + c.ref : c.pairs ? "صِل: " + c.pairs.map((p) => p[0]).join("، ") : "")).filter(Boolean).slice(0, 10);
+      const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: score, p_max: max, p_mode: "classic", p_missed: missed });
       if (error) { pts.textContent = ""; return; }
       pts.innerHTML = data.capped ? (en ? "You reached today's limit for this lesson. Try another lesson!" : "بلغت حد النقاط اليومي لهذا الدرس، جرّب درسًا آخر!")
         : `<b>+${data.points}</b> ${en ? "points" : "نقطة"} · ${en ? "Total" : "رصيدك"} <b>${data.total}</b>${data.streak > 1 ? ` · 🔥 ${data.streak} ${en ? "days in a row" : "أيام متتالية"}` : ""}`;
