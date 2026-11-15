@@ -46,7 +46,7 @@ const T={
  foot:['معارج حراء · نصوص الآيات من مصحف المنصة، والتلاوة للشيخ خليفة الطنيجي.','Hiraa Ma‘ārij · Qur’an text from the platform’s Muṣḥaf; recitation by Sheikh Khalifa Al-Tunaiji.'],
  lv:['المستوى','Level']
 };
-const LBL={'آية':'Āyah','موقف':'Case','قمرية':'Moon','شمسية':'Sun','فعل':'Verb','مثلان':'Mithlayn','متجانسان':'Mutajānisayn','متقاربان':'Mutaqāribayn','لين':'Līn','متصل':'Muttaṣil','منفصل':'Munfaṣil','عارض':'‘Āriḍ','بدل':'Badal','كلمي':'Word','حرفي':'Letter','طبيعي':'Natural','مخارج':'Makhārij','قلقلة':'Qalqalah','صفير':'Ṣafīr'};
+const LBL={'آية':'Āyah','بيت':'Verse','شطر':'Half-verse','سؤال':'Question','موقف':'Case','قمرية':'Moon','شمسية':'Sun','فعل':'Verb','مثلان':'Mithlayn','متجانسان':'Mutajānisayn','متقاربان':'Mutaqāribayn','لين':'Līn','متصل':'Muttaṣil','منفصل':'Munfaṣil','عارض':'‘Āriḍ','بدل':'Badal','كلمي':'Word','حرفي':'Letter','طبيعي':'Natural','مخارج':'Makhārij','قلقلة':'Qalqalah','صفير':'Ṣafīr'};
 const SUBJ=[
  {id:'isl',c:'var(--isl)',s:'var(--isl-s)',courses:[
    {t:['التجويد','Tajwīd'],d:['16 درجة · 3 مستويات','16 steps · 3 levels'],live:1,id:'tajweed',n:16,icon:'book'},
@@ -58,7 +58,7 @@ const SUBJ=[
    {t:['قل ولا تقل','Say it right'],d:['الأخطاء اللغوية الشائعة','Common language errors'],icon:'chat'},
    {t:['مفاتيح النحو','Keys of Grammar'],d:['من الآجرومية إلى ابن عقيل','From al-Ājurrūmiyyah up'],icon:'key'},
    {t:['البلاغة الميسرة','Easy Rhetoric'],d:['التشبيه والاستعارة والكناية','Simile, metaphor, metonymy'],icon:'spark'},
-   {t:['الشعر عبر العصور','Poetry Through the Ages'],d:['من الجاهلي إلى الحديث','From pre-Islamic to modern'],icon:'scroll'},
+   {t:['الشعر عبر العصور','Poetry Through the Ages'],d:['12 درجة · أبيات موثّقة من مصادرها','12 steps · every verse sourced'],live:1,id:'shiir',n:12,icon:'scroll'},
    {t:['الأمثال والحكم','Proverbs & Wisdom'],d:['قصة المثل ومعناه','Story and meaning'],icon:'chat'}]},
  {id:'soc',c:'var(--soc)',s:'var(--soc-s)',courses:[
    {t:['الآباء المؤسسون وقصة الاتحاد','The Founding Fathers'],d:['الهوية الوطنية','National identity'],icon:'star'},
@@ -80,7 +80,7 @@ const ICONS={
 
 T.report=['تقرير الطلاب','Student report'];T.repT=['تقرير معارج حراء','Ma‘ārij report'];T.student=['الطالب','Student'];T.steps=['الدرجات','Steps'];T.curStep=['الدرجة الحالية','Current step'];T.medals=['الأوسمة','Medals'];T.updated=['آخر نشاط','Last active'];T.noData=['لا يوجد تقدم مسجل لطلابك بعد.','No progress recorded for your students yet.'];T.loading=['جارٍ التحميل…','Loading…'];T.signHint=['سجّل الدخول ليُحفظ تقدّمك ويراه معلمك.','Sign in to save your progress and share it with your teacher.'];
 let SURAH,LEVELS,STEPS,PLACE,D=null,C=null,syncT=null,CID='tajweed',N=16;
-const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json'};const CACHE={},LOADED={};
+const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json'};const CACHE={},LOADED={};
 const KEY=()=>'hiraa-maarij-'+CID;
 let S={passed:[],tests:{},open:false,name:'',start:0};
 let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}
@@ -234,8 +234,8 @@ function setSlow(){slow=!slow;if(AU)AU.playbackRate=slow?0.75:1;document.querySe
 function examples(el){
   const E=STEPS[CUR-1].ex;
   el.innerHTML=`<h2>${D.meta.exTitle?ct('exTitle'):t('exTitle')}</h2><p class="hint">${D.meta.exHint?ct('exHint'):t('exHint')}</p>
-   <div class="row" style="margin-top:6px"><span class="hint">${t('rep')}</span>${[1,3,5].map(n=>`<button class="btn ghost" style="padding:4px 14px" data-rep="${n}" onclick="MJ.setRep(${n})">${n===1?t('once'):n+' '+t('times')}</button>`).join('')}<button class="btn ghost slow" style="padding:4px 14px" onclick="MJ.setSlow()">${t('slow')}</button></div>
-   <div class="exgrid">${E.map((e,i)=>e.s?`<div class="ex" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span>
+   ${E.some(e=>e.s)?`<div class="row" style="margin-top:6px"><span class="hint">${t('rep')}</span>${[1,3,5].map(n=>`<button class="btn ghost" style="padding:4px 14px" data-rep="${n}" onclick="MJ.setRep(${n})">${n===1?t('once'):n+' '+t('times')}</button>`).join('')}<button class="btn ghost slow" style="padding:4px 14px" onclick="MJ.setSlow()">${t('slow')}</button></div>`:''}
+   <div class="exgrid">${E.map((e,i)=>e.v?`<div class="ex case verse" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span><div class="bv" dir="rtl" lang="ar"><span>${e.v[0]}</span>${e.v[1]?`<span>${e.v[1]}</span>`:''}</div><p class="ref">${tx(e.who)} · ${e.src}</p><button class="btn ghost" style="padding:4px 14px" onclick="this.nextElementSibling.hidden=false;this.hidden=true">${L()?'Show the explanation':'اكشف الشرح'}</button><p class="ca" hidden>${tx(e.a)}</p></div>`:e.s?`<div class="ex" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span>
      <div class="q">${e.h} <span class="an"><span class="br">﴿</span>${e.a}<span class="br">﴾</span></span></div><div class="why">${tx(e.w)}</div>
      <div class="pl"><button class="play" onclick="MJ.play(${i})">${t('listen')}</button><span class="ref">${t('surah')} ${tx(SURAH[e.s])} · ${t('ayah')} ${e.a}</span></div></div>`:`<div class="ex case" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span><p class="cq">${tx(e.c)}</p><button class="btn ghost" style="padding:4px 14px" onclick="this.nextElementSibling.hidden=false;this.hidden=true">${t('reveal')}</button><p class="ca" hidden>${tx(e.a)}</p></div>`).join('')}</div>
    <div class="navrow"><button class="btn ghost" onclick="MJ.backLearn()">${t('backLearn')}</button><button class="btn" onclick="MJ.showPart(2)">${t('toPr')}</button></div>`;
