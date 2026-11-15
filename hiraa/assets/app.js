@@ -9876,14 +9876,16 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     function buildIX(j) {
       const keys = [], offs = [], exact = new Map(), parts = []; let n = 0;
       const put = (sk, i) => { if (!exact.has(sk)) exact.set(sk, []); exact.get(sk).push(i); };
-      j.sk.forEach((arr, si) => arr.forEach((line, ai) => { offs.push(n); keys.push([si + 1, ai + 1]); const w = line.split(" "); parts.push(w); w.forEach((x) => (n += x.length)); put(w.join(""), keys.length - 1); }));
-      /* حدود الكلمات: 1 = بداية كلمة، 2 = نهاية كلمة */
-      const F = new Uint8Array(n + 1); let all = "", pos = 0;
-      parts.forEach((w) => w.forEach((x) => { F[pos] |= 1; pos += x.length; F[pos] |= 2; })); all = parts.map((w) => w.join("")).join("");
+      const real = (x) => (x === "_" ? "" : x);   // «_» كلمة هيكلها فارغ (أو، يا...) تبقى لحفظ ترقيم الكلمات
+      j.sk.forEach((arr, si) => arr.forEach((line, ai) => { offs.push(n); keys.push([si + 1, ai + 1]); const w = line.split(" "); parts.push(w); w.forEach((x) => (n += real(x).length)); put(w.map(real).join(""), keys.length - 1); }));
+      /* حدود الكلمات: 1 = بداية كلمة، 2 = نهاية كلمة؛ WP: رقم الكلمة في آيتها لكل حرف (كترقيم توقيت الكلمات) */
+      const F = new Uint8Array(n + 1), WP = new Uint16Array(n + 1); let pos = 0;
+      parts.forEach((w) => w.forEach((x, k) => { x = real(x); if (!x) return; F[pos] |= 1; WP.fill(k + 1, pos, pos + x.length); pos += x.length; F[pos] |= 2; }));
+      const all = parts.map((w) => w.map(real).join("")).join("");
       Object.entries(j.alt || {}).forEach(([k, sk]) => { const [s, a] = k.split(":").map(Number); put(sk.replace(/ /g, ""), keys.findIndex((x) => x[0] === s && x[1] === a)); });
       const len = (i) => (i + 1 < offs.length ? offs[i + 1] : all.length) - offs[i];
       const at = (p) => { let lo = 0, hi = offs.length - 1; while (lo < hi) { const m = (lo + hi + 1) >> 1; if (offs[m] <= p) lo = m; else hi = m - 1; } return lo; };
-      return (IX = { keys, offs, all, F, exact, len, at });
+      return (IX = { keys, offs, all, F, WP, parts, exact, len, at });
     }
 
     /* أسماء السور المذكورة حول النص: «سورة الروم»، «[الروم: 21]»، «[Ar-Rum: 21]» */
@@ -9913,9 +9915,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           const e = p + s.length;
           if ((IX.F[p] & 1) && (IX.F[e] & 2)) {          // على حدود الكلمات فقط
             const i1 = IX.at(p), i2 = IX.at(e - 1);
-            if (i1 !== i2 || s.length >= 30 || s.length / IX.len(i1) >= 0.6) c.push([i1, i2, 0]);
-            else if (p === IX.offs[i1] && w.length >= 2) c.push([i1, i2, 1]);   /* من أول الآية: ﴿لا إكراه في الدين﴾ */
-            else if (w.length >= 3 && s.length >= 8) c.push([i1, i2, 2]);       /* عبارة من وسطها: ﴿وشاورهم في الأمر﴾ */
+            /* الكلمات المقتبسة: من كلمة wf في الآية الأولى إلى كلمة wt في الأخيرة (0 = من أول الآية / إلى آخرها) */
+            const wf = p === IX.offs[i1] ? 0 : IX.WP[p], wt = e === IX.offs[i2] + IX.len(i2) ? 0 : IX.WP[e - 1];
+            if (i1 !== i2 || s.length >= 30 || s.length / IX.len(i1) >= 0.6) c.push([i1, i2, 0, wf, wt]);
+            else if (p === IX.offs[i1] && w.length >= 2) c.push([i1, i2, 1, wf, wt]);   /* من أول الآية: ﴿لا إكراه في الدين﴾ */
+            else if (w.length >= 3 && s.length >= 8) c.push([i1, i2, 2, wf, wt]);       /* عبارة من وسطها: ﴿وشاورهم في الأمر﴾ */
           }
           p = IX.all.indexOf(s, p + 1);
         }
@@ -9932,8 +9936,17 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     /* مقطع يسبقه كلام غير قرآني («اقرأ: ...»): نُسقط الكلمات من أوله حتى يطابق */
     function findTrim(t, hint) {
       let w = String(t).trim().split(/\s+/);
-      for (let k = 0; k < 10 && w.length; k++, w = w.slice(1)) { const r = find(w.join(" "), hint); if (r) return r; }
+      for (let k = 0; k < 10 && w.length; k++, w = w.slice(1)) { const r = find(w.join(" "), hint); if (r) return edges(r, w); }
       return null;
+    }
+    /* كلمة أول الاقتباس أو آخره هيكلها فارغ (يا، أو): نمدّ المدى إليها إن كانت هي السابقة/التالية في الآية */
+    function edges(r, toks) {
+      r = r.slice(); const lead = toks.findIndex((x) => skel(x)), tail = toks.length - 1 - [...toks].reverse().findIndex((x) => skel(x));
+      const P1 = IX.parts[r[0]], P2 = IX.parts[r[1]];
+      for (let k = 0; k < lead && r[3] > 1 && P1[r[3] - 2] === "_"; k++) r[3]--;
+      for (let k = 0; k < toks.length - 1 - tail && r[4] && r[4] < P2.length && P2[r[4]] === "_"; k++) r[4]++;
+      if (r[3] === 1) r[3] = 0; if (r[4] === P2.length) r[4] = 0;
+      return r;
     }
     const num = (x) => parseInt(String(x).replace(/[٠-٩]/g, (d) => d.charCodeAt(0) - 0x660), 10) || 0;
     const GAP = /\.{3}|…|_{3,}|\(\s*\)|\[\s*\]|-{4,}/;
@@ -9976,6 +9989,28 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const BARS = new Set();
     const urlOf = (s) => (TM.ov && TM.ov[s]) || TM.url + s + ".mp3";
     const span = (s, a) => { const st = TM.st[s - 1]; return [st[a - 1] / 100, (a < st.length ? st[a] : TM.end[s - 1]) / 100]; };
+    /* توقيت الكلمات (art/tilawa/words/N.json): لتشغيل العبارة المقتبسة وحدها. لا يوجد للرعد وإبراهيم (تسجيل آخر) */
+    const WD = {};
+    const getW = (s) => WD[s] !== undefined ? Promise.resolve(WD[s]) :
+      fetch(BASE + "words/" + s + ".json").then((r) => (r.ok ? r.json() : null)).catch(() => null).then((j) => (WD[s] = j));
+    function wordSpan(k) {
+      const [s, a, wf, wt] = k, W = WD[s]; if (!W || !W[a - 1]) return null;
+      const f = W[a - 1], seg = []; for (let i = 0; i + 2 < f.length; i += 3) seg.push([f[i], f[i + 1] / 100, f[i + 2] / 100]);
+      const ii = IX.keys.findIndex((x) => x[0] === s && x[1] === a), n = IX.parts[ii].length, first = wf || 1, last = wt || n;
+      const [A0, A1] = span(s, a);
+      /* أول قراءة متصلة تغطي الكلمات من first إلى last (الشيخ قد يقف ثم يعيد بعض الكلمات) */
+      for (let i = 0; i < seg.length; i++) {
+        if (seg[i][0] !== first) continue;
+        let j = i; while (seg[j][0] < last && j + 1 < seg.length && seg[j + 1][0] === seg[j][0] + 1) j++;
+        if (seg[j][0] !== last) continue;
+        const t0 = wf ? Math.max(A0, seg[i][1] - 0.06) : A0;
+        const t1 = wt ? (j + 1 < seg.length && seg[j + 1][0] === last + 1 ? Math.max(seg[j][2], seg[j + 1][1]) : seg[j][2] + 0.3) : A1;
+        if (t0 >= A0 - 0.3 && t1 <= A1 + 0.3 && t1 - t0 > 0.3) return [t0, Math.min(t1, A1)];
+      }
+      return null;
+    }
+    const part = (b, k) => !!(k && (k[2] || k[3]) && !b._whole && wordSpan(k));
+    const spanK = (b, k) => (part(b, k) ? wordSpan(k) : span(k[0], k[1]));
     const alive = (b) => { if (!b || !b.isConnected) return false; const v = b.ownerDocument.defaultView; if (!v) return false;
       try { return v === window || (v.frameElement && v.frameElement.isConnected); } catch (e) { return true; } };
     function audio() {
@@ -10002,13 +10037,13 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     function endAyah() {
       if (E.gap) return;
       if (!SET.echo) return next();
-      const [s, a] = E.bar._til[E.i], [t0, t1] = span(s, a);
+      const [t0, t1] = spanK(E.bar, E.bar._til[E.i]);
       audio().pause(); E.gap = true; E.hold = null;
       E.gapEnd = Date.now() + Math.min(60, (t1 - t0) / SET.spd + 1) * 1000; paint(E.bar);
     }
     function seekPlay() {
       E.gap = false; E.hold = null;
-      const b = E.bar, [s, a] = b._til[E.i], [t0, t1] = span(s, a), au = audio(), u = urlOf(s);
+      const b = E.bar, s = b._til[E.i][0], [t0, t1] = spanK(b, b._til[E.i]), au = audio(), u = urlOf(s);
       E.t1 = t1; E.on = true; E.loading = true;
       const go = () => { try { au.currentTime = t0; } catch (e) {} au.playbackRate = SET.spd; au.play().catch((e) => { if (e && e.name === "NotAllowedError") stop(); else fail(); }); };
       if (au._u !== u) { au._u = u; au.src = u; au.addEventListener("loadedmetadata", go, { once: true }); au.load(); } else go();
@@ -10031,7 +10066,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           return paint(b);
         }
         if (E.bar === b && E.on && from == null) { const au = audio(); if (au.paused) { au.playbackRate = SET.spd; au.play().catch(fail); } else au.pause(); return paint(b); }
-        stop(); E.bar = b; E.i = Math.max(0, Math.min(from || 0, b._til.length - 1)); E.done = 0; E.loop = 0; seekPlay();
+        stop(); E.bar = b; E.i = Math.max(0, Math.min(from || 0, b._til.length - 1)); E.done = 0; E.loop = 0;
+        const need = [...new Set(b._til.filter((k) => k[2] || k[3]).map((k) => k[0]))];
+        return Promise.all(need.map(getW)).then(() => { if (E.bar === b) { seekPlay(); BARS.forEach(paint); } });
       }).catch(fail);
     }
     function stop() {
@@ -10053,7 +10090,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const st = q(".til-st"), L = b._til;
       if (gap) { const [, a] = L[E.i], left = Math.ceil((E.hold != null ? E.hold : E.gapEnd - Date.now()) / 1000);
         st.textContent = tx("دورك: ردّد الآية ", "Your turn: repeat ayah ") + iso(a) + " · " + iso(Math.max(0, left)) + tx(" ث", "s"); }
-      else if (on && TM) { const [s, a] = L[E.i]; st.textContent = `${tx("سورة", "Surah")} ${tx(TM.names[s - 1][0], TM.names[s - 1][1])} · ${tx("الآية", "Ayah")} ${iso(a)}` + (L.length > 1 ? ` ${iso(`(${E.i + 1}/${L.length})`)}` : ""); }
+      const pt = q(".til-part"); if (pt) pt.textContent = b._whole ? tx("المقطع: الآية كاملة", "Play: whole ayah") : tx("المقطع: العبارة فقط", "Play: quoted phrase");
+      if (gap) {} else if (on && TM) { const [s, a] = L[E.i]; st.textContent = `${tx("سورة", "Surah")} ${tx(TM.names[s - 1][0], TM.names[s - 1][1])} · ${tx("الآية", "Ayah")} ${iso(a)}` + (L.length > 1 ? ` ${iso(`(${E.i + 1}/${L.length})`)}` : "") + (part(b, L[E.i]) ? tx(" · العبارة", " · phrase") : ""); }
       else st.textContent = tx("بصوت الشيخ خليفة الطنيجي", "Sheikh Khalifa Al-Tunaiji");
       (b._spans || []).forEach((sp, k) => sp && sp.classList.toggle("til-now", on && k === E.i));
     }
@@ -10069,6 +10107,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         (multi ? B("til-prev", "prev", tx("الآية السابقة", "Previous ayah")) + B("til-next", "next", tx("الآية التالية", "Next ayah")) : "") +
         B("til-rep", "rep", tx("عدد مرات التكرار", "Times to repeat")) + (multi ? B("til-mode", "mode", tx("طريقة التكرار", "How to repeat")) : "") +
         B("til-spd", "spd", tx("سرعة التلاوة", "Recitation speed")) +
+        (list.some((k) => k[2] || k[3]) ? B("til-part", "part", tx("العبارة المقتبسة وحدها، أو الآية كاملة", "Only the quoted words, or the whole ayah")) : "") +
         B("til-echo", "echo", tx("بعد كل آية يسكت الشيخ قدر مدتها ليرددها الطالب", "After each ayah the sheikh pauses so the student can repeat it")) + `<span class="til-st"></span>`;
       b.querySelector(".til-stop").textContent = tx("■ إيقاف", "■ Stop");
       if (multi) { b.querySelector(".til-prev").textContent = tx("→ السابقة", "← Prev"); b.querySelector(".til-next").textContent = tx("التالية ←", "Next →"); }
@@ -10081,6 +10120,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         else if (a === "rep") { SET.rep = REPS[(REPS.indexOf(SET.rep) + 1) % REPS.length]; E.done = 0; E.loop = 0; save(); }
         else if (a === "spd") { SET.spd = SPDS[(SPDS.indexOf(SET.spd) + 1) % SPDS.length]; if (E.au && E.bar === b) E.au.playbackRate = SET.spd; save(); }
         else if (a === "mode") { SET.mode = SET.mode === "ayah" ? "range" : "ayah"; save(); }
+        else if (a === "part") { b._whole = !b._whole; if (E.on && E.bar === b && !E.gap) seekPlay(); }
         else if (a === "echo") { SET.echo = !SET.echo; save(); if (!SET.echo && E.gap && E.bar === b) { E.gap = false; next(); } }
         BARS.forEach(paint); k.blur && k.blur();
       });
@@ -10196,7 +10236,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
           if (wsk(sg[k].t).join("") === ay && (!sg[k].n || sg[k].n === IX.keys[i][1])) rs[k] = [i, i, 0];
         }
         sg.forEach((g, k) => { const r = rs[k]; if (!r) return;
-          for (let i = r[0]; i <= r[1]; i++) if (!found.some((f) => f.i === i)) found.push({ i, a: g.a, b: g.b, one: r[0] === r[1] }); });
+          for (let i = r[0]; i <= r[1]; i++) if (!found.some((f) => f.i === i)) found.push({ i, a: g.a, b: g.b, one: r[0] === r[1], wf: i === r[0] ? r[3] || 0 : 0, wt: i === r[1] ? r[4] || 0 : 0 }); });
         if (!found.length) continue;
         // كتلة تتابع المجموعة السابقة (أخت لاحقة، بينهما عنصران على الأكثر بلا آيات، والآية التالية في السورة نفسها)
         let adj = false;
@@ -10208,7 +10248,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
         if (!grp) grp = { blocks: [], list: [], spans: [], lastIdx: null };
         grp.blocks.push(bl);
         const noWrap = deckDoc || !!bl.closest(".td-slide,[data-p]");
-        for (const f of found) { grp.list.push(IX.keys[f.i]); grp.spans.push(!noWrap && f.one ? wrap(bl, f.a, f.b) : null); grp.lastIdx = f.i; }
+        for (const f of found) { const k = IX.keys[f.i]; grp.list.push(f.wf || f.wt ? [k[0], k[1], f.wf, f.wt] : k); grp.spans.push(!noWrap && f.one ? wrap(bl, f.a, f.b) : null); grp.lastIdx = f.i; }
       }
       flush();
     }
