@@ -2967,10 +2967,14 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div dir="rtl" class="bk-read" style="${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div>
         <div style="margin-top:12px"><button class="btn btn-ghost btn-small" id="btxPrint">🖨️ طباعة النص للطالب</button></div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
       const ed = isSuper() ? `<div class="form-card" style="margin-top:14px"><h3 style="margin-top:0">✏️ إضافة نص الكتاب أو تعديله</h3>
-        <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option><option value="study" ${bookTx && bookTx.kind === "study" ? "selected" : ""}>نص الدرس (من إعداد حراء)</option></select></div>
+        <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option></select></div>
         <div class="field"><label for="btxTitle">عنوان النص</label><input id="btxTitle" value="${esc((bookTx && bookTx.title) || "")}"></div>
         <div class="field"><label for="btxPages">الصفحات</label><input id="btxPages" value="${esc((bookTx && bookTx.pages) || l.book_pages || "")}"></div>
         <div class="field"><label for="btxBody">النص (كل سطر أو بيت في سطر مستقل)</label><textarea id="btxBody" dir="rtl" rows="10" style="width:100%;font-size:1.1rem;line-height:1.9">${esc((bookTx && bookTx.body) || "")}</textarea></div>
+        <div class="field" style="background:#F3F8FF;border:1px dashed #8DB3E2;border-radius:12px;padding:10px 12px"><label>📷 استيراد النص من صفحة الكتاب (صورة أو PDF من نسختك)</label>
+          <input type="file" id="btxOcrF" accept="image/*,application/pdf" multiple> <span id="btxOcrPgW" style="display:none">الصفحات: <input id="btxOcrPg" placeholder="مثال: 33-36" style="width:110px"></span>
+          <button type="button" class="btn btn-ghost btn-small" id="btxOcrGo">استخراج النص</button> <span class="muted" id="btxOcrSt"></span>
+          <p class="muted" style="margin:6px 0 0">يُستخرج النص داخل متصفحك ويُضاف إلى خانة النص؛ راجِعه وصحّح التشكيل قبل الحفظ.</p></div>
         <button class="btn btn-primary" id="btxSave">حفظ النص</button> ${bookTx ? '<button class="btn btn-ghost" id="btxDel">حذف النص</button>' : ""}
         <p class="muted" style="margin-top:8px">يظهر النص بعد الحفظ في الشرائح (شريحة «نص الكتاب») وفي هذا التبويب للطلاب، مع زر طباعته.</p></div>` : "";
       return view + ed;
@@ -3306,6 +3310,34 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         if (sv) sv.onclick = async () => { const body = document.getElementById("btxBody").value.trim(); if (!body) { toast("اكتب النص أولًا"); return; }
           const r = await sb.from("lesson_book_texts").upsert({ lesson_id: l.id, kind: document.getElementById("btxKind").value, title: document.getElementById("btxTitle").value.trim() || null, pages: document.getElementById("btxPages").value.trim() || null, body, updated_at: new Date().toISOString() });
           if (r.error) toast("تعذّر الحفظ: " + r.error.message); else { toast("حُفظ نص الكتاب"); location.reload(); } };
+        const of = document.getElementById("btxOcrF"), og = document.getElementById("btxOcrGo"), ost = document.getElementById("btxOcrSt");
+        const ldS = (src) => new Promise((ok, no) => { if ([...document.scripts].some((s) => s.src === src)) return ok(); const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s); });
+        if (of) of.onchange = () => { document.getElementById("btxOcrPgW").style.display = [...of.files].some((f) => /pdf$/i.test(f.type)) ? "" : "none"; };
+        if (og) og.onclick = async () => {
+          const files = [...(of.files || [])]; if (!files.length) { toast("اختر صورة أو ملف PDF أولًا"); return; }
+          og.disabled = true;
+          try {
+            ost.textContent = "⏳ تحميل أداة القراءة…";
+            await ldS("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js");
+            const imgs = [];
+            for (const f of files) {
+              if (/pdf$/i.test(f.type)) {
+                await ldS("https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js");
+                window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+                const pdf = await window.pdfjsLib.getDocument({ data: await f.arrayBuffer() }).promise;
+                const spec = (document.getElementById("btxOcrPg").value || "").replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).trim(); const want = [];
+                (spec || "1").split(/[,،]/).forEach((p) => { const m = p.trim().match(/^(\d+)\s*[-–]\s*(\d+)$/); if (m) { for (let i = +m[1]; i <= +m[2]; i++) want.push(i); } else if (+p) want.push(+p); });
+                for (const n of want.slice(0, 20)) { if (n < 1 || n > pdf.numPages) continue; ost.textContent = `⏳ تجهيز صفحة ${n}…`; const pg = await pdf.getPage(n), vp = pg.getViewport({ scale: 2.2 }), c = document.createElement("canvas"); c.width = vp.width; c.height = vp.height; await pg.render({ canvasContext: c.getContext("2d"), viewport: vp }).promise; imgs.push(c); }
+              } else imgs.push(f);
+            }
+            if (!imgs.length) { toast("لم أجد صفحات بهذه الأرقام"); return; }
+            const wk = await window.Tesseract.createWorker("ara"); const out = [];
+            for (let i = 0; i < imgs.length; i++) { ost.textContent = `⏳ قراءة ${i + 1} من ${imgs.length}…`; const r = await wk.recognize(imgs[i]); out.push(String(r.data.text || "").replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim()); }
+            await wk.terminate();
+            const ta = document.getElementById("btxBody"); ta.value = (ta.value.trim() ? ta.value.trim() + "\n" : "") + out.filter(Boolean).join("\n");
+            ost.textContent = "✓ أُضيف النص — راجِعه ثم احفظ"; ta.focus();
+          } catch (e) { ost.textContent = ""; toast("تعذّر الاستخراج: " + (e && e.message || e)); } finally { og.disabled = false; }
+        };
         const dl = document.getElementById("btxDel");
         if (dl) dl.onclick = async () => { if (!confirm("حذف نص الكتاب لهذا الدرس؟")) return; await sb.from("lesson_book_texts").delete().eq("lesson_id", l.id); toast("حُذف النص"); location.reload(); };
       }
