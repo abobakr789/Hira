@@ -1,0 +1,356 @@
+{
+"AR-Y2-NN-T1-L01": {
+"sort": {
+"title": "Body part or action?",
+"cats": [
+{
+"name": "Body parts",
+"icon": "🧍",
+"items": [
+"شَعْرٌ",
+"وَجْهٌ",
+"قَدَمٌ",
+"جِسْمٌ"
+]
+},
+{
+"name": "Actions",
+"icon": "🏃",
+"items": [
+"أَسْتَحِمُّ",
+"أُنَظِّفُ",
+"أَرْكُضُ",
+"أَرْكُلُ"
+]
+}
+]
+}
+},
+"AR-Y2-NN-T1-L02": {
+"sort": {
+"title": "Match the sense",
+"cats": [
+{
+"name": "Hearing · سَمْعٌ",
+"icon": "👂",
+"items": [
+"الْأُذُنُ"
+]
+},
+{
+"name": "Sight · نَظَرٌ",
+"icon": "👁️",
+"items": [
+"الْعَيْنُ"
+]
+},
+{
+"name": "Smell · شَمٌّ",
+"icon": "👃",
+"items": [
+"الْأَنْفُ"
+]
+},
+{
+"name": "Taste · تَذَوُّقٌ",
+"icon": "👅",
+"items": [
+"اللِّسانُ"
+]
+}
+]
+}
+},
+"AR-Y2-NN-T1-L05": {
+"sort": {
+"title": "Head, feet or hands?",
+"cats": [
+{
+"name": "Head",
+"icon": "🧢",
+"items": [
+"قُبَّعَةٌ"
+]
+},
+{
+"name": "Feet",
+"icon": "🦶",
+"items": [
+"جَوْرَبٌ",
+"حِذاءٌ"
+]
+},
+{
+"name": "Hands",
+"icon": "🧤",
+"items": [
+"قُفّازٌ"
+]
+},
+{
+"name": "Body",
+"icon": "👖",
+"items": [
+"بِنْطالٌ",
+"جاكيت",
+"حِزامٌ"
+]
+}
+]
+}
+},
+"AR-Y2-NN-T1-L08": {
+"sort": {
+"title": "Opposites",
+"cats": [
+{
+"name": "مُتَشابِهانِ · alike",
+"icon": "👯",
+"items": [
+"مُتَشابِهانِ"
+]
+},
+{
+"name": "مُخْتَلِفانِ · different",
+"icon": "🔀",
+"items": [
+"مُخْتَلِفانِ"
+]
+},
+{
+"name": "Hot · ساخِنٌ",
+"icon": "🔥",
+"items": [
+"ساخِنٌ"
+]
+},
+{
+"name": "Cold · بارِدٌ",
+"icon": "❄️",
+"items": [
+"بارِدٌ"
+]
+}
+]
+}
+},
+"AR-Y2-NN-T1-L10": {
+"sort": {
+"title": "Rooms of the house",
+"cats": [
+{
+"name": "Bedroom",
+"icon": "🛏️",
+"items": [
+"غُرْفَةُ نَوْمٍ"
+]
+},
+{
+"name": "Living room",
+"icon": "🛋️",
+"items": [
+"غُرْفَةُ جُلوسٍ"
+]
+},
+{
+"name": "Kitchen",
+"icon": "🍳",
+"items": [
+"مَطْبَخٌ"
+]
+},
+{
+"name": "Bathroom",
+"icon": "🛁",
+"items": [
+"حَمّامٌ"
+]
+}
+]
+}
+},
+"AR-Y2-NN-T2-L01": {
+"seq": {
+"title": "Small to big: time",
+"steps": [
+"دَقيقَةٌ",
+"ساعَةٌ",
+"يَوْمٌ",
+"شَهْرٌ"
+]
+}
+},
+"AR-Y2-NN-T2-L02": {
+"seq": {
+"title": "Days of the week in order",
+"steps": [
+"الْأَحَدُ",
+"الِاثْنَيْنِ",
+"الثُّلاثاءُ",
+"الْأَرْبِعاءُ",
+"الْخَميسُ",
+"الْجُمُعَةُ",
+"السَّبْتُ"
+]
+},
+"sort": {
+"title": "At the market",
+"cats": [
+{
+"name": "Fruits · فَواكِهُ",
+"icon": "🍎",
+"items": [
+"فَواكِهُ"
+]
+},
+{
+"name": "Vegetables · خَضْراواتٌ",
+"icon": "🥕",
+"items": [
+"خَضْراواتٌ"
+]
+}
+]
+}
+},
+"AR-Y2-NN-T2-L03": {
+"seq": {
+"title": "First, second, third",
+"steps": [
+"الْأَوَّلُ",
+"الثّاني",
+"الثّالِثُ"
+]
+}
+},
+"AR-Y2-NN-T2-L04": {
+"sort": {
+"title": "Name the instrument",
+"cats": [
+{
+"name": "Piano 🎹",
+"icon": "🎹",
+"items": [
+"بيانو"
+]
+},
+{
+"name": "Drum 🥁",
+"icon": "🥁",
+"items": [
+"طَبْلَةٌ",
+"دُفٌّ"
+]
+},
+{
+"name": "Violin 🎻",
+"icon": "🎻",
+"items": [
+"كَمانٌ"
+]
+},
+{
+"name": "Oud 🪕",
+"icon": "🪕",
+"items": [
+"عودٌ"
+]
+}
+]
+}
+},
+"AR-Y2-NN-T2-L06": {
+"sort": {
+"title": "هو، هي، هم",
+"cats": [
+{
+"name": "هُوَ · he",
+"icon": "👨",
+"items": [
+"سائِقٌ"
+]
+},
+{
+"name": "هِيَ · she",
+"icon": "👩",
+"items": [
+"مُشْرِفَةٌ"
+]
+}
+]
+},
+"seq": {
+"title": "On the bus",
+"steps": [
+"صُعودٌ",
+"جُلوسٌ",
+"نُزولٌ"
+]
+}
+},
+"AR-Y2-NN-T3-L01": {
+"sort": {
+"title": "Describing or doing?",
+"cats": [
+{
+"name": "Describing",
+"icon": "🧑",
+"items": [
+"أَسْمَرُ",
+"أَشْقَرُ",
+"طَويلٌ",
+"نَحيلٌ"
+]
+},
+{
+"name": "Things friends do",
+"icon": "🤝",
+"items": [
+"الْمُشارَكَةُ",
+"الْمُذاكَرَةُ"
+]
+},
+{
+"name": "Things to avoid",
+"icon": "🚫",
+"items": [
+"التَّخاصُمُ",
+"الْمُشاجَرَةُ"
+]
+}
+]
+}
+},
+"AR-Y2-NN-T3-L02": {
+"sort": {
+"title": "Opposites",
+"cats": [
+{
+"name": "Tall · طَويلٌ",
+"icon": "📏",
+"items": [
+"طَويلٌ",
+"عِمْلاقٌ"
+]
+},
+{
+"name": "Short · قَصيرٌ",
+"icon": "🧒",
+"items": [
+"قَصيرٌ"
+]
+}
+]
+}
+},
+"AR-Y2-NN-T3-L04": {
+"seq": {
+"title": "Order the morning",
+"steps": [
+"أَصْحو",
+"أَرْتَدي",
+"أُغادِرُ"
+]
+}
+}
+}

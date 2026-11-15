@@ -1,0 +1,63 @@
+{
+"AR-Y1-NN-T1-L01": {"sort": {"title": "Greeting or classroom thing?", "cats": [
+ {"name": "Greetings · تَحِيَّةٌ", "icon": "👋", "items": ["السَّلامُ عَلَيْكُمْ", "كَيْفَ حالُكَ؟", "بِخَيْرٍ، الْحَمْدُ لِلّهِ"]},
+ {"name": "Classroom · الصَّفُّ", "icon": "🎒", "items": ["كِتابٌ", "قَلَمٌ", "حَقيبَةٌ", "كُرْسِيٌّ", "طاوِلَةٌ"]}]}},
+"AR-Y1-NN-T1-L02": {"sort": {"title": "Match the colour", "cats": [
+ {"name": "Red 🔴", "icon": "🍎", "items": ["أَحْمَرُ"]},
+ {"name": "Green 🟢", "icon": "🌳", "items": ["أَخْضَرُ"]},
+ {"name": "Blue 🔵", "icon": "🌊", "items": ["أَزْرَقُ"]},
+ {"name": "Yellow 🟡", "icon": "☀️", "items": ["أَصْفَرُ"]}]}},
+"AR-Y1-NN-T1-L03": {"sort": {"title": "How do they feel?", "cats": [
+ {"name": "Happy 😀", "icon": "😀", "items": ["سَعيدٌ"]},
+ {"name": "Sad 😢", "icon": "😢", "items": ["حَزينٌ"]},
+ {"name": "Scared 😨", "icon": "😨", "items": ["خائِفٌ"]},
+ {"name": "Shy ☺️", "icon": "☺️", "items": ["خَجولٌ"]}]}},
+"AR-Y1-NN-T1-L04": {"seq": {"title": "Count in order", "steps": ["واحِدٌ", "اثْنانِ", "ثَلاثَةٌ", "أَرْبَعَةٌ", "خَمْسَةٌ", "سِتَّةٌ"]}},
+"AR-Y1-NN-T1-L05": {"sort": {"title": "Name the shape", "cats": [
+ {"name": "Circle ⚪", "icon": "⚪", "items": ["دائِرَةٌ"]},
+ {"name": "Triangle 🔺", "icon": "🔺", "items": ["مُثَلَّثٌ"]},
+ {"name": "Square 🟥", "icon": "🟥", "items": ["مُرَبَّعٌ"]},
+ {"name": "Rectangle ▬", "icon": "▬", "items": ["مُسْتَطيلٌ"]}]}},
+"AR-Y1-NN-T1-L06": {"sort": {"title": "Father's side or mother's side?", "cats": [
+ {"name": "Father's side", "icon": "👨", "items": ["عَمّي", "عَمَّتي"]},
+ {"name": "Mother's side", "icon": "👩", "items": ["خالي", "خالَتي"]}]}},
+"AR-Y1-NN-T1-L07": {"sort": {"title": "Body parts and senses", "cats": [
+ {"name": "I see · أَرى", "icon": "👁️", "items": ["عَيْنٌ"]},
+ {"name": "I hear · أَسْمَعُ", "icon": "👂", "items": ["أُذُنٌ"]},
+ {"name": "I smell · أَشُمُّ", "icon": "👃", "items": ["أَنْفٌ"]},
+ {"name": "I eat · آكُلُ", "icon": "👄", "items": ["فَمٌ"]}]}},
+"AR-Y1-NN-T1-L08": {"sort": {"title": "Food or drink?", "cats": [
+ {"name": "Food · طَعامٌ", "icon": "🍌", "items": ["مَوْزٌ", "جَزَرٌ", "عَسَلٌ", "لَيْمونٌ"]},
+ {"name": "Drink · شَرابٌ", "icon": "💧", "items": ["ماءٌ"]},
+ {"name": "Places · أَماكِنُ", "icon": "🍽️", "items": ["مَطْعَمٌ", "مَطْبَخٌ"]}]}},
+"AR-Y1-NN-T1-L09": {"sort": {"title": "What does each person do?", "cats": [
+ {"name": "المُعَلِّمُ", "icon": "👨‍🏫", "items": ["يُعَلِّمُ"]},
+ {"name": "الصَّيّادُ", "icon": "🎣", "items": ["يَصيدُ"]}]}},
+"AR-Y1-NN-T1-L10": {"seq": {"title": "Put the days in order", "steps": ["الْأَحَدُ", "الِاثْنَيْنِ", "الثُّلاثاءُ", "الْأَرْبِعاءُ", "الْخَميسُ", "الْجُمُعَةُ", "السَّبْتُ"]}},
+"AR-Y1-NN-T2-L08": {"sort": {"title": "د or ذ?", "cats": [
+ {"name": "د", "icon": "🐻", "items": ["دُبٌّ", "دَفْتَرٌ", "دَرَجٌ", "دَجاجَةٌ"]},
+ {"name": "ذ", "icon": "🐺", "items": ["ذِئْبٌ", "ذُرَةٌ", "ذَهَبٌ", "ذُبابَةٌ"]}]}},
+"AR-Y1-NN-T2-L09": {"sort": {"title": "ر or ز?", "cats": [
+ {"name": "ر", "icon": "🦌", "items": ["ريمٌ", "رُمّانٌ", "رِمالٌ"]},
+ {"name": "ز", "icon": "🦒", "items": ["زَرافَةٌ", "زُهورٌ", "زُبْدَةٌ", "زَيْتونٌ", "زَيْتٌ"]}]}},
+"AR-Y1-NN-T2-L10": {"sort": {"title": "س or ش?", "cats": [
+ {"name": "س", "icon": "🐿️", "items": ["سِنْجابٌ", "سُرورٌ", "سَريرٌ"]},
+ {"name": "ش", "icon": "🦁", "items": ["شِبْلٌ", "شَجَرَةٌ", "شَمّامٌ", "شايٌ"]}]}},
+"AR-Y1-NN-T3-L03": {"seq": {"title": "Morning, noon, sunset, night", "steps": ["الصَّباحُ", "الظَّهيرَةُ", "الْمَغْرِبُ", "اللَّيْلُ"]}},
+"AR-Y1-NN-T3-L04": {"sort": {"title": "ع or غ?", "cats": [
+ {"name": "ع", "icon": "🐦", "items": ["عُصْفورٌ"]},
+ {"name": "غ", "icon": "🐦‍⬛", "items": ["غُرابٌ", "غابَةٌ"]}]}},
+"AR-Y1-NN-T3-L05": {"sort": {"title": "ف or ق?", "cats": [
+ {"name": "ف", "icon": "🐘", "items": ["فَراوْلَةٌ", "فُرْشاةٌ", "فيلٌ", "فُلْفُلٌ"]},
+ {"name": "ق", "icon": "🐱", "items": ["قِطٌّ", "قِدْرٌ"]}]}},
+"AR-Y1-NN-T3-L06": {"sort": {"title": "ك or ل?", "cats": [
+ {"name": "ك", "icon": "🐶", "items": ["كَلْبٌ", "كوبٌ", "كُرّاسٌ"]},
+ {"name": "ل", "icon": "🦙", "items": ["لامَةٌ", "لَوْحٌ", "لِسانٌ"]}]}},
+"AR-Y1-NN-T3-L07": {"sort": {"title": "م or ن?", "cats": [
+ {"name": "م", "icon": "🐐", "items": ["ماعِزٌ", "مُخْتارٌ"]},
+ {"name": "ن", "icon": "🐝", "items": ["نَحْلَةٌ", "نَسْرٌ", "نارٌ", "نورٌ"]}]}},
+"AR-Y1-NN-T3-L08": {"sort": {"title": "هـ or و?", "cats": [
+ {"name": "هـ", "icon": "🐦", "items": ["هُدْهُدٌ", "هَرَمٌ", "هِلالٌ"]},
+ {"name": "و", "icon": "🦇", "items": ["وُرودٌ", "وَطْواطٌ"]}]}},
+"AR-Y1-NN-T3-L10": {"seq": {"title": "Count from 11", "steps": ["أَحَدَ عَشَرَ", "اثْنا عَشَرَ", "ثَلاثَةَ عَشَرَ", "أَرْبَعَةَ عَشَرَ", "خَمْسَةَ عَشَرَ"]}}
+}

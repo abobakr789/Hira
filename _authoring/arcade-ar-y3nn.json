@@ -1,0 +1,371 @@
+{
+"AR-Y3-NN-T1-L02": {
+"sort": {
+"title": "Morning or night?",
+"cats": [
+{
+"name": "Morning",
+"icon": "🌅",
+"items": [
+"غَسْلُ الْيَدَيْنِ",
+"تَنْظيفُ الْأَسْنانِ",
+"الذَّهابُ لِلْمَدْرَسَةِ"
+]
+},
+{
+"name": "Night",
+"icon": "🌙",
+"items": [
+"الِاسْتِعْدادُ لِلنَّوْمِ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T1-L04": {
+"sort": {
+"title": "Sport or hobby?",
+"cats": [
+{
+"name": "Sport & movement",
+"icon": "⚽",
+"items": [
+"كُرَةُ الْقَدَمِ",
+"الْيوجا",
+"الْباليهُ"
+]
+},
+{
+"name": "Quiet hobby",
+"icon": "♟️",
+"items": [
+"الشَّطَرَنْجُ",
+"الْخِياطَةُ",
+"الْقِراءَةُ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T1-L05": {
+"sort": {
+"title": "Eid words",
+"cats": [
+{
+"name": "Greeting",
+"icon": "🎉",
+"items": [
+"عيدٌ مُبارَكٌ"
+]
+},
+{
+"name": "Food",
+"icon": "🍪",
+"items": [
+"كَعْكُ الْعيدِ"
+]
+},
+{
+"name": "Decorations",
+"icon": "🎊",
+"items": [
+"زينَةُ الْعيدِ"
+]
+},
+{
+"name": "Gift",
+"icon": "💵",
+"items": [
+"عيدِيَّةٌ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T1-L07": {
+"sort": {
+"title": "Doctor's tools",
+"cats": [
+{
+"name": "Ear scope",
+"icon": "👂",
+"items": [
+"مِنْظارُ الْأُذُنِ"
+]
+},
+{
+"name": "Thermometer",
+"icon": "🌡️",
+"items": [
+"ميزانُ الْحَرارَةِ"
+]
+},
+{
+"name": "Stethoscope",
+"icon": "🩺",
+"items": [
+"سَمّاعَةٌ"
+]
+},
+{
+"name": "Clinic",
+"icon": "🏥",
+"items": [
+"عيادَةٌ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T1-L08": {
+"sort": {
+"title": "Police: how do they move?",
+"cats": [
+{
+"name": "On horses",
+"icon": "🐎",
+"items": [
+"خَيّالَةٌ"
+]
+},
+{
+"name": "Motorbike",
+"icon": "🏍️",
+"items": [
+"دَرّاجَةٌ نارِيَّةٌ"
+]
+},
+{
+"name": "Tools",
+"icon": "📻",
+"items": [
+"جِهازُ الْإِرْسالِ",
+"قُيودٌ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T2-L01": {
+"seq": {
+"title": "Seasons in order",
+"steps": [
+"الرَّبيعُ",
+"الصَّيْفُ",
+"الْخَريفُ",
+"الشِّتاءُ"
+]
+},
+"sort": {
+"title": "Weather words",
+"cats": [
+{
+"name": "Hot",
+"icon": "☀️",
+"items": [
+"حَرارَةٌ"
+]
+},
+{
+"name": "Cold",
+"icon": "❄️",
+"items": [
+"بُرودَةٌ"
+]
+},
+{
+"name": "Cloudy / rainy",
+"icon": "🌧️",
+"items": [
+"غائِمٌ",
+"ماطِرٌ"
+]
+},
+{
+"name": "Mild",
+"icon": "🌤️",
+"items": [
+"مُعْتَدِلٌ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T2-L02": {
+"sort": {
+"title": "Summer or winter clothes?",
+"cats": [
+{
+"name": "Winter",
+"icon": "❄️",
+"items": [
+"وِشاحٌ",
+"مِعْطَفٌ",
+"صوفٌ",
+"سَميكٌ"
+]
+},
+{
+"name": "Summer",
+"icon": "☀️",
+"items": [
+"فُسْتانٌ",
+"خَفيفَةٌ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T2-L03": {
+"sort": {
+"title": "Problem or solution?",
+"cats": [
+{
+"name": "Problems",
+"icon": "⚠️",
+"items": [
+"التَّلَوُّثُ",
+"نيرانُ الْغاباتِ",
+"أَوْساخٌ"
+]
+},
+{
+"name": "Solutions",
+"icon": "♻️",
+"items": [
+"إِعادَةُ التَّدْويرِ",
+"تَوْفيرُ الْكَهْرَباءِ",
+"تَوْفيرُ الْماءِ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T2-L04": {
+"sort": {
+"title": "Animal sounds",
+"cats": [
+{
+"name": "Dog",
+"icon": "🐕",
+"items": [
+"النُّباحُ"
+]
+},
+{
+"name": "Horse",
+"icon": "🐴",
+"items": [
+"الصَّهيلُ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T2-L05": {
+"sort": {
+"title": "Sea animals",
+"cats": [
+{
+"name": "Jellyfish",
+"icon": "🪼",
+"items": [
+"قِنْديلُ الْبَحْرِ"
+]
+},
+{
+"name": "Crab",
+"icon": "🦀",
+"items": [
+"سَرَطانٌ"
+]
+},
+{
+"name": "Octopus",
+"icon": "🐙",
+"items": [
+"أَخْطَبوطٌ"
+]
+},
+{
+"name": "Starfish",
+"icon": "⭐",
+"items": [
+"نَجْمَةٌ بَحْرِيَّةٌ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T2-L06": {
+"sort": {
+"title": "Polar words",
+"cats": [
+{
+"name": "Animals",
+"icon": "🐻‍❄️",
+"items": [
+"فُقْمَةٌ",
+"الدُّبُّ الْقُطْبِيُّ",
+"غَزالُ الرَّنَّةِ"
+]
+},
+{
+"name": "Place & body",
+"icon": "🧊",
+"items": [
+"قُطْبٌ",
+"فَرْوٌ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T3-L02": {
+"sort": {
+"title": "Ingredients or tools?",
+"cats": [
+{
+"name": "Ingredients",
+"icon": "🥄",
+"items": [
+"دَقيقٌ"
+]
+},
+{
+"name": "Tools & party",
+"icon": "🎂",
+"items": [
+"الْفُرْنُ",
+"شُموعٌ",
+"صافِرَةٌ"
+]
+}
+]
+}
+},
+"AR-Y3-NN-T3-L05": {
+"sort": {
+"title": "Desert holiday words",
+"cats": [
+{
+"name": "Where we sleep",
+"icon": "⛺",
+"items": [
+"خِيامٌ",
+"قُبَّةٌ"
+]
+},
+{
+"name": "The land",
+"icon": "🏜️",
+"items": [
+"تِلالٌ رَمْلِيَّةٌ",
+"صَخْرِيٌّ",
+"وادي رَمٍّ"
+]
+}
+]
+}
+}
+}
