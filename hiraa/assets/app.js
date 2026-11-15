@@ -11343,7 +11343,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
   const gClean = (w) => String(w).replace(/[،,:؛؟!.«»()]/g, "");
   function buildChallenges(allItems) {
     const content = allItems.filter((it) => ["tf", "mcq", "match"].includes(it.game));
-    const items = allItems.filter((it) => !["tf", "mcq", "match"].includes(it.game));
+    const items = allItems.filter((it) => ["order", "complete"].includes(it.game) && it.payload && it.payload.text); // «السلال» و«الخطوات» لساحة الألعاب وحدها
     const cOut = shuffle(content.map((it) => it.game === "tf" ? { type: "tf", text: it.payload.text, answer: !!it.payload.answer }
       : it.game === "mcq" ? { type: "mcq", q: it.payload.q, options: shuffle(it.payload.options.slice()), answer: it.payload.answer }
       : { type: "match", pairs: it.payload.pairs }));
@@ -11403,8 +11403,8 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       } catch (e) { /* الدرس وحده يكفي */ }
     }
     if (!document.body.contains(box)) return;
-    const cfg = { lessons, focusId: l.id, en,
-      classic: gameItems.length ? () => {
+    const cfg = { lessons, focusId: l.id, en, year: (l.units || {}).year_group || 0,
+      classic: gameItems.some((it) => ["tf", "mcq", "match", "order", "complete"].includes(it.game)) ? () => {
         box.innerHTML = `<button class="btn btn-ghost btn-small" id="arcBack" type="button">${en ? "← Games" : "→ الألعاب"}</button>` + gamePanel(l, gameItems);
         document.getElementById("arcBack").onclick = () => window.HiraArcade.mount(box, cfg);
         runGame(l, gameItems);
@@ -11433,7 +11433,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
     const cnt = (n, one, two, few, many, enOne, enMany) => en ? `${n} ${n === 1 ? enOne : enMany}` : n === 1 ? `${one} واحد` : n === 2 ? two : `${n} ${n <= 10 ? few : many}`;
     const stN = (n) => cnt(n, "طالب", "طالبان", "طلاب", "طالبًا", "student", "students");
     const rdN = (n) => (en ? cnt(n, "", "", "", "", "round", "rounds") : n === 1 ? "جولة واحدة" : n === 2 ? "جولتان" : `${n} ${n <= 10 ? "جولات" : "جولة"}`);
-    const MODE = { classic: T("الكلاسيكية", "Classic"), memory: T("الذاكرة", "Memory"), tower: T("البرج", "Tower"), ladder: T("السلّم", "Ladder") };
+    const MODE = { classic: T("الكلاسيكية", "Classic"), memory: T("الذاكرة", "Memory"), tower: T("البرج", "Tower"), ladder: T("السلّم", "Ladder"), blitz: T("السباق", "Race"), sentence: T("الجملة", "Sentence"), sort: T("السلال", "Baskets"), seq: T("الخطوات", "Steps") };
     const load = async (cid) => {
       body.innerHTML = `<p class="muted">${T("جارٍ التحميل…", "Loading…")}</p>`;
       const { data: st } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cid);

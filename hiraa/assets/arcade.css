@@ -167,3 +167,57 @@
 .arc-rep-st > div { display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: baseline; border: 1px solid var(--line); border-radius: 10px; padding: 6px 10px; }
 .arc-rep-st > div span { margin-inline-end: auto; } .arc-rep-st > div b { color: #157A55; } .arc-rep-st > div small { width: 100%; color: var(--muted); font-size: .78rem; }
 .arc-rep-st > div.off { opacity: .6; }
+
+/* ===== المرحلة الثانية: السباق · الجملة · السلال · الخطوات ===== */
+.arc-c-blitz .arc-art { background: linear-gradient(135deg, #FFF0E3, #FCE0CB); }
+.arc-c-sentence .arc-art { background: linear-gradient(135deg, #E8F6F1, #FFF4DD); }
+.arc-c-sort .arc-art { background: linear-gradient(135deg, #E5F6F0, #E2E8F5); }
+.arc-c-seq .arc-art { background: linear-gradient(135deg, #FDF2DC, #EDE7F6); }
+.arc .warn { color: #A0620E; }
+.arc-acts.start { justify-content: flex-start; margin-top: 0; }
+.arc-blitz-intro { text-align: center; justify-items: center; }
+.arc-clock { position: relative; height: 26px; border-radius: 999px; background: var(--stone-2); overflow: hidden; margin-bottom: 12px; }
+.arc-clock i { position: absolute; inset-block: 0; inset-inline-start: 0; width: var(--p); background: linear-gradient(90deg, #14A37F, #5BC79F); transition: width .2s linear; }
+.arc-clock.low i { background: linear-gradient(90deg, #E8833A, #F2A863); }
+.arc-clock b { position: relative; display: block; text-align: center; line-height: 26px; color: var(--hira); font-variant-numeric: tabular-nums; }
+.arc-bq { transition: border-color .15s; }
+.arc-bq .arc-prompt { min-height: 3.6em; display: flex; align-items: center; }
+.arc-bq.flash-ok { animation: arcFlashOk .35s ease; } .arc-bq.flash-no { animation: arcFlashNo .35s ease; }
+@keyframes arcFlashOk { 0% { border-color: var(--arc-green); box-shadow: 0 0 0 6px rgba(20, 163, 127, .25); } 100% { border-color: var(--line); box-shadow: none; } }
+@keyframes arcFlashNo { 0% { border-color: var(--arc-bad); box-shadow: 0 0 0 6px rgba(192, 57, 43, .2); } 100% { border-color: var(--line); box-shadow: none; } }
+
+.arc-line { min-height: 58px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px; border: 2px dashed var(--line); border-radius: 14px; background: var(--stone); }
+.arc-line.ok { border-style: solid; border-color: var(--arc-green); background: #ECF8F3; } .arc-line.no { border-style: solid; border-color: var(--arc-bad); background: #FDECEA; }
+.arc-bank { display: flex; flex-wrap: wrap; gap: 8px; min-height: 48px; }
+.arc-chip { border: 2px solid var(--line); background: var(--paper); border-radius: 12px; padding: 6px 14px; font-size: 1.15rem; cursor: pointer; box-shadow: 0 3px 0 var(--line); }
+.arc-chip:hover:not(:disabled) { border-color: var(--hira); }
+.arc-chip.lock { border-color: var(--arc-gold); } .arc-chip.trap { text-decoration: line-through; opacity: .55; border-color: var(--arc-bad); }
+.arc-line .arc-chip { box-shadow: none; }
+
+.arc-sortcard { margin: 6px auto 16px; max-width: 420px; min-height: 70px; display: grid; place-items: center; text-align: center; padding: 14px 18px; border-radius: 16px; background: var(--paper); border: 2px solid var(--arc-gold); box-shadow: 0 6px 0 #E8D3A4; font-size: 1.25rem; font-weight: 600; animation: arcIn .3s ease; }
+.arc-sortcard.fly { animation: arcFly .5s ease forwards; }
+@keyframes arcFly { to { transform: translateY(70px) scale(.5); opacity: 0; } }
+.arc-baskets { display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); } .arc-baskets.n3 { grid-template-columns: repeat(3, 1fr); } .arc-baskets.n4 { grid-template-columns: repeat(2, 1fr); }
+.arc-basket.b3 { border-top: 8px solid #5B7FD1; }
+.arc-basket { display: grid; align-content: start; gap: 8px; text-align: center; border: 2px solid var(--line); border-radius: 18px; padding: 12px 10px; background: var(--paper); cursor: pointer; min-height: 150px; transition: transform .15s, border-color .15s; }
+.arc-basket:hover { transform: translateY(-2px); }
+.arc-basket.b0 { border-top: 8px solid #14A37F; } .arc-basket.b1 { border-top: 8px solid #102A4C; } .arc-basket.b2 { border-top: 8px solid #E8833A; }
+.arc-bh { display: grid; gap: 2px; justify-items: center; } .arc-bh b { font-size: 1.05rem; color: var(--hira); } .arc-bh i { font-style: normal; font-size: .8rem; color: var(--muted); }
+.arc-bh .arc-ic { font-size: 1.8rem; }
+.arc-bin { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+.arc-binchip { font-size: .78rem; background: var(--stone); border-radius: 8px; padding: 2px 8px; } .arc-binchip.late { background: #FFF1DD; }
+.arc-basket.hit { border-color: var(--arc-green); animation: arcPulse .4s ease; } .arc-basket.miss { border-color: var(--arc-bad); animation: arcShake .36s ease; } .arc-basket.hint { border-color: var(--arc-green); box-shadow: 0 0 0 4px rgba(20, 163, 127, .25); }
+
+.arc-slots { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.arc-slots li { display: flex; gap: 10px; align-items: center; min-height: 46px; border: 2px dashed var(--line); border-radius: 12px; padding: 6px 10px; cursor: pointer; }
+.arc-slots li.full { border-style: solid; background: var(--paper); }
+.arc-slots li.ok { border-color: var(--arc-green); background: #ECF8F3; } .arc-slots li.no { border-color: var(--arc-bad); background: #FDECEA; }
+.arc-sn { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--hira); color: #fff; font-weight: 700; font-size: .85rem; }
+.arc-st { line-height: 1.6; }
+.arc-steps { display: grid; gap: 8px; }
+.arc-step { text-align: start; border: 2px solid var(--line); border-radius: 12px; padding: 8px 14px; background: var(--paper); cursor: pointer; line-height: 1.6; box-shadow: 0 3px 0 var(--line); font-size: 1rem; }
+.arc-step:hover { border-color: var(--hira); }
+.arc-right { margin: 6px 0 0; padding-inline-start: 22px; width: 100%; color: #157A55; }
+:root[data-theme="dark"] .arc-line.ok, :root[data-theme="dark"] .arc-slots li.ok { background: #12351F; }
+:root[data-theme="dark"] .arc-line.no, :root[data-theme="dark"] .arc-slots li.no { background: #3D1414; }
+@media (max-width: 640px) { .arc-baskets.n3 { grid-template-columns: 1fr 1fr; } .arc-basket { min-height: 110px; } .arc-chip { font-size: 1.02rem; padding: 5px 10px; } }
