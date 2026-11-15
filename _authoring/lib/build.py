@@ -10,14 +10,24 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib'))
 import deck, gen
 
 SUBJ = 'الدِّراساتُ الِاجْتِماعِيَّةُ'
+SUBJ_FULL = 'الدِّراساتُ الِاجْتِماعِيَّةُ وَالتَّرْبِيَةُ الْوَطَنِيَّةُ'
 GRADE = 'الصَّفُّ السّابِعُ'
 TPL_GRADE = 'الصَّفُّ الْخامِسُ'
+TPL_SUBJ = 'الدِّراساتُ الِاجْتِماعِيَّةُ'
+TPL_SUBJ_FULL = 'الدِّراساتُ الِاجْتِماعِيَّةُ وَالتَّرْبِيَةُ الْوَطَنِيَّةُ'
 LEM = ['👑', '📜', '🛡️', '⭐']
 
 
 def set_grade(g):
     global GRADE
     GRADE = g
+
+
+def set_subject(short, full=None):
+    """اسمُ المادّةِ في التذييلِ وعلى الغلافِ."""
+    global SUBJ, SUBJ_FULL
+    SUBJ = short
+    SUBJ_FULL = full or short
 
 
 # ── خاناتُ الْمِلَفّاتِ الْمُرافِقَةِ (الْقالَبُ الْأَصْلِيُّ، قَبْلَ الرَّفْعِ) ──
@@ -175,6 +185,7 @@ def build(code, c, unit, tdir, outdir, imgsrc=None):
     os.makedirs(d, exist_ok=True)
     # العرض
     tpl = open(f'{tdir}/teacher-deck.html', encoding='utf-8').read()
+    tpl = tpl.replace(TPL_SUBJ_FULL, SUBJ_FULL).replace(TPL_SUBJ, SUBJ)
     tpl = tpl.replace(TPL_GRADE, GRADE)
     F = deck_fields(c, unit)
     html = gen.render(tpl, F, None, (code, list(c['imgs'])))
