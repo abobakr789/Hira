@@ -1,10 +1,10 @@
 insert into units (subject_id, year_group, term, sort_order, title_ar, is_published, track)
-select 5, 7, 1, 1, 'الْوَحْدَةُ الْأولى: مِنْ تَشَكُّلِ الْأَرْضِ إِلى أَوَّلِ مُجْتَمَعٍ', true, 'native'
-where not exists (select 1 from units where subject_id=5 and year_group=7 and term=1
-                  and sort_order=1 and track='native');
+select 3, 7, 1, 4, 'الْإِماراتُ تاريخُنا (1): مِنْ تَشَكُّلِ الْأَرْضِ إِلى أَوَّلِ مُجْتَمَعٍ', true, 'native'
+where not exists (select 1 from units where subject_id=3 and year_group=7 and term=1
+                  and sort_order=4 and track='native');
 
-with u as (select id from units where subject_id=5 and year_group=7 and term=1
-                 and sort_order=1 and track='native' limit 1),
+with u as (select id from units where subject_id=3 and year_group=7 and term=1
+                 and sort_order=4 and track='native' limit 1),
 ins as (
   insert into lessons (unit_id, sort_order, code, title_ar, periods, book_pages,
                        is_published, objective_ar)
@@ -30,14 +30,14 @@ r1 as (insert into lesson_resources (lesson_id, kind, title_ar, url, is_public, 
        from l, (values ('slides','عرض المعلم','teacher-deck.html','teacher',0),('worksheet','أوراق المستويات الأربعة (A4)','worksheets-A4.html','student',1),('worksheet','نَشاطُ أَصْحابِ الْهِمَمِ','pod-sheet.html','student',2),('worksheet','مفتاح الإجابة للمعلم','answer-key.html','teacher',3),('file','وَرَقَةُ الْمَصادِرِ وَالْمَفاهيمِ','sources-concept-card.html','student',4),('group_pack','العمل الجماعي: بطاقات المجموعات الأربع','group-work.html','teacher',5)) v(k,t,f,a,n)),
 q1 as (insert into questions (subject_id, year_group, term, qtype, stem_ar, options,
                               difficulty, is_active, track, lesson_id)
-       select 5, 7, 1, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
+       select 3, 7, 1, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
        from l, (values ('الْكُتْلَةُ الْأَرْضِيَّةُ الضَّخْمَةُ الَّتي كانَتْ مِنْها أَرْضُ الْإِماراتِ تُسَمّى:','[{"id": "a", "text": "غُنْدُوانا"}, {"id": "b", "text": "التيثِسَ"}, {"id": "c", "text": "بَيْنونَةَ"}]'),('الْبَقايا الْعُضْوِيَّةُ الْقَديمَةُ الَّتي تَحَجَّرَتْ تُسَمّى:','[{"id": "a", "text": "الْمُسْتَحاثّاتِ"}, {"id": "b", "text": "السَّبْخَةَ"}, {"id": "c", "text": "الْكُثْبانَ"}]'),('تَشَكَّلَتْ جِبالُ الْإِماراتِ مِنْ:','[{"id": "a", "text": "قاعِ الْمُحيطِ الْمَدْفوعِ نَحْوَ الْأَعْلى"}, {"id": "b", "text": "تَراكُمِ الرِّمالِ"}, {"id": "c", "text": "جَفافِ الْبُحَيْراتِ"}]'),('كانَ الْخَليجُ الْعَرَبِيُّ جافًّا تَقْريبًا مُنْذُ نَحْوِ:','[{"id": "a", "text": "20,000 سَنَةٍ"}, {"id": "b", "text": "260 مِلْيونَ سَنَةٍ"}, {"id": "c", "text": "500 سَنَةٍ"}]')) v(s,o)
        returning id)
 insert into question_keys (question_id, correct)
 select q1.id, '"a"'::jsonb from q1;
 
-with u as (select id from units where subject_id=5 and year_group=7 and term=1
-                 and sort_order=1 and track='native' limit 1),
+with u as (select id from units where subject_id=3 and year_group=7 and term=1
+                 and sort_order=4 and track='native' limit 1),
 ins as (
   insert into lessons (unit_id, sort_order, code, title_ar, periods, book_pages,
                        is_published, objective_ar)
@@ -63,14 +63,14 @@ r1 as (insert into lesson_resources (lesson_id, kind, title_ar, url, is_public, 
        from l, (values ('slides','عرض المعلم','teacher-deck.html','teacher',0),('worksheet','أوراق المستويات الأربعة (A4)','worksheets-A4.html','student',1),('worksheet','نَشاطُ أَصْحابِ الْهِمَمِ','pod-sheet.html','student',2),('worksheet','مفتاح الإجابة للمعلم','answer-key.html','teacher',3),('file','وَرَقَةُ الْمَصادِرِ وَالْمَفاهيمِ','sources-concept-card.html','student',4),('group_pack','العمل الجماعي: بطاقات المجموعات الأربع','group-work.html','teacher',5)) v(k,t,f,a,n)),
 q1 as (insert into questions (subject_id, year_group, term, qtype, stem_ar, options,
                               difficulty, is_active, track, lesson_id)
-       select 5, 7, 1, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
+       select 3, 7, 1, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
        from l, (values ('يَقَعُ مَوْقِعُ جَبَلِ الْفايَةِ الْأَثَرِيُّ في إِمارَةِ:','[{"id": "a", "text": "الشّارِقَةِ"}, {"id": "b", "text": "أَبوظَبي"}, {"id": "c", "text": "الْفُجَيْرَةِ"}]'),('ظَهَرَتْ سُلالَةُ الْإِنْسانِ الْحَديثِ قَبْلَ نَحْوِ:','[{"id": "a", "text": "200,000 سَنَةٍ"}, {"id": "b", "text": "20,000 سَنَةٍ"}, {"id": "c", "text": "2,000 سَنَةٍ"}]'),('قُدِّرَ دَفْنُ أَدَواتِ جَبَلِ الْفايَةِ الْحَجَرِيَّةِ بَيْنَ:','[{"id": "a", "text": "130,000 وَ95,000 سَنَةٍ"}, {"id": "b", "text": "10,000 وَ8,000 سَنَةٍ"}, {"id": "c", "text": "500 وَ300 سَنَةٍ"}]'),('دَفَعَ النّاسَ إِلَى الْهِجْرَةِ الثّانِيَةِ قَبْلَ نَحْوِ 75,000 سَنَةٍ:','[{"id": "a", "text": "جَفافُ الْمُناخِ"}, {"id": "b", "text": "كَثْرَةُ الْأَمْطارِ"}, {"id": "c", "text": "ارْتِفاعُ الْبَحْرِ"}]')) v(s,o)
        returning id)
 insert into question_keys (question_id, correct)
 select q1.id, '"a"'::jsonb from q1;
 
-with u as (select id from units where subject_id=5 and year_group=7 and term=1
-                 and sort_order=1 and track='native' limit 1),
+with u as (select id from units where subject_id=3 and year_group=7 and term=1
+                 and sort_order=4 and track='native' limit 1),
 ins as (
   insert into lessons (unit_id, sort_order, code, title_ar, periods, book_pages,
                        is_published, objective_ar)
@@ -96,19 +96,19 @@ r1 as (insert into lesson_resources (lesson_id, kind, title_ar, url, is_public, 
        from l, (values ('slides','عرض المعلم','teacher-deck.html','teacher',0),('worksheet','أوراق المستويات الأربعة (A4)','worksheets-A4.html','student',1),('worksheet','نَشاطُ أَصْحابِ الْهِمَمِ','pod-sheet.html','student',2),('worksheet','مفتاح الإجابة للمعلم','answer-key.html','teacher',3),('file','وَرَقَةُ الْمَصادِرِ وَالْمَفاهيمِ','sources-concept-card.html','student',4),('group_pack','العمل الجماعي: بطاقات المجموعات الأربع','group-work.html','teacher',5)) v(k,t,f,a,n)),
 q1 as (insert into questions (subject_id, year_group, term, qtype, stem_ar, options,
                               difficulty, is_active, track, lesson_id)
-       select 5, 7, 1, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
+       select 3, 7, 1, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
        from l, (values ('يُسَمّي الْعُلَماءُ الْحِقْبَةَ الْمُمْتَدَّةَ مِنْ نَحْوِ 8000 إِلى 3000 ق.م:','[{"id": "a", "text": "الْعَصْرَ الْحَجَرِيَّ الْحَديثَ"}, {"id": "b", "text": "الْحِقْبَةَ الْميوسينِيَّةَ"}, {"id": "c", "text": "الْعَصْرَ الْبُرونْزِيَّ"}]'),('الْمَوْقِعُ الَّذي عُثِرَ فيهِ عَلى مَقْبَرَةٍ ضَخْمَةٍ وَمَواقِدَ في الشّارِقَةِ:','[{"id": "a", "text": "جَبَلُ بُحَيْصٍ"}, {"id": "b", "text": "جَزيرَةُ دَلْما"}, {"id": "c", "text": "مِنْطَقَةُ عَوافي"}]'),('يُمارِسُ سُكّانُ الْإِماراتِ الْغَوْصَ بَحْثًا عَنِ اللُّؤْلُؤِ مُنْذُ نَحْوِ:','[{"id": "a", "text": "7,000 سَنَةٍ"}, {"id": "b", "text": "700 سَنَةٍ"}, {"id": "c", "text": "70 سَنَةً"}]'),('الْأَرْضُ الْخَصْبَةُ بَيْنَ دِجْلَةَ وَالْفُراتِ تُسَمّى:','[{"id": "a", "text": "بِلادَ ما بَيْنَ النَّهْرَيْنِ"}, {"id": "b", "text": "بِلادَ الشّامِ"}, {"id": "c", "text": "شِبْهَ الْجَزيرَةِ"}]')) v(s,o)
        returning id)
 insert into question_keys (question_id, correct)
 select q1.id, '"a"'::jsonb from q1;
 
 insert into units (subject_id, year_group, term, sort_order, title_ar, is_published, track)
-select 5, 7, 2, 2, 'الْوَحْدَةُ الثّانِيَةُ: الْعَصْرُ الْبِرونْزِيُّ — واحاتٌ وَحَضارَةٌ وَتَغْييرٌ', true, 'native'
-where not exists (select 1 from units where subject_id=5 and year_group=7 and term=2
-                  and sort_order=2 and track='native');
+select 3, 7, 2, 7, 'الْإِماراتُ تاريخُنا (2): الْعَصْرُ الْبِرونْزِيُّ — واحاتٌ وَحَضارَةٌ', true, 'native'
+where not exists (select 1 from units where subject_id=3 and year_group=7 and term=2
+                  and sort_order=7 and track='native');
 
-with u as (select id from units where subject_id=5 and year_group=7 and term=2
-                 and sort_order=2 and track='native' limit 1),
+with u as (select id from units where subject_id=3 and year_group=7 and term=2
+                 and sort_order=7 and track='native' limit 1),
 ins as (
   insert into lessons (unit_id, sort_order, code, title_ar, periods, book_pages,
                        is_published, objective_ar)
@@ -134,14 +134,14 @@ r1 as (insert into lesson_resources (lesson_id, kind, title_ar, url, is_public, 
        from l, (values ('slides','عرض المعلم','teacher-deck.html','teacher',0),('worksheet','أوراق المستويات الأربعة (A4)','worksheets-A4.html','student',1),('worksheet','نَشاطُ أَصْحابِ الْهِمَمِ','pod-sheet.html','student',2),('worksheet','مفتاح الإجابة للمعلم','answer-key.html','teacher',3),('file','وَرَقَةُ الْمَصادِرِ وَالْمَفاهيمِ','sources-concept-card.html','student',4),('group_pack','العمل الجماعي: بطاقات المجموعات الأربع','group-work.html','teacher',5)) v(k,t,f,a,n)),
 q1 as (insert into questions (subject_id, year_group, term, qtype, stem_ar, options,
                               difficulty, is_active, track, lesson_id)
-       select 5, 7, 2, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
+       select 3, 7, 2, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
        from l, (values ('سُمِّيَتْ حِقْبَةُ حَفيتٍ بِهٰذا الِاسْمِ نِسْبَةً إِلى:','[{"id": "a", "text": "جَبَلٍ قُرْبَ مَدينَةِ الْعَيْنِ"}, {"id": "b", "text": "نَهْرٍ في الْعِراقِ"}, {"id": "c", "text": "جَزيرَةٍ في أَبوظَبي"}]'),('أَقْدَمُ دَليلٍ عَلى زِراعَةِ الْمَحاصيلِ في الْإِماراتِ في مَوْقِعِ:','[{"id": "a", "text": "هيلي 8 بِالْعَيْنِ"}, {"id": "b", "text": "جَبَلِ الْفايَةِ"}, {"id": "c", "text": "أُمِّ النّارِ"}]'),('يَبْلُغُ مُعَدَّلُ هُطولِ الْأَمْطارِ في الدَّوْلَةِ نَحْوَ:','[{"id": "a", "text": "100 مِلِّيمِتْرٍ سَنَوِيًّا"}, {"id": "b", "text": "300 مِلِّيمِتْرٍ سَنَوِيًّا"}, {"id": "c", "text": "700 مِلِّيمِتْرٍ سَنَوِيًّا"}]'),('السّائِلُ الَّذي يُصْنَعُ مِنَ التَّمْرِ يُسَمّى:','[{"id": "a", "text": "الدِّبْسَ"}, {"id": "b", "text": "الْعَريشَ"}, {"id": "c", "text": "الْفَلَجَ"}]')) v(s,o)
        returning id)
 insert into question_keys (question_id, correct)
 select q1.id, '"a"'::jsonb from q1;
 
-with u as (select id from units where subject_id=5 and year_group=7 and term=2
-                 and sort_order=2 and track='native' limit 1),
+with u as (select id from units where subject_id=3 and year_group=7 and term=2
+                 and sort_order=7 and track='native' limit 1),
 ins as (
   insert into lessons (unit_id, sort_order, code, title_ar, periods, book_pages,
                        is_published, objective_ar)
@@ -167,14 +167,14 @@ r1 as (insert into lesson_resources (lesson_id, kind, title_ar, url, is_public, 
        from l, (values ('slides','عرض المعلم','teacher-deck.html','teacher',0),('worksheet','أوراق المستويات الأربعة (A4)','worksheets-A4.html','student',1),('worksheet','نَشاطُ أَصْحابِ الْهِمَمِ','pod-sheet.html','student',2),('worksheet','مفتاح الإجابة للمعلم','answer-key.html','teacher',3),('file','وَرَقَةُ الْمَصادِرِ وَالْمَفاهيمِ','sources-concept-card.html','student',4),('group_pack','العمل الجماعي: بطاقات المجموعات الأربع','group-work.html','teacher',5)) v(k,t,f,a,n)),
 q1 as (insert into questions (subject_id, year_group, term, qtype, stem_ar, options,
                               difficulty, is_active, track, lesson_id)
-       select 5, 7, 2, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
+       select 3, 7, 2, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
        from l, (values ('امْتَدَّتْ حَضارَةُ أُمِّ النّارِ مِنْ:','[{"id": "a", "text": "2500 إِلى 2000 ق.م"}, {"id": "b", "text": "3000 إِلى 2500 ق.م"}, {"id": "c", "text": "1000 إِلى 500 ق.م"}]'),('الِاسْمُ الَّذي أَطْلَقَهُ أَهْلُ الْعِراقِ الْقَديمُ عَلى أَرْضِنا هُوَ:','[{"id": "a", "text": "مَجانُ"}, {"id": "b", "text": "التيثِسُ"}, {"id": "c", "text": "غُنْدُوانا"}]'),('كانَ عِمادُ تِجارَةِ تِلْكَ الْحِقْبَةِ مَعْدِنَ:','[{"id": "a", "text": "النُّحاسِ"}, {"id": "b", "text": "الْحَديدِ"}, {"id": "c", "text": "الْأَلومِنْيومِ"}]'),('يَتَراوَحُ قُطْرُ مُعْظَمِ مَدافِنِ أُمِّ النّارِ بَيْنَ:','[{"id": "a", "text": "5 وَ10 أَمْتارٍ"}, {"id": "b", "text": "30 وَ40 مِتْرًا"}, {"id": "c", "text": "50 سَنْتيمِتْرًا وَمِتْرٍ"}]')) v(s,o)
        returning id)
 insert into question_keys (question_id, correct)
 select q1.id, '"a"'::jsonb from q1;
 
-with u as (select id from units where subject_id=5 and year_group=7 and term=2
-                 and sort_order=2 and track='native' limit 1),
+with u as (select id from units where subject_id=3 and year_group=7 and term=2
+                 and sort_order=7 and track='native' limit 1),
 ins as (
   insert into lessons (unit_id, sort_order, code, title_ar, periods, book_pages,
                        is_published, objective_ar)
@@ -200,19 +200,19 @@ r1 as (insert into lesson_resources (lesson_id, kind, title_ar, url, is_public, 
        from l, (values ('slides','عرض المعلم','teacher-deck.html','teacher',0),('worksheet','أوراق المستويات الأربعة (A4)','worksheets-A4.html','student',1),('worksheet','نَشاطُ أَصْحابِ الْهِمَمِ','pod-sheet.html','student',2),('worksheet','مفتاح الإجابة للمعلم','answer-key.html','teacher',3),('file','وَرَقَةُ الْمَصادِرِ وَالْمَفاهيمِ','sources-concept-card.html','student',4),('group_pack','العمل الجماعي: بطاقات المجموعات الأربع','group-work.html','teacher',5)) v(k,t,f,a,n)),
 q1 as (insert into questions (subject_id, year_group, term, qtype, stem_ar, options,
                               difficulty, is_active, track, lesson_id)
-       select 5, 7, 2, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
+       select 3, 7, 2, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
        from l, (values ('انْتَهَتْ حَضارَةُ أُمِّ النّارِ نَحْوَ عامِ:','[{"id": "a", "text": "2000 ق.م"}, {"id": "b", "text": "3000 ق.م"}, {"id": "c", "text": "500 ق.م"}]'),('اسْمُ الْمَرْحَلَةِ الَّتي تَلَتْ حَضارَةَ أُمِّ النّارِ:','[{"id": "a", "text": "فَتْرَةُ وادي سوقٍ"}, {"id": "b", "text": "حِقْبَةُ حَفيتٍ"}, {"id": "c", "text": "الْعَصْرُ الْحَجَرِيُّ"}]'),('سَبيكَةُ الذَّهَبِ وَالْفِضَّةِ تُسَمّى:','[{"id": "a", "text": "الْإِلِكْتْروم"}, {"id": "b", "text": "الْبِرونْزَ"}, {"id": "c", "text": "النُّحاسَ"}]'),('تَفْسيرا نِهايَةِ حَضارَةِ أُمِّ النّارِ هُما:','[{"id": "a", "text": "تَراجُعُ التِّجارَةِ وَتَغَيُّرُ الْمُناخِ"}, {"id": "b", "text": "الْحَرْبُ وَالزِّلْزالُ"}, {"id": "c", "text": "الطّاعونُ وَالْفَيَضانُ"}]')) v(s,o)
        returning id)
 insert into question_keys (question_id, correct)
 select q1.id, '"a"'::jsonb from q1;
 
 insert into units (subject_id, year_group, term, sort_order, title_ar, is_published, track)
-select 5, 7, 3, 3, 'الْوَحْدَةُ الثّالِثَةُ: الْفَلَجُ وَالْإِبِلُ وَقِيامُ الْإِمْبِراطورِيّاتِ', true, 'native'
-where not exists (select 1 from units where subject_id=5 and year_group=7 and term=3
-                  and sort_order=3 and track='native');
+select 3, 7, 3, 9, 'الْإِماراتُ تاريخُنا (3): الْفَلَجُ وَالْإِبِلُ وَالْإِمْبِراطورِيّاتُ', true, 'native'
+where not exists (select 1 from units where subject_id=3 and year_group=7 and term=3
+                  and sort_order=9 and track='native');
 
-with u as (select id from units where subject_id=5 and year_group=7 and term=3
-                 and sort_order=3 and track='native' limit 1),
+with u as (select id from units where subject_id=3 and year_group=7 and term=3
+                 and sort_order=9 and track='native' limit 1),
 ins as (
   insert into lessons (unit_id, sort_order, code, title_ar, periods, book_pages,
                        is_published, objective_ar)
@@ -238,14 +238,14 @@ r1 as (insert into lesson_resources (lesson_id, kind, title_ar, url, is_public, 
        from l, (values ('slides','عرض المعلم','teacher-deck.html','teacher',0),('worksheet','أوراق المستويات الأربعة (A4)','worksheets-A4.html','student',1),('worksheet','نَشاطُ أَصْحابِ الْهِمَمِ','pod-sheet.html','student',2),('worksheet','مفتاح الإجابة للمعلم','answer-key.html','teacher',3),('file','وَرَقَةُ الْمَصادِرِ وَالْمَفاهيمِ','sources-concept-card.html','student',4),('group_pack','العمل الجماعي: بطاقات المجموعات الأربع','group-work.html','teacher',5)) v(k,t,f,a,n)),
 q1 as (insert into questions (subject_id, year_group, term, qtype, stem_ar, options,
                               difficulty, is_active, track, lesson_id)
-       select 5, 7, 3, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
+       select 3, 7, 3, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
        from l, (values ('الْفَلَجُ تِقْنِيَةٌ لِـ:','[{"id": "a", "text": "سَحْبِ الْمِياهِ الْجَوْفِيَّةِ عَبْرَ نَفَقٍ"}, {"id": "b", "text": "تَخْزينِ مِياهِ الْمَطَرِ في خَزّانٍ"}, {"id": "c", "text": "تَحْلِيَةِ مِياهِ الْبَحْرِ"}]'),('تَعودُ أَقْدَمُ الْأَفْلاجِ الْمُكْتَشَفَةِ في الْعَيْنِ إِلى عامِ:','[{"id": "a", "text": "1000 ق.م"}, {"id": "b", "text": "2500 ق.م"}, {"id": "c", "text": "300 م"}]'),('تَمْتَدُّ الْفَتْرَةُ الْمُسَمّاةُ بِالْعَصْرِ الْحَديدِيِّ مِنْ:','[{"id": "a", "text": "1300 إِلى 300 ق.م"}, {"id": "b", "text": "3000 إِلى 2500 ق.م"}, {"id": "c", "text": "2000 إِلى 1600 ق.م"}]'),('مادَّةُ الْبِناءِ الَّتي تُسَدُّ بِها الْفَراغاتُ بَيْنَ الْأَحْجارِ تُسَمّى:','[{"id": "a", "text": "الْمَلاطَ"}, {"id": "b", "text": "الْفَلَجَ"}, {"id": "c", "text": "الْعَريشَ"}]')) v(s,o)
        returning id)
 insert into question_keys (question_id, correct)
 select q1.id, '"a"'::jsonb from q1;
 
-with u as (select id from units where subject_id=5 and year_group=7 and term=3
-                 and sort_order=3 and track='native' limit 1),
+with u as (select id from units where subject_id=3 and year_group=7 and term=3
+                 and sort_order=9 and track='native' limit 1),
 ins as (
   insert into lessons (unit_id, sort_order, code, title_ar, periods, book_pages,
                        is_published, objective_ar)
@@ -271,14 +271,14 @@ r1 as (insert into lesson_resources (lesson_id, kind, title_ar, url, is_public, 
        from l, (values ('slides','عرض المعلم','teacher-deck.html','teacher',0),('worksheet','أوراق المستويات الأربعة (A4)','worksheets-A4.html','student',1),('worksheet','نَشاطُ أَصْحابِ الْهِمَمِ','pod-sheet.html','student',2),('worksheet','مفتاح الإجابة للمعلم','answer-key.html','teacher',3),('file','وَرَقَةُ الْمَصادِرِ وَالْمَفاهيمِ','sources-concept-card.html','student',4),('group_pack','العمل الجماعي: بطاقات المجموعات الأربع','group-work.html','teacher',5)) v(k,t,f,a,n)),
 q1 as (insert into questions (subject_id, year_group, term, qtype, stem_ar, options,
                               difficulty, is_active, track, lesson_id)
-       select 5, 7, 3, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
+       select 3, 7, 3, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
        from l, (values ('كانَتِ الْإِبِلُ الْمُدَجَّنَةُ مَوْجودَةً في أَرْضِ الْإِماراتِ بِحُلولِ عامِ:','[{"id": "a", "text": "1000 ق.م"}, {"id": "b", "text": "3000 ق.م"}, {"id": "c", "text": "500 م"}]'),('الْحَيَوانُ الْمُدَجَّنُ الَّذي عادَ إِلَى الْحَياةِ الْبَرِّيَّةِ يُسَمّى:','[{"id": "a", "text": "وَحْشِيًّا"}, {"id": "b", "text": "بَرِّيًّا"}, {"id": "c", "text": "أَليفًا"}]'),('أَوَّلُ فَوائِدِ الْإِبِلِ الَّتي ذَكَرَها الْكِتابُ:','[{"id": "a", "text": "الْحَليبُ"}, {"id": "b", "text": "الصّوفُ"}, {"id": "c", "text": "الْحِراثَةُ"}]'),('قَرْيَةُ مُوَيْلِحَ تَقَعُ في إِمارَةِ:','[{"id": "a", "text": "الشّارِقَةِ"}, {"id": "b", "text": "الْفُجَيْرَةِ"}, {"id": "c", "text": "عَجْمانَ"}]')) v(s,o)
        returning id)
 insert into question_keys (question_id, correct)
 select q1.id, '"a"'::jsonb from q1;
 
-with u as (select id from units where subject_id=5 and year_group=7 and term=3
-                 and sort_order=3 and track='native' limit 1),
+with u as (select id from units where subject_id=3 and year_group=7 and term=3
+                 and sort_order=9 and track='native' limit 1),
 ins as (
   insert into lessons (unit_id, sort_order, code, title_ar, periods, book_pages,
                        is_published, objective_ar)
@@ -304,7 +304,7 @@ r1 as (insert into lesson_resources (lesson_id, kind, title_ar, url, is_public, 
        from l, (values ('slides','عرض المعلم','teacher-deck.html','teacher',0),('worksheet','أوراق المستويات الأربعة (A4)','worksheets-A4.html','student',1),('worksheet','نَشاطُ أَصْحابِ الْهِمَمِ','pod-sheet.html','student',2),('worksheet','مفتاح الإجابة للمعلم','answer-key.html','teacher',3),('file','وَرَقَةُ الْمَصادِرِ وَالْمَفاهيمِ','sources-concept-card.html','student',4),('group_pack','العمل الجماعي: بطاقات المجموعات الأربع','group-work.html','teacher',5)) v(k,t,f,a,n)),
 q1 as (insert into questions (subject_id, year_group, term, qtype, stem_ar, options,
                               difficulty, is_active, track, lesson_id)
-       select 5, 7, 3, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
+       select 3, 7, 3, 'mcq', v.s, v.o::jsonb, 1, true, 'native', l.id
        from l, (values ('سَقَطَتِ الْإِمْبِراطورِيَّةُ الْآشورِيَّةُ عامَ:','[{"id": "a", "text": "612 ق.م"}, {"id": "b", "text": "539 ق.م"}, {"id": "c", "text": "330 ق.م"}]'),('الِاسْمُ الَّذي أَطْلَقَهُ مُلوكُ الْفُرْسِ عَلى مِنْطَقَةِ الْإِماراتِ:','[{"id": "a", "text": "ماكا"}, {"id": "b", "text": "مَجانُ"}, {"id": "c", "text": "دِلْمونُ"}]'),('أَسَّسَ الْإِمْبِراطورِيَّةَ الْفارِسِيَّةَ الْمَلِكُ:','[{"id": "a", "text": "قورَشُ"}, {"id": "b", "text": "سِنْحاريبُ"}, {"id": "c", "text": "داريوسُ"}]'),('الْإِشاراتُ الْمَوْجَزَةُ في النُّصوصِ الْآشورِيَّةِ تَدُلُّ عَلى:','[{"id": "a", "text": "عَمَلِ السُّكّانِ بِالتِّجارَةِ"}, {"id": "b", "text": "سَيْطَرَةِ آشورَ عَلَى الْإِماراتِ"}, {"id": "c", "text": "هِجْرَةِ أَهْلِ الْإِماراتِ"}]')) v(s,o)
        returning id)
 insert into question_keys (question_id, correct)
