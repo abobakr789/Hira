@@ -479,8 +479,13 @@ def replace_scene(section, new_scene):
     return section[:i] + new_scene + section[j:]
 
 
+MG_RE = re.compile(r'<svg class="mg".*?</svg>', re.S)
+
+
 def set_scene(section, icon, caption='', tone='cool'):
-    """يضعُ اللوحةَ مكانَ صورةِ الكتابِ، أو يستبدلُ لوحةً موجودةً."""
+    """يضعُ اللوحةَ مكانَ صورةِ الكتابِ أو رسمِ القالبِ، أو يستبدلُ لوحةً موجودةً."""
     if 'class="scn"' in section:
         return replace_scene(section, scene(icon, caption, tone))
-    return IMG_RE.sub(lambda _m: scene(icon, caption, tone), section, count=1)
+    if IMG_RE.search(section):
+        return IMG_RE.sub(lambda _m: scene(icon, caption, tone), section, count=1)
+    return MG_RE.sub(lambda _m: scene(icon, caption, tone), section, count=1)
