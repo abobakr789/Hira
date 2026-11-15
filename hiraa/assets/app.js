@@ -64,6 +64,7 @@
   let LANG = "ar";
   try { LANG = localStorage.getItem("hira-lang") || "ar"; } catch (e) {}
   const EN = {
+    "معارج حراء": "Hiraa Ma‘ārij",
     "للطالب: افهم أكثر، واحصل على درجة أعلى": "For students: understand more, score higher",
     "كل درس بشرح واضح يغنيك عن الكتاب، وملخص ولعبة، واختبار تجريبي يعطيك درجتك المتوقعة وخطة مراجعة، وتحدّيات ونقاط وأوسمة تجعل المذاكرة متعة.": "Every lesson with a clear explanation that replaces the textbook, a summary and a game, a mock exam with your predicted grade and a revision plan, plus challenges, points and badges that make studying fun.",
     "جرّب الدرس الأول مجانًا": "Try the first lesson free",
@@ -10064,7 +10065,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const L = { my: role === "parent" ? CT("أبنائي", "My children") : CT("صفحتي", "My page"), grades: role === "teacher" || role === "admin" || role === "super" ? CT("الدروس", "Lessons") : CT("الصفوف", "Grades"), about: CT("كيف نعمل", "How it works"), bench: CT("المعيارية", "Benchmarks"), pricing: CT("الاشتراكات", "Plans") };
     Object.keys(L).forEach((k) => { const el = by(k); if (el) el.textContent = L[k]; });
     const pe = by("prep"); if (pe) { if (role === "student") { pe.href = "#/my-tests"; pe.textContent = CT("اختباراتي", "My tests"); } else { pe.href = "#/prep"; } }
-    const NIC = { my: "🏠", grades: "📚", about: "ℹ️", pricing: "💳", live: "⚡", memo: "🧠", prep: "📝", ach: "🏅", enrich: "🌟", tests: "🧪", bench: "📊", manage: "🏫", teacher: "👩‍🏫", admin: "⚙️", comps: "🏆", eca: "🎯", books: "📘", league: "🥇", duel: "⚔️" };
+    const NIC = { my: "🏠", grades: "📚", about: "ℹ️", pricing: "💳", live: "⚡", memo: "🧠", prep: "📝", ach: "🏅", enrich: "🌟", maarij: "🪜",tests: "🧪", bench: "📊", manage: "🏫", teacher: "👩‍🏫", admin: "⚙️", comps: "🏆", eca: "🎯", books: "📘", league: "🥇", duel: "⚔️" };
     P.forEach((k) => { const el = by(k); if (el) { el.hidden = false; nav.appendChild(el); } });
     all.filter((x) => !P.includes(x.dataset.nav)).forEach((x) => { menu.appendChild(x); const ic = NIC[x.dataset.nav]; if (ic && !x.dataset.ic) { x.dataset.ic = 1; x.textContent = ic + "  " + x.textContent; } });
     more.hidden = ![...menu.children].some((x) => !x.hidden);
@@ -13897,6 +13898,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "enrich" && parts[1]) return pageEnrichUnit(parts[1]);
       if (p0 === "enrich") return pageEnrich(params);
       if (p0 === "enrich-mark") return pageEnrichMark(params);
+      if (p0 === "maarij") { setNav("maarij"); return window.HiraaMaarij ? window.HiraaMaarij({ h, sb, state, esc, parts, params, isStaff, lang: () => LANG }) : h('<div class="wrap loading">…</div>'); }
       if (p0 === "igcse-cards") return pageIgcseCards(params);
       if (p0 === "igcse-guide") return pageIgcseGuide();
       if (p0 === "igcse-unit" && parts[1]) return pageIgcseUnit(+parts[1]);
