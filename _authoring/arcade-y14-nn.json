@@ -1,0 +1,94 @@
+{
+"Y1-NN-T1-L04": {"seq": {"title": "Order the five pillars of Islam", "steps": ["Shahadah", "Prayer", "Zakah", "Fasting Ramadan", "Hajj"]}},
+"Y1-NN-T1-L09": {"seq": {"title": "Order bedtime and waking up", "steps": ["Lie on your right side", "«In Your name, O Allah, I die and I live»", "Wake up and say Alhamdulillah"]}},
+"Y1-NN-T1-L11": {"seq": {"title": "Order the steps of wudu'", "steps": ["Say Bismillah", "Wash your hands", "Rinse mouth and nose", "Wash your face", "Wash your arms", "Wipe head and ears", "Wash your feet"]}},
+"Y1-NN-T1-L12": {"sort": {"title": "Kindness to animals", "cats": [
+ {"name": "I do", "icon": "💚", "items": ["Feed animals", "Give them water"]},
+ {"name": "I don't", "icon": "🚫", "items": ["Hurt them", "Throw stones at them"]}]}},
+"Y1-NN-T2-L02": {"seq": {"title": "Order the pillars of faith", "steps": ["Allah", "His angels", "His books", "His messengers", "The Last Day", "Qadar"]}},
+"Y1-NN-T2-L03": {"sort": {"title": "A Muslim is clean", "cats": [
+ {"name": "Clean", "icon": "🧼", "items": ["Wash hands before eating", "Wash hands after eating", "Brush your teeth", "Wear clean clothes"]},
+ {"name": "Not clean", "icon": "🚫", "items": ["Dirty hands", "Dirty clothes"]}]}},
+"Y1-NN-T2-L10": {"seq": {"title": "Order the five daily prayers", "steps": ["Fajr", "Dhuhr", "'Asr", "Maghrib", "'Isha'"]}},
+"Y1-NN-T2-L11": {"sort": {"title": "Good manners or not?", "cats": [
+ {"name": "Good manners", "icon": "😊", "items": ["Say please", "Say thank you", "Greet people", "Respect elders", "Be kind to younger ones"]},
+ {"name": "Bad manners", "icon": "🚫", "items": ["Grabbing without asking", "Laughing at younger ones"]}]}},
+"Y1-NN-T3-L04": {"seq": {"title": "Order the eating manners", "steps": ["Wash your hands", "Say Bismillah", "Eat with your right hand", "Say Alhamdulillah"]}},
+"Y1-NN-T3-L08": {"seq": {"title": "Order how a plant grows", "steps": ["Put the seed in soil", "Give it water", "It gets sunlight", "It grows"]}},
+"Y1-NN-T3-L10": {"seq": {"title": "Order the meaning of Surat An-Nasr", "steps": ["Victory comes", "People enter Islam in crowds", "Glorify Allah and ask forgiveness"]}},
+"Y2-NN-T1-L02": {"seq": {"title": "Order the winners in Surat Al-'Asr", "steps": ["Those who believe", "Do good", "Advise each other to truth", "Advise each other to patience"]}},
+"Y2-NN-T1-L06": {"sort": {"title": "Does it break wudu'?", "cats": [
+ {"name": "Breaks wudu'", "icon": "💧", "items": ["Using the toilet", "Passing wind", "Deep sleep", "Losing consciousness"]},
+ {"name": "Doesn't break wudu'", "icon": "✅", "items": ["Drinking water", "Talking"]}]}},
+"Y2-NN-T2-L01": {"seq": {"title": "Order how to pray", "steps": ["Takbir", "Al-Fatihah", "Bow", "Rise", "Two prostrations", "Tashahhud", "Salam"]}},
+"Y2-NN-T2-L05": {"sort": {"title": "Trustworthy or not?", "cats": [
+ {"name": "Trustworthy", "icon": "🔐", "items": ["Return what I borrow on time", "Look after what I borrow"]},
+ {"name": "Not trustworthy", "icon": "🚫", "items": ["Never returning it", "Breaking it and hiding it"]}]}},
+"Y2-NN-T2-L11": {"seq": {"title": "Order the eating manners", "steps": ["Say Bismillah", "Eat with the right hand", "Praise Allah after"]}},
+"Y2-NN-T3-L04": {"seq": {"title": "Order the oaths at the start of Surat Ash-Shams", "steps": ["The sun", "The moon", "The day", "The night"]}},
+"Y2-NN-T3-L10": {"sort": {"title": "My neighbours", "cats": [
+ {"name": "Good to neighbours", "icon": "🏡", "items": ["Help them", "Greet them"]},
+ {"name": "I don't", "icon": "🚫", "items": ["Harm them", "Make loud noise"]}]}},
+"Y3-NN-T1-L01": {"sort": {"title": "Good to parents or not?", "cats": [
+ {"name": "Good to parents", "icon": "💚", "items": ["Answer them straight away", "Obey them in good things", "Speak politely"]},
+ {"name": "Not good", "icon": "🚫", "items": ["Sighing at their requests", "Raising my voice at them"]}]}},
+"Y3-NN-T1-L02": {"seq": {"title": "Order the manners of reciting the Qur'an", "steps": ["Make wudu'", "Sit respectfully", "Seek refuge in Allah", "Say Bismillah", "Recite calmly"]}},
+"Y3-NN-T1-L11": {"seq": {"title": "Order what I do when I hear the adhan", "steps": ["Listen to the adhan", "Repeat after the mu'adhdhin", "Send blessings on the Prophet ﷺ", "Make du'a"]}},
+"Y3-NN-T2-L08": {"seq": {"title": "Order Abu Bakr's life", "steps": ["The first man to believe", "The Prophet's ﷺ companion in the Hijrah", "The first caliph"]}},
+"Y3-NN-T2-L10": {"sort": {"title": "Truthful or lying?", "cats": [
+ {"name": "Truthful", "icon": "✅", "items": ["Telling the truth even when scared", "Owning up when I break something"]},
+ {"name": "Lying", "icon": "❌", "items": ["Hiding a mistake with a lie", "Claiming what I didn't do"]}]}},
+"Y3-NN-T2-L11": {"sort": {"title": "Musa or 'Isa?", "cats": [
+ {"name": "Musa", "icon": "🌟", "items": ["Allah spoke to him"]},
+ {"name": "'Isa", "icon": "⭐", "items": ["Born by a miracle", "Spoke as a baby"]}]}},
+"Y3-NN-T3-L05": {"seq": {"title": "Order the oaths in Surat At-Tin", "steps": ["The fig", "The olive", "Mount Sinai", "The secure city"]}},
+"Y3-NN-T3-L06": {"sort": {"title": "Family ties", "cats": [
+ {"name": "How I keep them", "icon": "👨‍👩‍👧", "items": ["Visit my grandparents", "Call my relatives", "Ask about them"]},
+ {"name": "Their fruit", "icon": "🌱", "items": ["More blessings"]}]}},
+"Y3-NN-T3-L07": {"sort": {"title": "The blessing of water", "cats": [
+ {"name": "Uses of water", "icon": "💧", "items": ["Drinking", "Wudu'", "Watering plants"]},
+ {"name": "Saving water", "icon": "✅", "items": ["Turn off the tap", "Use a little for wudu'"]},
+ {"name": "Wasting", "icon": "🚫", "items": ["Leaving the tap running", "Playing with water"]}]}},
+"Y3-NN-T3-L10": {"seq": {"title": "Order the hadith: whoever is pleased with…", "steps": ["Allah as Lord", "Islam as religion", "Muhammad as Messenger"]}},
+"Y4-NN-T1-L01": {"sort": {"title": "Entering or leaving the house?", "cats": [
+ {"name": "Entering", "icon": "🚪", "items": ["Knock gently", "Enter with the right foot", "Greet the family"]},
+ {"name": "Leaving", "icon": "👋", "items": ["«Bismillah, I trust in Allah»", "Ask your parents' permission"]}]},
+ "seq": {"title": "Order the manners of entering", "steps": ["Knock gently", "Enter with the right foot", "Say Bismillah", "Greet the family"]}},
+"Y4-NN-T1-L03": {"sort": {"title": "Moon letter or sun letter?", "cats": [
+ {"name": "Moon: lam pronounced", "icon": "🌙", "items": ["ب ba'", "ج jim", "ح ḥa'", "ق qaf", "م mim", "ك kaf"]},
+ {"name": "Sun: lam silent", "icon": "☀️", "items": ["ت ta'", "د dal", "س sin", "ش shin", "ر ra'", "ن noon"]}]}},
+"Y4-NN-T1-L05": {"seq": {"title": "Order the start of the call to Islam", "steps": ["Three years of secret call", "Khadijah, Abu Bakr, 'Ali and Zayd believed", "He stood on Safa", "He called Quraysh to tawhid"]}},
+"Y4-NN-T1-L07": {"seq": {"title": "Order the revealed books", "steps": ["Ibrahim's scrolls", "The Torah", "The Psalms", "The Gospel", "The Qur'an"]}},
+"Y4-NN-T1-L09": {"seq": {"title": "Order the steps before sharing news", "steps": ["I hear the news", "Ask: is it true?", "Ask: where is it from?", "Don't share until I'm sure"]}},
+"Y4-NN-T1-L10": {"sort": {"title": "Prayer manners or not?", "cats": [
+ {"name": "Prayer manners", "icon": "🕌", "items": ["Good wudu'", "Clean clothes", "Focus", "Hurrying at the adhan"]},
+ {"name": "Not prayer manners", "icon": "🚫", "items": ["Delaying after the adhan", "Playing in prayer"]}]}},
+"Y4-NN-T2-L01": {"sort": {"title": "Regular sunnah: before or after?", "cats": [
+ {"name": "Before the prayer", "icon": "⬅️", "items": ["Two before Fajr", "Some before Dhuhr"]},
+ {"name": "After the prayer", "icon": "➡️", "items": ["Some after Dhuhr", "Two after Maghrib", "Two after 'Isha'"]}]}},
+"Y4-NN-T2-L02": {"seq": {"title": "Order the migration to Abyssinia", "steps": ["Persecution grew", "Muslims migrated to Abyssinia", "Surat Maryam was recited to An-Najashi", "He wept and protected them"]}},
+"Y4-NN-T2-L03": {"sort": {"title": "Good dealings or bad?", "cats": [
+ {"name": "Good dealings", "icon": "😊", "items": ["Smile", "Speak kindly", "Keep promises", "Be easy-going in buying and selling"]},
+ {"name": "Bad dealings", "icon": "🚫", "items": ["Breaking promises", "Hurtful words"]}]}},
+"Y4-NN-T2-L06": {"seq": {"title": "Order what Al-Ghashiyah asks us to look at", "steps": ["The camels", "The sky", "The mountains", "The earth"]}},
+"Y4-NN-T2-L07": {"seq": {"title": "Order the steps of scientific thinking", "steps": ["Observe", "Ask", "Collect information", "Test", "Conclude"]}},
+"Y4-NN-T2-L09": {"seq": {"title": "Order the Year of Sorrow", "steps": ["Khadijah and Abu Talib died", "The Prophet ﷺ was very sad", "He stayed patient", "Allah honoured him with the Night Journey"]}},
+"Y4-NN-T3-L02": {"sort": {"title": "Public places", "cats": [
+ {"name": "Public places", "icon": "🏞️", "items": ["Parks", "Roads", "Schools"]},
+ {"name": "I don't", "icon": "🚫", "items": ["Write on walls", "Break things", "Litter"]}]}},
+"Y4-NN-T3-L04": {"sort": {"title": "Fasting", "cats": [
+ {"name": "A fasting person avoids", "icon": "🍽️", "items": ["Food", "Drink"]},
+ {"name": "Its wisdom", "icon": "🌙", "items": ["Patience", "Taqwa", "Feeling for the poor"]}]}},
+"Y4-NN-T3-L06": {"sort": {"title": "Surat Al-Mutaffifin", "cats": [
+ {"name": "The cheaters", "icon": "⚖️", "items": ["Take their rights in full", "Give others less"]},
+ {"name": "The righteous", "icon": "🌸", "items": ["In bliss"]}]}},
+"Y4-NN-T3-L07": {"sort": {"title": "Generous or stingy?", "cats": [
+ {"name": "Generous", "icon": "🎁", "items": ["Share food", "Honour guests", "Help the needy"]},
+ {"name": "Stingy", "icon": "🚫", "items": ["Refusing the needy", "Keeping all the food"]}]}},
+"Y4-NN-T3-L08": {"sort": {"title": "Say it or stay silent?", "cats": [
+ {"name": "Good — I say it", "icon": "💬", "items": ["A thank-you", "Polite advice", "Remembering Allah"]},
+ {"name": "I stay silent", "icon": "🤐", "items": ["Mocking", "Backbiting", "Lying"]}]}},
+"Y4-NN-T3-L09": {"sort": {"title": "Caring for the environment", "cats": [
+ {"name": "I care", "icon": "🌱", "items": ["Turn off taps", "Turn off lights", "Recycle", "Plant trees"]},
+ {"name": "I harm", "icon": "🚫", "items": ["Litter", "Leave water running"]}]}}
+}

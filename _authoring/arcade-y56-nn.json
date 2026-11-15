@@ -1,0 +1,97 @@
+{
+"Y5-NN-T1-L01": {"seq": {"title": "Order the scenes in Surat Al-Infitar", "steps": ["The sky splits", "The stars scatter", "The seas burst", "The graves are opened"]}},
+"Y5-NN-T1-L02": {"sort": {"title": "The truly bankrupt person", "cats": [
+ {"name": "Good deeds he brings", "icon": "✨", "items": ["Prayer", "Fasting"]},
+ {"name": "Wrongs that wipe them out", "icon": "⚠️", "items": ["Insulting people", "Wronging people"]}]}},
+"Y5-NN-T1-L05": {"seq": {"title": "Order the journey to Ta'if", "steps": ["The Prophet ﷺ invited the people of Ta'if", "They rejected him and threw stones", "The angel of the mountains offered to destroy them", "He hoped their children would worship Allah"]}},
+"Y5-NN-T1-L06": {"seq": {"title": "Order the events in Surat At-Takwir", "steps": ["The sun is wrapped up", "The stars fall", "The mountains move", "The records are opened"]}},
+"Y5-NN-T1-L07": {"sort": {"title": "Kindness or unkindness?", "cats": [
+ {"name": "Kindness to workers", "icon": "🤝", "items": ["Thank them", "Respect them", "Feed them from what you eat", "Don't overburden them"]},
+ {"name": "Unkindness", "icon": "🚫", "items": ["Mocking them", "Giving them too much work"]}]}},
+"Y5-NN-T1-L08": {"seq": {"title": "Order the stages of the Last Day", "steps": ["Death", "The grave", "Resurrection", "Judgement", "The scale", "The bridge", "Paradise or Hell"]}},
+"Y5-NN-T1-L10": {"seq": {"title": "Order the Night Journey and Ascension", "steps": ["From Makkah to Al-Aqsa by night", "He led the prophets in prayer", "He rose through the heavens", "The five prayers were made obligatory"]}},
+"Y5-NN-T2-L01": {"seq": {"title": "Order the story of Surat 'Abasa", "steps": ["The Prophet ﷺ was busy with leaders of Quraysh", "A blind man came asking", "Allah revealed the surah", "Every person matters"]}},
+"Y5-NN-T2-L02": {"sort": {"title": "Qalqalah letter or not?", "cats": [
+ {"name": "Qalqalah: qutbu jad", "icon": "💥", "items": ["ق qaf", "ط ta'", "ب ba'", "ج jim", "د dal"]},
+ {"name": "Not qalqalah", "icon": "✖️", "items": ["م mim", "ن noon", "س sin", "ل lam"]}]}},
+"Y5-NN-T2-L04": {"sort": {"title": "Manners on transport", "cats": [
+ {"name": "Good manners", "icon": "🚌", "items": ["Say the travel du'a", "Queue", "Give seats to elders", "Wear a seatbelt", "Keep it clean"]},
+ {"name": "Bad manners", "icon": "🚫", "items": ["Shouting", "Dropping litter"]}]}},
+"Y5-NN-T2-L06": {"sort": {"title": "Surat An-Nazi'at", "cats": [
+ {"name": "Pharaoh", "icon": "👑", "items": ["Said «I am your highest lord»", "Allah punished him"]},
+ {"name": "Who controls his desires", "icon": "🌿", "items": ["Paradise is his home"]}]}},
+"Y5-NN-T2-L08": {"sort": {"title": "Gentle or harsh?", "cats": [
+ {"name": "Gentle", "icon": "🌸", "items": ["Speak calmly to siblings", "Be kind to classmates", "Stay calm when upset"]},
+ {"name": "Harsh", "icon": "🚫", "items": ["Shouting at siblings", "Pushing classmates", "Getting angry quickly"]}]}},
+"Y5-NN-T2-L10": {"seq": {"title": "Order the events of the Hijrah", "steps": ["The Prophet ﷺ and Abu Bakr left secretly", "They hid in the cave of Thawr", "The enemies came near", "«Do not grieve, Allah is with us»"]}},
+"Y5-NN-T3-L01": {"sort": {"title": "Surat An-Naba': Allah's blessings", "cats": [
+ {"name": "On earth", "icon": "⛰️", "items": ["The earth as a bed", "Mountains as pegs"]},
+ {"name": "Night and day", "icon": "🌗", "items": ["Night as covering", "Sleep as rest"]},
+ {"name": "From the sky", "icon": "🌧️", "items": ["Rain", "Grain and gardens"]}]}},
+"Y5-NN-T3-L04": {"sort": {"title": "Rights of the road", "cats": [
+ {"name": "Rights of the road", "icon": "🛣️", "items": ["Lower the gaze", "Cause no harm", "Return greetings", "Remove harm from the road"]},
+ {"name": "Against them", "icon": "🚫", "items": ["Throwing rubbish on the road", "Bothering passers-by"]}]}},
+"Y5-NN-T3-L05": {"sort": {"title": "Jumu'ah or Eid prayer?", "cats": [
+ {"name": "Jumu'ah", "icon": "🕌", "items": ["Two sermons before the prayer", "Obligatory for men", "Ghusl and coming early"]},
+ {"name": "Eid", "icon": "🎉", "items": ["Extra takbirs", "Sermon after the prayer", "Eid al-Fitr and Eid al-Adha"]}]}},
+"Y5-NN-T3-L06": {"sort": {"title": "The Day of Decision", "cats": [
+ {"name": "The righteous", "icon": "🌳", "items": ["Gardens"]},
+ {"name": "The disbeliever", "icon": "🔥", "items": ["Wishes he were dust"]},
+ {"name": "That Day", "icon": "📯", "items": ["The Trumpet is blown", "People come in crowds"]}]}},
+"Y5-NN-T3-L08": {"sort": {"title": "Brave or reckless?", "cats": [
+ {"name": "Brave", "icon": "🦁", "items": ["Speaking the truth", "Helping the wronged wisely", "Admitting mistakes", "Asking adults for help in danger"]},
+ {"name": "Reckless", "icon": "⚠️", "items": ["Rushing in without thinking"]}]}},
+"Y6-NN-T1-L01": {"seq": {"title": "Order the creation of humans in the verses", "steps": ["Allah began creating humans from clay", "He breathed the soul into him", "He gave hearing and sight"]}},
+"Y6-NN-T1-L02": {"seq": {"title": "Order the advice to Ibn 'Abbas", "steps": ["Be mindful of Allah and He will protect you", "Be mindful of Allah and you will find Him before you", "When you ask, ask Allah", "When you seek help, seek it from Allah"]}},
+"Y6-NN-T1-L05": {"sort": {"title": "Pillar, sunnah or disliked?", "cats": [
+ {"name": "Pillar", "icon": "✅", "items": ["Intention", "Opening takbir", "Al-Fatihah", "Bowing", "Prostration", "Salam"]},
+ {"name": "Sunnah", "icon": "🌟", "items": ["A surah after Al-Fatihah"]},
+ {"name": "Disliked", "icon": "⚠️", "items": ["Looking around", "Fidgeting"]}]},
+ "seq": {"title": "Order the pillars of prayer", "steps": ["Opening takbir", "Al-Fatihah", "Bowing", "Rising from bowing", "Prostration", "Sitting between prostrations", "Final tashahhud", "Salam"]}},
+"Y6-NN-T1-L07": {"sort": {"title": "Surat As-Sajdah: believers' qualities and reward", "cats": [
+ {"name": "Their qualities", "icon": "🤲", "items": ["Fall in prostration when reminded", "Pray at night", "Pray with fear and hope", "Spend from what Allah gave them"]},
+ {"name": "Their reward", "icon": "🌸", "items": ["Joy hidden for them that no soul knows"]}]}},
+"Y6-NN-T1-L08": {"sort": {"title": "Throat letters of izhar", "cats": [
+ {"name": "Throat letter: izhar", "icon": "🔊", "items": ["ء hamzah", "هـ ha'", "ع 'ayn", "ح ḥa'", "غ ghayn", "خ kha'"]},
+ {"name": "Not an izhar letter", "icon": "✖️", "items": ["ب ba'", "ق qaf", "ت ta'", "س sin"]}]}},
+"Y6-NN-T1-L09": {"seq": {"title": "Order self-accounting before sleep", "steps": ["Review my day", "Ask: Did I pray? Was I good to my parents?", "Thank Allah for the good", "Repent from mistakes"]}},
+"Y6-NN-T1-L10": {"sort": {"title": "Mosque manners or not?", "cats": [
+ {"name": "Mosque manners", "icon": "🕌", "items": ["Enter with the right foot", "Pray two units before sitting", "Keep it clean", "Leave with the left foot"]},
+ {"name": "Not mosque manners", "icon": "🚫", "items": ["Loud voices", "Bad smells", "Sitting before praying two units"]}]},
+ "seq": {"title": "Order a visit to the mosque", "steps": ["Enter with the right foot", "«O Allah, open for me the doors of Your mercy»", "Pray two units", "Sit quietly", "Leave with the left foot", "«O Allah, I ask You of Your bounty»"]}},
+"Y6-NN-T1-L11": {"seq": {"title": "Order what the Prophet ﷺ did after the Hijrah", "steps": ["Arrived in Madinah", "Built his mosque", "Brotherhood of Emigrants and Helpers", "Wrote the Charter of Madinah"]}},
+"Y6-NN-T1-L12": {"sort": {"title": "Forgetfulness or recitation prostration?", "cats": [
+ {"name": "Forgetfulness (sahw)", "icon": "🔁", "items": ["Two prostrations", "If you forget something", "If you add or are unsure", "Before or after salam"]},
+ {"name": "Recitation (tilawah)", "icon": "📖", "items": ["One prostration", "When reciting or hearing a verse of sajdah"]}]}},
+"Y6-NN-T2-L02": {"sort": {"title": "Idgham or izhar?", "cats": [
+ {"name": "Idgham with nasal sound", "icon": "🎵", "items": ["ي ya'", "ن noon", "م mim", "و waw"]},
+ {"name": "Idgham without nasal sound", "icon": "🔇", "items": ["ل lam", "ر ra'"]},
+ {"name": "Izhar", "icon": "🔊", "items": ["ء hamzah", "هـ ha'", "ع 'ayn", "ح ḥa'", "غ ghayn", "خ kha'"]}]}},
+"Y6-NN-T2-L03": {"sort": {"title": "Grateful or patient?", "cats": [
+ {"name": "Good times: grateful", "icon": "😊", "items": ["Passing an exam", "A new gift", "Getting better after illness"]},
+ {"name": "Hard times: patient", "icon": "🤲", "items": ["Being ill", "Losing a match", "Losing something you love"]}]}},
+"Y6-NN-T2-L05": {"seq": {"title": "Order Imam Malik's life", "steps": ["Born in Madinah in 93 AH", "Sought knowledge young", "Wrote Al-Muwatta'", "Died in 179 AH"]}},
+"Y6-NN-T2-L07": {"sort": {"title": "Iqlab or another rule?", "cats": [
+ {"name": "Iqlab", "icon": "🔄", "items": ["ب ba'"]},
+ {"name": "Idgham", "icon": "🎵", "items": ["ي ya'", "ر ra'", "م mim", "ل lam", "و waw", "ن noon"]},
+ {"name": "Izhar", "icon": "🔊", "items": ["ء hamzah", "ح ḥa'", "خ kha'", "ع 'ayn"]}]}},
+"Y6-NN-T2-L08": {"seq": {"title": "Order the advice in the hadith", "steps": ["Fear Allah wherever you are", "Follow a bad deed with a good one", "Treat people with good character"]}},
+"Y6-NN-T2-L10": {"seq": {"title": "Order the Battle of Badr", "steps": ["313 Muslims met about 1,000 at Badr in Ramadan 2 AH", "The Prophet ﷺ consulted his Companions", "He prayed to Allah", "Allah gave victory with angels"]}},
+"Y6-NN-T3-L02": {"sort": {"title": "Rules of silent noon and tanween", "cats": [
+ {"name": "Ikhfa'", "icon": "🌫️", "items": ["ت ta'", "ث tha'", "د dal", "ص sad", "ق qaf", "ك kaf"]},
+ {"name": "Iqlab", "icon": "🔄", "items": ["ب ba'"]},
+ {"name": "Idgham", "icon": "🎵", "items": ["ي ya'", "ر ra'"]},
+ {"name": "Izhar", "icon": "🔊", "items": ["ء hamzah", "ح ḥa'", "خ kha'"]}]}},
+"Y6-NN-T3-L03": {"sort": {"title": "Good or bad companion?", "cats": [
+ {"name": "Good companion", "icon": "🌸", "items": ["Like a perfume-seller", "You benefit from him", "You smell something pleasant"]},
+ {"name": "Bad companion", "icon": "🔥", "items": ["Like a blacksmith", "He may burn your clothes", "You smell something bad"]}]}},
+"Y6-NN-T3-L04": {"seq": {"title": "Order the steps of scientific thinking", "steps": ["Observe", "Ask", "Test", "Conclude"]}},
+"Y6-NN-T3-L05": {"seq": {"title": "Order the Battle of Uhud", "steps": ["Archers were placed on the hill", "They were told not to leave", "Seeing victory, they came down", "The enemy attacked from behind"]}},
+"Y6-NN-T3-L06": {"sort": {"title": "Caring for home or wasting?", "cats": [
+ {"name": "Caring for my home", "icon": "🏠", "items": ["Turn off the tap after wudu'", "Switch off lights when leaving", "Tidy my room", "Respect family privacy"]},
+ {"name": "Wasting", "icon": "🚫", "items": ["Leaving water running", "AC on in an empty room", "Throwing away extra food"]}]}},
+"Y6-NN-T3-L09": {"seq": {"title": "Order the manners of du'a", "steps": ["Praise Allah", "Send blessings on the Prophet ﷺ", "Raise your hands", "Ask with certainty"]}},
+"Y6-NN-T3-L10": {"sort": {"title": "Types of fasting", "cats": [
+ {"name": "Obligatory", "icon": "🌙", "items": ["Ramadan"]},
+ {"name": "Voluntary", "icon": "🌟", "items": ["Mondays and Thursdays", "Three days each month", "The Day of 'Arafah", "'Ashura'"]}]}}
+}
