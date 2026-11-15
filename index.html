@@ -3166,10 +3166,10 @@ const T={
  certT:['شهادة إتمام','Certificate of Completion'],certName:['اكتب اسمك كما تريده في الشهادة','Type your name for the certificate'],showCert:['اعرض الشهادة','Show certificate'],
  certBody:['أتمّ بحمد الله دورة التجويد برواية حفص عن عاصم في معارج حراء، بمستوياتها الثلاثة ودرجاتها الست عشرة.','has completed, by Allah’s grace, the Tajwīd course (Ḥafṣ ‘an ‘Āṣim) on Hiraa Ma‘ārij — all three levels and sixteen steps.'],
  date:['التاريخ','Date'],
- foot:['معارج حراء · نصوص الآيات من مصحف المنصة، والتلاوة للشيخ خليفة الطنيجي.','Hiraa Ma‘ārij · Qur’an text from the platform’s Muṣḥaf; recitation by Sheikh Khalifa Al-Tunaiji.'],
+ foot:['معارج حراء · نصوص الآيات من مصحف المنصة، والتلاوة للشيخ خليفة الطنيجي.','Hiraa Ma‘ārij · Qur’an text from the platform’s Muṣḥaf; recitation by Sheikh Khalifa Al-Tunaiji.'],foot2:['معارج حراء · كل نص في الدورة موثّق من مصدره المذكور تحته.','Hiraa Ma‘ārij · every text in this course is cited from its source.'],
  lv:['المستوى','Level']
 };
-const LBL={'آية':'Āyah','بيت':'Verse','شطر':'Half-verse','سؤال':'Question','موقف':'Case','قمرية':'Moon','شمسية':'Sun','فعل':'Verb','مثلان':'Mithlayn','متجانسان':'Mutajānisayn','متقاربان':'Mutaqāribayn','لين':'Līn','متصل':'Muttaṣil','منفصل':'Munfaṣil','عارض':'‘Āriḍ','بدل':'Badal','كلمي':'Word','حرفي':'Letter','طبيعي':'Natural','مخارج':'Makhārij','قلقلة':'Qalqalah','صفير':'Ṣafīr'};
+const LBL={'آية':'Āyah','مثال':'Example','بيت':'Verse','شطر':'Half-verse','سؤال':'Question','موقف':'Case','قمرية':'Moon','شمسية':'Sun','فعل':'Verb','مثلان':'Mithlayn','متجانسان':'Mutajānisayn','متقاربان':'Mutaqāribayn','لين':'Līn','متصل':'Muttaṣil','منفصل':'Munfaṣil','عارض':'‘Āriḍ','بدل':'Badal','كلمي':'Word','حرفي':'Letter','طبيعي':'Natural','مخارج':'Makhārij','قلقلة':'Qalqalah','صفير':'Ṣafīr'};
 const SUBJ=[
  {id:'isl',c:'var(--isl)',s:'var(--isl-s)',courses:[
    {t:['التجويد','Tajwīd'],d:['16 درجة · 3 مستويات','16 steps · 3 levels'],live:1,id:'tajweed',n:16,icon:'book'},
@@ -3177,7 +3177,7 @@ const SUBJ=[
    {t:['الأربعون النووية','An-Nawawī’s Forty'],d:['حفظ وفهم وتطبيق','Memorise, understand, apply'],icon:'scroll'},
    {t:['أسماء الله الحسنى','The Beautiful Names'],d:['المعنى والأثر','Meaning and effect'],icon:'star'}]},
  {id:'ar',c:'var(--ar)',s:'var(--ar-s)',courses:[
-   {t:['فن الإملاء','Spelling'],d:['الهمزات والتاء والألف','Hamzah, tā’ and alif'],icon:'pen'},
+   {t:['فن الإملاء','Spelling'],d:['12 درجة · الهمزات والتاء والألف والترقيم','12 steps · hamzah, tā’, alif, punctuation'],live:1,id:'imla',n:12,icon:'pen'},
    {t:['قل ولا تقل','Say it right'],d:['الأخطاء اللغوية الشائعة','Common language errors'],icon:'chat'},
    {t:['مفاتيح النحو','Keys of Grammar'],d:['من الآجرومية إلى ابن عقيل','From al-Ājurrūmiyyah up'],icon:'key'},
    {t:['البلاغة الميسرة','Easy Rhetoric'],d:['التشبيه والاستعارة والكناية','Simile, metaphor, metonymy'],icon:'spark'},
@@ -3203,7 +3203,7 @@ const ICONS={
 
 T.report=['تقرير الطلاب','Student report'];T.repT=['تقرير معارج حراء','Ma‘ārij report'];T.student=['الطالب','Student'];T.steps=['الدرجات','Steps'];T.curStep=['الدرجة الحالية','Current step'];T.medals=['الأوسمة','Medals'];T.updated=['آخر نشاط','Last active'];T.noData=['لا يوجد تقدم مسجل لطلابك بعد.','No progress recorded for your students yet.'];T.loading=['جارٍ التحميل…','Loading…'];T.signHint=['سجّل الدخول ليُحفظ تقدّمك ويراه معلمك.','Sign in to save your progress and share it with your teacher.'];
 let SURAH,LEVELS,STEPS,PLACE,D=null,C=null,syncT=null,CID='tajweed',N=16;
-const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json'};const CACHE={},LOADED={};
+const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json'};const CACHE={},LOADED={};
 const KEY=()=>'hiraa-maarij-'+CID;
 let S={passed:[],tests:{},open:false,name:'',start:0};
 let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}
@@ -3511,7 +3511,7 @@ window.HiraaMaarij=async function(ctx){
   const parts=ctx.parts||[];
   if(parts[1]&&!COURSES[parts[1]]){location.hash='#/maarij';return}
   SUB=!parts[1]?'courses':(parts[2]||'course');
-  ctx.h(`<div class="mj" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><nav class="mj-crumb" id="mjCrumb"></nav><div id="mjApp">${t('loading')}</div><p class="note">${t('foot')}${ctx.state.session?'':' · '+t('signHint')}</p></div></div>`);
+  ctx.h(`<div class="mj" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><nav class="mj-crumb" id="mjCrumb"></nav><div id="mjApp">${t('loading')}</div><p class="note">${(parts[1]==='shiir'||parts[1]==='imla')?t('foot2'):t('foot')}${ctx.state.session?'':' · '+t('signHint')}</p></div></div>`);
   if(parts[1]){
     const cid=parts[1];
     if(!CACHE[cid]){try{CACHE[cid]=await (await fetch(COURSES[cid],{cache:'no-cache'})).json()}catch(e){$('mjApp').textContent='تعذّر تحميل الدورة.';return}}
