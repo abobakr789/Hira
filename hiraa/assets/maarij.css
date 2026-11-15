@@ -274,3 +274,9 @@
 .mj .era span{opacity:.75;font-family:"ThmanyahSans"}
 @media (max-width:760px){.mj .poem .v,.mj .ex.verse .bv{grid-template-columns:1fr;gap:2px;font-size:20px}.mj .poem .v>span{text-align:center!important}.mj .poem .v>span:nth-child(2){display:none}.mj .ex.verse .bv{padding-left:0;padding-top:40px}.mj .ex.verse .bv>span{text-align:center!important}}
 .mj .ex.verse .bv>span:only-child{text-align:center}
+.mj .poem .ph{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;font-family:"ThmanyahSans";font-size:14px;color:var(--gold)}
+.mj .poem .ph .tg{border:1.5px solid var(--gold-l);background:#fff;color:var(--navy);border-radius:999px;padding:4px 12px;font:inherit;cursor:pointer}
+.mj .poem.h2 .v>span:last-child{filter:blur(7px);transition:filter .2s;cursor:pointer}
+.mj .poem.h2 .v>span:last-child:hover,.mj .poem.h2 .v>span:last-child:active{filter:none}
+.mj .poem .v{border-bottom:1px dashed var(--gold-s,#f3e6c4);padding:2px 0}
+.mj .poem .v:last-of-type{border-bottom:0}
