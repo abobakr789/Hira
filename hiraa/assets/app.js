@@ -6955,7 +6955,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   ];
   const bandOf = (pct) => BANDS.find((b) => pct >= b.min) || BANDS[4];
   const DOMS = { 1: ["الوحي الإلهي", "Divine Revelation"], 2: ["العقيدة الإسلامية", "Islamic Creed"], 3: ["قيم الإسلام وآدابه", "Values & Manners"], 4: ["أحكام الإسلام ومقاصدها", "Rulings & Purposes"], 5: ["السيرة والشخصيات", "Seerah & Personalities"], 6: ["الهوية والقضايا المعاصرة", "Identity & Issues"] };
-  const domName = (d) => CT(DOMS[d][0], DOMS[d][1]);
+  // Arabic framework domains (the last digit of the standard code / axis): reading, literary texts, informational texts, writing, listening & speaking, language
+  const DOMS_AR = { 1: ["القراءة: الأسس والاستراتيجيات", "Reading foundations"], 2: ["النصوص الأدبية", "Literary texts"], 3: ["النصوص المعلوماتية", "Informational texts"], 4: ["الكتابة", "Writing"], 5: ["الاستماع والتحدث", "Listening & speaking"], 6: ["اللغة: المفردات والنحو والإملاء", "Language"] };
+  let benchSubjId = 1;
+  const domName = (d) => { const D = benchSubjId === 2 ? DOMS_AR : DOMS; return CT(D[d][0], D[d][1]); };
   const winState = (w) => { const n = Date.now(); if (w.opens_at && n < new Date(w.opens_at)) return "soon"; if (w.closes_at && n > new Date(w.closes_at)) return "closed"; return "open"; };
   const WSTATE = { soon: ["قادمة", "Upcoming"], open: ["مفتوحة الآن", "Open now"], closed: ["انتهت", "Closed"] };
   const fpIcon = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c-9.9 0-18 8.1-18 18M24 12c-6.6 0-12 5.4-12 12v6M24 18c-3.3 0-6 2.7-6 6v10M24 24v14M30 24c0 5-1 9-3 13M36 24c0 7-2 12-5 16M42 24c0-9.9-8.1-18-18-18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
@@ -7020,6 +7023,183 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (bad) { toast("أدخل درجة صحيحة لكل معيار"); return; }
       const { error } = await sb.rpc("bench_recite_mark", { p_form: formId, p_student: b.dataset.save, p_hifz: v.s_hifz, p_tajweed: v.s_tajweed, p_fluency: v.s_fluency, p_note: tr.querySelector(".brr-note").value || null });
       if (error) { toast(error.message); return; } toast("حُفظ التقييم ✓"); b.textContent = "تحديث"; });
+  }
+
+  /* ---- Arabic benchmark: writing & speaking (student submits, teacher marks with the rubric) */
+  const PLV = { 4: "متقن", 3: "متمكن", 2: "نامٍ", 1: "مبتدئ", 0: "لا استجابة" };
+  const lvDesc = (r, lv) => (lv > 0 ? r.d[4 - lv] : "لا استجابة أو استجابة لا تتصل بالمهمة");
+  const wordsOf = (s) => String(s || "").trim().split(/\s+/).filter(Boolean).length;
+  const prodErr = (m) => (/locked/.test(m) ? "لم يفتح معلمك الاختبار لفصلك بعد." : /window/.test(m) ? "نافذة الاختبار مغلقة." : /not your form/.test(m) ? "هذا الاختبار ليس لصفك." : /already marked/.test(m) ? "قيّم معلمك هذه المهمة، فلا يمكن تعديلها." : /empty/.test(m) ? "اكتب نصك أولًا." : "تعذّر الإرسال: " + m);
+  const rubricHtml = (t) => `<div class="table-wrap"><table class="admin-table bp-rub"><thead><tr><th>المعيار</th>${[4, 3, 2, 1].map((l) => `<th>${PLV[l]} (${l})</th>`).join("")}</tr></thead><tbody>${t.rubric.map((r) => `<tr><th>${esc(r.c)}</th>${r.d.map((d) => `<td>${esc(d)}</td>`).join("")}</tr>`).join("")}</tbody></table></div><p class="muted small">صفر: لا استجابة. المجموع من ${t.rubric.length * 4}، ويدخل بنسبة ${t.weight}% في الدرجة الكلية.</p>`;
+
+  async function pageBenchProd(formId, task) {
+    setNav("bench");
+    if (!state.session) { location.hash = "#/login"; return; }
+    loading();
+    const me = state.session.user.id, W = task === "writing";
+    const [{ data: t }, { data: p }] = await Promise.all([
+      sb.from("bench_tasks").select("*").eq("assessment_id", formId).eq("task", task).maybeSingle(),
+      sb.from("bench_productions").select("*").eq("assessment_id", formId).eq("student_id", me).eq("task", task).maybeSingle()]);
+    if (!t) { h(`<div class="wrap loading">لا توجد مهمة ${W ? "كتابة" : "تحدث"} في هذا الاختبار. <a href="#/benchmarks?subject=arabic">رجوع</a></div>`); return; }
+    const marked = !!(p && p.marked_at);
+    let audio = "";
+    if (!W && p && p.audio_path) { const { data: su } = await sb.storage.from("bench-audio").createSignedUrl(p.audio_path, 3600); audio = su ? su.signedUrl : ""; }
+    const dKey = "hiraa:bp:" + formId;
+    let draft = p && p.text_ar ? p.text_ar : ""; if (W && !draft) { try { draft = localStorage.getItem(dKey) || ""; } catch (e) {} }
+    const scoreHtml = marked ? `<div class="brr-score"><div class="score-big">${p.total}<small>/${p.max_score}</small></div>${t.rubric.map((r, i) => `<div title="${esc(lvDesc(r, p.scores[i]))}"><span>${esc(r.c)}</span><b>${p.scores[i]}/4 · ${PLV[p.scores[i]]}</b></div>`).join("")}</div>${p.note ? `<p class="bp-note">💬 ${esc(p.note)}</p>` : ""}` : "";
+    const sentPill = p && p.submitted_at && !marked ? `<p class="pill warn">⏳ ${W ? "أرسلت نصك، وهو بانتظار تقييم معلمك. يمكنك تعديله وإعادة إرساله حتى يقيّمه." : "أرسلت عرضك، وهو بانتظار تقييم معلمك. يمكنك إعادة التسجيل حتى يقيّمه."}</p>` : "";
+    const body = marked ? scoreHtml + (W ? `<div class="bp-text">${esc(p.text_ar || "")}</div>` : audio ? `<audio controls src="${audio}"></audio>` : "")
+      : W ? `${sentPill}<div class="bp-plan">${(t.plan || []).map((x) => `<span>${esc(x)}</span>`).join("")}</div>
+          <textarea id="bpText" class="bp-area" dir="rtl" rows="14" placeholder="اكتب هنا…">${esc(draft)}</textarea>
+          <div class="bp-meta"><span id="bpWc"></span><button class="btn btn-primary" id="bpSend">${p && p.submitted_at ? "أعد الإرسال" : "أرسل الكتابة"}</button></div>`
+      : `${sentPill}${audio ? `<audio controls src="${audio}"></audio>` : ""}
+          <div class="rec-ctrl"><button class="rec-btn" id="recBtn" aria-label="ابدأ التسجيل"><span></span></button><span class="rec-time" id="recTime">0:00</span></div>
+          <p class="muted small">حضّر نقاطك على ورقة أولًا، ثم اضغط الدائرة لتبدأ واضغطها حين تنتهي. المدة: ${t.mins} دقائق تقريبًا.</p>
+          <audio id="recPlay" controls hidden></audio><div class="rec-actions" id="recActions" hidden><button class="btn btn-primary" id="recSend">أرسل العرض</button><button class="btn btn-ghost" id="recAgain">سجّل من جديد</button></div>`;
+    h(`<section class="bench-hero slim"><div class="wrap"><div class="crumbs"><a href="#/benchmarks?subject=arabic">الاختبارات المعيارية</a></div><h1>${W ? "✍️ الكتابة" : "🎤 التحدث"}</h1><p>${esc(t.kind_ar)}</p></div></section>
+      <section class="section"><div class="wrap" style="max-width:780px"><div class="bp-task">
+        <div class="bp-prompt">${esc(t.prompt_ar)}</div>
+        <ul class="bp-crit">${(t.crit || []).map((c) => `<li>${esc(c)}</li>`).join("")}</ul>
+        ${body}
+        <details class="brr-rubric"><summary>📋 ${W ? "كيف تُقيَّم كتابتك؟" : "كيف يُقيَّم عرضك؟"}</summary>${rubricHtml(t)}</details>
+      </div></div></section>`);
+    if (marked) return;
+    if (W) {
+      const ta = document.getElementById("bpText"), wc = document.getElementById("bpWc");
+      const upd = () => { const n = wordsOf(ta.value); wc.innerHTML = `عدد الكلمات: <b>${n}</b> <span class="muted">(المطلوب ${t.min_words}–${t.max_words})</span>`; wc.className = n < t.min_words || n > t.max_words ? "warn" : "ok"; try { localStorage.setItem(dKey, ta.value); } catch (e) {} };
+      ta.oninput = upd; upd();
+      document.getElementById("bpSend").onclick = async (e) => {
+        const n = wordsOf(ta.value);
+        if (n < 15) { toast("اكتب نصك أولًا"); return; }
+        if (n < t.min_words && !confirmInline(e.target, `نصك ${n} كلمة، والمطلوب ${t.min_words} على الأقل. اضغط مرة أخرى للإرسال كما هو.`)) return;
+        e.target.disabled = true;
+        const { error } = await sb.rpc("bench_prod_submit", { p_form: formId, p_task: "writing", p_text: ta.value });
+        if (error) { toast(prodErr(error.message)); e.target.disabled = false; return; }
+        try { localStorage.removeItem(dKey); } catch (x) {}
+        toast("أُرسلت الكتابة ✓"); pageBenchProd(formId, task);
+      };
+      return;
+    }
+    const btn = document.getElementById("recBtn"), time = document.getElementById("recTime"), play = document.getElementById("recPlay"), acts = document.getElementById("recActions");
+    let rec = null, chunks = [], blob = null, t0 = 0, tmr = null, stream = null;
+    const mime = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/aac"].find((m) => window.MediaRecorder && MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(m)) || "";
+    const stop = () => { if (rec && rec.state === "recording") rec.stop(); clearInterval(tmr); btn.classList.remove("on"); if (stream) stream.getTracks().forEach((x) => x.stop()); };
+    btn.onclick = async () => {
+      if (rec && rec.state === "recording") { stop(); return; }
+      if (!window.MediaRecorder) { toast("المتصفح لا يدعم التسجيل الصوتي"); return; }
+      try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); } catch (e) { toast("اسمح للموقع باستخدام الميكروفون"); return; }
+      chunks = []; rec = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream);
+      rec.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data); };
+      rec.onstop = () => { blob = new Blob(chunks, { type: rec.mimeType || "audio/webm" }); play.src = URL.createObjectURL(blob); play.hidden = false; acts.hidden = false; };
+      rec.start(); btn.classList.add("on"); play.hidden = true; acts.hidden = true; t0 = Date.now();
+      tmr = setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); time.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; if (s >= (t.mins || 3) * 60 + 90) stop(); }, 250);
+    };
+    document.getElementById("recAgain").onclick = () => { blob = null; play.hidden = true; acts.hidden = true; time.textContent = "0:00"; };
+    document.getElementById("recSend").onclick = async (e) => {
+      if (!blob) return; e.target.disabled = true;
+      const ext = (blob.type.includes("mp4") || blob.type.includes("aac")) ? "m4a" : "webm";
+      const path = `${me}/${formId}-speaking.${ext}`;
+      const up = await sb.storage.from("bench-audio").upload(path, blob, { contentType: blob.type.split(";")[0], upsert: true });
+      if (up.error) { toast("تعذّر الرفع: " + up.error.message); e.target.disabled = false; return; }
+      const { error } = await sb.rpc("bench_prod_submit", { p_form: formId, p_task: "speaking", p_path: path });
+      if (error) { toast(prodErr(error.message)); e.target.disabled = false; return; }
+      toast("أُرسل العرض ✓"); pageBenchProd(formId, task);
+    };
+  }
+  // two-click confirm without a browser dialog
+  function confirmInline(btn, msg) { if (btn.dataset.armed) { delete btn.dataset.armed; return true; } btn.dataset.armed = "1"; toast(msg); setTimeout(() => { delete btn.dataset.armed; }, 6000); return false; }
+
+  async function benchScriptsHtml(formId) {
+    const { data: aq } = await sb.from("assessment_questions").select("questions(stimulus_id)").eq("assessment_id", formId);
+    const ids = [...new Set((aq || []).map((r) => r.questions && r.questions.stimulus_id).filter(Boolean))];
+    if (!ids.length) return "";
+    const [{ data: st }, { data: sc }] = await Promise.all([sb.from("bench_stimuli").select("id, kind_ar, title_ar, is_audio, audio_url").in("id", ids).eq("is_audio", true), sb.from("bench_scripts").select("stimulus_id, paras").in("stimulus_id", ids)]);
+    const S = new Map((sc || []).map((x) => [x.stimulus_id, x.paras]));
+    const list = (st || []).sort((a, b) => a.id.localeCompare(b.id));
+    if (!list.length) return "";
+    return `<div class="bp-scripts"><h2>🎧 نصوص الاستماع (للمعلم فقط)</h2><p class="muted">اقرأ كل نص مرتين بصوت واضح وسرعة طبيعية قبل أن يجيب الطلاب عن أسئلته، أو شغّل التسجيل إن وُجد. لا تعرض النص على الطلاب.</p>
+      ${list.map((s) => `<details class="bench-stim" open><summary><span class="bs-kind">${esc(s.kind_ar || "")}</span> ${esc(s.title_ar)}</summary>${s.audio_url ? `<audio controls preload="none" src="${esc(s.audio_url)}"></audio>` : ""}<div class="bs-body">${(S.get(s.id) || []).map((x) => `<p>${esc(x)}</p>`).join("") || '<p class="muted">النص غير متاح لحسابك.</p>'}</div></details>`).join("")}</div>`;
+  }
+  async function pageBenchScripts(formId) {
+    setNav("bench");
+    if (!isStaff()) { h('<div class="wrap loading">نصوص الاستماع للمعلمين فقط.</div>'); return; }
+    loading();
+    const { data: a } = await sb.from("assessments").select("id, year_group, benchmark_windows(name_ar)").eq("id", formId).maybeSingle();
+    const html = await benchScriptsHtml(formId);
+    h(`<section class="bench-hero slim"><div class="wrap"><div class="crumbs"><a href="#/benchmarks?subject=arabic">الاختبارات المعيارية</a></div><h1>🎧 نصوص الاستماع</h1><p>${a ? `${esc(a.benchmark_windows ? a.benchmark_windows.name_ar : "")} · الصف ${a.year_group}` : ""}</p>
+      <div class="bh-actions"><button class="btn btn-ghost" id="bpPrint">🖨️ طباعة</button></div></div></section>
+      <section class="section"><div class="wrap" style="max-width:820px">${html || '<p class="muted">لا توجد نصوص استماع في هذا الاختبار.</p>'}</div></section>`);
+    const pb = document.getElementById("bpPrint"); if (pb) pb.onclick = () => window.print();
+  }
+
+  async function benchAppend(formId, params, isClass) {
+    const { data: f } = await sb.from("assessments").select("subject_id").eq("id", formId).maybeSingle();
+    if (!f) return;
+    if (f.subject_id === 2) return benchProdAppend(formId, params, isClass);
+    if (f.subject_id === 1) return benchReciteAppend(formId, params, isClass);
+  }
+
+  async function benchProdAppend(formId, params, isClass) {
+    const main = document.getElementById("main"); if (!main || !state.session) return;
+    const wrap = main.querySelector(".section .wrap"); if (!wrap) return;
+    const { data: tasks } = await sb.from("bench_tasks").select("*").eq("assessment_id", formId);
+    const T = {}; (tasks || []).forEach((t) => { T[t.task] = t; });
+    if (!T.writing && !T.speaking) return;
+    const box = document.createElement("div"); box.className = "br-recite-sec";
+    const NM = { writing: "✍️ الكتابة", speaking: "🎤 التحدث" };
+    if (!isClass) {
+      const sid = params.get("s") || state.session.user.id;
+      const [{ data: ps }, { data: at }] = await Promise.all([sb.from("bench_productions").select("*").eq("assessment_id", formId).eq("student_id", sid),
+        sb.from("attempts").select("score, max_score").eq("assessment_id", formId).eq("student_id", sid).not("submitted_at", "is", null).limit(1)]);
+      const P = {}; (ps || []).forEach((p) => { P[p.task] = p; });
+      const obj = at && at[0] && at[0].max_score ? (at[0].score / at[0].max_score) * 100 : null;
+      const pc = (k) => (P[k] && P[k].marked_at ? (P[k].total / P[k].max_score) * 100 : null);
+      const wW = T.writing ? T.writing.weight : 0, wS = T.speaking ? T.speaking.weight : 0, wO = 100 - wW - wS;
+      const all = obj != null && (!T.writing || pc("writing") != null) && (!T.speaking || pc("speaking") != null);
+      const comb = all ? Math.round((obj * wO + (pc("writing") || 0) * wW + (pc("speaking") || 0) * wS) / 100) : null;
+      box.innerHTML = `<h2>${CT("الكتابة والتحدث والدرجة الكلية", "Writing, speaking & overall score")}</h2>
+        <div class="kpis"><div><b>${obj != null ? Math.round(obj) + "%" : "—"}</b><span>القراءة والاستماع (${wO}%)</span></div>${["writing", "speaking"].filter((k) => T[k]).map((k) => `<div><b>${P[k] && P[k].marked_at ? `${P[k].total}/${P[k].max_score}` : "—"}</b><span>${NM[k]} (${T[k].weight}%)</span></div>`).join("")}<div><b>${comb != null ? comb + "%" : "—"}</b><span>الدرجة الكلية</span></div></div>
+        ${comb != null ? `<p>${bandChip(comb)}</p>` : `<p class="muted">تظهر الدرجة الكلية بعد أن يقيّم المعلم الكتابة والتحدث.</p>`}
+        ${["writing", "speaking"].filter((k) => T[k]).map((k) => { const p = P[k], t = T[k];
+          if (!p || !p.submitted_at) return `<p class="muted">${NM[k]}: لم تُرسَل بعد.</p>`;
+          if (!p.marked_at) return `<p class="muted">${NM[k]}: أُرسلت، وبانتظار تقييم المعلم.</p>`;
+          return `<details class="brr-rubric" open><summary>${NM[k]} · ${p.total}/${p.max_score}</summary><ul>${t.rubric.map((r, i) => `<li><b>${esc(r.c)}: ${p.scores[i]}/4 (${PLV[p.scores[i]]})</b> · ${esc(lvDesc(r, p.scores[i]))}</li>`).join("")}</ul>${p.note ? `<p>💬 ${esc(p.note)}</p>` : ""}</details>`; }).join("")}`;
+      wrap.appendChild(box); return;
+    }
+    const clsId = params.get("class");
+    const [{ data: cs }, { data: ps }] = await Promise.all([sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", clsId), sb.from("bench_productions").select("*").eq("assessment_id", formId)]);
+    const S = (cs || []).map((x) => ({ id: x.student_id, name: x.profiles ? x.profiles.full_name_ar : "" })).sort((x, y) => x.name.localeCompare(y.name, "ar"));
+    const inCls = new Set(S.map((s) => s.id));
+    const P = {}; (ps || []).filter((p) => inCls.has(p.student_id)).forEach((p) => { P[p.task + p.student_id] = p; });
+    const urls = {}; await Promise.all(Object.values(P).filter((p) => p.audio_path).map(async (p) => { const { data } = await sb.storage.from("bench-audio").createSignedUrl(p.audio_path, 3600); if (data) urls[p.student_id] = data.signedUrl; }));
+    const sec = (k) => { const t = T[k]; if (!t) return "";
+      const sub = S.filter((s) => P[k + s.id] && P[k + s.id].submitted_at), mk = sub.filter((s) => P[k + s.id].marked_at), miss = S.filter((s) => !(P[k + s.id] && P[k + s.id].submitted_at));
+      const avg = mk.length ? Math.round(mk.reduce((x, s) => x + P[k + s.id].total / P[k + s.id].max_score, 0) / mk.length * 100) : null;
+      return `<div class="bp-sec"><h2>${NM[k]}: ${esc(t.kind_ar)}</h2><p class="bp-prompt small">${esc(t.prompt_ar)}</p>
+        <div class="kpis"><div><b>${sub.length}/${S.length}</b><span>أرسلوا</span></div><div><b>${mk.length}</b><span>قُيّم</span></div><div><b>${avg != null ? avg + "%" : "—"}</b><span>المتوسط</span></div></div>
+        <details class="brr-rubric"><summary>📋 سلّم التقييم</summary>${rubricHtml(t)}</details>
+        ${sub.map((s) => { const p = P[k + s.id], sc = p.scores || [];
+          return `<div class="bp-card" data-st="${s.id}" data-task="${k}"><div class="bp-h"><b>${esc(s.name)}</b>${p.marked_at ? `<span class="pill ok">قُيّم · ${p.total}/${p.max_score}</span>` : '<span class="pill warn">بانتظار التقييم</span>'}</div>
+            ${k === "writing" ? `<div class="bp-text">${esc(p.text_ar || "")}</div><p class="muted small">عدد الكلمات: ${wordsOf(p.text_ar)} (المطلوب ${t.min_words}–${t.max_words})</p>` : urls[s.id] ? `<audio controls preload="none" src="${urls[s.id]}"></audio>` : '<p class="muted">التسجيل غير متاح.</p>'}
+            <div class="bp-grid">${t.rubric.map((r, i) => `<div class="bp-row" data-i="${i}"><span class="bp-c">${esc(r.c)}</span><span class="bp-lvs">${[4, 3, 2, 1, 0].map((l) => `<label title="${esc(lvDesc(r, l))}"><input type="radio" name="bp-${k}-${s.id}-${i}" value="${l}" ${sc[i] === l ? "checked" : ""}><span>${l}</span></label>`).join("")}</span><small class="bp-d">${sc[i] != null ? esc(PLV[sc[i]] + ": " + lvDesc(r, sc[i])) : ""}</small></div>`).join("")}</div>
+            <div class="bp-meta"><input class="bp-noteIn" placeholder="ملاحظة للطالب (اختيارية)" value="${esc(p.note || "")}"><span class="bp-sum"></span><button class="btn btn-primary btn-small" data-bpsave>${p.marked_at ? "تحديث" : "حفظ التقييم"}</button></div></div>`; }).join("") || '<p class="muted">لم يُرسل أحد بعد.</p>'}
+        ${miss.length ? `<p class="muted small">لم يرسلوا: ${miss.map((s) => esc(s.name)).join("، ")}</p>` : ""}</div>`; };
+    box.innerHTML = sec("writing") + sec("speaking") + (await benchScriptsHtml(formId));
+    wrap.appendChild(box);
+    box.querySelectorAll(".bp-card").forEach((card) => {
+      const k = card.dataset.task, t = T[k];
+      const read = () => t.rubric.map((r, i) => { const x = card.querySelector(`.bp-row[data-i="${i}"] input:checked`); return x ? +x.value : null; });
+      const upd = () => { const v = read(); card.querySelector(".bp-sum").textContent = v.every((x) => x != null) ? `${v.reduce((a, b) => a + b, 0)}/${t.rubric.length * 4}` : `${v.filter((x) => x != null).length}/${t.rubric.length} معايير`;
+        card.querySelectorAll(".bp-row").forEach((row, i) => { const l = v[i]; row.querySelector(".bp-d").textContent = l != null ? PLV[l] + ": " + lvDesc(t.rubric[i], l) : ""; }); };
+      card.addEventListener("change", upd); upd();
+      card.querySelector("[data-bpsave]").onclick = async (e) => {
+        const v = read(); if (v.some((x) => x == null)) { toast("اختر مستوى لكل معيار"); return; }
+        e.target.disabled = true;
+        const { error } = await sb.rpc("bench_prod_mark", { p_form: formId, p_student: card.dataset.st, p_task: k, p_scores: v, p_note: card.querySelector(".bp-noteIn").value || null });
+        e.target.disabled = false;
+        if (error) { toast(error.message); return; }
+        toast("حُفظ التقييم ✓"); e.target.textContent = "تحديث"; const pl = card.querySelector(".bp-h .pill"); pl.className = "pill ok"; pl.textContent = `قُيّم · ${v.reduce((a, b) => a + b, 0)}/${t.rubric.length * 4}`; };
+    });
   }
 
   /* ---- oral recitation part of a benchmark (student records, teacher marks) */
@@ -7093,11 +7273,15 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const done = {}; (att || []).forEach((a) => { done[a.assessment_id] = a; });
       const { data: rc } = ids.length ? await sb.from("bench_recitations").select("assessment_id, total, submitted_at, marked_at").eq("student_id", me).in("assessment_id", ids) : { data: [] };
       const reci = {}; (rc || []).forEach((r) => { reci[r.assessment_id] = r; });
+      const { data: pd } = ids.length && subj === "arabic" ? await sb.from("bench_productions").select("assessment_id, task, total, max_score, submitted_at, marked_at").eq("student_id", me).in("assessment_id", ids) : { data: [] };
+      const prod = {}; (pd || []).forEach((p) => { prod[p.assessment_id + p.task] = p; });
+      const prodLinks = (f, st) => subj !== "arabic" || !f || !(st === "open" || prod[f.id + "writing"] || prod[f.id + "speaking"]) ? "" : ["writing", "speaking"].map((k) => { const p = prod[f.id + k];
+        return `<a class="bw-recite ${p ? (p.marked_at ? "done" : "sent") : ""}" href="#/bench-${k === "writing" ? "write" : "speak"}/${f.id}">${k === "writing" ? "✍️ " + CT("الكتابة", "Writing") : "🎤 " + CT("التحدث", "Speaking")}${p && p.marked_at ? ` · <b>${p.total}/${p.max_score}</b>` : p ? CT(" · أُرسلت، بانتظار المعلم", " · sent, awaiting teacher") : CT(" · لم تُنجَز بعد", " · not done yet")}</a>`; }).join("");
       roleHtml = `<h2>${CT("اختباراتي المعيارية", "My benchmark tests")} <small class="muted" dir="ltr">Grade ${g}</small></h2><div class="bw-grid">${W.map((w) => { const f = (forms || []).find((x) => x.window_id === w.id); const st = winState(w); const d = f && done[f.id];
         return `<div class="bw-card ${st}"><div class="bw-h"><strong>${esc(CT(w.name_ar, w.name_en))}</strong><span class="bw-st">${CT(WSTATE[st][0], WSTATE[st][1])}</span></div><p class="muted">${fmtD(w.opens_at)} – ${fmtD(w.closes_at)}</p>
-          ${subj === "islamic" && f && (st === "open" || (reci[f.id])) ? `<a class="bw-recite ${reci[f.id] ? (reci[f.id].marked_at ? "done" : reci[f.id].submitted_at ? "sent" : "") : ""}" href="#/bench-recite/${f.id}">🎙️ ${CT("التسميع", "Recitation")}${reci[f.id] && reci[f.id].marked_at ? ` · <b>${reci[f.id].total}/20</b>` : reci[f.id] && reci[f.id].submitted_at ? CT(" · أُرسل، بانتظار المعلم", " · sent, awaiting teacher") : CT(" · لم تسجّل بعد", " · not recorded yet")}</a>` : ""}
+          ${subj === "islamic" && f && (st === "open" || (reci[f.id])) ? `<a class="bw-recite ${reci[f.id] ? (reci[f.id].marked_at ? "done" : reci[f.id].submitted_at ? "sent" : "") : ""}" href="#/bench-recite/${f.id}">🎙️ ${CT("التسميع", "Recitation")}${reci[f.id] && reci[f.id].marked_at ? ` · <b>${reci[f.id].total}/20</b>` : reci[f.id] && reci[f.id].submitted_at ? CT(" · أُرسل، بانتظار المعلم", " · sent, awaiting teacher") : CT(" · لم تسجّل بعد", " · not recorded yet")}</a>` : ""}${prodLinks(f, st)}
           ${d ? `<div class="bw-score">${Math.round((d.score / d.max_score) * 100)}% ${bandChip((d.score / d.max_score) * 100)}</div><a class="btn btn-ghost btn-small" href="#/bench-report/${f.id}">${CT("بصمتي وتقريري", "My fingerprint & report")}</a>`
-            : st === "open" && f ? `<a class="btn btn-dawn btn-small" href="#/test/${f.id}">${CT("ابدأ الاختبار", "Start the test")}</a><p class="muted" style="font-size:.82rem">${CT(`الجزء المكتوب: ${benchN(g)} سؤالًا · مرة واحدة · يفتحه معلمك إن كنت في فصل`, `Written part: ${benchN(g)} questions · once · your teacher opens it`)}</p>` : `<p class="muted">${st === "soon" ? CT("تفتح في موعدها", "Opens on schedule") : CT("لم تؤدِّه", "Not taken")}</p>`}</div>`; }).join("")}</div>`;
+            : st === "open" && f ? `<a class="btn btn-dawn btn-small" href="#/test/${f.id}">${CT("ابدأ الاختبار", "Start the test")}</a><p class="muted" style="font-size:.82rem">${subj === "arabic" ? CT("القراءة والاستماع: 55 سؤالًا · مرة واحدة · يفتحه معلمك إن كنت في فصل", "Reading & listening: 55 questions · once · your teacher opens it") : CT(`الجزء المكتوب: ${benchN(g)} سؤالًا · مرة واحدة · يفتحه معلمك إن كنت في فصل`, `Written part: ${benchN(g)} questions · once · your teacher opens it`)}</p>` : `<p class="muted">${st === "soon" ? CT("تفتح في موعدها", "Opens on schedule") : CT("لم تؤدِّه", "Not taken")}</p>`}</div>`; }).join("")}</div>`;
     } else if (isStaff()) {
       const me = state.session.user.id;
       const { data: all } = await sb.from("classes").select("id, name, year_group, track, subject_id, class_teachers(teacher_id), class_assessments(assessment_id)").eq("subject_id", sid).order("year_group").order("name");
@@ -7110,7 +7294,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
               ${st === "open" && forms.length ? `<div class="bulk-acts"><button class="btn btn-primary btn-small" data-bulk="${w.id}" data-on="1">${unlockIcon} فتح للجميع</button><button class="btn btn-ghost btn-small" data-bulk="${w.id}" data-on="0">${lockIcon} قفل الجميع</button></div>` : ""}</th>`; }).join("")}</tr></thead><tbody>
           ${mine.map((c) => `<tr><td><b>${esc(c.name)}</b> <span class="muted" dir="ltr">G${c.year_group}</span> <span class="pill">${c.track === "native" ? "ناطقون" : "غير ناطقين"}</span></td>${W.map((w) => { const f = formFor(c, w); if (!f) return "<td>—</td>"; const on = (c.class_assessments || []).some((x) => x.assessment_id === f.id); const st = winState(w);
             return `<td><div class="bt-cell">${st === "open" ? `<button class="tp-lock ${on ? "on" : ""}" data-bopen="${f.id}" data-cl="${c.id}" data-on="${on}">${on ? unlockIcon + " مفتوح" : lockIcon + " مقفل"}</button>` : `<span class="muted">${WSTATE[st][0]}</span>`}
-              <a class="btn btn-ghost btn-small" href="#/bench-class/${f.id}?class=${c.id}">التقرير</a><a class="btn btn-ghost btn-small" href="#/preview/${f.id}?class=${c.id}">معاينة</a></div></td>`; }).join("")}</tr>`).join("")}
+              <a class="btn btn-ghost btn-small" href="#/bench-class/${f.id}?class=${c.id}">التقرير</a><a class="btn btn-ghost btn-small" href="#/preview/${f.id}?class=${c.id}">معاينة</a>${subj === "arabic" ? `<a class="btn btn-ghost btn-small" href="#/bench-scripts/${f.id}">🎧 نصوص الاستماع</a>` : ""}</div></td>`; }).join("")}</tr>`).join("")}
           </tbody></table></div>` : `<div class="empty"><strong>لا فصول ${hubName(subj)} لك بعد</strong>أنشئ فصلًا من «فصولي».</div>`}
         ${isSuper() ? `<h2 style="margin-top:28px">نوافذ الاختبار (للمنصة كلها)</h2><div class="bw-admin">${W.map((w) => `<div class="bwa-row" data-w="${w.id}"><strong>${esc(w.name_ar)}</strong>
             <label>من <input type="date" class="bwf" value="${w.opens_at ? w.opens_at.slice(0, 10) : ""}"></label><label>إلى <input type="date" class="bwt" value="${w.closes_at ? w.closes_at.slice(0, 10) : ""}"></label>
@@ -7160,16 +7344,17 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     loading();
     const sid = params.get("s") || state.session.user.id;
     const [{ data: a }, { data: atts }] = await Promise.all([
-      sb.from("assessments").select("id, year_group, track, window_id, title_ar, title_en, benchmark_windows(name_ar, name_en, code, academic_year)").eq("id", id).maybeSingle(),
+      sb.from("assessments").select("id, subject_id, year_group, track, window_id, title_ar, title_en, benchmark_windows(name_ar, name_en, code, academic_year)").eq("id", id).maybeSingle(),
       sb.from("attempts").select("id, score, max_score, submitted_at").eq("assessment_id", id).eq("student_id", sid).not("submitted_at", "is", null).order("submitted_at", { ascending: false }).limit(1)
     ]);
     const att = (atts || [])[0];
     if (!a || !att || !a.benchmark_windows) { h(`<div class="wrap loading">${CT("لا يوجد تقرير لهذا الاختبار بعد.", "No report yet.")}</div>`); return; }
+    benchSubjId = a.subject_id || 1;
     const [{ data: ans }, qDom, { data: norm }, { data: who }, { data: sibs }] = await Promise.all([
       sb.from("attempt_answers").select("question_id, is_correct").eq("attempt_id", att.id),
       benchDomains(id), sb.rpc("benchmark_norms", { p_assessment: id }),
       sb.from("profiles").select("full_name_ar").eq("id", sid).maybeSingle(),
-      sb.from("assessments").select("id, benchmark_windows(code, name_ar, name_en, opens_at)").eq("kind", "benchmark").eq("year_group", a.year_group).eq("track", a.track)
+      sb.from("assessments").select("id, benchmark_windows(code, name_ar, name_en, opens_at)").eq("kind", "benchmark").eq("subject_id", benchSubjId).eq("year_group", a.year_group).eq("track", a.track)
     ]);
     const pct = Math.round((att.score / att.max_score) * 100), band = bandOf(pct);
     const mine = domPct(ans, qDom), N = (norm || [])[0] || {};
@@ -7182,7 +7367,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const weak = Object.keys(mine).filter((d) => mine[d] < 60).map(Number);
     let lessons = {};
     if (weak.length) {
-      const { data: ls } = await sb.from("lessons").select("code, title_ar, title_en, axis_code, units!inner(year_group, track, subject_id)").eq("units.year_group", a.year_group).eq("units.track", a.track).eq("units.subject_id", 1).limit(400);
+      const { data: ls } = await sb.from("lessons").select("code, title_ar, title_en, axis_code, units!inner(year_group, track, subject_id)").eq("units.year_group", a.year_group).eq("units.track", a.track).eq("units.subject_id", benchSubjId).limit(400);
       (ls || []).forEach((l) => { const d = Number(String(l.axis_code || "").split(".")[1]); if (weak.includes(d)) (lessons[d] = lessons[d] || []).push(l); });
     }
     const strong = Object.keys(mine).filter((d) => mine[d] >= 75).map(Number);
@@ -7217,13 +7402,14 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     loading();
     const clsId = params.get("class");
     const [{ data: a }, { data: c }, { data: cs }, { data: atts }, qDom, { data: norm }] = await Promise.all([
-      sb.from("assessments").select("id, year_group, track, window_id, benchmark_windows(name_ar, code, academic_year)").eq("id", id).maybeSingle(),
+      sb.from("assessments").select("id, subject_id, year_group, track, window_id, benchmark_windows(name_ar, code, academic_year)").eq("id", id).maybeSingle(),
       sb.from("classes").select("id, name").eq("id", clsId).maybeSingle(),
       sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", clsId),
       sb.from("attempts").select("id, student_id, score, max_score, submitted_at").eq("assessment_id", id).not("submitted_at", "is", null),
       benchDomains(id), sb.rpc("benchmark_norms", { p_assessment: id })
     ]);
     if (!a || !c || !a.benchmark_windows) { h('<div class="wrap loading">لم يُعثر على التقرير.</div>'); return; }
+    benchSubjId = a.subject_id || 1;
     const roster = (cs || []).map((r) => ({ id: r.student_id, name: r.profiles ? r.profiles.full_name_ar : "" })).sort((x, y) => x.name.localeCompare(y.name, "ar"));
     const ids = new Set(roster.map((r) => r.id));
     const by = {}; (atts || []).filter((t) => ids.has(t.student_id)).forEach((t) => { by[t.student_id] = t; });
@@ -7231,7 +7417,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const { data: ans } = took.length ? await sb.from("attempt_answers").select("attempt_id, question_id, is_correct").in("attempt_id", took.map((r) => by[r.id].id)) : { data: [] };
     const classDom = domPct(ans, qDom);
     // previous window for growth
-    const { data: sibs } = await sb.from("assessments").select("id, benchmark_windows(code)").eq("kind", "benchmark").eq("year_group", a.year_group).eq("track", a.track);
+    const { data: sibs } = await sb.from("assessments").select("id, benchmark_windows(code)").eq("kind", "benchmark").eq("subject_id", benchSubjId).eq("year_group", a.year_group).eq("track", a.track);
     const ord = { BOY: 1, MOY: 2, EOY: 3 }, cur = ord[a.benchmark_windows.code];
     const prev = (sibs || []).find((s) => s.benchmark_windows && ord[s.benchmark_windows.code] === cur - 1);
     const prevBy = {};
@@ -13346,8 +13532,11 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       if (p0 === "progress-report") return pageProgressReport(params);
       if (p0 === "overview") return pageOverview();
       if (p0 === "benchmarks") return pageBenchmarks(params);
-      if (p0 === "bench-report" && parts[1]) return pageBenchReport(parts[1], params).then(() => benchReciteAppend(parts[1], params, false));
-      if (p0 === "bench-class" && parts[1]) return pageBenchClass(parts[1], params).then(() => benchReciteAppend(parts[1], params, true));
+      if (p0 === "bench-report" && parts[1]) return pageBenchReport(parts[1], params).then(() => benchAppend(parts[1], params, false));
+      if (p0 === "bench-class" && parts[1]) return pageBenchClass(parts[1], params).then(() => benchAppend(parts[1], params, true));
+      if (p0 === "bench-write" && parts[1]) return pageBenchProd(parts[1], "writing");
+      if (p0 === "bench-speak" && parts[1]) return pageBenchProd(parts[1], "speaking");
+      if (p0 === "bench-scripts" && parts[1]) return pageBenchScripts(parts[1]);
       if (p0 === "bench-recite" && parts[1]) return pageBenchRecite(parts[1]);
       if (p0 === "bench-guide") return pageBenchGuide();
       if (p0 === "bench-sample") return pageBenchSample();
