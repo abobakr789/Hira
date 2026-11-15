@@ -6963,23 +6963,32 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   const WSTATE = { soon: ["قادمة", "Upcoming"], open: ["مفتوحة الآن", "Open now"], closed: ["انتهت", "Closed"] };
   const fpIcon = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c-9.9 0-18 8.1-18 18M24 12c-6.6 0-12 5.4-12 12v6M24 18c-3.3 0-6 2.7-6 6v10M24 24v14M30 24c0 5-1 9-3 13M36 24c0 7-2 12-5 16M42 24c0-9.9-8.1-18-18-18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
 
+  // short radar labels for the Arabic domains (the full names are long for the chart)
+  const RADAR_AR = { 1: ["القراءة", "Reading"], 2: ["النص الأدبي", "Literary"], 3: ["النص المعلوماتي", "Informational"], 4: ["الكتابة", "Writing"], 5: ["الاستماع والتحدث", "Listening & speaking"], 6: ["اللغة", "Language"] };
   function radarSVG(vals, comp, size = 380) {
-    const cx = size / 2, cy = size / 2, R = size / 2 - 92, ang = (i) => -Math.PI / 2 + (i * 2 * Math.PI) / 6;
+    // draw only the measured domains (an unmeasured domain is not a zero); keep the hexagon when 3 or fewer are measured
+    let ax = [1, 2, 3, 4, 5, 6].filter((d) => vals[d] != null); if (ax.length < 3) ax = [1, 2, 3, 4, 5, 6];
+    const K = ax.length, cx = size / 2, cy = size / 2, R = size / 2 - 92, ang = (i) => -Math.PI / 2 + (i * 2 * Math.PI) / K;
     const pt = (i, v) => [cx + Math.cos(ang(i)) * R * (v / 100), cy + Math.sin(ang(i)) * R * (v / 100)];
-    const poly = (o) => [1, 2, 3, 4, 5, 6].map((d, i) => pt(i, o[d] != null ? o[d] : 0).join(",")).join(" ");
-    const rings = [25, 50, 75, 100].map((r) => `<polygon points="${[0, 1, 2, 3, 4, 5].map((i) => pt(i, r).join(",")).join(" ")}" fill="none" stroke="var(--line)" stroke-width="1"/>`).join("");
-    const exp = `<polygon points="${[0, 1, 2, 3, 4, 5].map((i) => pt(i, 60).join(",")).join(" ")}" fill="none" stroke="#E0A800" stroke-width="1.5" stroke-dasharray="4 4"/>`;
-    const labels = [1, 2, 3, 4, 5, 6].map((d, i) => { const [x, y] = pt(i, 122); return `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="var(--ink)">${esc(domName(d))}</text>`; }).join("");
-    return `<svg class="radar" viewBox="0 0 ${size} ${size}" role="img" aria-label="${CT("بصمة المتعلم في المجالات الستة", "Learner fingerprint across six domains")}">${rings}${exp}
+    const poly = (o) => ax.map((d, i) => pt(i, o[d] != null ? o[d] : 0).join(",")).join(" ");
+    const ring = (r) => ax.map((d, i) => pt(i, r).join(",")).join(" ");
+    const rings = [25, 50, 75, 100].map((r) => `<polygon points="${ring(r)}" fill="none" stroke="var(--line)" stroke-width="1"/>`).join("");
+    const exp = `<polygon points="${ring(60)}" fill="none" stroke="#E0A800" stroke-width="1.5" stroke-dasharray="4 4"/>`;
+    const lbl = (d) => (benchSubjId === 2 ? CT(RADAR_AR[d][0], RADAR_AR[d][1]) : domName(d));
+    const labels = ax.map((d, i) => { const [x, y] = pt(i, 122); return `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="var(--ink)">${esc(lbl(d))}</text>`; }).join("");
+    return `<svg class="radar" viewBox="0 0 ${size} ${size}" role="img" aria-label="${CT("بصمة المتعلم في المجالات", "Learner fingerprint across domains")}">${rings}${exp}
       ${comp ? `<polygon points="${poly(comp)}" fill="rgba(120,130,150,.15)" stroke="#8A94A6" stroke-width="1.5"/>` : ""}
       <polygon points="${poly(vals)}" fill="rgba(16,42,76,.28)" stroke="var(--hira)" stroke-width="2.5"/>
-      ${[1, 2, 3, 4, 5, 6].map((d, i) => vals[d] != null ? `<circle cx="${pt(i, vals[d])[0]}" cy="${pt(i, vals[d])[1]}" r="3.5" fill="var(--hira)"/>` : "").join("")}${labels}</svg>`;
+      ${ax.map((d, i) => vals[d] != null ? `<circle cx="${pt(i, vals[d])[0]}" cy="${pt(i, vals[d])[1]}" r="3.5" fill="var(--hira)"/>` : "").join("")}${labels}</svg>`;
   }
   const bandChip = (pct) => { const b = bandOf(pct); return `<span class="band-chip" style="--bc:${b.c}">${esc(CT(b.ar, b.en))}</span>`; };
   const benchN = (g) => (g <= 2 ? 20 : g <= 6 ? 30 : 40);
   async function benchDomains(assessmentId) {
     const { data } = await sb.from("assessment_questions").select("question_id, questions(lessons(axis_code), learning_outcomes(fw_standards(axis_code)))").eq("assessment_id", assessmentId);
     const m = {}; (data || []).forEach((r) => { const q = r.questions || {}; const ax = (q.lessons && q.lessons.axis_code) || (q.learning_outcomes && q.learning_outcomes.fw_standards && q.learning_outcomes.fw_standards.axis_code); if (ax) m[r.question_id] = Number(String(ax).split(".")[1]); });
+    // a domain needs at least 3 questions to be reported (one question gives a misleading 0% or 100%)
+    const cnt = {}; Object.values(m).forEach((d) => { cnt[d] = (cnt[d] || 0) + 1; });
+    Object.keys(m).forEach((q) => { if (cnt[m[q]] < 3) delete m[q]; });
     return m;
   }
   const RUBRIC = [["s_hifz", "إتقان الحفظ", "Memorisation accuracy", 10, "لا أخطاء = 10 · خطأ واحد = 8 · خطآن أو ثلاثة = 6 · أكثر = 4 أو أقل · لم يحفظ = 0"], ["s_tajweed", "أحكام التجويد", "Tajweed rules", 6, "تطبيق أحكام الصف (المدود، النون والميم الساكنتان، القلقلة…)"], ["s_fluency", "الطلاقة وسلامة المخارج", "Fluency & articulation", 4, "تلاوة متصلة بلا تردد، وحروف من مخارجها"]];
@@ -7303,7 +7312,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     h(`<section class="bench-hero"><div class="wrap">
         <div class="bh-badge">${fpIcon}<span>${CT("معيار حراء", "Hira Benchmark")}</span></div>
         <h1>${CT("الاختبارات المعيارية", "Benchmark Tests")}</h1>${hubTabs("benchmarks", subj)}${subj !== "islamic" ? `<p>${CT("اختبار معياري موحّد في " + hubName(subj) + " ثلاث مرات في العام (بداية العام ومنتصفه ونهايته)، يقيس مستوى الطالب مقابل نواتج صفّه في الإطار الوطني، ويتتبّع نموّه.", "A standardised " + hubName(subj) + " benchmark three times a year that measures each student against the national outcomes for their grade and tracks growth.")}</p>${subj === "social" ? hubSoon("اختبارات الدراسات الاجتماعية المعيارية قيد الإعداد.", "Social Studies benchmarks are being prepared.") : ""}` : ""}<p ${subj !== "islamic" ? "hidden" : ""}>${CT("اختبار معياري موحّد في التربية الإسلامية للصفوف 1–12 بمساريها، يقيس مستوى الطالب مقابل معايير صفّه، ويرسم <b>بصمته</b> في المجالات الستة للإطار الوطني، ويتتبّع نموّه ثلاث مرات في العام.", "A standardised Islamic Education benchmark for Grades 1–12, measuring each student against grade standards, drawing their <b>fingerprint</b> across the six framework domains, and tracking growth three times a year.")}</p>
-        <div class="bh-actions"><a class="btn btn-dawn" href="#/bench-guide?subject=${subj}">${CT("دليل المعيار", "Benchmark guide")}</a><a class="btn btn-ghost" href="#/bench-sample">${CT("نماذج التقارير", "Sample reports")}</a></div>
+        <div class="bh-actions"><a class="btn btn-dawn" href="#/bench-guide?subject=${subj}">${CT("دليل المعيار", "Benchmark guide")}</a><a class="btn btn-ghost" href="#/bench-sample?subject=${subj}">${CT("نماذج التقارير", "Sample reports")}</a></div>
       </div></section>
       <section class="section" style="padding-top:30px"><div class="wrap">
         <div class="bw-timeline">${W.map((w, i) => { const st = winState(w); return `<div class="bwt ${st}"><span class="bwt-n">${i + 1}</span><strong>${esc(CT(w.name_ar, w.name_en))}</strong><small>${fmtD(w.opens_at)} – ${fmtD(w.closes_at)}</small><span class="bw-st">${CT(WSTATE[st][0], WSTATE[st][1])}</span></div>`; }).join("")}</div>
@@ -7554,22 +7563,68 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       </div></section>`);
   }
 
-  function pageBenchSample() {
+  function pageBenchSample(params) {
     setNav("bench");
-    const demo = { 1: 82, 2: 68, 3: 91, 4: 54, 5: 73, 6: 88 }, norm = { 1: 70, 2: 66, 3: 78, 4: 61, 5: 69, 6: 74 };
-    h(`<section class="bench-hero slim"><div class="wrap"><div class="crumbs"><a href="#/benchmarks">الاختبارات المعيارية</a></div>
-        <div class="bh-badge">${fpIcon}<span>نموذج توضيحي ببيانات افتراضية</span></div><h1>نماذج التقارير</h1></div></section>
-      <section class="section" style="padding-top:26px"><div class="wrap">
+    const subj = hubSubj(params);
+    const head = `<section class="bench-hero slim"><div class="wrap"><div class="crumbs"><a href="#/benchmarks?subject=${subj}">الاختبارات المعيارية</a></div>
+        <div class="bh-badge">${fpIcon}<span>نموذج توضيحي ببيانات افتراضية</span></div><h1>نماذج التقارير</h1>${hubTabs("bench-sample", subj)}</div></section>`;
+    if (subj === "social") { h(head + `<section class="section"><div class="wrap">${hubSoon("نماذج تقارير الدراسات الاجتماعية قيد الإعداد.", "Social Studies sample reports are being prepared.")}</div></section>`); return; }
+    const legend = (n) => `<div class="radar-legend"><span><i style="background:var(--hira)"></i>${n}</span><span><i style="background:#8A94A6"></i>متوسط المنصة</span><span><i class="dash"></i>المستوى المتوقع</span></div>`;
+    const bars = (v, nm) => `<div class="dom-bars">${Object.keys(v).map(Number).map((d) => `<div class="db"><span>${esc(domName(d))}</span><span class="db-bar"><i style="width:${v[d]}%;background:${bandOf(v[d]).c}"></i>${nm[d] != null ? `<b class="db-norm" style="inset-inline-start:${nm[d]}%" title="متوسط المنصة"></b>` : ""}</span><strong>${v[d]}%</strong></div>`).join("")}</div>`;
+    const growth = (a) => `<div class="growth-row">${a.map(([n, p], i) => `<div class="gr ${i === a.length - 1 ? "cur" : ""}"><span>${n}</span><b>${p}%</b>${bandChip(p)}</div>`).join('<span class="gr-arrow">←</span>')}</div>`;
+    const top = (p, plat) => `<div class="br-score" style="--bc:${bandOf(p).c}"><span class="br-pct">${p}%</span><span class="br-band">${bandOf(p).ar}</span><span class="muted">${p >= 60 ? "✓ في المستوى المتوقع للصف أو أعلى" : "دون المستوى المتوقع للصف"}</span><span class="muted">متوسط المنصة: ${plat}%</span></div>`;
+    const dist = (cls, plat, n) => `<div class="dist"><span>الفصل</span><div class="stack">${cls.map((x, i) => `<i style="width:${(x / n) * 100}%;background:${BANDS[i].c}">${Math.round((x / n) * 100)}%</i>`).join("")}</div></div>
+        <div class="dist"><span>المنصة</span><div class="stack">${plat.map((x, i) => `<i style="width:${x}%;background:${BANDS[i].c}">${x}%</i>`).join("")}</div></div>
+        <div class="legend">${BANDS.map((b) => `<span class="lgb"><i style="background:${b.c}"></i>${b.ar}</span>`).join("")}</div>`;
+
+    if (subj === "arabic") {
+      benchSubjId = 2;
+      const v = { 2: 82, 3: 69, 5: 73, 6: 58 }, nm = { 2: 72, 3: 66, 5: 70, 6: 63 }, obj = 70;
+      const W = [["الأفكار وصلتها بالمهمة", 4, "أفكار تحيط بعناصر المهمة كلها: المكان والزمان والحدث وما تعلّمه"], ["التنظيم (بداية، حدث، نهاية)", 3, "تسلسل منطقي مع ضعف في البداية أو النهاية"], ["الترابط", 3, "أدوات ربط كافية"], ["المعجم والتفاصيل الحسية", 3, "مفردات فصيحة مناسبة وتفاصيل قليلة"], ["السلامة اللغوية", 2, "أخطاء كثيرة تربك القارئ أحيانًا"], ["الترقيم والفقرات", 3, "أخطاء قليلة في الترقيم"]];
+      const S = [["المحتوى والتسلسل", 3, "تسلسل واضح مع خروج يسير"], ["سلامة اللغة", 3, "أخطاء قليلة"], ["النطق والأداء", 3, "واضح غالبًا"], ["الطلاقة", 3, "تردد لا يقطع الحديث"], ["جذب المستمع والتعبير", 3, "يحاول جذب المستمع"]];
+      const sum = (a) => a.reduce((x, r) => x + r[1], 0), wP = sum(W) / 24 * 100, sP = sum(S) / 20 * 100;
+      const comb = Math.round((obj * 50 + wP * 30 + sP * 20) / 100);
+      const rub = (nm2, a, max, note) => `<details class="brr-rubric" open><summary>${nm2} · ${sum(a)}/${max}</summary><ul>${a.map(([c, l, d]) => `<li><b>${c}: ${l}/4 (${PLV[l]})</b> · ${d}</li>`).join("")}</ul>${note ? `<p>💬 ${note}</p>` : ""}</details>`;
+      h(head + `<section class="section" style="padding-top:26px"><div class="wrap">
+        <p class="br-judge">مثال لطالب في الصف الرابع في معيار نهاية العام للغة العربية. البيانات افتراضية، والتقرير الحقيقي يُبنى من إجابات الطالب وتقييم معلمه.</p>
         <h2>تقرير الطالب: بصمة المتعلم</h2>
-        <div class="br-top"><div class="br-score" style="--bc:${bandOf(76).c}"><span class="br-pct">76%</span><span class="br-band">${bandOf(76).ar}</span><span class="muted">✓ في المستوى المتوقع للصف أو أعلى</span><span class="muted">متوسط المنصة: 70%</span></div>
-          <div class="br-radar">${radarSVG(demo, norm)}<div class="radar-legend"><span><i style="background:var(--hira)"></i>الطالب</span><span><i style="background:#8A94A6"></i>متوسط المنصة</span><span><i class="dash"></i>المستوى المتوقع</span></div></div></div>
-        <div class="growth-row"><div class="gr"><span>بداية العام</span><b>58%</b>${bandChip(58)}</div><span class="gr-arrow">←</span><div class="gr"><span>منتصف العام</span><b>67%</b>${bandChip(67)}</div><span class="gr-arrow">←</span><div class="gr cur"><span>نهاية العام</span><b>76%</b>${bandChip(76)}</div></div>
-        <p class="muted">في التقرير الحقيقي: المستوى في كل مجال، ونقاط القوة، وخطة دعم بروابط الدروس.</p>
+        <div class="br-top">${top(obj, 67)}<div class="br-radar">${radarSVG(v, nm)}${legend("الطالب")}</div></div>
+        <p class="muted small">تظهر المجالات التي قاسها الاختبار بثلاثة أسئلة فأكثر. وتُقاس الكتابة بمهمة الكتابة نفسها، والتحدث بالعرض الشفوي.</p>
+        <h2>المستوى في كل مجال</h2>${bars(v, nm)}
+        <h2>النمو عبر العام (القراءة والاستماع)</h2>${growth([["بداية العام", 58], ["منتصف العام", 64], ["نهاية العام", obj]])}
+        <div class="br-cols"><div><h2>نقاط القوة</h2><ul><li>${esc(domName(2))} (82%)</li></ul></div>
+          <div><h2>خطة الدعم المقترحة</h2><p><b>${esc(domName(6))}</b> (58%): روابط دروس المجال في حراء، مع تمارين الصف على المفردات والإملاء.</p></div></div>
+        <div class="br-recite-sec"><h2>الكتابة والتحدث والدرجة الكلية</h2>
+          <div class="kpis"><div><b>${obj}%</b><span>القراءة والاستماع (50%)</span></div><div><b>${sum(W)}/24</b><span>✍️ الكتابة (30%)</span></div><div><b>${sum(S)}/20</b><span>🎤 التحدث (20%)</span></div><div><b>${comb}%</b><span>الدرجة الكلية</span></div></div>
+          <p>${bandChip(comb)}</p>
+          ${rub("✍️ الكتابة: قصة من ثلاث فقرات", W, 24, "قصتك واضحة الأحداث. راجع همزات الوصل والقطع، وعلامات الترقيم في آخر الجمل.")}
+          ${rub("🎤 التحدث: عرض شفوي عن خبرة شخصية", S, 20, "")}
+          <p class="muted small">الدرجة الكلية = القراءة والاستماع ${obj}% × 50% + الكتابة ${Math.round(wP)}% × 30% + التحدث ${Math.round(sP)}% × 20% = ${comb}%.</p></div>
+
+        <h2 style="margin-top:30px">تقرير الفصل</h2>
+        <div class="kpis"><div><b>24/26</b><span>أدّوا الاختبار</span></div><div><b>68%</b><span>متوسط الفصل</span></div><div><b>71%</b><span>في المستوى المتوقع أو أعلى</span></div><div><b>66%</b><span>متوسط المنصة</span></div></div>
+        ${dist([2, 5, 10, 5, 2], [11, 21, 33, 21, 14], 24)}
+        <h2>مجالات الفصل</h2>${bars({ 2: 75, 3: 66, 5: 70, 6: 57 }, nm)}
+        <h2>تقييم الكتابة والتحدث</h2>
+        <div class="kpis"><div><b>23/26</b><span>✍️ أرسلوا الكتابة</span></div><div><b>23</b><span>قُيّمت</span></div><div><b>71%</b><span>متوسط الكتابة</span></div><div><b>21/26</b><span>🎤 أرسلوا التحدث</span></div><div><b>18</b><span>قُيّم</span></div><div><b>74%</b><span>متوسط التحدث</span></div></div>
+        <p class="muted">في التقرير الحقيقي يقرأ المعلم نص كل طالب أو يستمع إلى تسجيله، ويختار لكل معيار مستوى من 0 إلى 4 مع وصفه، ويكتب ملاحظة للطالب. وفي أسفل التقرير نصوص الاستماع للمعلم.</p>
+      </div></section>`);
+      return;
+    }
+    benchSubjId = 1;
+    const demo = { 1: 82, 2: 68, 3: 91, 4: 54, 5: 73, 6: 88 }, norm = { 1: 70, 2: 66, 3: 78, 4: 61, 5: 69, 6: 74 };
+    h(head + `<section class="section" style="padding-top:26px"><div class="wrap">
+        <h2>تقرير الطالب: بصمة المتعلم</h2>
+        <div class="br-top">${top(76, 70)}<div class="br-radar">${radarSVG(demo, norm)}${legend("الطالب")}</div></div>
+        <h2>المستوى في كل مجال</h2>${bars(demo, norm)}
+        <h2>النمو عبر العام</h2>${growth([["بداية العام", 58], ["منتصف العام", 67], ["نهاية العام", 76]])}
+        <div class="br-cols"><div><h2>نقاط القوة</h2><ul>${[3, 6, 1].map((d) => `<li>${esc(domName(d))} (${demo[d]}%)</li>`).join("")}</ul></div>
+          <div><h2>خطة الدعم المقترحة</h2><p><b>${esc(domName(4))}</b> (54%): روابط دروس المجال المقترحة من حراء.</p></div></div>
+        <div class="br-recite-sec"><h2>التسميع</h2><div class="kpis"><div><b>17/20</b><span>درجة التسميع</span></div><div><b>9/10</b><span>إتقان الحفظ</span></div><div><b>5/6</b><span>أحكام التجويد</span></div><div><b>3/4</b><span>الطلاقة وسلامة المخارج</span></div></div>
+          <p class="muted small">يدخل التسميع بنسبة 20% في الدرجة الكلية، والجزء المكتوب بنسبة 80%.</p></div>
         <h2 style="margin-top:30px">تقرير الفصل</h2>
         <div class="kpis"><div><b>24/26</b><span>أدّوا الاختبار</span></div><div><b>71%</b><span>متوسط الفصل</span></div><div><b>79%</b><span>في المستوى المتوقع أو أعلى</span></div><div><b>68%</b><span>متوسط المنصة</span></div></div>
-        <div class="dist"><span>الفصل</span><div class="stack">${[3, 7, 9, 3, 2].map((n, i) => `<i style="width:${(n / 24) * 100}%;background:${BANDS[i].c}">${Math.round((n / 24) * 100)}%</i>`).join("")}</div></div>
-        <div class="dist"><span>المنصة</span><div class="stack">${[12, 22, 31, 20, 15].map((n, i) => `<i style="width:${n}%;background:${BANDS[i].c}">${n}%</i>`).join("")}</div></div>
-        <div class="legend">${BANDS.map((b) => `<span class="lgb"><i style="background:${b.c}"></i>${b.ar}</span>`).join("")}</div>
+        ${dist([3, 7, 9, 3, 2], [12, 22, 31, 20, 15], 24)}
       </div></section>`);
   }
 
@@ -13611,7 +13666,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       if (p0 === "bench-scripts" && parts[1]) return pageBenchScripts(parts[1]);
       if (p0 === "bench-recite" && parts[1]) return pageBenchRecite(parts[1]);
       if (p0 === "bench-guide") return pageBenchGuide(params);
-      if (p0 === "bench-sample") return pageBenchSample();
+      if (p0 === "bench-sample") return pageBenchSample(params);
       if (p0 === "memorize") return (params && params.get("t") === "hadith") ? pageMemorize(params) : pageMemoQuran(params);
       if (p0 === "reset") return pageReset();
       if (p0 === "unit" && parts[1]) return pageUnit(parts[1], params);
