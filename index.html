@@ -12544,7 +12544,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (!(SET.rep >= 0)) SET.rep = 1; if (!SET.spd) SET.spd = 1; if (!SET.mode) SET.mode = "ayah";
     const save = () => { try { localStorage.setItem("hiraa-tilawa", JSON.stringify(SET)); } catch (e) {} };
     const REPS = [1, 3, 5, 7, 0], SPDS = [1, 0.85, 0.7];
-    const E = { au: null, bar: null, i: 0, done: 0, loop: 0, t1: 0, on: false, loading: false };
+    const E = { au: null, bar: null, i: 0, done: 0, loop: 0, t1: 0, on: false, loading: false, gap: false, hold: null, gapEnd: 0, tk: 0 };
     const BARS = new Set();
     const urlOf = (s) => (TM.ov && TM.ov[s]) || TM.url + s + ".mp3";
     const span = (s, a) => { const st = TM.st[s - 1]; return [st[a - 1] / 100, (a < st.length ? st[a] : TM.end[s - 1]) / 100]; };
@@ -12554,18 +12554,32 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (E.au) return E.au;
       const au = (E.au = new Audio()); au.preload = "auto";
       au.addEventListener("error", () => { if (E.on) fail(); });
-      au.addEventListener("ended", () => { if (E.on) next(); });
+      au.addEventListener("ended", () => { if (E.on) endAyah(); });
       au.addEventListener("playing", () => { E.loading = false; paint(E.bar); });
       au.addEventListener("waiting", () => { E.loading = true; paint(E.bar); });
       setInterval(() => {
         if (!E.on) return;
         if (!alive(E.bar)) return stop();
-        if (!au.paused && !au.seeking && au.currentTime >= E.t1 - 0.03) next();
+        if (E.gap) {                                           // مهلة الترديد
+          if (E.hold == null && Date.now() >= E.gapEnd) { E.gap = false; next(); }
+          else if (++E.tk % 8 === 0) paint(E.bar);
+          return;
+        }
+        if (!au.paused && !au.seeking && au.currentTime >= E.t1 - 0.03) endAyah();
       }, 30);
       return au;
     }
     function fail() { stop(); try { DOCEN = false; toast(tx("تعذّر تشغيل التلاوة. تحقّق من الاتصال بالإنترنت.", "Could not play the recitation. Check your connection.")); } catch (e) {} }
+    /* «استمع ثم ردّد»: بعد كل آية يسكت الشيخ قدر مدتها (+ ثانية) ليرددها الطالب، ثم يتابع */
+    function endAyah() {
+      if (E.gap) return;
+      if (!SET.echo) return next();
+      const [s, a] = E.bar._til[E.i], [t0, t1] = span(s, a);
+      audio().pause(); E.gap = true; E.hold = null;
+      E.gapEnd = Date.now() + Math.min(60, (t1 - t0) / SET.spd + 1) * 1000; paint(E.bar);
+    }
     function seekPlay() {
+      E.gap = false; E.hold = null;
       const b = E.bar, [s, a] = b._til[E.i], [t0, t1] = span(s, a), au = audio(), u = urlOf(s);
       E.t1 = t1; E.on = true; E.loading = true;
       const go = () => { try { au.currentTime = t0; } catch (e) {} au.playbackRate = SET.spd; au.play().catch((e) => { if (e && e.name === "NotAllowedError") stop(); else fail(); }); };
@@ -12584,27 +12598,34 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     }
     function start(b, from) {
       ready().then(() => {
+        if (E.bar === b && E.on && from == null && E.gap) {   // إيقاف مؤقت/متابعة أثناء مهلة الترديد
+          if (E.hold == null) E.hold = Math.max(0, E.gapEnd - Date.now()); else { E.gapEnd = Date.now() + E.hold; E.hold = null; }
+          return paint(b);
+        }
         if (E.bar === b && E.on && from == null) { const au = audio(); if (au.paused) { au.playbackRate = SET.spd; au.play().catch(fail); } else au.pause(); return paint(b); }
         stop(); E.bar = b; E.i = Math.max(0, Math.min(from || 0, b._til.length - 1)); E.done = 0; E.loop = 0; seekPlay();
       }).catch(fail);
     }
     function stop() {
-      const b = E.bar; E.on = false; E.loading = false; if (E.au) E.au.pause();
+      const b = E.bar; E.on = false; E.loading = false; E.gap = false; E.hold = null; if (E.au) E.au.pause();
       if (b) { if (b._onAyah) b._onAyah(null); paint(b); }
     }
     function step(d) { if (!E.on) return; const n = E.bar._til.length; E.i = (E.i + d + n) % n; E.done = 0; seekPlay(); }
 
     function paint(b) { if (b) inDoc(b.ownerDocument, () => paint0(b)); }
     function paint0(b) {
-      const on = E.on && E.bar === b, paused = on && E.au && E.au.paused && !E.loading, q = (s) => b.querySelector(s);
-      b.classList.toggle("on", on);
-      q(".til-play").textContent = !on ? tx("▶ استمع", "▶ Listen") : paused ? tx("▶ تابِع", "▶ Resume") : E.loading ? tx("… جارٍ التحميل", "… Loading") : tx("❚❚ إيقاف مؤقت", "❚❚ Pause");
+      const on = E.on && E.bar === b, gap = on && E.gap, paused = on && (gap ? E.hold != null : E.au && E.au.paused && !E.loading), q = (s) => b.querySelector(s);
+      b.classList.toggle("on", on); b.classList.toggle("gap", gap);
+      const ec = q(".til-echo"); ec.textContent = (SET.echo ? "✓ " : "") + tx("استمع ثم ردّد", "Listen & repeat"); ec.classList.toggle("sel", !!SET.echo);
+      q(".til-play").textContent = !on ? tx("▶ استمع", "▶ Listen") : paused ? tx("▶ تابِع", "▶ Resume") : !gap && E.loading ? tx("… جارٍ التحميل", "… Loading") : tx("❚❚ إيقاف مؤقت", "❚❚ Pause");
       q(".til-stop").hidden = !on;
       q(".til-rep").textContent = SET.rep === 0 ? tx("التكرار: بلا توقف", "Repeat: non-stop") : SET.rep === 1 ? tx("التكرار: مرة", "Repeat: once") : tx("التكرار: ", "Repeat: ") + iso(SET.rep) + tx(" مرات", " times");
       q(".til-spd").textContent = SET.spd === 1 ? tx("السرعة: عادية", "Speed: normal") : SET.spd === 0.85 ? tx("السرعة: أبطأ", "Speed: slower") : tx("السرعة: بطيئة", "Speed: slow");
       const md = q(".til-mode"); if (md) md.textContent = SET.mode === "ayah" ? tx("كرّر كل آية", "Repeat each ayah") : tx("كرّر المقطع", "Repeat passage");
       const st = q(".til-st"), L = b._til;
-      if (on && TM) { const [s, a] = L[E.i]; st.textContent = `${tx("سورة", "Surah")} ${tx(TM.names[s - 1][0], TM.names[s - 1][1])} · ${tx("الآية", "Ayah")} ${iso(a)}` + (L.length > 1 ? ` ${iso(`(${E.i + 1}/${L.length})`)}` : ""); }
+      if (gap) { const [, a] = L[E.i], left = Math.ceil((E.hold != null ? E.hold : E.gapEnd - Date.now()) / 1000);
+        st.textContent = tx("دورك: ردّد الآية ", "Your turn: repeat ayah ") + iso(a) + " · " + iso(Math.max(0, left)) + tx(" ث", "s"); }
+      else if (on && TM) { const [s, a] = L[E.i]; st.textContent = `${tx("سورة", "Surah")} ${tx(TM.names[s - 1][0], TM.names[s - 1][1])} · ${tx("الآية", "Ayah")} ${iso(a)}` + (L.length > 1 ? ` ${iso(`(${E.i + 1}/${L.length})`)}` : ""); }
       else st.textContent = tx("بصوت الشيخ خليفة الطنيجي", "Sheikh Khalifa Al-Tunaiji");
       (b._spans || []).forEach((sp, k) => sp && sp.classList.toggle("til-now", on && k === E.i));
     }
@@ -12619,7 +12640,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       b.innerHTML = B("til-play", "play", tx("تشغيل / إيقاف مؤقت", "Play / pause")) + B("til-stop", "stop", tx("إيقاف", "Stop")) +
         (multi ? B("til-prev", "prev", tx("الآية السابقة", "Previous ayah")) + B("til-next", "next", tx("الآية التالية", "Next ayah")) : "") +
         B("til-rep", "rep", tx("عدد مرات التكرار", "Times to repeat")) + (multi ? B("til-mode", "mode", tx("طريقة التكرار", "How to repeat")) : "") +
-        B("til-spd", "spd", tx("سرعة التلاوة", "Recitation speed")) + `<span class="til-st"></span>`;
+        B("til-spd", "spd", tx("سرعة التلاوة", "Recitation speed")) +
+        B("til-echo", "echo", tx("بعد كل آية يسكت الشيخ قدر مدتها ليرددها الطالب", "After each ayah the sheikh pauses so the student can repeat it")) + `<span class="til-st"></span>`;
       b.querySelector(".til-stop").textContent = tx("■ إيقاف", "■ Stop");
       if (multi) { b.querySelector(".til-prev").textContent = tx("→ السابقة", "← Prev"); b.querySelector(".til-next").textContent = tx("التالية ←", "Next →"); }
       b._til = list; b._onAyah = opt.onAyah || null; b._spans = opt.spans || null; b._src = opt.src || null;
@@ -12631,6 +12653,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         else if (a === "rep") { SET.rep = REPS[(REPS.indexOf(SET.rep) + 1) % REPS.length]; E.done = 0; E.loop = 0; save(); }
         else if (a === "spd") { SET.spd = SPDS[(SPDS.indexOf(SET.spd) + 1) % SPDS.length]; if (E.au && E.bar === b) E.au.playbackRate = SET.spd; save(); }
         else if (a === "mode") { SET.mode = SET.mode === "ayah" ? "range" : "ayah"; save(); }
+        else if (a === "echo") { SET.echo = !SET.echo; save(); if (!SET.echo && E.gap && E.bar === b) { E.gap = false; next(); } }
         BARS.forEach(paint); k.blur && k.blur();
       });
       if (b._spans) b._spans.forEach((sp, k) => sp && sp.addEventListener("click", (e) => { e.stopPropagation(); start(b, k); }));
@@ -12660,10 +12683,14 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
 .til-bar .til-b:hover{background:#F6EEDC}.til-bar .til-b:focus-visible{outline:2px solid #0F7A55;outline-offset:2px}
 .til-bar .til-play{background:#0F7A55;border-color:#0F7A55;color:#fff;font-weight:700}
 .til-bar.on .til-play{background:#A8741F;border-color:#A8741F}.til-bar .til-stop[hidden]{display:none}
+.til-bar .til-echo.sel{background:#E6F2EC;border-color:#0F7A55;color:#0F7A55;font-weight:700}
+.til-bar.gap .til-st{opacity:1;color:#A8741F;font-weight:700}
 .til-bar .til-st{opacity:.78;padding:0 .35em;white-space:normal;min-width:0}
 .til-bar.til-sm{gap:.3em;padding:.22em .3em;border-radius:1em}
 .til-bar.til-sm .til-spd,.til-bar.til-sm .til-mode,.til-bar.til-sm .til-prev,.til-bar.til-sm .til-next{display:none}
 .til-bar.til-sm .til-st{display:none;white-space:normal;font-size:.9em}.til-bar.til-sm.on .til-st{display:block;flex-basis:100%}
+.til-bar.til-abs{position:absolute!important;bottom:.55em;inset-inline-end:.65em;margin:0;background:rgba(255,255,255,.72);backdrop-filter:blur(2px)}
+.til-bar.til-abs{padding:.15em;gap:.25em}.til-bar.til-abs .til-rep,.til-bar.til-abs .til-echo,.til-bar.til-abs.on .til-st{display:none}
 .til-hid{visibility:hidden!important}
 .til-ay{cursor:pointer;border-radius:.25em;transition:background .2s}
 .til-ay.til-now{background:rgba(15,122,85,.15);box-shadow:0 0 0 .14em rgba(15,122,85,.15)}
@@ -12699,7 +12726,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
         const b = bar(doc, g.list, { spans: deck ? null : g.spans, src: last });
         const fs = parseFloat((doc.defaultView.getComputedStyle(last) || {}).fontSize) || 16;
         b.style.fontSize = Math.round(Math.max(13, Math.min(26, fs * (fs > 30 ? 0.42 : 0.82)))) + "px";
-        if (deck) { b._fit = g.blocks; b._sl = last.closest(".sl,section,[class*=slide]"); }
+        if (deck) { b._fit = g.blocks; b._sl = last.closest(".sl") || last.closest(".td-slide") || last.closest("section") || last.closest("[class*=slide]"); }
         let at = last, nx = last.nextElementSibling;
         if (nx && !excluded(nx) && /^\s*[[(]/.test(nx.textContent || "") && String(nx.textContent).trim().length < 60) at = nx;
         /* في صفحات المنصة: إن كان النص عمودًا داخل صفٍّ (flex/grid) نضع الشريط داخله تحت الآية، لا بجانبه */
@@ -12709,9 +12736,20 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
           const pc = doc.defaultView.getComputedStyle(last.parentElement);
           if (/grid/.test(pc.display) || (/flex/.test(pc.display) && !/column/.test(pc.flexDirection))) inside = true;
         }
-        if (inside) last.appendChild(b); else at.insertAdjacentElement("afterend", b);
+        /* في العروض: نصٌّ داخل صفٍّ أفقي (بطاقة: أيقونة + رقم + نص) → الشريط في سطر مستقل أسفل البطاقة، لا بجانب النص */
+        let host = null;
+        if (deck && at === last && last.parentElement) {
+          const pc = doc.defaultView.getComputedStyle(last.parentElement);
+          if (/flex/.test(pc.display) && !/column/.test(pc.flexDirection)) host = last.parentElement;
+        }
+        if (host) {   /* بطاقة: شريط صغير عائم في زاويتها السفلية، فلا يتغير تخطيطها ولا تتحرك الشريحة */
+          if (doc.defaultView.getComputedStyle(host).position === "static") host.style.position = "relative";
+          b.classList.add("til-abs"); b._abs = true; host.appendChild(b);
+          b.style.fontSize = Math.round(Math.max(13, Math.min(18, fs * 0.55))) + "px";
+        }
+        else if (inside) last.appendChild(b); else at.insertAdjacentElement("afterend", b);
         /* مساحة ضيقة: شريط مختصر (استمع + التكرار)، والتعريف بالآية يظهر أثناء التلاوة فقط */
-        if (W < 460) b.classList.add("til-sm");
+        if (host || W < 460) b.classList.add("til-sm");
       };
       for (const bl of blocks) {
         DONE.add(bl);
@@ -12781,22 +12819,30 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
     /* في العروض: إن جعل الشريطُ الشريحةَ تفيض، نصغّر خط الآية قليلًا حتى تتسع (كما يفعل العرض نفسه عند فتحه) */
     function fit(b) {
       const sl = b._sl; if (!sl.offsetHeight || !sl.isConnected) return;   // الشريحة غير ظاهرة بعد
-      b._fitted = true;
-      const v = sl.ownerDocument.defaultView;
-      let box = b; while (box.parentElement && box.parentElement !== sl) box = box.parentElement;
+      const v = sl.ownerDocument.defaultView, cs0 = v.getComputedStyle(sl);
+      const shown = (sl.classList.contains("on") || !sl.parentElement.querySelector(":scope > .on")) && cs0.visibility !== "hidden" && parseFloat(cs0.opacity) > 0.95;
+      if (!shown) { b._seen = 0; return; }
+      if (!b._seen) { b._seen = Date.now(); return; }
+      if (Date.now() - b._seen < 1000) return;                         // ننتظر حتى تستقر حركة الدخول
+      /* على مستوى الشريحة كلها: أشرطتها معًا، وأسفل المحتوى الجاري مقابل أعلى التذييل أو حافة الشريحة */
+      const bars = [...BARS].filter((x) => x._sl === sl && x.isConnected && !x._abs); bars.forEach((x) => (x._fitted = true));
       const sr = sl.getBoundingClientRect(), k0 = sr.height / sl.offsetHeight;
-      const d0 = b.style.display; b.style.display = "none"; const r0 = box.getBoundingClientRect().bottom; b.style.display = d0;
-      /* الحدّ: أول نصٍّ تحت الصندوق (تذييل الشريحة مثلًا) أو أسفل الشريحة بعد حاشيتها */
-      let limit = sr.bottom - (parseFloat(v.getComputedStyle(sl).paddingBottom) || 0) * k0;
-      sl.querySelectorAll("*").forEach((e) => {
-        if (box.contains(e) || e.contains(box) || e.children.length || !String(e.textContent).trim()) return;
-        const r = e.getBoundingClientRect(); if (r.height && r.top >= r0 - 2 && r.top < limit) limit = r.top;
+      /* «تذييل»: عنصر في الشريحة موضوع بموضع مطلق ولا يحوي شريطًا؛ أما حاوية المحتوى (ولو مطلقة) فمحتوى جارٍ */
+      const holders = new Set(bars.map((x) => { let t = x; while (t.parentElement && t.parentElement !== sl) t = t.parentElement; return t; }));
+      const abs = (e) => { for (let x = e; x && x !== sl; x = x.parentElement) { if (holders.has(x)) return false; if (/absolute|fixed/.test(v.getComputedStyle(x).position)) return true; } return false; };
+      const leaves = [...sl.querySelectorAll("*")].filter((e) => !e.closest(".til-bar") && !e.children.length && String(e.textContent).trim() && e.getClientRects().length);
+      let allowed = sr.bottom - (parseFloat(cs0.paddingBottom) || 0) * k0;
+      const flow = [];
+      leaves.forEach((e) => { if (abs(e)) { const r = e.getBoundingClientRect(); if (r.top > sr.top + sr.height * 0.6 && r.top < allowed) allowed = r.top; } else flow.push(e); });
+      if (!flow.length) return;
+      const bottom = () => Math.max(...flow.map((e) => e.getBoundingClientRect().bottom), ...bars.map((x) => x.getBoundingClientRect().bottom));
+      bars.forEach((x) => x.style.setProperty("display", "none", "important")); const before = Math.max(...flow.map((e) => e.getBoundingClientRect().bottom)); bars.forEach((x) => x.style.setProperty("display", "flex", "important"));
+      const lim = allowed - 6 * k0;
+      if (before > lim) return;                 // الشريحة تفيض أو تلامس تذييلها أصلًا قبل الأشرطة: لا نمسّ خطها
+      for (let k = 0; k < 8 && bottom() > lim; k++) bars.forEach((x) => {
+        (x._fit || []).forEach((p) => { const f = parseFloat(v.getComputedStyle(p).fontSize); p.style.fontSize = Math.max(16, f * 0.93) + "px"; });
+        const bf = parseFloat(x.style.fontSize) || 16; x.style.fontSize = Math.max(13, bf * 0.96) + "px";
       });
-      const bottom = () => box.getBoundingClientRect().bottom;
-      for (let k = 0; k < 8 && bottom() > limit - 6 * k0; k++) {
-        b._fit.forEach((p) => { const f = parseFloat(v.getComputedStyle(p).fontSize); p.style.fontSize = Math.max(16, f * 0.92) + "px"; });
-        const bf = parseFloat(b.style.fontSize) || 16; b.style.fontSize = Math.max(13, bf * 0.95) + "px";
-      }
     }
     /* الشريط يظهر ويختفي مع نصه (ظهور العناصر خطوة خطوة في العروض) */
     setInterval(() => {
