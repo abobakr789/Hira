@@ -4051,8 +4051,8 @@ window.addEventListener("error", function (e) {
     rows.forEach((r) => { if (cur.length && used + r.h > maxH) { pages.push(cur); cur = []; used = 0; } cur.push(r); used += r.h + gap; });
     if (cur.length) pages.push(cur);
     return pages.map((pg, k) => {
-      const els = [{ k: "text", x: 256, y: 13, w: 768, h: 46, text: poem ? "النَّشيدُ مِنْ كِتابي" : "نَصُّ الدَّرْسِ مِنْ كِتابي", size: 21, color: "FFFFFF", bold: true, align: "center", fill: "0F6E72", rad: true, va: "middle" },
-        { k: "text", x: 260, y: 62, w: 981, h: 80, text: "📖 " + (bt.title || "نص الكتاب") + (pages.length > 1 ? ` (${k + 1}/${pages.length})` : ""), size: 32, color: "1E3A3F", bold: true, align: "right", fill: null, rad: false, va: "middle", ff: "naskh" }];
+      const els = [{ k: "text", x: 256, y: 13, w: 768, h: 46, text: poem ? "النَّشيدُ مِنْ كِتابي" : bt.kind === "study" ? "نَصُّ الدَّرْسِ مِنْ إِعْدادِ حِراءٍ" : "نَصُّ الدَّرْسِ مِنْ كِتابي", size: 21, color: "FFFFFF", bold: true, align: "center", fill: "0F6E72", rad: true, va: "middle" },
+        { k: "text", x: 260, y: 62, w: 981, h: 80, text: (bt.kind === "study" ? "📘 " : "📖 ") + (bt.title || (bt.kind === "study" ? "نص الدرس" : "نص الكتاب")) + (pages.length > 1 ? ` (${k + 1}/${pages.length})` : ""), size: 32, color: "1E3A3F", bold: true, align: "right", fill: null, rad: false, va: "middle", ff: "naskh" }];
       if (bt.pages) els.push({ k: "text", x: 38, y: 74, w: 200, h: 54, text: "ص " + bt.pages, size: 22, color: "1E3A3F", bold: true, align: "center", fill: "F2A93B", rad: true, va: "middle" });
       let y = 150;
       pg.forEach((r, i) => {
@@ -4320,7 +4320,7 @@ window.addEventListener("error", function (e) {
     const host = document.fullscreenElement || document.body; const old = document.getElementById("bkOv"); if (old) old.remove();
     const lines = String(bt.body || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
     const ov = document.createElement("div"); ov.id = "bkOv"; ov.className = "bk-ov"; ov.setAttribute("dir", "rtl");
-    ov.innerHTML = `<div class="bk-ov-in"><div class="bk-ov-hd"><b>📖 ${bkHL(esc(bt.title || "نص الكتاب"))}</b>${bt.pages ? `<span class="pill">ص ${esc(bt.pages)}</span>` : ""}<button type="button" class="bk-ov-x" aria-label="إغلاق">✕ رجوع إلى العرض</button></div>
+    ov.innerHTML = `<div class="bk-ov-in"><div class="bk-ov-hd"><b>${bt.kind === "study" ? "📘" : "📖"} ${bkHL(esc(bt.title || (bt.kind === "study" ? "نص الدرس" : "نص الكتاب")))}</b>${bt.pages ? `<span class="pill">ص ${esc(bt.pages)}</span>` : ""}${bt.kind === "study" ? '<span class="pill">من إعداد حراء</span>' : ""}<button type="button" class="bk-ov-x" aria-label="إغلاق">✕ رجوع إلى العرض</button></div>
       <div class="bk-read"${bt.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${lines.map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div></div>`;
     const close = () => { ov.remove(); document.removeEventListener("keydown", onKey, true); };
     const onKey = (ev) => { if (ev.key === "Escape") { ev.stopPropagation(); ev.preventDefault(); close(); } else if (["ArrowLeft", "ArrowRight", " ", "PageDown", "PageUp"].includes(ev.key)) ev.stopPropagation(); };
@@ -5535,11 +5535,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const reader = (acc === "ok" || isStaff()) ? ((await sb.from("lesson_readers").select("*").eq("lesson_id", l.id).maybeSingle()).data || null) : null; if (reader) thmFonts();
     const bookLines = (t) => String(t || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
     const bookTxHtml = () => {
-      const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">📖 ${esc(bookTx.title || "نص الكتاب")}${bookTx.pages ? ` <span class="pill">${esc(bookTx.pages)}</span>` : ""}</h3>
+      const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">${bookTx.kind === "study" ? "📘" : "📖"} ${esc(bookTx.title || (bookTx.kind === "study" ? "نص الدرس" : "نص الكتاب"))}${bookTx.pages ? ` <span class="pill">كتاب الطالب ص ${esc(bookTx.pages)}</span>` : ""}${bookTx.kind === "study" ? ' <span class="pill">من إعداد حراء</span>' : ""}</h3>
         <div dir="rtl" class="bk-read" style="${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div>
         <div style="margin-top:12px"><button class="btn btn-ghost btn-small" id="btxPrint">🖨️ طباعة النص للطالب</button></div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
       const ed = isSuper() ? `<div class="form-card" style="margin-top:14px"><h3 style="margin-top:0">✏️ إضافة نص الكتاب أو تعديله</h3>
-        <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option></select></div>
+        <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option><option value="study" ${bookTx && bookTx.kind === "study" ? "selected" : ""}>نص الدرس (من إعداد حراء)</option></select></div>
         <div class="field"><label for="btxTitle">عنوان النص</label><input id="btxTitle" value="${esc((bookTx && bookTx.title) || "")}"></div>
         <div class="field"><label for="btxPages">الصفحات</label><input id="btxPages" value="${esc((bookTx && bookTx.pages) || l.book_pages || "")}"></div>
         <div class="field"><label for="btxBody">النص (كل سطر أو بيت في سطر مستقل)</label><textarea id="btxBody" dir="rtl" rows="10" style="width:100%;font-size:1.1rem;line-height:1.9">${esc((bookTx && bookTx.body) || "")}</textarea></div>
