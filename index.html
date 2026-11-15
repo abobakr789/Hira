@@ -12475,7 +12475,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
 
     /* تعيين الآية (أو الآيات المتتالية) لمقطع نصّي */
     function find(t, hint) {
-      const w = wsk(t), s = w.join(""); if (s.length < 6) return null;
+      const w = wsk(t), s = w.join(""); if (!s) return null;
+      /* آية قصيرة (الم، حم، طه، يس...): تتكرر في أول سور كثيرة، فلا تُقبل إلا برقمها واسم سورتها */
+      if (s.length < 6) { const m = (IX.exact.get(s) || []).filter((i) => IX.keys[i][1] === hint.n && hint.s.has(IX.keys[i][0])); return m.length === 1 ? [m[0], m[0], 0] : null; }
       let c = (IX.exact.get(s) || []).map((i) => [i, i, 0]);
       if (!c.length) {
         let p = IX.all.indexOf(s), g = 0;
@@ -12718,12 +12720,17 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
         const ctx = T + " " + shortText(bl.previousElementSibling) + " " + shortText(bl.nextElementSibling) + " " + shortText(bl.nextElementSibling && bl.nextElementSibling.nextElementSibling);
         const hint = { s: surahHints(ctx), n: 0, prev: grp ? grp.lastIdx : null };
         const found = [];
-        for (const g of segments(T)) {
-          if (GAP.test(g.t)) continue;
-          hint.n = g.n; const r = findTrim(g.t, hint); if (!r) continue;
-          for (let i = r[0]; i <= r[1]; i++) if (!found.some((f) => f.i === i)) found.push({ i, a: g.a, b: g.b, one: r[0] === r[1] });
-          hint.prev = r[1];
+        const sg = segments(T).filter((g) => !GAP.test(g.t)), rs = [];
+        for (const g of sg) { hint.n = g.n; const r = findTrim(g.t, hint); rs.push(r); if (r) hint.prev = r[1]; }
+        /* مقطع قصير لم يُعرف وتليه آية معروفة: هو الآية التي قبلها إن طابق نصُّها ورقمُها (﴿الم﴾ قبل ﴿تنزيل الكتاب﴾) */
+        for (let k = rs.length - 2; k >= 0; k--) {
+          if (rs[k] || !rs[k + 1]) continue;
+          const i = rs[k + 1][0] - 1; if (i < 0 || IX.keys[i][0] !== IX.keys[i + 1][0]) continue;
+          const ay = IX.all.slice(IX.offs[i], IX.offs[i] + IX.len(i));
+          if (wsk(sg[k].t).join("") === ay && (!sg[k].n || sg[k].n === IX.keys[i][1])) rs[k] = [i, i, 0];
         }
+        sg.forEach((g, k) => { const r = rs[k]; if (!r) return;
+          for (let i = r[0]; i <= r[1]; i++) if (!found.some((f) => f.i === i)) found.push({ i, a: g.a, b: g.b, one: r[0] === r[1] }); });
         if (!found.length) continue;
         // كتلة تتابع المجموعة السابقة (أخت لاحقة، بينهما عنصران على الأكثر بلا آيات، والآية التالية في السورة نفسها)
         let adj = false;
