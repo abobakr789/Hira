@@ -9848,17 +9848,391 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
 
 
-  /* ===== inline recitation player (Mishary Alafasy, everyayah.com) ===== */
-  const REC = { au: null, btn: null, stop() { if (REC.au) { REC.au.pause(); REC.au = null; } if (REC.btn) { REC.btn.textContent = REC.btn.dataset.l; REC.btn.classList.remove("on"); REC.btn = null; } } };
-  document.addEventListener("click", (e) => {
-    const b = e.target.closest("[data-rec]"); if (!b) return; e.preventDefault();
-    if (REC.btn === b) { REC.stop(); return; } REC.stop();
-    const [s, a1, a2] = b.dataset.rec.split(":").map(Number); let n = a1;
-    const pad3 = (x) => String(x).padStart(3, "0"); const au = new Audio(); REC.au = au; REC.btn = b; b.classList.add("on");
-    const play = () => { if (n > a2) { REC.stop(); return; } b.textContent = `⏸ ${LANG === "en" ? "Stop" : "إيقاف"} · ${n}/${a2}`; au.src = `https://everyayah.com/data/Alafasy_128kbps/${pad3(s)}${pad3(n)}.mp3`; au.play().catch(() => { toast(CT("تعذّر تشغيل التلاوة. تحقق من الإنترنت.", "Could not play the recitation. Check your connection.")); REC.stop(); }); };
-    au.onended = () => { n++; play(); }; play();
-  });
-  window.addEventListener("hashchange", () => REC.stop());
+  /* ===== تلاوة الشيخ خليفة الطنيجي تحت الآيات: في صفحات المنصة، وفي العروض والأوراق والمصادر التي تُفتح داخلها =====
+     الصوت: ملف السورة المرتّل كاملًا، والتشغيل من بداية الآية إلى نهايتها بجدول art/tilawa/timings.json
+     (بدايات quran.com مصحَّحة على مواضع الوقف الفعلية في التسجيل، وسورتا الرعد وإبراهيم من mp3quran.net).
+     تُعرف الآية من نصها نفسه بمطابقة هيكل الرسم (art/tilawa/quran-index.json)، فلا تحتاج المواد إلى أي وسم.
+     لا يظهر المشغّل في الأسئلة والاختبارات والألعاب، ولا في نصٍّ فيه فراغ أو «...» حتى لا يكشف الإجابة. */
+  const TIL = (() => {
+    const BASE = new URL("art/tilawa/", document.baseURI).href;
+    let DOCEN = false; /* لغة الورقة/العرض المفتوح: أوراق غير الناطقين بالإنجليزية */
+    const EN = () => { if (DOCEN) return true; try { return LANG === "en"; } catch (e) { return false; } };
+    const tx = (ar, en) => (EN() ? en : ar);
+    const enDoc = (doc) => /^en/i.test(doc.documentElement.lang || "") || (doc.documentElement.dir || doc.body.dir || "").toLowerCase() === "ltr";
+    const inDoc = (doc, f) => { const o = DOCEN; DOCEN = enDoc(doc); try { return f(); } finally { DOCEN = o; } };
+    const iso = (t) => "\u2066" + t + "\u2069";
+    let TM = null, IX = null, pTM = null, pIX = null;
+    const getTM = () => pTM || (pTM = fetch(BASE + "timings.json").then((r) => r.json()).then((j) => (TM = j)));
+    const getIX = () => pIX || (pIX = fetch(BASE + "quran-index.json").then((r) => r.json()).then(buildIX));
+    const ready = () => Promise.all([getTM(), getIX()]);
+
+    /* هيكل الرسم: يتطابق فيه الرسم العثماني والإملائي للآية نفسها */
+    const MARKS = /[ؐ-ًؚ-ٰٟۖ-ۭ࣓-ࣿـ]/g;
+    const DROP = /[اأإآٱٲٳءئؤوىيۥۦ]/g, KEEP = /[^ء-ي]/g;
+    const skel = (t) => String(t || "").replace(MARKS, "").replace(/ة/g, "ه").replace(/ک/g, "ك").replace(/ی/g, "ي")
+      .replace(DROP, "").replace(KEEP, "").replace(/ص/g, "س").replace(/(.)\1+/g, "$1");
+
+    const wsk = (t) => String(t || "").split(/\s+/).map(skel).filter(Boolean);
+    function buildIX(j) {
+      const keys = [], offs = [], exact = new Map(), parts = []; let n = 0;
+      const put = (sk, i) => { if (!exact.has(sk)) exact.set(sk, []); exact.get(sk).push(i); };
+      j.sk.forEach((arr, si) => arr.forEach((line, ai) => { offs.push(n); keys.push([si + 1, ai + 1]); const w = line.split(" "); parts.push(w); w.forEach((x) => (n += x.length)); put(w.join(""), keys.length - 1); }));
+      /* حدود الكلمات: 1 = بداية كلمة، 2 = نهاية كلمة */
+      const F = new Uint8Array(n + 1); let all = "", pos = 0;
+      parts.forEach((w) => w.forEach((x) => { F[pos] |= 1; pos += x.length; F[pos] |= 2; })); all = parts.map((w) => w.join("")).join("");
+      Object.entries(j.alt || {}).forEach(([k, sk]) => { const [s, a] = k.split(":").map(Number); put(sk.replace(/ /g, ""), keys.findIndex((x) => x[0] === s && x[1] === a)); });
+      const len = (i) => (i + 1 < offs.length ? offs[i + 1] : all.length) - offs[i];
+      const at = (p) => { let lo = 0, hi = offs.length - 1; while (lo < hi) { const m = (lo + hi + 1) >> 1; if (offs[m] <= p) lo = m; else hi = m - 1; } return lo; };
+      return (IX = { keys, offs, all, F, exact, len, at });
+    }
+
+    /* أسماء السور المذكورة حول النص: «سورة الروم»، «[الروم: 21]»، «[Ar-Rum: 21]» */
+    const latin = (t) => String(t).toLowerCase().replace(/[^a-z]/g, "");
+    function surahHints(text) {
+      const out = new Set(); if (!TM) return out;
+      const nm = (t) => String(t).replace(MARKS, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").replace(/[^\u0621-\u064A]/g, "");
+      const ar = TM.names.map((n) => nm(n[0])), en = TM.names.map((n) => latin(n[1]));
+      const tryAr = (w) => { const k = nm(w); if (!k) return; let i = ar.indexOf(k); if (i < 0 && !/^ال/.test(k)) i = ar.indexOf("ال" + k); if (i >= 0) out.add(i + 1); };
+      for (const m of text.matchAll(/سورة\s+([ء-ۿ]+)(?:\s+([ء-ۿ]+))?/g)) { tryAr(m[1]); if (m[2]) tryAr(m[1] + m[2]); }
+      for (const m of text.matchAll(/[[(]\s*([ء-ۿ][ء-ۿ\s]{0,20}?)\s*[:،]\s*[\d٠-٩]/g)) tryAr(m[1]);
+      for (const m of text.matchAll(/(?:Surah|Surat|Sura)\s+([A-Za-z'\-]+(?:\s[A-Za-z'\-]+)?)|[[(]\s*([A-Za-z'\-]+(?:\s[A-Za-z'\-]+)?)\s*:\s*\d/g)) {
+        const k = latin(m[1] || m[2]); const i = en.indexOf(k); if (i >= 0) out.add(i + 1);
+      }
+      return out;
+    }
+
+    /* تعيين الآية (أو الآيات المتتالية) لمقطع نصّي */
+    function find(t, hint) {
+      const w = wsk(t), s = w.join(""); if (s.length < 6) return null;
+      let c = (IX.exact.get(s) || []).map((i) => [i, i, 0]);
+      if (!c.length) {
+        let p = IX.all.indexOf(s), g = 0;
+        while (p >= 0 && g++ < 80) {
+          const e = p + s.length;
+          if ((IX.F[p] & 1) && (IX.F[e] & 2)) {          // على حدود الكلمات فقط
+            const i1 = IX.at(p), i2 = IX.at(e - 1);
+            if (i1 !== i2 || s.length >= 30 || s.length / IX.len(i1) >= 0.6) c.push([i1, i2, 0]);
+            else if (p === IX.offs[i1] && w.length >= 2) c.push([i1, i2, 1]);   /* من أول الآية: ﴿لا إكراه في الدين﴾ */
+            else if (w.length >= 3 && s.length >= 8) c.push([i1, i2, 2]);       /* عبارة من وسطها: ﴿وشاورهم في الأمر﴾ */
+          }
+          p = IX.all.indexOf(s, p + 1);
+        }
+      }
+      if (!c.length) return null;
+      const sc = ([i1, i2]) => { const [s1, a1] = IX.keys[i1], a2 = IX.keys[i2][1]; let v = 0;
+        if (hint.n && (a1 === hint.n || a2 === hint.n)) v += 4; if (hint.s.has(s1)) v += 3; if (hint.prev != null && i1 === hint.prev + 1) v += 2; return v; };
+      c.sort((x, y) => sc(y) - sc(x));
+      /* جزء آية يتكرر في أكثر من موضع ولا قرينة تفصل (اسم السورة أو رقم الآية): لا نخمّن */
+      if (c[0][2] && c.length > 1 && c[0][0] !== c[1][0] && sc(c[0]) === sc(c[1])) return null;
+      const [i1, i2] = c[0];
+      return IX.keys[i1][0] === IX.keys[i2][0] ? c[0] : null;
+    }
+    /* مقطع يسبقه كلام غير قرآني («اقرأ: ...»): نُسقط الكلمات من أوله حتى يطابق */
+    function findTrim(t, hint) {
+      let w = String(t).trim().split(/\s+/);
+      for (let k = 0; k < 10 && w.length; k++, w = w.slice(1)) { const r = find(w.join(" "), hint); if (r) return r; }
+      return null;
+    }
+    const num = (x) => parseInt(String(x).replace(/[٠-٩]/g, (d) => d.charCodeAt(0) - 0x660), 10) || 0;
+    const GAP = /\.{3}|…|_{3,}|\(\s*\)|\[\s*\]|-{4,}/;
+    /* المقاطع: نص بين ﴿ ﴾، أو نص آية ينتهي برقمها ﴿21﴾ */
+    function segments(T) {
+      const out = []; let last = 0;
+      for (const m of T.matchAll(/﴿([^﴿﴾]*)﴾/g)) {
+        const inner = m[1], end = m.index + m[0].length;
+        if (/^\s*[\d٠-٩]{1,3}\s*$/.test(inner)) { out.push({ t: T.slice(last, m.index), n: num(inner), a: last, b: m.index }); }
+        else { const nm = T.slice(end, end + 14).match(/^\s*[([]\s*([\d٠-٩]{1,3})\s*[)\]]/); out.push({ t: inner, n: nm ? num(nm[1]) : 0, a: m.index + 1, b: end - 1 }); }
+        last = end;
+      }
+      return out;
+    }
+
+    /* أين لا يظهر المشغّل */
+    const NO = new Set(("q q-stem q-opt q-opts q-num q-stem-row q-opt-row tq-stem tq-o tq-h tk-opts tk-opt vc-stem vc-opts vc-opt tb-q-row tb-opt tb-cq-h " +
+      "sr-opts sm-mopts sm-quiz sm-q sg-opts rd-opts rd-opt pv-stem pv-q-head pv-opts paper-stem paper-opts prep-q prep-opts g-opt g-opts ig-q ig-qn " +
+      "eca-q lv-pq live-play pg-live memo-gap qfull til-bar hd pb").split(" "));
+    /* قائمة خيارات سؤال داخل العرض: «أ - ... · ب - ...» أو «A) ... B) ...» */
+    const OPTS = /(^|[\s·|])[أابجد]\s*[-–)]\s[\s\S]*(^|[\s·|])[بجد]\s*[-–)]\s|(^|\s)[A-D]\)\s[\s\S]*\s[B-D]\)\s/;
+    function excluded(el) {
+      for (let e = el; e && e.nodeType === 1; e = e.parentElement) {
+        if (/^(SCRIPT|STYLE|TEXTAREA|INPUT|SELECT|OPTION|BUTTON|TITLE|NOSCRIPT)$/.test(e.tagName)) return true;
+        if (e.isContentEditable || e.hasAttribute("data-no-tilawa")) return true;
+        for (const c of e.classList) if (NO.has(c) || /^mq-|quiz|duel/.test(c)) return true;
+      }
+      return false;
+    }
+    const BLK = "p,li,td,th,blockquote,dd,figcaption,h1,h2,h3,h4,h5,h6,div,section,article";
+    const blockOf = (el) => el.closest(BLK);
+    const shortText = (el) => (el && el.nodeType === 1 ? String(el.textContent || "").slice(0, 220) : "");
+
+    /* ===== المحرّك: صوت واحد للمنصة كلها ===== */
+    const SET = (() => { try { return JSON.parse(localStorage.getItem("hiraa-tilawa") || "{}"); } catch (e) { return {}; } })();
+    if (!(SET.rep >= 0)) SET.rep = 1; if (!SET.spd) SET.spd = 1; if (!SET.mode) SET.mode = "ayah";
+    const save = () => { try { localStorage.setItem("hiraa-tilawa", JSON.stringify(SET)); } catch (e) {} };
+    const REPS = [1, 3, 5, 7, 0], SPDS = [1, 0.85, 0.7];
+    const E = { au: null, bar: null, i: 0, done: 0, loop: 0, t1: 0, on: false, loading: false };
+    const BARS = new Set();
+    const urlOf = (s) => (TM.ov && TM.ov[s]) || TM.url + s + ".mp3";
+    const span = (s, a) => { const st = TM.st[s - 1]; return [st[a - 1] / 100, (a < st.length ? st[a] : TM.end[s - 1]) / 100]; };
+    const alive = (b) => { if (!b || !b.isConnected) return false; const v = b.ownerDocument.defaultView; if (!v) return false;
+      try { return v === window || (v.frameElement && v.frameElement.isConnected); } catch (e) { return true; } };
+    function audio() {
+      if (E.au) return E.au;
+      const au = (E.au = new Audio()); au.preload = "auto";
+      au.addEventListener("error", () => { if (E.on) fail(); });
+      au.addEventListener("ended", () => { if (E.on) next(); });
+      au.addEventListener("playing", () => { E.loading = false; paint(E.bar); });
+      au.addEventListener("waiting", () => { E.loading = true; paint(E.bar); });
+      setInterval(() => {
+        if (!E.on) return;
+        if (!alive(E.bar)) return stop();
+        if (!au.paused && !au.seeking && au.currentTime >= E.t1 - 0.03) next();
+      }, 30);
+      return au;
+    }
+    function fail() { stop(); try { DOCEN = false; toast(tx("تعذّر تشغيل التلاوة. تحقّق من الاتصال بالإنترنت.", "Could not play the recitation. Check your connection.")); } catch (e) {} }
+    function seekPlay() {
+      const b = E.bar, [s, a] = b._til[E.i], [t0, t1] = span(s, a), au = audio(), u = urlOf(s);
+      E.t1 = t1; E.on = true; E.loading = true;
+      const go = () => { try { au.currentTime = t0; } catch (e) {} au.playbackRate = SET.spd; au.play().catch((e) => { if (e && e.name === "NotAllowedError") stop(); else fail(); }); };
+      if (au._u !== u) { au._u = u; au.src = u; au.addEventListener("loadedmetadata", go, { once: true }); au.load(); } else go();
+      paint(b); if (b._onAyah) b._onAyah(b._til[E.i]);
+    }
+    function next() {
+      const b = E.bar, n = b._til.length, R = SET.rep === 0 ? Infinity : SET.rep;
+      if (SET.mode === "ayah" || n === 1) {
+        if (++E.done < R) return seekPlay();
+        E.done = 0; if (++E.i < n) return seekPlay(); return stop();
+      }
+      if (++E.i < n) return seekPlay();
+      if (++E.loop < R) { E.i = 0; return seekPlay(); }
+      stop();
+    }
+    function start(b, from) {
+      ready().then(() => {
+        if (E.bar === b && E.on && from == null) { const au = audio(); if (au.paused) { au.playbackRate = SET.spd; au.play().catch(fail); } else au.pause(); return paint(b); }
+        stop(); E.bar = b; E.i = Math.max(0, Math.min(from || 0, b._til.length - 1)); E.done = 0; E.loop = 0; seekPlay();
+      }).catch(fail);
+    }
+    function stop() {
+      const b = E.bar; E.on = false; E.loading = false; if (E.au) E.au.pause();
+      if (b) { if (b._onAyah) b._onAyah(null); paint(b); }
+    }
+    function step(d) { if (!E.on) return; const n = E.bar._til.length; E.i = (E.i + d + n) % n; E.done = 0; seekPlay(); }
+
+    function paint(b) { if (b) inDoc(b.ownerDocument, () => paint0(b)); }
+    function paint0(b) {
+      const on = E.on && E.bar === b, paused = on && E.au && E.au.paused && !E.loading, q = (s) => b.querySelector(s);
+      b.classList.toggle("on", on);
+      q(".til-play").textContent = !on ? tx("▶ استمع", "▶ Listen") : paused ? tx("▶ تابِع", "▶ Resume") : E.loading ? tx("… جارٍ التحميل", "… Loading") : tx("❚❚ إيقاف مؤقت", "❚❚ Pause");
+      q(".til-stop").hidden = !on;
+      q(".til-rep").textContent = SET.rep === 0 ? tx("التكرار: بلا توقف", "Repeat: non-stop") : SET.rep === 1 ? tx("التكرار: مرة", "Repeat: once") : tx("التكرار: ", "Repeat: ") + iso(SET.rep) + tx(" مرات", " times");
+      q(".til-spd").textContent = SET.spd === 1 ? tx("السرعة: عادية", "Speed: normal") : SET.spd === 0.85 ? tx("السرعة: أبطأ", "Speed: slower") : tx("السرعة: بطيئة", "Speed: slow");
+      const md = q(".til-mode"); if (md) md.textContent = SET.mode === "ayah" ? tx("كرّر كل آية", "Repeat each ayah") : tx("كرّر المقطع", "Repeat passage");
+      const st = q(".til-st"), L = b._til;
+      if (on && TM) { const [s, a] = L[E.i]; st.textContent = `${tx("سورة", "Surah")} ${tx(TM.names[s - 1][0], TM.names[s - 1][1])} · ${tx("الآية", "Ayah")} ${iso(a)}` + (L.length > 1 ? ` ${iso(`(${E.i + 1}/${L.length})`)}` : ""); }
+      else st.textContent = tx("بصوت الشيخ خليفة الطنيجي", "Sheikh Khalifa Al-Tunaiji");
+      (b._spans || []).forEach((sp, k) => sp && sp.classList.toggle("til-now", on && k === E.i));
+    }
+
+    /* ===== الشريط تحت النص ===== */
+    function bar(doc, list, opt) { return inDoc(doc, () => bar0(doc, list, opt)); }
+    function bar0(doc, list, opt) {
+      opt = opt || {};
+      const b = doc.createElement("div"); b.className = "til-bar"; b.dir = EN() ? "ltr" : "rtl"; b.style.display = "flex"; /* style فيه display: لا تطاله قواعد العروض العامة على div */
+      b.setAttribute("role", "group"); b.setAttribute("aria-label", tx("الاستماع إلى الآيات", "Listen to the ayat"));
+      const multi = list.length > 1, B = (c, a, t) => `<button type="button" class="til-b ${c}" data-a="${a}" title="${t}"></button>`;
+      b.innerHTML = B("til-play", "play", tx("تشغيل / إيقاف مؤقت", "Play / pause")) + B("til-stop", "stop", tx("إيقاف", "Stop")) +
+        (multi ? B("til-prev", "prev", tx("الآية السابقة", "Previous ayah")) + B("til-next", "next", tx("الآية التالية", "Next ayah")) : "") +
+        B("til-rep", "rep", tx("عدد مرات التكرار", "Times to repeat")) + (multi ? B("til-mode", "mode", tx("طريقة التكرار", "How to repeat")) : "") +
+        B("til-spd", "spd", tx("سرعة التلاوة", "Recitation speed")) + `<span class="til-st"></span>`;
+      b.querySelector(".til-stop").textContent = tx("■ إيقاف", "■ Stop");
+      if (multi) { b.querySelector(".til-prev").textContent = tx("→ السابقة", "← Prev"); b.querySelector(".til-next").textContent = tx("التالية ←", "Next →"); }
+      b._til = list; b._onAyah = opt.onAyah || null; b._spans = opt.spans || null; b._src = opt.src || null;
+      const swallow = (e) => e.stopPropagation();
+      ["pointerdown", "mousedown", "touchstart", "keydown", "keyup", "wheel"].forEach((t) => b.addEventListener(t, swallow));
+      b.addEventListener("click", (e) => {
+        e.stopPropagation(); e.preventDefault(); const k = e.target.closest("[data-a]"); if (!k) return; const a = k.dataset.a;
+        if (a === "play") start(b); else if (a === "stop") stop(); else if (a === "prev") step(-1); else if (a === "next") step(1);
+        else if (a === "rep") { SET.rep = REPS[(REPS.indexOf(SET.rep) + 1) % REPS.length]; E.done = 0; E.loop = 0; save(); }
+        else if (a === "spd") { SET.spd = SPDS[(SPDS.indexOf(SET.spd) + 1) % SPDS.length]; if (E.au && E.bar === b) E.au.playbackRate = SET.spd; save(); }
+        else if (a === "mode") { SET.mode = SET.mode === "ayah" ? "range" : "ayah"; save(); }
+        BARS.forEach(paint); k.blur && k.blur();
+      });
+      if (b._spans) b._spans.forEach((sp, k) => sp && sp.addEventListener("click", (e) => { e.stopPropagation(); start(b, k); }));
+      BARS.add(b); paint(b); return b;
+    }
+
+    /* تمييز الآية التي تُتلى: نلفّ نصها إن كان داخل عقدة نصية واحدة (لا يُستعمل في العروض حتى لا يمسّ تعديلات المعلم) */
+    function wrap(bl, a, z) {
+      const doc = bl.ownerDocument, w = doc.createTreeWalker(bl, 4); let pos = 0, n;
+      while ((n = w.nextNode())) {
+        const L = n.nodeValue.length;
+        if (a >= pos && z <= pos + L) {
+          const r = doc.createRange(); r.setStart(n, a - pos); r.setEnd(n, z - pos);
+          const sp = doc.createElement("span"); sp.className = "til-ay"; try { r.surroundContents(sp); return sp; } catch (e) { return null; }
+        }
+        pos += L;
+      }
+      return null;
+    }
+
+    const CSS = `.til-bar{display:flex!important;flex-direction:row!important;flex-wrap:wrap;align-items:center;gap:.4em;margin:.5em 0 .3em;padding:.32em .45em;border-radius:999px;
+background:rgba(16,42,76,.06);border:1px solid rgba(16,42,76,.16);font-family:"ThmanyahSans","Readex Pro","Cairo",system-ui,sans-serif;
+font-size:14px;line-height:1.25;color:#102A4C;width:fit-content;max-width:100%;min-width:0;box-sizing:border-box;font-style:normal;font-weight:500;
+text-align:start;text-indent:0;letter-spacing:0;white-space:normal;position:relative;z-index:2;user-select:none;-webkit-user-select:none}
+.til-bar .til-b{appearance:none;cursor:pointer;margin:0;padding:.36em .8em;border-radius:999px;background:#fff;color:#102A4C;
+border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowrap;box-shadow:none;text-shadow:none;min-height:0;width:auto;height:auto}
+.til-bar .til-b:hover{background:#F6EEDC}.til-bar .til-b:focus-visible{outline:2px solid #0F7A55;outline-offset:2px}
+.til-bar .til-play{background:#0F7A55;border-color:#0F7A55;color:#fff;font-weight:700}
+.til-bar.on .til-play{background:#A8741F;border-color:#A8741F}.til-bar .til-stop[hidden]{display:none}
+.til-bar .til-st{opacity:.78;padding:0 .35em;white-space:normal;min-width:0}
+.til-bar.til-sm{gap:.3em;padding:.22em .3em;border-radius:1em}
+.til-bar.til-sm .til-spd,.til-bar.til-sm .til-mode,.til-bar.til-sm .til-prev,.til-bar.til-sm .til-next{display:none}
+.til-bar.til-sm .til-st{display:none;white-space:normal;font-size:.9em}.til-bar.til-sm.on .til-st{display:block;flex-basis:100%}
+.til-hid{visibility:hidden!important}
+.til-ay{cursor:pointer;border-radius:.25em;transition:background .2s}
+.til-ay.til-now{background:rgba(15,122,85,.15);box-shadow:0 0 0 .14em rgba(15,122,85,.15)}
+@media print{.til-bar{display:none!important}.til-ay.til-now{background:none;box-shadow:none}}`;
+    /* يُزيل الشريط وتمييز الآيات من نسخةٍ تُطبع أو تُحفظ */
+    function strip(root) {
+      if (!root || !root.querySelectorAll) return root;
+      root.querySelectorAll(".til-bar").forEach((x) => x.remove());
+      root.querySelectorAll(".til-ay").forEach((x) => x.replaceWith(...x.childNodes));
+      return root;
+    }
+    function css(doc) { if (doc.getElementById("til-css")) return; const s = doc.createElement("style"); s.id = "til-css"; s.textContent = CSS; (doc.head || doc.documentElement).appendChild(s); }
+
+    /* ===== المسح: كل كتلة نصٍّ فيها آيات تأخذ شريطًا واحدًا؛ والكتل المتجاورة لآيات متتالية تُجمع في شريط واحد ===== */
+    const DONE = new WeakSet();
+    const isDeck = (doc) => !!doc.querySelector("[data-build-in]");
+    function scanNow(doc) {
+      const body = doc.body; if (!body) return;
+      const tw = doc.createTreeWalker(body, 4, { acceptNode: (n) => (/[﴿﴾]/.test(n.nodeValue) ? 1 : 3) });
+      const blocks = []; let n;
+      while ((n = tw.nextNode())) {
+        const el = n.parentElement; if (!el) continue; let bl = blockOf(el); if (!bl || bl === body) continue;
+        if (String(bl.textContent).length > 6000) bl = el;
+        if (DONE.has(bl) || blocks.includes(bl) || excluded(bl)) continue;
+        blocks.push(bl);
+      }
+      const deckDoc = isDeck(doc); let grp = null, deck = deckDoc;
+      const flush = () => {
+        if (!grp) return; const g = grp; grp = null;
+        const last0 = g.blocks[g.blocks.length - 1], dp = last0.closest("[data-p]");
+        const last = dp && dp !== last0 ? dp : last0;     /* لا نضع الشريط داخل نصٍّ يحرّره المعلم */
+        deck = deckDoc || !!last.closest(".td-slide");
+        const b = bar(doc, g.list, { spans: deck ? null : g.spans, src: last });
+        const fs = parseFloat((doc.defaultView.getComputedStyle(last) || {}).fontSize) || 16;
+        b.style.fontSize = Math.round(Math.max(13, Math.min(26, fs * (fs > 30 ? 0.42 : 0.82)))) + "px";
+        if (deck) { b._fit = g.blocks; b._sl = last.closest(".sl,section,[class*=slide]"); }
+        let at = last, nx = last.nextElementSibling;
+        if (nx && !excluded(nx) && /^\s*[[(]/.test(nx.textContent || "") && String(nx.textContent).trim().length < 60) at = nx;
+        /* في صفحات المنصة: إن كان النص عمودًا داخل صفٍّ (flex/grid) نضع الشريط داخله تحت الآية، لا بجانبه */
+        const W = last.clientWidth || 999;   // المساحة المتاحة قبل إضافة الشريط
+        let inside = /^(TD|TH|LI|DD)$/.test(last.tagName) && at === last && !last.hasAttribute("data-p");
+        if (!deck && !inside && at === last && last.parentElement && !last.hasAttribute("data-p")) {
+          const pc = doc.defaultView.getComputedStyle(last.parentElement);
+          if (/grid/.test(pc.display) || (/flex/.test(pc.display) && !/column/.test(pc.flexDirection))) inside = true;
+        }
+        if (inside) last.appendChild(b); else at.insertAdjacentElement("afterend", b);
+        /* مساحة ضيقة: شريط مختصر (استمع + التكرار)، والتعريف بالآية يظهر أثناء التلاوة فقط */
+        if (W < 460) b.classList.add("til-sm");
+      };
+      for (const bl of blocks) {
+        DONE.add(bl);
+        const T = bl.textContent || "";
+        if (OPTS.test(T)) continue;
+        const ctx = T + " " + shortText(bl.previousElementSibling) + " " + shortText(bl.nextElementSibling) + " " + shortText(bl.nextElementSibling && bl.nextElementSibling.nextElementSibling);
+        const hint = { s: surahHints(ctx), n: 0, prev: grp ? grp.lastIdx : null };
+        const found = [];
+        for (const g of segments(T)) {
+          if (GAP.test(g.t)) continue;
+          hint.n = g.n; const r = findTrim(g.t, hint); if (!r) continue;
+          for (let i = r[0]; i <= r[1]; i++) if (!found.some((f) => f.i === i)) found.push({ i, a: g.a, b: g.b, one: r[0] === r[1] });
+          hint.prev = r[1];
+        }
+        if (!found.length) continue;
+        // كتلة تتابع المجموعة السابقة (أخت لاحقة، بينهما عنصران على الأكثر بلا آيات، والآية التالية في السورة نفسها)
+        let adj = false;
+        if (grp) {
+          let p = bl.previousElementSibling, k = 0; while (p && k < 3 && p !== grp.blocks[grp.blocks.length - 1] && !/[﴿﴾]/.test(p.textContent || "")) { p = p.previousElementSibling; k++; }
+          adj = p === grp.blocks[grp.blocks.length - 1] && found[0].i === grp.lastIdx + 1;
+        }
+        if (!adj) flush();
+        if (!grp) grp = { blocks: [], list: [], spans: [], lastIdx: null };
+        grp.blocks.push(bl);
+        const noWrap = deckDoc || !!bl.closest(".td-slide,[data-p]");
+        for (const f of found) { grp.list.push(IX.keys[f.i]); grp.spans.push(!noWrap && f.one ? wrap(bl, f.a, f.b) : null); grp.lastIdx = f.i; }
+      }
+      flush();
+    }
+    /* أزرار «استمع للتلاوة» القديمة (data-rec="سورة:من:إلى") تصبح شريطًا كاملًا */
+    function upgradeRec(doc) {
+      doc.querySelectorAll("button[data-rec]").forEach((btn) => {
+        const m = String(btn.dataset.rec).match(/^(\d+):(\d+):(\d+)$/); if (!m || btn._til) return; btn._til = 1;
+        ready().then(() => {
+          const s = +m[1], a1 = +m[2], a2 = Math.min(+m[3], TM.st[s - 1].length), list = [];
+          for (let a = a1; a <= a2; a++) list.push([s, a]);
+          if (list.length && btn.isConnected) btn.replaceWith(bar(doc, list, { src: btn.parentElement }));
+        }).catch(() => {});
+      });
+    }
+    function scan(doc) {
+      if (!doc.body) return;
+      css(doc); upgradeRec(doc);
+      if (!/[﴿﴾]/.test(doc.body.textContent || "")) return;
+      ready().then(() => scanNow(doc)).catch(() => {});
+    }
+    function hook(doc) {
+      if (!doc || doc.__til) return; doc.__til = 1;
+      let t = 0; const run = () => { clearTimeout(t); t = setTimeout(() => scan(doc), 350); };
+      try { new MutationObserver((ms) => {
+        run();
+        /* إطارات الطباعة (about:blank تُكتب بـ document.write): ننظّفها من الشريط قبل الطباعة */
+        ms.forEach((m) => m.addedNodes.forEach((nd) => { if (nd.tagName === "IFRAME" && !/^https?:/.test(nd.src || "")) [30, 150, 400, 700].forEach((t) => setTimeout(() => { try { strip(nd.contentDocument); } catch (e) {} }, t)); }));
+      }).observe(doc.documentElement, { childList: true, subtree: true, characterData: true }); } catch (e) {}
+      doc.addEventListener("load", (e) => { if (e.target && e.target.tagName === "IFRAME") frame(e.target); }, true);
+      doc.querySelectorAll("iframe").forEach(frame);
+      run();
+    }
+    function frame(f) {
+      try { const d = f.contentDocument; if (d && d.location && /^https?:/.test(d.location.href) && d.readyState !== "loading") hook(d); else if (d) f.addEventListener("load", () => frame(f), { once: true }); } catch (e) {}
+    }
+    /* في العروض: إن جعل الشريطُ الشريحةَ تفيض، نصغّر خط الآية قليلًا حتى تتسع (كما يفعل العرض نفسه عند فتحه) */
+    function fit(b) {
+      const sl = b._sl; if (!sl.offsetHeight || !sl.isConnected) return;   // الشريحة غير ظاهرة بعد
+      b._fitted = true;
+      const v = sl.ownerDocument.defaultView;
+      let box = b; while (box.parentElement && box.parentElement !== sl) box = box.parentElement;
+      const sr = sl.getBoundingClientRect(), k0 = sr.height / sl.offsetHeight;
+      const d0 = b.style.display; b.style.display = "none"; const r0 = box.getBoundingClientRect().bottom; b.style.display = d0;
+      /* الحدّ: أول نصٍّ تحت الصندوق (تذييل الشريحة مثلًا) أو أسفل الشريحة بعد حاشيتها */
+      let limit = sr.bottom - (parseFloat(v.getComputedStyle(sl).paddingBottom) || 0) * k0;
+      sl.querySelectorAll("*").forEach((e) => {
+        if (box.contains(e) || e.contains(box) || e.children.length || !String(e.textContent).trim()) return;
+        const r = e.getBoundingClientRect(); if (r.height && r.top >= r0 - 2 && r.top < limit) limit = r.top;
+      });
+      const bottom = () => box.getBoundingClientRect().bottom;
+      for (let k = 0; k < 8 && bottom() > limit - 6 * k0; k++) {
+        b._fit.forEach((p) => { const f = parseFloat(v.getComputedStyle(p).fontSize); p.style.fontSize = Math.max(16, f * 0.92) + "px"; });
+        const bf = parseFloat(b.style.fontSize) || 16; b.style.fontSize = Math.max(13, bf * 0.95) + "px";
+      }
+    }
+    /* الشريط يظهر ويختفي مع نصه (ظهور العناصر خطوة خطوة في العروض) */
+    setInterval(() => {
+      BARS.forEach((b) => {
+        if (!b.isConnected) { if (E.bar !== b) BARS.delete(b); return; }
+        const s = b._src; if (!s || !s.isConnected) return;
+        let hid = false; try { const v = s.ownerDocument.defaultView, cs = v.getComputedStyle(s); hid = cs.visibility === "hidden" || cs.display === "none" || parseFloat(cs.opacity) < 0.05; } catch (e) {}
+        b.classList.toggle("til-hid", hid);
+        if (b._fit && !b._fitted && b._sl) fit(b);
+      });
+    }, 400);
+    window.addEventListener("hashchange", () => stop());
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => hook(document)); else hook(document);
+    return { strip, bar, start, stop, ready, find: (t) => (IX ? find(t, { s: new Set(), n: 0, prev: null }) : null), keys: () => IX && IX.keys, skel };
+  })();
 
 
   /* ===== teacher releases slides / worksheets / group tasks to each class ===== */
@@ -9945,7 +10319,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (editing) { root.contentEditable = "true"; root.spellcheck = false; root.addEventListener("input", () => { dirty = true; const b = document.getElementById("ppSave"); if (b) b.textContent = "حفظ التعديلات"; }); }
       const on = (id, f) => { const b = document.getElementById(id); if (b) b.onclick = f; };
       on("ppClose", close); on("ppEdit", () => { editing = true; draw(); });
-      const grab = () => { const cl = d.querySelector(".pp").cloneNode(true); cl.removeAttribute("contenteditable"); cl.removeAttribute("spellcheck"); return cl.outerHTML; };
+      const grab = () => { const cl = TIL.strip(d.querySelector(".pp").cloneNode(true)); cl.removeAttribute("contenteditable"); cl.removeAttribute("spellcheck"); return cl.outerHTML; };
       on("ppDone", () => { html = grab(); editing = false; draw(); });
       on("ppSave", async () => { html = grab();
         const r = await sb.from("teacher_decks").upsert({ owner: state.session.user.id, lesson_id: l.id, part, kind, slides: { html }, updated_at: new Date().toISOString() });
@@ -11967,12 +12341,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       document.querySelectorAll("[data-rev]").forEach((b) => b.onclick = () => { const x = S.ay.find((y) => y.ayah === +b.dataset.rev); b.outerHTML = esc(x.text_ar); });
       document.querySelectorAll(".memo-gap").forEach((g) => g.onclick = () => g.classList.add("open"));
       document.querySelectorAll("[data-load]").forEach((b) => b.onclick = async () => { const [s, r] = b.dataset.load.split(":"); const [x1, x2] = r.split("-"); S.s = +s; S.a1 = +x1; S.a2 = +x2; S.mode = "hide"; save(); await load(); draw(); window.scrollTo({ top: 0, behavior: "smooth" }); });
-      const au = document.getElementById("mqAudio");
-      const src = (n) => `https://everyayah.com/data/Alafasy_128kbps/${pad(S.s)}${pad(n)}.mp3`;
       const mark = (n) => document.querySelectorAll(".mq-ay").forEach((d) => d.classList.toggle("playing", +d.dataset.ay === n));
-      document.querySelectorAll("[data-play]").forEach((b) => b.onclick = () => { const n = +b.dataset.play; au.onended = () => mark(0); au.src = src(n); au.play().catch(() => toast(T2("تعذّر تشغيل الصوت", "Could not play audio"))); mark(n); });
       const pa = document.getElementById("mqPlayAll");
-      if (pa) pa.onclick = () => { let k = 0; const next = () => { if (k >= S.ay.length) { mark(0); return; } const n = S.ay[k++].ayah; mark(n); au.src = src(n); au.onended = next; au.play().catch(() => { toast(T2("تعذّر تشغيل الصوت", "Could not play audio")); mark(0); }); }; next(); };
+      const tilBar = S.ay.length ? TIL.bar(document, S.ay.map((x) => [S.s, x.ayah]), { onAyah: (k) => mark(k ? k[1] : 0) }) : null;
+      if (tilBar && pa) { pa.insertAdjacentElement("afterend", tilBar); pa.hidden = true; }
+      document.querySelectorAll("[data-play]").forEach((b) => b.onclick = () => { const k = S.ay.findIndex((x) => x.ayah === +b.dataset.play); if (tilBar && k >= 0) TIL.start(tilBar, k); });
       document.querySelectorAll("[data-r]").forEach((b) => b.onclick = async () => {
         const r = +b.dataset.r, st2 = P.get(key()), old = st2 ? st2.box : 0;
         const box = r === 0 ? 0 : r === 1 ? Math.max(1, old) : Math.min(6, old + 1);
