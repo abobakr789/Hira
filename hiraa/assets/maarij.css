@@ -244,3 +244,19 @@
 .mj .hero h1 .hira-word{color:inherit}
 .mj[dir=ltr]{font-family:"ThmanyahSans",system-ui,sans-serif}
 .mj[dir=ltr] .opt,.mj[dir=ltr] p,.mj[dir=ltr] li{font-family:"ThmanyahSans",system-ui,sans-serif}
+.mj .lb.wt,.mj .basket .in span.wt{width:auto;min-width:58px;padding:0 14px;font-family:"ThmanyahSans";font-size:16px;font-weight:700}
+.mj .basket .in span.wt{font-size:14px}
+.mj .ex.case{background:var(--paper)}
+.mj .ex.case .cq{font-size:18px;margin:4px 0 10px;padding-left:96px}
+.mj .ex.case .ca{background:var(--ok-s);color:var(--ok);border-radius:12px;padding:8px 12px;font-size:16px;margin:8px 0 0}
+.mj .four{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.mj .srcl{font-family:"ThmanyahSans";font-size:13px;color:var(--muted);margin:6px 0 10px}
+.mj .mnote{background:var(--gold-s);border-inline-start:5px solid var(--gold);border-radius:14px;padding:12px 16px;margin-top:10px}
+.mj .mnote b{font-family:"ThmanyahDisplay";color:#7A5714}
+.mj .mnote p{margin:4px 0 0;font-size:16px}
+.mj table.cmp td{text-align:start;font-size:15px;font-family:"ThmanyahSans"}
+.mj table.cmp th{text-align:start}
+.mj .five.t5 span{font-family:"ThmanyahSans";font-size:14px;color:var(--navy-2);display:block;margin-top:4px}
+.mj .steps-l{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.mj .steps-l span{background:var(--isl-s);color:var(--isl);border-radius:12px;padding:6px 12px;font-family:"ThmanyahSans";font-weight:700;font-size:15px}
+@media (max-width:760px){.mj .four{grid-template-columns:1fr 1fr}.mj .ex.case .cq{padding-left:0;padding-top:40px}.mj table.cmp{font-size:13px}}

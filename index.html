@@ -3012,6 +3012,22 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .mj .hero h1 .hira-word{color:inherit}
 .mj[dir=ltr]{font-family:"ThmanyahSans",system-ui,sans-serif}
 .mj[dir=ltr] .opt,.mj[dir=ltr] p,.mj[dir=ltr] li{font-family:"ThmanyahSans",system-ui,sans-serif}
+.mj .lb.wt,.mj .basket .in span.wt{width:auto;min-width:58px;padding:0 14px;font-family:"ThmanyahSans";font-size:16px;font-weight:700}
+.mj .basket .in span.wt{font-size:14px}
+.mj .ex.case{background:var(--paper)}
+.mj .ex.case .cq{font-size:18px;margin:4px 0 10px;padding-left:96px}
+.mj .ex.case .ca{background:var(--ok-s);color:var(--ok);border-radius:12px;padding:8px 12px;font-size:16px;margin:8px 0 0}
+.mj .four{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.mj .srcl{font-family:"ThmanyahSans";font-size:13px;color:var(--muted);margin:6px 0 10px}
+.mj .mnote{background:var(--gold-s);border-inline-start:5px solid var(--gold);border-radius:14px;padding:12px 16px;margin-top:10px}
+.mj .mnote b{font-family:"ThmanyahDisplay";color:#7A5714}
+.mj .mnote p{margin:4px 0 0;font-size:16px}
+.mj table.cmp td{text-align:start;font-size:15px;font-family:"ThmanyahSans"}
+.mj table.cmp th{text-align:start}
+.mj .five.t5 span{font-family:"ThmanyahSans";font-size:14px;color:var(--navy-2);display:block;margin-top:4px}
+.mj .steps-l{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.mj .steps-l span{background:var(--isl-s);color:var(--isl);border-radius:12px;padding:6px 12px;font-family:"ThmanyahSans";font-weight:700;font-size:15px}
+@media (max-width:760px){.mj .four{grid-template-columns:1fr 1fr}.mj .ex.case .cq{padding-left:0;padding-top:40px}.mj table.cmp{font-size:13px}}
 
 </style>
 </head>
@@ -3109,7 +3125,7 @@ const T={
  parts:[['تعلّم','أمثلة','تدرّب','اختبر نفسك'],['Learn','Examples','Practise','Check yourself']],
  prev:['السابق','Back'],next:['التالي','Next'],toEx:['إلى الأمثلة','To examples'],backLearn:['العودة إلى الشرح','Back to learning'],toPr:['إلى التدريب','To practice'],
  backEx:['العودة إلى الأمثلة','Back to examples'],toQuiz:['إلى الاختبار','To the quiz'],
- exTitle:['الأمثلة من القرآن الكريم','Examples from the Qur’an'],exHint:['الكلمة المظلّلة موضع الحكم. استمع، ثم ردّد بعد الشيخ.','The highlighted word shows the rule. Listen, then repeat after the Sheikh.'],
+ reveal:['اكشف الجواب','Show the answer'],exTitle:['الأمثلة من القرآن الكريم','Examples from the Qur’an'],exHint:['الكلمة المظلّلة موضع الحكم. استمع، ثم ردّد بعد الشيخ.','The highlighted word shows the rule. Listen, then repeat after the Sheikh.'],
  rep:['التكرار:','Repeat:'],once:['مرة','Once'],times:['مرات','times'],slow:['أبطأ','Slower'],listen:['▶ استمع','▶ Listen'],stop:['■ إيقاف','■ Stop'],
  surah:['سورة','Sūrat'],ayah:['الآية','āyah'],
  prTitle:['تدرّب','Practise'],prHint:['أكمل الأنشطة، ثم انتقل إلى الاختبار.','Complete the activities, then go to the quiz.'],
@@ -3133,11 +3149,11 @@ const T={
  foot:['معارج حراء · نصوص الآيات من مصحف المنصة، والتلاوة للشيخ خليفة الطنيجي.','Hiraa Ma‘ārij · Qur’an text from the platform’s Muṣḥaf; recitation by Sheikh Khalifa Al-Tunaiji.'],
  lv:['المستوى','Level']
 };
-const LBL={'قمرية':'Moon','شمسية':'Sun','فعل':'Verb','مثلان':'Mithlayn','متجانسان':'Mutajānisayn','متقاربان':'Mutaqāribayn','لين':'Līn','متصل':'Muttaṣil','منفصل':'Munfaṣil','عارض':'‘Āriḍ','بدل':'Badal','كلمي':'Word','حرفي':'Letter','طبيعي':'Natural','مخارج':'Makhārij','قلقلة':'Qalqalah','صفير':'Ṣafīr'};
+const LBL={'آية':'Āyah','موقف':'Case','قمرية':'Moon','شمسية':'Sun','فعل':'Verb','مثلان':'Mithlayn','متجانسان':'Mutajānisayn','متقاربان':'Mutaqāribayn','لين':'Līn','متصل':'Muttaṣil','منفصل':'Munfaṣil','عارض':'‘Āriḍ','بدل':'Badal','كلمي':'Word','حرفي':'Letter','طبيعي':'Natural','مخارج':'Makhārij','قلقلة':'Qalqalah','صفير':'Ṣafīr'};
 const SUBJ=[
  {id:'isl',c:'var(--isl)',s:'var(--isl-s)',courses:[
-   {t:['التجويد','Tajwīd'],d:['16 درجة · 3 مستويات','16 steps · 3 levels'],live:1,icon:'book'},
-   {t:['أحكام الطهارة والصلاة','Purification & Prayer'],d:['على قول الجمهور','The majority view'],icon:'drop'},
+   {t:['التجويد','Tajwīd'],d:['16 درجة · 3 مستويات','16 steps · 3 levels'],live:1,id:'tajweed',n:16,icon:'book'},
+   {t:['أحكام الطهارة والصلاة','Purification & Prayer'],d:['12 درجة · على قول الجمهور','12 steps · the majority view'],live:1,id:'fiqh',n:12,icon:'drop'},
    {t:['الأربعون النووية','An-Nawawī’s Forty'],d:['حفظ وفهم وتطبيق','Memorise, understand, apply'],icon:'scroll'},
    {t:['أسماء الله الحسنى','The Beautiful Names'],d:['المعنى والأثر','Meaning and effect'],icon:'star'}]},
  {id:'ar',c:'var(--ar)',s:'var(--ar-s)',courses:[
@@ -3165,11 +3181,15 @@ const ICONS={
 };
 
 
-T.report=['تقرير الطلاب','Student report'];T.repT=['تقرير معارج حراء · التجويد','Ma‘ārij report · Tajwīd'];T.student=['الطالب','Student'];T.steps=['الدرجات','Steps'];T.curStep=['الدرجة الحالية','Current step'];T.medals=['الأوسمة','Medals'];T.updated=['آخر نشاط','Last active'];T.noData=['لا يوجد تقدم مسجل لطلابك بعد.','No progress recorded for your students yet.'];T.loading=['جارٍ التحميل…','Loading…'];T.signHint=['سجّل الدخول ليُحفظ تقدّمك ويراه معلمك.','Sign in to save your progress and share it with your teacher.'];
-let SURAH,LEVELS,STEPS,PLACE,D=null,C=null,LOADED=false,syncT=null;
-const KEY='hiraa-maarij-tajweed';
-let S={subj:'isl',passed:[],tests:{},open:false,name:'',start:0};
-try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+T.report=['تقرير الطلاب','Student report'];T.repT=['تقرير معارج حراء','Ma‘ārij report'];T.student=['الطالب','Student'];T.steps=['الدرجات','Steps'];T.curStep=['الدرجة الحالية','Current step'];T.medals=['الأوسمة','Medals'];T.updated=['آخر نشاط','Last active'];T.noData=['لا يوجد تقدم مسجل لطلابك بعد.','No progress recorded for your students yet.'];T.loading=['جارٍ التحميل…','Loading…'];T.signHint=['سجّل الدخول ليُحفظ تقدّمك ويراه معلمك.','Sign in to save your progress and share it with your teacher.'];
+let SURAH,LEVELS,STEPS,PLACE,D=null,C=null,syncT=null,CID='tajweed',N=16;
+const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json'};const CACHE={},LOADED={};
+const KEY=()=>'hiraa-maarij-'+CID;
+let S={passed:[],tests:{},open:false,name:'',start:0};
+let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}
+function loadS(){S={passed:[],tests:{},open:false,name:'',start:0};try{const r=localStorage.getItem(KEY());if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}}
+function progOf(cid){try{const r=JSON.parse(localStorage.getItem('hiraa-maarij-'+cid)||'{}');return (r.passed||[]).length}catch(e){return 0}}
+const ct=k=>tx(D.meta[k]);
 const L=()=>C&&C.lang()==='en'?1:0;
 const t=k=>T[k][L()];
 const tx=a=>Array.isArray(a)?a[L()]:a;
@@ -3177,13 +3197,13 @@ const $=id=>document.getElementById(id);
 const isStaffC=()=>!!(C&&C.isStaff());
 const staffOpen=()=>S.open&&isStaffC();
 function save(){
-  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+  try{localStorage.setItem(KEY(),JSON.stringify(S))}catch(e){}
   const ses=C&&C.state.session;if(!ses)return;
-  clearTimeout(syncT);syncT=setTimeout(()=>{C.sb.from('maarij_progress').upsert({user_id:ses.user.id,course:'tajweed',passed:S.passed,tests:S.tests,scores:{start:S.start||0},cert_name:S.name||null,updated_at:new Date().toISOString()}).then(()=>{},()=>{})},600);
+  clearTimeout(syncT);syncT=setTimeout(()=>{C.sb.from('maarij_progress').upsert({user_id:ses.user.id,course:CID,passed:S.passed,tests:S.tests,scores:{start:S.start||0},cert_name:S.name||null,updated_at:new Date().toISOString()}).then(()=>{},()=>{})},600);
 }
 async function loadRemote(){
-  const ses=C.state.session;if(!ses||LOADED)return;LOADED=true;
-  try{const {data}=await C.sb.from('maarij_progress').select('*').eq('user_id',ses.user.id).eq('course','tajweed').maybeSingle();
+  const ses=C.state.session;if(!ses||LOADED[CID])return;LOADED[CID]=true;
+  try{const {data}=await C.sb.from('maarij_progress').select('*').eq('user_id',ses.user.id).eq('course',CID).maybeSingle();
     if(data){S.passed=[...new Set([...(S.passed||[]),...(data.passed||[])])].sort((a,b)=>a-b);S.tests=Object.assign({},data.tests||{},S.tests);S.start=Math.max(S.start||0,(data.scores&&data.scores.start)||0);if(!S.name&&data.cert_name)S.name=data.cert_name;}
     save();}catch(e){}
 }
@@ -3192,13 +3212,13 @@ function levelOf(i){return LEVELS.findIndex(l=>l.steps.includes(i))}
 function unlocked(i){
   if(staffOpen()||i===1||i<=(S.start||0))return true;
   if(!isPassed(i-1))return false;
-  if(i===7&&!S.tests.l1)return false;
-  if(i===12&&!S.tests.l2)return false;
+  if(i===LEVELS[1].steps[0]&&!S.tests.l1&&!staffOpen())return false;
+  if(i===LEVELS[2].steps[0]&&!S.tests.l2&&!staffOpen())return false;
   return true;
 }
-function nextStep(){for(let i=1;i<=16;i++)if(!isPassed(i))return i;return 16}
+function nextStep(){for(let i=1;i<=N;i++)if(!isPassed(i))return i;return N}
 function levelDone(k){return LEVELS[k].steps.every(isPassed)}
-function hashFor(v){if(v==='courses')return '#/maarij';if(v==='course')return '#/maarij/tajweed';return '#/maarij/tajweed/'+v}
+function hashFor(v){if(v==='courses')return '#/maarij';if(v==='course')return '#/maarij/'+CID;return '#/maarij/'+CID+'/'+v}
 function go(v){const h=hashFor(v);if(location.hash===h)route();else location.hash=h}
 let SUB='courses';
 function route(){
@@ -3206,10 +3226,10 @@ function route(){
   let h=SUB,m;
   const app=$('mjApp');if(!app)return;
   const crumbs=[['courses',t('maarij')]];
-  if(h!=='courses')crumbs.push(['course',t('tajweed')]);
+  if(h!=='courses')crumbs.push(['course',ct('t')]);
   if(h==='course'){renderLadder(app)}
   else if(h==='placement'){crumbs.push(['',t('placeTitle')]);renderPlace(app)}
-  else if((m=h.match(/^step-(\d+)$/))&&+m[1]>=1&&+m[1]<=16){const i=+m[1];crumbs.push(['',t('stepOf')+' '+i]);if(!unlocked(i)){go('course');return}renderStep(app,i)}
+  else if((m=h.match(/^step-(\d+)$/))&&+m[1]>=1&&+m[1]<=N){const i=+m[1];crumbs.push(['',t('stepOf')+' '+i]);if(!unlocked(i)){go('course');return}renderStep(app,i)}
   else if((m=h.match(/^test-(l1|l2|final)$/))){crumbs.push(['',testName(m[1])]);renderTest(app,m[1])}
   else if(h==='certificate'){crumbs.push(['',t('certT')]);renderCert(app)}
   else if(h==='report'){crumbs.push(['',t('report')]);renderReport(app)}
@@ -3219,21 +3239,21 @@ function route(){
 }
 /* ---------- courses ---------- */
 function renderCourses(app){
-  const sj=SUBJ.find(s=>s.id===S.subj);
+  const sj=SUBJ.find(s=>s.id===SUBJ_SEL);
   app.innerHTML=`<div class="hero"><svg class="deco" width="260" height="200" viewBox="0 0 260 200" aria-hidden="true"><g fill="#F2E3C2"><rect x="20" y="160" width="60" height="40" rx="8"/><rect x="70" y="120" width="60" height="80" rx="8"/><rect x="120" y="80" width="60" height="120" rx="8"/><rect x="170" y="40" width="60" height="160" rx="8"/></g><circle cx="205" cy="24" r="12" fill="#D4AA55"/></svg>
    <h1>${t('maarij')}</h1><p>${t('heroP')}</p></div>
-   <div class="tabs">${SUBJ.map(s=>`<button class="tab ${s.id===S.subj?'on':''}" onclick="MJ.subj('${s.id}')">${t(s.id)}</button>`).join('')}</div>
-   <div class="grid">${sj.courses.map(c=>{const n=S.passed.length,pct=c.live?Math.round(n/16*100):0;
-    return `<div class="cc ${c.live?'live':'soon'}" ${c.live?`onclick="MJ.go('course')"`:''}><span class="tag">${c.live?t('avail'):t('soon')}</span>
+   <div class="tabs">${SUBJ.map(s=>`<button class="tab ${s.id===SUBJ_SEL?'on':''}" onclick="MJ.subj('${s.id}')">${t(s.id)}</button>`).join('')}</div>
+   <div class="grid">${sj.courses.map(c=>{const n=c.live?progOf(c.id):0,pct=c.live?Math.round(n/c.n*100):0;
+    return `<div class="cc ${c.live?'live':'soon'}" ${c.live?`onclick="MJ.openC('${c.id}')"`:''}><span class="tag">${c.live?t('avail'):t('soon')}</span>
      <div class="ic" style="background:${sj.s};color:${sj.c}"><svg width="34" height="34" viewBox="0 0 36 36">${ICONS[c.icon]}</svg></div>
      <h3>${tx(c.t)}</h3><div class="meta">${tx(c.d)}</div><div class="bar"><i style="width:${pct}%"></i></div>
-     <div class="meta">${c.live?`${n} ${t('ofSteps')}`:t('prep')}</div></div>`}).join('')}</div>`;
+     <div class="meta">${c.live?`${n} ${L()?'of':'من'} ${c.n} ${L()?'steps':'درجة'}`:t('prep')}</div></div>`}).join('')}</div>`;
 }
 
 /* ---------- ladder ---------- */
 function renderLadder(app){
   const n=S.passed.length,ns=nextStep();
-  const medals=[['l1',LEVELS[0].medal,6],['l2',LEVELS[1].medal,11],['final',LEVELS[2].medal,16]];
+  const medals=[['l1',LEVELS[0].medal,LEVELS[0].steps.at(-1)],['l2',LEVELS[1].medal,LEVELS[1].steps.at(-1)],['final',LEVELS[2].medal,N]];
   let lad='';
   LEVELS.forEach((Lv,li)=>{
     let h=`<div class="lvl"><div class="lvlname">${tx(Lv.n)} · ${tx(Lv.sub)}</div>`;
@@ -3252,11 +3272,11 @@ function renderLadder(app){
     h+='</div>';lad+=h;
   });
   app.innerHTML=`<div class="chead"><div class="box"><span class="pill" style="background:var(--isl-s);color:var(--isl)">${t('isl')}</span>
-     <h1 style="margin-top:8px">${t('tajweed')}</h1><p class="sub">${t('tajSub')}</p>
+     <h1 style="margin-top:8px">${ct('t')}</h1><p class="sub">${ct('sub')}</p>
      <div class="row"><button class="btn gold" onclick="MJ.go('placement')">${t('placeBtn')}</button><button class="btn" onclick="MJ.go('${unlocked(ns)?'step-'+ns:(ns===7?'test-l1':ns===12?'test-l2':'step-'+ns)}')">${unlocked(ns)?t('cont')+' '+ns:t('takeTest')}</button>${S.tests.final?`<button class="btn ghost" onclick="MJ.go('certificate')">${t('certT')}</button>`:''}</div>
-     <div class="refs">${t('refs')}</div></div>
+     <div class="refs">${ct('refs')}</div></div>
    <div class="box"><h3 style="font-size:20px">${t('progress')}</h3>
-     <div class="stats"><div class="stat"><b>${n}</b><span>${t('doneSteps')}</span></div><div class="stat"><b>16</b><span>${t('inCourse')}</span></div><div class="stat"><b>${Math.round(n/16*100)}%</b><span>${t('ofCourse')}</span></div></div>
+     <div class="stats"><div class="stat"><b>${n}</b><span>${t('doneSteps')}</span></div><div class="stat"><b>${N}</b><span>${t('inCourse')}</span></div><div class="stat"><b>${Math.round(n/N*100)}%</b><span>${t('ofCourse')}</span></div></div>
      <div class="medals">${medals.map(m=>`<div class="medal ${S.tests[m[0]]?'got':''}">${tx(m[1])}<br>${S.tests[m[0]]?t('got'):t('after')+' '+m[2]}</div>`).join('')}</div>
      <div class="row" style="margin-top:12px">${isStaffC()?`<button class="tlink" onclick="MJ.teacher()">${S.open?'✓ '+t('teacherOn'):t('teacher')}</button><button class="tlink" onclick="MJ.go('report')">${t('report')}</button>`:''}${!C.state.session?`<button class="tlink" onclick="MJ.reset()">${t('reset')}</button>`:''}</div></div></div>
    <div class="ladder">${lad}</div>`;
@@ -3264,13 +3284,13 @@ function renderLadder(app){
 
 /* ---------- placement ---------- */
 let P={i:0,score:0,ans:[]};
-function renderPlace(app){P={i:0,score:0,ans:[]};app.innerHTML=`<div class="shead"><div><div class="k">${t('tajweed')}</div><h1>${t('placeTitle')}</h1></div></div><div class="panel" id="pp"></div>`;placeQ()}
+function renderPlace(app){P={i:0,score:0,ans:[]};app.innerHTML=`<div class="shead"><div><div class="k">${ct('t')}</div><h1>${t('placeTitle')}</h1></div></div><div class="panel" id="pp"></div>`;placeQ()}
 function placeQ(){
   const el=$('pp');
   if(P.i>=PLACE.length){
     // first wrong answer decides start
-    const w=P.ans.indexOf(false);const map=[1,4,7,10,13,16];
-    const start=w<0?16:map[w];
+    const w=P.ans.indexOf(false);const map=D.meta.placeMap||[1,4,7,10,13,16];
+    const start=w<0?N:map[w];
     const lv=levelOf(start);
     el.innerHTML=`<div class="result"><div class="big">${P.score} / ${PLACE.length}</div><h2>${t('suggested')} ${tx(LEVELS[lv].n)}</h2>
      <p class="hint">${t('startAt')} ${start}: «${tx(STEPS[start-1].t)}»</p>
@@ -3286,7 +3306,7 @@ function placeQ(){
 let CUR=1,part=0,lc=0;
 function renderStep(app,i){
   CUR=i;part=0;lc=0;const st=STEPS[i-1],lv=levelOf(i);
-  app.innerHTML=`<div class="shead"><div><div class="k">${tx(LEVELS[lv].n)} · ${t('stepOf')} ${i} ${t('of16')}</div><h1>${tx(st.t)}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div>
+  app.innerHTML=`<div class="shead"><div><div class="k">${tx(LEVELS[lv].n)} · ${t('stepOf')} ${i} ${L()?'of':'من'} ${N}</div><h1>${tx(st.t)}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div>
    <div class="goal"><div><h3>${t('goal')}</h3><p>${tx(st.goal)}</p></div><div><h3>${t('crit')}</h3><ul>${tx(st.crit).map(c=>`<li>${c}</li>`).join('')}</ul></div></div>
    <div class="stepper" id="stepper"></div><div class="panel" id="sp"></div>`;
   showPart(0);
@@ -3316,11 +3336,11 @@ function setRep(n){rep=n;document.querySelectorAll('[data-rep]').forEach(b=>b.cl
 function setSlow(){slow=!slow;if(AU)AU.playbackRate=slow?0.75:1;document.querySelectorAll('.slow').forEach(b=>b.classList.toggle('on',slow))}
 function examples(el){
   const E=STEPS[CUR-1].ex;
-  el.innerHTML=`<h2>${t('exTitle')}</h2><p class="hint">${t('exHint')}</p>
+  el.innerHTML=`<h2>${D.meta.exTitle?ct('exTitle'):t('exTitle')}</h2><p class="hint">${D.meta.exHint?ct('exHint'):t('exHint')}</p>
    <div class="row" style="margin-top:6px"><span class="hint">${t('rep')}</span>${[1,3,5].map(n=>`<button class="btn ghost" style="padding:4px 14px" data-rep="${n}" onclick="MJ.setRep(${n})">${n===1?t('once'):n+' '+t('times')}</button>`).join('')}<button class="btn ghost slow" style="padding:4px 14px" onclick="MJ.setSlow()">${t('slow')}</button></div>
-   <div class="exgrid">${E.map((e,i)=>`<div class="ex" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span>
+   <div class="exgrid">${E.map((e,i)=>e.s?`<div class="ex" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span>
      <div class="q">${e.h} <span class="an"><span class="br">﴿</span>${e.a}<span class="br">﴾</span></span></div><div class="why">${tx(e.w)}</div>
-     <div class="pl"><button class="play" onclick="MJ.play(${i})">${t('listen')}</button><span class="ref">${t('surah')} ${tx(SURAH[e.s])} · ${t('ayah')} ${e.a}</span></div></div>`).join('')}</div>
+     <div class="pl"><button class="play" onclick="MJ.play(${i})">${t('listen')}</button><span class="ref">${t('surah')} ${tx(SURAH[e.s])} · ${t('ayah')} ${e.a}</span></div></div>`:`<div class="ex case" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span><p class="cq">${tx(e.c)}</p><button class="btn ghost" style="padding:4px 14px" onclick="this.nextElementSibling.hidden=false;this.hidden=true">${t('reveal')}</button><p class="ca" hidden>${tx(e.a)}</p></div>`).join('')}</div>
    <div class="navrow"><button class="btn ghost" onclick="MJ.backLearn()">${t('backLearn')}</button><button class="btn" onclick="MJ.showPart(2)">${t('toPr')}</button></div>`;
   setRep(rep);document.querySelectorAll('.slow').forEach(b=>b.classList.toggle('on',slow));
 }
@@ -3339,7 +3359,7 @@ function drawAct(k){
   if(a.type==='sort'){
     PS[k]={sel:null,left:a.items.length};
     const order=a.items.map((_,i)=>i).sort(()=>Math.random()-.5);
-    box.innerHTML=head(k,a,t('sortHint'))+`<div class="letters">${order.map(i=>`<button class="lb ${a.q?'w':''}" id="it${k}-${i}" onclick="MJ.pick(${k},${i})">${a.items[i][0]}</button>`).join('')}</div>
+    box.innerHTML=head(k,a,t('sortHint'))+`<div class="letters">${order.map(i=>`<button class="lb ${a.q?'w':a.items[i][0].length>2?'wt':''}" id="it${k}-${i}" onclick="MJ.pick(${k},${i})">${L()&&a.en?a.en[i]:a.items[i][0]}</button>`).join('')}</div>
      <div class="baskets" style="grid-template-columns:repeat(${Math.min(a.bins.length,4)},1fr)">${a.bins.map((b,bi)=>`<div class="basket ${bi===0?'a':''}" onclick="MJ.drop(${k},${bi})"><div class="bt">${tx(b)}</div><div class="in" id="bin${k}-${bi}"></div></div>`).join('')}</div><div class="fb" id="fb${k}"></div>`;
   }
   if(a.type==='tap'){
@@ -3362,7 +3382,7 @@ function drop(k,bi){
   const a=STEPS[CUR-1].practice[k],p=PS[k];
   if(p.sel===null){fb('fb'+k,false,t('pickFirst'));return}
   const it=a.items[p.sel];
-  if(it[1]===bi){$(`bin${k}-${bi}`).insertAdjacentHTML('beforeend',`<span class="${a.q?'w':''}">${it[0]}</span>`);$(`it${k}-${p.sel}`).classList.add('gone');p.left--;
+  if(it[1]===bi){$(`bin${k}-${bi}`).insertAdjacentHTML('beforeend',`<span class="${a.q?'w':it[0].length>2?'wt':''}">${L()&&a.en?a.en[p.sel]:it[0]}</span>`);$(`it${k}-${p.sel}`).classList.add('gone');p.left--;
     fb('fb'+k,true,p.left===0?t('allSorted'):t('right'))}
   else fb('fb'+k,false,t('wrongTry'));
   $(`it${k}-${p.sel}`).classList.remove('sel');p.sel=null;
@@ -3402,7 +3422,7 @@ function stepEnd(){
   const sc=QZ.ans.filter(Boolean).length,pass=sc>=QZ.pass,i=CUR;
   if(pass&&!isPassed(i)){S.passed.push(i);save()}
   const lv=levelOf(i),pos=LEVELS[lv].steps.indexOf(i)+1;
-  let msg=t('opened'),btn=i<16&&unlocked(i+1)?`<button class="btn gold" onclick="MJ.go('step-${i+1}')">${t('nextStep')}</button>`:'';
+  let msg=t('opened'),btn=i<N&&unlocked(i+1)?`<button class="btn gold" onclick="MJ.go('step-${i+1}')">${t('nextStep')}</button>`:'';
   if(pass&&LEVELS[lv].steps[LEVELS[lv].steps.length-1]===i){msg=lv<2?t('needRest'):t('allDone');btn=`<button class="btn gold" onclick="MJ.go('test-${lv<2?'l'+(lv+1):'final'}')">${t('takeTest')}</button>`}
   QZ.el.innerHTML=`<div class="result">${stairs(pass?pos:pos-1)}<div class="big">${sc} / ${QZ.items.length}</div>
    <h2>${pass?t('climbed')+' '+i:t('almost')}</h2><p class="hint">${pass?msg:t('need')}</p>
@@ -3417,14 +3437,14 @@ function renderTest(app,key){
   if(key==='final')STEPS.forEach(s=>items.push(s.quiz[1]));
   else LEVELS[key==='l1'?0:1].steps.forEach(i=>{const q=STEPS[i-1].quiz;items.push(q[0],q[2])});
   const need=Math.ceil(items.length*0.8);
-  app.innerHTML=`<div class="shead"><div><div class="k">${t('tajweed')}</div><h1>${testName(key)}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div><div class="panel" id="tp"></div>`;
+  app.innerHTML=`<div class="shead"><div><div class="k">${ct('t')}</div><h1>${testName(key)}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div><div class="panel" id="tp"></div>`;
   QZ={items,i:0,ans:[],el:$('tp'),pass:need,title:testName(key),needTxt:t('testNeed'),onEnd:()=>{
     const sc=QZ.ans.filter(Boolean).length,pass=sc>=need;
     if(pass){S.tests[key]=true;save()}
     const medal=key==='final'?LEVELS[2].medal:LEVELS[key==='l1'?0:1].medal;
     QZ.el.innerHTML=`<div class="result">${stairs(pass?6:3)}<div class="big">${sc} / ${items.length}</div><h2>${pass?t('passedTest'):t('almost')}</h2>
      <p class="hint">${pass?`${t('medalGot')} «${tx(medal)}»`:t('testNeed')}</p>
-     <div class="row" style="justify-content:center;margin-top:16px">${pass?(key==='final'?`<button class="btn gold" onclick="MJ.go('certificate')">${t('certT')}</button>`:`<button class="btn gold" onclick="MJ.go('step-${key==='l1'?7:12}')">${t('nextStep')}</button>`):`<button class="btn gold" onclick="MJ.go('test-${key}')">${t('retry')}</button>`}<button class="btn ghost" onclick="MJ.go('course')">${t('seeLadder')}</button></div></div>`;
+     <div class="row" style="justify-content:center;margin-top:16px">${pass?(key==='final'?`<button class="btn gold" onclick="MJ.go('certificate')">${t('certT')}</button>`:`<button class="btn gold" onclick="MJ.go('step-${key==='l1'?LEVELS[1].steps[0]:LEVELS[2].steps[0]}')">${t('nextStep')}</button>`):`<button class="btn gold" onclick="MJ.go('test-${key}')">${t('retry')}</button>`}<button class="btn ghost" onclick="MJ.go('course')">${t('seeLadder')}</button></div></div>`;
   }};
   quizQ();
 }
@@ -3433,10 +3453,10 @@ function renderTest(app,key){
 function renderCert(app){
   if(!S.tests.final&&!staffOpen()){go('course');return}
   const d=new Date(),ds=`${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
-  app.innerHTML=`<div class="shead"><div><div class="k">${t('tajweed')}</div><h1>${t('certT')}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div>
+  app.innerHTML=`<div class="shead"><div><div class="k">${ct('t')}</div><h1>${t('certT')}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div>
    <div class="row" style="justify-content:center"><input class="inp" id="nm" value="${(S.name||'').replace(/"/g,'&quot;')}" placeholder="${t('certName')}"><button class="btn" onclick="MJ.setName()">${t('showCert')}</button></div>
-   <div class="cert"><img src="art/brand/hiraa-lockup-light.svg" alt="حراء"><h1>${t('certT')}</h1><p class="meta">${t('maarij')} · ${t('tajweed')}</p>
-    <div class="nm">${S.name?S.name.replace(/</g,'&lt;'):'—'}</div><p>${t('certBody')}</p>
+   <div class="cert"><img src="art/brand/hiraa-lockup-light.svg" alt="حراء"><h1>${t('certT')}</h1><p class="meta">${t('maarij')} · ${ct('t')}</p>
+    <div class="nm">${S.name?S.name.replace(/</g,'&lt;'):'—'}</div><p>${ct('cert')}</p>
     <div class="medals" style="max-width:520px;margin:14px auto">${LEVELS.map(l=>`<div class="medal got">${tx(l.medal)}</div>`).join('')}</div>
     <p class="meta">${t('date')}: ${ds}</p></div>`;
 }
@@ -3445,21 +3465,21 @@ function renderCert(app){
 /* ---------- teacher report ---------- */
 async function renderReport(app){
   if(!isStaffC()){go('course');return}
-  app.innerHTML=`<div class="shead"><div><div class="k">${t('tajweed')}</div><h1>${t('repT')}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div><div class="panel" id="rp">${t('loading')}</div>`;
+  app.innerHTML=`<div class="shead"><div><div class="k">${ct('t')}</div><h1>${t('repT')}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div><div class="panel" id="rp">${t('loading')}</div>`;
   try{
-    const {data}=await C.sb.from('maarij_progress').select('user_id,passed,tests,updated_at').eq('course','tajweed').order('updated_at',{ascending:false}).limit(500);
+    const {data}=await C.sb.from('maarij_progress').select('user_id,passed,tests,updated_at').eq('course',CID).order('updated_at',{ascending:false}).limit(500);
     const rows=(data||[]).filter(r=>r.user_id!==(C.state.session&&C.state.session.user.id));
     if(!rows.length){$('rp').innerHTML=`<p class="hint">${t('noData')}</p>`;return}
     const ids=rows.map(r=>r.user_id);
     const {data:ps}=await C.sb.from('profiles').select('id,full_name_ar,full_name_en,year_group').in('id',ids);
     const nm={};(ps||[]).forEach(p=>nm[p.id]=(L()?p.full_name_en||p.full_name_ar:p.full_name_ar||p.full_name_en)||'—');
-    $('rp').innerHTML=`<table class="mjr"><tr><th>${t('student')}</th><th>${t('steps')}</th><th>${t('curStep')}</th><th>${t('medals')}</th><th>${t('updated')}</th></tr>${rows.map(r=>{const p=r.passed||[];let cur=16;for(let i=1;i<=16;i++)if(!p.includes(i)){cur=i;break}const ts=r.tests||{};const d=new Date(r.updated_at);
-      return `<tr><td>${C.esc(nm[r.user_id]||'—')}</td><td>${p.length} / 16</td><td>${cur} · ${tx(STEPS[cur-1].t)}</td><td>${['l1','l2','final'].filter(k=>ts[k]).map(k=>tx(LEVELS[k==='l1'?0:k==='l2'?1:2].medal)).join('، ')||'—'}</td><td>${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}</td></tr>`}).join('')}</table>`;
+    $('rp').innerHTML=`<table class="mjr"><tr><th>${t('student')}</th><th>${t('steps')}</th><th>${t('curStep')}</th><th>${t('medals')}</th><th>${t('updated')}</th></tr>${rows.map(r=>{const p=r.passed||[];let cur=N;for(let i=1;i<=N;i++)if(!p.includes(i)){cur=i;break}const ts=r.tests||{};const d=new Date(r.updated_at);
+      return `<tr><td>${C.esc(nm[r.user_id]||'—')}</td><td>${p.length} / ${N}</td><td>${cur} · ${tx(STEPS[cur-1].t)}</td><td>${['l1','l2','final'].filter(k=>ts[k]).map(k=>tx(LEVELS[k==='l1'?0:k==='l2'?1:2].medal)).join('، ')||'—'}</td><td>${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}</td></tr>`}).join('')}</table>`;
   }catch(e){$('rp').textContent=String(e.message||e)}
 }
 
 window.MJ={go,showPart,lstep,play,setRep,setSlow,drawAct,pick,drop,tap,ord,answer,
-  subj:(s)=>{S.subj=s;save();route()},teacher:()=>{if(!isStaffC())return;S.open=!S.open;save();route()},
+  subj:(s)=>{SUBJ_SEL=s;try{localStorage.setItem('hiraa-maarij-subj',s)}catch(e){}route()},openC:(c)=>{location.hash='#/maarij/'+c},teacher:()=>{if(!isStaffC())return;S.open=!S.open;save();route()},
   reset:()=>{S.passed=[];S.tests={};S.start=0;save();route()},
   pans:(k)=>{const q=PLACE[P.i];P.ans.push(k===q.c);P.score+=(k===q.c)?1:0;P.i++;placeQ()},
   startAt:(n)=>{S.start=Math.max(S.start||0,n);save();go('step-'+n)},
@@ -3469,11 +3489,15 @@ window.MJ={go,showPart,lstep,play,setRep,setSlow,drawAct,pick,drop,tap,ord,answe
 window.HiraaMaarij=async function(ctx){
   C=ctx;
   const parts=ctx.parts||[];
-  if(parts[1]&&parts[1]!=='tajweed'){location.hash='#/maarij';return}
+  if(parts[1]&&!COURSES[parts[1]]){location.hash='#/maarij';return}
   SUB=!parts[1]?'courses':(parts[2]||'course');
   ctx.h(`<div class="mj" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><nav class="mj-crumb" id="mjCrumb"></nav><div id="mjApp">${t('loading')}</div><p class="note">${t('foot')}${ctx.state.session?'':' · '+t('signHint')}</p></div></div>`);
-  if(!D){try{D=await (await fetch('art/maarij/tajweed.json',{cache:'no-cache'})).json();({SURAH,LEVELS,STEPS,PLACE}=D);}catch(e){$('mjApp').textContent='تعذّر تحميل الدورة.';return}}
-  await loadRemote();
+  if(parts[1]){
+    const cid=parts[1];
+    if(!CACHE[cid]){try{CACHE[cid]=await (await fetch(COURSES[cid],{cache:'no-cache'})).json()}catch(e){$('mjApp').textContent='تعذّر تحميل الدورة.';return}}
+    if(cid!==CID||!D){CID=cid;D=CACHE[cid];({SURAH,LEVELS,STEPS,PLACE}=D);N=STEPS.length;loadS();}
+    await loadRemote();
+  }
   route();
 };
 })();
