@@ -10090,7 +10090,26 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     }
     function setHi(b, rs) {
       try { const v = b.ownerDocument.defaultView; if (!v.CSS || !v.CSS.highlights || !v.Highlight) return;
-        if (rs && rs.length) v.CSS.highlights.set("til-word", new v.Highlight(...rs)); else v.CSS.highlights.delete("til-word"); } catch (e) {}
+        if (rs && rs.length) { const h = new v.Highlight(...rs); h.priority = 1; v.CSS.highlights.set("til-word", h); } else v.CSS.highlights.delete("til-word"); } catch (e) {}
+    }
+    /* «اختبر حفظك»: إخفاء كلمات الآية تدريجيًا (شفافة فوق مربع رمادي)، بلا تغيير في نص الصفحة.
+       1 أواخر الآيات، 2 نصف الكلمات، 3 الكل إلا أول كلمة في كل آية، 4 الكل. الكلمة التي تُتلى تظهر فوق الإخفاء. */
+    function hiddenKeys(b) {
+      const out = new Set(), L = b._hide; if (!L || !b._words) return out;
+      const by = {}; b._words.forEach((x) => { (by[x.li] = by[x.li] || new Set()).add(x.w); });
+      Object.entries(by).forEach(([li, set]) => {
+        const ws = [...set].sort((a, c) => a - c), last = ws[ws.length - 1];
+        const pick = L === 1 ? [last] : L === 2 ? ws.filter((w, i) => i % 2 === 1).concat(last) : L === 3 ? ws.slice(1) : ws;
+        pick.forEach((w) => { const k = li + ":" + w; if (!b._revealed.has(k)) out.add(k); });
+      });
+      return out;
+    }
+    function applyHide(doc) {
+      try {
+        const v = doc.defaultView; if (!v.CSS || !v.CSS.highlights || !v.Highlight) return;
+        const rs = []; BARS.forEach((b) => { if (b.ownerDocument === doc && b.isConnected && b._hide) { const k = hiddenKeys(b); b._words.forEach((x) => { if (k.has(x.li + ":" + x.w)) rs.push(x.r); }); } });
+        if (rs.length) { const h = new v.Highlight(...rs); h.priority = 0; v.CSS.highlights.set("til-hide", h); } else v.CSS.highlights.delete("til-hide");
+      } catch (e) {}
     }
     function hiWord() {
       const b = E.bar; if (!b || !b._words || !b._words.length) return;
@@ -10160,6 +10179,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const st = q(".til-st"), L = b._til;
       if (gap) { const [, a] = L[E.i], left = Math.ceil((E.hold != null ? E.hold : E.gapEnd - Date.now()) / 1000);
         st.textContent = tx("دورك: ردّد الآية ", "Your turn: repeat ayah ") + iso(a) + " · " + iso(Math.max(0, left)) + tx(" ث", "s"); }
+      const hd = q(".til-hide"); if (hd) { const H = [tx("اختبر حفظك", "Test yourself"), tx("إخفاء: أواخر الآيات", "Hide: ayah endings"), tx("إخفاء: نصف الكلمات", "Hide: half the words"), tx("إخفاء: إلا أوائل الآيات", "Hide: all but first words"), tx("إخفاء: الكل", "Hide: all")];
+        hd.textContent = H[b._hide || 0]; hd.classList.toggle("sel", !!b._hide); }
       const wd = q(".til-word"); if (wd) { wd.textContent = (b._wordMode ? "✓ " : "") + tx("كلمة كلمة", "Word by word"); wd.classList.toggle("sel", !!b._wordMode); }
       const pt = q(".til-part"); if (pt) pt.textContent = b._whole ? tx("المقطع: الآية كاملة", "Play: whole ayah") : tx("المقطع: العبارة فقط", "Play: quoted phrase");
       if (gap) {} else if (on && TM) { const [s, a] = L[E.i]; st.textContent = `${tx("سورة", "Surah")} ${tx(TM.names[s - 1][0], TM.names[s - 1][1])} · ${tx("الآية", "Ayah")} ${iso(a)}` + (L.length > 1 ? ` ${iso(`(${E.i + 1}/${L.length})`)}` : "") + (E.ov ? tx(" · كلمة", " · word") : part(b, L[E.i]) ? tx(" · العبارة", " · phrase") : ""); }
@@ -10180,14 +10201,15 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         B("til-spd", "spd", tx("سرعة التلاوة", "Recitation speed")) +
         (list.some((k) => k[2] || k[3]) ? B("til-part", "part", tx("العبارة المقتبسة وحدها، أو الآية كاملة", "Only the quoted words, or the whole ayah")) : "") +
         B("til-echo", "echo", tx("بعد كل آية يسكت الشيخ قدر مدتها ليرددها الطالب", "After each ayah the sheikh pauses so the student can repeat it")) +
+        (opt.words && opt.words.length ? B("til-hide", "hide", tx("اختبر حفظك: تُخفى كلمات الآية تدريجيًا، واضغط على الكلمة المخفية لإظهارها", "Test your memory: hide the words step by step; tap a hidden word to show it")) : "") +
         (opt.words && opt.words.length && list.some((k) => !(TM.ov && TM.ov[k[0]])) ? B("til-word", "word", tx("اضغط على أي كلمة في الآية لتسمعها وحدها", "Tap any word of the ayah to hear it alone")) : "") +
         `<span class="til-st"></span>`;
       b.querySelector(".til-stop").textContent = tx("■ إيقاف", "■ Stop");
       if (multi) { b.querySelector(".til-prev").textContent = tx("→ السابقة", "← Prev"); b.querySelector(".til-next").textContent = tx("التالية ←", "Next →"); }
       b._til = list; b._onAyah = opt.onAyah || null; b._spans = opt.spans || null; b._src = opt.src || null;
       b._words = opt.words || null; b._blocks = opt.blocks || [];
-      if (b.querySelector(".til-word")) b._blocks.forEach((bl) => bl.addEventListener("click", (e) => {
-        if (!b._wordMode || bl.isContentEditable) return;
+      if (b._words && b._words.length) b._blocks.forEach((bl) => bl.addEventListener("click", (e) => {
+        if ((!b._wordMode && !b._hide) || bl.isContentEditable) return;
         const d = bl.ownerDocument; let n = null, o = 0;
         if (d.caretPositionFromPoint) { const c = d.caretPositionFromPoint(e.clientX, e.clientY); if (c) { n = c.offsetNode; o = c.offset; } }
         else if (d.caretRangeFromPoint) { const c = d.caretRangeFromPoint(e.clientX, e.clientY); if (c) { n = c.startContainer; o = c.startOffset; } }
@@ -10195,6 +10217,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         const hits = b._words.filter((x) => { try { return x.r.isPointInRange(n, o); } catch (err) { return false; } });
         const hit = hits.find((x) => !(x.r.endContainer === n && x.r.endOffset === o)) || hits[0];
         if (!hit) return;
+        if (b._hide && hiddenKeys(b).has(hit.li + ":" + hit.w)) {      // «اختبر حفظك»: الضغط على كلمة مخفية يُظهرها
+          e.preventDefault(); e.stopPropagation(); b._revealed.add(hit.li + ":" + hit.w); applyHide(b.ownerDocument); return;
+        }
+        if (!b._wordMode) return;
         e.preventDefault(); e.stopPropagation(); playWord(b, hit);
       }, true));
       const swallow = (e) => e.stopPropagation();
@@ -10205,6 +10231,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         else if (a === "rep") { SET.rep = REPS[(REPS.indexOf(SET.rep) + 1) % REPS.length]; E.done = 0; E.loop = 0; save(); }
         else if (a === "spd") { SET.spd = SPDS[(SPDS.indexOf(SET.spd) + 1) % SPDS.length]; if (E.au && E.bar === b) E.au.playbackRate = SET.spd; save(); }
         else if (a === "mode") { SET.mode = SET.mode === "ayah" ? "range" : "ayah"; save(); }
+        else if (a === "hide") { b._hide = ((b._hide || 0) + 1) % 5; b._revealed = new Set(); applyHide(b.ownerDocument); }
         else if (a === "word") { b._wordMode = !b._wordMode; b._blocks.forEach((bl) => { bl.style.cursor = b._wordMode ? "pointer" : ""; if (b._wordMode) bl.setAttribute("data-til-cur", ""); else bl.removeAttribute("data-til-cur"); }); }
         else if (a === "part") { b._whole = !b._whole; if (E.on && E.bar === b && !E.gap) seekPlay(); }
         else if (a === "echo") { SET.echo = !SET.echo; save(); if (!SET.echo && E.gap && E.bar === b) { E.gap = false; next(); } }
@@ -10237,15 +10264,17 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
 .til-bar .til-b:hover{background:#F6EEDC}.til-bar .til-b:focus-visible{outline:2px solid #0F7A55;outline-offset:2px}
 .til-bar .til-play{background:#0F7A55;border-color:#0F7A55;color:#fff;font-weight:700}
 .til-bar.on .til-play{background:#A8741F;border-color:#A8741F}.til-bar .til-stop[hidden]{display:none}
-.til-bar .til-word.sel,.til-bar .til-echo.sel{background:#E6F2EC;border-color:#0F7A55;color:#0F7A55;font-weight:700}
+.til-bar .til-hide.sel,.til-bar .til-word.sel,.til-bar .til-echo.sel{background:#E6F2EC;border-color:#0F7A55;color:#0F7A55;font-weight:700}
 .til-bar.gap .til-st{opacity:1;color:#A8741F;font-weight:700}
 .til-bar .til-st{opacity:.78;padding:0 .35em;white-space:normal;min-width:0}
 .til-bar.til-sm{gap:.3em;padding:.22em .3em;border-radius:1em}
 .til-bar.til-sm .til-spd,.til-bar.til-sm .til-mode,.til-bar.til-sm .til-prev,.til-bar.til-sm .til-next{display:none}
 .til-bar.til-sm .til-st{display:none;white-space:normal;font-size:.9em}.til-bar.til-sm.on .til-st{display:block;flex-basis:100%}
 .til-bar.til-abs{position:absolute!important;bottom:.55em;inset-inline-end:.65em;margin:0;background:rgba(255,255,255,.72);backdrop-filter:blur(2px)}
-::highlight(til-word){background-color:rgba(232,176,40,.5);color:inherit}
-.til-bar.til-abs{padding:.15em;gap:.25em}.til-bar.til-abs .til-rep,.til-bar.til-abs .til-echo,.til-bar.til-abs .til-word,.til-bar.til-abs.on .til-st{display:none}
+::highlight(til-word){background-color:rgba(232,176,40,.5);color:#14243F;text-decoration:none}
+::highlight(til-hide){color:transparent;text-decoration:underline;text-decoration-color:rgba(16,42,76,.45);text-decoration-thickness:.07em;text-decoration-style:dotted}
+@media print{::highlight(til-hide){color:inherit;background-color:transparent}}
+.til-bar.til-abs{padding:.15em;gap:.25em}.til-bar.til-abs .til-rep,.til-bar.til-abs .til-echo,.til-bar.til-abs .til-word,.til-bar.til-abs .til-hide,.til-bar.til-abs.on .til-st{display:none}
 .til-hid{visibility:hidden!important}
 .til-ay{cursor:pointer;border-radius:.25em;transition:background .2s}
 .til-ay.til-now{background:rgba(15,122,85,.15);box-shadow:0 0 0 .14em rgba(15,122,85,.15)}
