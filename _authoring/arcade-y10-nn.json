@@ -1,0 +1,116 @@
+{
+"Y10-NN-T1-L01": {"sort": {"title": "Al-Kahf 1–8: which verses?", "cats": [
+ {"name": "Verses 1–3", "icon": "📖", "items": ["The Qur'an has no crookedness", "It upholds people's interests", "A warning of severe punishment", "Good news of a fine reward"]},
+ {"name": "Verses 4–5", "icon": "⚠️", "items": ["Refuting those who claim Allah has a son", "A claim with no knowledge or proof"]},
+ {"name": "Verse 6", "icon": "💔", "items": ["The Prophet's ﷺ deep care for his people", "Guidance is in Allah's hands"]},
+ {"name": "Verses 7–8", "icon": "🌍", "items": ["The earth's adornment is a test", "What counts is the best deeds, not the most", "One day the earth becomes barren"]}]},
+ "seq": {"title": "Order the topics of verses 1–8", "steps": ["Praise for sending down the Qur'an", "Refuting the claim that Allah has a son", "The Prophet's ﷺ concern for guiding people", "This life is adornment and a test"]},
+ "seq2": {"title": "Order the four stories of Surat Al-Kahf", "steps": ["People of the Cave: trial of faith", "Owner of the two gardens: trial of wealth", "Musa and Al-Khidr: trial of knowledge", "Dhul-Qarnayn: trial of power"]}},
+"Y10-NN-T1-L02": {"sort": {"title": "Makkan or Madinan?", "cats": [
+ {"name": "Makkan features", "icon": "🕋", "items": ["Calling to tawhid", "Stories of the prophets", "Short, powerful verses", "Addressing «O people»", "Debating the idolaters"]},
+ {"name": "Madinan features", "icon": "🕌", "items": ["Laws of worship and transactions", "Family and society rulings", "Longer verses", "Addressing «O you who believe»", "Building the community and state"]}]}},
+"Y10-NN-T1-L03": {"sort": {"title": "The mind in Islam", "cats": [
+ {"name": "Roles of the mind", "icon": "🧠", "items": ["Knowing Allah from His signs", "Understanding the texts", "Telling right from wrong", "Building civilisation"]},
+ {"name": "Forbidden because it harms the mind", "icon": "🛡️", "items": ["Alcohol and drugs", "Magic", "Superstition", "Blind imitation"]},
+ {"name": "Apparent conflict comes from…", "icon": "🔍", "items": ["A weak text", "A wrong understanding", "An unproven claim"]}]}},
+"Y10-NN-T1-L04": {"sort": {"title": "Hadith school or Opinion school?", "cats": [
+ {"name": "Hadith school (Hijaz)", "icon": "🕌", "items": ["Centred in Madinah", "Relied heavily on narrations", "Imam Malik"]},
+ {"name": "Opinion school (Iraq)", "icon": "🏛️", "items": ["Centred in Kufa", "Used analogy more", "Abu Hanifah"]}]},
+ "seq": {"title": "Order the four Imams by year of death", "steps": ["Abu Hanifah", "Malik ibn Anas", "Ash-Shafi'i", "Ahmad ibn Hanbal"]}},
+"Y10-NN-T1-L05": {"seq": {"title": "Order the stages of Sukaynah's life", "steps": ["Born in Madinah", "Witnessed Karbala in 61 AH", "Returned to Madinah, patient", "Her home became a circle for poets and scholars"]}},
+"Y10-NN-T1-L06": {"sort": {"title": "People of the Cave: Allah's care and lessons", "cats": [
+ {"name": "Allah's care for them", "icon": "☀️", "items": ["The sun passed by their cave", "They were turned from side to side", "Their dog lay at the entrance", "Allah increased them in guidance"]},
+ {"name": "Lessons", "icon": "💡", "items": ["Young believers can stand firm", "Say «In sha' Allah» about the future", "The promise of resurrection is true"]}]},
+ "seq": {"title": "Order the story of the People of the Cave", "steps": ["The youths rejected their people's idols", "They fled to a cave and prayed for mercy", "Allah made them sleep for many years", "They woke up thinking they had slept a day", "Allah revealed them to the people"]}},
+"Y10-NN-T1-L07": {"sort": {"title": "Compiling the Qur'an: whose time?", "cats": [
+ {"name": "The Prophet ﷺ", "icon": "📝", "items": ["Memorised by many", "Written by scribes on various materials", "Not yet in one book"]},
+ {"name": "Abu Bakr", "icon": "📕", "items": ["After the Battle of Yamamah", "Zayd ibn Thabit collected it", "Gathered into one compilation"]},
+ {"name": "'Uthman", "icon": "📚", "items": ["To unite people on one reading", "Copies sent to the regions"]}]},
+ "seq": {"title": "Order the stages of compiling the Qur'an", "steps": ["Memorised and written in the Prophet's ﷺ time", "Many memorisers died at Yamamah", "Zayd ibn Thabit collected it for Abu Bakr", "'Uthman had copies made and sent out", "Dots and vowel marks were added"]}},
+"Y10-NN-T1-L08": {"sort": {"title": "Sound thinking: helps or harms?", "cats": [
+ {"name": "Helps sound thinking", "icon": "✅", "items": ["Asking for evidence", "Verifying", "Reflecting calmly", "Reviewing your conclusion"]},
+ {"name": "Harms thinking", "icon": "🚫", "items": ["Guesswork", "Following desire", "Blind imitation"]}]},
+ "seq": {"title": "Order the steps of methodical thinking", "steps": ["Define the problem", "Gather information", "Suggest solutions", "Test them", "Conclude", "Review"]}},
+"Y10-NN-T1-L09": {"sort": {"title": "Waqf (endowment)", "cats": [
+ {"name": "Examples from the Companions", "icon": "🌴", "items": ["'Umar's land at Khaybar", "'Uthman's well for the Muslims"]},
+ {"name": "What waqf funded in history", "icon": "🏛️", "items": ["Mosques", "Schools", "Hospitals", "Libraries"]},
+ {"name": "In the UAE", "icon": "🇦🇪", "items": ["Official endowment bodies", "The 1 Billion Meals Endowment"]}]}},
+"Y10-NN-T1-L10": {"sort": {"title": "Human development", "cats": [
+ {"name": "Tools from the Sunnah", "icon": "🧰", "items": ["Clear goals", "Using time well", "Excellence", "Teamwork", "Consistency"]},
+ {"name": "In the UAE", "icon": "🇦🇪", "items": ["Building people before buildings", "Free education", "Scholarships", "UAE Centennial 2071"]}]},
+ "seq": {"title": "Order «Take advantage of five before five»", "steps": ["Your youth before old age", "Your health before illness", "Your wealth before poverty", "Your free time before busyness", "Your life before death"]}},
+"Y10-NN-T2-L01": {"sort": {"title": "The garden owner and his believing friend", "cats": [
+ {"name": "The garden owner", "icon": "🍇", "items": ["Boasted of more wealth and people", "Said his garden would never perish", "Doubted the Hour"]},
+ {"name": "His believing friend", "icon": "🤲", "items": ["Reminded him he was created from dust", "Taught him: Ma sha' Allah, la quwwata illa billah"]}]},
+ "seq": {"title": "Order the story of the two gardens", "steps": ["One man had two gardens with a river", "He boasted to his poor friend", "He doubted his garden would perish and doubted the Hour", "His friend advised him", "His garden was destroyed", "He regretted his shirk"]}},
+"Y10-NN-T2-L02": {"sort": {"title": "Types of Sunnah", "cats": [
+ {"name": "Saying", "icon": "💬", "items": ["«Actions are by intentions»"]},
+ {"name": "Action", "icon": "🕌", "items": ["How he prayed", "How he made wudu'"]},
+ {"name": "Role of the Sunnah", "icon": "📖", "items": ["Confirms the Qur'an", "Explains the Qur'an", "Adds some rulings"]}]}},
+"Y10-NN-T2-L03": {"sort": {"title": "Clothing: manners and rules", "cats": [
+ {"name": "Manners", "icon": "👕", "items": ["Start with the right side", "Du'a for new clothes", "Being clean and neat"]},
+ {"name": "Not allowed", "icon": "⛔", "items": ["Gold for men", "Silk for men", "See-through or tight clothes", "Men imitating women or vice versa", "Clothes worn for arrogance"]}]}},
+"Y10-NN-T2-L04": {"sort": {"title": "Scholars' differences", "cats": [
+ {"name": "Causes", "icon": "🔎", "items": ["Different understanding of words", "Whether a hadith reached them", "Whether a hadith is authentic", "Different principles", "Different contexts"]},
+ {"name": "Manners", "icon": "🤝", "items": ["Respect", "Fairness", "Evidence", "No fanaticism"]}]}},
+"Y10-NN-T2-L05": {"sort": {"title": "The Prophet's ﷺ way of da'wah", "cats": [
+ {"name": "His way", "icon": "🌱", "items": ["Wisdom", "Good advice", "Step by step", "Gentleness", "Living what he preached"]},
+ {"name": "Against his way", "icon": "🚫", "items": ["Harshness", "Making things hard", "Driving people away"]}]},
+ "seq": {"title": "Order what Mu'adh was told to call to", "steps": ["Tawhid", "Prayer", "Zakah"]}},
+"Y10-NN-T2-L06": {"sort": {"title": "Al-Kahf 45–53: which verses?", "cats": [
+ {"name": "Verse 45", "icon": "🌾", "items": ["Life is like plants that turn green then dry", "Life passes quickly"]},
+ {"name": "Verse 46", "icon": "💎", "items": ["Wealth and children are adornment", "Lasting good deeds are better"]},
+ {"name": "Verses 47–49", "icon": "📒", "items": ["The record leaves nothing small or big", "Allah wrongs no one"]},
+ {"name": "Verses 50–53", "icon": "⚠️", "items": ["Iblis is your enemy", "Do not take him as an ally"]}]},
+ "seq": {"title": "Order the parable of this life", "steps": ["Rain comes down", "Plants grow green", "The plants dry up", "The wind scatters them"]}},
+"Y10-NN-T2-L07": {"sort": {"title": "Books of the Sunnah", "cats": [
+ {"name": "Muwatta'", "icon": "📗", "items": ["Imam Malik"]},
+ {"name": "Musnad", "icon": "📘", "items": ["Imam Ahmad"]},
+ {"name": "The six books", "icon": "📕", "items": ["Bukhari", "Muslim", "Abu Dawud", "Tirmidhi", "Nasa'i", "Ibn Majah"]}]},
+ "seq": {"title": "Order the recording of the Sunnah", "steps": ["Companions memorised hadith; some wrote", "'Umar ibn 'Abd al-'Aziz ordered official writing (c. 100 AH)", "Az-Zuhri led the work", "The great collections were compiled"]}},
+"Y10-NN-T2-L08": {"sort": {"title": "Means of chastity", "cats": [
+ {"name": "From the Qur'an and Sunnah", "icon": "🛡️", "items": ["Lowering the gaze", "Modesty", "Not being alone with a non-mahram", "Patience until marriage", "Fasting for those who cannot marry"]},
+ {"name": "In the digital age", "icon": "📱", "items": ["Use safety settings", "Avoid suspicious sites", "Keep good company", "Tell parents about blackmail"]}]}},
+"Y10-NN-T2-L09": {"sort": {"title": "Marriage", "cats": [
+ {"name": "Pillars (Maliki)", "icon": "📜", "items": ["Guardian (wali)", "Dowry (mahr)", "Spouses free from impediments", "Offer and acceptance"]},
+ {"name": "Purposes", "icon": "💞", "items": ["Tranquillity", "Love", "Mercy"]},
+ {"name": "Choosing a spouse", "icon": "✅", "items": ["Religion", "Good character"]}]}},
+"Y10-NN-T2-L10": {"sort": {"title": "The Prophet ﷺ with his family", "cats": [
+ {"name": "With his wives", "icon": "🏠", "items": ["Helped at home", "Joked", "Listened", "Was fair", "Consulted them"]},
+ {"name": "With children", "icon": "👶", "items": ["Kissed his grandchildren", "Whoever is not merciful is not shown mercy"]},
+ {"name": "With his servant", "icon": "🤝", "items": ["Anas never heard «uff» in ten years"]}]}},
+"Y10-NN-T3-L01": {"sort": {"title": "Musa and Al-Khidr: event and wisdom", "cats": [
+ {"name": "The boat", "icon": "⛵", "items": ["Al-Khidr damaged it", "It belonged to poor people", "A king was seizing good boats"]},
+ {"name": "The boy", "icon": "👦", "items": ["His parents were believers", "He would have harmed them"]},
+ {"name": "The wall", "icon": "🧱", "items": ["Rebuilt for free", "It hid two orphans' treasure"]}]},
+ "seq": {"title": "Order the journey of Musa and Al-Khidr", "steps": ["Musa set out to learn from Al-Khidr", "He asked politely to follow him", "Al-Khidr damaged the boat", "Al-Khidr killed the boy", "Al-Khidr rebuilt the wall", "He explained the hidden wisdom"]}},
+"Y10-NN-T3-L02": {"sort": {"title": "Protecting the Sunnah", "cats": [
+ {"name": "Conditions of a sahih hadith", "icon": "✅", "items": ["Connected chain", "Trustworthy narrators", "Precise memory", "No contradiction with stronger reports", "No hidden defect"]},
+ {"name": "What scholars studied about narrators", "icon": "🔎", "items": ["Honesty", "Dates", "Teachers"]}]}},
+"Y10-NN-T3-L03": {"sort": {"title": "The unseen: what is it and what is not?", "cats": [
+ {"name": "Known only to Allah", "icon": "🔐", "items": ["The time of the Hour"]},
+ {"name": "Revelation told us", "icon": "📖", "items": ["Angels", "Jinn", "Paradise", "Hell"]},
+ {"name": "Not the unseen: science", "icon": "🌦️", "items": ["Weather forecasts"]},
+ {"name": "Forbidden", "icon": "🚫", "items": ["Visiting fortune-tellers"]}]}},
+"Y10-NN-T3-L04": {"sort": {"title": "Obeying those in authority", "cats": [
+ {"name": "Obedience today", "icon": "🇦🇪", "items": ["Following laws", "Following instructions in crises", "National service", "Advising through proper channels"]},
+ {"name": "Why it matters", "icon": "🛡️", "items": ["Security", "Unity", "Protecting the five essentials"]},
+ {"name": "No obedience", "icon": "⛔", "items": ["An order to sin"]}]}},
+"Y10-NN-T3-L05": {"sort": {"title": "Dhul-Qarnayn", "cats": [
+ {"name": "His justice", "icon": "⚖️", "items": ["Punished wrongdoers", "Honoured those who did good"]},
+ {"name": "Building the barrier", "icon": "⛰️", "items": ["Refused their money", "Asked them to help with work", "Used iron and copper", "Said: This is a mercy from my Lord"]}]},
+ "seq": {"title": "Order the barrier story", "steps": ["A people asked for protection from Ya'juj and Ma'juj", "They offered money", "He refused and asked for help with work", "They built a barrier of iron and copper", "He thanked Allah for His mercy"]}},
+"Y10-NN-T3-L06": {"sort": {"title": "Tolerance in Islam", "cats": [
+ {"name": "Its basis", "icon": "🧭", "items": ["One human origin", "No compulsion in religion", "Kindness to those who don't fight us"]},
+ {"name": "The Prophet's ﷺ example", "icon": "🌟", "items": ["Forgave Makkah", "Visited a sick Jewish boy", "Stood for a Jewish funeral"]},
+ {"name": "The UAE", "icon": "🇦🇪", "items": ["Ministry of Tolerance 2016", "Year of Tolerance 2019", "Abrahamic Family House", "Anti-discrimination law"]}]}},
+"Y10-NN-T3-L07": {"sort": {"title": "The wide meaning of jihad", "cats": [
+ {"name": "Striving against the self", "icon": "💪", "items": ["Obeying Allah", "Leaving sin"]},
+ {"name": "Everyday jihad", "icon": "🏡", "items": ["Honouring parents", "Seeking knowledge", "A word of truth", "Helping the needy"]},
+ {"name": "A wrong idea", "icon": "🚫", "items": ["Reducing jihad to fighting", "Using it for terrorism"]}]}},
+"Y10-NN-T3-L08": {"sort": {"title": "Lawful defence or extremist distortion?", "cats": [
+ {"name": "Ethics of war in Islam", "icon": "⚖️", "items": ["No killing children or women", "No killing the elderly or worshippers", "No betrayal", "Peace is preferred", "Declared only by the legitimate ruler"]},
+ {"name": "Extremist distortion", "icon": "🚫", "items": ["Killing innocents", "Betraying agreements", "Groups declaring «jihad»"]},
+ {"name": "What you do", "icon": "🧑", "items": ["Don't reply to such accounts", "Tell your parents and the authorities"]}]}},
+"Y10-NN-T3-L09": {"seq": {"title": "Order the life of Sheikh Ahmad Al Mubarak", "steps": ["Born in Al-Ahsa in 1910", "Studied with scholars of his family and town", "Head of the urgent court in Qatif", "Head of the Shari'ah judiciary in Abu Dhabi", "Died in 1988"]}}
+}

@@ -1,0 +1,117 @@
+{
+"Y11-NN-T1-L01": {"sort": {"title": "Al-Ahzab 1–8: which verses?", "cats": [
+ {"name": "Verses 1–3", "icon": "🛡️", "items": ["Fear Allah", "Don't obey disbelievers and hypocrites", "Follow revelation and rely on Allah"]},
+ {"name": "Verses 4–6", "icon": "❤️", "items": ["No one has two hearts in his chest", "Adopted children keep their fathers' names", "The Prophet's ﷺ wives are mothers of the believers"]},
+ {"name": "Verses 7–8", "icon": "📜", "items": ["The prophets' firm covenant to convey the message"]}]},
+ "seq": {"title": "Order the topics of verses 1–8", "steps": ["Standing firm on Allah's command", "One heart, and adopted children's names", "The Prophet's ﷺ status", "The covenant of the prophets"]}},
+"Y11-NN-T1-L02": {"sort": {"title": "Reason and revelation", "cats": [
+ {"name": "Causes of an apparent conflict", "icon": "🔍", "items": ["The text isn't authentic", "The understanding is wrong", "The «fact» is an unproven theory"]},
+ {"name": "Not balanced", "icon": "🚫", "items": ["Cancelling reason", "Putting your opinion above authentic revelation"]},
+ {"name": "What reason proves", "icon": "🧠", "items": ["Allah exists", "The Prophet ﷺ is truthful"]}]}},
+"Y11-NN-T1-L03": {"sort": {"title": "Isti'faf: when is asking allowed?", "cats": [
+ {"name": "Blameworthy", "icon": "🚫", "items": ["Begging when able to work", "Asking people persistently"]},
+ {"name": "Asking is allowed", "icon": "✅", "items": ["Debt taken for reconciliation", "A disaster that destroyed one's wealth", "Proven poverty"]},
+ {"name": "Isti'faf means", "icon": "🌱", "items": ["Content with lawful earnings", "Keeping chaste until marriage"]}]}},
+"Y11-NN-T1-L04": {"sort": {"title": "Types of financial contracts", "cats": [
+ {"name": "Exchange", "icon": "🔄", "items": ["Sale", "Rent"]},
+ {"name": "Donation", "icon": "🎁", "items": ["Gift", "Loan", "Waqf"]},
+ {"name": "Security", "icon": "🔒", "items": ["Pledge", "Guarantee"]},
+ {"name": "Spoils a contract", "icon": "⛔", "items": ["Interest", "Excessive uncertainty (gharar)", "Cheating", "Gambling"]}]}},
+"Y11-NN-T1-L05": {"sort": {"title": "The Arabic language", "cats": [
+ {"name": "Its features", "icon": "✨", "items": ["Rich vocabulary", "Root-based word building", "Precise grammar", "Beautiful sound"]},
+ {"name": "UAE efforts", "icon": "🇦🇪", "items": ["Arabic Language Charter 2012", "Arab Reading Challenge", "World Arabic Language Day, 18 December"]}]}},
+"Y11-NN-T1-L06": {"sort": {"title": "The Confederates: believers and hypocrites", "cats": [
+ {"name": "The situation", "icon": "⚔️", "items": ["Armies came from above and below", "Hearts reached the throats", "Believers were severely shaken"]},
+ {"name": "The hypocrites", "icon": "🎭", "items": ["Called Allah's promise a delusion", "Asked to leave", "Claimed their homes were exposed", "Discouraged others", "Harsh with their tongues afterwards"]}]},
+ "seq": {"title": "Order the topics of verses 9–20", "steps": ["The severe test of the believers", "The hypocrites' excuses", "Fleeing won't save you from death", "Those who discourage others"]}},
+"Y11-NN-T1-L07": {"sort": {"title": "Scientific signs: rules and cautions", "cats": [
+ {"name": "Rules", "icon": "✅", "items": ["Link only to established facts", "Don't force meanings", "The Qur'an is a book of guidance"]},
+ {"name": "Cautions", "icon": "⚠️", "items": ["Linking verses to theories", "Exaggerated online claims"]},
+ {"name": "Examples researchers mention", "icon": "🔬", "items": ["Every living thing made from water", "Stages of the embryo"]}]}},
+"Y11-NN-T1-L08": {"sort": {"title": "Manners of dialogue", "cats": [
+ {"name": "Good dialogue", "icon": "🗣️", "items": ["Seek truth, not victory", "Know the topic", "Listen well", "Speak gently", "Give evidence", "Admit what is right", "Control anger"]},
+ {"name": "Avoid", "icon": "🚫", "items": ["Arguing to win", "Interrupting", "Mocking the other side"]}]}},
+"Y11-NN-T1-L09": {"sort": {"title": "Sources of Islamic law", "cats": [
+ {"name": "Agreed sources", "icon": "📗", "items": ["Qur'an", "Sunnah", "Consensus (ijma')", "Analogy (qiyas)"]},
+ {"name": "Other sources", "icon": "📙", "items": ["Public interest (maslahah)", "Custom ('urf)", "Blocking means to harm", "Preference (istihsan)"]}]},
+ "seq": {"title": "Order the agreed sources", "steps": ["Qur'an", "Sunnah", "Consensus", "Analogy"]}},
+"Y11-NN-T1-L10": {"sort": {"title": "Planning in the Seerah", "cats": [
+ {"name": "The Hijrah", "icon": "🐪", "items": ["A trusted companion", "An expert guide", "Cave of Thawr in the opposite direction", "Three days of hiding"]},
+ {"name": "Building the state", "icon": "🕌", "items": ["The mosque", "Brotherhood", "The Madinah charter", "The market"]},
+ {"name": "Battles", "icon": "🛡️", "items": ["Consultation at Badr", "Digging the trench"]}]}},
+"Y11-NN-T2-L01": {"sort": {"title": "Following the Prophet ﷺ today", "cats": [
+ {"name": "In worship", "icon": "🕌", "items": ["Prayer", "Remembering Allah"]},
+ {"name": "In character", "icon": "🌟", "items": ["Honesty", "Mercy"]},
+ {"name": "In work and leadership", "icon": "🛠️", "items": ["Excellence", "Consultation"]}]},
+ "seq": {"title": "Order the topics of verses 21–27", "steps": ["The excellent example", "The believers' firm faith", "The Confederates turned back", "Banu Qurayzah"]}},
+"Y11-NN-T2-L02": {"sort": {"title": "Grades of hadith", "cats": [
+ {"name": "Accepted", "icon": "✅", "items": ["Sahih", "Hasan"]},
+ {"name": "Rejected", "icon": "⛔", "items": ["Weak", "Fabricated"]}]},
+ "seq": {"title": "Order the grades from strongest to weakest", "steps": ["Sahih", "Hasan", "Weak", "Fabricated"]}},
+"Y11-NN-T2-L03": {"sort": {"title": "Rights in the family", "cats": [
+ {"name": "Shared", "icon": "🤝", "items": ["Kind treatment", "Respect", "Consultation"]},
+ {"name": "The wife's rights", "icon": "🏡", "items": ["Dowry", "Maintenance", "Housing"]},
+ {"name": "The husband's role", "icon": "🛡️", "items": ["Responsible leadership"]},
+ {"name": "The children's rights", "icon": "👶", "items": ["Good names", "Education", "Fairness"]}]},
+ "seq": {"title": "Order the steps for solving family problems", "steps": ["Dialogue", "Arbitrators from both families", "Divorce as a last resort, with kindness"]}},
+"Y11-NN-T2-L04": {"seq": {"title": "Order the life of Umm Salamah", "steps": ["An early Muslim who migrated to Abyssinia", "Her family stopped her from migrating to Madinah", "She migrated alone with her son", "After Abu Salamah died she made du'a", "She married the Prophet ﷺ", "She advised him at Hudaybiyah"]}},
+"Y11-NN-T2-L05": {"sort": {"title": "Al-Ahzab 28–35", "cats": [
+ {"name": "The choice", "icon": "⚖️", "items": ["Worldly life or Allah and the Hereafter", "They all chose Allah"]},
+ {"name": "Guidance", "icon": "🌿", "items": ["Don't speak in a tempting way", "Speak properly", "Stay modest", "Pray and give zakah"]},
+ {"name": "Verse 35", "icon": "🤝", "items": ["Ten qualities for men and women", "The same great reward"]}]}},
+"Y11-NN-T2-L06": {"sort": {"title": "Mutawatir or ahad?", "cats": [
+ {"name": "Mutawatir", "icon": "🌊", "items": ["So many narrators lying is impossible", "Gives certainty", "«Whoever lies about me deliberately…»"]},
+ {"name": "Ahad", "icon": "💧", "items": ["Mashhur: 3 or more", "'Aziz: 2", "Gharib: 1 narrator somewhere", "«Actions are by intentions»"]}]},
+ "seq": {"title": "Order the ahad types from most to fewest narrators", "steps": ["Mashhur", "'Aziz", "Gharib"]}},
+"Y11-NN-T2-L07": {"sort": {"title": "Shura in the Seerah", "cats": [
+ {"name": "Uhud", "icon": "⛰️", "items": ["He followed the majority"]},
+ {"name": "The trench", "icon": "🪓", "items": ["Salman's idea"]},
+ {"name": "Hudaybiyah", "icon": "🐪", "items": ["Umm Salamah's advice"]},
+ {"name": "Manners of shura", "icon": "🤝", "items": ["Consult experts", "Give honest advice", "Decide and trust Allah", "Commit to the decision"]}]},
+ "seq": {"title": "Order these consultations in time", "steps": ["Badr", "Uhud", "The trench", "Hudaybiyah"]}},
+"Y11-NN-T2-L08": {"sort": {"title": "Maxim and example", "cats": [
+ {"name": "Hardship brings ease", "icon": "🌤️", "items": ["Shortening prayer when travelling"]},
+ {"name": "Necessity permits the forbidden", "icon": "💊", "items": ["Medicine with a tiny amount of alcohol when there is no alternative"]},
+ {"name": "Private harm to prevent public harm", "icon": "🏥", "items": ["Quarantine in epidemics"]},
+ {"name": "The five major maxims", "icon": "📏", "items": ["Matters are judged by intentions", "Certainty isn't removed by doubt", "Harm must be removed", "Custom is considered"]}]}},
+"Y11-NN-T2-L09": {"sort": {"title": "Sustainability in Islam", "cats": [
+ {"name": "Islamic teachings", "icon": "🌱", "items": ["No corruption on earth", "Eat and drink but don't waste", "Plant even if the Hour comes", "Planting that feeds is charity"]},
+ {"name": "The UAE", "icon": "🇦🇪", "items": ["COP28 in 2023", "Net Zero 2050", "Masdar City", "Solar plants"]}]}},
+"Y11-NN-T3-L01": {"sort": {"title": "The Prophet ﷺ: qualities and finality", "cats": [
+ {"name": "His qualities", "icon": "🌟", "items": ["A witness", "Bringer of good news", "A warner", "Caller to Allah", "A shining lamp"]},
+ {"name": "Finality of prophethood", "icon": "🔒", "items": ["Seal of the Prophets", "No prophet after him", "Anyone claiming prophethood is a liar"]}]},
+ "seq": {"title": "Order the topics of verses 36–48", "steps": ["Accepting Allah's decision", "Ending the rule on adopted sons", "Remembering Allah often", "The Prophet's ﷺ qualities"]}},
+"Y11-NN-T3-L02": {"sort": {"title": "Manners with the Prophet's ﷺ homes", "cats": [
+ {"name": "Visiting manners", "icon": "🚪", "items": ["Enter only with permission", "Don't wait around for food", "Leave after eating", "Don't overstay"]},
+ {"name": "Sending blessings", "icon": "🤲", "items": ["Allah and His angels send blessings on him", "One blessing brings ten from Allah"]}]}},
+"Y11-NN-T3-L03": {"sort": {"title": "Fairness", "cats": [
+ {"name": "What fairness is", "icon": "⚖️", "items": ["Giving everyone their right", "Admitting truth even to opponents", "Justice even against yourself", "Not letting hatred make you unjust"]},
+ {"name": "Its effects", "icon": "🌱", "items": ["Trust", "Fewer conflicts", "A just society"]}]}},
+"Y11-NN-T3-L04": {"sort": {"title": "Who is unlawful to marry, and why?", "cats": [
+ {"name": "By blood", "icon": "🌳", "items": ["Mother", "Daughter", "Sister", "Aunt"]},
+ {"name": "By marriage", "icon": "💍", "items": ["Mother-in-law", "Father's wife", "Son's wife"]},
+ {"name": "By breastfeeding", "icon": "🍼", "items": ["Foster mother"]},
+ {"name": "Temporarily", "icon": "⏳", "items": ["Two sisters together", "A married woman", "A woman in her waiting period"]}]}},
+"Y11-NN-T3-L05": {"sort": {"title": "The Prophet's ﷺ mercy: to whom?", "cats": [
+ {"name": "Believers and children", "icon": "👶", "items": ["Shortened prayer when a baby cried", "Kissed children", "Cared for orphans and workers"]},
+ {"name": "Non-Muslims", "icon": "🤝", "items": ["Hoped for Ta'if's descendants", "Forgave Makkah", "Visited a sick Jewish boy"]},
+ {"name": "Animals", "icon": "🐪", "items": ["Forbade harming animals", "Reward in caring for every living being"]}]}},
+"Y11-NN-T3-L06": {"sort": {"title": "Harm and rumours today", "cats": [
+ {"name": "Forms of harm", "icon": "🚫", "items": ["Bullying", "False accusations", "Cyberbullying", "Posting photos without permission"]},
+ {"name": "Rumours", "icon": "📢", "items": ["Spreading fake news", "Frightening false reports"]}]},
+ "seq": {"title": "Order the topics of verses 57–62", "steps": ["Harming believers without cause", "Modest outer garments", "Warning to rumour-spreaders"]}},
+"Y11-NN-T3-L07": {"sort": {"title": "The trust", "cats": [
+ {"name": "Refused to carry it", "icon": "⛰️", "items": ["The heavens", "The earth", "The mountains"]},
+ {"name": "Carried it", "icon": "🧑", "items": ["Humans"]},
+ {"name": "Trusts today", "icon": "🔐", "items": ["Exams", "Time", "Money", "Secrets"]}]},
+ "seq": {"title": "Order the topics of verses 63–72", "steps": ["The Hour and blind following", "Speaking words of truth", "Offering the trust"]}},
+"Y11-NN-T3-L08": {"sort": {"title": "Types of thinking", "cats": [
+ {"name": "Critical", "icon": "🔍", "items": ["Bring your proof", "Check the source", "Separate fact from opinion", "Spot «everyone says so»"]},
+ {"name": "Logical", "icon": "🧩", "items": ["Ibrahim's reasoning about the stars"]},
+ {"name": "Judge carefully today", "icon": "📱", "items": ["Ads", "Online news", "AI answers"]}]}},
+"Y11-NN-T3-L09": {"sort": {"title": "Social media", "cats": [
+ {"name": "Rules for posting", "icon": "✅", "items": ["Verify first", "No backbiting", "Respect privacy", "Don't share unverified hadiths"]},
+ {"name": "Dangers", "icon": "⚠️", "items": ["Addiction", "Blackmail", "Fraud", "Extremist accounts"]},
+ {"name": "Positive use", "icon": "🌱", "items": ["Useful knowledge", "Kind words", "Charity campaigns"]}]}},
+"Y11-NN-T3-L10": {"seq": {"title": "Order the life of Imam al-Bukhari", "steps": ["Born in Bukhara in 194 AH", "Memorised thousands of hadiths as a boy", "Travelled and wrote from over a thousand teachers", "Compiled his Sahih over 16 years", "Corrected the 100 mixed-up chains in Baghdad", "Died near Samarqand in 256 AH"]}}
+}

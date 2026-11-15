@@ -1,0 +1,115 @@
+{
+"Y12-NN-T1-L01": {"sort": {"title": "How Islam protects society", "cats": [
+ {"name": "Preventive manners", "icon": "🛡️", "items": ["Lowering the gaze", "Modest dress", "Asking permission"]},
+ {"name": "Deterrent punishments", "icon": "⚖️", "items": ["Punishment for zina", "Punishment for false accusation"]},
+ {"name": "Guarantees of justice", "icon": "📜", "items": ["Only courts carry it out", "Strict proof required", "Four witnesses for an accusation", "Li'an for a special case"]}]},
+ "seq": {"title": "Order the topics of verses 1–10", "steps": ["Punishment for zina", "False accusation", "Li'an"]}},
+"Y12-NN-T1-L02": {"sort": {"title": "Approaches to tafsir", "cats": [
+ {"name": "By narration", "icon": "📜", "items": ["At-Tabari", "Ibn Kathir", "Qur'an explained by the Qur'an and Sunnah"]},
+ {"name": "Praiseworthy opinion", "icon": "🧠", "items": ["Al-Qurtubi", "Ar-Razi", "Based on language and principles"]},
+ {"name": "Blameworthy", "icon": "🚫", "items": ["Based on desire", "Based on ignorance", "«Tafsir» by non-specialists online"]}]},
+ "seq": {"title": "Order the levels of tafsir by narration", "steps": ["The Qur'an by the Qur'an", "By the Sunnah", "By the Companions' sayings"]}},
+"Y12-NN-T1-L03": {"sort": {"title": "Extremism: signs and protection", "cats": [
+ {"name": "Signs of extremism", "icon": "⚠️", "items": ["Declaring Muslims disbelievers", "Justifying violence", "Rebelling against rulers", "Forcing one opinion", "Isolating from society"]},
+ {"name": "Protection", "icon": "🛡️", "items": ["Learn from trusted scholars", "Think critically", "Talk to family", "Report extremist accounts"]}]}},
+"Y12-NN-T1-L04": {"sort": {"title": "The waiting period ('iddah)", "cats": [
+ {"name": "Three cycles", "icon": "🗓️", "items": ["A divorced woman who menstruates"]},
+ {"name": "Three months", "icon": "📅", "items": ["A divorced woman who doesn't menstruate"]},
+ {"name": "Until birth", "icon": "🤰", "items": ["A pregnant woman"]},
+ {"name": "Four months and ten days", "icon": "🕊️", "items": ["A widow"]}]},
+ "seq": {"title": "Order the steps before divorce", "steps": ["Dialogue", "Arbitration from both families", "Divorce as a last resort"]}},
+"Y12-NN-T1-L05": {"sort": {"title": "The Prophet ﷺ in society", "cats": [
+ {"name": "With Companions", "icon": "🤝", "items": ["Joked truthfully", "Visited the sick", "Attended funerals", "Accepted simple invitations"]},
+ {"name": "With neighbours", "icon": "🏘️", "items": ["Jibril's repeated advice about neighbours"]},
+ {"name": "With non-Muslims", "icon": "🌍", "items": ["Traded with them", "His armour was pledged to a Jewish man"]}]}},
+"Y12-NN-T1-L06": {"sort": {"title": "The slander incident: lessons", "cats": [
+ {"name": "What a believer should do", "icon": "✅", "items": ["Think well of others", "Say: this is clear falsehood", "Don't pass it on"]},
+ {"name": "How rumours spread", "icon": "📢", "items": ["From tongue to tongue", "Without thinking", "People think it is small"]},
+ {"name": "Forgiveness", "icon": "🤲", "items": ["Abu Bakr forgave his relative", "Don't you love that Allah forgives you?"]}]},
+ "seq": {"title": "Order the events", "steps": ["'A'ishah looked for her lost necklace", "She was left behind", "Safwan brought her back", "Hypocrites spread a lie for a month", "Allah declared her innocence"]}},
+"Y12-NN-T1-L07": {"sort": {"title": "Allah's laws in life", "cats": [
+ {"name": "Examples", "icon": "🏛️", "items": ["Change starts from within", "Results follow causes", "Testing", "The end of oppressors"]},
+ {"name": "Their features", "icon": "📏", "items": ["Fixed", "Apply to all", "Muslims lose too if they abandon the causes"]}]}},
+"Y12-NN-T1-L08": {"sort": {"title": "Responsibility", "cats": [
+ {"name": "Will be questioned", "icon": "⚖️", "items": ["Hearing", "Sight", "Heart"]},
+ {"name": "Everyone is a shepherd", "icon": "👥", "items": ["Leaders", "Parents", "Teachers", "Students"]},
+ {"name": "Being responsible", "icon": "✅", "items": ["Take initiative", "Admit mistakes", "Keep promises", "Review yourself daily"]}]}},
+"Y12-NN-T1-L09": {"sort": {"title": "Which essential does it protect?", "cats": [
+ {"name": "Life", "icon": "❤️", "items": ["Seatbelts", "Forbidding killing"]},
+ {"name": "Mind", "icon": "🧠", "items": ["Anti-drug laws", "Forbidding alcohol"]},
+ {"name": "Wealth", "icon": "💰", "items": ["Consumer protection laws", "Forbidding theft"]},
+ {"name": "Lineage and honour", "icon": "👨‍👩‍👧", "items": ["Marriage", "Forbidding false accusation"]}]},
+ "seq": {"title": "Order the levels of interests", "steps": ["Necessities", "Needs", "Refinements"]}},
+"Y12-NN-T1-L10": {"seq": {"title": "Order the milestones", "steps": ["Abu Dhabi Women's Association founded (1973)", "General Women's Union founded (1975)", "Women join government and society"]}},
+"Y12-NN-T2-L01": {"sort": {"title": "Asking permission and lowering the gaze", "cats": [
+ {"name": "Visiting homes", "icon": "🚪", "items": ["Ask permission", "Greet the people", "Go back if told to"]},
+ {"name": "Today", "icon": "📱", "items": ["Don't open others' phones", "Don't post photos without permission"]},
+ {"name": "Lowering the gaze", "icon": "👁️", "items": ["Purer for the heart", "Guarding chastity"]}]},
+ "seq": {"title": "Order the topics of verses 27–31", "steps": ["Asking permission", "Believing men lower their gaze", "Believing women lower their gaze and dress modestly"]}},
+"Y12-NN-T2-L02": {"sort": {"title": "The Prophetic approach to health", "cats": [
+ {"name": "Prevention", "icon": "🛡️", "items": ["Cleanliness", "Moderate eating", "Quarantine in plague"]},
+ {"name": "Treatment", "icon": "💊", "items": ["A cure for every disease", "Includes mental health"]},
+ {"name": "Medical ethics", "icon": "🩺", "items": ["Honesty", "Confidentiality", "No practising without knowledge"]}]}},
+"Y12-NN-T2-L03": {"sort": {"title": "Forbidden sales: why?", "cats": [
+ {"name": "Interest", "icon": "💸", "items": ["Interest on loans", "Tricks to hide interest"]},
+ {"name": "Uncertainty", "icon": "❓", "items": ["Selling what you don't own", "Unknown goods", "Gambling"]},
+ {"name": "Harm", "icon": "⚠️", "items": ["Cheating", "Fake bidding", "Hoarding", "False oaths"]},
+ {"name": "Modern forms", "icon": "📲", "items": ["Fake discounts", "Pyramid schemes"]}]}},
+"Y12-NN-T2-L04": {"sort": {"title": "National service", "cats": [
+ {"name": "Why it is a duty", "icon": "📜", "items": ["Obeying leaders in good", "Preparing strength to protect the nation"]},
+ {"name": "Values it builds", "icon": "🎖️", "items": ["Discipline", "Teamwork", "Patience", "Loyalty"]},
+ {"name": "In the UAE", "icon": "🇦🇪", "items": ["Introduced by law in 2014", "Mandatory for male citizens", "Optional for women"]}]}},
+"Y12-NN-T2-L05": {"sort": {"title": "Marriage and chastity", "cats": [
+ {"name": "Society's duty", "icon": "🤝", "items": ["Marry off the single", "Don't refuse for poverty", "Keep dowries low"]},
+ {"name": "Those who can't marry yet", "icon": "🛡️", "items": ["Stay chaste", "Be patient"]},
+ {"name": "The UAE", "icon": "🇦🇪", "items": ["Marriage Fund (1992)", "Group weddings"]}]}},
+"Y12-NN-T2-L06": {"sort": {"title": "Creativity or innovation in religion?", "cats": [
+ {"name": "Praised creativity", "icon": "💡", "items": ["The trench idea", "Brotherhood of emigrants and helpers", "The pulpit", "New worldly means"]},
+ {"name": "Rejected", "icon": "🚫", "items": ["Adding new acts of worship"]}]}},
+"Y12-NN-T2-L07": {"sort": {"title": "Which comes first?", "cats": [
+ {"name": "Obligatory before voluntary", "icon": "1️⃣", "items": ["Prayer before games", "Homework before extras"]},
+ {"name": "People's rights first", "icon": "🤝", "items": ["Paying debts before donating"]},
+ {"name": "Necessities first", "icon": "😴", "items": ["Rest before exams"]},
+ {"name": "Give each its right", "icon": "⚖️", "items": ["Your Lord", "Your self", "Your family"]}]}},
+"Y12-NN-T2-L08": {"sort": {"title": "Globalisation", "cats": [
+ {"name": "Positives", "icon": "✅", "items": ["Access to knowledge", "Technology", "Jobs", "Getting to know nations"]},
+ {"name": "Negatives", "icon": "⚠️", "items": ["Losing identity", "Consumerism", "Weaker local languages", "Harmful content"]},
+ {"name": "The aware Muslim", "icon": "⚖️", "items": ["Neither isolation nor dissolving", "Proud of identity"]}]}},
+"Y12-NN-T3-L01": {"sort": {"title": "The parable of light and the two parables", "cats": [
+ {"name": "The believer's heart", "icon": "🪔", "items": ["A niche with a lamp", "Clear glass", "Blessed olive oil", "Light upon light"]},
+ {"name": "Disbelievers' deeds", "icon": "🌊", "items": ["A mirage", "Layers of darkness in a deep sea"]},
+ {"name": "Signs in creation", "icon": "🌧️", "items": ["Clouds and hail", "Night and day", "Creatures made from water"]}]}},
+"Y12-NN-T3-L02": {"sort": {"title": "Obedience: believers and hypocrites", "cats": [
+ {"name": "Believers", "icon": "🤲", "items": ["We hear and we obey", "They are the successful"]},
+ {"name": "Hypocrites", "icon": "🎭", "items": ["Claim to obey", "Turn away when the ruling doesn't suit them"]},
+ {"name": "Causes of mercy", "icon": "🌧️", "items": ["Prayer", "Zakah", "Obeying the Messenger"]}]}},
+"Y12-NN-T3-L03": {"sort": {"title": "Tolerance with other faiths", "cats": [
+ {"name": "Rights of non-Muslims", "icon": "🛡️", "items": ["Freedom of belief", "Protection of life and property", "Justice", "Kindness"]},
+ {"name": "Tolerance does not mean", "icon": "🚫", "items": ["All beliefs are the same", "Joining their rituals"]}]}},
+"Y12-NN-T3-L04": {"sort": {"title": "Manners of dreams", "cats": [
+ {"name": "Good dreams", "icon": "🌙", "items": ["From Allah", "Tell only those you love"]},
+ {"name": "Bad dreams", "icon": "🌧️", "items": ["Seek refuge in Allah", "Spit lightly to the left three times", "Turn over", "Don't tell anyone"]},
+ {"name": "Important", "icon": "⚠️", "items": ["No rulings are built on dreams", "Beware online dream interpreters"]}]}},
+"Y12-NN-T3-L05": {"sort": {"title": "Economic systems", "cats": [
+ {"name": "Capitalism", "icon": "🏦", "items": ["No limits", "Wealth concentrates"]},
+ {"name": "Socialism", "icon": "🏭", "items": ["Removes incentive"]},
+ {"name": "Islam", "icon": "⚖️", "items": ["Wealth belongs to Allah", "Zakah and inheritance", "Banning interest and hoarding", "Islamic banking and takaful"]}]}},
+"Y12-NN-T3-L06": {"sort": {"title": "Pure homes: which verse?", "cats": [
+ {"name": "Verse 58", "icon": "⏰", "items": ["Before Fajr", "Midday rest", "After 'Isha'"]},
+ {"name": "Verse 59", "icon": "🧒", "items": ["After puberty, ask at all times"]},
+ {"name": "Verse 61", "icon": "🏠", "items": ["Greet when entering homes, even empty ones"]}]}},
+"Y12-NN-T3-L07": {"sort": {"title": "Respecting the Prophet ﷺ", "cats": [
+ {"name": "In his lifetime", "icon": "🌟", "items": ["Not leaving gatherings without permission", "Not calling him like others"]},
+ {"name": "Today", "icon": "🤲", "items": ["Follow his Sunnah", "Send blessings when he is mentioned", "Avoid exaggeration"]}]}},
+"Y12-NN-T3-L08": {"sort": {"title": "Following or blind imitation?", "cats": [
+ {"name": "Allowed", "icon": "✅", "items": ["Accepting with evidence", "Asking a trusted scholar", "Fatwas from official bodies"]},
+ {"name": "Blameworthy", "icon": "🚫", "items": ["Following imams blindly", "Fatwas from random accounts"]}]},
+ "seq": {"title": "Order the four imams by year of death", "steps": ["Abu Hanifah", "Malik", "Ash-Shafi'i", "Ahmad"]}},
+"Y12-NN-T3-L09": {"sort": {"title": "Sheikh Zayed", "cats": [
+ {"name": "Building people", "icon": "🎓", "items": ["Free education", "Women's education", "Healthcare", "Housing"]},
+ {"name": "Legacy", "icon": "🌳", "items": ["Greening the desert", "Zayed Humanitarian Day", "Year of Zayed 2018"]}]},
+ "seq": {"title": "Order Sheikh Zayed's life", "steps": ["Born around 1918, grew up in Al Ain", "Ruler's representative in Al Ain (1946)", "Ruler of Abu Dhabi (6 August 1966)", "UAE formed, first President (2 December 1971)", "Died 2 November 2004"]}},
+"Y12-NN-T3-L10": {"sort": {"title": "The knowledge economy", "cats": [
+ {"name": "Islamic ethics", "icon": "⚖️", "items": ["Honesty", "Respecting intellectual property", "Protecting data", "Using AI ethically"]},
+ {"name": "UAE efforts", "icon": "🇦🇪", "items": ["National AI Strategy 2031", "MBZUAI", "The Hope Probe", "Support for start-ups"]}]}}
+}
