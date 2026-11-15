@@ -9877,8 +9877,14 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const inDoc = (doc, f) => { const o = DOCEN; DOCEN = enDoc(doc); try { return f(); } finally { DOCEN = o; } };
     const iso = (t) => "\u2066" + t + "\u2069";
     let TM = null, IX = null, pTM = null, pIX = null;
-    const getTM = () => pTM || (pTM = fetch(BASE + "timings.json").then((r) => r.json()).then((j) => (TM = j)));
-    const getIX = () => pIX || (pIX = fetch(BASE + "quran-index.json").then((r) => r.json()).then(buildIX));
+    /* ===== العمل دون إنترنت: تلاوة سور الحصة تُنزَّل إلى الجهاز (Cache Storage) وتُشغَّل منه ===== */
+    const OFF = "hiraa-tilawa-v1";
+    const hasC = () => { try { return !!window.caches; } catch (e) { return false; } };
+    /* ملفات البيانات: من الشبكة، وإن تعذّر فمن النسخة المحفوظة */
+    const getJ = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .catch((e) => (hasC() ? caches.open(OFF).then((c) => c.match(u)).then((r) => { if (!r) throw e; return r.json(); }) : Promise.reject(e)));
+    const getTM = () => pTM || (pTM = getJ(BASE + "timings.json").then((j) => (TM = j)));
+    const getIX = () => pIX || (pIX = getJ(BASE + "quran-index.json").then(buildIX));
     const ready = () => Promise.all([getTM(), getIX()]);
 
     /* هيكل الرسم: يتطابق فيه الرسم العثماني والإملائي للآية نفسها */
@@ -10032,7 +10038,63 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     /* توقيت الكلمات (art/tilawa/words/N.json): لتشغيل العبارة المقتبسة وحدها. لا يوجد للرعد وإبراهيم (تسجيل آخر) */
     const WD = {};
     const getW = (s) => WD[s] !== undefined ? Promise.resolve(WD[s]) :
-      fetch(BASE + "words/" + s + ".json").then((r) => (r.ok ? r.json() : null)).catch(() => null).then((j) => (WD[s] = j));
+      getJ(BASE + "words/" + s + ".json").catch(() => null).then((j) => (WD[s] = j));
+    const BLOB = {}, DL = { busy: null, pct: 0 }; let SAVED = null;
+    const loadSaved = () => (!hasC() ? Promise.resolve((SAVED = new Set())) :
+      caches.open(OFF).then((c) => c.keys()).then((ks) => (SAVED = new Set(ks.map((r) => r.url)))).catch(() => (SAVED = new Set())));
+    /* سور الحصة = سور كل الآيات المعروفة في هذه الصفحة/العرض */
+    const docSurahs = (doc) => { const o = new Set(); BARS.forEach((b) => { if (b.ownerDocument === doc && b.isConnected) b._til.forEach((k) => o.add(k[0])); }); return [...o].sort((a, c) => a - c); };
+    const docSaved = (doc) => { if (!SAVED) return false; const ss = docSurahs(doc); return ss.length > 0 && ss.every((s) => SAVED.has(urlOf(s))); };
+    const tD = (doc, ar, en) => (enDoc(doc) || EN() ? en : ar);
+    const nSur = (n) => (n === 1 ? "سورة واحدة" : n === 2 ? "سورتين" : n <= 10 ? `${n} سور` : `${n} سورة`);
+    const paintDoc = (doc) => BARS.forEach((b) => { if (b.ownerDocument === doc) paint(b); });
+    const mb = (n) => (n / 1048576).toFixed(n < 10485760 ? 1 : 0);
+    function download(doc) {
+      if (DL.busy || !hasC()) return;
+      const ss = docSurahs(doc), urls = [];
+      ss.forEach((s) => { urls.push(urlOf(s)); if (!(TM.ov && TM.ov[s])) urls.push(BASE + "words/" + s + ".json"); });
+      urls.push(BASE + "timings.json", BASE + "quran-index.json");
+      const audio = urls.filter((u) => /\.mp3$/.test(u) && !SAVED.has(u));
+      Promise.all(audio.map((u) => fetch(u, { method: "HEAD" }).then((r) => +r.headers.get("content-length") || 0).catch(() => 0))).then((sz) => {
+        const total = sz.reduce((a, c) => a + c, 0);
+        const v = doc.defaultView, ok = v.confirm(tD(doc, `تنزيل تلاوة ${nSur(ss.length)} (نحو ${mb(total)} م.ب) إلى هذا الجهاز، لتعمل في الحصة دون إنترنت؟`,
+          `Download the recitation of ${ss.length} surah(s) (about ${mb(total)} MB) to this device for use without internet?`));
+        if (!ok) return;
+        try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {}
+        DL.busy = doc; DL.pct = 0; paintDoc(doc);
+        let done = 0;
+        return caches.open(OFF).then((c) => urls.reduce((pr, u) => pr.then(() => {
+          if (SAVED.has(u)) return;
+          return fetch(u).then((r) => {
+            if (!r.ok) { if (/words\//.test(u) && r.status === 404) return; throw new Error(r.status); }
+            if (!/\.mp3$/.test(u) || !r.body || !total) return c.put(u, r);
+            /* الصوت: نقرأه قطعة قطعة لنعرض النسبة */
+            const rd = r.body.getReader(), parts = [];
+            const pump = () => rd.read().then(({ done: end, value }) => {
+              if (end) return c.put(u, new Response(new Blob(parts, { type: "audio/mpeg" }), { headers: { "Content-Type": "audio/mpeg" } }));
+              parts.push(value); done += value.length; const p = Math.min(99, Math.floor((done / total) * 100));
+              if (p !== DL.pct) { DL.pct = p; paintDoc(doc); }
+              return pump();
+            });
+            return pump();
+          }).then(() => SAVED.add(u));
+        }), Promise.resolve())).then(() => { DL.busy = null; paintDoc(doc);
+          try { toast(tD(doc, "حُفظت تلاوة سور الحصة على هذا الجهاز.", "The recitation for this lesson is saved on this device.")); } catch (e) {} });
+      }).catch(() => { DL.busy = null; paintDoc(doc); try { toast(tD(doc, "تعذّر إكمال التنزيل. تحقّق من الاتصال وحاول مجددًا.", "The download could not finish. Check the connection and try again.")); } catch (e) {} });
+    }
+    function removeSaved(doc) {
+      const v = doc.defaultView; if (!v.confirm(tD(doc, "حذف تلاوة سور هذه الحصة المحفوظة على الجهاز؟", "Remove this lesson's saved recitation from the device?"))) return;
+      const ss = docSurahs(doc);
+      caches.open(OFF).then((c) => Promise.all(ss.map((s) => { const u = urlOf(s); if (BLOB[u]) { URL.revokeObjectURL(BLOB[u]); delete BLOB[u]; } return c.delete(u); })))
+        .then(loadSaved).then(() => paintDoc(doc)).catch(() => {});
+    }
+    /* مصدر التشغيل: الملف المحفوظ على الجهاز إن وُجد، وإلا من الإنترنت */
+    function srcFor(s) {
+      const u = urlOf(s); if (BLOB[u]) return Promise.resolve(BLOB[u]);
+      if (!hasC()) return Promise.resolve(u);
+      return (SAVED ? Promise.resolve(SAVED) : loadSaved()).then((set) => !set.has(u) ? u :
+        caches.open(OFF).then((c) => c.match(u)).then((r) => (r ? r.blob() : null)).then((bl) => (bl ? (BLOB[u] = URL.createObjectURL(bl)) : u))).catch(() => u);
+    }
     function wordSpan(k) {
       const [s, a, wf, wt] = k, W = WD[s]; if (!W || !W[a - 1]) return null;
       const f = W[a - 1], seg = []; for (let i = 0; i + 2 < f.length; i += 3) seg.push([f[i], f[i + 1] / 100, f[i + 2] / 100]);
@@ -10133,7 +10195,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const b = E.bar, s = b._til[E.i][0], [t0, t1] = E.ov || spanK(b, b._til[E.i]), au = audio(), u = urlOf(s);
       E.t1 = t1; E.on = true; E.loading = true;
       const go = () => { try { au.currentTime = t0; } catch (e) {} au.playbackRate = SET.spd; au.play().catch((e) => { if (e && e.name === "NotAllowedError") stop(); else fail(); }); };
-      if (au._u !== u) { au._u = u; au.src = u; au.addEventListener("loadedmetadata", go, { once: true }); au.load(); } else go();
+      if (au._u !== u) { au._u = u; srcFor(s).then((src) => { if (au._u !== u) return; au.src = src; au.addEventListener("loadedmetadata", go, { once: true }); au.load(); }); } else go();
       paint(b); if (b._onAyah) b._onAyah(b._til[E.i]);
     }
     function next() {
@@ -10179,6 +10241,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const st = q(".til-st"), L = b._til;
       if (gap) { const [, a] = L[E.i], left = Math.ceil((E.hold != null ? E.hold : E.gapEnd - Date.now()) / 1000);
         st.textContent = tx("دورك: ردّد الآية ", "Your turn: repeat ayah ") + iso(a) + " · " + iso(Math.max(0, left)) + tx(" ث", "s"); }
+      const dl = q(".til-dl"); if (dl) { const d = b.ownerDocument, sv = !!docSaved(d);
+        dl.textContent = DL.busy === d ? tx("جارٍ التنزيل ", "Downloading ") + iso(DL.pct + "%") : sv ? tx("✓ محفوظة للحصة", "✓ Saved for class") : tx("⬇ تنزيل للحصة", "⬇ Save for class");
+        dl.classList.toggle("sel", sv); dl.title = sv ? tx("التلاوة محفوظة على هذا الجهاز وتعمل دون إنترنت. اضغط لحذفها.", "Saved on this device; works offline. Tap to remove.") : dl.title; }
       const hd = q(".til-hide"); if (hd) { const H = [tx("اختبر حفظك", "Test yourself"), tx("إخفاء: أواخر الآيات", "Hide: ayah endings"), tx("إخفاء: نصف الكلمات", "Hide: half the words"), tx("إخفاء: إلا أوائل الآيات", "Hide: all but first words"), tx("إخفاء: الكل", "Hide: all")];
         hd.textContent = H[b._hide || 0]; hd.classList.toggle("sel", !!b._hide); }
       const wd = q(".til-word"); if (wd) { wd.textContent = (b._wordMode ? "✓ " : "") + tx("كلمة كلمة", "Word by word"); wd.classList.toggle("sel", !!b._wordMode); }
@@ -10195,16 +10260,20 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const b = doc.createElement("div"); b.className = "til-bar"; b.dir = EN() ? "ltr" : "rtl"; b.style.display = "flex"; /* style فيه display: لا تطاله قواعد العروض العامة على div */
       b.setAttribute("role", "group"); b.setAttribute("aria-label", tx("الاستماع إلى الآيات", "Listen to the ayat"));
       const multi = list.length > 1, B = (c, a, t) => `<button type="button" class="til-b ${c}" data-a="${a}" title="${t}"></button>`;
+      /* الأزرار الأساسية ظاهرة؛ والبقية خلف «⋯» (ويبقى الخيار المفعَّل ظاهرًا) */
       b.innerHTML = B("til-play", "play", tx("تشغيل / إيقاف مؤقت", "Play / pause")) + B("til-stop", "stop", tx("إيقاف", "Stop")) +
         (multi ? B("til-prev", "prev", tx("الآية السابقة", "Previous ayah")) + B("til-next", "next", tx("الآية التالية", "Next ayah")) : "") +
-        B("til-rep", "rep", tx("عدد مرات التكرار", "Times to repeat")) + (multi ? B("til-mode", "mode", tx("طريقة التكرار", "How to repeat")) : "") +
-        B("til-spd", "spd", tx("سرعة التلاوة", "Recitation speed")) +
-        (list.some((k) => k[2] || k[3]) ? B("til-part", "part", tx("العبارة المقتبسة وحدها، أو الآية كاملة", "Only the quoted words, or the whole ayah")) : "") +
+        B("til-rep", "rep", tx("عدد مرات التكرار", "Times to repeat")) +
         B("til-echo", "echo", tx("بعد كل آية يسكت الشيخ قدر مدتها ليرددها الطالب", "After each ayah the sheikh pauses so the student can repeat it")) +
-        (opt.words && opt.words.length ? B("til-hide", "hide", tx("اختبر حفظك: تُخفى كلمات الآية تدريجيًا، واضغط على الكلمة المخفية لإظهارها", "Test your memory: hide the words step by step; tap a hidden word to show it")) : "") +
-        (opt.words && opt.words.length && list.some((k) => !(TM.ov && TM.ov[k[0]])) ? B("til-word", "word", tx("اضغط على أي كلمة في الآية لتسمعها وحدها", "Tap any word of the ayah to hear it alone")) : "") +
+        (list.some((k) => k[2] || k[3]) ? B("til-part", "part", tx("العبارة المقتبسة وحدها، أو الآية كاملة", "Only the quoted words, or the whole ayah")) : "") +
+        (multi ? B("til-mode til-x", "mode", tx("طريقة التكرار", "How to repeat")) : "") +
+        B("til-spd til-x", "spd", tx("سرعة التلاوة", "Recitation speed")) +
+        (opt.words && opt.words.length && list.some((k) => !(TM.ov && TM.ov[k[0]])) ? B("til-word til-x", "word", tx("اضغط على أي كلمة في الآية لتسمعها وحدها", "Tap any word of the ayah to hear it alone")) : "") +
+        (opt.words && opt.words.length ? B("til-hide til-x", "hide", tx("اختبر حفظك: تُخفى كلمات الآية تدريجيًا، واضغط على الكلمة المخفية لإظهارها", "Test your memory: hide the words step by step; tap a hidden word to show it")) : "") +
+        (hasC() ? B("til-dl til-x", "dl", tx("حفظ تلاوة سور هذه الحصة على الجهاز لتعمل دون إنترنت", "Save this lesson's recitation on the device for use without internet")) : "") +
+        B("til-more", "more", tx("خيارات أخرى: السرعة، كلمة كلمة، اختبر حفظك، التنزيل للحصة", "More: speed, word by word, test yourself, save for class")) +
         `<span class="til-st"></span>`;
-      b.querySelector(".til-stop").textContent = tx("■ إيقاف", "■ Stop");
+      b.querySelector(".til-stop").textContent = tx("■ إيقاف", "■ Stop"); b.querySelector(".til-more").textContent = "⋯";
       if (multi) { b.querySelector(".til-prev").textContent = tx("→ السابقة", "← Prev"); b.querySelector(".til-next").textContent = tx("التالية ←", "Next →"); }
       b._til = list; b._onAyah = opt.onAyah || null; b._spans = opt.spans || null; b._src = opt.src || null;
       b._words = opt.words || null; b._blocks = opt.blocks || [];
@@ -10231,6 +10300,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         else if (a === "rep") { SET.rep = REPS[(REPS.indexOf(SET.rep) + 1) % REPS.length]; E.done = 0; E.loop = 0; save(); }
         else if (a === "spd") { SET.spd = SPDS[(SPDS.indexOf(SET.spd) + 1) % SPDS.length]; if (E.au && E.bar === b) E.au.playbackRate = SET.spd; save(); }
         else if (a === "mode") { SET.mode = SET.mode === "ayah" ? "range" : "ayah"; save(); }
+        else if (a === "more") { b.classList.toggle("open"); }
+        else if (a === "dl") { const d = b.ownerDocument; ready().then(() => (SAVED ? 0 : loadSaved())).then(() => { if (DL.busy) return; if (docSaved(d)) removeSaved(d); else download(d); }); }
         else if (a === "hide") { b._hide = ((b._hide || 0) + 1) % 5; b._revealed = new Set(); applyHide(b.ownerDocument); }
         else if (a === "word") { b._wordMode = !b._wordMode; b._blocks.forEach((bl) => { bl.style.cursor = b._wordMode ? "pointer" : ""; if (b._wordMode) bl.setAttribute("data-til-cur", ""); else bl.removeAttribute("data-til-cur"); }); }
         else if (a === "part") { b._whole = !b._whole; if (E.on && E.bar === b && !E.gap) seekPlay(); }
@@ -10264,17 +10335,18 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
 .til-bar .til-b:hover{background:#F6EEDC}.til-bar .til-b:focus-visible{outline:2px solid #0F7A55;outline-offset:2px}
 .til-bar .til-play{background:#0F7A55;border-color:#0F7A55;color:#fff;font-weight:700}
 .til-bar.on .til-play{background:#A8741F;border-color:#A8741F}.til-bar .til-stop[hidden]{display:none}
-.til-bar .til-hide.sel,.til-bar .til-word.sel,.til-bar .til-echo.sel{background:#E6F2EC;border-color:#0F7A55;color:#0F7A55;font-weight:700}
+.til-bar .til-dl.sel,.til-bar .til-hide.sel,.til-bar .til-word.sel,.til-bar .til-echo.sel{background:#E6F2EC;border-color:#0F7A55;color:#0F7A55;font-weight:700}
 .til-bar.gap .til-st{opacity:1;color:#A8741F;font-weight:700}
 .til-bar .til-st{opacity:.78;padding:0 .35em;white-space:normal;min-width:0}
 .til-bar.til-sm{gap:.3em;padding:.22em .3em;border-radius:1em}
-.til-bar.til-sm .til-spd,.til-bar.til-sm .til-mode,.til-bar.til-sm .til-prev,.til-bar.til-sm .til-next{display:none}
+.til-bar.til-sm .til-prev,.til-bar.til-sm .til-next{display:none}
+.til-bar:not(.open) .til-x:not(.sel){display:none}.til-bar .til-more{font-weight:700;padding-inline:.7em}.til-bar.open .til-more{background:#E6F2EC;border-color:#0F7A55}
 .til-bar.til-sm .til-st{display:none;white-space:normal;font-size:.9em}.til-bar.til-sm.on .til-st{display:block;flex-basis:100%}
 .til-bar.til-abs{position:absolute!important;bottom:.55em;inset-inline-end:.65em;margin:0;background:rgba(255,255,255,.72);backdrop-filter:blur(2px)}
 ::highlight(til-word){background-color:rgba(232,176,40,.5);color:#14243F;text-decoration:none}
 ::highlight(til-hide){color:transparent;text-decoration:underline;text-decoration-color:rgba(16,42,76,.45);text-decoration-thickness:.07em;text-decoration-style:dotted}
 @media print{::highlight(til-hide){color:inherit;background-color:transparent}}
-.til-bar.til-abs{padding:.15em;gap:.25em}.til-bar.til-abs .til-rep,.til-bar.til-abs .til-echo,.til-bar.til-abs .til-word,.til-bar.til-abs .til-hide,.til-bar.til-abs.on .til-st{display:none}
+.til-bar.til-abs{padding:.15em;gap:.25em}.til-bar.til-abs .til-rep,.til-bar.til-abs .til-echo,.til-bar.til-abs .til-word,.til-bar.til-abs .til-hide,.til-bar.til-abs .til-dl,.til-bar.til-abs .til-more,.til-bar.til-abs .til-x,.til-bar.til-abs.on .til-st{display:none}
 .til-hid{visibility:hidden!important}
 .til-ay{cursor:pointer;border-radius:.25em;transition:background .2s}
 .til-ay.til-now{background:rgba(15,122,85,.15);box-shadow:0 0 0 .14em rgba(15,122,85,.15)}
@@ -10335,6 +10407,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
         else if (inside) last.appendChild(b); else at.insertAdjacentElement("afterend", b);
         /* مساحة ضيقة: شريط مختصر (استمع + التكرار)، والتعريف بالآية يظهر أثناء التلاوة فقط */
         if (host || W < 460) b.classList.add("til-sm");
+        paint(b);   // بعد وضعه في الصفحة: حالة «محفوظة للحصة» تعتمد على سور الصفحة كلها
       };
       for (const bl of blocks) {
         DONE.add(bl);
@@ -10442,6 +10515,7 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       });
     }, 400);
     window.addEventListener("hashchange", () => stop());
+    if (hasC()) loadSaved().then(() => BARS.forEach(paint));
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => hook(document)); else hook(document);
     return { strip, bar, start, stop, ready, find: (t) => (IX ? find(t, { s: new Set(), n: 0, prev: null }) : null), keys: () => IX && IX.keys, skel };
   })();
