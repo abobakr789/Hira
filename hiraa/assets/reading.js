@@ -523,7 +523,8 @@
   async function ewsGet(code) { if (!EWS[code]) EWS[code] = await (await fetch("art/exam/" + code + ".json")).json(); return EWS[code]; }
   const ewsWc = (s) => (String(s || "").trim().match(/\S+/g) || []).length;
   async function ewsRun(box, l, u) {
-    const D = await ewsGet(l.code); const W = D.where; const LV = D.type === "levels", WL = D.wlim || (LV ? null : [100, 150]);
+    const D = await ewsGet(l.code); const W = D.where; const LV = D.type === "levels", IT = D.type === "items", WL = D.wlim || (LV || IT ? null : [100, 150]);
+    const ansArr = (a) => { try { const v = JSON.parse(a || "[]"); return Array.isArray(v) ? v : [a]; } catch (e) { return [a || ""]; } };
     const stu = isStudent() && state.session && !state.viewAs, me = stu ? state.session.user.id : null;
     let mine = null; if (stu) { const { data } = await sb.from("exam_ws").select("*").eq("lesson_id", l.id).eq("student_id", me).maybeSingle(); mine = data; }
     const save = async (o) => { if (!stu) return null; const { error } = await sb.rpc("ews_save", Object.assign({ p_lesson: l.id, p_answer: null, p_words: null, p_seconds: null, p_drills: null, p_self: null, p_self_score: null, p_max: null }, o)); if (error) toast("تعذّر الحفظ: " + error.message); return error; };
@@ -537,7 +538,12 @@
         <div class="mdr-card"><h4>معيار جودة الكتابة (درجتان)</h4><table class="lp-tbl ews-q">${D.quality.map((q) => `<tr><td><b>${q[0]}</b></td><td>${esc(q[1])}</td></tr>`).join("")}</table><p class="muted">ونقاط المحتوى: درجة لكل نقطة رئيسة يذكرها الطالب.</p></div>`;
       if (part === 1) b = `<div class="ews-skill">${D.skill.map((s, i) => `<div><span>${s[0]}</span><b>${i + 1}. ${esc(s[1])}</b><p>${esc(s[2])}</p></div>`).join("")}</div>
         <div class="mdr-card"><h4>🔗 أدوات ربط تحتاجها</h4><div class="ews-links">${D.links.map((x) => `<span>${esc(x)}</span>`).join("")}</div></div>`;
-      if (part === 2) { const E = D.example;
+      if (part === 2 && IT) { const E = D.example;
+        b = `<div class="mdr-card"><h4>النص: «${esc(E.title)}»</h4><div class="mdr-text sm">${para(E.text)}</div></div>
+          <h4>الأسئلة، وإجابة كاملة وإجابة ناقصة لكل سؤال</h4>${E.qs.map((q) => `<div class="mdr-card ews-iq"><b>${esc(q.n)} (${q.marks > 1 ? "درجتان" : "درجة"}): ${esc(q.q)}</b>
+            <div class="ews-ia ok"><span>✔ ${q.marks}/${q.marks}</span><p>${esc(q.full.a)}</p><small>${esc(q.full.note)}</small></div>
+            ${q.part ? `<div class="ews-ia no"><span>${q.part.score}/${q.marks}</span><p>${esc(q.part.a)}</p><small>${esc(q.part.note)}</small></div>` : ""}</div>`).join("")}`; }
+      else if (part === 2) { const E = D.example;
         b = `<div class="mdr-card"><h4>النص: «${esc(E.title)}»</h4><div class="mdr-text sm">${para(E.text)}</div><p class="ews-instr">${esc(W.instr)} (${W.marks} درجات)</p></div>
         <details class="mdr-card"><summary>🔑 ${esc(E.pointsT || "النقاط الرئيسة الأربع")} (حاول أن تجدها قبل أن تفتح)</summary><ol>${E.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ol></details>
         <h4>ثلاث إجابات وكيف صُحّحت</h4>${E.models.map((m) => `<div class="mdr-card ews-model ${m.cls}"><div class="mdr-lg-h"><b class="ews-badge">${m.lvl}</b><small class="muted">${m.words} كلمة · ${m.marks ? `النقاط ${m.marks.reduce((a, b) => a + b, 0)}/4 · الجودة ${m.q}/2` : `المستوى <bdi dir="ltr">${esc(D.bands[m.band][0])}–${esc(D.bands[m.band][1])}</bdi>`}</small></div>
@@ -552,7 +558,8 @@
       if (part === 4) { const X = D.exam, done = mine && mine.submitted_at;
         b = `<div class="mdr-card"><h4>النص: «${esc(X.title)}»</h4><div class="mdr-text sm">${para(X.text)}</div><p class="ews-instr">${esc(X.instr2 || W.instr)} (${W.marks} درجات)</p></div>
           ${stu || !isStaff() ? `<div class="mdr-card"><div class="rb-top"><span class="mdr-big" id="ewsT">${done ? "✅" : "0:00"}</span><span class="muted">الوقت المقترح ${X.minutes} دقيقة</span><span id="ewsWc" class="pill"></span></div>
-            <textarea class="mdr-ta ews-ta" id="ewsA" rows="9" ${mine && mine.graded_at ? "disabled" : ""} placeholder="${esc(D.exam.ph || "اكتب تلخيصك هنا بأسلوبك…")}">${esc((mine && mine.answer) || "")}</textarea>
+            ${IT ? D.exam.qs.map((q, j) => { const prev = ansArr(mine && mine.answer)[j] || ""; return `<label class="ews-qi"><b>${esc(q.n)} (${q.marks}): ${esc(q.q)}</b><textarea class="mdr-ta ews-qa" data-j="${j}" rows="2" ${mine && mine.graded_at ? "disabled" : ""}>${esc(prev)}</textarea></label>`; }).join("") + `<textarea id="ewsA" hidden></textarea>` : ""}
+            <textarea class="mdr-ta ews-ta" ${IT ? "hidden" : ""} id="${IT ? "ewsA0" : "ewsA"}" rows="9" ${mine && mine.graded_at ? "disabled" : ""} placeholder="${esc(D.exam.ph || "اكتب تلخيصك هنا بأسلوبك…")}">${esc((mine && mine.answer) || "")}</textarea>
             <p class="form-error" id="ewsE"></p><button class="btn btn-primary" id="ewsSub" ${mine && mine.graded_at ? "disabled" : ""}>📤 ${done ? "عدّل وأعد التصحيح" : "سلّم وصحّح نفسك"}</button>
             ${!stu ? `<p class="muted">جرّب الكتابة هنا؛ لا تُحفظ إجابتك إلا بحساب طالب.</p>` : ""}</div><div id="ewsSelf"></div>` : ""}
           ${isStaff() && state.session ? `<div id="ewsT2"></div>` : ""}`; }
@@ -574,13 +581,24 @@
       }
       if (part === 4) {
         const ta = box.querySelector("#ewsA"); if (ta) { const wcE = box.querySelector("#ewsWc"); const t0 = Date.now(); let tm = null;
-          const up = () => { const n = ewsWc(ta.value); wcE.textContent = `${n} كلمة`; wcE.className = "pill " + (!WL ? "" : n >= WL[0] && n <= WL[1] ? "ok" : n ? "warn" : ""); }; ta.oninput = () => { up(); if (!tm && !(mine && mine.submitted_at)) tm = setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000), el = box.querySelector("#ewsT"); if (!el) { clearInterval(tm); return; } el.textContent = Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); el.classList.toggle("late", s > D.exam.minutes * 60); }, 500); }; up();
-          box.querySelector("#ewsSub").onclick = () => { const n = ewsWc(ta.value), e = box.querySelector("#ewsE"); if (n < (D.exam.minWords || 40)) { e.textContent = "اكتب إجابة كاملة أولًا."; return; } e.textContent = ""; clearInterval(tm); selfCheck(ta.value, n, Math.round((Date.now() - t0) / 1000)); };
+          const qas = [...box.querySelectorAll(".ews-qa")], getA = () => qas.map((x) => x.value.trim()), wcAll = () => IT ? getA().reduce((a, v) => a + ewsWc(v), 0) : ewsWc(ta.value);
+          const up = () => { const n = wcAll(); wcE.textContent = `${n} كلمة`; wcE.className = "pill " + (!WL ? "" : n >= WL[0] && n <= WL[1] ? "ok" : n ? "warn" : ""); }; ta.oninput = () => { up(); if (!tm && !(mine && mine.submitted_at)) tm = setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000), el = box.querySelector("#ewsT"); if (!el) { clearInterval(tm); return; } el.textContent = Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); el.classList.toggle("late", s > D.exam.minutes * 60); }, 500); }; up(); if (IT) qas.forEach((x) => x.oninput = () => ta.oninput());
+          box.querySelector("#ewsSub").onclick = () => { const n = wcAll(), e = box.querySelector("#ewsE"); if (IT) { if (getA().some((v) => !v)) { e.textContent = "أجب عن كل الأسئلة."; return; } e.textContent = ""; clearInterval(tm); selfCheck(JSON.stringify(getA()), n, Math.round((Date.now() - t0) / 1000)); return; } if (n < (D.exam.minWords || 40)) { e.textContent = "اكتب إجابة كاملة أولًا."; return; } e.textContent = ""; clearInterval(tm); selfCheck(ta.value, n, Math.round((Date.now() - t0) / 1000)); };
           if (mine && mine.submitted_at) showResult(); }
         if (isStaff() && state.session) ewsTeacher(box.querySelector("#ewsT2"), D, l, u);
       }
     };
     const selfCheck = (ans, n, sec) => { const X = D.exam, el = box.querySelector("#ewsSelf");
+      if (IT) { const A = ansArr(ans);
+        el.innerHTML = `<div class="mdr-card ews-self"><h4>✅ صحّح نفسك: قارن إجابتك بالإجابة النموذجية</h4><p class="muted">في الأسئلة ذات الدرجتين: درجة للإجابة ودرجة للعبارة الداعمة بين علامتي تنصيص.</p>
+          ${X.qs.map((q, j) => `<div class="ews-iq"><b>${esc(q.n)} (${q.marks}): ${esc(q.q)}</b><div class="ews-ia"><span>إجابتك</span><p>${esc(A[j] || "")}</p></div><div class="ews-ia ok"><span>النموذج</span><p>${esc(q.model)}</p></div>
+            <label class="ews-chk">درجتي: <select data-it="${j}">${Array.from({ length: q.marks + 1 }, (_, k) => `<option>${k}</option>`).join("")}</select> / ${q.marks}</label></div>`).join("")}
+          <button class="btn btn-primary" id="ewsOk">احفظ درجتي</button></div>`;
+        el.scrollIntoView({ behavior: "smooth" });
+        el.querySelector("#ewsOk").onclick = async () => { const it = [...el.querySelectorAll("[data-it]")].map((x) => +x.value), sc = it.reduce((a, b) => a + b, 0), sm = { it };
+          const err = await save({ p_answer: ans, p_words: n, p_seconds: sec, p_self: sm, p_self_score: sc, p_max: D.where.marks }); if (err) return;
+          mine = Object.assign(mine || {}, { answer: ans, words: n, self_marks: sm, self_score: sc, max_score: D.where.marks, submitted_at: new Date().toISOString() }); draw(); };
+        return; }
       if (LV) { el.innerHTML = `<div class="mdr-card ews-self"><h4>✅ صحّح نفسك بجدول الدرجات الرسمي</h4><p class="muted">راجع ما كتبته: أيّ هذه العناصر حلّلته مع شاهد من النص؟</p>
           ${X.points.map((p, i) => `<label class="ews-chk"><input type="checkbox" data-pt="${i}"> ${esc(p)}</label>`).join("")}
           <h4>اختر المستوى الذي يصف إجابتك</h4>${D.bands.map((b, k) => `<label class="ews-chk"><input type="radio" name="ewsB" value="${k}"> <b><bdi dir="ltr">${b[0]}–${b[1]}</bdi></b>: ${esc(b[2])}${b[3] ? ` <small class="muted">الشاهد: ${esc(b[3])}</small>` : ""}</label>`).join("")}
@@ -604,6 +622,10 @@
         mine = Object.assign(mine || {}, { answer: ans, words: n, self_marks: { pts, q: +q.value }, self_score: sc, max_score: D.where.marks, submitted_at: new Date().toISOString() }); draw(); };
     };
     const showResult = () => { const X = D.exam, el = box.querySelector("#ewsSelf"), sm = mine.self_marks || { pts: [], q: 0 }, tm = mine.t_marks;
+      if (IT) { const A = ansArr(mine.answer), M = (tm || sm).it || [];
+        el.innerHTML = `<div class="mdr-card ews-res"><h4>نتيجتك</h4><div class="lp-stats"><div><b>${mine.self_score}/${mine.max_score}</b><small>تصحيحك الذاتي</small></div>${mine.graded_at ? `<div><b>${mine.t_score}/${mine.max_score}</b><small>درجة معلمك</small></div>` : `<div><b>⏳</b><small>بانتظار تصحيح معلمك</small></div>`}</div>
+          ${X.qs.map((q, j) => `<div class="ews-iq"><b>${esc(q.n)}: ${esc(q.q)} <span class="pill ${M[j] === q.marks ? "ok" : "warn"}">${M[j] != null ? M[j] : "—"}/${q.marks}</span></b><div class="ews-ia"><span>إجابتك</span><p>${esc(A[j] || "")}</p></div><div class="ews-ia ok"><span>النموذج</span><p>${esc(q.model)}</p></div></div>`).join("")}
+          ${mine.t_note ? `<p class="mdr-task">🧑‍🏫 ${esc(mine.t_note)}</p>` : ""}</div>`; return; }
       el.innerHTML = `<div class="mdr-card ews-res"><h4>نتيجتك</h4><div class="lp-stats"><div><b>${mine.self_score}/${mine.max_score}</b><small>تصحيحك الذاتي</small></div>${mine.graded_at ? `<div><b>${mine.t_score}/${mine.max_score}</b><small>درجة معلمك</small></div>` : `<div><b>⏳</b><small>بانتظار تصحيح معلمك</small></div>`}<div><b>${mine.words}</b><small>كلمة</small></div></div>
         ${LV ? `<p class="ews-band">📊 ${esc((D.bands[(tm || sm).band] || [, , ""])[2])}</p>` : `<div class="ews-pts">${X.points.map((p, i) => { const v = tm ? (tm.pts || [])[i] : (sm.pts || [])[i]; return `<span class="${v ? "ok" : "no"}">${v ? "✔" : "✘"} ${esc(p.split(":")[0])}</span>`; }).join("")}</div>`}
         ${mine.t_note ? `<p class="mdr-task">🧑‍🏫 ${esc(mine.t_note)}</p>` : ""}
@@ -619,6 +641,17 @@
     S.push({ t: "sc", d: { title: "هدف الدرس ومعايير النجاح", obj: D.obj, items: D.sc.map((t) => ({ t })) }, n: "اقرأ المعايير، واطلب من كل طالب أن يحدّد المعيار الذي يراه الأصعب عليه." });
     if (tf.length >= 2) S.push({ t: "starter", d: { title: "استرجاع سريع", sub: "صح أم خطأ؟ صحّح الخاطئة في دفترك", cards: tf.slice(0, 6) }, n: "3 دقائق: من الدروس السابقة في المؤهّل. انقر البطاقة لكشف الحكم." });
     S.push({ t: "strategy", d: { title: "المهارة في ست خطوات", steps: D.skill.map((x) => `${x[0]} ${x[1]}: ${x[2]}`) }, n: "اكشف الخطوات واحدة واحدة، ومثّل لكل خطوة بجملة من النص القادم." });
+    if (D.type === "items") {
+      S.push({ t: "ex", d: { k: "text", title: `أنا أطبّق أمامكم: «${E.title}»`, text: E.text, instr: "اقرأ النص، ثم أجب عن الأسئلة." }, n: "اقرأ النص، وظلّل بالقلم الكلمات المفتاحية التي يسأل عنها كل سؤال." });
+      E.qs.forEach((q) => S.push({ t: "ex", d: { k: "itemq", title: `${q.n} (${q.marks})`, q }, n: "اقرأ السؤال، وحدّد الكلمة المفتاحية، وابحث عنها في النص بصوت مسموع. ثم اكشف الإجابة الكاملة والناقصة وناقش الفرق." }));
+      S.push({ t: "ex", d: { k: "sort", title: "نطبّق معًا: " + (D.drills.sortT || "فكرة رئيسة أم تفصيل؟"), items: D.drills.sort, L: D.drills.sortL }, n: "يرفع الطلاب يدًا للخيار الأول وقبضة للثاني، ثم اكشف الإجابة." });
+      D.drills.para.forEach((q, j) => S.push({ t: "ex", d: { k: "para", title: `${D.drills.paraT || "اختر الأفضل"} (${j + 1}/${D.drills.para.length})`, q }, n: "يكتب الطلاب رقم الخيار على السبورات الصغيرة، ثم اكشف الصحيح وسببه." }));
+      S.push({ t: "ex", d: { k: "task", title: `أنت تطبّق: «${X.title}»`, text: X.text, instr: "أجب عن الأسئلة في الشريحة التالية", min: X.minutes }, n: `${X.minutes} دقائق: شغّل المؤقت، واترك الشريحة التالية ظاهرة.` });
+      S.push({ t: "ex", d: { k: "qlist", title: "الأسئلة", qs: X.qs }, n: "" });
+      S.push({ t: "ex", d: { k: "qans", title: "الإجابات النموذجية: صحّح إجابة زميلك", qs: X.qs }, n: "يتبادل الطلاب الدفاتر، ويصحّحون: في سؤالي الدرجتين، درجة للإجابة ودرجة للعبارة بين علامتي تنصيص." });
+      S.push({ t: "ex", d: { k: "mist", title: "أخطاء شائعة", items: D.mistakes }, n: "اسأل: أيّ هذه الأخطاء وقعتَ فيه اليوم؟" });
+      S.push({ t: "exit", d: { title: "بطاقة الخروج", sub: "امسح الرمز: ورشة الامتحان وأسئلتها على حراء", url: appUrl() + "#/lesson/" + ctx.l.code }, n: "" });
+      return S; }
     S.push({ t: "ex", d: { k: "text", title: `أنا أطبّق أمامكم: «${E.title}»`, text: E.text, instr: W.instr + ` (${W.marks} درجات)` }, n: "فكّر بصوت مسموع: اقرأ الفقرة، وقل: «ما الفكرة الرئيسة هنا؟ وما المثال الذي سأحذفه؟». ظلّل بالقلم الأفكار الرئيسة." });
     if (D.type === "levels") S.push({ t: "ex", d: { k: "bands", title: "جدول الدرجات الرسمي", bands: D.bands }, n: "اقرأ المستويات من الأدنى إلى الأعلى، واسأل: ما الفرق بين «شرح واضح» و«شرح مفصّل»؟ وما الذي يرفع الشاهد إلى «دعم تام»؟" });
     S.push({ t: "ex", d: { k: "points", title: E.pointsT || "النقاط الرئيسة الأربع", items: E.points, note: D.type === "levels" ? "كل عنصر يحتاج: التسمية + الشاهد + الأثر" : "درجة لكل نقطة · والأمثلة والأقوال لا درجة لها" }, n: "اكشف النقاط واحدة واحدة، وقارن بما ظلّله الطلاب." });
@@ -652,6 +685,9 @@
       case "para": return `<div class="tdx-src">«${X(d.q.src)}»</div><div class="tdx-opts">${d.q.o.map((o, k) => `<div class="${k === d.q.c ? "c" : ""}"><span>${k + 1}</span>${X(o)}</div>`).join("")}</div><div class="tdx-why rv">✔ الخيار ${d.q.c + 1}: ${X(d.q.why)}</div>`;
       case "task": return `<div class="tdx-tx sm">${d.text.map((p) => `<p>${X(p)}</p>`).join("")}</div><div class="tdx-instr">${X(d.instr)} · ⏱️ ${d.min} دقيقة</div>`;
       case "peer": return `<div class="tdx-two"><div class="tdx-grid"><b>✔ النقاط الرئيسة (درجة لكل نقطة)</b>${d.points.map((p) => `<div><span>${X(p)}</span><em>☐</em></div>`).join("")}</div><div class="tdx-grid"><b>جودة الكتابة</b>${d.quality.map((q) => `<div><span>${X(q[1])}</span><em>${q[0]}</em></div>`).join("")}<div class="tdx-score">المجموع: ...... / ${d.max}</div><div class="tdx-note">نصيحة واحدة لزميلي: ......................</div></div></div>`;
+      case "itemq": return `<div class="tdx-src">${X(d.q.q)}</div><div class="tdx-ia ok rv"><span>✔ ${d.q.marks}/${d.q.marks}</span><p>${X(d.q.full.a)}</p><small>${X(d.q.full.note)}</small></div>${d.q.part ? `<div class="tdx-ia no rv"><span>${d.q.part.score}/${d.q.marks}</span><p>${X(d.q.part.a)}</p><small>${X(d.q.part.note)}</small></div>` : ""}`;
+      case "qlist": return `<ol class="tdx-pts many">${d.qs.map((q) => `<li><span>${X(q.n.replace(/\D/g, "") || "•")}</span><p>${X(q.q)} <small>(${q.marks})</small></p></li>`).join("")}</ol>`;
+      case "qans": return `<div class="tdx-qans">${d.qs.map((q) => `<div class="rv"><b>${X(q.n)}</b><p>${X(q.model)}</p></div>`).join("")}</div>`;
       case "answer": return `<div class="tdx-ans big rv">${X(d.text)}<small>${d.words} كلمة</small></div>`;
       case "mist": return `<div class="tdx-mist">${d.items.map((m) => `<div class="rv"><span>${m[0]}</span><b>${X(m[1])}</b><p>${X(m[2])}</p>${m[3] ? `<small>📄 ${src[m[3]]}</small>` : ""}</div>`).join("")}</div>`;
     }
@@ -669,15 +705,20 @@
       const { data } = SS.length ? await sb.from("exam_ws").select("*").eq("lesson_id", l.id).in("student_id", SS.map((s) => s.id)) : { data: [] };
       const R = {}; (data || []).forEach((r) => { R[r.student_id] = r; }); const subs = SS.filter((s) => R[s.id] && R[s.id].submitted_at);
       el.innerHTML = `<div class="mdr-card"><h3>🧑‍🏫 إجابات الفصل وتصحيحها</h3>${cls.length > 1 ? `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>` : ""}
-        <p class="muted">سلّم ${subs.length} من ${SS.length}. ${D.type === "levels" ? "التصحيح بجدول الدرجات الرسمي: اختر المستوى ثم الدرجة داخله." : "التصحيح بمعيار الامتحان: درجة لكل نقطة، ودرجتان للجودة."}</p>
+        <p class="muted">سلّم ${subs.length} من ${SS.length}. ${D.type === "items" ? "التصحيح سؤالًا سؤالًا بمقارنة الإجابة بالنموذج." : D.type === "levels" ? "التصحيح بجدول الدرجات الرسمي: اختر المستوى ثم الدرجة داخله." : "التصحيح بمعيار الامتحان: درجة لكل نقطة، ودرجتان للجودة."}</p>
         ${subs.map((s) => { const r = R[s.id], tm = r.t_marks || r.self_marks || { pts: [], q: 0 }; return `<div class="ews-g" data-st="${s.id}"><div class="mdr-lg-h"><b>${esc(s.name)}</b><small class="muted">${r.words} كلمة · ${Math.round((r.seconds || 0) / 60)} د · ذاتي ${r.self_score}/${r.max_score}${r.graded_at ? ` · ✔ ${r.t_score}/${r.max_score}` : ""}</small></div>
-          <p class="ews-ans">${esc(r.answer)}</p>${D.type === "levels" ? `<div class="ews-gl">${D.bands.map((b, k) => `<label><input type="radio" name="gb${s.id}" value="${k}" ${tm.band === k ? "checked" : ""}> <b><bdi dir="ltr">${b[0]}–${b[1]}</bdi></b> ${esc(b[2])}</label>`).join("")}</div>
+          ${D.type === "items" ? D.exam.qs.map((q, j) => { const A = (() => { try { return JSON.parse(r.answer); } catch (e) { return [r.answer]; } })(); const cur = ((r.t_marks || r.self_marks || {}).it || [])[j];
+            return `<div class="ews-iq"><b>${esc(q.n)} (${q.marks}): ${esc(q.q)}</b><div class="ews-ia"><span>الطالب</span><p>${esc(A[j] || "")}</p></div><div class="ews-ia ok"><span>النموذج</span><p>${esc(q.model)}</p></div>
+              <label>الدرجة: <select class="ews-gi" data-j="${j}">${Array.from({ length: q.marks + 1 }, (_, k) => `<option ${cur === k ? "selected" : ""}>${k}</option>`).join("")}</select> / ${q.marks}</label></div>`; }).join("") : `<p class="ews-ans">${esc(r.answer)}</p>`}${D.type === "items" ? "" : D.type === "levels" ? `<div class="ews-gl">${D.bands.map((b, k) => `<label><input type="radio" name="gb${s.id}" value="${k}" ${tm.band === k ? "checked" : ""}> <b><bdi dir="ltr">${b[0]}–${b[1]}</bdi></b> ${esc(b[2])}</label>`).join("")}</div>
           <div class="ews-gp">الدرجة: <input type="number" class="ews-gm" min="0" max="${D.where.marks}" value="${r.t_score != null ? r.t_score : r.self_score}"> / ${D.where.marks}</div>`
           : `<div class="ews-gp">${D.exam.points.map((p, i) => `<label><input type="checkbox" data-pt="${i}" ${(tm.pts || [])[i] ? "checked" : ""}> ${esc(p.split(":")[0])}</label>`).join("")}</div>
           <div class="ews-gp">الجودة: ${D.quality.map((q) => `<label><input type="radio" name="gq${s.id}" value="${q[0]}" ${tm.q === q[0] ? "checked" : ""}> ${q[0]}</label>`).join("")}</div>`}
           <textarea class="mdr-ta" rows="2" placeholder="ملاحظة للطالب">${esc(r.t_note || "")}</textarea><button class="btn btn-primary btn-small ews-gs">💾 حفظ الدرجة</button></div>`; }).join("") || `<p class="muted">لم يسلّم أحد بعد.</p>`}</div>`;
       el.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; draw(); });
-      el.querySelectorAll(".ews-g").forEach((g) => g.querySelector(".ews-gs").onclick = async () => { if (D.type === "levels") { const b = g.querySelector(`input[name="gb${g.dataset.st}"]:checked`), mk = +g.querySelector(".ews-gm").value;
+      el.querySelectorAll(".ews-g").forEach((g) => g.querySelector(".ews-gs").onclick = async () => { if (D.type === "items") { const it = [...g.querySelectorAll(".ews-gi")].map((x) => +x.value), mk = it.reduce((a, b) => a + b, 0);
+          const { error } = await sb.rpc("ews_grade", { p_lesson: l.id, p_student: g.dataset.st, p_marks: { it }, p_score: mk, p_note: g.querySelector("textarea").value.trim() || null });
+          if (error) toast("تعذّر الحفظ: " + error.message); else { toast(`حُفظت الدرجة ${mk}/${D.where.marks}`); draw(); } return; }
+        if (D.type === "levels") { const b = g.querySelector(`input[name="gb${g.dataset.st}"]:checked`), mk = +g.querySelector(".ews-gm").value;
           if (!b) { toast("اختر المستوى"); return; } const B = D.bands[+b.value]; if (!(mk >= B[0] && mk <= B[1])) { toast(`الدرجة في هذا المستوى بين ${B[0]} و${B[1]}`); return; }
           const { error } = await sb.rpc("ews_grade", { p_lesson: l.id, p_student: g.dataset.st, p_marks: { band: +b.value, mark: mk }, p_score: mk, p_note: g.querySelector("textarea").value.trim() || null });
           if (error) toast("تعذّر الحفظ: " + error.message); else { toast(`حُفظت الدرجة ${mk}/${D.where.marks}`); draw(); } return; }
