@@ -6,6 +6,8 @@ html=open(src+'index.html').read(); css=open(src+'assets/style.css').read(); app
 css+='\n'+open(src+'assets/arcade.css').read(); app=open(src+'assets/arcade.js').read()+'\n'+app
 # معارج حراء: وحدة دورات المهارات، تُدمج قبل التطبيق
 css+='\n'+open(src+'assets/maarij.css').read(); app=open(src+'assets/maarij.js').read()+'\n'+app
+# مدارج القراءة: تُحقن داخل app.js في موضع العلامة فتشارك دواله
+assert '  //@@READING@@\n' in app; app=app.replace('  //@@READING@@\n', open(src+'assets/reading.js').read()+'\n')
 anon="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzYmt0amJ3anlrZ3Rra3FmYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM1NDc2MTYsImV4cCI6MjEwOTEyMzYxNn0.ZR43uZNPdpnw8vhEf5Qr2ThHjRTZC2seCICDjiMfeW8"
 config=f'''// المفتاح العام (anon) آمن للنشر؛ الصلاحيات مفروضة من قاعدة البيانات. لا تضع هنا مفتاح service_role.
 window.HIRAA_CONFIG = {{ supabaseUrl: "https://vsbktjbwjykgtkkqfblj.supabase.co", supabaseKey: "{anon}" }};
