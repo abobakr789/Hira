@@ -2695,3 +2695,25 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .bd-dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}.bd-dots i{width:8px;height:8px;border-radius:50%;background:#D7E5F7}.bd-dots i.on{background:#2E6FBF;width:22px;border-radius:8px}
 .mdr-board .mdr-ruler{box-shadow:0 0 0 9999px rgba(15,23,42,.18)}
 [data-theme="dark"] .mdr-board{background:#0f1720;color:#e5e7eb}[data-theme="dark"] .bd-btn,[data-theme="dark"] .bd-opt{background:#1a2433;color:#e5e7eb;border-color:#2b3a50}
+/* أستوديو التسجيل */
+.mdr-stu{max-width:900px}.stu-tx{max-height:48vh;overflow:auto;border:1.5px solid #E5E7EB!important;border-radius:12px;padding:12px 16px!important;line-height:2.1}
+.stu-s{border-radius:8px;padding:2px 3px;transition:background .15s}.stu-s.cur{background:#FFE9A8;color:#111}.stu-s.done{color:#6b7280}
+.stu-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}.stu-next{font-size:1.15rem;padding:12px 22px}
+.stu-dot{width:14px;height:14px;border-radius:50%;background:#9ca3af}.stu-dot.on{background:#dc2626;animation:stuP 1s infinite}@keyframes stuP{50%{opacity:.3}}
+/* منافسة الفصول */
+.mdr-cb{margin-top:14px;border-top:1px dashed #D7E5F7;padding-top:10px}.mdr-cb h4{margin:0 0 4px}
+.mdr-cb-r{display:grid;grid-template-columns:2.2em 130px 1fr 300px;gap:10px;align-items:center;padding:6px 8px;border-radius:12px}
+.mdr-cb-r.me{background:#EEF4FC;outline:1.5px solid #9DC0EA}.mdr-cb-n{font-size:1.2rem;text-align:center}
+.mdr-cb-bar{height:10px;background:#EEF2F7;border-radius:6px;overflow:hidden}.mdr-cb-bar i{display:block;height:100%;background:linear-gradient(90deg,#1E6BC2,#2E9E6A);border-radius:6px}
+.mdr-cb-v small{color:var(--muted,#6b7280)}
+@media (max-width:640px){.mdr-cb-r{grid-template-columns:2em 1fr}.mdr-cb-bar,.mdr-cb-v{grid-column:2}}
+[data-theme="dark"] .mdr-cb-r.me{background:#132238}
+/* قياس القراءة */
+.rb-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.rb-card{border:1.5px solid #E5E7EB;border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;opacity:.7}.rb-card.cur{opacity:1;border-color:#9DC0EA;background:#F3F8FF}.rb-card.done{opacity:1}
+.rb-card .ok{color:#0f7a4a;font-weight:700}
+.rb-steps{margin:6px 0 12px;padding-inline-start:22px;line-height:1.9}
+.rb-top{display:flex;gap:12px;align-items:center;position:sticky;top:64px;background:var(--card,#fff);padding:8px 0;z-index:2}
+.rb-title{text-align:center;color:#2E6FBF}.rb-tx{font-size:1.45rem!important;line-height:2.2!important}
+.rb-tbl td{text-align:center}.rb-tbl td:first-child{text-align:start}.rb-up{color:#0f7a4a}.rb-dn{color:#b42318}
+.rb-link{margin-top:8px;background:linear-gradient(90deg,#EAF7F0,#F3F8FF);border-color:#A8D9BD}

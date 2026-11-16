@@ -2713,6 +2713,28 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .bd-dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}.bd-dots i{width:8px;height:8px;border-radius:50%;background:#D7E5F7}.bd-dots i.on{background:#2E6FBF;width:22px;border-radius:8px}
 .mdr-board .mdr-ruler{box-shadow:0 0 0 9999px rgba(15,23,42,.18)}
 [data-theme="dark"] .mdr-board{background:#0f1720;color:#e5e7eb}[data-theme="dark"] .bd-btn,[data-theme="dark"] .bd-opt{background:#1a2433;color:#e5e7eb;border-color:#2b3a50}
+/* أستوديو التسجيل */
+.mdr-stu{max-width:900px}.stu-tx{max-height:48vh;overflow:auto;border:1.5px solid #E5E7EB!important;border-radius:12px;padding:12px 16px!important;line-height:2.1}
+.stu-s{border-radius:8px;padding:2px 3px;transition:background .15s}.stu-s.cur{background:#FFE9A8;color:#111}.stu-s.done{color:#6b7280}
+.stu-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}.stu-next{font-size:1.15rem;padding:12px 22px}
+.stu-dot{width:14px;height:14px;border-radius:50%;background:#9ca3af}.stu-dot.on{background:#dc2626;animation:stuP 1s infinite}@keyframes stuP{50%{opacity:.3}}
+/* منافسة الفصول */
+.mdr-cb{margin-top:14px;border-top:1px dashed #D7E5F7;padding-top:10px}.mdr-cb h4{margin:0 0 4px}
+.mdr-cb-r{display:grid;grid-template-columns:2.2em 130px 1fr 300px;gap:10px;align-items:center;padding:6px 8px;border-radius:12px}
+.mdr-cb-r.me{background:#EEF4FC;outline:1.5px solid #9DC0EA}.mdr-cb-n{font-size:1.2rem;text-align:center}
+.mdr-cb-bar{height:10px;background:#EEF2F7;border-radius:6px;overflow:hidden}.mdr-cb-bar i{display:block;height:100%;background:linear-gradient(90deg,#1E6BC2,#2E9E6A);border-radius:6px}
+.mdr-cb-v small{color:var(--muted,#6b7280)}
+@media (max-width:640px){.mdr-cb-r{grid-template-columns:2em 1fr}.mdr-cb-bar,.mdr-cb-v{grid-column:2}}
+[data-theme="dark"] .mdr-cb-r.me{background:#132238}
+/* قياس القراءة */
+.rb-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.rb-card{border:1.5px solid #E5E7EB;border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;opacity:.7}.rb-card.cur{opacity:1;border-color:#9DC0EA;background:#F3F8FF}.rb-card.done{opacity:1}
+.rb-card .ok{color:#0f7a4a;font-weight:700}
+.rb-steps{margin:6px 0 12px;padding-inline-start:22px;line-height:1.9}
+.rb-top{display:flex;gap:12px;align-items:center;position:sticky;top:64px;background:var(--card,#fff);padding:8px 0;z-index:2}
+.rb-title{text-align:center;color:#2E6FBF}.rb-tx{font-size:1.45rem!important;line-height:2.2!important}
+.rb-tbl td{text-align:center}.rb-tbl td:first-child{text-align:start}.rb-up{color:#0f7a4a}.rb-dn{color:#b42318}
+.rb-link{margin-top:8px;background:linear-gradient(90deg,#EAF7F0,#F3F8FF);border-color:#A8D9BD}
 
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
@@ -6765,9 +6787,12 @@ window.HiraArcade = (function () {
           ${Object.keys(sk).map((k) => `<div><b>${sk[k][1] ? Math.round(sk[k][0] * 100 / sk[k][1]) + "%" : "—"}</b><small>${MDR_SK[k][0]} ${MDR_SK[k][1]}</small>${mdrBar(sk[k][0], sk[k][1])}</div>`).join("")}</div>
         ${mdrCurve(all.map((x, i) => { const r = x.lesson && mine[x.lesson.id]; return [i + 1, r && (r.wcpm != null ? r.wcpm : r.wpm), x.t, r && r.wcpm != null]; }).filter((p) => p[1]), target, all.length)}
         ${mdrLeague(all, mine, year, term)}
-        <a class="mdr-rlog-link" href="#/readlog"><span>📚</span><div><b>سِجِلُّ الْقِراءَةِ الْحُرَّةِ</b><small>اقْرَأْ كُتُبًا مِنِ اخْتِيارِكَ وَلَخِّصْها، وَامْلَأْ جَوازاتِ التَّحَدّي الْخَمْسَةَ (50 كِتابًا)</small></div><i>←</i></a></div>` : "";
+        <div id="mdrCB"></div>
+        <a class="mdr-rlog-link" href="#/readlog"><span>📚</span><div><b>سِجِلُّ الْقِراءَةِ الْحُرَّةِ</b><small>اقْرَأْ كُتُبًا مِنِ اخْتِيارِكَ وَلَخِّصْها، وَامْلَأْ جَوازاتِ التَّحَدّي الْخَمْسَةَ (50 كِتابًا)</small></div><i>←</i></a>
+        <a class="mdr-rlog-link rb-link" href="#/rbench"><span>📏</span><div><b>قِياسُ الْقِراءَةِ (${MDR_RND[mdrRound()][1]})</b><small>اقْرَأْ نَصَّ الْقِياسِ بِصَوْتٍ مَسْموعٍ، وَأَجِبْ عَنْ أَسْئِلَتِهِ؛ لِتَرى نُمُوَّكَ خِلالَ السَّنَةِ</small></div><i>←</i></a></div>` : "";
     const staffBox = isStaff() && state.session ? `<div class="mdr-staff" id="mdrStaff"><div class="loading">جارٍ تحميل خريطة الفصل…</div></div>` : "";
     if (staffBox) mdrDefer("mdrStaff", (el) => mdrStaffPanel(el, year, all, target));
+    if (passport) mdrDefer("mdrCB", (el) => mdrClassBoard(el, year));
     if (passport) mdrDefer("mdrCert", (el) => { el.onclick = () => mdrCertPrint(year, term, all.filter((x) => x.term === term)); });
     const intro = `<div class="mdr-intro"><h2>📗 مَدارِجُ الْقِراءَةِ · ${["", "الْفَصْلُ الْأَوَّلُ", "الْفَصْلُ الثّاني", "الْفَصْلُ الثّالِثُ"][term]}</h2>
       <p>نُصوصٌ مِنْ كِتابِ «مَدارِجِ الْقِراءَةِ» لِوِزارَةِ التَّرْبِيَةِ وَالتَّعْليمِ. في كُلِّ نَصٍّ: أُسْلوبٌ قِرائِيٌّ، وَقِياسُ الطَّلاقَةِ وَالْقِراءَةُ الْجَهْرِيَّةُ، وَأَنْشِطَةٌ لِلْمُفْرَداتِ وَالتَّسَلْسُلِ، وَأَسْئِلَةُ فَهْمٍ في مُسْتَوَياتِ بيرْلِزَ الْأَرْبَعَةِ، وَتَعْبيرٌ كِتابِيٌّ وَشَفَهِيٌّ.</p>
@@ -6782,6 +6807,17 @@ window.HiraArcade = (function () {
         <span class="meta">${r && r.quiz_at ? `<span class="pill mdr-done">✅ <bdi dir="ltr">${r.score}/${r.max_score}</bdi></span>` : ""}${locked ? `<span class="pill lock-pill">${lockIcon} ${!state.session ? CT("للمشتركين", "Subscribers") : "مقفل"}</span>` : first && !state.session ? `<span class="pill free-pill">${CT("مجاني", "Free")}</span>` : `<span class="pill mdr-go">اقْرَأْ ←</span>`}</span></a>`;
     }).join("") : `<div class="empty"><strong>لا توجد نصوص لهذا الفصل</strong></div>`;
     return `<div class="mdr-list">${intro}${passport}${staffBox}<div class="unit">${list}</div></div>`;
+  }
+
+  // منافسة الفصول: متوسط نقاط الطالب في كل فصل من الصف نفسه في المدرسة (مجاميع فقط بلا أسماء)
+  async function mdrClassBoard(el, year) {
+    if (!el) return; const { data, error } = await sb.rpc("reading_class_board", { p_year: +year });
+    if (error || !data || data.length < 2) { el.innerHTML = ""; return; }
+    const top = Math.max(...data.map((c) => +c.avg_points || 0), 1), md = ["🥇", "🥈", "🥉"];
+    el.innerHTML = `<div class="mdr-cb"><h4>🏆 مُنافَسَةُ الْفُصولِ · الصَّفُّ ${MDR_GN[year]}</h4>
+      <p class="muted">الترتيب بمتوسط نقاط الطالب في كل فصل (نصوص مدارج + 15 نقطة لكل كتاب حر معتمد)، فيتساوى الفصل الصغير والكبير.</p>
+      ${data.map((c, i) => `<div class="mdr-cb-r ${c.mine ? "me" : ""}"><span class="mdr-cb-n">${md[i] || i + 1}</span><b>${esc(c.class_name)}${c.mine ? " <small>(فصلك)</small>" : ""}</b>
+        <div class="mdr-cb-bar"><i style="width:${Math.round((+c.avg_points || 0) * 100 / top)}%"></i></div><span class="mdr-cb-v"><b>${(+c.avg_points || 0).toFixed(1)}</b> <small>نقطة/طالب · ${c.texts} نصًّا · ${c.books} كتابًا · نشط ${c.active}/${c.students}</small></span></div>`).join("")}</div>`;
   }
 
   // ينتظر ظهور العنصر بعد رسم الصفحة ثم يربطه
@@ -6864,14 +6900,15 @@ window.HiraArcade = (function () {
         const weak = KS.filter((k) => sk[k][1] >= 2).sort((a, b) => pc(sk[a]) - pc(sk[b]))[0]; if (weak && pc(sk[weak]) < 70) groups[weak].push(s.name);
         return { s, n: rs.length, c: pc(sc), sk: KS.map((k) => pc(sk[k])), wpm, acc, weak: weak && pc(sk[weak]) < 70 ? weak : null, pts: rs.reduce((a, r) => a + mdrPts(r), 0) }; });
       const avgW = rows.map((r) => r.wpm).filter(Boolean);
-      el.innerHTML = `<div class="mdr-card"><div class="mdr-lg-h"><h3>🗺️ خَريطَةُ الْفَصْلِ الْقِرائِيَّةُ</h3><a class="btn btn-ghost btn-small" href="#/readlog">📚 سجل القراءة الحرة واعتماد الكتب</a></div>${tgtH()}
+      el.innerHTML = `<div class="mdr-card"><div class="mdr-lg-h"><h3>🗺️ خَريطَةُ الْفَصْلِ الْقِرائِيَّةُ</h3><span><a class="btn btn-ghost btn-small" href="#/rbench">📏 قياس القراءة (بداية/منتصف/نهاية السنة)</a> <a class="btn btn-ghost btn-small" href="#/readlog">📚 سجل القراءة الحرة واعتماد الكتب</a></span></div>${tgtH()}
         ${cls.length > 1 ? `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>` : ""}
         <div class="lp-stats"><div><b>${SS.length}</b><small>طالبًا</small></div><div><b>${rows.length ? Math.round(rows.reduce((a, r) => a + r.n, 0) / rows.length * 10) / 10 : "—"}</b><small>متوسط النصوص المنجزة من ${all.length}</small></div><div><b>${avgW.length ? Math.round(avgW.reduce((a, b) => a + b, 0) / avgW.length) : "—"}</b><small>متوسط الطلاقة${target ? ` · الهدف ${target}` : ""}</small></div>${target ? `<div><b><bdi dir="ltr">${rows.filter((r) => r.wpm && r.wpm >= target).length}/${SS.length}</bdi></b><small>بلغوا الهدف</small></div>` : ""}</div>
         <div class="lp-tw"><table class="lp-tbl mdr-heat"><thead><tr><th>الطالب</th><th>النصوص</th><th>الفهم</th>${KS.map((k) => `<th title="${MDR_SK[k][1]}">${MDR_SK[k][0]} ${{ ret: "الاسترجاع", inf: "الاستنتاج", int: "التفسير", eva: "التقويم" }[k]}</th>`).join("")}<th>الطلاقة</th><th>دقة القراءة</th><th>النقاط</th><th>يحتاج دعمًا في</th></tr></thead><tbody>
         ${rows.map((r) => `<tr><td><a href="#/readreport/${r.s.id}" title="تقرير الطالب">${esc(r.s.name)}</a></td><td><bdi dir="ltr">${r.n}/${all.length}</bdi></td><td ${col(r.c)}>${r.c == null ? "—" : r.c + "%"}</td>${r.sk.map((p) => `<td ${col(p)}>${p == null ? "—" : p + "%"}</td>`).join("")}<td ${target && r.wpm ? col(Math.min(100, r.wpm * 100 / target)) : ""}>${r.wpm || "—"}</td><td ${r.acc != null ? col(Math.max(0, (r.acc - 85) * 100 / 15)) : ""} title="${r.acc != null ? mdrLvl(r.acc)[1] : ""}">${r.acc != null ? r.acc + "%" : "—"}</td><td>${r.pts}</td><td>${r.weak ? MDR_SK[r.weak][0] + " " + MDR_SK[r.weak][1] : "—"}</td></tr>`).join("") || `<tr><td colspan="${KS.length + 7}">لا يوجد طلاب في هذا الفصل</td></tr>`}
         </tbody></table></div>
         <h4>👥 مَجْموعاتُ الدَّعْمِ الْمُقْتَرَحَةُ</h4><p class="muted">الطالب في مجموعة أضعف مستوى له (أقل من 70% بعد سؤالين على الأقل).</p>
-        <div class="mdr-groups">${KS.map((k) => `<div><b>${MDR_SK[k][0]} ${MDR_SK[k][1]} <small>(${groups[k].length})</small></b><span>${groups[k].length ? groups[k].map(esc).join("، ") : "—"}</span></div>`).join("")}</div></div>`;
+        <div class="mdr-groups">${KS.map((k) => `<div><b>${MDR_SK[k][0]} ${MDR_SK[k][1]} <small>(${groups[k].length})</small></b><span>${groups[k].length ? groups[k].map(esc).join("، ") : "—"}</span></div>`).join("")}</div><div id="mdrCBs"></div></div>`;
+      mdrClassBoard(el.querySelector("#mdrCBs"), year);
       el.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; draw(); });
       wireT();
     }
@@ -6969,7 +7006,8 @@ window.HiraArcade = (function () {
       return X.text.map((p) => `<p>${p.split(" ").map((w) => { const i = WN++; WW.push(w.length + (/[.،؛:!؟?]$/.test(w) ? 6 : 1)); const g = GL[mdrStem(w)]; return `<span class="mdr-w${g != null ? " mdr-gw" : ""}" data-i="${i}"${g != null ? ` data-g="${g}"` : ""}>${esc(w)}</span>`; }).join(" ")}</p>`).join(""); };
     const textHtml = (sm) => `<div class="mdr-text${sm ? " sm" : ""}">${X.img ? `<img class="mdr-img" src="${X.img}" alt="" loading="lazy">` : ""}${paras()}${X.img2 ? `<img class="mdr-img2" src="${X.img2}" alt="" loading="lazy">` : ""}<div class="muted mdr-ref">كتاب «مدارج القراءة»، وزارة التربية والتعليم · ص ${X.p}</div></div>`;
     const S = X.strat;
-    const auds = await mdrAudList(); const audName = [...auds].find((n) => n.replace(/\.[^.]+$/, "") === X.id) || null;
+    const auds = await mdrAudList(); const audName = [...auds].find((n) => n.replace(/\.[^.]+$/, "") === X.id && !/\.json$/.test(n)) || null;
+    let TIM = null; if (audName && auds.has(X.id + ".json")) { try { TIM = await (await fetch(mdrAudUrl(X.id + ".json") + "?v=" + Date.now())).json(); } catch (e) {} }
     const bank = () => (ACT.bank || []);
     const head = () => `<div class="mdr-steps">${PARTS.map((p, k) => `<button class="mdr-sp ${k === part ? "on" : ""} ${k < part ? "ok" : ""}" data-p="${k}"><span>${p[0]}</span>${p[1]}</button>`).join("")}</div>`;
     const nav = (prev, next) => `<div class="mdr-nav">${prev != null ? `<button class="btn btn-ghost" data-p="${prev}">→ ${PARTS[prev][1]}</button>` : "<span></span>"}${next != null ? `<button class="btn btn-primary" data-p="${next}">${PARTS[next][1]} ←</button>` : ""}</div>`;
@@ -6999,7 +7037,7 @@ window.HiraArcade = (function () {
             <div class="mdr-rr" id="rrBox"></div>
             ${mine && mine.wcpm != null ? `<p class="mdr-fb ok">🧑‍🏫 قاسَ مُعَلِّمُكَ قِراءَتَكَ الْمُسَجَّلَةَ: <b>${mine.wcpm}</b> كَلِمَةً صَحيحَةً في الدَّقيقَةِ، بِدِقَّةِ <b>${mine.accuracy}%</b>. ${mdrLvl(mine.accuracy)[0]}</p>` : `<p class="muted">💡 سَجِّلْ قِراءَتَكَ الْجَهْرِيَّةَ في الْأَسْفَلِ، فَيَقيسُها مُعَلِّمُكَ بِدِقَّةٍ: كَمْ كَلِمَةً صَحيحَةً تَقْرَأُ في الدَّقيقَةِ.</p>`}</div>
           ${audName || isSuper() ? `<div class="mdr-card mdr-model-r"><h3>🎧 الْقِراءَةُ النَّموذَجِيَّةُ</h3>${audName ? `<p class="muted">اسْتَمِعْ وَتابِعِ الْكَلِماتِ الْمُضاءَةَ بِعَيْنِكَ، ثُمَّ اقْرَأْ أَنْتَ بِالطَّريقَةِ نَفْسِها.</p><div class="mdr-rec"><button class="btn btn-primary" id="audB">▶️ اسْتَمِعْ</button><button class="btn btn-ghost btn-small" id="audR" hidden>↻ مِنَ الْبِدايَةِ</button><select id="audS" class="mdr-speed"><option value="0.8">0.8×</option><option value="1" selected>1×</option><option value="1.2">1.2×</option></select></div>` : `<p class="muted">لَمْ يُرْفَعْ تَسْجيلُ هذا النَّصِّ بَعْدُ.</p>`}
-            ${isSuper() ? `<div class="mdr-up"><label class="btn btn-ghost btn-small">⬆️ ${audName ? "اسْتَبْدِلِ" : "ارْفَعِ"} التَّسْجيلَ (mp3/m4a)<input type="file" accept="audio/*" id="audF" hidden></label><span class="muted" id="audSt"></span></div>` : ""}</div>` : ""}
+            ${isSuper() ? `<div class="mdr-up"><button class="btn btn-primary btn-small" id="audStu">🎙️ أستوديو التسجيل</button><label class="btn btn-ghost btn-small">⬆️ ${audName ? "اسْتَبْدِلِ" : "ارْفَعِ"} ملفًّا (mp3/m4a)<input type="file" accept="audio/*" id="audF" hidden></label><span class="muted" id="audSt">${audName ? (TIM ? "⏱️ التظليل بتوقيت دقيق" : "⏱️ التظليل تقريبي: زامِنه من الأستوديو") : ""}</span></div>` : ""}</div>` : ""}
           <div class="mdr-rtool" role="toolbar" aria-label="وضع القراءة المريح"><span>👓 وَضْعُ الْقِراءَةِ:</span>
             <button class="btn btn-ghost btn-small" data-rt="fs-" aria-label="تصغير الخط">أ−</button><button class="btn btn-ghost btn-small" data-rt="fs+" aria-label="تكبير الخط">أ+</button>
             <button class="btn btn-small ${PF.sp ? "btn-primary" : "btn-ghost"}" data-rt="sp">↕️ تَباعُدٌ أَوْسَعُ</button><button class="btn btn-small ${PF.rl ? "btn-primary" : "btn-ghost"}" data-rt="rl">📏 مِسْطَرَةُ السَّطْرِ</button></div>
@@ -7097,7 +7135,8 @@ window.HiraArcade = (function () {
         const ab = box.querySelector("#audB");
         if (ab && audName) { const au = new Audio(mdrAudUrl(audName)); au.preload = "metadata"; const ws = [...box.querySelectorAll(".mdr-text .mdr-w")]; const tot = WW.reduce((a, b) => a + b, 0); const cum = []; WW.reduce((a, b, i) => (cum[i] = a + b), 0);
           let cur = -1; const lit = (i) => { if (i === cur) return; if (cur >= 0 && ws[cur]) ws[cur].classList.remove("lit"); cur = i; if (ws[i]) { ws[i].classList.add("lit"); ws.slice(0, i).forEach((w) => w.classList.add("past")); } };
-          au.ontimeupdate = () => { if (!au.duration) return; const x = au.currentTime / au.duration * tot; let i = cum.findIndex((c) => c >= x); lit(i < 0 ? ws.length - 1 : i); };
+          const WT = TIM ? mdrWordTimes(TIM, WW) : null;
+          au.ontimeupdate = () => { if (!au.duration) return; if (WT) { const t = au.currentTime; let i = 0; while (i < WT.length - 1 && WT[i + 1] <= t) i++; lit(i); return; } const x = au.currentTime / au.duration * tot; let i = cum.findIndex((c) => c >= x); lit(i < 0 ? ws.length - 1 : i); };
           au.onplay = () => { ab.textContent = "⏸ أَوْقِفْ"; box.querySelector("#audR").hidden = false; }; au.onpause = () => { ab.textContent = "▶️ أَكْمِلْ"; };
           au.onended = () => { ab.textContent = "▶️ اسْتَمِعْ مَرَّةً أُخْرى"; ws.forEach((w) => w.classList.remove("lit", "past")); cur = -1; };
           au.onerror = () => { ab.disabled = true; ab.textContent = "⚠️ تَعَذَّرَ تَشْغيلُ الصَّوْتِ"; };
@@ -7105,9 +7144,10 @@ window.HiraArcade = (function () {
           box.querySelector("#audR").onclick = () => { au.currentTime = 0; ws.forEach((w) => w.classList.remove("lit", "past")); cur = -1; au.play(); };
           box.querySelector("#audS").onchange = (e) => { au.playbackRate = +e.target.value; };
           const stopA = () => { try { au.pause(); } catch (e) {} }; box.querySelectorAll("[data-p]").forEach((b) => b.addEventListener("click", stopA)); }
+        const asb = box.querySelector("#audStu"); if (asb) asb.onclick = () => mdrStudio(X, WW, audName, () => { MDR_AUD = null; mdrRun(box, l, u, id); });
         const af = box.querySelector("#audF"); if (af) af.onchange = async () => { const f = af.files[0]; if (!f) return; const st = box.querySelector("#audSt"); st.textContent = "جارٍ الرفع…";
           const ext = (f.name.match(/\.([a-z0-9]+)$/i) || [, "mp3"])[1].toLowerCase();
-          if (audName) await sb.storage.from("reader-audio").remove(["madarij/" + audName]);
+          if (audName) await sb.storage.from("reader-audio").remove(["madarij/" + audName, "madarij/" + X.id + ".json"]);
           const up = await sb.storage.from("reader-audio").upload("madarij/" + X.id + "." + ext, f, { contentType: f.type || "audio/mpeg", upsert: true });
           if (up.error) { st.textContent = "تعذّر الرفع: " + up.error.message; return; } MDR_AUD = null; toast("رُفع التسجيل"); mdrRun(box, l, u, id); };
         // نقر الكلمة: معناها وإضافتها إلى بنك كلماتي
@@ -7221,6 +7261,147 @@ window.HiraArcade = (function () {
       drawR();
     };
     draw();
+  }
+
+  // ---------- قياس القراءة في بداية السنة ووسطها ونهايتها (نص ثابت لكل صف) ----------
+  // نص القياس: من قائمة الصف التالي (يدرسه الطالب في السنة القادمة)، والتاسع من قائمة الثامن؛ فيه 3 أسئلة اختيار على الأقل، وطوله مناسب للمستوى
+  const MDR_RND = { boy: ["🌱", "بداية السنة"], moy: ["🌿", "منتصف السنة"], eoy: ["🌳", "نهاية السنة"] };
+  const mdrRound = (d = new Date()) => { const m = d.getMonth(); return m >= 7 && m <= 10 ? "boy" : m >= 3 && m <= 6 ? "eoy" : "moy"; };
+  const MDR_BENCH = { 4: "Bn18", 5: "Mi03", 6: "Mi01", 7: "Ai13", 8: "An05", 9: "An02" };
+  async function mdrBenchText(year) { return MDR_BENCH[year] || null; }
+  async function pageReadBench() {
+    loading(); state.pageSubject = "arabic"; setTheme();
+    const head = `<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/">الرئيسية</a> / <a href="#/grades?subject=arabic">اللغة العربية</a> / 📏 قياس القراءة</div>
+      <h1>📏 قِياسُ الْقِراءَةِ</h1><p class="muted">ثلاث مرات في السنة (البداية والمنتصف والنهاية) يقرأ الطالب النص نفسه بصوت مسموع ويُسجَّل صوته، ثم يجيب عن أسئلته؛ فيقيس المعلم من التسجيل الكلماتِ الصحيحة في الدقيقة، ويظهر نموّ الطالب خلال السنة.</p></div></section>`;
+    if (!state.session) { h(head + `<section class="wrap panel"><div class="form-card empty"><strong>سجّل الدخول لتبدأ القياس</strong></div></section>`); return; }
+    h(head + `<section class="wrap panel" id="rbBox"><div class="loading">جارٍ التحميل…</div></section>`);
+    const box = document.getElementById("rbBox");
+    if (isStudent() && !state.viewAs) return rbStudent(box);
+    if (isStaff()) return rbStaff(box);
+    box.innerHTML = `<div class="form-card empty"><strong>هذه الصفحة للطلاب ومعلميهم</strong></div>`;
+  }
+  async function rbStudent(box) {
+    const me = state.session.user.id, year = +(state.profile && state.profile.year_group);
+    if (!(year >= 4 && year <= 9)) { box.innerHTML = `<div class="form-card empty"><strong>القياس متاح للصفوف 4–9</strong></div>`; return; }
+    const tid = await mdrBenchText(year), X = await mdrGet(tid), rnd = mdrRound();
+    const { data } = await sb.from("reading_bench").select("*").eq("student_id", me).eq("year_group", year);
+    const B = {}; (data || []).forEach((r) => { B[r.round] = r; });
+    const cards = Object.keys(MDR_RND).map((k) => { const r = B[k]; return `<div class="rb-card ${k === rnd ? "cur" : ""} ${r ? "done" : ""}"><b>${MDR_RND[k][0]} ${MDR_RND[k][1]}</b>
+      ${r ? `<span>⏱️ ${r.wpm || "—"} كلمة/دقيقة</span><span>❓ الفهم <bdi dir="ltr">${r.comp_score}/${r.comp_max}</bdi></span>${r.wcpm != null ? `<span class="ok">✔ ${r.wcpm} كلمة صحيحة/دقيقة · دقة ${r.accuracy}%</span>` : `<small class="muted">${r.rec_path ? "⏳ ينتظر قياس معلمك" : ""}</small>`}` : k === rnd ? `<small>متاح الآن</small>` : `<small class="muted">${k === "boy" ? "أغسطس–نوفمبر" : k === "moy" ? "ديسمبر–مارس" : "أبريل–يوليو"}</small>`}</div>`; }).join("");
+    const canRun = !(B[rnd] && B[rnd].wcpm != null);
+    box.innerHTML = `<div class="mdr-card"><h3>نتائجي في الصف ${MDR_GN[year]}</h3><div class="rb-cards">${cards}</div></div>
+      <div class="mdr-card" id="rbRun">${canRun ? `<h3>${MDR_RND[rnd][0]} قياس ${MDR_RND[rnd][1]}${B[rnd] ? " (إعادة)" : ""}</h3>
+        <ol class="rb-steps"><li>اجلس في مكان هادئ، واسمح للموقع باستخدام الميكروفون.</li><li>اضغط «ابدأ»، واقرأ النص كله بصوت مسموع وبسرعتك الطبيعية، دون تعجّل.</li><li>اضغط «انتهيت»، ثم أجب عن الأسئلة دون الرجوع إلى النص.</li></ol>
+        <button class="btn btn-primary" id="rbGo">🎙️ ابدأ</button>` : `<p class="muted">✅ أتممت قياس ${MDR_RND[rnd][1]}، وقاسه معلمك.</p>`}</div>`;
+    const go = box.querySelector("#rbGo"); if (!go) return;
+    go.onclick = async () => {
+      const run = box.querySelector("#rbRun"); let stream = null, rec = null, ch = [], blob = null;
+      try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); const mt = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/aac"].find((t) => window.MediaRecorder && MediaRecorder.isTypeSupported(t)) || "";
+        rec = new MediaRecorder(stream, mt ? { mimeType: mt } : undefined); rec.ondataavailable = (e) => { if (e.data.size) ch.push(e.data); }; rec.start(); } catch (e) { toast("لم يُسمح بالميكروفون؛ سيُقاس الوقت فقط"); }
+      const t0 = Date.now();
+      run.innerHTML = `<div class="rb-top"><span class="stu-dot ${rec ? "on" : ""}"></span><span class="mdr-big" id="rbT">0:00</span><button class="btn btn-primary" id="rbEnd">✅ انتهيت</button></div>
+        <h2 class="rb-title">«${esc(X.t)}»</h2><div class="mdr-text rb-tx">${X.text.map((p) => `<p>${esc(p)}</p>`).join("")}</div>`;
+      const tmr = setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); const el = run.querySelector("#rbT"); if (el) el.textContent = Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); if (s >= 900) run.querySelector("#rbEnd").click(); }, 250);
+      run.querySelector("#rbEnd").onclick = async () => { clearInterval(tmr); const sec = Math.max(1, Math.round((Date.now() - t0) / 1000));
+        if (rec) { await new Promise((ok) => { rec.onstop = ok; rec.stop(); }); blob = new Blob(ch, { type: (rec.mimeType || "audio/webm").split(";")[0] }); try { stream.getTracks().forEach((t) => t.stop()); } catch (e) {} }
+        const Q = X.qs.map((q, j) => [q, j]).filter(([q]) => q.k === "m").slice(0, 5);
+        run.innerHTML = `<h3>❓ أجب دون الرجوع إلى النص</h3>${Q.map(([q, j]) => `<div class="mdr-q"><b>${esc(q.q)}</b><div class="mdr-opts">${q.o.map((o, k) => `<label class="mdr-opt"><input type="radio" name="rb${j}" value="${k}"> ${esc(o)}</label>`).join("")}</div></div>`).join("")}
+          <p class="form-error" id="rbErr"></p><button class="btn btn-primary" id="rbSend">📤 أرسل النتيجة</button>`;
+        run.querySelector("#rbSend").onclick = async () => { const ans = {}; let sc = 0; for (const [q, j] of Q) { const v = run.querySelector(`input[name="rb${j}"]:checked`); if (!v) { run.querySelector("#rbErr").textContent = "أجب عن كل الأسئلة."; return; } ans[j] = +v.value; if (+v.value === q.c) sc++; }
+          const b = run.querySelector("#rbSend"); b.disabled = true; let path = null;
+          if (blob && blob.size) { path = `${me}/bench-${rnd}-${Date.now()}.${/mp4|aac/.test(blob.type) ? "m4a" : "webm"}`; const up = await sb.storage.from("recitations").upload(path, blob, { contentType: blob.type });
+            if (up.error) { path = null; toast("تعذّر رفع التسجيل؛ حُفظت النتيجة دونه"); } }
+          const { error } = await sb.rpc("bench_save", { p_year: year, p_round: rnd, p_text: X.id, p_seconds: sec, p_wpm: Math.round(X.w * 60 / sec) <= 250 ? Math.round(X.w * 60 / sec) : null, p_score: sc, p_max: Q.length, p_answers: ans, p_rec: path, p_rec_sec: path ? sec : null });
+          if (error) { b.disabled = false; run.querySelector("#rbErr").textContent = "تعذّر الحفظ: " + error.message; return; }
+          toast("أُرسل القياس إلى معلمك"); rbStudent(box); };
+      };
+    };
+  }
+  async function rbStaff(box) {
+    const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+    let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.track === "native" && c.subject_id === 2 && c.year_group >= 4 && c.year_group <= 9);
+    if (!cls.length && (isSchoolAdmin() || isSuper()) && state.profile && state.profile.school_id) { const { data } = await sb.from("classes").select("id, name, year_group").eq("school_id", state.profile.school_id).eq("track", "native").eq("subject_id", 2).gte("year_group", 4).lte("year_group", 9).order("year_group"); cls = data || []; }
+    if (!cls.length) { box.innerHTML = `<div class="form-card empty"><strong>لا توجد فصول عربية (ناطقين، 4–9) مرتبطة بك</strong></div>`; return; }
+    let cur = cls[0];
+    const draw = async () => {
+      const { data: roster } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur.id);
+      const SS = (roster || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
+      const { data } = SS.length ? await sb.from("reading_bench").select("*").eq("year_group", cur.year_group).in("student_id", SS.map((s) => s.id)) : { data: [] };
+      const B = {}; (data || []).forEach((r) => { (B[r.student_id] = B[r.student_id] || {})[r.round] = r; });
+      const X = await mdrGet(await mdrBenchText(cur.year_group)); const RK = Object.keys(MDR_RND); const val = (r) => r ? (r.wcpm != null ? r.wcpm : r.wpm) : null;
+      const avg = (k) => { const v = SS.map((s) => val((B[s.id] || {})[k])).filter((x) => x != null); return v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : "—"; };
+      box.innerHTML = `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur.id ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>
+        <div class="mdr-card"><h3>📏 قياس القراءة · ${esc(cur.name)}</h3><p class="muted">نص القياس للصف ${MDR_GN[cur.year_group]}: «${esc(X.t)}» (${X.w} كلمة). الرقم بعلامة ✔ قياسك من التسجيل، وبدونها قياس الطالب الذاتي. القياس المفتوح الآن: ${MDR_RND[mdrRound()][1]}.</p>
+        <div class="lp-stats">${RK.map((k) => `<div><b>${avg(k)}</b><small>متوسط ${MDR_RND[k][1]}</small></div>`).join("")}</div>
+        <div class="lp-tw"><table class="lp-tbl rb-tbl"><thead><tr><th>الطالب</th>${RK.map((k) => `<th>${MDR_RND[k][0]} ${MDR_RND[k][1]}</th>`).join("")}<th>النمو</th></tr></thead><tbody>
+        ${SS.map((s) => { const R = B[s.id] || {}; const L2 = R.eoy || R.moy, both = R.boy && L2 && R.boy.wcpm != null && L2.wcpm != null; const f = R.boy ? (both ? R.boy.wcpm : R.boy.wpm) : null, l2 = L2 ? (both ? L2.wcpm : L2.wpm) : null;
+          return `<tr><td><a href="#/readreport/${s.id}">${esc(s.name)}</a></td>${RK.map((k) => { const r = R[k]; return `<td>${r ? `${r.wcpm != null ? `<b>✔ ${r.wcpm}</b> <small>(${r.accuracy}%)</small>` : `${r.wpm || "—"} <small class="muted">ذاتي</small>`}<br><small>فهم <bdi dir="ltr">${r.comp_score}/${r.comp_max}</bdi></small>${r.rec_path ? `<br><button class="btn btn-ghost btn-small rb-m" data-id="${r.id}">🎧 ${r.wcpm != null ? "أعِد" : "قِس"}</button>` : ""}` : "—"}</td>`; }).join("")}
+          <td>${f != null && l2 != null ? `<b class="${l2 >= f ? "rb-up" : "rb-dn"}">${l2 >= f ? "+" : ""}${l2 - f}</b>` : "—"}</td></tr>`; }).join("") || `<tr><td colspan="5">لا يوجد طلاب</td></tr>`}</tbody></table></div></div>`;
+      box.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = cls.find((c) => c.id === b.dataset.cls); draw(); });
+      box.querySelectorAll(".rb-m").forEach((b) => b.onclick = () => { const r = (data || []).find((x) => x.id === b.dataset.id); const s = SS.find((x) => x.id === r.student_id);
+        mdrFluDlg(X, null, s, { id: r.id, audio_path: r.rec_path, duration_sec: r.rec_sec }, r, draw, (c, mk) => sb.rpc("bench_measure", { p_id: r.id, p_wcpm: c.wcpm, p_acc: c.acc, p_marks: mk })); });
+    };
+    draw();
+  }
+
+  // ---------- أستوديو التسجيل: تسجيل القراءة النموذجية من المتصفح ومزامنة توقيت الجمل ----------
+  // ملف التوقيت madarij/<id>.json = { v:1, w:[أول كلمة في كل جملة], s:[بداية كل جملة بالثواني], d:المدة }
+  function mdrSentStarts(X) { const st = [0]; let i = 0;
+    X.text.forEach((p, pi) => { if (pi && st[st.length - 1] !== i) st.push(i); p.split(" ").forEach((w) => { i++; if (/[.؟!?:؛]$/.test(w)) st.push(i); }); });
+    return st.filter((v, k, a) => v < i && a.indexOf(v) === k); }
+  function mdrWordTimes(T, WW) { const out = new Array(WW.length).fill(0), w = T.w, s = T.s;
+    for (let k = 0; k < w.length; k++) { const a = w[k], b = k + 1 < w.length ? w[k + 1] : WW.length, t0 = s[k], t1 = k + 1 < s.length ? s[k + 1] : T.d;
+      const tot = WW.slice(a, b).reduce((x, y) => x + y, 0) || 1; let acc = 0; for (let i = a; i < b; i++) { out[i] = t0 + (acc / tot) * (t1 - t0); acc += WW[i]; } }
+    return out; }
+  function mdrStudio(X, WW, audName, done) {
+    const words = []; X.text.forEach((p) => p.split(" ").forEach((w) => words.push(w)));
+    const ST = mdrSentStarts(X), N = ST.length;
+    let d = document.getElementById("mdrStu"); if (!d) { d = document.createElement("dialog"); d.id = "mdrStu"; d.className = "wide-dlg mdr-stu"; document.body.appendChild(d); }
+    let mode = null, k = -1, marks = [], blob = null, url = audName ? mdrAudUrl(audName) : null, dur = 0, rec = null, stream = null, t0 = 0, au = null, prev = null;
+    const sentHtml = () => ST.map((a, j) => { const b = j + 1 < N ? ST[j + 1] : words.length; return `<span class="stu-s" data-k="${j}">${words.slice(a, b).map(esc).join(" ")}</span>`; }).join(" ");
+    const stopAll = () => { try { if (rec && rec.state !== "inactive") rec.stop(); } catch (e) {} try { stream && stream.getTracks().forEach((t) => t.stop()); } catch (e) {} try { au && au.pause(); } catch (e) {} try { prev && prev.pause(); } catch (e) {} document.removeEventListener("keydown", key); };
+    const now = () => mode === "rec" ? (performance.now() - t0) / 1000 : au ? au.currentTime : 0;
+    const paint = () => { d.querySelectorAll(".stu-s").forEach((e) => { const j = +e.dataset.k; e.className = "stu-s" + (j === k ? " cur" : j < k ? " done" : ""); });
+      const c = d.querySelector(".stu-s.cur"); if (c) c.scrollIntoView({ block: "center", behavior: "smooth" });
+      const nb = d.querySelector("#stuN"); if (nb) nb.textContent = k < N - 1 ? `⏭️ الجملة التالية (${k + 2} من ${N})` : "⏹️ إنهاء"; };
+    const finish = () => { dur = now(); k = -1; if (mode === "rec") { mode = "done"; try { rec.stop(); } catch (e) { draw(); } return; } try { au.pause(); } catch (e) {} mode = "done"; draw(); };
+    const next = () => { if (mode !== "rec" && mode !== "sync") return; if (k < N - 1) { k++; marks[k] = k === 0 ? 0 : +now().toFixed(2); paint(); } else finish(); };
+    const key = (e) => { if ((e.key === " " || e.key === "Enter") && (mode === "rec" || mode === "sync")) { e.preventDefault(); next(); } };
+    const draw = () => {
+      d.innerHTML = `<h2 style="font-size:1.2rem">🎙️ أستوديو التسجيل · «${esc(X.t)}»</h2>
+        <p class="muted">${mode === "rec" || mode === "sync" ? "اضغط «الجملة التالية» أو مفتاح المسافة لحظةَ بدئك كل جملة، فيتزامن تظليل الكلمات مع صوتك." : mode === "done" ? "استمع إلى المعاينة وتابع التظليل، ثم احفظ أو أعِد." : `قسّمنا النص إلى ${N} جملة. سجّل بصوتك من المتصفح، أو زامِن تسجيلًا مرفوعًا: في الحالتين تنقر عند بداية كل جملة.`}</p>
+        <div class="stu-tx mdr-text sm">${sentHtml()}</div>
+        <div class="stu-bar">${!mode ? `<button class="btn btn-primary" id="stuRec">⏺️ ابدأ التسجيل</button>${url ? `<button class="btn btn-ghost" id="stuSync">⏱️ زامِن التسجيل الحالي</button>` : ""}`
+          : mode === "rec" || mode === "sync" ? `<span class="stu-dot ${mode === "rec" ? "on" : ""}"></span><span id="stuT" class="mdr-big">0:00</span><button class="btn btn-primary stu-next" id="stuN"></button><button class="btn btn-ghost btn-small" id="stuX0">إلغاء</button>`
+          : `<button class="btn btn-ghost" id="stuP">▶️ معاينة</button><button class="btn btn-primary" id="stuSave">💾 حفظ</button><button class="btn btn-ghost" id="stuAgain">↺ أعِد</button><span class="muted">المدة ${Math.round(dur)} ثانية · ${N} جملة</span>`}</div>
+        <p class="form-error" id="stuErr"></p><div class="dialog-actions"><button class="btn btn-ghost" id="stuX">إغلاق</button></div>`;
+      const $ = (q) => d.querySelector(q);
+      $("#stuX").onclick = () => { stopAll(); d.close(); };
+      if ($("#stuRec")) $("#stuRec").onclick = async () => { try { stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } }); } catch (e) { $("#stuErr").textContent = "لم يُسمح باستخدام الميكروفون."; return; }
+        const mt = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/ogg"].find((t) => window.MediaRecorder && MediaRecorder.isTypeSupported(t)) || "";
+        const ch = []; rec = new MediaRecorder(stream, mt ? { mimeType: mt } : undefined); rec.ondataavailable = (e) => { if (e.data.size) ch.push(e.data); };
+        rec.onstop = () => { blob = new Blob(ch, { type: (rec.mimeType || mt || "audio/webm").split(";")[0] }); url = URL.createObjectURL(blob); try { stream.getTracks().forEach((t) => t.stop()); } catch (e) {} if (mode === "done") draw(); };
+        rec.start(); t0 = performance.now(); mode = "rec"; marks = []; k = -1; draw(); next(); tick(); };
+      if ($("#stuSync")) $("#stuSync").onclick = () => { blob = null; au = new Audio(url); au.onended = () => { if (mode === "sync") finish(); }; au.play(); mode = "sync"; marks = []; k = -1; draw(); next(); tick(); };
+      if ($("#stuN")) { $("#stuN").onclick = next; paint(); }
+      if ($("#stuX0")) $("#stuX0").onclick = () => { stopAll(); mode = null; blob = null; url = audName ? mdrAudUrl(audName) : null; draw(); };
+      if ($("#stuAgain")) $("#stuAgain").onclick = () => { try { prev && prev.pause(); } catch (e) {} mode = null; draw(); };
+      if ($("#stuP")) $("#stuP").onclick = () => { const T = { w: ST, s: marks, d: dur }, wt = mdrWordTimes(T, WW); const ss = [...d.querySelectorAll(".stu-s")];
+        if (prev) { prev.pause(); prev = null; ss.forEach((e) => e.className = "stu-s"); $("#stuP").textContent = "▶️ معاينة"; return; }
+        const pa = new Audio(url); prev = pa; $("#stuP").textContent = "⏸ إيقاف"; pa.ontimeupdate = () => { if (prev !== pa) return; const t = pa.currentTime; let j = 0; while (j < N - 1 && marks[j + 1] <= t) j++; ss.forEach((e, q) => e.className = "stu-s" + (q === j ? " cur" : q < j ? " done" : "")); };
+        pa.onended = () => { prev = null; $("#stuP").textContent = "▶️ معاينة"; }; pa.play(); };
+      if ($("#stuSave")) $("#stuSave").onclick = async () => { const b = $("#stuSave"), er = $("#stuErr"); b.disabled = true; er.textContent = "";
+        try { if (prev) prev.pause();
+          if (blob) { if (blob.size > 10 * 1024 * 1024) throw new Error("التسجيل أكبر من 10 ميجابايت؛ سجّل النص على مقطعين أو ارفع ملف mp3."); const ext = /mp4/.test(blob.type) ? "m4a" : /ogg/.test(blob.type) ? "ogg" : "webm";
+            if (audName) await sb.storage.from("reader-audio").remove(["madarij/" + audName]);
+            const up = await sb.storage.from("reader-audio").upload("madarij/" + X.id + "." + ext, blob, { contentType: ext === "m4a" ? "audio/mp4" : blob.type, upsert: true }); if (up.error) throw up.error; }
+          const tj = new Blob([JSON.stringify({ v: 1, w: ST, s: marks, d: +dur.toFixed(2) })], { type: "application/json" });
+          const up2 = await sb.storage.from("reader-audio").upload("madarij/" + X.id + ".json", tj, { contentType: "application/json", upsert: true }); if (up2.error) throw up2.error;
+          toast(blob ? "حُفظ التسجيل والتوقيت" : "حُفظ التوقيت"); stopAll(); d.close(); done(); }
+        catch (e) { b.disabled = false; er.textContent = "تعذّر الحفظ: " + (e.message || e); } };
+    };
+    const tick = () => { if (mode !== "rec" && mode !== "sync") return; const el = d.querySelector("#stuT"); if (el) { const s = Math.floor(now()); el.textContent = Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); } setTimeout(tick, 250); };
+    document.addEventListener("keydown", key); d.onclose = stopAll; draw(); d.showModal();
   }
 
   // ---------- وضع العرض على السبورة ----------
@@ -7395,7 +7576,7 @@ window.HiraArcade = (function () {
   // ---------- قياس الطلاقة من تسجيل الطالب: الكلمات الصحيحة في الدقيقة ----------
   const MDR_ET = { 1: ["إبدال أو خطأ نطق", "e1"], 2: ["حذف", "e2"], 3: ["تردّد طويل (+3 ثوانٍ)", "e3"] };
   const mdrLvl = (acc) => acc >= 97 ? ["🟢", "مستوى مستقل: يقرأ النص وحده"] : acc >= 90 ? ["🟡", "مستوى تعليمي: يقرأ بدعم المعلم"] : ["🔴", "مستوى صعب: يحتاج نصًّا أيسر أو تدريبًا مكثفًا"];
-  async function mdrFluDlg(X, l, s, rec, r, done) {
+  async function mdrFluDlg(X, l, s, rec, r, done, saver) {
     let d = document.getElementById("mdrFluDlg"); if (!d) { d = document.createElement("dialog"); d.id = "mdrFluDlg"; d.className = "wide-dlg mdr-flu-dlg"; document.body.appendChild(d); }
     const words = []; X.text.forEach((p, pi) => p.split(" ").forEach((w) => words.push([w, pi])));
     const old = (r && r.fl_marks) || {}; const E = Object.assign({}, old.e || {}); let last = old.last != null ? old.last : words.length - 1, sec = old.sec || rec.duration_sec || 60, mode = "err";
@@ -7422,7 +7603,7 @@ window.HiraArcade = (function () {
     d.querySelector("#fluSave").onclick = async () => { const c = calc(), err = d.querySelector("#fluErr"); if (!(sec >= 5)) { err.textContent = "اكتب مدة القراءة بالثواني."; return; }
       if (c.wcpm > 300) { err.textContent = "الناتج أعلى من المعقول؛ راجع المدة وآخر كلمة."; return; }
       const b = d.querySelector("#fluSave"); b.disabled = true;
-      const { error } = await sb.rpc("reading_fluency", { p_lesson: l.id, p_student: s.id, p_text: X.id, p_wcpm: c.wcpm, p_acc: c.acc, p_marks: { e: E, last, sec, att: c.att, rec: rec.id } }); b.disabled = false;
+      const mk = { e: E, last, sec, att: c.att, rec: rec.id }; const { error } = saver ? await saver(c, mk) : await sb.rpc("reading_fluency", { p_lesson: l.id, p_student: s.id, p_text: X.id, p_wcpm: c.wcpm, p_acc: c.acc, p_marks: mk }); b.disabled = false;
       if (error) { err.textContent = "تعذّر الحفظ: " + error.message; return; } const a = d.querySelector("audio"); if (a) a.pause(); d.close(); toast("حُفظ قياس الطلاقة ووصل للطالب"); done(); };
     paint(); d.showModal();
   }
@@ -19667,6 +19848,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "unit" && parts[1]) return pageUnit(parts[1], params);
       if (p0 === "reading" && parts[1]) return pageReading(parts[1]);
       if (p0 === "readlog") return pageReadLog();
+      if (p0 === "rbench") return pageReadBench();
       if (p0 === "readreport" && parts[1]) return pageReadReport(parts[1]);
       if (p0 === "rl" && parts[1]) return mdrMapGet().then((m) => { if (m[parts[1]]) location.replace("#/reading/" + m[parts[1]]); else location.replace("#/lesson/" + parts[1]); });
       if (p0 === "plan" && parts[1]) return pagePlan(parts[1]);
