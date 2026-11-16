@@ -3060,6 +3060,7 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .mj .rq .opts{margin-top:6px}
 .mj .rta{width:100%;box-sizing:border-box;min-height:56px;margin:6px 0;font:inherit;font-size:17px;resize:vertical}
 @media (max-width:640px){.mj .rd{font-size:19px}.mj .rd .rimg{float:none;display:block;max-width:100%;margin:0 auto 10px}}
+.mj .defn.matn{border-inline-start:4px solid var(--gold);background:#fffaf0;font-family:"ThmanyahDisplay",serif;font-size:19px;line-height:1.9}
 
 </style>
 </head>
@@ -3195,7 +3196,7 @@ const SUBJ=[
    {t:['فن الإملاء','Spelling'],d:['12 درجة · الهمزات والتاء والألف والترقيم','12 steps · hamzah, tā’, alif, punctuation'],live:1,id:'imla',n:12,icon:'pen'},
    {t:['مدارج القراءة','Reading Ladder'],d:['نصوص الوزارة في 3 مستويات · أسئلة بيرلز وبيزا','MoE texts · 3 levels · PIRLS/PISA questions'],live:1,id:'madarij',n:89,icon:'book'},
    {t:['قل ولا تقل','Say it right'],d:['الأخطاء اللغوية الشائعة','Common language errors'],icon:'chat'},
-   {t:['مفاتيح النحو','Keys of Grammar'],d:['من الآجرومية إلى ابن عقيل','From al-Ājurrūmiyyah up'],icon:'key'},
+   {t:['مفاتيح النحو','Keys of Grammar'],d:['12 درجة على متن الآجرومية','12 steps through al-Ājurrūmiyyah'],live:1,id:'nahw',n:12,icon:'key'},
    {t:['البلاغة الميسرة','Easy Rhetoric'],d:['التشبيه والاستعارة والكناية','Simile, metaphor, metonymy'],icon:'spark'},
    {t:['الشعر عبر العصور','Poetry Through the Ages'],d:['12 درجة · أبيات موثّقة من مصادرها','12 steps · every verse sourced'],live:1,id:'shiir',n:12,icon:'scroll'},
    {t:['الأمثال والحكم','Proverbs & Wisdom'],d:['قصة المثل ومعناه','Story and meaning'],icon:'chat'}]},
@@ -3219,7 +3220,7 @@ const ICONS={
 
 T.report=['تقرير الطلاب','Student report'];T.repT=['تقرير معارج حراء','Ma‘ārij report'];T.student=['الطالب','Student'];T.steps=['الدرجات','Steps'];T.curStep=['الدرجة الحالية','Current step'];T.medals=['الأوسمة','Medals'];T.updated=['آخر نشاط','Last active'];T.noData=['لا يوجد تقدم مسجل لطلابك بعد.','No progress recorded for your students yet.'];T.loading=['جارٍ التحميل…','Loading…'];T.signHint=['سجّل الدخول ليُحفظ تقدّمك ويراه معلمك.','Sign in to save your progress and share it with your teacher.'];
 let SURAH,LEVELS,STEPS,PLACE,D=null,C=null,syncT=null,CID='tajweed',N=16;
-const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',madarij:'art/maarij/madarij.json'};const CACHE={},LOADED={};
+const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',madarij:'art/maarij/madarij.json',nahw:'art/maarij/nahw.json'};const CACHE={},LOADED={};
 const KEY=()=>'hiraa-maarij-'+CID;
 let S={passed:[],tests:{},open:false,name:'',start:0};
 let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}
@@ -3564,7 +3565,7 @@ window.HiraaMaarij=async function(ctx){
   const parts=ctx.parts||[];
   if(parts[1]&&!COURSES[parts[1]]){location.hash='#/maarij';return}
   SUB=!parts[1]?'courses':(parts[2]||'course');
-  ctx.h(`<div class="mj" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><nav class="mj-crumb" id="mjCrumb"></nav><div id="mjApp">${t('loading')}</div><p class="note">${parts[1]==='madarij'?t('foot3'):(parts[1]==='shiir'||parts[1]==='imla')?t('foot2'):t('foot')}${ctx.state.session?'':' · '+t('signHint')}</p></div></div>`);
+  ctx.h(`<div class="mj" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><nav class="mj-crumb" id="mjCrumb"></nav><div id="mjApp">${t('loading')}</div><p class="note">${parts[1]==='madarij'?t('foot3'):(['shiir','imla','nahw'].includes(parts[1]))?t('foot2'):t('foot')}${ctx.state.session?'':' · '+t('signHint')}</p></div></div>`);
   if(parts[1]){
     const cid=parts[1];
     if(!CACHE[cid]){try{CACHE[cid]=await (await fetch(COURSES[cid],{cache:'no-cache'})).json()}catch(e){$('mjApp').textContent='تعذّر تحميل الدورة.';return}}

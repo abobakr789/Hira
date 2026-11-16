@@ -292,3 +292,4 @@
 .mj .rq .opts{margin-top:6px}
 .mj .rta{width:100%;box-sizing:border-box;min-height:56px;margin:6px 0;font:inherit;font-size:17px;resize:vertical}
 @media (max-width:640px){.mj .rd{font-size:19px}.mj .rd .rimg{float:none;display:block;max-width:100%;margin:0 auto 10px}}
+.mj .defn.matn{border-inline-start:4px solid var(--gold);background:#fffaf0;font-family:"ThmanyahDisplay",serif;font-size:19px;line-height:1.9}
