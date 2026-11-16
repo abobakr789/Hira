@@ -37,6 +37,7 @@ const T={
  allDone:['أكملت الدرجات كلها! بقي الاختبار النهائي.','All steps done! The final test is waiting.'],
  seeLadder:['انظر إلى المعارج','See the ladder'],nextStep:['الدرجة التالية','Next step'],review:['راجع الشرح','Review'],retry:['أعد الاختبار','Retry'],
  placeTitle:['اختبار تحديد المستوى','Placement test'],placeHint:['أجب بما تعرف، ولا بأس إن اخترت «لا أعرف بعد».','Answer what you know — “I don’t know yet” is fine.'],
+ texts:['نصوص','texts'],myGrade:['ابدأ بنصوص صفّك:','Start with your grade:'],grConfirm:['سيُفتح لك أول نص في صفّك وما قبله. هل تريد المتابعة؟','This opens the first text of your grade and everything before it. Continue?'],
  suggested:['مكانك المقترح:','Suggested start:'],startAt:['ابدأ من الدرجة','Start at step'],
  testT:['اختبار','Test'],testNeed:['تحتاج 80% لتنجح.','You need 80% to pass.'],passedTest:['نجحت في الاختبار!','You passed!'],
  medalGot:['حصلت على','You earned the'],
@@ -159,6 +160,7 @@ function renderLadder(app){
   LEVELS.forEach((Lv,li)=>{
     let h=`<div class="lvl"><div class="lvlname">${tx(Lv.n)} · ${tx(Lv.sub)}</div>`;
     Lv.steps.forEach(i=>{const st=STEPS[i-1];
+      const G=(D.meta.grades||[]).find(g=>g.first===i);if(G)h+=`<div class="grname" id="gr${G.g}">${tx(G.n)} · ${G.count} ${t('texts')}</div>`;
       const state=isPassed(i)?'done':unlocked(i)?(i===ns?'cur':'open'):'lock';
       const lab=state==='done'?t('passed'):state==='cur'?t('start'):state==='open'?t('open'):t('locked');
       h+=`<div class="stp ${state}" style="--i:${(1+(i-1)*Math.min(1,15/Math.max(1,N-1))).toFixed(2)}"><span class="rise"></span><div class="tread" ${state!=='lock'?`onclick="MJ.go('step-${i}')"`:''}><span class="num">${i}</span><span><div class="t">${tx(st.t)}</div><div class="s">${tx(st.sub)}</div></span><span class="st">${lab}</span></div></div>`;
@@ -175,6 +177,7 @@ function renderLadder(app){
   app.innerHTML=`<div class="chead"><div class="box">${(()=>{const sj=SUBJ.find(x=>x.courses.some(c=>c.id===CID))||SUBJ[0];return `<span class="pill" style="background:${sj.s};color:${sj.c}">${t(sj.id)}</span>`})()}
      <h1 style="margin-top:8px">${ct('t')}</h1><p class="sub">${ct('sub')}</p>
      <div class="row">${PLACE&&PLACE.length?`<button class="btn gold" onclick="MJ.go('placement')">${t('placeBtn')}</button>`:''}<button class="btn" onclick="MJ.go('${unlocked(ns)?'step-'+ns:(ns===LEVELS[1].steps[0]?'test-l1':ns===LEVELS[2].steps[0]?'test-l2':'step-'+ns)}')">${unlocked(ns)?t('cont')+' '+ns:t('takeTest')}</button>${S.tests.final?`<button class="btn ghost" onclick="MJ.go('certificate')">${t('certT')}</button>`:''}</div>
+     ${D.meta.grades?`<div class="grpick"><span>${t('myGrade')}</span>${D.meta.grades.map(g=>`<button class="gchip" onclick="MJ.grade(${g.first},${g.g})">${tx(g.n)}</button>`).join('')}</div>`:''}
      <div class="refs">${ct('refs')}</div></div>
    <div class="box"><h3 style="font-size:20px">${t('progress')}</h3>
      <div class="stats"><div class="stat"><b>${n}</b><span>${t('doneSteps')}</span></div><div class="stat"><b>${N}</b><span>${t('inCourse')}</span></div><div class="stat"><b>${Math.round(n/N*100)}%</b><span>${t('ofCourse')}</span></div></div>
@@ -192,8 +195,8 @@ function placeQ(){
     // first wrong answer decides start
     const w=P.ans.indexOf(false);const map=D.meta.placeMap||[1,4,7,10,13,16];
     const start=w<0?(D.meta.placeAll||N):map[w];
-    const lv=levelOf(start);
-    el.innerHTML=`<div class="result"><div class="big">${P.score} / ${PLACE.length}</div><h2>${t('suggested')} ${tx(LEVELS[lv].n)}</h2>
+    const lv=levelOf(start);const PG=(D.meta.grades||[]).find(g=>start>=g.first&&start<=g.last);
+    el.innerHTML=`<div class="result"><div class="big">${P.score} / ${PLACE.length}</div><h2>${t('suggested')} ${PG?tx(PG.n):tx(LEVELS[lv].n)}</h2>
      <p class="hint">${t('startAt')} ${start}: «${tx(STEPS[start-1].t)}»</p>
      <div class="row" style="justify-content:center;margin-top:14px"><button class="btn" onclick="MJ.startAt(${start})">${t('startAt')} ${start}</button><button class="btn ghost" onclick="MJ.go('course')">${t('seeLadder')}</button></div></div>`;
     return;
@@ -421,6 +424,7 @@ window.MJ={go,showPart,readPart,rans,rfin,lstep,play,setRep,setSlow,drawAct,pick
   reset:()=>{S.passed=[];S.tests={};S.start=0;save();route()},
   pans:(k)=>{const q=PLACE[P.i];P.ans.push(k===q.c);P.score+=(k===q.c)?1:0;P.i++;placeQ()},
   startAt:(n)=>{S.start=Math.max(S.start||0,n);save();go('step-'+n)},
+  grade:(n,g)=>{if(n>1&&!isPassed(n)&&!unlocked(n)&&!confirm(t('grConfirm')))return;if(n>1){S.start=Math.max(S.start||0,n);save()}go('step-'+n)},
   backLearn:()=>{lc=99;showPart(0)},review:()=>{lc=0;showPart(0)},nextQ:()=>{QZ.i++;quizQ()},
   setName:()=>{S.name=$('nm').value.trim();save();route()}};
 
