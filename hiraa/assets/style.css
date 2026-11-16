@@ -2717,3 +2717,8 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .rb-title{text-align:center;color:#2E6FBF}.rb-tx{font-size:1.45rem!important;line-height:2.2!important}
 .rb-tbl td{text-align:center}.rb-tbl td:first-child{text-align:start}.rb-up{color:#0f7a4a}.rb-dn{color:#b42318}
 .rb-link{margin-top:8px;background:linear-gradient(90deg,#EAF7F0,#F3F8FF);border-color:#A8D9BD}
+/* مؤهّلات العربية في صفحة المادة */
+.ar-quals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.ar-quals .ig-promo{margin:0;align-items:flex-start;flex-wrap:wrap}
+.ar-quals .ig-promo b{display:block;text-align:start}.ar-quals .ar-q-code{display:block;font-weight:500;font-size:.78rem;color:var(--muted)}
+.ar-quals .ig-promo>.btn{align-self:center}
+@media (max-width:900px){.ar-quals{grid-template-columns:1fr}.ar-quals .ig-promo{flex-wrap:nowrap;align-items:center}}

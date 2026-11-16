@@ -2698,6 +2698,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <p class="muted">اختر المادة، ثم الصف، ثم المسار: الناطقون بالعربية أو غير الناطقين.</p>
         ${subjectSeg(subject, (k) => "#/grades?subject=" + k)}
       </div></section>
+      ${subject !== "arabic" ? "" : `<section class="section"><div class="wrap ar-quals">${[
+        ["🎓", "#/year/9?subject=arabic&track=igcse", "International GCSE Arabic", "4AA1", "للناطقين بالعربية · الصفان 9–10 · القراءة والتلخيص والقواعد والكتابة · امتحانات تجريبية بسلّم <bdi dir=\"ltr\">9–1</bdi>"],
+        ["📘", "#/year/9?subject=arabic&track=gcse", "GCSE Arabic", "1AA0", "العربية لغةً أجنبية · الصفان 9–10 · الاستماع والقراءة والكتابة والمحادثة · امتحانات تجريبية"],
+        ["🏛️", "#/year/11?subject=arabic&track=alevel", "A Level Arabic", "9AA0", "الصفان 11–12 · الترجمة والقراءة والمقال الأدبي والبحث · امتحانات تجريبية بسلّم <bdi dir=\"ltr\">A*–E</bdi>"]
+      ].map((q) => `<a class="ig-promo" href="${q[1]}"><span>${q[0]}</span><div><b dir="ltr">${q[2]} <small class="ar-q-code">Pearson Edexcel ${q[3]}</small></b><small>${q[4]}</small></div><span class="btn btn-dawn btn-small">افتح</span></a>`).join("")}</div></section>`}
       ${subject !== "islamic" ? "" : `<section class="section"><div class="wrap"><a class="ig-promo" href="#/igcse" dir="ltr"><span>🎓</span><div><b>IGCSE Islamic Studies — in English</b><small>Pearson Edexcel 4IS1 · 27 topics · slides, worksheets, set passages · mock papers marked instantly</small></div><span class="btn btn-dawn btn-small">Open</span></a></div></section>`}
       <section class="section" style="padding-top:0"><div class="wrap" id="ladder"><div class="loading">جارٍ التحميل…</div></div></section>`);
     const ready = await readyYears(subject);

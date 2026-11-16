@@ -2735,6 +2735,11 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .rb-title{text-align:center;color:#2E6FBF}.rb-tx{font-size:1.45rem!important;line-height:2.2!important}
 .rb-tbl td{text-align:center}.rb-tbl td:first-child{text-align:start}.rb-up{color:#0f7a4a}.rb-dn{color:#b42318}
 .rb-link{margin-top:8px;background:linear-gradient(90deg,#EAF7F0,#F3F8FF);border-color:#A8D9BD}
+/* مؤهّلات العربية في صفحة المادة */
+.ar-quals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.ar-quals .ig-promo{margin:0;align-items:flex-start;flex-wrap:wrap}
+.ar-quals .ig-promo b{display:block;text-align:start}.ar-quals .ar-q-code{display:block;font-weight:500;font-size:.78rem;color:var(--muted)}
+.ar-quals .ig-promo>.btn{align-self:center}
+@media (max-width:900px){.ar-quals{grid-template-columns:1fr}.ar-quals .ig-promo{flex-wrap:nowrap;align-items:center}}
 
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
@@ -8590,6 +8595,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <p class="muted">اختر المادة، ثم الصف، ثم المسار: الناطقون بالعربية أو غير الناطقين.</p>
         ${subjectSeg(subject, (k) => "#/grades?subject=" + k)}
       </div></section>
+      ${subject !== "arabic" ? "" : `<section class="section"><div class="wrap ar-quals">${[
+        ["🎓", "#/year/9?subject=arabic&track=igcse", "International GCSE Arabic", "4AA1", "للناطقين بالعربية · الصفان 9–10 · القراءة والتلخيص والقواعد والكتابة · امتحانات تجريبية بسلّم <bdi dir=\"ltr\">9–1</bdi>"],
+        ["📘", "#/year/9?subject=arabic&track=gcse", "GCSE Arabic", "1AA0", "العربية لغةً أجنبية · الصفان 9–10 · الاستماع والقراءة والكتابة والمحادثة · امتحانات تجريبية"],
+        ["🏛️", "#/year/11?subject=arabic&track=alevel", "A Level Arabic", "9AA0", "الصفان 11–12 · الترجمة والقراءة والمقال الأدبي والبحث · امتحانات تجريبية بسلّم <bdi dir=\"ltr\">A*–E</bdi>"]
+      ].map((q) => `<a class="ig-promo" href="${q[1]}"><span>${q[0]}</span><div><b dir="ltr">${q[2]} <small class="ar-q-code">Pearson Edexcel ${q[3]}</small></b><small>${q[4]}</small></div><span class="btn btn-dawn btn-small">افتح</span></a>`).join("")}</div></section>`}
       ${subject !== "islamic" ? "" : `<section class="section"><div class="wrap"><a class="ig-promo" href="#/igcse" dir="ltr"><span>🎓</span><div><b>IGCSE Islamic Studies — in English</b><small>Pearson Edexcel 4IS1 · 27 topics · slides, worksheets, set passages · mock papers marked instantly</small></div><span class="btn btn-dawn btn-small">Open</span></a></div></section>`}
       <section class="section" style="padding-top:0"><div class="wrap" id="ladder"><div class="loading">جارٍ التحميل…</div></div></section>`);
     const ready = await readyYears(subject);
