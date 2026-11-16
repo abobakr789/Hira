@@ -319,3 +319,19 @@
 .mj .lvl .landing{margin:12px 18px 18px;width:auto;cursor:pointer;background:linear-gradient(90deg,#FFFBF1,#fff)}
 .mj .grname{grid-column:1/-1;font-family:"ThmanyahSans";font-weight:700;color:var(--c);margin-top:6px}
 @media (max-width:640px){.mj .ladder{padding:12px;gap:14px}.mj .path{grid-template-columns:1fr;padding:12px}.mj .lvlname b{font-size:17px}}
+/* مراجعة اليوم والتسميع */
+.mj .revbox{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:14px 18px;margin:0 0 16px}
+.mj .revbox.due{border-color:var(--gold);background:linear-gradient(90deg,#FFF6E0,#fff)}
+.mj .revbox .ri{font-size:26px}
+.mj .revbox b{display:block;font-family:"ThmanyahDisplay";font-size:18px;font-weight:400}
+.mj .revbox small{color:var(--muted);font-size:13px}
+.mj .revbox .btn{margin-inline-start:auto}
+.mj .duet{display:inline-block;margin-top:8px;background:var(--gold-s);color:#7A5714;border-radius:99px;padding:3px 10px;font-size:12px;font-weight:700}
+.mj .hzb{color:var(--gold);font-size:15px}
+.mj .rcq{background:#FFFDF7;border:1.5px solid var(--gold-l);border-radius:18px;padding:16px;margin:10px 0}
+.mj .rcn{font-size:12px;color:var(--muted);margin-bottom:6px}
+.mj .rcs{font-family:"ThmanyahDisplay",serif;font-size:24px;color:var(--navy);margin-bottom:12px;line-height:1.8}
+.mj .rco{display:grid;gap:8px}
+.mj .rco .opt{font-family:"ThmanyahDisplay",serif;font-size:20px;text-align:right}
+.mj .rcdone{font-family:"ThmanyahDisplay";font-size:20px;padding:14px;border-radius:16px;background:#F1EEE6;margin:8px 0;text-align:center}
+.mj .rcdone.ok{background:var(--gold-s);color:#7A5714}

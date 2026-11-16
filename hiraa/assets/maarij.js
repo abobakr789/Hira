@@ -43,7 +43,7 @@ const T={
  medalGot:['حصلت على','You earned the'],
  certT:['شهادة إتمام','Certificate of Completion'],certName:['اكتب اسمك كما تريده في الشهادة','Type your name for the certificate'],showCert:['اعرض الشهادة','Show certificate'],
  certBody:['أتمّ بحمد الله دورة التجويد برواية حفص عن عاصم في معارج حراء، بمستوياتها الثلاثة ودرجاتها الست عشرة.','has completed, by Allah’s grace, the Tajwīd course (Ḥafṣ ‘an ‘Āṣim) on Hiraa Ma‘ārij — all three levels and sixteen steps.'],
- date:['التاريخ','Date'],
+ date:['التاريخ','Date'],revT:['مراجعة اليوم','Today’s review'],revToday:['مراجعة اليوم جاهزة','Today’s review is ready'],revNone:['لا مراجعة اليوم، أحسنت','No review due today — well done'],revSteps:['درجات حان وقت مراجعتها؛ أسئلة قليلة تثبّت ما تعلمته.','steps are due — a few questions to make it stick.'],revNext:['المراجعة القادمة بعد','Next review in'],days:['يوم','day(s)'],revStart:['ابدأ المراجعة','Start review'],revHint:['سؤال من كل درجة حان وقتها','One question from each due step'],revAll:['ممتاز! ثبتت المعلومات، وستعود إليك بعد مدة أطول.','Excellent! These will come back after a longer gap.'],revSome:['أحسنت، وما أخطأت فيه سيعود إليك غدًا.','Good — what you missed comes back tomorrow.'],revGoBack:['ارجع إلى هذه الدرجات لتراجعها:','Revisit these steps:'],revDue:['🔁 للمراجعة:','🔁 Due:'],rcHint:['اقرأ الصدر، واختر العجز الصحيح من حفظك.','Read the first half and pick the right second half.'],hifzGot:['حفظتَ أبيات هذه الدرجة','You have memorised these verses'],hifzRetry:['أعد التسميع لتنال نجمة الحفظ (خطأ واحد على الأكثر).','Recite again to earn the memorisation star (at most one mistake).'],
  foot:['معارج حراء · نصوص الآيات من مصحف المنصة، والتلاوة للشيخ خليفة الطنيجي.','Hiraa Ma‘ārij · Qur’an text from the platform’s Muṣḥaf; recitation by Sheikh Khalifa Al-Tunaiji.'],foot2:['معارج حراء · كل نص في الدورة موثّق من مصدره المذكور تحته.','Hiraa Ma‘ārij · every text in this course is cited from its source.'],
  lv:['المستوى','Level'],foot3:['معارج حراء · النصوص والأسئلة من كتاب «مدارج القراءة» لوزارة التربية والتعليم، والإجابات النموذجية من إعداد حراء.','Hiraa Ma‘ārij · texts and questions from the MoE “Madārij al-Qirā’ah”; model answers by Hiraa.'],
  rparts:[['اقرأ','أجب'],['Read','Answer']],toQs:['إلى الأسئلة','To the questions'],showText:['اعرض النص','Show the text'],bookP:['كتاب مدارج القراءة، ص','Madārij al-Qirā’ah, p.'],
@@ -88,7 +88,12 @@ const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shi
 const KEY=()=>'hiraa-maarij-'+CID;
 let S={passed:[],tests:{},open:false,name:'',start:0};
 let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}
-function loadS(){S={passed:[],tests:{},open:false,name:'',start:0};try{const r=localStorage.getItem(KEY());if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}}
+function loadS(){S={passed:[],tests:{},open:false,name:'',start:0,rev:{},hifz:{}};try{const r=localStorage.getItem(KEY());if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}S.rev=S.rev||{};S.hifz=S.hifz||{};S.passed.forEach(i=>{if(!S.rev[i])S.rev[i]=[0,today()]})}
+/* مراجعة متباعدة: rev[step]=[box,dueDay] */
+const RINT=[1,3,7,14,30];const today=()=>Math.floor((Date.now()-new Date().getTimezoneOffset()*6e4)/864e5);
+function dueSteps(){const d=today();return Object.keys(S.rev||{}).map(Number).filter(i=>i>=1&&i<=N&&S.rev[i][1]<=d).sort((a,b)=>S.rev[a][1]-S.rev[b][1])}
+function dueOf(cid){try{const r=JSON.parse(localStorage.getItem('hiraa-maarij-'+cid)||'{}'),d=today(),rv=r.rev||{};const k=Object.keys(rv).filter(i=>rv[i][1]<=d).length;return k||((r.passed||[]).filter(i=>!rv[i]).length)}catch(e){return 0}}
+function nextRevIn(){const d=today(),v=Object.values(S.rev||{}).map(x=>x[1]-d).filter(x=>x>0);return v.length?Math.min(...v):0}
 function progOf(cid){try{const r=JSON.parse(localStorage.getItem('hiraa-maarij-'+cid)||'{}');return (r.passed||[]).length}catch(e){return 0}}
 const ct=k=>tx(D.meta[k]);
 const L=()=>C&&C.lang()==='en'?1:0;
@@ -100,12 +105,12 @@ const staffOpen=()=>S.open&&isStaffC();
 function save(){
   try{localStorage.setItem(KEY(),JSON.stringify(S))}catch(e){}
   const ses=C&&C.state.session;if(!ses)return;
-  clearTimeout(syncT);syncT=setTimeout(()=>{C.sb.from('maarij_progress').upsert({user_id:ses.user.id,course:CID,passed:S.passed,tests:S.tests,scores:{start:S.start||0},cert_name:S.name||null,updated_at:new Date().toISOString()}).then(()=>{},()=>{})},600);
+  clearTimeout(syncT);syncT=setTimeout(()=>{C.sb.from('maarij_progress').upsert({user_id:ses.user.id,course:CID,passed:S.passed,tests:S.tests,scores:{start:S.start||0,rev:S.rev||{},hifz:S.hifz||{}},cert_name:S.name||null,updated_at:new Date().toISOString()}).then(()=>{},()=>{})},600);
 }
 async function loadRemote(){
   const ses=C.state.session;if(!ses||LOADED[CID])return;LOADED[CID]=true;
   try{const {data}=await C.sb.from('maarij_progress').select('*').eq('user_id',ses.user.id).eq('course',CID).maybeSingle();
-    if(data){S.passed=[...new Set([...(S.passed||[]),...(data.passed||[])])].sort((a,b)=>a-b);S.tests=Object.assign({},data.tests||{},S.tests);S.start=Math.max(S.start||0,(data.scores&&data.scores.start)||0);if(!S.name&&data.cert_name)S.name=data.cert_name;}
+    if(data){S.passed=[...new Set([...(S.passed||[]),...(data.passed||[])])].sort((a,b)=>a-b);S.tests=Object.assign({},data.tests||{},S.tests);S.start=Math.max(S.start||0,(data.scores&&data.scores.start)||0);if(data.scores&&data.scores.rev)S.rev=Object.assign({},data.scores.rev,S.rev||{});if(data.scores&&data.scores.hifz)S.hifz=Object.assign({},data.scores.hifz,S.hifz||{});if(!S.name&&data.cert_name)S.name=data.cert_name;}
     save();}catch(e){}
 }
 function isPassed(i){return S.passed.includes(i)}
@@ -131,6 +136,7 @@ function route(){
   if(h!=='courses')crumbs.push(['course',ct('t')]);
   if(h==='course'){renderLadder(app)}
   else if(h==='placement'){crumbs.push(['',t('placeTitle')]);renderPlace(app)}
+  else if(h==='murajaa'){crumbs.push(['',t('revT')]);renderMur(app)}
   else if((m=h.match(/^step-(\d+)$/))&&+m[1]>=1&&+m[1]<=N){const i=+m[1];crumbs.push(['',t('stepOf')+' '+i]);if(!unlocked(i)){go('course');return}renderStep(app,i)}
   else if((m=h.match(/^test-(l1|l2|final)$/))){crumbs.push(['',testName(m[1])]);renderTest(app,m[1])}
   else if(h==='certificate'){crumbs.push(['',t('certT')]);renderCert(app)}
@@ -149,7 +155,7 @@ function renderCourses(app){
     return `<div class="cc ${c.live?'live':'soon'}" ${c.live?`onclick="MJ.openC('${c.id}')"`:''}><span class="tag">${c.live?t('avail'):t('soon')}</span>
      <div class="ic" style="background:${sj.s};color:${sj.c}"><svg width="34" height="34" viewBox="0 0 36 36">${ICONS[c.icon]}</svg></div>
      <h3>${tx(c.t)}</h3><div class="meta">${tx(c.d)}</div><div class="bar"><i style="width:${pct}%"></i></div>
-     <div class="meta">${c.live?`${n} ${L()?'of':'من'} ${c.n} ${L()?'steps':'درجة'}`:t('prep')}</div></div>`}).join('')}</div>`;
+     <div class="meta">${c.live?`${n} ${L()?'of':'من'} ${c.n} ${L()?'steps':'درجة'}`:t('prep')}</div>${c.live&&dueOf(c.id)?`<span class="duet">${t('revDue')} ${dueOf(c.id)}</span>`:''}</div>`}).join('')}</div>`;
 }
 
 /* ---------- ladder ---------- */
@@ -163,7 +169,7 @@ function renderLadder(app){
       const G=(D.meta.grades||[]).find(g=>g.first===i);if(G)h+=`<div class="grname" id="gr${G.g}">${tx(G.n)} · ${G.count} ${t('texts')}</div>`;
       const state=isPassed(i)?'done':unlocked(i)?(i===ns?'cur':'open'):'lock';
       const lab=state==='done'?t('passed'):state==='cur'?t('start'):state==='open'?t('open'):t('locked');
-      h+=`<div class="stp ${state}" style="--i:${(1+(i-1)*Math.min(1,15/Math.max(1,N-1))).toFixed(2)}"><span class="rise"></span><div class="tread" ${state!=='lock'?`onclick="MJ.go('step-${i}')"`:''}><span class="num">${i}</span><span><div class="t">${tx(st.t)}</div><div class="s">${tx(st.sub)}</div></span><span class="st">${lab}</span></div></div>`;
+      h+=`<div class="stp ${state}" style="--i:${(1+(i-1)*Math.min(1,15/Math.max(1,N-1))).toFixed(2)}"><span class="rise"></span><div class="tread" ${state!=='lock'?`onclick="MJ.go('step-${i}')"`:''}><span class="num">${i}</span><span><div class="t">${tx(st.t)}${S.hifz&&S.hifz[i]?` <span class="hzb" title="${t('hifzGot')}">★</span>`:''}</div><div class="s">${tx(st.sub)}</div></span><span class="st">${lab}</span></div></div>`;
     });
     const key=li<2?'l'+(li+1):'final';
     const ready=true;
@@ -183,6 +189,7 @@ function renderLadder(app){
      <div class="stats"><div class="stat"><b>${n}</b><span>${t('doneSteps')}</span></div><div class="stat"><b>${N}</b><span>${t('inCourse')}</span></div><div class="stat"><b>${Math.round(n/N*100)}%</b><span>${t('ofCourse')}</span></div></div>
      <div class="medals">${medals.map(m=>`<div class="medal ${S.tests[m[0]]?'got':''}">${tx(m[1])}<br>${S.tests[m[0]]?t('got'):t('after')+' '+m[2]}</div>`).join('')}</div>
      <div class="row" style="margin-top:12px">${isStaffC()?`<button class="tlink" onclick="MJ.teacher()">${S.open?'✓ '+t('teacherOn'):t('teacher')}</button><button class="tlink" onclick="MJ.go('report')">${t('report')}</button>`:''}${!C.state.session?`<button class="tlink" onclick="MJ.reset()">${t('reset')}</button>`:''}</div></div></div>
+   ${revBox()}
    <div class="ladder" style="--c:${(SUBJ.find(x=>x.courses.some(c=>c.id===CID))||SUBJ[0]).c};--cs:${(SUBJ.find(x=>x.courses.some(c=>c.id===CID))||SUBJ[0]).s}">${lad}</div>`;
 }
 
@@ -253,7 +260,8 @@ function examples(el){
 /* practice */
 let PS={};
 function practice(el){
-  const A=STEPS[CUR-1].practice;PS={};
+  const stp=STEPS[CUR-1];if(!stp._rc&&stp.ex&&stp.ex.length>=3&&stp.ex.every(e=>e.v&&e.v[1])){stp._rc=1;stp.practice=[{type:'recite',t:['سمّع الأبيات: اختر عجز كل بيت','Recite: choose the second half of each verse']}].concat(stp.practice)}
+  const A=stp.practice;PS={};
   el.innerHTML=`<h2>${t('prTitle')}</h2><p class="hint">${t('prHint')}</p>`+A.map((a,k)=>`<div class="act" id="act${k}"></div>`).join('')+
    `<div class="navrow"><button class="btn ghost" onclick="MJ.showPart(1)">${t('backEx')}</button><button class="btn gold" onclick="MJ.showPart(3)">${t('toQuiz')}</button></div>`;
   A.forEach((a,k)=>drawAct(k));
@@ -271,6 +279,10 @@ function drawAct(k){
     PS[k]={need:a.lines.reduce((s,l)=>s+l.toks.filter(x=>x[1]===1).length,0),got:0};
     box.innerHTML=head(k,a,t('tapHint'))+a.lines.map((ln,li)=>`<div class="tokens">${ln.toks.map((tk,ti)=>`<button class="tok" onclick="MJ.tap(${k},${li},${ti},this)">${tk[0]}</button>`).join('')}</div><div class="ref hint">${t('surah')} ${tx(SURAH[ln.s])} · ${t('ayah')} ${ln.a}</div>`).join('')+`<div class="fb" id="fb${k}"></div>`;
   }
+  if(a.type==='recite'){
+    const V=STEPS[CUR-1].ex.map(e=>e.v);PS[k]={i:0,err:0,V};
+    box.innerHTML=head(k,a,t('rcHint'))+`<div id="rc${k}"></div><div class="fb" id="fb${k}"></div>`;rcQ(k);
+  }
   if(a.type==='order'){
     PS[k]={n:0};
     const disp=i=>L()&&a.en?a.en[i]:a.seq[i];
@@ -281,6 +293,22 @@ function drawAct(k){
      <button class="btn ghost" style="padding:6px 14px" onclick="MJ.drawAct(${k})">${t('redo')}</button><div class="fb" id="fb${k}"></div>`;
   }
 }
+function rcQ(k){const p=PS[k],V=p.V,box=$('rc'+k);
+  if(p.i>=V.length){const ok=p.err<=1;const f=$('fb'+k);if(f){f.className='fb';f.textContent=''}if(ok){S.hifz=S.hifz||{};S.hifz[CUR]=1;save()}
+    box.innerHTML=`<div class="rcdone ${ok?'ok':''}">${ok?'★ '+t('hifzGot'):t('hifzRetry')}</div><button class="btn ghost" style="padding:6px 14px" onclick="MJ.drawAct(${k})">${t('redo')}</button>`;return}
+  const v=V[p.i],others=V.filter((_,j)=>j!==p.i).map(x=>x[1]).sort(()=>Math.random()-.5).slice(0,2),opts=[v[1],...others].sort(()=>Math.random()-.5);p.opts=opts;
+  box.innerHTML=`<div class="rcq" dir="rtl"><div class="rcn">${p.i+1} / ${V.length}</div><div class="rcs">${v[0]}</div><div class="rco">${opts.map((o,j)=>`<button class="opt" onclick="MJ.rc(${k},${j},this)">${o}</button>`).join('')}</div></div>`}
+function rc(k,j,b){const p=PS[k],v=p.V[p.i];if(p.opts[j]===v[1]){b.classList.add('ok');fb('fb'+k,true,t('right'));p.i++;setTimeout(()=>rcQ(k),650)}else{p.err++;b.classList.add('no');b.disabled=true;fb('fb'+k,false,t('wrongTry'))}}
+/* مراجعة اليوم */
+function revBox(){const d=dueSteps().length,nx=nextRevIn();if(!S.passed.length&&!d)return '';
+  return `<div class="revbox ${d?'due':''}"><div class="ri">🔁</div><div><b>${d?t('revToday'):t('revNone')}</b><small>${d?`${d} ${t('revSteps')}`:(nx?`${t('revNext')} ${nx} ${t('days')}`:'')}</small></div>${d?`<button class="btn gold" onclick="MJ.go('murajaa')">${t('revStart')}</button>`:''}</div>`}
+function renderMur(app){const due=dueSteps().slice(0,5);
+  app.innerHTML=`<div class="shead"><div><div class="k">${ct('t')}</div><h1>${t('revT')}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div><div class="panel" id="mp"></div>`;
+  if(!due.length){$('mp').innerHTML=`<div class="result"><h2>${t('revNone')}</h2></div>`;return}
+  const items=[],steps=[];due.forEach(i=>{const Q=STEPS[i-1].quiz||[];if(!Q.length)return;items.push(Q[Math.floor(Math.random()*Q.length)]);steps.push(i)});
+  QZ={items,i:0,ans:[],el:$('mp'),pass:0,title:t('revT'),needTxt:t('revHint'),onEnd:()=>{const d=today();steps.forEach((i,k)=>{const r=S.rev[i]||[0,d];if(QZ.ans[k]){r[0]=Math.min(r[0]+1,RINT.length-1);r[1]=d+RINT[r[0]]}else{r[0]=0;r[1]=d+1}S.rev[i]=r});save();
+    const sc=QZ.ans.filter(Boolean).length,wrong=steps.filter((_,k)=>!QZ.ans[k]);
+    QZ.el.innerHTML=`<div class="result"><div class="big">${sc} / ${items.length}</div><h2>${sc===items.length?t('revAll'):t('revSome')}</h2>${wrong.length?`<p class="hint">${t('revGoBack')}</p><div class="row" style="justify-content:center">${wrong.map(i=>`<button class="btn ghost" onclick="MJ.go('step-${i}')">${t('stepOf')} ${i}: ${tx(STEPS[i-1].t)}</button>`).join('')}</div>`:''}<div class="row" style="justify-content:center;margin-top:14px"><button class="btn" onclick="MJ.go('course')">${t('back')}</button></div></div>`}};quizQ()}
 function fb(id,ok,msg){const f=$(id);if(!f)return;f.className='fb '+(ok?'ok':'no');f.textContent=msg}
 function pick(k,i){const b=$(`it${k}-${i}`);$('act'+k).querySelectorAll('.lb').forEach(x=>x.classList.remove('sel'));PS[k].sel=i;b.classList.add('sel')}
 function drop(k,bi){
@@ -325,7 +353,7 @@ function answer(k){
 function stairs(lit){return `<div class="stairs-anim">${Array.from({length:6},(_,k)=>`<i style="height:${30+k*15}px;animation-delay:${k*.12}s" class="${k<lit?'lit':''}"></i>`).join('')}</div>`}
 function stepEnd(){
   const sc=QZ.ans.filter(Boolean).length,pass=sc>=QZ.pass,i=CUR;
-  if(pass&&!isPassed(i)){S.passed.push(i);save()}
+  if(pass&&!isPassed(i)){S.passed.push(i);S.rev=S.rev||{};if(!S.rev[i])S.rev[i]=[0,today()+1];save()}
   const lv=levelOf(i),pos=LEVELS[lv].steps.indexOf(i)+1;
   let msg=t('opened'),btn=i<N&&unlocked(i+1)?`<button class="btn gold" onclick="MJ.go('step-${i+1}')">${t('nextStep')}</button>`:'';
   if(pass&&LEVELS[lv].steps[LEVELS[lv].steps.length-1]===i){msg=lv<2?t('needRest'):t('allDone');btn=`<button class="btn gold" onclick="MJ.go('test-${lv<2?'l'+(lv+1):'final'}')">${t('takeTest')}</button>`}
@@ -419,7 +447,7 @@ async function renderReport(app){
   }catch(e){$('rp').textContent=String(e.message||e)}
 }
 
-window.MJ={go,showPart,readPart,rans,rfin,lstep,play,setRep,setSlow,drawAct,pick,drop,tap,ord,answer,
+window.MJ={go,showPart,rc,readPart,rans,rfin,lstep,play,setRep,setSlow,drawAct,pick,drop,tap,ord,answer,
   subj:(s)=>{SUBJ_SEL=s;try{localStorage.setItem('hiraa-maarij-subj',s)}catch(e){}route()},openC:(c)=>{location.hash='#/maarij/'+c},teacher:()=>{if(!isStaffC())return;S.open=!S.open;save();route()},
   reset:()=>{S.passed=[];S.tests={};S.start=0;save();route()},
   pans:(k)=>{const q=PLACE[P.i];P.ans.push(k===q.c);P.score+=(k===q.c)?1:0;P.i++;placeQ()},
