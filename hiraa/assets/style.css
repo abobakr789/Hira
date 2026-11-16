@@ -2792,3 +2792,4 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .td-slide .tdx-qans{display:grid;grid-template-columns:1fr 1fr;gap:12px}.td-slide .tdx-qans>div{background:#F3F7FC;border-radius:14px;padding:10px 14px}.td-slide .tdx-qans b{color:#1E4E8C;font-size:19px}.td-slide .tdx-qans p{margin:4px 0 0;font-size:18px;line-height:1.55}
 .ews-qo{display:flex;flex-direction:column;gap:6px}.ews-qo .mdr-opt{display:flex;gap:8px;align-items:flex-start;width:100%;white-space:normal;text-align:start}
 .tdx-qo{display:flex;flex-wrap:wrap;gap:4px 18px;font-style:normal;font-size:.72em;color:#475569;margin-top:4px}.tdx-qo i{font-style:normal}
+.ews-th{margin:12px 0 4px;font-size:1em;color:var(--accent,#1e4d8c);border-inline-start:4px solid currentColor;padding-inline-start:8px}.tdx-tx .ews-th{font-size:.8em;margin:8px 0 2px}

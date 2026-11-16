@@ -522,6 +522,10 @@
   async function ewsIdx() { if (EWS_IDX) return EWS_IDX; try { EWS_IDX = await (await fetch("art/exam/index.json")).json(); } catch (e) { EWS_IDX = []; } return EWS_IDX; }
   async function ewsGet(code) { if (!EWS[code]) EWS[code] = await (await fetch("art/exam/" + code + ".json")).json(); return EWS[code]; }
   const ewsWc = (s) => (String(s || "").trim().match(/\S+/g) || []).length;
+  // فقرة تبدأ بـ«§ » عنوانُ نصٍّ داخل السؤال (مثل س9: نصّان)
+  // تمييز العدد: 1 درجة، 2 درجتان، 3–10 درجات، 11 فما فوق درجة
+  function ewsDeg(n) { return n === 1 ? "درجة واحدة" : n === 2 ? "درجتان" : `${n} ${n >= 3 && n <= 10 ? "درجات" : "درجة"}`; }
+  function ewsP(p, e) { return p.startsWith("§ ") ? `<h5 class="ews-th">${e(p.slice(2))}</h5>` : `<p>${e(p)}</p>`; }
   async function ewsRun(box, l, u) {
     const D = await ewsGet(l.code); const W = D.where; const LV = D.type === "levels", IT = D.type === "items", WL = D.wlim || (LV || IT ? null : [100, 150]);
     const ansArr = (a) => { try { const v = JSON.parse(a || "[]"); return Array.isArray(v) ? v : [a]; } catch (e) { return [a || ""]; } };
@@ -530,10 +534,10 @@
     const save = async (o) => { if (!stu) return null; const { error } = await sb.rpc("ews_save", Object.assign({ p_lesson: l.id, p_answer: null, p_words: null, p_seconds: null, p_drills: null, p_self: null, p_self_score: null, p_max: null }, o)); if (error) toast("تعذّر الحفظ: " + error.message); return error; };
     const P = [["📍", "أين في الامتحان؟"], ["🧠", "المهارة"], ["📝", "مثال محلول"], ["🏋️", "تدريب موجَّه"], ["⏱️", "سؤال الامتحان"], ["⚠️", "أخطاء شائعة"]];
     let part = mine && mine.submitted_at ? 4 : 0;
-    const para = (arr) => arr.map((p) => `<p>${esc(p)}</p>`).join("");
+    const para = (arr) => arr.map((p) => ewsP(p, esc)).join("");
     const draw = () => {
       let b = "";
-      if (part === 0) b = `<div class="ews-where"><div><b>${esc(W.paper)}</b><span>${esc(W.q)}</span></div><div><b>${W.marks} درجات</b><span>${esc(W.split)}</span></div><div><b>${esc(W.words)}</b><span>طول الإجابة</span></div><div><b>⏱️</b><span>${esc(W.time)}</span></div></div>
+      if (part === 0) b = `<div class="ews-where"><div><b>${esc(W.paper)}</b><span>${esc(W.q)}</span></div><div><b>${ewsDeg(W.marks)}</b><span>${esc(W.split)}</span></div><div><b>${esc(W.words)}</b><span>طول الإجابة</span></div><div><b>⏱️</b><span>${esc(W.time)}</span></div></div>
         <div class="mdr-card"><h4>نص التعليمات في ورقة الامتحان</h4><p class="ews-instr">«${esc(W.instr)}»</p></div>
         <div class="mdr-card"><h4>معيار جودة الكتابة (درجتان)</h4><table class="lp-tbl ews-q">${D.quality.map((q) => `<tr><td><b>${q[0]}</b></td><td>${esc(q[1])}</td></tr>`).join("")}</table><p class="muted">ونقاط المحتوى: درجة لكل نقطة رئيسة يذكرها الطالب.</p></div>`;
       if (part === 1) b = `<div class="ews-skill">${D.skill.map((s, i) => `<div><span>${s[0]}</span><b>${i + 1}. ${esc(s[1])}</b><p>${esc(s[2])}</p></div>`).join("")}</div>
@@ -544,7 +548,7 @@
             <div class="ews-ia ok"><span>✔ ${q.marks}/${q.marks}</span><p>${esc(q.full.a)}</p><small>${esc(q.full.note)}</small></div>
             ${q.part ? `<div class="ews-ia no"><span>${q.part.score}/${q.marks}</span><p>${esc(q.part.a)}</p><small>${esc(q.part.note)}</small></div>` : ""}</div>`).join("")}`; }
       else if (part === 2) { const E = D.example;
-        b = `<div class="mdr-card"><h4>النص: «${esc(E.title)}»</h4><div class="mdr-text sm">${para(E.text)}</div><p class="ews-instr">${esc(W.instr)} (${W.marks} درجات)</p></div>
+        b = `<div class="mdr-card"><h4>النص: «${esc(E.title)}»</h4><div class="mdr-text sm">${para(E.text)}</div><p class="ews-instr">${esc(W.instr)} (${ewsDeg(W.marks)})</p></div>
         <details class="mdr-card"><summary>🔑 ${esc(E.pointsT || "النقاط الرئيسة الأربع")} (حاول أن تجدها قبل أن تفتح)</summary><ol>${E.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ol></details>
         <h4>ثلاث إجابات وكيف صُحّحت</h4>${E.models.map((m) => `<div class="mdr-card ews-model ${m.cls}"><div class="mdr-lg-h"><b class="ews-badge">${m.lvl}</b><small class="muted">${m.words} كلمة · ${m.marks ? `النقاط ${m.marks.reduce((a, b) => a + b, 0)}/4 · الجودة ${m.q}/2` : `المستوى <bdi dir="ltr">${esc(D.bands[m.band][0])}–${esc(D.bands[m.band][1])}</bdi>`}</small></div>
           <p class="ews-ans">${esc(m.text)}</p>${m.marks ? `<div class="ews-pts">${E.points.map((p, i) => `<span class="${m.marks[i] ? "ok" : "no"}">${m.marks[i] ? "✔" : "✘"} ${esc(p.split(":")[0].split("،")[0])}</span>`).join("")}</div>` : `<p class="ews-band">📊 ${esc(D.bands[m.band][2])}</p>`}
@@ -556,7 +560,7 @@
           <div class="mdr-card"><h4>2) ${esc(D.drills.paraT || "اختر أفضل إعادة صياغة")}</h4>${Pp.map((q, j) => `<div class="mdr-q" data-j="${j}"><p class="ews-src">«${esc(q.src)}»</p><div class="mdr-opts">${q.o.map((o, k) => `<label class="mdr-opt"><input type="radio" name="ewp${j}" value="${k}"> ${esc(o)}</label>`).join("")}</div><div class="mdr-fb" id="ewpF${j}"></div></div>`).join("")}
           <button class="btn btn-primary btn-small" id="ewsParC">تحقّق</button><span class="mdr-fb" id="ewsParR"></span></div>`; }
       if (part === 4) { const X = D.exam, done = mine && mine.submitted_at;
-        b = `<div class="mdr-card"><h4>النص: «${esc(X.title)}»</h4><div class="mdr-text sm">${para(X.text)}</div><p class="ews-instr">${esc(X.instr2 || W.instr)} (${W.marks} درجات)</p></div>
+        b = `<div class="mdr-card"><h4>النص: «${esc(X.title)}»</h4><div class="mdr-text sm">${para(X.text)}</div><p class="ews-instr">${esc(X.instr2 || W.instr)} (${ewsDeg(W.marks)})</p></div>
           ${stu || !isStaff() ? `<div class="mdr-card"><div class="rb-top"><span class="mdr-big" id="ewsT">${done ? "✅" : "0:00"}</span><span class="muted">الوقت المقترح ${X.minutes} دقيقة</span><span id="ewsWc" class="pill"></span></div>
             ${IT ? D.exam.qs.map((q, j) => { const prev = ansArr(mine && mine.answer)[j] || ""; return `<div class="ews-qi"><b>${esc(q.n)} (${q.marks}): ${esc(q.q)}</b>${q.o ? `<span class="ews-qo">${q.o.map((o) => `<label class="mdr-opt"><input type="radio" name="ewq${j}" value="${esc(o)}" ${prev === o ? "checked" : ""} ${mine && mine.graded_at ? "disabled" : ""}> ${esc(o)}</label>`).join("")}</span><input type="hidden" class="ews-qa" data-j="${j}" value="${esc(prev)}">` : `<textarea class="mdr-ta ews-qa" data-j="${j}" rows="2" ${mine && mine.graded_at ? "disabled" : ""}>${esc(prev)}</textarea>`}</div>`; }).join("") + `<textarea id="ewsA" hidden></textarea>` : ""}
             <textarea class="mdr-ta ews-ta" ${IT ? "hidden" : ""} id="${IT ? "ewsA0" : "ewsA"}" rows="9" ${mine && mine.graded_at ? "disabled" : ""} placeholder="${esc(D.exam.ph || "اكتب تلخيصك هنا بأسلوبك…")}">${esc((mine && mine.answer) || "")}</textarea>
@@ -652,7 +656,7 @@
       S.push({ t: "ex", d: { k: "mist", title: "أخطاء شائعة", items: D.mistakes }, n: "اسأل: أيّ هذه الأخطاء وقعتَ فيه اليوم؟" });
       S.push({ t: "exit", d: { title: "بطاقة الخروج", sub: "امسح الرمز: ورشة الامتحان وأسئلتها على حراء", url: appUrl() + "#/lesson/" + ctx.l.code }, n: "" });
       return S; }
-    S.push({ t: "ex", d: { k: "text", title: `أنا أطبّق أمامكم: «${E.title}»`, text: E.text, instr: W.instr + ` (${W.marks} درجات)` }, n: "فكّر بصوت مسموع: اقرأ الفقرة، وقل: «ما الفكرة الرئيسة هنا؟ وما المثال الذي سأحذفه؟». ظلّل بالقلم الأفكار الرئيسة." });
+    S.push({ t: "ex", d: { k: "text", title: `أنا أطبّق أمامكم: «${E.title}»`, text: E.text, instr: W.instr + ` (${ewsDeg(W.marks)})` }, n: "فكّر بصوت مسموع: اقرأ الفقرة، وقل: «ما الفكرة الرئيسة هنا؟ وما المثال الذي سأحذفه؟». ظلّل بالقلم الأفكار الرئيسة." });
     if (D.type === "levels") S.push({ t: "ex", d: { k: "bands", title: "جدول الدرجات الرسمي", bands: D.bands }, n: "اقرأ المستويات من الأدنى إلى الأعلى، واسأل: ما الفرق بين «شرح واضح» و«شرح مفصّل»؟ وما الذي يرفع الشاهد إلى «دعم تام»؟" });
     S.push({ t: "ex", d: { k: "points", title: E.pointsT || "النقاط الرئيسة الأربع", items: E.points, note: D.type === "levels" ? "كل عنصر يحتاج: التسمية + الشاهد + الأثر" : "درجة لكل نقطة · والأمثلة والأقوال لا درجة لها" }, n: "اكشف النقاط واحدة واحدة، وقارن بما ظلّله الطلاب." });
     const top = E.models.reduce((a, m) => (m.score > a.score ? m : a), E.models[0]);
@@ -661,7 +665,7 @@
       n: "دقيقتان: يصحّح الطلاب في أزواج بالمعيار (نقطة = درجة، والجودة 0–2) ويكتبون الدرجة، ثم اكشف درجة الممتحن وتعليقاته وناقش الفرق." }));
     S.push({ t: "ex", d: { k: "sort", title: "نطبّق معًا: " + (D.drills.sortT || "فكرة رئيسة أم تفصيل؟"), items: D.drills.sort, L: D.drills.sortL }, n: "يرفع الطلاب يدًا للفكرة الرئيسة وقبضة للتفصيل، ثم اكشف الإجابة." });
     D.drills.para.forEach((q, j) => S.push({ t: "ex", d: { k: "para", title: `${D.drills.paraT || "أفضل إعادة صياغة"} (${j + 1}/${D.drills.para.length})`, q }, n: "يكتب الطلاب رقم الخيار على السبورات الصغيرة، ثم اكشف الصحيح وسببه." }));
-    S.push({ t: "ex", d: { k: "task", title: `أنت تطبّق: «${X.title}»`, text: X.text, instr: (X.instr2 || W.instr) + ` (${W.marks} درجات)`, min: X.minutes }, n: `${X.minutes} دقيقة: شغّل المؤقت. الكتابة فردية وبصمت، مع عدّ الكلمات في النهاية.` });
+    S.push({ t: "ex", d: { k: "task", title: `أنت تطبّق: «${X.title}»`, text: X.text, instr: (X.instr2 || W.instr) + ` (${ewsDeg(W.marks)})`, min: X.minutes }, n: `${X.minutes} دقيقة: شغّل المؤقت. الكتابة فردية وبصمت، مع عدّ الكلمات في النهاية.` });
     S.push({ t: "ex", d: { k: D.type === "levels" ? "peerb" : "peer", title: "تقييم الزميل بمعيار الامتحان", points: X.points, quality: D.quality, bands: D.bands, max: W.marks }, n: "يتبادل الطلاب الدفاتر، ويضعون ✔ لكل نقطة مكتوبة بأسلوب الزميل، ويختارون مستوى الجودة، ثم يكتبون نصيحة واحدة." });
     S.push({ t: "ex", d: { k: "answer", title: "إجابة نموذجية للمقارنة", text: X.model, words: X.model_words }, n: "اكشفها بعد تقييم الزميل، واطلب من كل طالب تحسين جملة واحدة في تلخيصه." });
     S.push({ t: "ex", d: { k: "mist", title: "أخطاء شائعة", items: D.mistakes }, n: "اسأل: أيّ هذه الأخطاء وقعتَ فيه اليوم؟" });
@@ -671,19 +675,19 @@
   function tdExHtml(d, X) {
     const src = { ms: "معيار التصحيح", rep: "تقرير الممتحنين", q: "تعليمات السؤال" };
     switch (d.k) {
-      case "where": { const W = d.W; return `<div class="tdx-where"><div><b>${X(W.q)}</b><span>${X(W.paper)}</span></div><div><b>${W.marks} درجات</b><span>${X(W.split)}</span></div><div><b>${X(W.words)}</b><span>طول الإجابة</span></div></div><div class="tdx-instr rv">«${X(W.instr)}»</div>`; }
-      case "text": return `<div class="tdx-tx">${d.text.map((p) => `<p>${X(p)}</p>`).join("")}</div><div class="tdx-instr">${X(d.instr)}</div>`;
+      case "where": { const W = d.W; return `<div class="tdx-where"><div><b>${X(W.q)}</b><span>${X(W.paper)}</span></div><div><b>${ewsDeg(W.marks)}</b><span>${X(W.split)}</span></div><div><b>${X(W.words)}</b><span>طول الإجابة</span></div></div><div class="tdx-instr rv">«${X(W.instr)}»</div>`; }
+      case "text": return `<div class="tdx-tx">${d.text.map((p) => ewsP(p, X)).join("")}</div><div class="tdx-instr">${X(d.instr)}</div>`;
       case "points": return `<ol class="tdx-pts${d.items.length > 4 ? " many" : ""}">${d.items.map((p, j) => `<li class="rv"><span>${j + 1}</span><p>${X(p)}</p></li>`).join("")}</ol>${d.note ? `<div class="tdx-note">${X(d.note)}</div>` : ""}`;
       case "bands": return `<div class="tdx-grid bands">${d.bands.map((b) => `<div class="rv"><em><bdi dir="ltr">${b[0]}–${b[1]}</bdi></em><span>${X(b[2])}${b[3] ? `<small> · الشاهد: ${X(b[3])}</small>` : ""}</span></div>`).join("")}</div>`;
       case "markb": return `<div class="tdx-two"><div class="tdx-ans${(d.m.words || 0) > 125 ? " long" : ""}">${X(d.m.text)}<small>${d.m.words} كلمة</small></div><div class="tdx-side"><div class="tdx-grid bands sm">${d.bands.map((b) => `<div><em><bdi dir="ltr">${b[0]}–${b[1]}</bdi></em><span>${X(b[2])}</span></div>`).join("")}</div><div class="tdx-score rv">المستوى <bdi dir="ltr">${d.bands[d.m.band][0]}–${d.bands[d.m.band][1]}</bdi> · درجة الممتحن: <b>${d.m.score}/${d.max}</b></div><ul class="tdx-notes sm">${d.m.notes.slice(0, 2).map((n) => `<li class="rv">${X(n)}</li>`).join("")}</ul></div></div>`;
-      case "peerb": return `<div class="tdx-two"><div class="tdx-grid"><b>✔ ماذا حلّل زميلي؟</b>${d.points.map((p) => `<div><span>${X(p)}</span><em>☐</em></div>`).join("")}</div><div class="tdx-grid bands sm"><b>المستوى</b>${d.bands.map((b) => `<div><em><bdi dir="ltr">${b[0]}–${b[1]}</bdi></em><span>${X(b[2])}</span></div>`).join("")}<div class="tdx-score">الدرجة: ...... / ${d.max}</div></div></div>`;
+      case "peerb": return `<div class="tdx-two"><div class="tdx-grid"><b>✔ ماذا حلّل زميلي؟</b>${d.points.map((p) => `<div><span>${X(p.split(":")[0])}</span><em>☐</em></div>`).join("")}</div><div class="tdx-grid bands sm"><b>المستوى</b>${d.bands.map((b) => `<div><em><bdi dir="ltr">${b[0]}–${b[1]}</bdi></em><span>${X(b[2])}</span></div>`).join("")}<div class="tdx-score">الدرجة: ...... / ${d.max}</div></div></div>`;
       case "model": if (!d.m.marks) return `<div class="tdx-two"><div class="tdx-ans${(d.m.words || 0) > 125 ? " long" : ""}">${X(d.m.text)}<small>${d.m.words} كلمة</small></div><div class="tdx-side"><div class="tdx-score rv">المستوى ${d.m.score}/${d.max || 10}</div><ul class="tdx-notes sm">${d.m.notes.slice(0, 4).map((n) => `<li class="rv">${X(n)}</li>`).join("")}</ul></div></div>`;
         return `<div class="tdx-two"><div class="tdx-ans${(d.m.words || 0) > 125 ? " long" : ""}">${X(d.m.text)}<small>${d.m.words} كلمة</small></div><div class="tdx-side"><div class="tdx-chips">${d.points.map((p, j) => `<span class="rv ${d.m.marks[j] ? "ok" : "no"}">${d.m.marks[j] ? "✔" : "✘"} ${X(p.split(":")[0].split("،")[0])}</span>`).join("")}</div><ul class="tdx-notes">${d.m.notes.map((n) => `<li class="rv">${X(n)}</li>`).join("")}</ul></div></div>`;
       case "mark": return `<div class="tdx-two"><div class="tdx-ans${(d.m.words || 0) > 125 ? " long" : ""}">${X(d.m.text)}<small>${d.m.words} كلمة</small></div><div class="tdx-side"><div class="tdx-grid"><b>النقاط (درجة لكل نقطة)</b>${d.points.map((p, j) => `<div><span>${X(p.split(":")[0].split("،")[0])}</span><em class="rv ${d.m.marks[j] ? "ok" : "no"}">${d.m.marks[j] ? "1" : "0"}</em></div>`).join("")}
         <b>جودة الكتابة (0–2)</b><div><span>${X((d.quality.find((q) => q[0] === d.m.q) || [, ""])[1])}</span><em class="rv">${d.m.q}</em></div></div><div class="tdx-score rv">درجة الممتحن: <b>${d.m.score}/${d.max}</b></div><ul class="tdx-notes sm">${d.m.notes.slice(0, 2).map((n) => `<li class="rv">${X(n)}</li>`).join("")}</ul></div></div>`;
       case "sort": return `<div class="tdx-sort">${d.items.map((s) => `<div><p>${X(s[0])}</p><em class="rv ${s[1]}">${X((d.L || {})[s[1]] || (s[1] === "main" ? "فكرة رئيسة" : "تفصيل أو مثال"))}</em></div>`).join("")}</div>`;
       case "para": return `<div class="tdx-src">«${X(d.q.src)}»</div><div class="tdx-opts">${d.q.o.map((o, k) => `<div class="${k === d.q.c ? "c" : ""}"><span>${k + 1}</span>${X(o)}</div>`).join("")}</div><div class="tdx-why rv">✔ الخيار ${d.q.c + 1}: ${X(d.q.why)}</div>`;
-      case "task": return `<div class="tdx-tx sm">${d.text.map((p) => `<p>${X(p)}</p>`).join("")}</div><div class="tdx-instr">${X(d.instr)} · ⏱️ ${d.min} دقيقة</div>`;
+      case "task": return `<div class="tdx-tx sm">${d.text.map((p) => ewsP(p, X)).join("")}</div><div class="tdx-instr">${X(d.instr)} · ⏱️ ${d.min} دقيقة</div>`;
       case "peer": return `<div class="tdx-two"><div class="tdx-grid"><b>✔ النقاط الرئيسة (درجة لكل نقطة)</b>${d.points.map((p) => `<div><span>${X(p)}</span><em>☐</em></div>`).join("")}</div><div class="tdx-grid"><b>جودة الكتابة</b>${d.quality.map((q) => `<div><span>${X(q[1])}</span><em>${q[0]}</em></div>`).join("")}<div class="tdx-score">المجموع: ...... / ${d.max}</div><div class="tdx-note">نصيحة واحدة لزميلي: ......................</div></div></div>`;
       case "itemq": return `<div class="tdx-src">${X(d.q.q)}</div><div class="tdx-ia ok rv"><span>✔ ${d.q.marks}/${d.q.marks}</span><p>${X(d.q.full.a)}</p><small>${X(d.q.full.note)}</small></div>${d.q.part ? `<div class="tdx-ia no rv"><span>${d.q.part.score}/${d.q.marks}</span><p>${X(d.q.part.a)}</p><small>${X(d.q.part.note)}</small></div>` : ""}`;
       case "qlist": return `<ol class="tdx-pts many">${d.qs.map((q) => `<li><span>${X(q.n)}</span><p>${X(q.q)} <small>(${q.marks})</small>${q.o ? `<em class="tdx-qo">${q.o.map((o, k) => `<i>${"أبجد"[k] || k + 1}) ${X(o)}</i>`).join("")}</em>` : ""}</p></li>`).join("")}</ol>`;
