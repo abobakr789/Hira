@@ -221,3 +221,6 @@
 :root[data-theme="dark"] .arc-line.ok, :root[data-theme="dark"] .arc-slots li.ok { background: #12351F; }
 :root[data-theme="dark"] .arc-line.no, :root[data-theme="dark"] .arc-slots li.no { background: #3D1414; }
 @media (max-width: 640px) { .arc-baskets.n3 { grid-template-columns: 1fr 1fr; } .arc-basket { min-height: 110px; } .arc-chip { font-size: 1.02rem; padding: 5px 10px; } }
+/* وِرد المراجعة في صفحة الطالب */
+.today-card.rv-home{border:2px solid #D4AA55;background:linear-gradient(160deg,#FFF8E8,#fff)}
+.today-card.rv-home .today-tag{background:#102A4C;color:#fff}

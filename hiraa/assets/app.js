@@ -4118,6 +4118,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             : `<a class="test-card ${t.kind}" href="#/test/${t.id}"><strong>${esc(tTitle(t))}</strong><span>${t.track === "non_native" ? "Start the test" : "ابدأ الاختبار"}</span></a>`).join("")}`).join("")
           : ""}
       </div>${!cls.length ? '<div id="indepHome"></div>' : ""}</div></section>`);
+    reviewHome().catch(() => {});
     myExtras(cls).then(() => todayStrip(cls)).then(() => appendBooks()).then(() => { const m = document.getElementById("main"); if (!m || !isStudent()) return; const s = document.createElement("section"); s.className = "section"; s.style.paddingTop = "0";
       s.innerHTML = `<div class="wrap"><a class="btn btn-dawn btn-small" href="#/my-tests" style="margin-inline-end:8px">📝 ${state.myTrack === "non_native" || LANG === "en" ? "All my tests" : "كل اختباراتي"}</a><button class="btn btn-ghost btn-small" id="linkPar">👨‍👩‍👧 ${state.myTrack === "non_native" || LANG === "en" ? "Link my parent" : "اربط ولي أمري"}</button></div>`; m.appendChild(s); document.getElementById("linkPar").onclick = studentLinkParent; });
     setTimeout(maybeTour, 600);
@@ -9543,7 +9544,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div class="ach-badges">${BADGES.map((b) => `<div class="${b[4](S) ? "on" : ""}" title="${esc(T2(b[2], b[3]))}"><span>${b[1]}</span><small>${esc(T2(b[2], b[3]))}</small></div>`).join("")}</div>
         ${(S.rewards || []).length ? `<h2>🎁 ${T2("تكريم من معلمي", "Awards from my teacher")}</h2><div class="ach-rewards">${S.rewards.map((r) => `<div><span>${esc(r.icon || "🏅")}</span><b>${esc(r.title)}</b>${r.note ? `<small>${esc(r.note)}</small>` : ""}<em>${fmtD(r.at)}</em></div>`).join("")}</div>` : ""}
         <h2>📊 ${T2("نشاطي", "My activity")}</h2>
-        <div class="kpis">${[["lesson", "📖", "دروس", "lessons"], ["test", "📝", "اختبارات", "tests"], ["memo", "🧠", "مراجعات حفظ", "reviews"], ["live", "⚡", "إجابات في التحدّي", "challenge answers"], ["book", "📚", "كتب", "books"], ["prep", "🎯", "اختبارات تجريبية", "mock exams"]].map(([k, ic, ar, e]) => `<div><b>${ic} ${S.by_kind[k] || 0}</b><span>${T2(ar, e)}</span></div>`).join("")}</div>
+        <div class="kpis">${[["lesson", "📖", "دروس", "lessons"], ["test", "📝", "اختبارات", "tests"], ["memo", "🧠", "مراجعات حفظ", "reviews"], ["review", "📦", "مراجعات الدروس", "lesson reviews"],["live", "⚡", "إجابات في التحدّي", "challenge answers"], ["book", "📚", "كتب", "books"], ["prep", "🎯", "اختبارات تجريبية", "mock exams"]].map(([k, ic, ar, e]) => `<div><b>${ic} ${S.by_kind[k] || 0}</b><span>${T2(ar, e)}</span></div>`).join("")}</div>
         <div class="ach-links"><a href="#/duel">⚔️ ${T2("تحدَّ أصدقاءك", "Challenge your friends")}</a><a href="#/league">🏆 ${T2("دوري الفصول", "Class league")}</a><a href="#/prep">🎯 ${T2("استعد للامتحان", "Exam prep")}</a></div>
         <div class="bk-tools"><button class="btn btn-dawn" id="achCert">🖨️ ${T2("اطبع شهادة إنجازاتي", "Print my achievement certificate")}</button>
           ${isStaff() && sid !== state.session.user.id ? `<button class="btn btn-primary" id="achGive">🎁 ${T2("امنح وسامًا", "Give an award")}</button>` : ""}</div>
@@ -12056,10 +12057,86 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
         const { data, error } = await sb.rpc("record_game", { p_lesson: l.id, p_score: Math.min(score, max), p_max: Math.min(Math.max(max, 1), 30), p_mode: mode, p_missed: (missed || []).slice(0, 10) });
         if (error || !data) return "";
         return data.capped ? (en ? "You reached today's limit for this lesson. Try another lesson!" : "بلغت حدّ النقاط اليوميّ لهذا الدرس، جرّب درسًا آخر!")
-          : `<b>+${data.points}</b> ${en ? "points" : "نقطة"} · ${en ? "Total" : "رصيدك"} <b>${data.total}</b>${data.streak > 1 ? ` · 🔥 ${data.streak} ${en ? "days in a row" : "أيام متتالية"}` : ""}`;
-      } };
+          : `<b>+${data.points}</b> ${en ? "points" : "نقطة"} · ${en ? "Total" : "رصيدك"} <b>${data.total}</b>${data.streak > 1 ? ` · 🔥 ${data.streak} ${en ? "days in a row" : "أيام متتالية"}` : ""}` + rvAddedNote(en);
+      },
+      onMissed: (rq) => rvSaveMissed(rq, en) };
     window.HiraArcade.mount(box, cfg);
     if (isStaff()) { let rep = document.getElementById("arcRep"); if (!rep) { rep = document.createElement("section"); rep.id = "arcRep"; rep.className = "arc-rep"; box.after(rep); } gameReport(rep, l, en); }
+  }
+  /* ===== وِرد المراجعة المتباعدة (review_cards): صناديق لايتنر 1–6 ===== */
+  const dubaiDay = (plus) => new Date(Date.now() + 4 * 3600e3 + (plus || 0) * 864e5).toISOString().slice(0, 10);
+  let rvLastAdded = 0;
+  function rvSaveMissed(rq, en) {
+    rvLastAdded = 0;
+    if (!state.session || !isStudent() || !rq || !rq.length) return;
+    const me = state.session.user.id, rows = rq.slice(0, 12).map((x) => ({ user_id: me, qkey: x.key, lesson_id: x.lid || null, q: { ...x.q, en: !!en }, box: 1, due_on: dubaiDay(1), last_ok: false }));
+    rvLastAdded = rows.length;
+    sb.from("review_cards").upsert(rows, { onConflict: "user_id,qkey" }).then(({ error }) => { if (error) console.warn("review_cards", error.message); });
+  }
+  const rvAddedNote = (en) => { const n = rvLastAdded; rvLastAdded = 0; if (!n) return "";
+    return `<br><small>📦 ${en ? `${n} ${n === 1 ? "question" : "questions"} added to your <a href="#/review">daily review</a>; they come back tomorrow.` : `أُضيف ${n === 1 ? "سؤال واحد" : n === 2 ? "سؤالان" : n + (n <= 10 ? " أسئلة" : " سؤالًا")} إلى <a href="#/review">وِرد المراجعة</a>، ${n === 1 ? "يعود" : "تعود"} إليك غدًا.`}</small>`; };
+  async function rvCounts() {
+    const me = state.session.user.id, today = dubaiDay(0);
+    const [{ count: due }, { count: all }, { count: done }] = await Promise.all([
+      sb.from("review_cards").select("qkey", { count: "exact", head: true }).eq("user_id", me).lte("due_on", today),
+      sb.from("review_cards").select("qkey", { count: "exact", head: true }).eq("user_id", me),
+      sb.from("review_cards").select("qkey", { count: "exact", head: true }).eq("user_id", me).eq("box", 6)]);
+    return { due: due || 0, all: all || 0, done: done || 0 };
+  }
+  // بطاقة «وِرد اليوم» في صفحة الطالب
+  async function reviewHome() {
+    if (!state.session || !isStudent()) return;
+    const row = document.querySelector("#main .grade-row"); if (!row || document.getElementById("rvHome")) return;
+    let c; try { c = await rvCounts(); } catch (e) { return; }
+    const en = state.myTrack === "non_native" || LANG === "en";
+    const a = document.createElement("a"); a.id = "rvHome"; a.className = "today-card rv-home"; a.href = "#/review";
+    a.innerHTML = `<span class="today-tag">📦 ${en ? "Daily review" : "وِرد المراجعة"}</span>
+      <strong>${c.due ? (en ? `${c.due} ${c.due === 1 ? "card is" : "cards are"} due today` : `${c.due === 1 ? "بطاقة واحدة مستحقّة" : c.due === 2 ? "بطاقتان مستحقّتان" : c.due + (c.due <= 10 ? " بطاقات مستحقّة" : " بطاقةً مستحقّة")} اليوم`) : (en ? "Five minutes on your recent lessons" : "خمس دقائق على دروسك الأخيرة")}</strong>
+      <span class="muted" style="font-size:.9rem">${c.all ? (en ? `${c.all} cards · ${c.done} mastered` : `${c.all} بطاقة في صناديقك · أتقنت ${c.done}`) : (en ? "What you miss in the games comes back here at the right time." : "ما تخطئ فيه في الألعاب يعود إليك هنا في الوقت المناسب.")}</span>
+      <span class="btn btn-dawn btn-small">${en ? "Start" : "ابدأ الوِرد"}</span>`;
+    row.prepend(a);
+  }
+  async function pageReview() {
+    setNav("my");
+    if (!state.session) { try { sessionStorage.setItem("hiraa.after", "#/review"); } catch (e) {} location.hash = "#/login"; return; }
+    const en = state.myTrack === "non_native" || LANG === "en", T2 = (a, b) => (en ? b : a);
+    if (!isStudent()) { h(`<div class="wrap"><div class="form-card empty"><strong>${T2("وِرد المراجعة للطلاب", "The daily review is for students")}</strong>${T2("يجمع للطالب ما أخطأ فيه في ألعاب الدروس، ويعيده إليه بعد يوم ثم 3 أيام ثم أسبوع ثم أسبوعين ثم شهر.", "It collects what a student missed in lesson games and brings it back after 1, 3, 7, 14 and 30 days.")}</div></div>`); return; }
+    loading();
+    const me = state.session.user.id, today = dubaiDay(0);
+    const { data: due } = await sb.from("review_cards").select("qkey, lesson_id, q, box, reviews, lapses").eq("user_id", me).lte("due_on", today).order("due_on").order("box").limit(12);
+    let cards = (due || []).map((r) => ({ key: r.qkey, lid: r.lesson_id, q: r.q, box: r.box, reviews: r.reviews, lapses: r.lapses }));
+    // إن قلّ المستحقّ: أسئلة جديدة من آخر الدروس التي فتحها الطالب
+    if (cards.length < 8) {
+      try {
+        const { data: vw } = await sb.from("lesson_views").select("lesson_id, last_seen").eq("student_id", me).order("last_seen", { ascending: false }).limit(6);
+        const ids = (vw || []).map((v) => v.lesson_id);
+        if (ids.length) {
+          const { data: ls } = await sb.from("lessons").select("id, title_ar, game_items(game, source, payload), lesson_summaries(content)").in("id", ids);
+          const lessons = (ls || []).map((x) => { const s = Array.isArray(x.lesson_summaries) ? x.lesson_summaries[0] : x.lesson_summaries; const k = (s && s.content) || {};
+            return { id: x.id, title: x.title_ar, items: x.game_items || [], words: k.words || [], quiz: k.quiz || [] }; });
+          let fresh = window.HiraArcade.freshCards(lessons, en, 30);
+          if (fresh.length) {
+            const { data: have } = await sb.from("review_cards").select("qkey").eq("user_id", me).in("qkey", fresh.map((f) => f.key));
+            const skip = new Set((have || []).map((x) => x.qkey).concat(cards.map((c) => c.key)));
+            fresh = fresh.filter((f) => !skip.has(f.key)).slice(0, 8 - cards.length).map((f) => ({ ...f, box: 1, reviews: 0, lapses: 0, fresh: true }));
+            cards = cards.concat(fresh);
+          }
+        }
+      } catch (e) { /* المستحقّ وحده يكفي */ }
+    }
+    h(`<section class="page-head"><div class="wrap" style="padding-bottom:18px"><h1>📦 ${T2("وِرد المراجعة", "Daily review")}</h1>
+        <p class="muted">${T2("بطاقات من دروسك: ما تصيب فيه يعود بعد مدّة أطول، وما تخطئ فيه يعود غدًا. خمس دقائق كلّ يوم تثبّت ما تعلّمته.", "Cards from your lessons: what you get right comes back later, what you miss comes back tomorrow. Five minutes a day makes it stick.")}</p></div></section>
+      <section class="section" style="padding-top:20px"><div class="wrap" style="max-width:920px"><div id="rvBox"></div></div></section>`);
+    const box = document.getElementById("rvBox"); if (!box || !window.HiraArcade) return;
+    let right = 0;
+    window.HiraArcade.mount(box, { lessons: [], en, review: {
+      cards: window.HiraArcade && cards.length ? cards.sort(() => Math.random() - 0.5).sort((a, b) => (a.fresh ? 1 : 0) - (b.fresh ? 1 : 0)) : [],
+      onAnswer: (c, ok, nb, days) => { if (ok) right++;
+        sb.from("review_cards").upsert({ user_id: me, qkey: c.key, lesson_id: c.lid || null, q: c.q, box: nb, due_on: dubaiDay(days), reviews: (c.reviews || 0) + 1, lapses: (c.lapses || 0) + (ok ? 0 : 1), last_ok: ok, last_review: new Date().toISOString() }, { onConflict: "user_id,qkey" })
+          .then(({ error }) => { if (error) console.warn("review_cards", error.message); }); },
+      again: () => route(), home: () => { location.hash = "#/my"; } },
+      onFinish: async (mode, score, max) => { const n = right; right = 0;
+        return n ? `<b>+${n * 2}</b> ${T2("نقطة خبرة", "XP")} · ${T2("حُفظ تقدّمك في الصناديق", "Your boxes are updated")}` : T2("حُفظ تقدّمك في الصناديق", "Your boxes are updated"); } });
   }
   /* تقرير ألعاب الفصل للمعلم: من لعب، وأين أخطأ الفصل */
   async function gameReport(rep, l, en) {
@@ -14021,6 +14098,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "eca-join") return pageEcaJoin(params);
       if (p0 === "family") return pageFamily(params);
       if (p0 === "my-tests") return pageMyTests(params);
+      if (p0 === "review") return pageReview();
       if (p0 === "ar-mocks") return pageArMocks(params);
       if (p0 === "ar-mock") return pageArMock(parts[1]);
       if (p0 === "reports") return pageReports();

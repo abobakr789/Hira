@@ -113,6 +113,25 @@ window.HiraArcade = (function () {
   const tfQ = (t, T) => ({ type: "tf", key: "t:" + t.k, lid: t.lid, diff: 1, prompt: t.text, answer: t.answer, solution: T(t.answer ? "العبارة صحيحة." : "العبارة خطأ.", t.answer ? "The statement is true." : "The statement is false.") + " " + t.text });
   const mcqQ = (m) => ({ type: "mcq", key: "m:" + m.k, lid: m.lid, diff: 3, prompt: m.q, options: shuffle(m.options.map((o) => ({ t: o, ok: o === m.answer }))), solution: m.answer });
 
+  /* ---------- بطاقات المراجعة المتباعدة ----------
+     ما يخطئ فيه الطالب يُحفظ «لقطةً» مستقلّة عن الدرس: { t: mcq|tf|seq|sent, p, … } */
+  const BOXDAYS = [0, 1, 3, 7, 14, 30, 60]; // الصندوق ← بعد كم يومًا تعود البطاقة
+  const rkey = (t, a, b) => (t + ":" + norm(a).slice(0, 110) + "|" + norm(b).slice(0, 70)).slice(0, 200);
+  function snapQ(q) {
+    if (!q || QURANIC(q.prompt)) return null;
+    if (q.type === "tf") return { key: q.key || rkey("t", q.prompt, ""), lid: q.lid, q: { t: "tf", p: q.prompt, a: !!q.answer, s: q.solution || "" } };
+    if (q.type === "mcq" && Array.isArray(q.options) && q.options.some((o) => o.ok)) return { key: q.key || rkey("m", q.prompt, q.solution), lid: q.lid,
+      q: { t: "mcq", p: q.prompt, big: q.big || "", o: q.options.map((o) => ({ t: o.t || "", i: o.icon || "", ok: !!o.ok })), s: q.solution || "" } };
+    return null;
+  }
+  // أسئلة جديدة لوِرد المراجعة من دروس الطالب الأخيرة (بلا نصّ قرآنيّ)
+  function freshCards(lessons, en, n) {
+    const T = (a, b) => (en ? b : a), P = buildPool(lessons || []);
+    const out = bank(P, T, null).map(snapQ).filter(Boolean);
+    P.seqs.forEach((s) => { const st = s.steps.slice(0, 6); if (st.length >= 3 && !st.some(QURANIC)) out.push({ key: rkey("q", s.title, st.join(" ")), lid: s.lid, q: { t: "seq", p: s.title, steps: st } }); });
+    return shuffle(out).slice(0, n || 10);
+  }
+
   // كل الأسئلة الممكنة، سؤال واحد لكل كلمة في الجولة
   function bank(pool, T, focusId) {
     const out = [];
@@ -163,7 +182,7 @@ window.HiraArcade = (function () {
     root.classList.add("arc"); root.setAttribute("dir", en ? "ltr" : "rtl");
     const hud = (title, extra) => `<div class="arc-hud"><button class="arc-back" type="button">${T("→ الألعاب", "← Games")}</button><b class="arc-title">${title}</b>${extra || ""}<button class="arc-snd" type="button" aria-label="${T("الصوت", "Sound")}">${SND.on ? "🔊" : "🔇"}</button></div>`;
     const bindHud = () => {
-      const b = root.querySelector(".arc-back"); if (b) b.onclick = () => { SND.p("tick"); menu(); };
+      const b = root.querySelector(".arc-back"); if (b) b.onclick = () => { SND.p("tick"); if (cfg.review) { if (cfg.review.home) cfg.review.home(); } else menu(); };
       const s = root.querySelector(".arc-snd"); if (s) s.onclick = () => { s.textContent = SND.toggle() ? "🔊" : "🔇"; SND.p("tick"); };
     };
 
@@ -202,10 +221,15 @@ window.HiraArcade = (function () {
           <h3>${msg}</h3><p class="arc-big">${opts.big || `${score} / ${max}`}</p>${opts.sub ? `<p class="arc-sub">${opts.sub}</p>` : ""}
           <p class="arc-pts" aria-live="polite">${T("جارٍ حفظ نقاطك…", "Saving your points…")}</p>
           ${opts.missed && opts.missed.length ? `<details class="arc-review" open><summary>${T("راجع ما فاتك", "Review what you missed")} (${opts.missed.length})</summary><ul>${opts.missed.map((q) => `<li><span dir="auto">${esc(q.prompt)}</span><b dir="auto">${esc(q.solution)}</b></li>`).join("")}</ul></details>` : ""}
-          <div class="arc-acts"><button class="arc-btn gold" type="button" data-again>${T("🔁 العب مرّة أخرى", "🔁 Play again")}</button><button class="arc-btn" type="button" data-menu>${T("🎮 لعبة أخرى", "🎮 Another game")}</button></div></div>`;
+          <div class="arc-acts"><button class="arc-btn gold" type="button" data-again>${opts.againLabel || T("🔁 العب مرّة أخرى", "🔁 Play again")}</button><button class="arc-btn" type="button" data-menu>${opts.menuLabel || T("🎮 لعبة أخرى", "🎮 Another game")}</button></div></div>`;
       bindHud();
-      root.querySelector("[data-again]").onclick = () => { SND.p("tick"); run(mode === "sort" ? "sorter" : mode); };
-      root.querySelector("[data-menu]").onclick = () => { SND.p("tick"); menu(); };
+      root.querySelector("[data-again]").onclick = () => { SND.p("tick"); if (opts.again) opts.again(); else run(mode === "sort" ? "sorter" : mode); };
+      root.querySelector("[data-menu]").onclick = () => { SND.p("tick"); if (opts.toMenu) opts.toMenu(); else menu(); };
+      // ما أخطأ فيه الطالب يدخل وِرد المراجعة (مرّة واحدة لكل سؤال)
+      if (cfg.onMissed && mode !== "review") {
+        const seenK = new Set(), rq = (opts.rq || []).concat((opts.missed || []).map((m) => m.rq || snapQ(m))).filter((x) => x && !seenK.has(x.key) && seenK.add(x.key));
+        if (rq.length) try { cfg.onMissed(rq.map((x) => ({ ...x, lid: x.lid || focus.id }))); } catch (e) { /* */ }
+      }
       if (stars === 3) { SND.p("win"); burst(); } else if (stars >= 1) SND.p("cheer");
       const el = root.querySelector(".arc-pts");
       // ما يصل إلى تقرير المعلم: نصّ السؤال الذي أخطأ فيه الطالب (أو الكلمة التي خلط فيها)
@@ -291,7 +315,8 @@ window.HiraArcade = (function () {
           setTimeout(() => { el[x].classList.add("done"); el[y].classList.add("done"); SND.p(found === N ? "combo" : "ok"); }, 260);
           if (found === N) setTimeout(() => {
             const extra = moves - N, stars = extra <= 1 ? 3 : extra <= N ? 2 : 1, score = Math.max(1, N - Math.floor(extra / 2));
-            finish("memory", score, N, { title: T("ذاكرة الكلمات", "Word memory"), stars, medal: "🧠", big: `${moves} ${T("محاولة", "moves")}`, sub: T(`طابقت ${N} أزواج. أقلّ عدد ممكن: ${N} محاولات.`, `You matched ${N} pairs. Fewest possible: ${N} moves.`), report: [...confused] });
+            finish("memory", score, N, { title: T("ذاكرة الكلمات", "Word memory"), stars, medal: "🧠", big: `${moves} ${T("محاولة", "moves")}`, sub: T(`طابقت ${N} أزواج. أقلّ عدد ممكن: ${N} محاولات.`, `You matched ${N} pairs. Fewest possible: ${N} moves.`), report: [...confused],
+              rq: chosen.filter((p) => confused.has(p.a)).map((p) => snapQ(pairQ(P, p, "ab", 3, T))).filter(Boolean) });
           }, 1100);
         } else { busy = true; setTimeout(() => { el[x].classList.remove("up"); el[y].classList.remove("up"); el[x].classList.add("shake"); el[y].classList.add("shake"); SND.p("no"); setTimeout(() => { el[x].classList.remove("shake"); el[y].classList.remove("shake"); busy = false; }, 380); }, 850); }
       });
@@ -377,12 +402,12 @@ window.HiraArcade = (function () {
 
     // عبارات «صح أم خطأ» السريعة: أسئلة الدرس، ومعاني كلماته صادقةً أو مبدَّلة
     function blitzBank() {
-      const P = pool(), out = P.tf.map((t) => ({ text: t.text, answer: t.answer }));
+      const P = pool(), out = P.tf.map((t) => ({ text: t.text, answer: t.answer, lid: t.lid }));
       P.pairs.forEach((p) => {
         const truth = Math.random() < 0.5, kd = kindOf(p);
         const other = shuffle(P.pairs.filter((o) => o !== p && kindOf(o) === kd && labelKey(o) !== labelKey(p)))[0];
         const show = (x) => (x.b ? `«${p.a}» ${T("معناها", "means")}: ${x.b}` : `«${p.a}» ${x.icon}`);
-        if (truth || !other) out.push({ text: show(p), answer: true }); else out.push({ text: show(other), answer: false, fix: show(p) });
+        if (truth || !other) out.push({ text: show(p), answer: true, lid: p.lid }); else out.push({ text: show(other), answer: false, fix: show(p), lid: p.lid });
       });
       return shuffle(out);
     }
@@ -417,7 +442,8 @@ window.HiraArcade = (function () {
         root.querySelectorAll(".arc-bq [data-v]").forEach((b) => b.onclick = () => {
           if (done) return; const q = bankQ[k], ok = (b.dataset.v === "1") === q.answer;
           if (ok) { right++; streak++; SND.p(streak >= 5 && streak % 5 === 0 ? "combo" : "coin"); }
-          else { wrong++; streak = 0; SND.p("no"); missed.push({ prompt: q.text, solution: q.answer ? T("صحيحة", "True") : T("خطأ", "False") + (q.fix ? ` · ${T("الصواب", "Correct")}: ${q.fix}` : "") }); }
+          else { wrong++; streak = 0; SND.p("no"); const sol = q.answer ? T("صحيحة", "True") : T("خطأ", "False") + (q.fix ? ` · ${T("الصواب", "Correct")}: ${q.fix}` : "");
+            missed.push({ prompt: q.text, solution: sol, rq: QURANIC(q.text) ? null : { key: rkey("t", q.text, ""), lid: q.lid, q: { t: "tf", p: q.text, a: !!q.answer, s: sol } } }); }
           card.classList.remove("flash-ok", "flash-no"); void card.offsetWidth; card.classList.add(ok ? "flash-ok" : "flash-no");
           root.querySelector("[data-r]").textContent = right; root.querySelector("[data-w]").textContent = wrong;
           const fl = root.querySelector(".arc-flame"); fl.hidden = streak < 3; root.querySelector("[data-st]").textContent = streak;
@@ -463,7 +489,7 @@ window.HiraArcade = (function () {
           line.classList.add(ok ? "ok" : "no"); if (extra) { const x = bank.querySelector('[data-k="-1"]'); if (x) x.classList.add("trap"); }
           const fb = box.querySelector(".arc-fb");
           if (ok) { right++; SND.p("ok"); fb.innerHTML = `<b class="good">${T("أحسنت! جملة صحيحة", "Well done!")}</b>`; }
-          else { SND.p("no"); missed.push({ prompt: s.prompt || T("رتّب الجملة", "Build the sentence"), solution: s.words.join(" ") }); fb.innerHTML = `<b class="bad">${T("الصواب:", "Correct:")}</b> <span dir="${dir}">${esc(s.words.join(" "))}</span>`; }
+          else { SND.p("no"); missed.push({ prompt: s.prompt || T("رتّب الجملة", "Build the sentence"), solution: s.words.join(" "), rq: { key: rkey("w", s.words.join(" "), ""), lid: s.lid, q: { t: "sent", p: s.prompt || "", w: s.words } } }); fb.innerHTML = `<b class="bad">${T("الصواب:", "Correct:")}</b> <span dir="${dir}">${esc(s.words.join(" "))}</span>`; }
           nextBtn(box, i < n - 1 ? T("التالي ←", "Next →") : T("النتيجة ←", "Result →"), () => { i++; if (i < n) draw(); else end(); }, ok ? 1300 : 0);
         };
       };
@@ -488,7 +514,8 @@ window.HiraArcade = (function () {
         if (lock) return; lock = true; const it = items[i], ci = Number(b.dataset.c), ok = ci === it.ci;
         const target = root.querySelector(`[data-c="${it.ci}"]`);
         if (ok) { right++; SND.p("coin"); b.classList.add("hit"); }
-        else { SND.p("no"); b.classList.add("miss"); target.classList.add("hint"); missed.push({ prompt: it.t, solution: `${it.t} ← ${cats[it.ci].name}` }); }
+        else { SND.p("no"); b.classList.add("miss"); target.classList.add("hint"); missed.push({ prompt: it.t, solution: `${it.t} ← ${cats[it.ci].name}`, rq: { key: rkey("b", it.t, cats[it.ci].name), lid: set.lid,
+          q: { t: "mcq", p: T(`إلى أيّ سلّة تنتمي «${it.t}»؟`, `Which basket does “${it.t}” belong to?`) + (set.title ? ` (${set.title})` : ""), o: cats.map((c, k) => ({ t: c.name, i: c.icon || "", ok: k === it.ci })), s: `${it.t} ← ${cats[it.ci].name}` } } }); }
         const chip = document.createElement("span"); chip.className = "arc-binchip" + (ok ? "" : " late"); chip.textContent = it.t; chip.dir = "auto";
         root.querySelector(`[data-bin="${it.ci}"]`).appendChild(chip);
         const cn = root.querySelector(`[data-cn="${it.ci}"]`); cn.textContent = Number(cn.textContent) + 1;
@@ -523,7 +550,7 @@ window.HiraArcade = (function () {
           got += ok; total += m; const all = ok === m;
           const fb = box.querySelector(".arc-fb");
           if (all) { SND.p("ok"); fb.innerHTML = `<b class="good">${T("ترتيب صحيح كامل!", "Perfect order!")}</b>`; }
-          else { SND.p("no"); missed.push({ prompt: s.title || T("رتّب الخطوات", "Order the steps"), solution: steps.map((t, k) => `${k + 1}. ${t}`).join("  ") });
+          else { SND.p("no"); missed.push({ prompt: s.title || T("رتّب الخطوات", "Order the steps"), solution: steps.map((t, k) => `${k + 1}. ${t}`).join("  "), rq: { key: rkey("q", s.title, steps.join(" ")), lid: s.lid, q: { t: "seq", p: s.title || "", steps } } });
             fb.innerHTML = `<b class="bad">${T(`${ok} من ${m} في مكانها.`, `${ok} of ${m} in place.`)}</b><ol class="arc-right">${steps.map((t) => `<li dir="auto">${esc(t)}</li>`).join("")}</ol>`; }
           nextBtn(box, i < n - 1 ? T("التالي ←", "Next →") : T("النتيجة ←", "Result →"), () => { i++; if (i < n) draw(); else end(); }, all ? 1400 : 0);
         };
@@ -534,9 +561,70 @@ window.HiraArcade = (function () {
       draw();
     }
 
-    menu();
+    /* ========== وِرد المراجعة: بطاقات متباعدة من دروس مختلفة ========== */
+    function reviewRound() {
+      const R = cfg.review, cards = (R.cards || []).slice(0, 15), n = cards.length;
+      let i = 0, right = 0; const missed = [];
+      const title = T("وِرد المراجعة", "Daily review");
+      const back = () => (R.home ? R.home() : null);
+      if (!n) { root.innerHTML = `${hud(title)}<div class="arc-end"><div class="arc-medal">🌿</div><h3>${T("لا بطاقات للمراجعة الآن", "Nothing to review right now")}</h3><p class="arc-sub">${T("افتح درسًا والعب ألعابه، وما تخطئ فيه يعود إليك هنا في الوقت المناسب.", "Open a lesson and play its games; what you miss comes back here at the right time.")}</p></div>`;
+        bindHud(); return; }
+      root.innerHTML = `${hud(title, `<span class="arc-pill">${T("البطاقة", "Card")} <b data-i>1</b> / ${n}</span><span class="arc-pill">✓ <b data-r>0</b></span>`)}<div class="arc-qbox"></div>`;
+      bindHud();
+      const box = root.querySelector(".arc-qbox");
+      const when = (d) => (d <= 1 ? T("تعود إليك غدًا", "Comes back tomorrow") : d === 3 ? T("تعود إليك بعد 3 أيام", "Comes back in 3 days") : d === 7 ? T("تعود إليك بعد أسبوع", "Comes back in a week")
+        : d === 14 ? T("تعود إليك بعد أسبوعين", "Comes back in two weeks") : d === 30 ? T("تعود إليك بعد شهر", "Comes back in a month") : T("أتقنتها! تعود بعد شهرين للتثبيت", "Mastered! One more check in two months"));
+      const answered = (c, ok) => {
+        const nb = ok ? Math.min(6, (c.box || 0) + 1) : 1, days = BOXDAYS[nb];
+        if (ok) right++; else missed.push({ prompt: c.q.p || (c.q.t === "sent" ? T("رتّب الجملة", "Build the sentence") : T("رتّب الخطوات", "Order the steps")), solution: c.q.s || (c.q.steps || c.q.w || []).join(c.q.t === "seq" ? " ← " : " ") });
+        root.querySelector("[data-r]").textContent = right;
+        try { R.onAnswer && R.onAnswer(c, ok, nb, days); } catch (e) { /* */ }
+        const fb = box.querySelector(".arc-fb"), tag = document.createElement("p"); tag.className = "arc-tip"; tag.textContent = (c.fresh && ok ? T("سؤال جديد من دروسك · ", "New question from your lessons · ") : "") + "📦 " + when(days); fb.appendChild(tag);
+        nextBtn(box, i < n - 1 ? T("التالي ←", "Next →") : T("النتيجة ←", "Result →"), () => { i++; if (i < n) draw(); else end(); }, 0);
+      };
+      const draw = () => {
+        const c = cards[i], q = c.q; root.querySelector("[data-i]").textContent = i + 1;
+        if (q.t === "tf" || q.t === "mcq") {
+          const Q = q.t === "tf" ? { type: "tf", prompt: q.p, answer: !!q.a, solution: q.s } : { type: "mcq", prompt: q.p, big: q.big || "", options: shuffle((q.o || []).map((o) => ({ t: o.t, icon: o.i, ok: !!o.ok }))), solution: q.s };
+          box.innerHTML = qHtml(Q); bindQ(box, Q, (ok) => { SND.p(ok ? "ok" : "no"); answered(c, ok); });
+        } else if (q.t === "seq") {
+          const steps = (q.steps || []).slice(0, 8), m = steps.length, placed = new Array(m).fill(null);
+          box.innerHTML = `<div class="arc-q"><p class="arc-kind">${T("اضغط الخطوات بترتيبها من الأولى إلى الأخيرة", "Tap the steps in order, first to last")}</p>${q.p ? `<p class="arc-prompt" dir="auto">${esc(q.p)}</p>` : ""}
+            <ol class="arc-slots">${steps.map((_, k) => `<li data-slot="${k}"><span class="arc-sn">${k + 1}</span><span class="arc-st"></span></li>`).join("")}</ol>
+            <div class="arc-steps">${shuffle(steps.map((t, k) => ({ t, k }))).map((x) => `<button type="button" class="arc-step" data-k="${x.k}" dir="auto">${esc(x.t)}</button>`).join("")}</div>
+            <div class="arc-acts start"><button class="arc-btn gold" type="button" data-check disabled>${T("تحقّق", "Check")}</button></div><div class="arc-fb" aria-live="polite"></div></div>`;
+          const chk = box.querySelector("[data-check]");
+          const paint = () => { box.querySelectorAll("[data-slot]").forEach((li, k) => { li.querySelector(".arc-st").textContent = placed[k] == null ? "" : steps[placed[k]]; li.classList.toggle("full", placed[k] != null); });
+            box.querySelectorAll(".arc-step").forEach((b) => { b.hidden = placed.includes(Number(b.dataset.k)); }); chk.disabled = placed.includes(null); };
+          box.querySelectorAll(".arc-step").forEach((b) => b.onclick = () => { const s = placed.indexOf(null); if (s < 0) return; placed[s] = Number(b.dataset.k); SND.p("tick"); paint(); });
+          box.querySelectorAll("[data-slot]").forEach((li) => li.onclick = () => { if (chk.dataset.done) return; const k = Number(li.dataset.slot); if (placed[k] == null) return; placed[k] = null; SND.p("flip"); paint(); });
+          chk.onclick = () => { chk.dataset.done = "1"; chk.disabled = true; let good = 0;
+            box.querySelectorAll("[data-slot]").forEach((li, k) => { const g = placed[k] === k; if (g) good++; li.classList.add(g ? "ok" : "no"); });
+            const ok = good === m, fb = box.querySelector(".arc-fb"); SND.p(ok ? "ok" : "no");
+            fb.innerHTML = ok ? `<b class="good">${T("ترتيب صحيح كامل!", "Perfect order!")}</b>` : `<b class="bad">${T(`${good} من ${m} في مكانها.`, `${good} of ${m} in place.`)}</b><ol class="arc-right">${steps.map((t) => `<li dir="auto">${esc(t)}</li>`).join("")}</ol>`;
+            answered(c, ok); };
+          paint();
+        } else if (q.t === "sent") {
+          const words = q.w || [], dir = isAr(words.join(" ")) ? "rtl" : "ltr";
+          box.innerHTML = `<div class="arc-q"><p class="arc-kind">${q.p ? esc(q.p) : T("رتّب الكلمات لتكوّن جملة صحيحة من الدرس", "Put the words in order to make a sentence from the lesson")}</p>
+            <div class="arc-line" dir="${dir}"></div><div class="arc-bank" dir="${dir}">${shuffle(words.map((w, k) => ({ w, k }))).map((x) => `<button type="button" class="arc-chip" data-k="${x.k}">${esc(x.w)}</button>`).join("")}</div>
+            <div class="arc-acts start"><button class="arc-btn gold" type="button" data-check disabled>${T("تحقّق", "Check")}</button></div><div class="arc-fb" aria-live="polite"></div></div>`;
+          const line = box.querySelector(".arc-line"), bk = box.querySelector(".arc-bank"), chk = box.querySelector("[data-check]");
+          box.querySelectorAll(".arc-chip").forEach((ch) => ch.onclick = () => { if (ch.disabled) return; (ch.parentElement === bk ? line : bk).appendChild(ch); SND.p("tick"); chk.disabled = line.children.length !== words.length; });
+          chk.onclick = () => { const ok = [...line.children].map((x) => x.textContent).join(" ") === words.join(" ");
+            box.querySelectorAll(".arc-chip").forEach((x) => { x.disabled = true; }); chk.disabled = true; line.classList.add(ok ? "ok" : "no"); SND.p(ok ? "ok" : "no");
+            box.querySelector(".arc-fb").innerHTML = ok ? `<b class="good">${T("أحسنت! جملة صحيحة", "Well done!")}</b>` : `<b class="bad">${T("الصواب:", "Correct:")}</b> <span dir="${dir}">${esc(words.join(" "))}</span>`;
+            answered(c, ok); };
+        } else { i++; if (i < n) draw(); else end(); }
+      };
+      const end = () => finish("review", right, n, { title, medal: right === n ? "🌟" : "🧠", sub: T(`راجعت ${n === 1 ? "بطاقة واحدة" : n === 2 ? "بطاقتين" : n <= 10 ? n + " بطاقات" : n + " بطاقةً"}، وأصبت في ${right}.${missed.length ? " ما أخطأت فيه يعود إليك غدًا." : " ما شاء الله!"}`, `You reviewed ${n} ${n === 1 ? "card" : "cards"} and got ${right} right.${missed.length ? " What you missed comes back tomorrow." : ""}`), missed,
+        againLabel: T("🔁 جولة أخرى", "🔁 Another round"), menuLabel: T("🏠 صفحتي", "🏠 My page"), again: R.again, toMenu: back });
+      draw();
+    }
+
+    if (cfg.review) reviewRound(); else menu();
     return { menu, pool: () => ({ lesson: poolL, unit: poolU }) };
   }
 
-  return { mount, buildPool, sound: SND };
+  return { mount, buildPool, sound: SND, freshCards, BOXDAYS };
 })();
