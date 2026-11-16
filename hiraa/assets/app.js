@@ -2066,7 +2066,8 @@ const PEARSON_LINKS = {
   }
   
 const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "أبجد", gcse: "GCSE", igcse: "IGCSE" };
-  const TRACK_SHORT = { native: "عربي", non_native: "Non-native" };
+  const TRACK_SHORT = { native: "عربي", non_native: "Non-native", gcse: "GCSE · 1AA0", igcse: "IGCSE · 4AA1", alevel: "A Level · 9AA0", launch: "أبجد" };
+  const QUAL_TRACKS = ["gcse", "igcse", "alevel"];
   const ORD_GRADE = ["", "الأول", "الثاني", "الثالث", "الرابع", "الخامس", "السادس", "السابع", "الثامن", "التاسع", "العاشر", "الحادي عشر", "الثاني عشر", "الثالث عشر"];
   const LEVEL_AR = { mastered: "أتقن", developing: "قريب من الإتقان", needs_support: "يحتاج دعمًا" };
   const levelOf = (r) => r >= 0.8 ? "mastered" : r >= 0.5 ? "developing" : "needs_support";
@@ -2839,7 +2840,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     <section class="page-head"><div class="wrap">
       <div class="crumbs"><a href="#/">الرئيسية</a> / <a href="#/grades?subject=${subject}">${SUBJECTS[subject].name}</a></div>
       <h1><span dir="ltr">Grade ${year}</span> · ${SUBJECTS[subject].name}</h1>
-      <p class="muted">الصف ${ORD_GRADE[year] || year}${outcomes.length ? ` · ${outcomes.length} ناتج تعلم من الإطار الوطني` : ""}</p>
+      <p class="muted">الصف ${ORD_GRADE[year] || year}${outcomes.length && !QUAL_TRACKS.includes(track) ? ` · ${outcomes.length} ناتج تعلم من الإطار الوطني` : track === "igcse" ? ` · <span dir="ltr">Pearson Edexcel International GCSE Arabic (4AA1)</span>` : track === "gcse" ? ` · <span dir="ltr">Pearson Edexcel GCSE Arabic (1AA0)</span>` : track === "alevel" ? ` · <span dir="ltr">Pearson Edexcel A Level Arabic (9AA0)</span>` : ""}</p>
       <div class="controls">
         <div class="seg" role="group" aria-label="المسار">
           <a href="${testsView ? `#/year/${year}?subject=${subject}&track=native&term=tests` : href(term, "native")}" aria-current="${track === "native"}">${TRACKS.native}</a>
@@ -3271,7 +3272,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       ...((bookTx || isSuper()) ? [["booktext", nnEn ? "📖 Book text" : "📖 نص الكتاب", bookTxHtml()]] : []),
       ["video", nnEn ? "Video" : "الفيديو", videoHtml],
       ...((subject === "islamic" || subject === "igcse") || ev.length ? [["evidence", (subject === "islamic" || subject === "igcse") ? CT("المصادر", "Sources") : "الشواهد", (subject === "islamic" || subject === "igcse") ? (IEPACK ? (lockedForMe ? lockedMsg : resItems(res.filter((r) => /sources-concept-card/.test(r.url || "")))) : srcHtml) : evHtml]] : []),
-      ["identity", nnEn ? "National identity" : "الهوية الوطنية", idHtml],
+      ...(QUAL_TRACKS.includes(u.track) ? [] : [["identity", nnEn ? "National identity" : "الهوية الوطنية", idHtml]]),
       ["outcomes", nnEn ? "Learning outcomes" : "نواتج التعلم", outHtml],
       ...((gameItems.length || arcHas(summary, reader)) ? [["games", nnEn ? "🎮 Games" : "🎮 ألعاب الدرس", lockedForMe ? lockedMsg : `<div id="arcBox"></div>`]] : []),
       ["quiz", nnEn ? "Exit card" : "بطاقة الخروج", quizHtml],
@@ -3285,7 +3286,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         : `<h1>${esc(l.title_ar)}</h1>${l.title_en ? `<p class="muted" dir="ltr" style="text-align:start">${esc(l.title_en)}</p>` : ""}`}
       ${isStaff() ? `<button class="btn btn-small btn-ghost" id="repBtn" style="float:inline-end">🛠️ أبلغ عن خطأ</button>` : ""}
       <div class="head-meta">
-        <span class="pill axis">${esc(axisName)}</span>
+        ${QUAL_TRACKS.includes(u.track) ? "" : `<span class="pill axis">${esc(axisName)}</span>`}
         <span class="pill">وحدة: ${esc((nn || LANG === "en") && u.title_en ? u.title_en : u.title_ar)}</span>
         ${l.book_pages ? `<span class="pill">${esc(bookRef(l.book_pages, nn))}</span>` : ""}
         <span class="pill">${TRACK_SHORT[u.track]}</span>
@@ -8103,7 +8104,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     [/الوطن|الإمارات|الهوية|زايد|الاتحاد|المواطنة|homeland|UAE|Zayed/i, "flagboy"], [/العلم|التعلم|المعلم|القراءة|اقرأ|knowledge|reading|learn/i, "teacher"], [/البيئة|النبات|الكون|التفكر|الماء|الحيوان|الأرض|environment|nature/i, "plantgirl"],
     [/الرياضة|الصحة|القوة|الجسم|الغذاء|النظافة|health|sport|body/i, "football"], [/المدرسة|الطالب|school/i, "school"], [/الدعوة|النصيحة|الأمر بالمعروف|advice|da'?wah/i, "dawah"], [/المسجد|المساجد|mosque/i, "mosque2"]];
   const tdTopicArt = (l, c, g) => { const txt = [l && l.title_ar, l && l.title_en, c && c.idea].join(" "); for (const [re, k] of TOPIC_ART) if (re.test(txt)) return k;
-    const kids = ["girlbook", "boywave", "boybook", "lantern", "girl2", "quranboy"]; return (g || 9) <= 6 ? kids[[...String((l && l.code) || "x")].reduce((s, ch) => s + ch.charCodeAt(0), 0) % kids.length] : "quran"; };
+    const hsh = [...String((l && l.code) || "x")].reduce((s, ch) => s + ch.charCodeAt(0), 0);
+    if (/^AR-/.test(String((l && l.code) || ""))) { const ar = (g || 9) <= 6 ? ["girlbook", "boywave", "boybook", "girl2", "lensboy"] : ["boybook", "girlbook", "teacher", "lensboy", "bulb"]; return ar[hsh % ar.length]; }
+    const kids = ["girlbook", "boywave", "boybook", "lantern", "girl2", "quranboy"]; return (g || 9) <= 6 ? kids[hsh % kids.length] : "quran"; };
   const TD_FREE_THEME = {"1E3A3F":{a:"#0F6E72",g1:"#FFFFFF",g2:"#F2FAF4",sh:"rgba(15,110,114,.18)"},"FDF1DC":{a:"#C4873A",g1:"#FFFFFF",g2:"#FFF6E4",sh:"rgba(196,135,58,.20)"},"EAF5F4":{a:"#0F6E72",g1:"#FFFFFF",g2:"#F2FAF4",sh:"rgba(15,110,114,.18)"},"F3E9FB":{a:"#6B46A8",g1:"#FFFFFF",g2:"#F7F1FD",sh:"rgba(107,70,168,.18)"},"FBF6EC":{a:"#B4532A",g1:"#FFFFFF",g2:"#FDF1EA",sh:"rgba(180,83,42,.16)"},"E9F3E6":{a:"#2F8F57",g1:"#FFFFFF",g2:"#EFFAF1",sh:"rgba(47,143,87,.18)"},"FCE8E4":{a:"#C9553A",g1:"#FFFFFF",g2:"#FFF0ED",sh:"rgba(201,85,58,.18)"}};
   function tdFreeTheme(bg) { return TD_FREE_THEME[String(bg || "").toUpperCase()] || { a: "#0F6E72", g1: "#FFFFFF", g2: "#F6F3EC", sh: "rgba(20,30,40,.14)" }; }
   function tdFreeDecor(i, th) { const V = ["blobs", "ring", "dots", "blobs2"], v = V[i % 4], a = th.a;
