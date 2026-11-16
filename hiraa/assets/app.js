@@ -3245,7 +3245,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       (c.key || []).forEach((t, i) => { const m = String(t).match(/\[\[([^\]]+)\]\]/); const w = (c.words || []).find((x) => m && bkPlain(x[0]).replace(/[\u064B-\u0652]/g, "") === m[1].replace(/[\u064B-\u0652]/g, "").replace(/^و/, "")); if (m && !w) out.push({ id: "k:" + i, f: "«" + m[1] + "»", b: bkPlain(t), k: nnEn ? "In the text" : "في النَّصِّ" }); });
       return out.slice(0, 24); })();
     const relBox = isStaff() && summary ? `<div id="relBox" class="rel-box"></div>` : "";
+    const ewsOn = subject === "arabic" && QUAL_TRACKS.includes(u.track) && (await ewsIdx()).includes(l.code);
     const TABS = [
+      ...(ewsOn ? [["exam", "🎯 ورشة الامتحان", lockedForMe && !isStaff() ? lockedMsg : `<div id="ewsBox"></div>`]] : []),
       ["slides", nnEn ? "Slides" : "الشرائح", relBox + slidesPanel()],
       ...(state.session && (isStaff() || isStudent()) && !lockedForMe && (ticket && nq >= 3) ? [["prog", nnEn ? "📈 Progress check" : "📈 قياس التقدّم", `<div id="pgBox"></div>`]] : []),
       ...(fcCards.length >= 3 ? [["cards", nnEn ? "🃏 Flashcards" : "🃏 البطاقات التعليمية", lockedForMe ? lockedMsg : `<div class="fc" id="fcBox"></div>`]] : []),
@@ -3317,6 +3319,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (k === "cards" && !lockedForMe) fcRun(l, fcCards, nnEn);
       if (k === "reader") { const rb = document.getElementById("rdBox"); if (rb) readerRun(rb, l, u, reader, nnEn); }
       if (k === "madarij") { const mb = document.getElementById("mdrBox"); if (mb) mdrCard(mb, l, u, mdrId); }
+      if (k === "exam") { const eb = document.getElementById("ewsBox"); if (eb) ewsRun(eb, l, u); }
       if (k === "prog") { const pb = document.getElementById("pgBox"); if (pb) (isStaff() ? progTeacher(pb, l, u, nnEn) : progStudent(pb, l, nnEn)); }
       if (k === "booktext") {
         const pr = document.getElementById("btxPrint");

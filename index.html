@@ -2740,6 +2740,30 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .ar-quals .ig-promo b{display:block;text-align:start}.ar-quals .ar-q-code{display:block;font-weight:500;font-size:.78rem;color:var(--muted)}
 .ar-quals .ig-promo>.btn{align-self:center}
 @media (max-width:900px){.ar-quals{grid-template-columns:1fr}.ar-quals .ig-promo{flex-wrap:nowrap;align-items:center}}
+/* ورشة الامتحان */
+.ews-hd{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px;font-size:1.1rem}.ews-hd>span[dir]{color:var(--muted,#6b7280);font-size:.85rem}
+.ews-where{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:12px}
+.ews-where>div{background:#F3F8FF;border:1.5px solid #D7E5F7;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:4px}.ews-where b{font-size:1.15rem;color:#1E4E8C}.ews-where span{color:var(--muted,#6b7280);font-size:.9rem}
+.ews-instr{background:#FFF6E0;border-inline-start:4px solid #E2A93B;padding:8px 12px;border-radius:8px;font-weight:600}
+.ews-q td:first-child{width:3em;text-align:center;font-size:1.2rem}
+.ews-skill{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:12px}
+.ews-skill>div{border:1.5px solid #E5E7EB;border-radius:14px;padding:12px}.ews-skill span{font-size:1.6rem}.ews-skill b{display:block;margin:4px 0}.ews-skill p{margin:0;color:#374151}
+.ews-links{display:flex;flex-wrap:wrap;gap:6px}.ews-links span{background:#EEF4FC;border-radius:10px;padding:4px 10px}
+.ews-model{border-inline-start:5px solid #CBD5E1}.ews-model.top{border-inline-start-color:#2E9E6A}.ews-model.mid{border-inline-start-color:#E2A93B}.ews-model.low{border-inline-start-color:#dc2626}
+.ews-badge{font-size:1.3rem;padding:2px 12px;border-radius:10px;background:#F3F4F6}.ews-model.top .ews-badge{background:#E7F6EE;color:#0f7a4a}.ews-model.mid .ews-badge{background:#FFF6E0;color:#8a5a00}.ews-model.low .ews-badge{background:#FDECEC;color:#b42318}
+.ews-ans{background:#FAFAF7;border:1px dashed #D1D5DB;border-radius:10px;padding:10px 12px;line-height:2;white-space:pre-wrap}
+.ews-pts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.ews-pts span{border-radius:10px;padding:3px 10px;font-size:.88rem}.ews-pts .ok{background:#E7F6EE;color:#0f7a4a}.ews-pts .no{background:#FDECEC;color:#b42318}
+.ews-notes{margin:6px 0 0;padding-inline-start:20px;line-height:1.9}
+.ews-srt{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #EEE;border-radius:12px;padding:6px 10px;margin:6px 0;flex-wrap:wrap}.ews-srt p{margin:0;flex:1;min-width:220px}
+.ews-srt>div{display:flex;gap:6px}.ews-srt.ok{border-color:#2E9E6A;background:#F2FBF6}.ews-srt.no{border-color:#dc2626;background:#FEF5F5}
+.ews-src{background:#F3F8FF;border-radius:8px;padding:6px 10px}
+.ews-ta{font-size:1.1rem;line-height:2}.pill.ok{background:#E7F6EE;color:#0f7a4a}.pill.warn{background:#FFF6E0;color:#8a5a00}
+#ewsT.late{color:#b42318}
+.ews-chk{display:block;padding:6px 8px;border-radius:10px;margin:3px 0;cursor:pointer}.ews-chk:hover{background:#F3F8FF}
+.ews-mist{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:12px}
+.ews-mist>div{border:1.5px solid #F2D58A;background:#FFFBF0;border-radius:14px;padding:12px}.ews-mist span{font-size:1.5rem}.ews-mist b{display:block;margin:4px 0}.ews-mist p{margin:0}.ews-mist small{display:block;margin-top:6px;color:#8a5a00}
+.ews-g{border:1.5px solid #E5E7EB;border-radius:14px;padding:10px 12px;margin:10px 0}.ews-gp{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0}
+[data-theme="dark"] .ews-where>div{background:#132238;border-color:#2b3a50}[data-theme="dark"] .ews-ans{background:#111a26;border-color:#2b3a50}[data-theme="dark"] .ews-mist>div{background:#2a2412;border-color:#5a4a1c}
 
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
@@ -7268,6 +7292,114 @@ window.HiraArcade = (function () {
     draw();
   }
 
+  // ---------- ورشة الامتحان لمؤهّلات العربية (IGCSE/GCSE/A Level): أين في الامتحان ← المهارة ← مثال محلول ← تدريب ← سؤال بوقت ← أخطاء شائعة ----------
+  let EWS_IDX = null; const EWS = {};
+  async function ewsIdx() { if (EWS_IDX) return EWS_IDX; try { EWS_IDX = await (await fetch("art/exam/index.json")).json(); } catch (e) { EWS_IDX = []; } return EWS_IDX; }
+  async function ewsGet(code) { if (!EWS[code]) EWS[code] = await (await fetch("art/exam/" + code + ".json")).json(); return EWS[code]; }
+  const ewsWc = (s) => (String(s || "").trim().match(/\S+/g) || []).length;
+  async function ewsRun(box, l, u) {
+    const D = await ewsGet(l.code); const W = D.where;
+    const stu = isStudent() && state.session && !state.viewAs, me = stu ? state.session.user.id : null;
+    let mine = null; if (stu) { const { data } = await sb.from("exam_ws").select("*").eq("lesson_id", l.id).eq("student_id", me).maybeSingle(); mine = data; }
+    const save = async (o) => { if (!stu) return null; const { error } = await sb.rpc("ews_save", Object.assign({ p_lesson: l.id, p_answer: null, p_words: null, p_seconds: null, p_drills: null, p_self: null, p_self_score: null, p_max: null }, o)); if (error) toast("تعذّر الحفظ: " + error.message); return error; };
+    const P = [["📍", "أين في الامتحان؟"], ["🧠", "المهارة"], ["📝", "مثال محلول"], ["🏋️", "تدريب موجَّه"], ["⏱️", "سؤال الامتحان"], ["⚠️", "أخطاء شائعة"]];
+    let part = mine && mine.submitted_at ? 4 : 0;
+    const para = (arr) => arr.map((p) => `<p>${esc(p)}</p>`).join("");
+    const draw = () => {
+      let b = "";
+      if (part === 0) b = `<div class="ews-where"><div><b>${esc(W.paper)}</b><span>${esc(W.q)}</span></div><div><b>${W.marks} درجات</b><span>${esc(W.split)}</span></div><div><b>${esc(W.words)}</b><span>طول الإجابة</span></div><div><b>⏱️</b><span>${esc(W.time)}</span></div></div>
+        <div class="mdr-card"><h4>نص التعليمات في ورقة الامتحان</h4><p class="ews-instr">«${esc(W.instr)}»</p></div>
+        <div class="mdr-card"><h4>معيار جودة الكتابة (درجتان)</h4><table class="lp-tbl ews-q">${D.quality.map((q) => `<tr><td><b>${q[0]}</b></td><td>${esc(q[1])}</td></tr>`).join("")}</table><p class="muted">ونقاط المحتوى: درجة لكل نقطة رئيسة يذكرها الطالب.</p></div>`;
+      if (part === 1) b = `<div class="ews-skill">${D.skill.map((s, i) => `<div><span>${s[0]}</span><b>${i + 1}. ${esc(s[1])}</b><p>${esc(s[2])}</p></div>`).join("")}</div>
+        <div class="mdr-card"><h4>🔗 أدوات ربط تحتاجها</h4><div class="ews-links">${D.links.map((x) => `<span>${esc(x)}</span>`).join("")}</div></div>`;
+      if (part === 2) { const E = D.example;
+        b = `<div class="mdr-card"><h4>النص: «${esc(E.title)}»</h4><div class="mdr-text sm">${para(E.text)}</div><p class="ews-instr">${esc(W.instr)} (${W.marks} درجات)</p></div>
+        <details class="mdr-card"><summary>🔑 النقاط الرئيسة الأربع (حاول أن تجدها قبل أن تفتح)</summary><ol>${E.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ol></details>
+        <h4>ثلاث إجابات وكيف صُحّحت</h4>${E.models.map((m) => `<div class="mdr-card ews-model ${m.cls}"><div class="mdr-lg-h"><b class="ews-badge">${m.lvl}</b><small class="muted">${m.words} كلمة · النقاط ${m.marks.reduce((a, b) => a + b, 0)}/4 · الجودة ${m.q}/2</small></div>
+          <p class="ews-ans">${esc(m.text)}</p><div class="ews-pts">${E.points.map((p, i) => `<span class="${m.marks[i] ? "ok" : "no"}">${m.marks[i] ? "✔" : "✘"} ${esc(p.split(":")[0].split("،")[0])}</span>`).join("")}</div>
+          <ul class="ews-notes">${m.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul></div>`).join("")}`; }
+      if (part === 3) { const S = D.drills.sort, Pp = D.drills.para;
+        b = `<div class="mdr-card"><h4>1) فكرة رئيسة أم تفصيل؟</h4><p class="muted">صنّف كل جملة من نص «${esc(D.example.title)}».</p>
+          ${S.map((s, i) => `<div class="ews-srt" data-i="${i}"><p>${esc(s[0])}</p><div><button class="btn btn-ghost btn-small" data-v="main">فكرة رئيسة</button><button class="btn btn-ghost btn-small" data-v="detail">تفصيل أو مثال</button></div></div>`).join("")}
+          <button class="btn btn-primary btn-small" id="ewsSrtC">تحقّق</button><span class="mdr-fb" id="ewsSrtR"></span></div>
+          <div class="mdr-card"><h4>2) اختر أفضل إعادة صياغة</h4>${Pp.map((q, j) => `<div class="mdr-q" data-j="${j}"><p class="ews-src">«${esc(q.src)}»</p><div class="mdr-opts">${q.o.map((o, k) => `<label class="mdr-opt"><input type="radio" name="ewp${j}" value="${k}"> ${esc(o)}</label>`).join("")}</div><div class="mdr-fb" id="ewpF${j}"></div></div>`).join("")}
+          <button class="btn btn-primary btn-small" id="ewsParC">تحقّق</button><span class="mdr-fb" id="ewsParR"></span></div>`; }
+      if (part === 4) { const X = D.exam, done = mine && mine.submitted_at;
+        b = `<div class="mdr-card"><h4>النص: «${esc(X.title)}»</h4><div class="mdr-text sm">${para(X.text)}</div><p class="ews-instr">${esc(W.instr)} (${W.marks} درجات)</p></div>
+          ${stu || !isStaff() ? `<div class="mdr-card"><div class="rb-top"><span class="mdr-big" id="ewsT">${done ? "✅" : "0:00"}</span><span class="muted">الوقت المقترح ${X.minutes} دقيقة</span><span id="ewsWc" class="pill"></span></div>
+            <textarea class="mdr-ta ews-ta" id="ewsA" rows="9" ${mine && mine.graded_at ? "disabled" : ""} placeholder="اكتب تلخيصك هنا بأسلوبك…">${esc((mine && mine.answer) || "")}</textarea>
+            <p class="form-error" id="ewsE"></p><button class="btn btn-primary" id="ewsSub" ${mine && mine.graded_at ? "disabled" : ""}>📤 ${done ? "عدّل وأعد التصحيح" : "سلّم وصحّح نفسك"}</button>
+            ${!stu ? `<p class="muted">جرّب الكتابة هنا؛ لا تُحفظ إجابتك إلا بحساب طالب.</p>` : ""}</div><div id="ewsSelf"></div>` : ""}
+          ${isStaff() && state.session ? `<div id="ewsT2"></div>` : ""}`; }
+      if (part === 5) b = `<div class="ews-mist">${D.mistakes.map((m) => `<div><span>${m[0]}</span><b>${esc(m[1])}</b><p>${esc(m[2])}</p>${m[3] ? `<small>${m[3] === "ms" ? "📄 من معيار التصحيح" : m[3] === "rep" ? "📄 من تقرير الممتحنين" : "📄 من تعليمات السؤال"}</small>` : ""}</div>`).join("")}</div>
+        <div class="mdr-card"><h4>📚 المصادر الرسمية</h4><ul>${D.sources.map((s) => `<li><a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a></li>`).join("")}</ul><p class="muted">النصوص والإجابات النموذجية في هذه الورشة من تأليف حراء، على شكل أسئلة Pearson ومعايير تصحيحها.</p></div>`;
+      box.innerHTML = `<div class="ews"><div class="ews-hd"><b>🎯 ورشة الامتحان</b><span dir="ltr">Pearson Edexcel ${esc(D.qual)}</span>${mine && mine.graded_at ? `<span class="pill ok">درجة معلمك: ${mine.t_score}/${mine.max_score}</span>` : mine && mine.submitted_at ? `<span class="pill">تصحيحك الذاتي: ${mine.self_score}/${mine.max_score}</span>` : ""}</div>
+        <div class="mdr-steps">${P.map((p, k) => `<button class="mdr-sp ${k === part ? "on" : ""}" data-ep="${k}"><span>${p[0]}</span>${p[1]}</button>`).join("")}</div><div class="ews-body">${b}</div>
+        <div class="mdr-nav">${part ? `<button class="btn btn-ghost" data-ep="${part - 1}">→ ${P[part - 1][1]}</button>` : "<span></span>"}${part < P.length - 1 ? `<button class="btn btn-primary" data-ep="${part + 1}">${P[part + 1][1]} ←</button>` : ""}</div></div>`;
+      box.querySelectorAll("[data-ep]").forEach((x) => x.onclick = () => { part = +x.dataset.ep; draw(); box.scrollIntoView({ behavior: "smooth", block: "start" }); });
+      wire();
+    };
+    const wire = () => {
+      if (part === 3) { const S = D.drills.sort, Pp = D.drills.para, pick = {};
+        box.querySelectorAll(".ews-srt").forEach((r) => r.querySelectorAll("[data-v]").forEach((b) => b.onclick = () => { pick[r.dataset.i] = b.dataset.v; r.querySelectorAll("[data-v]").forEach((x) => { x.classList.toggle("btn-primary", x === b); x.classList.toggle("btn-ghost", x !== b); }); }));
+        box.querySelector("#ewsSrtC").onclick = () => { let ok = 0; S.forEach((s, i) => { const r = box.querySelector(`.ews-srt[data-i="${i}"]`); const g = pick[i] === s[1]; if (g) ok++; r.classList.toggle("ok", g); r.classList.toggle("no", !g); });
+          box.querySelector("#ewsSrtR").textContent = `${ok}/${S.length}${ok === S.length ? " · ممتاز!" : " · الأخضر صحيح والأحمر راجعه: التفصيل مثال أو قول أو اسم، والفكرة الرئيسة معنى عام."}`; save({ p_drills: { sort: [ok, S.length] } }); };
+        box.querySelector("#ewsParC").onclick = () => { let ok = 0; Pp.forEach((q, j) => { const v = box.querySelector(`input[name="ewp${j}"]:checked`); const g = v && +v.value === q.c; if (g) ok++; const f = box.querySelector("#ewpF" + j); f.className = "mdr-fb " + (g ? "ok" : "no"); f.textContent = (g ? "✔ " : "✘ ") + q.why; });
+          box.querySelector("#ewsParR").textContent = `${ok}/${Pp.length}`; save({ p_drills: { para: [ok, Pp.length] } }); };
+      }
+      if (part === 4) {
+        const ta = box.querySelector("#ewsA"); if (ta) { const wcE = box.querySelector("#ewsWc"); const t0 = Date.now(); let tm = null;
+          const up = () => { const n = ewsWc(ta.value); wcE.textContent = `${n} كلمة`; wcE.className = "pill " + (n >= 100 && n <= 150 ? "ok" : n ? "warn" : ""); }; ta.oninput = () => { up(); if (!tm && !(mine && mine.submitted_at)) tm = setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000), el = box.querySelector("#ewsT"); if (!el) { clearInterval(tm); return; } el.textContent = Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); el.classList.toggle("late", s > D.exam.minutes * 60); }, 500); }; up();
+          box.querySelector("#ewsSub").onclick = () => { const n = ewsWc(ta.value), e = box.querySelector("#ewsE"); if (n < 40) { e.textContent = "اكتب تلخيصًا كاملًا أولًا."; return; } e.textContent = ""; clearInterval(tm); selfCheck(ta.value, n, Math.round((Date.now() - t0) / 1000)); };
+          if (mine && mine.submitted_at) showResult(); }
+        if (isStaff() && state.session) ewsTeacher(box.querySelector("#ewsT2"), D, l, u);
+      }
+    };
+    const selfCheck = (ans, n, sec) => { const X = D.exam, el = box.querySelector("#ewsSelf");
+      el.innerHTML = `<div class="mdr-card ews-self"><h4>✅ صحّح نفسك بمعيار الامتحان</h4><p class="muted">ضع علامة على كل نقطة ذكرتها <b>بأسلوبك</b> (لا تحسبها إن نقلتها حرفيًّا أو نسيتها).</p>
+        ${X.points.map((p, i) => `<label class="ews-chk"><input type="checkbox" data-pt="${i}"> ${esc(p)}</label>`).join("")}
+        <h4>جودة الكتابة</h4>${D.quality.map((q) => `<label class="ews-chk"><input type="radio" name="ewsQ" value="${q[0]}"> <b>${q[0]}</b>: ${esc(q[1])}</label>`).join("")}
+        ${n < 100 || n > 150 ? `<p class="mdr-fb no">⚠️ عدد كلماتك ${n}، والمطلوب بين 100 و150.</p>` : ""}
+        <p class="form-error" id="ewsE2"></p><button class="btn btn-primary" id="ewsOk">احسب درجتي</button></div>`;
+      el.scrollIntoView({ behavior: "smooth" });
+      el.querySelector("#ewsOk").onclick = async () => { const q = el.querySelector('input[name="ewsQ"]:checked'); if (!q) { el.querySelector("#ewsE2").textContent = "اختر مستوى جودة الكتابة."; return; }
+        const pts = [...el.querySelectorAll("[data-pt]")].map((c) => c.checked ? 1 : 0), sc = pts.reduce((a, b) => a + b, 0) + +q.value;
+        const err = await save({ p_answer: ans, p_words: n, p_seconds: sec, p_self: { pts, q: +q.value }, p_self_score: sc, p_max: D.where.marks }); if (err) return;
+        mine = Object.assign(mine || {}, { answer: ans, words: n, self_marks: { pts, q: +q.value }, self_score: sc, max_score: D.where.marks, submitted_at: new Date().toISOString() }); draw(); };
+    };
+    const showResult = () => { const X = D.exam, el = box.querySelector("#ewsSelf"), sm = mine.self_marks || { pts: [], q: 0 }, tm = mine.t_marks;
+      el.innerHTML = `<div class="mdr-card ews-res"><h4>نتيجتك</h4><div class="lp-stats"><div><b>${mine.self_score}/${mine.max_score}</b><small>تصحيحك الذاتي</small></div>${mine.graded_at ? `<div><b>${mine.t_score}/${mine.max_score}</b><small>درجة معلمك</small></div>` : `<div><b>⏳</b><small>بانتظار تصحيح معلمك</small></div>`}<div><b>${mine.words}</b><small>كلمة</small></div></div>
+        <div class="ews-pts">${X.points.map((p, i) => { const v = tm ? (tm.pts || [])[i] : sm.pts[i]; return `<span class="${v ? "ok" : "no"}">${v ? "✔" : "✘"} ${esc(p.split(":")[0])}</span>`; }).join("")}</div>
+        ${mine.t_note ? `<p class="mdr-task">🧑‍🏫 ${esc(mine.t_note)}</p>` : ""}
+        <details open><summary>📝 إجابة نموذجية (${X.model_words} كلمة)</summary><p class="ews-ans">${esc(X.model)}</p></details></div>`; };
+    draw();
+  }
+  async function ewsTeacher(el, D, l, u) {
+    if (!el) return; const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+    let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.year_group === u.year_group && c.track === u.track && c.subject_id === u.subject_id);
+    if (!cls.length && (isSchoolAdmin() || isSuper())) { const { data } = await sb.from("classes").select("id, name").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).limit(20); cls = data || []; }
+    if (!cls.length) { el.innerHTML = `<div class="mdr-card muted">لا توجد فصول مرتبطة بك في هذا المسار، فلا توجد إجابات لتصحيحها.</div>`; return; }
+    let cur = cls[0].id;
+    const draw = async () => {
+      const { data: ro } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur);
+      const SS = (ro || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" }));
+      const { data } = SS.length ? await sb.from("exam_ws").select("*").eq("lesson_id", l.id).in("student_id", SS.map((s) => s.id)) : { data: [] };
+      const R = {}; (data || []).forEach((r) => { R[r.student_id] = r; }); const subs = SS.filter((s) => R[s.id] && R[s.id].submitted_at);
+      el.innerHTML = `<div class="mdr-card"><h3>🧑‍🏫 إجابات الفصل وتصحيحها</h3>${cls.length > 1 ? `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>` : ""}
+        <p class="muted">سلّم ${subs.length} من ${SS.length}. التصحيح بمعيار الامتحان: درجة لكل نقطة، ودرجتان للجودة.</p>
+        ${subs.map((s) => { const r = R[s.id], tm = r.t_marks || r.self_marks || { pts: [], q: 0 }; return `<div class="ews-g" data-st="${s.id}"><div class="mdr-lg-h"><b>${esc(s.name)}</b><small class="muted">${r.words} كلمة · ${Math.round((r.seconds || 0) / 60)} د · ذاتي ${r.self_score}/${r.max_score}${r.graded_at ? ` · ✔ ${r.t_score}/${r.max_score}` : ""}</small></div>
+          <p class="ews-ans">${esc(r.answer)}</p><div class="ews-gp">${D.exam.points.map((p, i) => `<label><input type="checkbox" data-pt="${i}" ${(tm.pts || [])[i] ? "checked" : ""}> ${esc(p.split(":")[0])}</label>`).join("")}</div>
+          <div class="ews-gp">الجودة: ${D.quality.map((q) => `<label><input type="radio" name="gq${s.id}" value="${q[0]}" ${tm.q === q[0] ? "checked" : ""}> ${q[0]}</label>`).join("")}</div>
+          <textarea class="mdr-ta" rows="2" placeholder="ملاحظة للطالب">${esc(r.t_note || "")}</textarea><button class="btn btn-primary btn-small ews-gs">💾 حفظ الدرجة</button></div>`; }).join("") || `<p class="muted">لم يسلّم أحد بعد.</p>`}</div>`;
+      el.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; draw(); });
+      el.querySelectorAll(".ews-g").forEach((g) => g.querySelector(".ews-gs").onclick = async () => { const pts = [...g.querySelectorAll("[data-pt]")].map((c) => c.checked ? 1 : 0), q = g.querySelector(`input[name="gq${g.dataset.st}"]:checked`);
+        if (!q) { toast("اختر مستوى الجودة"); return; } const sc = pts.reduce((a, b) => a + b, 0) + +q.value;
+        const { error } = await sb.rpc("ews_grade", { p_lesson: l.id, p_student: g.dataset.st, p_marks: { pts, q: +q.value }, p_score: sc, p_note: g.querySelector("textarea").value.trim() || null });
+        if (error) toast("تعذّر الحفظ: " + error.message); else { toast(`حُفظت الدرجة ${sc}/${D.where.marks}`); draw(); } });
+    };
+    draw();
+  }
+
   // ---------- قياس القراءة في بداية السنة ووسطها ونهايتها (نص ثابت لكل صف) ----------
   // نص القياس: من قائمة الصف التالي (يدرسه الطالب في السنة القادمة)، والتاسع من قائمة الثامن؛ فيه 3 أسئلة اختيار على الأقل، وطوله مناسب للمستوى
   const MDR_RND = { boy: ["🌱", "بداية السنة"], moy: ["🌿", "منتصف السنة"], eoy: ["🌳", "نهاية السنة"] };
@@ -9142,7 +9274,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       (c.key || []).forEach((t, i) => { const m = String(t).match(/\[\[([^\]]+)\]\]/); const w = (c.words || []).find((x) => m && bkPlain(x[0]).replace(/[\u064B-\u0652]/g, "") === m[1].replace(/[\u064B-\u0652]/g, "").replace(/^و/, "")); if (m && !w) out.push({ id: "k:" + i, f: "«" + m[1] + "»", b: bkPlain(t), k: nnEn ? "In the text" : "في النَّصِّ" }); });
       return out.slice(0, 24); })();
     const relBox = isStaff() && summary ? `<div id="relBox" class="rel-box"></div>` : "";
+    const ewsOn = subject === "arabic" && QUAL_TRACKS.includes(u.track) && (await ewsIdx()).includes(l.code);
     const TABS = [
+      ...(ewsOn ? [["exam", "🎯 ورشة الامتحان", lockedForMe && !isStaff() ? lockedMsg : `<div id="ewsBox"></div>`]] : []),
       ["slides", nnEn ? "Slides" : "الشرائح", relBox + slidesPanel()],
       ...(state.session && (isStaff() || isStudent()) && !lockedForMe && (ticket && nq >= 3) ? [["prog", nnEn ? "📈 Progress check" : "📈 قياس التقدّم", `<div id="pgBox"></div>`]] : []),
       ...(fcCards.length >= 3 ? [["cards", nnEn ? "🃏 Flashcards" : "🃏 البطاقات التعليمية", lockedForMe ? lockedMsg : `<div class="fc" id="fcBox"></div>`]] : []),
@@ -9214,6 +9348,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (k === "cards" && !lockedForMe) fcRun(l, fcCards, nnEn);
       if (k === "reader") { const rb = document.getElementById("rdBox"); if (rb) readerRun(rb, l, u, reader, nnEn); }
       if (k === "madarij") { const mb = document.getElementById("mdrBox"); if (mb) mdrCard(mb, l, u, mdrId); }
+      if (k === "exam") { const eb = document.getElementById("ewsBox"); if (eb) ewsRun(eb, l, u); }
       if (k === "prog") { const pb = document.getElementById("pgBox"); if (pb) (isStaff() ? progTeacher(pb, l, u, nnEn) : progStudent(pb, l, nnEn)); }
       if (k === "booktext") {
         const pr = document.getElementById("btxPrint");
