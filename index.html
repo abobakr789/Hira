@@ -3259,6 +3259,23 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .mjl-c small{display:block;color:#7A5714;font-size:12px;font-weight:700}
 .mjl-c b{display:block;font-size:16px}
 .mjl-go{margin-inline-start:auto;font-weight:700;color:#B68A2E;white-space:nowrap}
+/* أدوات المعلم */
+.mj .asgf{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin:10px 0}
+.mj .asgf label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);flex:1 1 160px}
+.mj .asgf select,.mj .asgf input{font:inherit;font-size:15px;padding:8px 10px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--navy)}
+.mj .asgl{margin:8px 0 0;padding-inline-start:18px;line-height:2}
+.mj .asgbox{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--c,var(--isl));border-radius:20px;padding:12px 18px;margin:0 0 12px}
+.mj .asgbox .ri{font-size:24px}.mj .asgbox b{display:block;font-family:"ThmanyahDisplay";font-size:17px;font-weight:400}
+.mj .asgbox small{color:var(--muted);font-size:13px}.mj .asgbox .bar{margin-top:6px;max-width:260px}
+.mj .asgbox>div:nth-child(2){flex:1}
+.mj .path .stp.asg .tread{box-shadow:inset 0 0 0 2px var(--gold)}
+.mj .path .stp.asg .num::after{content:"📌";position:absolute;margin:-26px -26px 0 0;font-size:13px}
+/* وضع السبورة */
+body.mjboard header,body.mjboard nav,body.mjboard footer,body.mjboard .back-fab,body.mjboard .site-footer,body.mjboard .mj-crumb{display:none!important}
+body.mjboard .mj{zoom:1.3}
+body.mjboard .mj .wrap,body.mjboard .mj{max-width:none}
+.mj .path .stp .num{position:relative}
+.mj #rpA,.mj #rp,.mj #rpM{min-height:0}
 
 </style>
 </head>
@@ -3377,7 +3394,7 @@ const T={
  medalGot:['حصلت على','You earned the'],
  certT:['شهادة إتمام','Certificate of Completion'],certName:['اكتب اسمك كما تريده في الشهادة','Type your name for the certificate'],showCert:['اعرض الشهادة','Show certificate'],
  certBody:['أتمّ بحمد الله دورة التجويد برواية حفص عن عاصم في معارج حراء، بمستوياتها الثلاثة ودرجاتها الست عشرة.','has completed, by Allah’s grace, the Tajwīd course (Ḥafṣ ‘an ‘Āṣim) on Hiraa Ma‘ārij — all three levels and sixteen steps.'],
- date:['التاريخ','Date'],revT:['مراجعة اليوم','Today’s review'],revToday:['مراجعة اليوم جاهزة','Today’s review is ready'],revNone:['لا مراجعة اليوم، أحسنت','No review due today — well done'],revSteps:['درجات حان وقت مراجعتها؛ أسئلة قليلة تثبّت ما تعلمته.','steps are due — a few questions to make it stick.'],revNext:['المراجعة القادمة بعد','Next review in'],days:['يوم','day(s)'],revStart:['ابدأ المراجعة','Start review'],revHint:['سؤال من كل درجة حان وقتها','One question from each due step'],revAll:['ممتاز! ثبتت المعلومات، وستعود إليك بعد مدة أطول.','Excellent! These will come back after a longer gap.'],revSome:['أحسنت، وما أخطأت فيه سيعود إليك غدًا.','Good — what you missed comes back tomorrow.'],revGoBack:['ارجع إلى هذه الدرجات لتراجعها:','Revisit these steps:'],revDue:['🔁 للمراجعة:','🔁 Due:'],rcHint:['اقرأ الصدر، واختر العجز الصحيح من حفظك.','Read the first half and pick the right second half.'],hifzGot:['حفظتَ أبيات هذه الدرجة','You have memorised these verses'],hifzRetry:['أعد التسميع لتنال نجمة الحفظ (خطأ واحد على الأكثر).','Recite again to earn the memorisation star (at most one mistake).'],
+ date:['التاريخ','Date'],boardB:['السبورة','Board'],asgT:['تكليف فصل بهذه الدورة','Assign this course to a class'],cls:['الفصل','Class'],allSt:['كل طلابي','All my students'],asgWhat:['المطلوب','What'],asgAll:['الدورة كاملة','Whole course'],asgDue:['حتى','Due'],asgNote:['ملاحظة للطلاب','Note to students'],asgAdd:['كلِّف الفصل','Assign'],asgDel:['حذف','Delete'],asgDelQ:['حذف هذا التكليف؟','Delete this assignment?'],asgNone:['لا تكليفات لهذه الدورة بعد.','No assignments for this course yet.'],pickCls:['اختر الفصل أولًا.','Choose a class first.'],asgFrom:['مهمة من معلمك','Task from your teacher'],asgDone:['منجزة','done'],asgGo:['أكمل المهمة','Continue'],repProg:['تقدم الطلاب','Student progress'],missT:['أكثر الأسئلة خطأً','Most-missed questions'],missH:['عدد الطلاب الذين أخطؤوا في كل سؤال (في اختبار الدرجة أو المراجعة). أعد شرح ما يتكرر فيه الخطأ.','How many students missed each question (step quiz or review). Re-teach what recurs.'],qCol:['السؤال','Question'],rightAns:['الجواب الصحيح','Correct answer'],missN:['عدد من أخطأ فيه','Students who missed it'],stud:['',''],noMiss:['لم تُسجَّل أخطاء بعد.','No mistakes recorded yet.'],revT:['مراجعة اليوم','Today’s review'],revToday:['مراجعة اليوم جاهزة','Today’s review is ready'],revNone:['لا مراجعة اليوم، أحسنت','No review due today — well done'],revSteps:['درجات حان وقت مراجعتها؛ أسئلة قليلة تثبّت ما تعلمته.','steps are due — a few questions to make it stick.'],revNext:['المراجعة القادمة بعد','Next review in'],days:['يوم','day(s)'],revStart:['ابدأ المراجعة','Start review'],revHint:['سؤال من كل درجة حان وقتها','One question from each due step'],revAll:['ممتاز! ثبتت المعلومات، وستعود إليك بعد مدة أطول.','Excellent! These will come back after a longer gap.'],revSome:['أحسنت، وما أخطأت فيه سيعود إليك غدًا.','Good — what you missed comes back tomorrow.'],revGoBack:['ارجع إلى هذه الدرجات لتراجعها:','Revisit these steps:'],revDue:['🔁 للمراجعة:','🔁 Due:'],rcHint:['اقرأ الصدر، واختر العجز الصحيح من حفظك.','Read the first half and pick the right second half.'],hifzGot:['حفظتَ أبيات هذه الدرجة','You have memorised these verses'],hifzRetry:['أعد التسميع لتنال نجمة الحفظ (خطأ واحد على الأكثر).','Recite again to earn the memorisation star (at most one mistake).'],
  foot:['معارج حراء · نصوص الآيات من مصحف المنصة، والتلاوة للشيخ خليفة الطنيجي.','Hiraa Ma‘ārij · Qur’an text from the platform’s Muṣḥaf; recitation by Sheikh Khalifa Al-Tunaiji.'],foot2:['معارج حراء · كل نص في الدورة موثّق من مصدره المذكور تحته.','Hiraa Ma‘ārij · every text in this course is cited from its source.'],
  lv:['المستوى','Level'],foot3:['معارج حراء · النصوص والأسئلة من كتاب «مدارج القراءة» لوزارة التربية والتعليم، والإجابات النموذجية من إعداد حراء.','Hiraa Ma‘ārij · texts and questions from the MoE “Madārij al-Qirā’ah”; model answers by Hiraa.'],
  rparts:[['اقرأ','أجب'],['Read','Answer']],toQs:['إلى الأسئلة','To the questions'],showText:['اعرض النص','Show the text'],bookP:['كتاب مدارج القراءة، ص','Madārij al-Qirā’ah, p.'],
@@ -3422,7 +3439,7 @@ const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shi
 const KEY=()=>'hiraa-maarij-'+CID;
 let S={passed:[],tests:{},open:false,name:'',start:0};
 let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}
-function loadS(){S={passed:[],tests:{},open:false,name:'',start:0,rev:{},hifz:{}};try{const r=localStorage.getItem(KEY());if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}S.rev=S.rev||{};S.hifz=S.hifz||{};S.passed.forEach(i=>{if(!S.rev[i])S.rev[i]=[0,today()]})}
+function loadS(){S={passed:[],tests:{},open:false,name:'',start:0,rev:{},hifz:{}};try{const r=localStorage.getItem(KEY());if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}S.rev=S.rev||{};S.hifz=S.hifz||{};S.miss=S.miss||{};S.passed.forEach(i=>{if(!S.rev[i])S.rev[i]=[0,today()]})}
 /* مراجعة متباعدة: rev[step]=[box,dueDay] */
 const RINT=[1,3,7,14,30];const today=()=>Math.floor((Date.now()-new Date().getTimezoneOffset()*6e4)/864e5);
 function dueSteps(){const d=today();return Object.keys(S.rev||{}).map(Number).filter(i=>i>=1&&i<=N&&S.rev[i][1]<=d).sort((a,b)=>S.rev[a][1]-S.rev[b][1])}
@@ -3439,12 +3456,12 @@ const staffOpen=()=>S.open&&isStaffC();
 function save(){
   try{localStorage.setItem(KEY(),JSON.stringify(S))}catch(e){}
   const ses=C&&C.state.session;if(!ses)return;
-  clearTimeout(syncT);syncT=setTimeout(()=>{C.sb.from('maarij_progress').upsert({user_id:ses.user.id,course:CID,passed:S.passed,tests:S.tests,scores:{start:S.start||0,rev:S.rev||{},hifz:S.hifz||{}},cert_name:S.name||null,updated_at:new Date().toISOString()}).then(()=>{},()=>{})},600);
+  clearTimeout(syncT);syncT=setTimeout(()=>{C.sb.from('maarij_progress').upsert({user_id:ses.user.id,course:CID,passed:S.passed,tests:S.tests,scores:{start:S.start||0,rev:S.rev||{},hifz:S.hifz||{},miss:S.miss||{}},cert_name:S.name||null,updated_at:new Date().toISOString()}).then(()=>{},()=>{})},600);
 }
 async function loadRemote(){
   const ses=C.state.session;if(!ses||LOADED[CID])return;LOADED[CID]=true;
   try{const {data}=await C.sb.from('maarij_progress').select('*').eq('user_id',ses.user.id).eq('course',CID).maybeSingle();
-    if(data){S.passed=[...new Set([...(S.passed||[]),...(data.passed||[])])].sort((a,b)=>a-b);S.tests=Object.assign({},data.tests||{},S.tests);S.start=Math.max(S.start||0,(data.scores&&data.scores.start)||0);if(data.scores&&data.scores.rev)S.rev=Object.assign({},data.scores.rev,S.rev||{});if(data.scores&&data.scores.hifz)S.hifz=Object.assign({},data.scores.hifz,S.hifz||{});if(!S.name&&data.cert_name)S.name=data.cert_name;}
+    if(data){S.passed=[...new Set([...(S.passed||[]),...(data.passed||[])])].sort((a,b)=>a-b);S.tests=Object.assign({},data.tests||{},S.tests);S.start=Math.max(S.start||0,(data.scores&&data.scores.start)||0);if(data.scores&&data.scores.rev)S.rev=Object.assign({},data.scores.rev,S.rev||{});if(data.scores&&data.scores.hifz)S.hifz=Object.assign({},data.scores.hifz,S.hifz||{});if(data.scores&&data.scores.miss){S.miss=S.miss||{};for(const k in data.scores.miss)S.miss[k]=Math.max(S.miss[k]||0,data.scores.miss[k])}if(!S.name&&data.cert_name)S.name=data.cert_name;}
     save();}catch(e){}
 }
 function isPassed(i){return S.passed.includes(i)}
@@ -3493,7 +3510,7 @@ function renderCourses(app){
 }
 
 /* ---------- ladder ---------- */
-function renderLadder(app){
+function renderLadder(app){setTimeout(asgBox,0);
   const n=S.passed.length,ns=nextStep();
   const medals=[['l1',LEVELS[0].medal,LEVELS[0].steps.at(-1)],['l2',LEVELS[1].medal,LEVELS[1].steps.at(-1)],['final',LEVELS[2].medal,N]];
   let lad='';
@@ -3523,7 +3540,7 @@ function renderLadder(app){
      <div class="stats"><div class="stat"><b>${n}</b><span>${t('doneSteps')}</span></div><div class="stat"><b>${N}</b><span>${t('inCourse')}</span></div><div class="stat"><b>${Math.round(n/N*100)}%</b><span>${t('ofCourse')}</span></div></div>
      <div class="medals">${medals.map(m=>`<div class="medal ${S.tests[m[0]]?'got':''}">${tx(m[1])}<br>${S.tests[m[0]]?t('got'):t('after')+' '+m[2]}</div>`).join('')}</div>
      <div class="row" style="margin-top:12px">${isStaffC()?`<button class="tlink" onclick="MJ.teacher()">${S.open?'✓ '+t('teacherOn'):t('teacher')}</button><button class="tlink" onclick="MJ.go('report')">${t('report')}</button>`:''}${!C.state.session?`<button class="tlink" onclick="MJ.reset()">${t('reset')}</button>`:''}</div></div></div>
-   ${revBox()}
+   ${revBox()}<div id="mjAsg"></div>
    <div class="ladder" style="--c:${(SUBJ.find(x=>x.courses.some(c=>c.id===CID))||SUBJ[0]).c};--cs:${(SUBJ.find(x=>x.courses.some(c=>c.id===CID))||SUBJ[0]).s}">${lad}</div>`;
 }
 
@@ -3552,7 +3569,7 @@ let CUR=1,part=0,lc=0;
 function renderStep(app,i){
   CUR=i;part=0;lc=0;const st=STEPS[i-1],lv=levelOf(i);
   if(st.kind==='read')return renderRead(app,i);
-  app.innerHTML=`<div class="shead"><div><div class="k">${tx(LEVELS[lv].n)} · ${t('stepOf')} ${i} ${L()?'of':'من'} ${N}</div><h1>${tx(st.t)}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div>
+  app.innerHTML=`<div class="shead"><div><div class="k">${tx(LEVELS[lv].n)} · ${t('stepOf')} ${i} ${L()?'of':'من'} ${N}</div><h1>${tx(st.t)}</h1></div><span class="spacer"></span>${isStaffC()?`<button class="btn ghost" onclick="MJ.board()">📺 ${t('boardB')}</button>`:''}<button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div>
    <div class="goal"><div><h3>${t('goal')}</h3><p>${tx(st.goal)}</p></div><div><h3>${t('crit')}</h3><ul>${tx(st.crit).map(c=>`<li>${c}</li>`).join('')}</ul></div></div>
    <div class="stepper" id="stepper"></div><div class="panel" id="sp"></div>`;
   showPart(0);
@@ -3639,8 +3656,8 @@ function revBox(){const d=dueSteps().length,nx=nextRevIn();if(!S.passed.length&&
 function renderMur(app){const due=dueSteps().slice(0,5);
   app.innerHTML=`<div class="shead"><div><div class="k">${ct('t')}</div><h1>${t('revT')}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div><div class="panel" id="mp"></div>`;
   if(!due.length){$('mp').innerHTML=`<div class="result"><h2>${t('revNone')}</h2></div>`;return}
-  const items=[],steps=[];due.forEach(i=>{const Q=STEPS[i-1].quiz||[];if(!Q.length)return;items.push(Q[Math.floor(Math.random()*Q.length)]);steps.push(i)});
-  QZ={items,i:0,ans:[],el:$('mp'),pass:0,title:t('revT'),needTxt:t('revHint'),onEnd:()=>{const d=today();steps.forEach((i,k)=>{const r=S.rev[i]||[0,d];if(QZ.ans[k]){r[0]=Math.min(r[0]+1,RINT.length-1);r[1]=d+RINT[r[0]]}else{r[0]=0;r[1]=d+1}S.rev[i]=r});save();
+  const items=[],steps=[],keys=[];due.forEach(i=>{const Q=STEPS[i-1].quiz||[];if(!Q.length)return;const j=Math.floor(Math.random()*Q.length);items.push(Q[j]);steps.push(i);keys.push(i+':'+j)});
+  QZ={items,keys,i:0,ans:[],el:$('mp'),pass:0,title:t('revT'),needTxt:t('revHint'),onEnd:()=>{const d=today();steps.forEach((i,k)=>{const r=S.rev[i]||[0,d];if(QZ.ans[k]){r[0]=Math.min(r[0]+1,RINT.length-1);r[1]=d+RINT[r[0]]}else{r[0]=0;r[1]=d+1}S.rev[i]=r});save();
     const sc=QZ.ans.filter(Boolean).length,wrong=steps.filter((_,k)=>!QZ.ans[k]);
     QZ.el.innerHTML=`<div class="result"><div class="big">${sc} / ${items.length}</div><h2>${sc===items.length?t('revAll'):t('revSome')}</h2>${wrong.length?`<p class="hint">${t('revGoBack')}</p><div class="row" style="justify-content:center">${wrong.map(i=>`<button class="btn ghost" onclick="MJ.go('step-${i}')">${t('stepOf')} ${i}: ${tx(STEPS[i-1].t)}</button>`).join('')}</div>`:''}<div class="row" style="justify-content:center;margin-top:14px"><button class="btn" onclick="MJ.go('course')">${t('back')}</button></div></div>`}};quizQ()}
 function fb(id,ok,msg){const f=$(id);if(!f)return;f.className='fb '+(ok?'ok':'no');f.textContent=msg}
@@ -3667,7 +3684,7 @@ function ord(k,i,b){
 
 /* quiz (step) */
 let QZ={};
-function quiz(el){QZ={items:STEPS[CUR-1].quiz,i:0,ans:[],el,pass:4,onEnd:stepEnd};quizQ()}
+function quiz(el){QZ={items:STEPS[CUR-1].quiz,i:0,ans:[],el,pass:4,onEnd:stepEnd,keys:STEPS[CUR-1].quiz.map((_,j)=>CUR+':'+j)};quizQ()}
 function quizQ(){
   const el=QZ.el,Qs=QZ.items;
   if(QZ.i>=Qs.length)return QZ.onEnd();
@@ -3679,7 +3696,7 @@ function quizQ(){
 }
 function answer(k){
   const q=QZ.items[QZ.i];if(QZ.ans.length>QZ.i)return;
-  const ok=k===q.c;QZ.ans.push(ok);
+  const ok=k===q.c;QZ.ans.push(ok);if(!ok&&QZ.keys&&QZ.keys[QZ.i]){S.miss=S.miss||{};const mk=QZ.keys[QZ.i];S.miss[mk]=(S.miss[mk]||0)+1;save()}
   const bs=document.querySelectorAll('#opts .opt');bs[q.c].classList.add('ok');if(!ok)bs[k].classList.add('no');bs.forEach(b=>b.disabled=true);
   const f=$('qfb');f.className='fb '+(ok?'ok':'no');f.innerHTML=(ok?t('okAns'):t('rightIs')+tx(q.o)[q.c]+'. ')+tx(q.e);
   $('qn').style.display='';
@@ -3766,22 +3783,68 @@ function renderCert(app){
 
 
 /* ---------- teacher report ---------- */
+/* ---------- أدوات المعلم ---------- */
+let MYCL=null;
+async function myClasses(){
+  if(MYCL)return MYCL;const uid=C.state.session&&C.state.session.user.id;if(!uid)return MYCL=[];
+  const {data:pr}=await C.sb.from('profiles').select('school_id').eq('id',uid).maybeSingle();
+  const sid=pr&&pr.school_id;let q=C.sb.from('classes').select('id,name,year_group,school_id').order('year_group');if(sid)q=q.eq('school_id',sid);
+  const {data}=await q;return MYCL=(data||[]);
+}
+function stepsLabel(st){if(!st||!st.length)return t('asgAll');const lv=LEVELS.findIndex(l=>l.steps.length===st.length&&l.steps.every(x=>st.includes(x)));if(lv>=0)return tx(LEVELS[lv].n);return st.length===1?`${t('stepOf')} ${st[0]}: ${tx(STEPS[st[0]-1].t)}`:`${t('stepOf')} ${st.join('، ')}`}
+async function asgBox(){
+  const el=$('mjAsg');if(!el||!C.state.session||isStaffC())return;
+  try{const {data}=await C.sb.from('maarij_assignments').select('id,steps,due_at,note').eq('course',CID).order('created_at',{ascending:false}).limit(5);
+    if(!data||!data.length||!$('mjAsg'))return;
+    $('mjAsg').innerHTML=data.map(a=>{const st=a.steps&&a.steps.length?a.steps:STEPS.map((_,i)=>i+1);const d=st.filter(isPassed).length;
+      return `<div class="asgbox"><div class="ri">📌</div><div><b>${t('asgFrom')}: ${stepsLabel(a.steps)}</b><small>${d} / ${st.length} ${t('asgDone')}${a.due_at?` · ${t('asgDue')} ${a.due_at}`:''}${a.note?` · ${C.esc(a.note)}`:''}</small><div class="bar"><i style="width:${Math.round(d/st.length*100)}%"></i></div></div>${d<st.length?`<button class="btn" onclick="MJ.go('step-${st.find(i=>!isPassed(i))}')">${t('asgGo')}</button>`:`<span class="pill">${t('got')}</span>`}</div>`}).join('');
+    document.querySelectorAll('.path .stp').forEach(x=>{const n=+((x.querySelector('.num')||{}).textContent);if(data.some(a=>!a.steps.length||a.steps.includes(n)))x.classList.add('asg')});
+  }catch(e){}
+}
 async function renderReport(app){
   if(!isStaffC()){go('course');return}
-  app.innerHTML=`<div class="shead"><div><div class="k">${ct('t')}</div><h1>${t('repT')}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div><div class="panel" id="rp">${t('loading')}</div>`;
+  app.innerHTML=`<div class="shead"><div><div class="k">${ct('t')}</div><h1>${t('repT')}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div>
+   <div class="panel" id="rpA">${t('loading')}</div><div class="panel" id="rp" style="margin-top:14px"></div><div class="panel" id="rpM" style="margin-top:14px"></div>`;
+  const cls=await myClasses();const sel=RCL||'';
+  const lvOpts=LEVELS.map((l,k)=>`<option value="L${k}">${tx(l.n)}</option>`).join('')+STEPS.map((x,k)=>`<option value="S${k+1}">${t('stepOf')} ${k+1}: ${tx(x.t)}</option>`).join('');
+  $('rpA').innerHTML=`<h2>${t('asgT')}</h2><div class="asgf"><label>${t('cls')}<select id="aCl" onchange="MJ.rcl(this.value)"><option value="">${t('allSt')}</option>${cls.map(c=>`<option value="${c.id}" ${c.id===sel?'selected':''}>${C.esc(c.name)}</option>`).join('')}</select></label>
+    <label>${t('asgWhat')}<select id="aSt"><option value="A">${t('asgAll')}</option>${lvOpts}</select></label><label>${t('asgDue')}<input type="date" id="aDue"></label><label style="flex:2">${t('asgNote')}<input id="aNote" maxlength="140"></label>
+    <button class="btn gold" onclick="MJ.asgAdd()">${t('asgAdd')}</button></div><div id="aList" class="hint"></div>`;
+  asgList();
   try{
-    const {data}=await C.sb.from('maarij_progress').select('user_id,passed,tests,updated_at').eq('course',CID).order('updated_at',{ascending:false}).limit(500);
-    const rows=(data||[]).filter(r=>r.user_id!==(C.state.session&&C.state.session.user.id));
-    if(!rows.length){$('rp').innerHTML=`<p class="hint">${t('noData')}</p>`;return}
-    const ids=rows.map(r=>r.user_id);
-    const {data:ps}=await C.sb.from('profiles').select('id,full_name_ar,full_name_en,year_group').in('id',ids);
+    let ids=null;if(sel){const {data:cs}=await C.sb.from('class_students').select('student_id').eq('class_id',sel);ids=(cs||[]).map(x=>x.student_id)}
+    let q=C.sb.from('maarij_progress').select('user_id,passed,tests,scores,updated_at').eq('course',CID).order('updated_at',{ascending:false}).limit(500);if(ids){if(!ids.length){$('rp').innerHTML=`<p class="hint">${t('noData')}</p>`;return}q=q.in('user_id',ids)}
+    const {data}=await q;const rows=(data||[]).filter(r=>r.user_id!==(C.state.session&&C.state.session.user.id));
+    if(!rows.length){$('rp').innerHTML=`<p class="hint">${t('noData')}</p>`;$('rpM').innerHTML='';return}
+    const {data:ps}=await C.sb.from('profiles').select('id,full_name_ar,full_name_en').in('id',rows.map(r=>r.user_id));
     const nm={};(ps||[]).forEach(p=>nm[p.id]=(L()?p.full_name_en||p.full_name_ar:p.full_name_ar||p.full_name_en)||'—');
-    $('rp').innerHTML=`<table class="mjr"><tr><th>${t('student')}</th><th>${t('steps')}</th><th>${t('curStep')}</th><th>${t('medals')}</th><th>${t('updated')}</th></tr>${rows.map(r=>{const p=r.passed||[];let cur=N;for(let i=1;i<=N;i++)if(!p.includes(i)){cur=i;break}const ts=r.tests||{};const d=new Date(r.updated_at);
-      return `<tr><td>${C.esc(nm[r.user_id]||'—')}</td><td>${p.length} / ${N}</td><td>${cur} · ${tx(STEPS[cur-1].t)}</td><td>${['l1','l2','final'].filter(k=>ts[k]).map(k=>tx(LEVELS[k==='l1'?0:k==='l2'?1:2].medal)).join('، ')||'—'}</td><td>${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}</td></tr>`}).join('')}</table>`;
+    $('rp').innerHTML=`<h2>${t('repProg')} (${rows.length})</h2><table class="mjr"><tr><th>${t('student')}</th><th>${t('steps')}</th><th>${t('curStep')}</th><th>${t('medals')}</th><th>★</th><th>${t('updated')}</th></tr>${rows.map(r=>{const p=r.passed||[];let cur=N;for(let i=1;i<=N;i++)if(!p.includes(i)){cur=i;break}const ts=r.tests||{};const d=new Date(r.updated_at);const hz=Object.keys((r.scores||{}).hifz||{}).length;
+      return `<tr><td>${C.esc(nm[r.user_id]||'—')}</td><td>${p.length} / ${N}</td><td>${cur} · ${tx(STEPS[cur-1].t)}</td><td>${['l1','l2','final'].filter(k=>ts[k]).map(k=>tx(LEVELS[k==='l1'?0:k==='l2'?1:2].medal)).join('، ')||'—'}</td><td>${hz||'—'}</td><td>${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}</td></tr>`}).join('')}</table>`;
+    const agg={};rows.forEach(r=>{const m=(r.scores||{}).miss||{};for(const k in m){agg[k]=agg[k]||{n:0,c:0};agg[k].n++;agg[k].c+=m[k]}});
+    const top=Object.entries(agg).sort((a,b)=>b[1].n-a[1].n||b[1].c-a[1].c).slice(0,10);
+    $('rpM').innerHTML=`<h2>${t('missT')}</h2><p class="hint">${t('missH')}</p>`+(top.length?`<table class="mjr"><tr><th>${t('stepOf')}</th><th>${t('qCol')}</th><th>${t('rightAns')}</th><th>${t('missN')}</th></tr>${top.map(([k,v])=>{const [st,j]=k.split(':').map(Number);const q=STEPS[st-1]&&STEPS[st-1].quiz[j];if(!q)return '';
+      return `<tr><td><a href="${hashFor('step-'+st)}">${st}</a></td><td>${tx(q.q)}</td><td>${tx(q.o)[q.c]}</td><td><b>${v.n}</b> ${t('stud')}</td></tr>`}).join('')}</table>`:`<p class="hint">${t('noMiss')}</p>`);
   }catch(e){$('rp').textContent=String(e.message||e)}
 }
+let RCL='';
+async function asgList(){
+  const el=$('aList');if(!el)return;const cls=await myClasses();const nm={};cls.forEach(c=>nm[c.id]=c.name);
+  const {data}=await C.sb.from('maarij_assignments').select('id,class_id,steps,due_at,note').eq('course',CID).order('created_at',{ascending:false});
+  el.innerHTML=(data&&data.length)?`<ul class="asgl">${data.map(a=>`<li><b>${C.esc(nm[a.class_id]||'—')}</b> · ${stepsLabel(a.steps)}${a.due_at?' · '+t('asgDue')+' '+a.due_at:''}${a.note?' · '+C.esc(a.note):''} <button class="tlink" onclick="MJ.asgDel('${a.id}')">${t('asgDel')}</button></li>`).join('')}</ul>`:t('asgNone');
+}
+async function asgAdd(){
+  const cl=$('aCl').value;if(!cl){alert(t('pickCls'));return}
+  const c=(await myClasses()).find(x=>x.id===cl);const v=$('aSt').value;
+  const steps=v==='A'?[]:v[0]==='L'?LEVELS[+v.slice(1)].steps:[+v.slice(1)];
+  const {error}=await C.sb.from('maarij_assignments').insert({school_id:c.school_id,class_id:cl,course:CID,steps,due_at:$('aDue').value||null,note:$('aNote').value.trim()||null});
+  if(error){alert(error.message);return}$('aNote').value='';asgList();
+}
+async function asgDel(id){if(!confirm(t('asgDelQ')))return;await C.sb.from('maarij_assignments').delete().eq('id',id);asgList()}
+function board(){const on=document.body.classList.toggle('mjboard');try{if(on&&document.documentElement.requestFullscreen)document.documentElement.requestFullscreen();else if(!on&&document.fullscreenElement)document.exitFullscreen()}catch(e){}}
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)document.body.classList.remove('mjboard')});
+window.addEventListener('hashchange',()=>{if(!/^#\/maarij\/[^/]+\/step-/.test(location.hash))document.body.classList.remove('mjboard')});
 
-window.MJ={go,showPart,rc,readPart,rans,rfin,lstep,play,setRep,setSlow,drawAct,pick,drop,tap,ord,answer,
+window.MJ={go,showPart,rc,board,asgAdd,asgDel,rcl:(v)=>{RCL=v;route()},readPart,rans,rfin,lstep,play,setRep,setSlow,drawAct,pick,drop,tap,ord,answer,
   subj:(s)=>{SUBJ_SEL=s;try{localStorage.setItem('hiraa-maarij-subj',s)}catch(e){}route()},openC:(c)=>{location.hash='#/maarij/'+c},teacher:()=>{if(!isStaffC())return;S.open=!S.open;save();route()},
   reset:()=>{S.passed=[];S.tests={};S.start=0;save();route()},
   pans:(k)=>{const q=PLACE[P.i];P.ans.push(k===q.c);P.score+=(k===q.c)?1:0;P.i++;placeQ()},
