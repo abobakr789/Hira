@@ -43,7 +43,7 @@ const T={
  medalGot:['حصلت على','You earned the'],
  certT:['شهادة إتمام','Certificate of Completion'],certName:['اكتب اسمك كما تريده في الشهادة','Type your name for the certificate'],showCert:['اعرض الشهادة','Show certificate'],
  certBody:['أتمّ بحمد الله دورة التجويد برواية حفص عن عاصم في معارج حراء، بمستوياتها الثلاثة ودرجاتها الست عشرة.','has completed, by Allah’s grace, the Tajwīd course (Ḥafṣ ‘an ‘Āṣim) on Hiraa Ma‘ārij — all three levels and sixteen steps.'],
- date:['التاريخ','Date'],lvCert:['شهادة المستوى','Level certificate'],lvCertH:['شهادة اجتياز مستوى','Level Certificate'],lvCertP:['اجتاز بنجاح اختبار','has passed the test of'],lvSteps:['درجات','steps'],lvCertP2:['ونال وسامه.','and earned its medal.'],print:['اطبع','Print'],prevStep:['الدرجة السابقة','Previous step'],boardB:['السبورة','Board'],asgT:['تكليف فصل بهذه الدورة','Assign this course to a class'],cls:['الفصل','Class'],allSt:['كل طلابي','All my students'],asgWhat:['المطلوب','What'],asgAll:['الدورة كاملة','Whole course'],asgDue:['حتى','Due'],asgNote:['ملاحظة للطلاب','Note to students'],asgAdd:['كلِّف الفصل','Assign'],asgDel:['حذف','Delete'],asgDelQ:['حذف هذا التكليف؟','Delete this assignment?'],asgNone:['لا تكليفات لهذه الدورة بعد.','No assignments for this course yet.'],pickCls:['اختر الفصل أولًا.','Choose a class first.'],asgFrom:['مهمة من معلمك','Task from your teacher'],asgDone:['منجزة','done'],asgGo:['أكمل المهمة','Continue'],repProg:['تقدم الطلاب','Student progress'],missT:['أكثر الأسئلة خطأً','Most-missed questions'],missH:['عدد الطلاب الذين أخطؤوا في كل سؤال (في اختبار الدرجة أو المراجعة). أعد شرح ما يتكرر فيه الخطأ.','How many students missed each question (step quiz or review). Re-teach what recurs.'],qCol:['السؤال','Question'],rightAns:['الجواب الصحيح','Correct answer'],missN:['عدد من أخطأ فيه','Students who missed it'],stud:['',''],noMiss:['لم تُسجَّل أخطاء بعد.','No mistakes recorded yet.'],revT:['مراجعة اليوم','Today’s review'],revToday:['مراجعة اليوم جاهزة','Today’s review is ready'],revNone:['لا مراجعة اليوم، أحسنت','No review due today — well done'],revSteps:['درجات حان وقت مراجعتها؛ أسئلة قليلة تثبّت ما تعلمته.','steps are due — a few questions to make it stick.'],revNext:['المراجعة القادمة بعد','Next review in'],days:['يوم','day(s)'],revStart:['ابدأ المراجعة','Start review'],revHint:['سؤال من كل درجة حان وقتها','One question from each due step'],revAll:['ممتاز! ثبتت المعلومات، وستعود إليك بعد مدة أطول.','Excellent! These will come back after a longer gap.'],revSome:['أحسنت، وما أخطأت فيه سيعود إليك غدًا.','Good — what you missed comes back tomorrow.'],revGoBack:['ارجع إلى هذه الدرجات لتراجعها:','Revisit these steps:'],revDue:['🔁 للمراجعة:','🔁 Due:'],rcHint:['اقرأ الصدر، واختر العجز الصحيح من حفظك.','Read the first half and pick the right second half.'],hifzGot:['حفظتَ أبيات هذه الدرجة','You have memorised these verses'],hifzRetry:['أعد التسميع لتنال نجمة الحفظ (خطأ واحد على الأكثر).','Recite again to earn the memorisation star (at most one mistake).'],
+ date:['التاريخ','Date'],enOn:['اشرح لي بالإنجليزية','Explain in English'],enOff:['إخفاء الإنجليزية','Hide English'],glos:['مسرد المصطلحات','Glossary'],glosH:['المصطلحات الأساسية في هذه الدورة بالعربية والإنجليزية، مع رقم الدرجة التي تشرحها.','Key terms of this course in Arabic and English, with the step that teaches each.'],glosQ:['ابحث عن مصطلح…','Search a term…'],glosNone:['لا مسرد لهذه الدورة بعد.','No glossary for this course yet.'],lvCert:['شهادة المستوى','Level certificate'],lvCertH:['شهادة اجتياز مستوى','Level Certificate'],lvCertP:['اجتاز بنجاح اختبار','has passed the test of'],lvSteps:['درجات','steps'],lvCertP2:['ونال وسامه.','and earned its medal.'],print:['اطبع','Print'],prevStep:['الدرجة السابقة','Previous step'],boardB:['السبورة','Board'],asgT:['تكليف فصل بهذه الدورة','Assign this course to a class'],cls:['الفصل','Class'],allSt:['كل طلابي','All my students'],asgWhat:['المطلوب','What'],asgAll:['الدورة كاملة','Whole course'],asgDue:['حتى','Due'],asgNote:['ملاحظة للطلاب','Note to students'],asgAdd:['كلِّف الفصل','Assign'],asgDel:['حذف','Delete'],asgDelQ:['حذف هذا التكليف؟','Delete this assignment?'],asgNone:['لا تكليفات لهذه الدورة بعد.','No assignments for this course yet.'],pickCls:['اختر الفصل أولًا.','Choose a class first.'],asgFrom:['مهمة من معلمك','Task from your teacher'],asgDone:['منجزة','done'],asgGo:['أكمل المهمة','Continue'],repProg:['تقدم الطلاب','Student progress'],missT:['أكثر الأسئلة خطأً','Most-missed questions'],missH:['عدد الطلاب الذين أخطؤوا في كل سؤال (في اختبار الدرجة أو المراجعة). أعد شرح ما يتكرر فيه الخطأ.','How many students missed each question (step quiz or review). Re-teach what recurs.'],qCol:['السؤال','Question'],rightAns:['الجواب الصحيح','Correct answer'],missN:['عدد من أخطأ فيه','Students who missed it'],stud:['',''],noMiss:['لم تُسجَّل أخطاء بعد.','No mistakes recorded yet.'],revT:['مراجعة اليوم','Today’s review'],revToday:['مراجعة اليوم جاهزة','Today’s review is ready'],revNone:['لا مراجعة اليوم، أحسنت','No review due today — well done'],revSteps:['درجات حان وقت مراجعتها؛ أسئلة قليلة تثبّت ما تعلمته.','steps are due — a few questions to make it stick.'],revNext:['المراجعة القادمة بعد','Next review in'],days:['يوم','day(s)'],revStart:['ابدأ المراجعة','Start review'],revHint:['سؤال من كل درجة حان وقتها','One question from each due step'],revAll:['ممتاز! ثبتت المعلومات، وستعود إليك بعد مدة أطول.','Excellent! These will come back after a longer gap.'],revSome:['أحسنت، وما أخطأت فيه سيعود إليك غدًا.','Good — what you missed comes back tomorrow.'],revGoBack:['ارجع إلى هذه الدرجات لتراجعها:','Revisit these steps:'],revDue:['🔁 للمراجعة:','🔁 Due:'],rcHint:['اقرأ الصدر، واختر العجز الصحيح من حفظك.','Read the first half and pick the right second half.'],hifzGot:['حفظتَ أبيات هذه الدرجة','You have memorised these verses'],hifzRetry:['أعد التسميع لتنال نجمة الحفظ (خطأ واحد على الأكثر).','Recite again to earn the memorisation star (at most one mistake).'],
  foot:['معارج حراء · نصوص الآيات من مصحف المنصة، والتلاوة للشيخ خليفة الطنيجي.','Hiraa Ma‘ārij · Qur’an text from the platform’s Muṣḥaf; recitation by Sheikh Khalifa Al-Tunaiji.'],foot2:['معارج حراء · كل نص في الدورة موثّق من مصدره المذكور تحته.','Hiraa Ma‘ārij · every text in this course is cited from its source.'],
  lv:['المستوى','Level'],foot3:['معارج حراء · النصوص والأسئلة من كتاب «مدارج القراءة» لوزارة التربية والتعليم، والإجابات النموذجية من إعداد حراء.','Hiraa Ma‘ārij · texts and questions from the MoE “Madārij al-Qirā’ah”; model answers by Hiraa.'],
  rparts:[['اقرأ','أجب'],['Read','Answer']],toQs:['إلى الأسئلة','To the questions'],showText:['اعرض النص','Show the text'],bookP:['كتاب مدارج القراءة، ص','Madārij al-Qirā’ah, p.'],
@@ -99,6 +99,9 @@ const ct=k=>tx(D.meta[k]);
 const L=()=>C&&C.lang()==='en'?1:0;
 const t=k=>T[k][L()];
 const tx=a=>Array.isArray(a)?a[L()]:a;
+let EN=(()=>{try{return localStorage.getItem('mj-en')==='1'}catch(e){return false}})();
+const bi=a=>Array.isArray(a)&&EN&&!L()&&a[1]?`${a[0]}<div class="enx" dir="ltr" lang="en">${a[1]}</div>`:tx(a);
+let GLOS=null;async function loadGlos(){if(!GLOS){try{GLOS=await (await fetch('art/maarij/glossary.json',{cache:'no-cache'})).json()}catch(e){GLOS={}}}return GLOS}
 const $=id=>document.getElementById(id);
 const isStaffC=()=>!!(C&&C.isStaff());
 const staffOpen=()=>S.open&&isStaffC();
@@ -141,6 +144,7 @@ function route(){
   else if((m=h.match(/^test-(l1|l2|final)$/))){crumbs.push(['',testName(m[1])]);renderTest(app,m[1])}
   else if(h==='certificate'){crumbs.push(['',t('certT')]);renderCert(app)}
   else if((m=h.match(/^certificate-(l1|l2)$/))){crumbs.push(['',t('lvCert')]);renderLvCert(app,m[1])}
+  else if(h==='glossary'){crumbs.push(['',t('glos')]);renderGlos(app)}
   else if(h==='report'){crumbs.push(['',t('report')]);renderReport(app)}
   else {renderCourses(app)}
   const cr=$('mjCrumb');if(cr)cr.innerHTML=crumbs.map((c,i)=>i<crumbs.length-1||crumbs.length===1?`<a href="${hashFor(c[0])}">${c[1]}</a>`:`<span>${c[1]}</span>`).join('<span>›</span>');
@@ -184,7 +188,7 @@ function renderLadder(app){setTimeout(asgBox,0);
   });
   app.innerHTML=`<div class="chead"><div class="box">${(()=>{const sj=SUBJ.find(x=>x.courses.some(c=>c.id===CID))||SUBJ[0];return `<span class="pill" style="background:${sj.s};color:${sj.c}">${t(sj.id)}</span>`})()}
      <h1 style="margin-top:8px">${ct('t')}</h1><p class="sub">${ct('sub')}</p>
-     <div class="row">${PLACE&&PLACE.length?`<button class="btn gold" onclick="MJ.go('placement')">${t('placeBtn')}</button>`:''}<button class="btn" onclick="MJ.go('${unlocked(ns)?'step-'+ns:(ns===LEVELS[1].steps[0]?'test-l1':ns===LEVELS[2].steps[0]?'test-l2':'step-'+ns)}')">${unlocked(ns)?t('cont')+' '+ns:t('takeTest')}</button>${S.tests.final?`<button class="btn ghost" onclick="MJ.go('certificate')">${t('certT')}</button>`:''}</div>
+     <div class="row">${PLACE&&PLACE.length?`<button class="btn gold" onclick="MJ.go('placement')">${t('placeBtn')}</button>`:''}<button class="btn" onclick="MJ.go('${unlocked(ns)?'step-'+ns:(ns===LEVELS[1].steps[0]?'test-l1':ns===LEVELS[2].steps[0]?'test-l2':'step-'+ns)}')">${unlocked(ns)?t('cont')+' '+ns:t('takeTest')}</button>${S.tests.final?`<button class="btn ghost" onclick="MJ.go('certificate')">${t('certT')}</button>`:''}<button class="btn ghost" onclick="MJ.go('glossary')">📖 ${t('glos')}</button></div>
      ${D.meta.grades?`<div class="grpick"><span>${t('myGrade')}</span>${D.meta.grades.map(g=>`<button class="gchip" onclick="MJ.grade(${g.first},${g.g})">${tx(g.n)}</button>`).join('')}</div>`:''}
      <div class="refs">${ct('refs')}</div></div>
    <div class="box"><h3 style="font-size:20px">${t('progress')}</h3>
@@ -220,8 +224,8 @@ let CUR=1,part=0,lc=0;
 function renderStep(app,i){
   CUR=i;part=0;lc=0;const st=STEPS[i-1],lv=levelOf(i);
   if(st.kind==='read')return renderRead(app,i);
-  app.innerHTML=`<div class="shead"><div><div class="k">${tx(LEVELS[lv].n)} · ${t('stepOf')} ${i} ${L()?'of':'من'} ${N}</div><h1>${tx(st.t)}</h1></div><span class="spacer"></span>${isStaffC()?`<button class="btn ghost" onclick="MJ.board()">📺 ${t('boardB')}</button>`:''}<button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div>
-   <div class="goal"><div><h3>${t('goal')}</h3><p>${tx(st.goal)}</p></div><div><h3>${t('crit')}</h3><ul>${tx(st.crit).map(c=>`<li>${c}</li>`).join('')}</ul></div></div>
+  app.innerHTML=`<div class="shead"><div><div class="k">${tx(LEVELS[lv].n)} · ${t('stepOf')} ${i} ${L()?'of':'من'} ${N}</div><h1>${tx(st.t)}</h1></div><span class="spacer"></span>${!L()?`<button class="btn ghost enb ${EN?'on':''}" onclick="MJ.en()" lang="en">🇬🇧 ${EN?t('enOff'):t('enOn')}</button>`:''}<button class="btn ghost" onclick="MJ.go('glossary')">📖 ${t('glos')}</button>${isStaffC()?`<button class="btn ghost" onclick="MJ.board()">📺 ${t('boardB')}</button>`:''}<button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div>
+   <div class="goal"><div><h3>${t('goal')}</h3><p>${bi(st.goal)}</p></div><div><h3>${t('crit')}</h3><ul>${tx(st.crit).map((c,j)=>`<li>${c}${EN&&!L()&&st.crit[1]?`<div class="enx" dir="ltr" lang="en">${st.crit[1][j]||''}</div>`:''}</li>`).join('')}</ul></div></div>
    ${lstrip(i,lv)}<div class="stepper" id="stepper"></div><div class="panel" id="sp"></div>`;
   showPart(0);
 }
@@ -232,7 +236,7 @@ function showPart(k){stopAudio();if(STEPS[CUR-1]&&STEPS[CUR-1].kind==='read')ret
 
 function learn(el){
   const C=STEPS[CUR-1].learn;lc=Math.min(lc,C.length-1);
-  el.innerHTML=C.map((h,k)=>`<div class="lc ${k===lc?'on':''}">${tx(h)}</div>`).join('')+
+  el.innerHTML=C.map((h,k)=>`<div class="lc ${k===lc?'on':''}">${bi(h)}</div>`).join('')+
    `<div class="navrow"><button class="btn ghost" ${lc===0?'disabled':''} onclick="MJ.lstep(-1)">${t('prev')}</button><div class="dots">${C.map((_,k)=>`<i class="${k===lc?'on':''}"></i>`).join('')}</div><button class="btn" onclick="MJ.lstep(1)">${lc===C.length-1?t('toEx'):t('next')}</button></div>`;
 }
 function lstep(d){const C=STEPS[CUR-1].learn;lc+=d;if(lc>=C.length){lc=C.length-1;showPart(1);return}lc=Math.max(0,lc);learn($('sp'))}
@@ -254,9 +258,9 @@ function examples(el){
   const E=STEPS[CUR-1].ex;
   el.innerHTML=`<h2>${D.meta.exTitle?ct('exTitle'):t('exTitle')}</h2><p class="hint">${D.meta.exHint?ct('exHint'):t('exHint')}</p>
    ${E.some(e=>e.s)?`<div class="row" style="margin-top:6px"><span class="hint">${t('rep')}</span>${[1,3,5].map(n=>`<button class="btn ghost" style="padding:4px 14px" data-rep="${n}" onclick="MJ.setRep(${n})">${n===1?t('once'):n+' '+t('times')}</button>`).join('')}<button class="btn ghost slow" style="padding:4px 14px" onclick="MJ.setSlow()">${t('slow')}</button></div>`:''}
-   <div class="exgrid">${E.map((e,i)=>e.v?`<div class="ex case verse" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span><div class="bv" dir="rtl" lang="ar"><span>${e.v[0]}</span>${e.v[1]?`<span>${e.v[1]}</span>`:''}</div><p class="ref">${tx(e.who)} · ${e.src}</p><button class="btn ghost" style="padding:4px 14px" onclick="this.nextElementSibling.hidden=false;this.hidden=true">${L()?'Show the explanation':'اكشف الشرح'}</button><p class="ca" hidden>${tx(e.a)}</p></div>`:e.s?`<div class="ex" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span>
-     <div class="q">${e.h} <span class="an"><span class="br">﴿</span>${e.a}<span class="br">﴾</span></span></div><div class="why">${tx(e.w)}</div>
-     <div class="pl"><button class="play" onclick="MJ.play(${i})">${t('listen')}</button><span class="ref">${t('surah')} ${tx(SURAH[e.s])} · ${t('ayah')} ${e.a}</span></div></div>`:`<div class="ex case" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span><p class="cq">${tx(e.c)}</p><button class="btn ghost" style="padding:4px 14px" onclick="this.nextElementSibling.hidden=false;this.hidden=true">${t('reveal')}</button><p class="ca" hidden>${tx(e.a)}</p></div>`).join('')}</div>
+   <div class="exgrid">${E.map((e,i)=>e.v?`<div class="ex case verse" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span><div class="bv" dir="rtl" lang="ar"><span>${e.v[0]}</span>${e.v[1]?`<span>${e.v[1]}</span>`:''}</div><p class="ref">${tx(e.who)} · ${e.src}</p><button class="btn ghost" style="padding:4px 14px" onclick="this.nextElementSibling.hidden=false;this.hidden=true">${L()?'Show the explanation':'اكشف الشرح'}</button><p class="ca" hidden>${bi(e.a)}</p></div>`:e.s?`<div class="ex" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span>
+     <div class="q">${e.h} <span class="an"><span class="br">﴿</span>${e.a}<span class="br">﴾</span></span></div><div class="why">${bi(e.w)}</div>
+     <div class="pl"><button class="play" onclick="MJ.play(${i})">${t('listen')}</button><span class="ref">${t('surah')} ${tx(SURAH[e.s])} · ${t('ayah')} ${e.a}</span></div></div>`:`<div class="ex case" id="ex${i}"><span class="lt">${L()&&LBL[e.l]?LBL[e.l]:e.l}</span><p class="cq">${bi(e.c)}</p><button class="btn ghost" style="padding:4px 14px" onclick="this.nextElementSibling.hidden=false;this.hidden=true">${t('reveal')}</button><p class="ca" hidden>${bi(e.a)}</p></div>`).join('')}</div>
    <div class="navrow"><button class="btn ghost" onclick="MJ.backLearn()">${t('backLearn')}</button><button class="btn" onclick="MJ.showPart(2)">${t('toPr')}</button></div>`;
   setRep(rep);document.querySelectorAll('.slow').forEach(b=>b.classList.toggle('on',slow));
 }
@@ -344,7 +348,7 @@ function quizQ(){
   const q=Qs[QZ.i];
   el.innerHTML=`<h2>${QZ.title||t('qTitle')}</h2><div class="qbar">${Qs.map((_,k)=>`<i class="${k<QZ.i?(QZ.ans[k]?'ok':'no'):k===QZ.i?'cur':''}"></i>`).join('')}</div>
    <p class="hint">${t('qOf')} ${QZ.i+1} ${t('from')} ${Qs.length} · ${QZ.needTxt||t('need')}</p>
-   <div class="qq on"><div class="qt">${tx(q.q)}</div><div class="opts" id="opts">${tx(q.o).map((o,k)=>`<button class="opt" onclick="MJ.answer(${k})">${o}</button>`).join('')}</div>
+   <div class="qq on"><div class="qt">${bi(q.q)}</div><div class="opts" id="opts">${tx(q.o).map((o,k)=>`<button class="opt" onclick="MJ.answer(${k})">${o}</button>`).join('')}</div>
    <div class="fb" id="qfb"></div><div class="navrow" style="justify-content:flex-end"><button class="btn" id="qn" style="display:none" onclick="MJ.nextQ()">${QZ.i===Qs.length-1?t('result'):t('nextQ')}</button></div></div>`;
 }
 function answer(k){
@@ -435,6 +439,12 @@ function renderCert(app){
 }
 
 
+async function renderGlos(app){
+  app.innerHTML=`<div class="shead"><div><div class="k">${ct('t')}</div><h1>${t('glos')}</h1></div><span class="spacer"></span><button class="btn ghost" onclick="MJ.go('course')">${t('back')}</button></div><p class="hint">${t('glosH')}</p><input class="inp" id="gq" placeholder="${t('glosQ')}" oninput="MJ.gf(this.value)" style="max-width:420px"><div class="glos" id="gl"></div>`;
+  const G=(await loadGlos())[CID]||[];
+  $('gl').innerHTML=G.length?G.map(g=>`<div class="gi" data-k="${(g[0]+' '+g[1]+' '+g[2]).toLowerCase().replace(/"/g,'')}"><div class="ga" dir="rtl" lang="ar">${g[0]}</div><div class="ge" dir="ltr" lang="en"><b>${g[1]}</b><span>${g[2]}</span></div><button class="gs" onclick="MJ.go('step-${g[3]}')">${t('stepOf')} ${g[3]}</button></div>`).join(''):`<p class="hint">${t('glosNone')}</p>`;
+}
+function gf(v){v=(v||'').trim().toLowerCase();document.querySelectorAll('#gl .gi').forEach(e=>e.hidden=!!v&&!e.dataset.k.includes(v))}
 function renderLvCert(app,key){
   if(!S.tests[key]&&!staffOpen()){go('course');return}
   const Lv=LEVELS[key==='l1'?0:1],d=new Date(),ds=`${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
@@ -509,7 +519,7 @@ function board(){const on=document.body.classList.toggle('mjboard');try{if(on&&d
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)document.body.classList.remove('mjboard')});
 window.addEventListener('hashchange',()=>{if(!/^#\/maarij\/[^/]+\/step-/.test(location.hash))document.body.classList.remove('mjboard')});
 
-window.MJ={go,lvl:(li)=>{const e=$('lvl'+li);if(e)e.classList.toggle('shut')},showPart,rc,board,asgAdd,asgDel,rcl:(v)=>{RCL=v;route()},readPart,rans,rfin,lstep,play,setRep,setSlow,drawAct,pick,drop,tap,ord,answer,
+window.MJ={go,gf,en:()=>{EN=!EN;try{localStorage.setItem('mj-en',EN?'1':'0')}catch(e){}const p=part;renderStep($('mjApp'),CUR);if(p)showPart(p)},lvl:(li)=>{const e=$('lvl'+li);if(e)e.classList.toggle('shut')},showPart,rc,board,asgAdd,asgDel,rcl:(v)=>{RCL=v;route()},readPart,rans,rfin,lstep,play,setRep,setSlow,drawAct,pick,drop,tap,ord,answer,
   subj:(s)=>{SUBJ_SEL=s;try{localStorage.setItem('hiraa-maarij-subj',s)}catch(e){}route()},openC:(c)=>{location.hash='#/maarij/'+c},teacher:()=>{if(!isStaffC())return;S.open=!S.open;save();route()},
   reset:()=>{S.passed=[];S.tests={};S.start=0;save();route()},
   pans:(k)=>{const q=PLACE[P.i];P.ans.push(k===q.c);P.score+=(k===q.c)?1:0;P.i++;placeQ()},

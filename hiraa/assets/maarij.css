@@ -387,3 +387,20 @@ body.mjboard .mj .wrap,body.mjboard .mj{max-width:none}
 .mj .lstrip .lsd{flex:1 1 180px;min-width:0;justify-content:center}
 .mj .lstrip small{flex-basis:100%;text-align:center;order:3}
 .mj .cert.lv p{font-size:17px}
+/* الشرح بالإنجليزية والمسرد */
+.mj .enx{direction:ltr;text-align:left;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.6;color:#33506B;background:#F2F6FB;border-inline-start:3px solid #6C93C4;border-radius:10px;padding:8px 12px;margin:8px 0}
+.mj .enx h2,.mj .enx h3{font-family:inherit;font-size:16px;margin:0 0 4px;color:#1F3B5A}
+.mj .enx .poem,.mj .enx .chips{display:none}
+.mj .lc .enx{margin-top:14px}
+.mj .qt .enx{font-size:14px;font-weight:400}
+.mj .goal li .enx{padding:4px 8px;font-size:13px;margin:4px 0}
+.mj .enb.on{background:#F2F6FB;border-color:#6C93C4}
+.mj .glos{display:grid;gap:10px;margin-top:14px}
+.mj .gi{display:grid;grid-template-columns:minmax(120px,190px) 1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid #E7E1D3;border-radius:14px;padding:12px 14px}
+.mj .gi[hidden]{display:none}
+.mj .ga{font-family:"ThmanyahDisplay";font-size:22px;color:var(--isl)}
+.mj .ge{display:flex;flex-direction:column;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:#33506B;text-align:left}
+.mj .ge b{font-size:15px;color:#1F3B5A}
+.mj .gs{border:1px solid #E1DACB;background:#FAF7F0;border-radius:999px;padding:5px 12px;cursor:pointer;font-family:"ThmanyahSans";white-space:nowrap}
+@media (max-width:640px){.mj .gi{grid-template-columns:1fr}.mj .gs{justify-self:start}}
+@media (max-width:640px){.mj .shead{gap:8px}.mj .shead .spacer{display:none}.mj .shead>div:first-child{flex-basis:100%}.mj .shead .btn{padding:7px 12px;font-size:14px}}
