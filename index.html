@@ -2855,6 +2855,17 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 :root[data-theme="dark"] .arc .arc-sw{background:#16263D;color:#EAF0F8;border-color:#2C4466}
 .arc .arc-slots li.arc-pick{cursor:pointer}
 .arc .arc-slots li.arc-pick:hover{border-color:#D4AA55}
+/* مختبر الإعراب */
+.arc .arc-iw{display:inline-block;padding:0 6px;border-radius:8px;color:#5b6b80}
+.arc .arc-iw.cur{color:#102A4C;background:#FFF1D6;box-shadow:inset 0 -3px 0 #D4AA55;font-weight:800}
+.arc .arc-iw.done{color:#0E6B53}
+.arc .arc-irt{margin:12px auto 4px;border-collapse:collapse;font-size:1rem;min-width:min(100%,420px)}
+.arc .arc-irt td{border:1px solid #E3E8EF;padding:6px 10px;text-align:right}
+.arc .arc-irt td:first-child{font-weight:800;color:#102A4C;white-space:nowrap}
+.arc-pill.warn{background:#FFF1D6;color:#8A5A00}
+:root[data-theme="dark"] .arc .arc-iw.cur{background:#3A2E12;color:#FFE6A6}
+:root[data-theme="dark"] .arc .arc-irt td{border-color:#2C4466}
+:root[data-theme="dark"] .arc .arc-irt td:first-child{color:#EAF0F8}
 
 @font-face{font-family:"MaarijHafs";src:url("art/fonts/uthmanic-hafs.woff2") format("woff2");font-display:swap}
 .mj{
@@ -3722,8 +3733,8 @@ window.HiraArcade = (function () {
 
   /* ---------- جمع المادّة من بيانات الدرس أو الوحدة ---------- */
   // lessons: [{ id, title, items:[{game,source,payload}], words:[[a,b]], quiz:[[text,bool]], rw:[[a,b]] }]
-  function buildPool(lessons) {
-    const pairs = [], tf = [], mcq = [], sents = [], sorts = [], seqs = [], stmts = [], seenM = new Set(), seenP = new Set(), seenT = new Set(), seenQ = new Set(), seenS = new Set();
+  function buildPool(lessons, opt) {
+    const pairs = [], tf = [], mcq = [], sents = [], sorts = [], seqs = [], stmts = [], irabs = [], seenM = new Set(), seenP = new Set(), seenT = new Set(), seenQ = new Set(), seenS = new Set();
     // جملة للترتيب: من 3 إلى 12 كلمة، بلا نصّ قرآنيّ
     // عبارة صحيحة للعبة «اكتشف الخطأ»: من 4 إلى 20 كلمة
     const addStmt = (text, lid) => { const t = String(text || "").trim(), w = t.split(/\s+/); if (w.length < 4 || w.length > 20 || QURANIC(t)) return; const k = norm(t); if (seenM.has(k)) return; seenM.add(k); stmts.push({ text: t, words: w, lid }); };
@@ -3739,6 +3750,9 @@ window.HiraArcade = (function () {
     (lessons || []).forEach((L) => {
       (L.items || []).forEach((it) => {
         const p = it.payload || {}; if (it.source === "quran" || it.source === "hadith") return;
+        // مختبر الإعراب: المسودّات يراها الطاقم وحده حتى تُعتمد
+        if (it.game === "irab") { if ((it.source === "lesson" || (it.source === "draft" && opt && opt.drafts)) && p.s && Array.isArray(p.t) && p.t.length && !QURANIC(p.s)) irabs.push({ s: p.s, w: p.s.split(" "), t: p.t, title: p.title || "", draft: it.source === "draft", lid: L.id }); return; }
+        if (it.source === "draft") return;
         if (it.game === "match") (p.pairs || []).forEach((x) => addPair(x[0], x[1], L.id));
         else if (it.game === "tf") { addTF(p.text, p.answer, L.id); if (p.answer === true) addSent(p.text, "", L.id); }
         else if (it.game === "order" && it.source === "lesson") addSent(p.text, /^رتّب$|^رَتِّبِ الْكَلِمَاتِ$/.test(p.ref || "") ? "" : p.ref, L.id, "order");
@@ -3764,7 +3778,7 @@ window.HiraArcade = (function () {
       if (p.icon) { p.b = ""; return true; }
       if (seenB.has(norm(p.b))) return false; seenB.add(norm(p.b)); return true;
     });
-    return { pairs: clean, tf, mcq, sents, sorts, seqs, stmts };
+    return { pairs: clean, tf, mcq, sents, sorts, seqs, stmts, irabs };
   }
 
   /* ---------- صناعة الأسئلة ---------- */
@@ -3879,6 +3893,7 @@ window.HiraArcade = (function () {
     sentence: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="10" y="16" width="46" height="18" rx="9" fill="#14A37F"/><rect x="62" y="16" width="48" height="18" rx="9" fill="#102A4C"/><rect x="24" y="50" width="34" height="18" rx="9" fill="#fff" stroke="#D4AA55" stroke-width="3"/><rect x="64" y="50" width="32" height="18" rx="9" fill="#D4AA55"/><path d="M40 40l4 6 4-6" stroke="#7C8DA6" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
     sort: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="44" y="4" width="32" height="20" rx="6" fill="#D4AA55"/><path d="M14 46h38l-5 32H19z" fill="#14A37F"/><path d="M68 46h38l-5 32H73z" fill="#102A4C"/><rect x="10" y="40" width="46" height="8" rx="4" fill="#0E8A6A"/><rect x="64" y="40" width="46" height="8" rx="4" fill="#0A1D36"/><path d="M60 26v8M54 32l6 6 6-6" stroke="#7C8DA6" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
     spot: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="8" y="22" width="30" height="16" rx="8" fill="#102A4C"/><rect x="44" y="22" width="32" height="16" rx="8" fill="#fff" stroke="#E8833A" stroke-width="3"/><rect x="82" y="22" width="30" height="16" rx="8" fill="#102A4C"/><circle cx="60" cy="58" r="15" fill="none" stroke="#D4AA55" stroke-width="5"/><path d="M71 69l12 12" stroke="#D4AA55" stroke-width="6" stroke-linecap="round"/><path d="M53 30h14" stroke="#E8833A" stroke-width="3" stroke-linecap="round"/></svg>`,
+    irab: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="8" y="12" width="32" height="18" rx="9" fill="#102A4C"/><rect x="44" y="12" width="32" height="18" rx="9" fill="#D4AA55"/><rect x="80" y="12" width="32" height="18" rx="9" fill="#102A4C"/><path d="M60 32v12" stroke="#D4AA55" stroke-width="3"/><rect x="30" y="46" width="60" height="16" rx="8" fill="#fff" stroke="#14A37F" stroke-width="3"/><rect x="42" y="66" width="36" height="12" rx="6" fill="#14A37F"/></svg>`,
     seq: `<svg viewBox="0 0 120 84" aria-hidden="true">${[0, 1, 2, 3].map((i) => `<rect x="${30 + i * 4}" y="${8 + i * 19}" width="${70 - i * 8}" height="14" rx="5" fill="${["#102A4C", "#14A37F", "#E8833A", "#D4AA55"][i]}"/><circle cx="18" cy="${15 + i * 19}" r="7" fill="#fff" stroke="#102A4C" stroke-width="2"/><text x="18" y="${19 + i * 19}" font-size="10" font-weight="700" text-anchor="middle" fill="#102A4C">${i + 1}</text>`).join("")}</svg>`
   };
 
@@ -3886,12 +3901,12 @@ window.HiraArcade = (function () {
   function mount(root, cfg) {
     const en = !!cfg.en, T = (a, b) => (en ? b : a);
     const all = cfg.lessons || [], focus = all.find((x) => x.id === cfg.focusId) || all[0] || { id: null };
-    const poolL = buildPool([focus]), poolU = buildPool(all);
-    const sizeOf = (p) => p.tf.length + p.mcq.length + p.pairs.length + p.sents.length + 3 * (p.sorts.length + p.seqs.length);
-    const GAMES = () => ({ memory, tower, ladder, blitz, sentence, sorter, seq, spot });
+    const poolL = buildPool([focus], { drafts: !!cfg.drafts }), poolU = buildPool(all, { drafts: !!cfg.drafts });
+    const sizeOf = (p) => p.tf.length + p.mcq.length + p.pairs.length + p.sents.length + 3 * (p.sorts.length + p.seqs.length + p.irabs.length);
+    const GAMES = () => ({ memory, tower, ladder, blitz, sentence, sorter, seq, spot, irab });
     // هل تكفي المادّة لكلّ لعبة؟
     const okFor = (P) => { const qn = bank(P, T, focus.id).length;
-      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, spot: spotBank(P).length >= 3, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
+      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, spot: spotBank(P).length >= 3, irab: P.irabs.length >= 1, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
     const run = (g) => GAMES()[g]();
     let scope = sizeOf(poolL) >= 8 || all.length < 2 ? "lesson" : "unit";
     const pool = () => (scope === "lesson" ? poolL : poolU);
@@ -3921,6 +3936,7 @@ window.HiraArcade = (function () {
           ${card("ladder", T("سلّم التحدّي", "Challenge ladder"), T("أسئلة تصعد درجة درجة، ومعك ثلاث وسائل مساعدة. هل تبلغ القمّة؟", "Questions get harder rung by rung, with three lifelines. Can you reach the top?"), T("التحدّي · الصفّ الثالث فما فوق", "Challenge · Grade 3+"), qn >= 5, `${Math.min(10, qn)} ${T("درجات", "rungs")}`)}
           ${card("blitz", T("سباق الستّين ثانية", "60-second race"), T("عبارات سريعة: صح أم خطأ؟ كلّ صواب نقطة، وكلّ خطأ يُنقص نقطة. حطّم رقمك.", "Quick statements: true or false? Each right answer +1, each wrong −1. Beat your record."), T("السرعة والدقّة · كلّ الأعمار", "Speed and accuracy · all ages"), blitzBank().length >= 6, best("blitz") ? `${T("رقمك", "Best")} ${best("blitz")}` : "")}
           ${card("sentence", T("رتّب الجملة", "Build the sentence"), T("كلمات مبعثرة من الدرس، أعدها إلى مكانها لتكوّن جملة صحيحة.", "Scrambled words from the lesson: put them back in order."), T("الفهم والتراكيب · كلّ الأعمار", "Meaning and structure · all ages"), P.sents.length >= 2, `${Math.min(5, P.sents.length)} ${T("جمل", "sentences")}`)}
+          ${P.irabs.length || (scope === "lesson" && unitExtra && poolU.irabs.length) ? card("irab", T("مختبر الإعراب", "Grammar lab"), T("جمل من الدرس: حدّد موقع كلّ كلمة ملوّنة في الجملة، وعلامة إعرابها.", "Sentences from the lesson: name the role of each highlighted word."), T("النحو · العربية", "Grammar · Arabic") + (P.irabs.some((x) => x.draft) ? T(" · مسودّة للمراجعة", " · draft") : ""), P.irabs.length >= 1, P.irabs.length ? `${P.irabs.length} ${T("جمل", "sentences")}` : "") : ""}
           ${(() => { const sb = spotBank(P).length; return card("spot", T("اكتشف الخطأ", "Spot the mistake"), T("كلمة دخيلة في عبارة، أو بطاقة في غير سلّتها، أو خطوتان في غير مكانهما. اكتشف الخطأ وصحّحه.", "A wrong word, a card in the wrong basket, or two steps out of place. Find the mistake and fix it."), T("الفهم الدقيق · الصفّ الثاني فما فوق", "Close reading · Grade 2+"), sb >= 3, sb >= 3 ? `${Math.min(5, sb)} ${T("عبارات", "statements")}` : ""); })()}
           ${card("sort", T("السلال", "Baskets"), T("ضع كلّ بطاقة في سلّتها الصحيحة، واكتشف ما يجمع بينها.", "Drop each card into the right basket."), T("التصنيف والتمييز", "Classifying"), P.sorts.length >= 1, P.sorts.length ? `${P.sorts.reduce((n, s) => n + s.cats.reduce((m, c) => m + c.items.length, 0), 0)} ${T("بطاقة", "cards")}` : "")}
           ${card("seq", T("رتّب الخطوات", "Order the steps"), T("خطوات أو أحداث مبعثرة، رتّبها من الأوّل إلى الأخير.", "Scrambled steps or events: put them in order."), T("التسلسل والبناء", "Sequencing"), P.seqs.length >= 1, P.seqs.length ? `${P.seqs.length} ${T("سلسلة", "sets")}` : "")}
@@ -4354,6 +4370,58 @@ window.HiraArcade = (function () {
       const oddMiss = (r) => ({ prompt: `🧺 ${r.cat}: ${r.cards.join(" · ")}`, solution: `${r.intr} ← ${r.cats[r.home]}`, rq: { key: rkey("b", r.intr, r.cats[r.home]), lid: r.lid,
         q: { t: "mcq", p: T(`إلى أيّ سلّة تنتمي «${r.intr}»؟`, `Which basket does “${r.intr}” belong to?`) + (r.title ? ` (${r.title})` : ""), o: r.cats.map((c, k) => ({ t: c, i: "", ok: k === r.home })), s: `${r.intr} ← ${r.cats[r.home]}` } } });
       const end = () => finish("spot", right, n, { title: T("اكتشف الخطأ", "Spot the mistake"), medal: "🔍", sub: T(`اكتشفت ${right} من ${n} أخطاء.`, `You spotted ${right} of ${n} mistakes.`), missed });
+      draw();
+    }
+
+    /* ========== 9) مختبر الإعراب ========== */
+    const SIGNS = ["الضَّمَّةُ", "الْفَتْحَةُ", "الْكَسْرَةُ", "الْأَلِفُ", "الْواوُ", "الْياءُ"];
+    function irab() {
+      const P = pool(), sents = byFocus(P.irabs).slice(0, 4), n = sents.length; if (!n) return menu();
+      const roles = [...new Set(P.irabs.flatMap((x) => x.t.map((t) => t[1])))];
+      const total = sents.reduce((m, x) => m + x.t.length, 0); let si = 0, ti = 0, right = 0, done = 0; const missed = [];
+      root.innerHTML = `${hud(T("مختبر الإعراب", "Grammar lab"), `<span class="arc-pill">${T("الجملة", "Sentence")} <b data-i>1</b> / ${n}</span><span class="arc-pill">✓ <b data-r>0</b> / ${total}</span>${sents.some((x) => x.draft) ? `<span class="arc-pill warn">${T("مسودّة", "Draft")}</span>` : ""}`)}<div class="arc-qbox"></div>`;
+      bindHud();
+      const box = root.querySelector(".arc-qbox");
+      const opts = (right0, pool0, k) => shuffle([right0].concat(shuffle(pool0.filter((x) => x !== right0)).slice(0, k)));
+      const draw = () => {
+        const S = sents[si], [wi, role, sign] = S.t[ti];
+        root.querySelector("[data-i]").textContent = si + 1;
+        const ro = opts(role, roles, Math.min(3, roles.length - 1));
+        box.innerHTML = `<div class="arc-q">${S.title ? `<p class="arc-kind">${esc(S.title)}</p>` : ""}
+          <p class="arc-spot" dir="rtl">${S.w.map((w, k) => `<span class="arc-iw${k === wi ? " cur" : ""}${S.t.slice(0, ti).some((t) => t[0] === k) ? " done" : ""}">${esc(w)}</span>`).join(" ")}</p>
+          <p class="arc-prompt" dir="rtl">${T(`ما مَوْقِعُ «${esc(S.w[wi])}» في الْجُمْلَةِ؟`, `What is the role of “${esc(S.w[wi])}”?`)}</p>
+          <div class="arc-opts" data-q="r">${ro.map((o, k) => `<button class="arc-opt" type="button" data-o="${k}" dir="rtl"><span>${esc(o)}</span></button>`).join("")}</div>
+          <div class="arc-step2" hidden><p class="arc-kind">${T("وما عَلامَةُ إِعْرابِها؟", "And its case marker?")}</p><div class="arc-opts" data-q="s"></div></div>
+          <div class="arc-fb" aria-live="polite"></div></div>`;
+        let okR = false;
+        const after = (ok, solution) => {
+          done++; if (ok) { right++; SND.p("coin"); } else { SND.p("no");
+            missed.push({ prompt: `${S.w[wi]} ← ${S.s}`, solution, rq: { key: rkey("i", S.s, String(wi)), lid: S.lid,
+              q: { t: "mcq", p: T(`ما مَوْقِعُ «${S.w[wi]}» في: `, `Role of “${S.w[wi]}” in: `) + S.s, o: opts(role, roles, Math.min(3, roles.length - 1)).map((o) => ({ t: o, i: "", ok: o === role })), s: solution } } }); }
+          root.querySelector("[data-r]").textContent = right;
+          const last = ti === S.t.length - 1;
+          if (last) box.querySelector(".arc-fb").insertAdjacentHTML("beforeend", `<table class="arc-irt">${S.t.map((t) => `<tr><td>${esc(S.w[t[0]])}</td><td>${esc(t[1])}${t[2] ? ` · ${T("عَلامَتُهُ", "marker")}: ${esc(t[2])}` : ""}</td></tr>`).join("")}</table>`);
+          nextBtn(box, last ? (si < n - 1 ? T("الجملة التالية ←", "Next sentence →") : T("النتيجة ←", "Result →")) : T("الكلمة التالية ←", "Next word →"), () => {
+            if (!last) { ti++; draw(); } else { si++; ti = 0; if (si < n) draw(); else end(); } }, ok && !last ? 1100 : 0);
+        };
+        box.querySelectorAll('[data-q="r"] [data-o]').forEach((b) => b.onclick = () => {
+          box.querySelectorAll('[data-q="r"] [data-o]').forEach((x) => { x.disabled = true; });
+          okR = ro[Number(b.dataset.o)] === role; b.classList.add(okR ? "ok" : "no");
+          if (!okR) box.querySelector(`[data-q="r"] [data-o="${ro.indexOf(role)}"]`).classList.add("ok");
+          const sol = `${S.w[wi]}: ${role}${sign ? ` · ${sign}` : ""}`;
+          if (!sign) { box.querySelector(".arc-fb").innerHTML = okR ? `<b class="good">${T("أحسنت!", "Well done!")}</b>` : `<b class="bad">${T("الصواب:", "Correct:")}</b> ${esc(role)}`; return after(okR, sol); }
+          SND.p(okR ? "tick" : "no");
+          const so = opts(sign, SIGNS, 3), s2 = box.querySelector(".arc-step2"), q2 = s2.querySelector('[data-q="s"]'); s2.hidden = false;
+          q2.innerHTML = so.map((o, k) => `<button class="arc-opt" type="button" data-o="${k}" dir="rtl"><span>${esc(o)}</span></button>`).join("");
+          q2.querySelectorAll("[data-o]").forEach((c) => c.onclick = () => {
+            q2.querySelectorAll("[data-o]").forEach((x) => { x.disabled = true; });
+            const okS = so[Number(c.dataset.o)] === sign; c.classList.add(okS ? "ok" : "no"); if (!okS) q2.querySelector(`[data-o="${so.indexOf(sign)}"]`).classList.add("ok");
+            box.querySelector(".arc-fb").innerHTML = okR && okS ? `<b class="good">${T("ممتاز! موقعها وعلامتها صحيحان.", "Excellent!")}</b>` : `<b class="bad">${T("الصواب:", "Correct:")}</b> ${esc(role)} · ${esc(sign)}`;
+            after(okR && okS, sol);
+          });
+        });
+      };
+      const end = () => finish("irab", Math.min(30, right), Math.min(30, total), { title: T("مختبر الإعراب", "Grammar lab"), medal: "🔬", sub: T(`أعربت ${right} من ${total} ${total <= 10 ? "كلمات" : "كلمةً"} إعرابًا صحيحًا.`, `${right} of ${total} words analysed correctly.`), missed });
       draw();
     }
 
@@ -16609,7 +16677,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       } catch (e) { /* الدرس وحده يكفي */ }
     }
     if (!document.body.contains(box)) return;
-    const cfg = { lessons, focusId: l.id, en, year: (l.units || {}).year_group || 0,
+    const cfg = { lessons, focusId: l.id, en, year: (l.units || {}).year_group || 0, drafts: isStaff(),
       classic: gameItems.some((it) => ["tf", "mcq", "match", "order", "complete"].includes(it.game)) ? () => {
         box.innerHTML = `<button class="btn btn-ghost btn-small" id="arcBack" type="button">${en ? "← Games" : "→ الألعاب"}</button>` + gamePanel(l, gameItems);
         document.getElementById("arcBack").onclick = () => window.HiraArcade.mount(box, cfg);
@@ -16715,7 +16783,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
     const cnt = (n, one, two, few, many, enOne, enMany) => en ? `${n} ${n === 1 ? enOne : enMany}` : n === 1 ? `${one} واحد` : n === 2 ? two : `${n} ${n <= 10 ? few : many}`;
     const stN = (n) => cnt(n, "طالب", "طالبان", "طلاب", "طالبًا", "student", "students");
     const rdN = (n) => (en ? cnt(n, "", "", "", "", "round", "rounds") : n === 1 ? "جولة واحدة" : n === 2 ? "جولتان" : `${n} ${n <= 10 ? "جولات" : "جولة"}`);
-    const MODE = { classic: T("الكلاسيكية", "Classic"), memory: T("الذاكرة", "Memory"), tower: T("البرج", "Tower"), ladder: T("السلّم", "Ladder"), blitz: T("السباق", "Race"), sentence: T("الجملة", "Sentence"), sort: T("السلال", "Baskets"), seq: T("الخطوات", "Steps"), spot: T("اكتشف الخطأ", "Spot") };
+    const MODE = { classic: T("الكلاسيكية", "Classic"), memory: T("الذاكرة", "Memory"), tower: T("البرج", "Tower"), ladder: T("السلّم", "Ladder"), blitz: T("السباق", "Race"), sentence: T("الجملة", "Sentence"), sort: T("السلال", "Baskets"), seq: T("الخطوات", "Steps"), spot: T("اكتشف الخطأ", "Spot"), irab: T("الإعراب", "Grammar") };
     const load = async (cid) => {
       body.innerHTML = `<p class="muted">${T("جارٍ التحميل…", "Loading…")}</p>`;
       const { data: st } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cid);

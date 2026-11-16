@@ -238,3 +238,14 @@
 :root[data-theme="dark"] .arc .arc-sw{background:#16263D;color:#EAF0F8;border-color:#2C4466}
 .arc .arc-slots li.arc-pick{cursor:pointer}
 .arc .arc-slots li.arc-pick:hover{border-color:#D4AA55}
+/* مختبر الإعراب */
+.arc .arc-iw{display:inline-block;padding:0 6px;border-radius:8px;color:#5b6b80}
+.arc .arc-iw.cur{color:#102A4C;background:#FFF1D6;box-shadow:inset 0 -3px 0 #D4AA55;font-weight:800}
+.arc .arc-iw.done{color:#0E6B53}
+.arc .arc-irt{margin:12px auto 4px;border-collapse:collapse;font-size:1rem;min-width:min(100%,420px)}
+.arc .arc-irt td{border:1px solid #E3E8EF;padding:6px 10px;text-align:right}
+.arc .arc-irt td:first-child{font-weight:800;color:#102A4C;white-space:nowrap}
+.arc-pill.warn{background:#FFF1D6;color:#8A5A00}
+:root[data-theme="dark"] .arc .arc-iw.cur{background:#3A2E12;color:#FFE6A6}
+:root[data-theme="dark"] .arc .arc-irt td{border-color:#2C4466}
+:root[data-theme="dark"] .arc .arc-irt td:first-child{color:#EAF0F8}
