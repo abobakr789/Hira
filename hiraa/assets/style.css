@@ -2801,3 +2801,4 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .ews-ans,.ews-ia p,.tdx-ia p,.ews-qa,.tdx-src,.tdx-ans p,.ews-iq b{unicode-bidi:plaintext}
 .tdx-three.g3{grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}.tdx-three.g3 .tdx-grid span{font-size:.85em}
 .tdx-grid .tdx-score{color:#7c2d12!important;background:#fff7e6!important;font-weight:700;opacity:1!important;justify-content:center}
+.ews-aud-b{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}.ews-tr{margin-top:.6rem}.ews-tr p{margin:.35rem 0;line-height:1.9;unicode-bidi:plaintext}.ews-tr summary{cursor:pointer;font-weight:600}
