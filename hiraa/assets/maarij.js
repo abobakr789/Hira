@@ -59,7 +59,6 @@ const SUBJ=[
    {t:['أسماء الله الحسنى','The Beautiful Names'],d:['المعنى والأثر','Meaning and effect'],icon:'star'}]},
  {id:'ar',c:'var(--ar)',s:'var(--ar-s)',courses:[
    {t:['فن الإملاء','Spelling'],d:['12 درجة · الهمزات والتاء والألف والترقيم','12 steps · hamzah, tā’, alif, punctuation'],live:1,id:'imla',n:12,icon:'pen'},
-   {t:['مدارج القراءة','Reading Ladder'],d:['نصوص الوزارة في 3 مستويات · أسئلة بيرلز وبيزا','MoE texts · 3 levels · PIRLS/PISA questions'],live:1,id:'madarij',n:89,icon:'book'},
    {t:['قل ولا تقل','Say it right'],d:['الأخطاء اللغوية الشائعة','Common language errors'],icon:'chat'},
    {t:['مفاتيح النحو','Keys of Grammar'],d:['12 درجة على متن الآجرومية','12 steps through al-Ājurrūmiyyah'],live:1,id:'nahw',n:12,icon:'key'},
    {t:['البلاغة الميسرة','Easy Rhetoric'],d:['التشبيه والاستعارة والكناية','Simile, metaphor, metonymy'],icon:'spark'},
@@ -85,7 +84,7 @@ const ICONS={
 
 T.report=['تقرير الطلاب','Student report'];T.repT=['تقرير معارج حراء','Ma‘ārij report'];T.student=['الطالب','Student'];T.steps=['الدرجات','Steps'];T.curStep=['الدرجة الحالية','Current step'];T.medals=['الأوسمة','Medals'];T.updated=['آخر نشاط','Last active'];T.noData=['لا يوجد تقدم مسجل لطلابك بعد.','No progress recorded for your students yet.'];T.loading=['جارٍ التحميل…','Loading…'];T.signHint=['سجّل الدخول ليُحفظ تقدّمك ويراه معلمك.','Sign in to save your progress and share it with your teacher.'];
 let SURAH,LEVELS,STEPS,PLACE,D=null,C=null,syncT=null,CID='tajweed',N=16;
-const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',madarij:'art/maarij/madarij.json',nahw:'art/maarij/nahw.json'};const CACHE={},LOADED={};
+const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json'};const CACHE={},LOADED={};
 const KEY=()=>'hiraa-maarij-'+CID;
 let S={passed:[],tests:{},open:false,name:'',start:0};
 let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}

@@ -2523,3 +2523,45 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .bp-scripts{margin-top:26px}
 @media (max-width:560px){.bp-row{grid-template-columns:1fr}}
 @media print{.bp-scripts .bench-stim{break-inside:avoid}}
+/* ===== مدارج القراءة داخل الدرس ===== */
+.mdr{display:grid;gap:14px}
+.mdr-head{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between}
+.mdr-head h2{margin:6px 0 0;font-family:"ThmanyahDisplay","ThmanyahSerif",serif;font-size:1.9rem}
+.mdr-steps{display:flex;gap:6px;flex-wrap:wrap}
+.mdr-sp{display:flex;align-items:center;gap:6px;border:1.5px solid var(--line,#E5DCC8);background:#fff;border-radius:99px;padding:6px 14px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink,#1B2A41)}
+.mdr-sp.on{background:#1E6BC2;border-color:#1E6BC2;color:#fff}.mdr-sp.ok{border-color:#2E9E6A}
+.mdr-card{background:#fff;border:1.5px solid var(--line,#E5DCC8);border-radius:18px;padding:16px 18px}
+.mdr-card h3{margin:0 0 10px;font-size:1.15rem}
+.mdr-strat{background:linear-gradient(180deg,#F2F7FE,#fff)}
+.mdr-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mdr-3>div{background:#fff;border:1px solid #D7E5F7;border-radius:14px;padding:10px 12px}
+.mdr-3 b{color:#1E6BC2}.mdr-3 ul{margin:6px 0 0;padding-inline-start:18px}
+.mdr-lbl{display:block;font-weight:700;margin:12px 0 6px}
+.mdr-ta{width:100%;box-sizing:border-box;border:1.5px solid var(--line,#E5DCC8);border-radius:12px;padding:10px 12px;font:inherit;font-size:1.05rem;line-height:1.8;resize:vertical;background:#FFFDF8}
+.mdr-peek{display:flex;gap:14px;align-items:center;background:#FFF8EC;border-radius:18px;padding:12px}.mdr-peek img{width:160px;border-radius:12px}
+.mdr-tip{background:#FFF8EC;border-color:#F0D9A8}
+.mdr-text{background:#fff;border:1.5px solid var(--line,#E5DCC8);border-radius:18px;padding:18px 22px;font-family:"ThmanyahSerif","Noto Naskh Arabic",serif;font-size:1.3rem;line-height:2.1;overflow:hidden}
+.mdr-text.sm{font-size:1.1rem;border:0;padding:8px 0}
+.mdr-text p{margin:0 0 10px}
+.mdr-img{float:left;max-width:42%;margin:0 18px 10px 0;border-radius:14px}
+.mdr-img2{display:block;max-width:100%;margin:10px auto;border-radius:14px;clear:both}
+.mdr-ref{font-size:.85rem;clear:both;font-family:inherit}
+.mdr-gl{display:flex;flex-wrap:wrap;gap:8px}.mdr-gl div{background:#F2F7FE;border-radius:12px;padding:6px 12px}.mdr-gl b{margin-inline-end:6px;color:#1E6BC2}
+.mdr-loud{background:#F3FBF6;border-color:#BFE6CF}
+.mdr-rec{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mdr-q{background:#fff;border:1.5px solid var(--line,#E5DCC8);border-radius:16px;padding:14px 16px}
+.mdr-qt{font-weight:700;font-size:1.12rem;display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.mdr-qt span{flex:none;width:28px;height:28px;border-radius:50%;background:#1E6BC2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.9rem}
+.mdr-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mdr-opt{border:1.5px solid var(--line,#E5DCC8);background:#FFFDF8;border-radius:12px;padding:10px 12px;font:inherit;text-align:start;cursor:pointer}
+.mdr-opt:hover:not(:disabled){border-color:#1E6BC2}
+.mdr-opt.ok{background:#E7F6EE;border-color:#2E9E6A}.mdr-opt.no{background:#FDECEA;border-color:#C2452A}
+.mdr-fb{margin-top:8px;border-radius:10px;padding:0}.mdr-fb.ok{background:#E7F6EE;padding:8px 12px}.mdr-fb.no{background:#FDECEA;padding:8px 12px}
+.mdr-model{margin-top:6px}.mdr-model summary{cursor:pointer;color:#B07A12;font-weight:700}
+.mdr-ord{display:flex;flex-wrap:wrap;gap:6px}.mdr-tok{border:1.5px dashed #1E6BC2;background:#F2F7FE;border-radius:10px;padding:6px 10px;font:inherit;cursor:pointer}.mdr-tok:disabled{opacity:.35}
+.mdr-sort>div{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px dashed #E5DCC8;padding:6px 0}
+.mdr-sort select{font:inherit;border-radius:8px;padding:4px}.mdr-sort select.ok{background:#E7F6EE}.mdr-sort select.no{background:#FDECEA}
+.mdr-score{font-size:1.1rem;text-align:center}
+.mdr-task{font-size:1.15rem;font-weight:700;background:#FFF8EC;border-radius:12px;padding:10px 14px}
+.mdr-note{background:#FFF4E5;border-color:#F0C07A}
+.mdr-nav{display:flex;justify-content:space-between;gap:10px}
+@media (max-width:700px){.mdr-3,.mdr-opts{grid-template-columns:1fr}.mdr-img{float:none;max-width:100%;margin:0 0 10px}.mdr-peek{flex-direction:column}.mdr-text{font-size:1.15rem;padding:14px}}

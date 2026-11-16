@@ -2541,6 +2541,48 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .bp-scripts{margin-top:26px}
 @media (max-width:560px){.bp-row{grid-template-columns:1fr}}
 @media print{.bp-scripts .bench-stim{break-inside:avoid}}
+/* ===== مدارج القراءة داخل الدرس ===== */
+.mdr{display:grid;gap:14px}
+.mdr-head{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between}
+.mdr-head h2{margin:6px 0 0;font-family:"ThmanyahDisplay","ThmanyahSerif",serif;font-size:1.9rem}
+.mdr-steps{display:flex;gap:6px;flex-wrap:wrap}
+.mdr-sp{display:flex;align-items:center;gap:6px;border:1.5px solid var(--line,#E5DCC8);background:#fff;border-radius:99px;padding:6px 14px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink,#1B2A41)}
+.mdr-sp.on{background:#1E6BC2;border-color:#1E6BC2;color:#fff}.mdr-sp.ok{border-color:#2E9E6A}
+.mdr-card{background:#fff;border:1.5px solid var(--line,#E5DCC8);border-radius:18px;padding:16px 18px}
+.mdr-card h3{margin:0 0 10px;font-size:1.15rem}
+.mdr-strat{background:linear-gradient(180deg,#F2F7FE,#fff)}
+.mdr-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mdr-3>div{background:#fff;border:1px solid #D7E5F7;border-radius:14px;padding:10px 12px}
+.mdr-3 b{color:#1E6BC2}.mdr-3 ul{margin:6px 0 0;padding-inline-start:18px}
+.mdr-lbl{display:block;font-weight:700;margin:12px 0 6px}
+.mdr-ta{width:100%;box-sizing:border-box;border:1.5px solid var(--line,#E5DCC8);border-radius:12px;padding:10px 12px;font:inherit;font-size:1.05rem;line-height:1.8;resize:vertical;background:#FFFDF8}
+.mdr-peek{display:flex;gap:14px;align-items:center;background:#FFF8EC;border-radius:18px;padding:12px}.mdr-peek img{width:160px;border-radius:12px}
+.mdr-tip{background:#FFF8EC;border-color:#F0D9A8}
+.mdr-text{background:#fff;border:1.5px solid var(--line,#E5DCC8);border-radius:18px;padding:18px 22px;font-family:"ThmanyahSerif","Noto Naskh Arabic",serif;font-size:1.3rem;line-height:2.1;overflow:hidden}
+.mdr-text.sm{font-size:1.1rem;border:0;padding:8px 0}
+.mdr-text p{margin:0 0 10px}
+.mdr-img{float:left;max-width:42%;margin:0 18px 10px 0;border-radius:14px}
+.mdr-img2{display:block;max-width:100%;margin:10px auto;border-radius:14px;clear:both}
+.mdr-ref{font-size:.85rem;clear:both;font-family:inherit}
+.mdr-gl{display:flex;flex-wrap:wrap;gap:8px}.mdr-gl div{background:#F2F7FE;border-radius:12px;padding:6px 12px}.mdr-gl b{margin-inline-end:6px;color:#1E6BC2}
+.mdr-loud{background:#F3FBF6;border-color:#BFE6CF}
+.mdr-rec{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mdr-q{background:#fff;border:1.5px solid var(--line,#E5DCC8);border-radius:16px;padding:14px 16px}
+.mdr-qt{font-weight:700;font-size:1.12rem;display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.mdr-qt span{flex:none;width:28px;height:28px;border-radius:50%;background:#1E6BC2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.9rem}
+.mdr-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mdr-opt{border:1.5px solid var(--line,#E5DCC8);background:#FFFDF8;border-radius:12px;padding:10px 12px;font:inherit;text-align:start;cursor:pointer}
+.mdr-opt:hover:not(:disabled){border-color:#1E6BC2}
+.mdr-opt.ok{background:#E7F6EE;border-color:#2E9E6A}.mdr-opt.no{background:#FDECEA;border-color:#C2452A}
+.mdr-fb{margin-top:8px;border-radius:10px;padding:0}.mdr-fb.ok{background:#E7F6EE;padding:8px 12px}.mdr-fb.no{background:#FDECEA;padding:8px 12px}
+.mdr-model{margin-top:6px}.mdr-model summary{cursor:pointer;color:#B07A12;font-weight:700}
+.mdr-ord{display:flex;flex-wrap:wrap;gap:6px}.mdr-tok{border:1.5px dashed #1E6BC2;background:#F2F7FE;border-radius:10px;padding:6px 10px;font:inherit;cursor:pointer}.mdr-tok:disabled{opacity:.35}
+.mdr-sort>div{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px dashed #E5DCC8;padding:6px 0}
+.mdr-sort select{font:inherit;border-radius:8px;padding:4px}.mdr-sort select.ok{background:#E7F6EE}.mdr-sort select.no{background:#FDECEA}
+.mdr-score{font-size:1.1rem;text-align:center}
+.mdr-task{font-size:1.15rem;font-weight:700;background:#FFF8EC;border-radius:12px;padding:10px 14px}
+.mdr-note{background:#FFF4E5;border-color:#F0C07A}
+.mdr-nav{display:flex;justify-content:space-between;gap:10px}
+@media (max-width:700px){.mdr-3,.mdr-opts{grid-template-columns:1fr}.mdr-img{float:none;max-width:100%;margin:0 0 10px}.mdr-peek{flex-direction:column}.mdr-text{font-size:1.15rem;padding:14px}}
 
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
@@ -3200,7 +3242,6 @@ const SUBJ=[
    {t:['أسماء الله الحسنى','The Beautiful Names'],d:['المعنى والأثر','Meaning and effect'],icon:'star'}]},
  {id:'ar',c:'var(--ar)',s:'var(--ar-s)',courses:[
    {t:['فن الإملاء','Spelling'],d:['12 درجة · الهمزات والتاء والألف والترقيم','12 steps · hamzah, tā’, alif, punctuation'],live:1,id:'imla',n:12,icon:'pen'},
-   {t:['مدارج القراءة','Reading Ladder'],d:['نصوص الوزارة في 3 مستويات · أسئلة بيرلز وبيزا','MoE texts · 3 levels · PIRLS/PISA questions'],live:1,id:'madarij',n:89,icon:'book'},
    {t:['قل ولا تقل','Say it right'],d:['الأخطاء اللغوية الشائعة','Common language errors'],icon:'chat'},
    {t:['مفاتيح النحو','Keys of Grammar'],d:['12 درجة على متن الآجرومية','12 steps through al-Ājurrūmiyyah'],live:1,id:'nahw',n:12,icon:'key'},
    {t:['البلاغة الميسرة','Easy Rhetoric'],d:['التشبيه والاستعارة والكناية','Simile, metaphor, metonymy'],icon:'spark'},
@@ -3226,7 +3267,7 @@ const ICONS={
 
 T.report=['تقرير الطلاب','Student report'];T.repT=['تقرير معارج حراء','Ma‘ārij report'];T.student=['الطالب','Student'];T.steps=['الدرجات','Steps'];T.curStep=['الدرجة الحالية','Current step'];T.medals=['الأوسمة','Medals'];T.updated=['آخر نشاط','Last active'];T.noData=['لا يوجد تقدم مسجل لطلابك بعد.','No progress recorded for your students yet.'];T.loading=['جارٍ التحميل…','Loading…'];T.signHint=['سجّل الدخول ليُحفظ تقدّمك ويراه معلمك.','Sign in to save your progress and share it with your teacher.'];
 let SURAH,LEVELS,STEPS,PLACE,D=null,C=null,syncT=null,CID='tajweed',N=16;
-const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',madarij:'art/maarij/madarij.json',nahw:'art/maarij/nahw.json'};const CACHE={},LOADED={};
+const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json'};const CACHE={},LOADED={};
 const KEY=()=>'hiraa-maarij-'+CID;
 let S={passed:[],tests:{},open:false,name:'',start:0};
 let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}
@@ -5854,6 +5895,137 @@ window.HiraArcade = (function () {
     };
     staff();
   }
+  // ===== مدارج القراءة داخل الدرس: نص من كتاب «مدارج القراءة» (الوزارة) مع أسلوب قرائي، وقراءة جهرية، وأسئلة فهم، وتعبير =====
+  let MDR_MAP = null; const MDR_T = {};
+  async function mdrMapGet() { if (MDR_MAP) return MDR_MAP; try { MDR_MAP = await (await fetch("art/madarij/map.json")).json(); } catch (e) { MDR_MAP = {}; } return MDR_MAP; }
+  async function mdrGet(id) { if (!MDR_T[id]) MDR_T[id] = await (await fetch("art/madarij/t/" + id + ".json")).json(); return MDR_T[id]; }
+  async function mdrRun(box, l, u, id) {
+    box.innerHTML = `<div class="loading">جارٍ التحميل…</div>`;
+    let X; try { X = await mdrGet(id); } catch (e) { box.innerHTML = `<div class="empty"><strong>تعذّر تحميل النص</strong></div>`; return; }
+    thmFonts();
+    const stu = isStudent() && state.session && !state.viewAs, me = stu ? state.session.user.id : null;
+    let mine = null;
+    if (stu) mine = (await sb.from("lesson_reading").select("*").eq("lesson_id", l.id).eq("student_id", me).maybeSingle()).data || null;
+    const t0 = Date.now(); let part = 0;
+    const A = {}; if (mine && mine.answers) Object.assign(A, mine.answers);
+    const kindN = X.kind === "i" ? "نَصٌّ مَعْلوماتِيٌّ" : "نَصٌّ سَرْدِيٌّ";
+    const PARTS = [["🧭", "قَبْلَ الْقِراءَةِ"], ["📖", "أَقْرَأُ"], ["❓", "أَفْهَمُ"], ["✍️", "أُعَبِّرُ"]];
+    const M = X.qs.map((q, j) => [q, j]).filter(([q]) => q.k === "m");
+    const secs = () => Math.round((Date.now() - t0) / 1000);
+    const save = (o) => stu ? sb.rpc("reading_save", Object.assign({ p_lesson: l.id, p_text: X.id, p_pre: null, p_note: null, p_answers: null, p_score: null, p_max: null, p_expr: null, p_seconds: secs() }, o)) : Promise.resolve({});
+    const ta = (id, ph, val, rows) => `<textarea class="mdr-ta" id="${id}" rows="${rows || 3}" placeholder="${esc(ph)}"${stu || isStaff() ? "" : " disabled"}>${esc(val || "")}</textarea>`;
+    const textHtml = (sm) => `<div class="mdr-text${sm ? " sm" : ""}">${X.img ? `<img class="mdr-img" src="${X.img}" alt="" loading="lazy">` : ""}${X.text.map((p) => `<p>${esc(p)}</p>`).join("")}${X.img2 ? `<img class="mdr-img2" src="${X.img2}" alt="" loading="lazy">` : ""}<div class="muted mdr-ref">كتاب «مدارج القراءة»، وزارة التربية والتعليم · ص ${X.p}</div></div>`;
+    const S = X.strat;
+    const head = () => `<div class="mdr-head"><div><span class="pill">📗 مَدارِجُ الْقِراءَةِ · ${kindN}</span><h2>«${esc(X.t)}»</h2></div>
+      <div class="mdr-steps">${PARTS.map((p, k) => `<button class="mdr-sp ${k === part ? "on" : ""} ${k < part ? "ok" : ""}" data-p="${k}"><span>${p[0]}</span>${p[1]}</button>`).join("")}</div></div>`;
+    const nav = (prev, next) => `<div class="mdr-nav">${prev != null ? `<button class="btn btn-ghost" data-p="${prev}">→ ${PARTS[prev][1]}</button>` : "<span></span>"}${next != null ? `<button class="btn btn-primary" data-p="${next}">${PARTS[next][1]} ←</button>` : ""}</div>`;
+    const draw = () => {
+      let body = "";
+      if (part === 0) body = `<div class="mdr-card mdr-strat"><h3>${S.ic} أُسْلوبُ الْقِراءَةِ: ${esc(S.n)}</h3>
+          <div class="mdr-3"><div><b>قَبْلَ الْقِراءَةِ</b><ul>${S.b.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div><div><b>أَثْناءَ الْقِراءَةِ</b><ul>${S.d.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div><div><b>بَعْدَ الْقِراءَةِ</b><ul>${S.a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div></div>
+          <label class="mdr-lbl">✏️ ${esc(S.p)}</label>${ta("mdrPre", "اكْتُبْ هُنا قَبْلَ أَنْ تَقْرَأَ…", mine && mine.pre)}</div>
+          ${X.img ? `<div class="mdr-peek"><img src="${X.img}" alt=""><p>تَأَمَّلِ الصّورَةَ وَالْعُنْوانَ: «${esc(X.t)}».</p></div>` : ""}` + nav(null, 1);
+      if (part === 1) body = `<div class="mdr-card mdr-tip">${S.ic} <b>تَذَكَّرْ وَأَنْتَ تَقْرَأُ:</b> ${S.d.map(esc).join(" ")}</div>${textHtml()}
+          ${(X.gl || []).length ? `<div class="mdr-card"><h3>🔤 مَعاني الْكَلِماتِ</h3><div class="mdr-gl">${X.gl.map((g) => `<div><b>${esc(g[0])}</b><span>${esc(g[1])}</span></div>`).join("")}</div></div>` : ""}
+          <div class="mdr-card mdr-loud"><h3>🎙️ أَقْرَأُ بِصَوْتٍ عالٍ</h3><p class="muted">اقْرَأْ فِقْرَةً أَوْ فِقْرَتَيْنِ بِصَوْتٍ واضِحٍ، مُراعِيًا الْوَقْفَ عِنْدَ عَلاماتِ التَّرْقيمِ، وَتَلْوينَ صَوْتِكَ مَعَ الْأَسْئِلَةِ وَالتَّعَجُّبِ.</p>
+          ${stu ? `<div class="mdr-rec"><button class="btn btn-dawn" id="mdrRec">⏺ اِبْدَأِ التَّسْجيلَ</button><span id="mdrRecT" class="muted">0:00</span><audio id="mdrRecA" controls hidden></audio><button class="btn btn-primary btn-small" id="mdrRecS" hidden>📤 أُرْسِلُها لِمُعَلِّمي</button></div>` : `<p class="muted">${isStaff() ? "يُسَجِّلُ الطّالِبُ قِراءَتَهُ هُنا، وَتَصِلُكَ في صَفْحَةِ «التَّسْميعِ» لِتَقْييمِها." : "سَجِّلِ الدُّخولَ بِحِسابِ الطّالِبِ لِتُسَجِّلَ قِراءَتَكَ وَتُرْسِلَها لِمُعَلِّمِكَ."}</p>`}</div>` + nav(0, 2);
+      if (part === 2) body = `<details class="mdr-card"><summary>📖 اعْرِضِ النَّصَّ</summary>${textHtml(1)}</details>
+          <p class="muted">أَجِبْ عَنْ أَسْئِلَةِ الِاخْتِيارِ، ثُمَّ اكْتُبْ إِجاباتِكَ لِلْأَسْئِلَةِ الْمَفْتوحَةِ وَقارِنْها بِالْإِجابَةِ النَّموذَجِيَّةِ.</p>
+          ${X.qs.map((q, j) => `<div class="mdr-q" id="mq${j}"><div class="mdr-qt"><span>${j + 1}</span>${esc(q.q)}</div>${
+            q.k === "m" ? `<div class="mdr-opts">${q.o.map((o, k) => `<button class="mdr-opt" data-q="${j}" data-o="${k}">${esc(o)}</button>`).join("")}</div><div class="mdr-fb" id="mf${j}"></div>`
+            : q.k === "o" ? `${ta("mo" + j, "إِجابَتي…", A["o" + j], 2)}<details class="mdr-model"><summary>💡 الْإِجابَةُ النَّموذَجِيَّةُ</summary><p>${esc(q.a)}</p></details>`
+            : q.k === "r" ? `<p class="muted">اُنْقُرِ الْعِباراتِ بِالتَّرْتيبِ الصَّحيحِ.</p><div class="mdr-ord" data-q="${j}">${q.seq.map((s, k) => [s, k]).sort(() => Math.random() - 0.5).map(([s, k]) => `<button class="mdr-tok" data-k="${k}">${esc(s)}</button>`).join("")}</div><ol class="mdr-ordo" id="mro${j}"></ol><div class="mdr-fb" id="mf${j}"></div>`
+            : `<div class="mdr-sort">${q.items.map((it, k) => `<div><span>${esc(it[0])}</span><select data-q="${j}" data-i="${k}"><option value="">—</option>${q.bins.map((b, bi) => `<option value="${bi}">${esc(b)}</option>`).join("")}</select></div>`).join("")}</div><button class="btn btn-ghost btn-small mdr-chk" data-q="${j}">تَحَقَّقْ</button><div class="mdr-fb" id="mf${j}"></div>`}</div>`).join("")}
+          <div class="mdr-score" id="mdrScore"></div>
+          ${stu ? `<div class="mdr-nav"><span></span><button class="btn btn-primary" id="mdrQS">💾 أَحْفَظُ إِجاباتي</button></div>` : ""}` + nav(1, 3);
+      if (part === 3) body = `<div class="mdr-card"><h3>${S.ic} بَعْدَ الْقِراءَةِ</h3><label class="mdr-lbl">${S.a.map(esc).join(" ")}</label>${ta("mdrNote", "اكْتُبْ هُنا…", mine && mine.strat_note)}</div>
+          <div class="mdr-card mdr-expr"><h3>✍️ التَّعْبيرُ الْكِتابِيُّ</h3><p class="mdr-task">${esc(X.expr.w)}</p>${ta("mdrExpr", "اكْتُبْ نَصَّكَ هُنا بِخَطٍّ عَرَبِيٍّ سَليمٍ…", mine && mine.expression, 8)}
+            <p class="muted" id="mdrWc"></p></div>
+          <div class="mdr-card"><h3>🗣️ التَّعْبيرُ الشَّفَهِيُّ</h3><p class="mdr-task">${esc(X.expr.o)}</p></div>
+          ${stu ? `<div class="mdr-nav"><span></span><button class="btn btn-primary" id="mdrES">📤 أُرْسِلُ تَعْبيري لِمُعَلِّمي</button></div>` : ""}` + nav(2, null);
+      box.innerHTML = `<div class="mdr" dir="rtl">${head()}${X.note && isStaff() ? `<div class="mdr-card mdr-note"><b>🧑‍🏫 مُلاحَظَةٌ لِلْمُعَلِّمِ:</b> ${esc(X.note)}</div>` : ""}<div class="mdr-body">${body}</div>${isStaff() ? `<div id="mdrRep"></div>` : ""}</div>`;
+      box.querySelectorAll("[data-p]").forEach((b) => b.onclick = () => { keep(); part = +b.dataset.p; draw(); box.scrollIntoView({ behavior: "smooth", block: "start" }); });
+      wire();
+      if (isStaff()) report();
+    };
+    const keep = () => {
+      const pre = box.querySelector("#mdrPre"); if (pre && stu && pre.value.trim() !== ((mine && mine.pre) || "")) { mine = Object.assign(mine || {}, { pre: pre.value.trim() }); save({ p_pre: pre.value.trim() }); }
+      X.qs.forEach((q, j) => { const t = box.querySelector("#mo" + j); if (t) A["o" + j] = t.value; });
+    };
+    const mark = (j) => { const q = X.qs[j], v = A["m" + j]; if (v == null) return; const box2 = box.querySelector("#mq" + j); if (!box2) return;
+      box2.querySelectorAll(".mdr-opt").forEach((b) => { const k = +b.dataset.o; b.disabled = true; b.classList.toggle("ok", k === q.c); b.classList.toggle("no", k === v && k !== q.c); });
+      const f = box.querySelector("#mf" + j); f.className = "mdr-fb " + (v === q.c ? "ok" : "no"); f.innerHTML = (v === q.c ? "✅ أَحْسَنْتَ. " : "❌ الْإِجابَةُ الصَّحيحَةُ: " + esc(q.o[q.c]) + ". ") + esc(q.why || ""); };
+    const score = () => { const n = M.filter(([q, j]) => A["m" + j] === q.c).length, d = M.filter(([q, j]) => A["m" + j] != null).length; const el = box.querySelector("#mdrScore"); if (el && M.length) el.innerHTML = `أَسْئِلَةُ الِاخْتِيارِ: <b><bdi dir="ltr">${n}/${M.length}</bdi></b>${d < M.length ? ` · بَقِيَ ${M.length - d}` : ""}`; return n; };
+    const wire = () => {
+      if (part === 2) {
+        M.forEach(([q, j]) => mark(j)); score();
+        box.querySelectorAll(".mdr-opt").forEach((b) => b.onclick = () => { const j = +b.dataset.q; if (A["m" + j] != null) return; A["m" + j] = +b.dataset.o; mark(j); score(); });
+        box.querySelectorAll(".mdr-ord").forEach((w) => { const j = +w.dataset.q, q = X.qs[j], seq = []; const ol = box.querySelector("#mro" + j);
+          w.querySelectorAll(".mdr-tok").forEach((b) => b.onclick = () => { if (b.disabled) return; b.disabled = true; seq.push(+b.dataset.k); ol.insertAdjacentHTML("beforeend", `<li>${esc(q.seq[+b.dataset.k])}</li>`);
+            if (seq.length === q.seq.length) { const ok = seq.every((k, i) => k === i); const f = box.querySelector("#mf" + j); f.className = "mdr-fb " + (ok ? "ok" : "no"); f.innerHTML = ok ? "✅ تَرْتيبٌ صَحيحٌ." : "❌ التَّرْتيبُ الصَّحيحُ: " + q.seq.map(esc).join(" ← ") + ` <button class="btn btn-ghost btn-small" data-redo="${j}">أُعيدُ</button>`;
+              const rd = f.querySelector("[data-redo]"); if (rd) rd.onclick = () => { keep(); draw(); }; } }); });
+        box.querySelectorAll(".mdr-chk").forEach((b) => b.onclick = () => { const j = +b.dataset.q, q = X.qs[j]; let ok = 0; box.querySelectorAll(`select[data-q="${j}"]`).forEach((s) => { const it = q.items[+s.dataset.i]; const g = s.value === "" ? -1 : +s.value; s.classList.toggle("ok", g === it[1]); s.classList.toggle("no", g !== it[1]); if (g === it[1]) ok++; });
+          const f = box.querySelector("#mf" + j); f.className = "mdr-fb " + (ok === q.items.length ? "ok" : "no"); f.textContent = ok === q.items.length ? "✅ تَصْنيفٌ صَحيحٌ." : `صَحَّ ${ok} مِنْ ${q.items.length}، راجِعِ الْمُلَوَّنَ بِالْأَحْمَرِ.`; });
+        const qs = box.querySelector("#mdrQS"); if (qs) qs.onclick = async () => { keep(); if (M.some(([q, j]) => A["m" + j] == null)) { toast("أَجِبْ عَنْ كُلِّ أَسْئِلَةِ الِاخْتِيارِ أَوَّلًا"); return; }
+          qs.disabled = true; const r = await save({ p_answers: A, p_score: score(), p_max: M.length }); qs.disabled = false; if (r && r.error) toast("تعذّر الحفظ: " + r.error.message); else { mine = Object.assign(mine || {}, { score: score(), max_score: M.length, quiz_at: new Date().toISOString() }); toast("حُفِظَتْ إِجاباتُكَ، وَتَصِلُ إِلى مُعَلِّمِكَ"); } };
+      }
+      if (part === 3) {
+        const e = box.querySelector("#mdrExpr"), wc = box.querySelector("#mdrWc"); const upd = () => { const n = (e.value.trim().match(/\S+/g) || []).length; wc.textContent = n ? `عَدَدُ الْكَلِماتِ: ${n}` : ""; }; e.oninput = upd; upd();
+        const es = box.querySelector("#mdrES"); if (es) es.onclick = async () => { const v = e.value.trim(); if ((v.match(/\S+/g) || []).length < 15) { toast("اكْتُبْ 15 كَلِمَةً عَلى الْأَقَلِّ"); return; }
+          es.disabled = true; const nt = (box.querySelector("#mdrNote") || {}).value; const r = await save({ p_expr: v, p_note: nt ? nt.trim() : null }); es.disabled = false;
+          if (r && r.error) toast("تعذّر الإرسال: " + r.error.message); else { mine = Object.assign(mine || {}, { expression: v, strat_note: nt }); toast("أُرْسِلَ تَعْبيرُكَ إِلى مُعَلِّمِكَ"); } };
+      }
+      if (part === 1 && stu) {
+        const btn = box.querySelector("#mdrRec"), tm = box.querySelector("#mdrRecT"), au = box.querySelector("#mdrRecA"), snd = box.querySelector("#mdrRecS");
+        const mime = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/aac"].find((m) => window.MediaRecorder && MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(m)) || "";
+        let rec = null, ch = [], blob = null, st0 = 0, tmr = null, stream = null, dur = 0;
+        const stop = () => { if (rec && rec.state === "recording") rec.stop(); clearInterval(tmr); btn.textContent = "⏺ أُعيدُ التَّسْجيلَ"; if (stream) stream.getTracks().forEach((t) => t.stop()); };
+        btn.onclick = async () => {
+          if (rec && rec.state === "recording") { stop(); return; }
+          if (!window.MediaRecorder) { toast("المتصفح لا يدعم التسجيل الصوتي"); return; }
+          try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); } catch (e) { toast("اسمح للموقع باستخدام الميكروفون"); return; }
+          ch = []; rec = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream);
+          rec.ondataavailable = (e) => { if (e.data.size) ch.push(e.data); };
+          rec.onstop = () => { blob = new Blob(ch, { type: rec.mimeType || "audio/webm" }); au.src = URL.createObjectURL(blob); au.hidden = false; snd.hidden = false; dur = Math.round((Date.now() - st0) / 1000); };
+          rec.start(); st0 = Date.now(); au.hidden = true; snd.hidden = true; btn.textContent = "⏹ أُنْهي التَّسْجيلَ";
+          tmr = setInterval(() => { const s = Math.floor((Date.now() - st0) / 1000); tm.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; if (s >= 300) stop(); }, 250);
+        };
+        snd.onclick = async () => { if (!blob) return; snd.disabled = true;
+          const path = `${me}/${Date.now()}.${(blob.type.includes("mp4") || blob.type.includes("aac")) ? "m4a" : "webm"}`;
+          const up = await sb.storage.from("recitations").upload(path, blob, { contentType: blob.type.split(";")[0] });
+          if (up.error) { toast("تعذّر الرفع: " + up.error.message); snd.disabled = false; return; }
+          const ins = await sb.from("recitations").insert({ student_id: me, school_id: state.profile.school_id, lesson_id: l.id, title: "قِراءَةٌ جَهْرِيَّةٌ: " + X.t, audio_path: path, duration_sec: dur });
+          snd.disabled = false; if (ins.error) { toast("تعذّر الحفظ: " + ins.error.message); return; }
+          toast("أُرْسِلَتْ قِراءَتُكَ إِلى مُعَلِّمِكَ"); snd.hidden = true; blob = null; };
+      }
+    };
+    const report = async () => {
+      const rep = box.querySelector("#mdrRep"); if (!rep || !state.session) return;
+      const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+      let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.year_group === u.year_group && c.track === u.track && c.subject_id === u.subject_id);
+      if (!cls.length && (isSchoolAdmin() || isSuper())) { const { data } = await sb.from("classes").select("id, name, year_group, track, subject_id").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).limit(20); cls = data || []; }
+      if (!cls.length) { rep.innerHTML = `<div class="mdr-card muted">لا توجد فصول مرتبطة بك في هذا الصف، فلا يوجد تقرير بعد.</div>`; return; }
+      let cur = cls[0].id;
+      const drawR = async () => {
+        const { data: roster } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur);
+        const SS = (roster || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
+        const { data: rr } = SS.length ? await sb.from("lesson_reading").select("*").eq("lesson_id", l.id).in("student_id", SS.map((s) => s.id)) : { data: [] };
+        const R = {}; (rr || []).forEach((r) => { R[r.student_id] = r; });
+        const qd = SS.filter((s) => R[s.id] && R[s.id].quiz_at), ex = SS.filter((s) => R[s.id] && R[s.id].expression);
+        const avg = qd.length ? Math.round(qd.reduce((a, s) => a + R[s.id].score / (R[s.id].max_score || 1), 0) * 100 / qd.length) : null;
+        rep.innerHTML = `<div class="mdr-card"><h3>📊 تَقْريرُ الْقِراءَةِ وَالتَّعْبيرِ</h3>
+          ${cls.length > 1 ? `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>` : ""}
+          <div class="lp-stats"><div><b><bdi dir="ltr">${qd.length}/${SS.length}</bdi></b><small>أَجابوا عَنِ الْأَسْئِلَةِ</small></div><div><b>${avg == null ? "—" : avg + "%"}</b><small>مُتَوَسِّطُ الْفَهْمِ</small></div><div><b><bdi dir="ltr">${ex.length}/${SS.length}</bdi></b><small>أَرْسَلوا التَّعْبيرَ</small></div></div>
+          <div class="lp-tw"><table class="lp-tbl"><thead><tr><th>الطالب</th><th>الفهم</th><th>قبل القراءة</th><th>التعبير</th></tr></thead><tbody>
+          ${SS.map((s) => { const r = R[s.id]; const g = r && r.quiz_at ? (r.score / (r.max_score || 1) >= 0.8 ? "🟢" : r.score / (r.max_score || 1) >= 0.6 ? "🟡" : "🔴") : "";
+            return `<tr><td>${esc(s.name)}</td><td>${r && r.quiz_at ? `${g} <bdi dir="ltr">${r.score}/${r.max_score}</bdi>` : "—"}</td><td>${r && r.pre ? esc(r.pre).slice(0, 120) : "—"}</td><td>${r && r.expression ? `<details><summary>${(r.expression.match(/\S+/g) || []).length} كلمة</summary><p style="white-space:pre-wrap">${esc(r.expression)}</p>${r.strat_note ? `<p class="muted">بعد القراءة: ${esc(r.strat_note)}</p>` : ""}</details>` : "—"}</td></tr>`; }).join("") || `<tr><td colspan="4">لا يوجد طلاب في هذا الفصل</td></tr>`}
+          </tbody></table></div><p class="muted">القراءات الجهرية تصلك في صفحة «التسميع» بعنوان «قراءة جهرية».</p></div>`;
+        rep.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; drawR(); });
+      };
+      drawR();
+    };
+    draw();
+  }
   function fcRun(l, cards0, en) {
     const box = document.getElementById("fcBox"); if (!box) return;
     const deck = "lesson:" + l.code, me = state.session && state.session.user && state.session.user.id;
@@ -7092,6 +7264,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const gameItems = acc === "ok" ? ((await sb.from("game_items").select("game, source, payload, sort_order").eq("lesson_id", l.id).order("sort_order")).data || []) : [];
     const bookTx = (acc === "ok" || isStaff()) ? ((await sb.from("lesson_book_texts").select("*").eq("lesson_id", l.id).maybeSingle()).data || null) : null;
     const reader = (acc === "ok" || isStaff()) ? ((await sb.from("lesson_readers").select("*").eq("lesson_id", l.id).maybeSingle()).data || null) : null; if (reader) thmFonts();
+    const mdrId = (subject === "arabic" && u.track === "native" && u.year_group >= 4 && u.year_group <= 9 && (acc === "ok" || isStaff())) ? ((await mdrMapGet())[l.code] || null) : null;
     const bookLines = (t) => String(t || "").split(/\n+/).map((x) => x.trim()).filter(Boolean);
     const bookTxHtml = () => {
       const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">${bookTx.kind === "study" ? "📘" : "📖"} ${esc(bookTx.title || (bookTx.kind === "study" ? "نص الدرس" : "نص الكتاب"))}${bookTx.pages ? ` <span class="pill">كتاب الطالب ص ${esc(bookTx.pages)}</span>` : ""}${bookTx.kind === "study" ? ' <span class="pill">من إعداد حراء</span>' : ""}</h3>
@@ -7368,6 +7541,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       ...(state.session && (isStaff() || isStudent()) && !lockedForMe && (ticket && nq >= 3) ? [["prog", nnEn ? "📈 Progress check" : "📈 قياس التقدّم", `<div id="pgBox"></div>`]] : []),
       ...(fcCards.length >= 3 ? [["cards", nnEn ? "🃏 Flashcards" : "🃏 البطاقات التعليمية", lockedForMe ? lockedMsg : `<div class="fc" id="fcBox"></div>`]] : []),
       ...(reader || isStaff() ? [["reader", nnEn ? "📘 Hiraa book" : "📘 كتاب حراء", lockedForMe && !isStaff() ? lockedMsg : `<div id="rdBox"></div>`]] : []),
+      ...(mdrId ? [["madarij", "📗 مدارج القراءة", lockedForMe && !isStaff() ? lockedMsg : `<div id="mdrBox"></div>`]] : []),
       ...(isStaff() && summary && !lockedForMe ? [["weekly", CT("الخطة الأسبوعية", "Weekly plan"), `<div class="papers-box"><h3>📅 ${CT("الخطة الأسبوعية", "Weekly plan")}</h3>
         <p class="muted">${CT("تُبنى تلقائيًّا من الدرس: ما تمّ الانتهاء منه، ودرس الأسبوع، والهدف، ومعايير النجاح، والهوية الوطنية، وHPL، والحصة القادمة، والمطلوب من الطالب. عدّلها بالكتابة عليها، واحفظ نسختك، ثم اطبعها أو أرسلها لأولياء الأمور.", "Built from the lesson: what was completed, this week's lesson, objective, success criteria, national identity, HPL, next lesson and student tasks. Edit it, save your copy, then print or send it to parents.")}</p>
         <button class="btn btn-primary pp-open" data-kind="wp">📅 ${CT("فتح الخطة الأسبوعية وتعديلها", "Open and edit the weekly plan")}</button></div>`]] : []),
@@ -7433,6 +7607,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (k === "games" && !lockedForMe) arcadeRun(l, gameItems, summary, reader, nnEn);
       if (k === "cards" && !lockedForMe) fcRun(l, fcCards, nnEn);
       if (k === "reader") { const rb = document.getElementById("rdBox"); if (rb) readerRun(rb, l, u, reader, nnEn); }
+      if (k === "madarij") { const mb = document.getElementById("mdrBox"); if (mb) mdrRun(mb, l, u, mdrId); }
       if (k === "prog") { const pb = document.getElementById("pgBox"); if (pb) (isStaff() ? progTeacher(pb, l, u, nnEn) : progStudent(pb, l, nnEn)); }
       if (k === "booktext") {
         const pr = document.getElementById("btxPrint");
