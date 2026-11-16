@@ -14,7 +14,7 @@ const T={
  got:['حصلت عليه','Earned'],after:['بعد الدرجة','after step'],reset:['إعادة النموذج من البداية','Reset prototype'],
  teacher:['وضع المعلم: فتح كل الدرجات','Teacher mode: unlock all steps'],teacherOn:['وضع المعلم مفعّل','Teacher mode on'],
  passed:['اجتزتها','Passed'],start:['ابدأ هنا','Start here'],locked:['مقفلة','Locked'],open:['مفتوحة','Open'],
- rest:['استراحة','Checkpoint'],restSub:['اختبار قصير يفتح المستوى التالي، ويمنحك','A short test that opens the next level and earns you the'],
+ rest:['استراحة','Checkpoint'],restSub:['اختبار قصير على هذا المستوى يمنحك','A short test on this level that earns you the'],
  summit:['قمة المعارج','The Summit'],summitSub:['الاختبار النهائي وشهادة إتمام الدورة','Final test and course certificate'],
  takeTest:['ابدأ الاختبار','Start test'],
  stepOf:['الدرجة','Step'],of16:['من 16','of 16'],back:['العودة إلى المعارج','Back to the ladder'],
@@ -111,6 +111,7 @@ async function loadRemote(){
 function isPassed(i){return S.passed.includes(i)}
 function levelOf(i){return LEVELS.findIndex(l=>l.steps.includes(i))}
 function unlocked(i){
+  return true; /* كل الدرجات مفتوحة؛ الاختبارات للأوسمة والشهادة فقط */
   if(staffOpen()||i===1||i<=(S.start||0))return true;
   if(!isPassed(i-1))return false;
   if(i===LEVELS[1].steps[0]&&!S.tests.l1&&!staffOpen())return false;
@@ -157,7 +158,7 @@ function renderLadder(app){
   const medals=[['l1',LEVELS[0].medal,LEVELS[0].steps.at(-1)],['l2',LEVELS[1].medal,LEVELS[1].steps.at(-1)],['final',LEVELS[2].medal,N]];
   let lad='';
   LEVELS.forEach((Lv,li)=>{
-    let h=`<div class="lvl"><div class="lvlname">${tx(Lv.n)} · ${tx(Lv.sub)}</div>`;
+    let h=`<div class="lvl"><div class="lvlname"><span class="lvn">${li+1}</span><span><b>${tx(Lv.n)}</b><small>${tx(Lv.sub)}</small></span><span class="lvc">${Lv.steps.filter(isPassed).length} / ${Lv.steps.length}</span></div><div class="path">`;
     Lv.steps.forEach(i=>{const st=STEPS[i-1];
       const G=(D.meta.grades||[]).find(g=>g.first===i);if(G)h+=`<div class="grname" id="gr${G.g}">${tx(G.n)} · ${G.count} ${t('texts')}</div>`;
       const state=isPassed(i)?'done':unlocked(i)?(i===ns?'cur':'open'):'lock';
@@ -165,11 +166,11 @@ function renderLadder(app){
       h+=`<div class="stp ${state}" style="--i:${(1+(i-1)*Math.min(1,15/Math.max(1,N-1))).toFixed(2)}"><span class="rise"></span><div class="tread" ${state!=='lock'?`onclick="MJ.go('step-${i}')"`:''}><span class="num">${i}</span><span><div class="t">${tx(st.t)}</div><div class="s">${tx(st.sub)}</div></span><span class="st">${lab}</span></div></div>`;
     });
     const key=li<2?'l'+(li+1):'final';
-    const ready=(li<2?levelDone(li):(levelDone(2)))||staffOpen();
+    const ready=true;
     const ok=S.tests[key];
     const title=li<2?`${t('rest')} · ${tx(Lv.n)}`:t('summit');
     const sub=li<2?`${t('restSub')} ${tx(Lv.medal)}`:t('summitSub');
-    h+=`<div class="landing ${ok?'ok':''} ${ready&&!ok?'go':''}" ${ready?`onclick="MJ.go('test-${key}')"`:''}><svg width="34" height="34" viewBox="0 0 36 36" style="color:var(--gold);flex:none">${ICONS.star}</svg><div><div class="ldt">${title}</div><small>${sub}</small></div>
+    h+=`</div><div class="landing ${ok?'ok':''} ${ready&&!ok?'go':''}" ${ready?`onclick="MJ.go('test-${key}')"`:''}><svg width="34" height="34" viewBox="0 0 36 36" style="color:var(--gold);flex:none">${ICONS.star}</svg><div><div class="ldt">${title}</div><small>${sub}</small></div>
       <span class="act-b">${ok?`<span class="pill">${t('got')}</span>`:ready?`<button class="btn" style="padding:6px 14px">${t('takeTest')}</button>`:`<span class="st pill" style="background:#F1EEE6;color:var(--muted)">${t('locked')}</span>`}</span></div>`;
     h+='</div>';lad+=h;
   });
@@ -182,7 +183,7 @@ function renderLadder(app){
      <div class="stats"><div class="stat"><b>${n}</b><span>${t('doneSteps')}</span></div><div class="stat"><b>${N}</b><span>${t('inCourse')}</span></div><div class="stat"><b>${Math.round(n/N*100)}%</b><span>${t('ofCourse')}</span></div></div>
      <div class="medals">${medals.map(m=>`<div class="medal ${S.tests[m[0]]?'got':''}">${tx(m[1])}<br>${S.tests[m[0]]?t('got'):t('after')+' '+m[2]}</div>`).join('')}</div>
      <div class="row" style="margin-top:12px">${isStaffC()?`<button class="tlink" onclick="MJ.teacher()">${S.open?'✓ '+t('teacherOn'):t('teacher')}</button><button class="tlink" onclick="MJ.go('report')">${t('report')}</button>`:''}${!C.state.session?`<button class="tlink" onclick="MJ.reset()">${t('reset')}</button>`:''}</div></div></div>
-   <div class="ladder">${lad}</div>`;
+   <div class="ladder" style="--c:${(SUBJ.find(x=>x.courses.some(c=>c.id===CID))||SUBJ[0]).c};--cs:${(SUBJ.find(x=>x.courses.some(c=>c.id===CID))||SUBJ[0]).s}">${lad}</div>`;
 }
 
 /* ---------- placement ---------- */
