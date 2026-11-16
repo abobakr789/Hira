@@ -4641,7 +4641,10 @@ window.HiraArcade = (function () {
       // بدائل الموقع: لا نعرض بديلًا يصدق على الكلمة أيضًا (اسم مع مبتدأ، فعل ماضٍ مع فعل ماضٍ ناقص، خبر مع خبر جملة…)
       const bare = (x) => String(x || "").replace(/[ً-ٰٟۖ-ۭـ]/g, "").replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/ى/g, "ي").trim();
       const GEN = ["اسم", "فعل", "حرف"], cls = (r) => { const n = bare(r); return /^فعل/.test(n) ? "فعل" : /^(حرف|لا الناهيه)/.test(n) ? "حرف" : "اسم"; };
-      const okD = (c, d) => { const C = bare(c), D = bare(d); if (C === D) return false;
+      // موقع فيه وجهان جائزان يُكتب «… أو …»، فلا يُعرض بديلًا ما يصدق على أحد الوجهين
+      const alts = (x) => bare(x).split(/،?\s+او\s+/);
+      const okD = (c, d) => alts(c).every((a) => alts(d).every((b) => okD1(a, b)));
+      const okD1 = (c, d) => { const C = bare(c), D = bare(d); if (C === D) return false;
         if (GEN.includes(D) && cls(c) === D) return false; if (GEN.includes(C) && cls(d) === C) return false;
         // المتقابلان لا يصدق أحدهما على الآخر: معطوف/معطوف عليه، مستثنى/مستثنى منه، بدل/مبدل منه
         if (D === C + " عليه" || C === D + " عليه" || D === C + " منه" || C === D + " منه") return true;
