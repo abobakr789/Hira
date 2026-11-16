@@ -335,3 +335,11 @@
 .mj .rco .opt{font-family:"ThmanyahDisplay",serif;font-size:20px;text-align:right}
 .mj .rcdone{font-family:"ThmanyahDisplay";font-size:20px;padding:14px;border-radius:16px;background:#F1EEE6;margin:8px 0;text-align:center}
 .mj .rcdone.ok{background:var(--gold-s);color:#7A5714}
+/* بطاقة الربط في صفحة الدرس (خارج .mj) */
+.mjl{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;margin-bottom:4px}
+.mjl-c{flex:1 1 300px;display:flex;align-items:center;gap:12px;text-decoration:none;color:#13283D;background:linear-gradient(90deg,#FFF6E0,#fff);border:1.5px solid #E7C987;border-radius:16px;padding:10px 14px;transition:transform .15s}
+.mjl-c:hover{transform:translateY(-2px)}
+.mjl-i{font-size:24px}
+.mjl-c small{display:block;color:#7A5714;font-size:12px;font-weight:700}
+.mjl-c b{display:block;font-size:16px}
+.mjl-go{margin-inline-start:auto;font-weight:700;color:#B68A2E;white-space:nowrap}

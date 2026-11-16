@@ -471,3 +471,49 @@ window.HiraaMaarij=async function(ctx){
   route();
 };
 })();
+
+/* ---------- ربط دروس المنهج بمعارج: بطاقة «أتقن هذا في معارج» داخل صفحة الدرس ---------- */
+(function(){
+  const COURSE_FILES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json'};
+  const NAMES={tajweed:['التجويد','Tajwīd'],fiqh:['أحكام الطهارة والصلاة','Purification & Prayer'],shiir:['الشعر عبر العصور','Poetry Through the Ages'],imla:['فن الإملاء','The Art of Spelling'],nahw:['مفاتيح النحو','Keys to Grammar']};
+  /* [نمط، دورة، درجة (0 = صفحة الدورة)، للعربية فقط؟] — الأدق أولًا */
+  const RULES=[
+   [/الاظهار|النون الساكنه والتنوين/,'tajweed',1,0],[/الادغام/,'tajweed',2,0],[/الاقلاب/,'tajweed',4,0],[/الاخفاء/,'tajweed',5,0],
+   [/الميم الساكنه/,'tajweed',7,0],[/المد الاصلي/,'tajweed',12,0],[/المد الفرعي/,'tajweed',13,0],[/احكام المد/,'tajweed',12,0],[/مخارج الحروف/,'tajweed',15,0],[/صفات الحروف/,'tajweed',16,0],[/التجويد/,'tajweed',0,0],
+   [/نواقض الوضوء/,'fiqh',4,0],[/الوضوء/,'fiqh',2,0],[/الطهاره/,'fiqh',1,0],[/شروط الصلاه/,'fiqh',5,0],[/(فرائض|اركان) الصلاه/,'fiqh',7,0],[/(سنن|مبطلات)/,'fiqh',8,-1],
+   [/الغسل/,'fiqh',9,0],[/التيمم/,'fiqh',10,0],[/المسح علي الخفين/,'fiqh',11,0],[/(صلاه المسافر|قصر الصلاه|الجمع بين)/,'fiqh',12,0],[/(اهميه الصلاه|الصلاه المفروضه)/,'fiqh',6,0],
+   [/الشعر الاندلسي/,'shiir',8,1],[/(\(شعر\)|قصيده)/,'shiir',0,1],
+   [/(الهمزه|الاملاء|التاء المربوطه|علامات الترقيم)/,'imla',0,1],
+   [/الاستثناء/,'nahw',11,1],[/(النداء|المنادي)/,'nahw',11,1],[/(البدل|التوكيد|النعت|العطف)/,'nahw',9,1],[/الممنوع من الصرف/,'nahw',3,1],[/الاسماء الخمسه/,'nahw',4,1],
+   [/(تنصب مفعولين|كان واخواتها|ان واخواتها)/,'nahw',8,1],[/(الشرط الجازم|الجوازم|النواصب)/,'nahw',5,1],[/(^|[^م ]\s?)الفاعل/,'nahw',6,1],[/(المبتدا|الخبر)/,'nahw',7,1],
+   [/(^|النحو: )المفعول/,'nahw',10,1],[/(^|\s|:)(الحال|التمييز)(\s|$)/,'nahw',11,1],[/الاعراب/,'nahw',2,1],[/النحو/,'nahw',0,1]
+  ];
+  const norm=s=>String(s||'').replace(/[ً-ْـ]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
+  const en=()=>{try{return localStorage.getItem('hira-lang')==='en'}catch(e){return false}};
+  const CACHE={};const getC=c=>CACHE[c]||(CACHE[c]=fetch(COURSE_FILES[c]).then(r=>r.json()).catch(()=>null));
+  function matches(code,title){
+    const ar=/^AR-/.test(code),T=norm(title),out=[],seen=new Set();
+    if(ar&&/^AR-Y\d+-(LA|GC|IG|AL|NN)-/.test(code))return out; /* مسار غير الناطقين بالعربية: لا ربط الآن */
+    for(const [re,c,st,arOnly] of RULES){
+      if(arOnly===1&&!ar)continue;if(arOnly===0&&ar)continue;
+      if(arOnly===-1&&!/الصلاه/.test(T))continue;
+      if(c==='nahw'&&/اسم (الفاعل|المفعول)/.test(T)&&(st===6||st===10))continue;
+      if(re.test(T)&&!seen.has(c)){seen.add(c);out.push([c,st]);if(out.length>=2)break}
+    }
+    return out;
+  }
+  async function inject(){
+    const m=location.hash.match(/^#\/lesson\/([^?\/]+)/);if(!m)return;const code=decodeURIComponent(m[1]);
+    let h1=null;for(let k=0;k<40&&!(h1=document.querySelector('.page-head h1'));k++)await new Promise(r=>setTimeout(r,200));
+    if(!h1||!location.hash.includes(code)||document.getElementById('mjLink'))return;
+    const M=matches(code,h1.textContent);if(!M.length)return;
+    const E=en()?1:0,cards=[];
+    for(const [c,st] of M){const d=await getC(c);if(!d)continue;const s=st&&d.STEPS[st-1];
+      cards.push(`<a class="mjl-c" href="#/maarij/${c}${st?'/step-'+st:''}"><span class="mjl-i">🪜</span><span><small>${E?'Master this in Hiraa Ma‘ārij':'أتقن هذا في معارج حراء'} · ${NAMES[c][E]}</small><b>${s?(E?'Step ':'الدرجة ')+st+': '+(s.t[E]||s.t[0]):(d.meta.t[E]||d.meta.t[0])}</b></span><span class="mjl-go">${E?'Open':'افتح'} ←</span></a>`)}
+    if(!cards.length||document.getElementById('mjLink'))return;
+    const box=document.createElement('div');box.id='mjLink';box.className='mjl wrap';box.innerHTML=cards.join('');
+    const head=document.querySelector('.page-head');if(head)head.insertAdjacentElement('afterend',box);
+  }
+  window.addEventListener('hashchange',()=>setTimeout(inject,50));window.addEventListener('load',()=>setTimeout(inject,300));
+  window.HiraaMaarijLinks={matches};
+})();
