@@ -1,105 +1,680 @@
 {
  "tajweed": [
-  ["التجويد","Tajwīd","Reciting every letter correctly, from its point of articulation and with its qualities.",1],
-  ["النون الساكنة","Nūn sākinah","A nūn with no vowel (نْ).",1],
-  ["التنوين","Tanwīn","The extra 'n' sound at the end of a noun, written as a doubled vowel mark (ـًـٍـٌ).",1],
-  ["الإظهار","Iẓhār","Pronouncing the nūn clearly, without merging or nasal hiding.",1],
-  ["حروف الحلق","Throat letters","ء هـ ع ح غ خ — the six letters of iẓhār ḥalqī.",1],
-  ["الإدغام","Idghām","Merging a sākin letter into the next letter so they sound as one stressed letter.",2],
-  ["الغنة","Ghunnah","A nasal sound from the nose, held for about two counts.",2],
-  ["الإقلاب","Iqlāb","Changing nūn sākinah or tanwīn into a hidden mīm before the letter bā’ (ب).",4],
-  ["الإخفاء","Ikhfā’","Pronouncing the nūn between iẓhār and idghām, hidden, with ghunnah.",5],
-  ["الميم الساكنة","Mīm sākinah","A mīm with no vowel (مْ).",7],
-  ["الإخفاء الشفوي","Ikhfā’ shafawī","Hiding mīm sākinah with ghunnah before bā’ (ب).",7],
-  ["الإدغام الشفوي","Idghām shafawī","Merging mīm sākinah into a following mīm, with ghunnah.",8],
-  ["الإظهار الشفوي","Iẓhār shafawī","Pronouncing mīm sākinah clearly before all other letters.",9],
-  ["اللام الشمسية","Sun lām","The lām of «ال» that is merged into the next letter and not pronounced (الشَّمس).",10],
-  ["اللام القمرية","Moon lām","The lām of «ال» that is pronounced clearly (القَمَر).",10],
-  ["المد","Madd","Lengthening the sound of a vowel letter (ا و ي).",12],
-  ["المد الأصلي","Natural madd","Basic lengthening of two counts, with no hamzah or sukūn after it.",12],
-  ["الحركة","Count (ḥarakah)","The unit for measuring the length of a madd.",12],
-  ["المد المتصل","Connected madd","Madd letter followed by hamzah in the same word; obligatory (wājib).",13],
-  ["المد المنفصل","Separated madd","Madd letter at the end of a word and hamzah at the start of the next; permissible (jā’iz).",13],
-  ["المد اللازم","Necessary madd","Madd letter followed by an original sukūn; held for six counts.",14],
-  ["المخرج","Makhraj","The point of articulation where a letter is produced.",15],
-  ["الصفة","Ṣifah","A quality of a letter, such as whispering or strength.",16],
-  ["القلقلة","Qalqalah","A slight echoing bounce on ق ط ب ج د when they are sākin.",16]
+  [
+   "التجويد",
+   "Tajwīd",
+   "Reciting every letter correctly, from its point of articulation and with its qualities.",
+   1
+  ],
+  [
+   "النون الساكنة",
+   "Nūn sākinah",
+   "A nūn with no vowel (نْ).",
+   1
+  ],
+  [
+   "التنوين",
+   "Tanwīn",
+   "The extra 'n' sound at the end of a noun, written as a doubled vowel mark (ـًـٍـٌ).",
+   1
+  ],
+  [
+   "الإظهار",
+   "Iẓhār",
+   "Pronouncing the nūn clearly, without merging or nasal hiding.",
+   1
+  ],
+  [
+   "حروف الحلق",
+   "Throat letters",
+   "ء هـ ع ح غ خ — the six letters of iẓhār ḥalqī.",
+   1
+  ],
+  [
+   "الإدغام",
+   "Idghām",
+   "Merging a sākin letter into the next letter so they sound as one stressed letter.",
+   2
+  ],
+  [
+   "الغنة",
+   "Ghunnah",
+   "A nasal sound from the nose, held for about two counts.",
+   2
+  ],
+  [
+   "الإقلاب",
+   "Iqlāb",
+   "Changing nūn sākinah or tanwīn into a hidden mīm before the letter bā’ (ب).",
+   4
+  ],
+  [
+   "الإخفاء",
+   "Ikhfā’",
+   "Pronouncing the nūn between iẓhār and idghām, hidden, with ghunnah.",
+   5
+  ],
+  [
+   "الميم الساكنة",
+   "Mīm sākinah",
+   "A mīm with no vowel (مْ).",
+   7
+  ],
+  [
+   "الإخفاء الشفوي",
+   "Ikhfā’ shafawī",
+   "Hiding mīm sākinah with ghunnah before bā’ (ب).",
+   7
+  ],
+  [
+   "الإدغام الشفوي",
+   "Idghām shafawī",
+   "Merging mīm sākinah into a following mīm, with ghunnah.",
+   8
+  ],
+  [
+   "الإظهار الشفوي",
+   "Iẓhār shafawī",
+   "Pronouncing mīm sākinah clearly before all other letters.",
+   9
+  ],
+  [
+   "اللام الشمسية",
+   "Sun lām",
+   "The lām of «ال» that is merged into the next letter and not pronounced (الشَّمس).",
+   10
+  ],
+  [
+   "اللام القمرية",
+   "Moon lām",
+   "The lām of «ال» that is pronounced clearly (القَمَر).",
+   10
+  ],
+  [
+   "المد",
+   "Madd",
+   "Lengthening the sound of a vowel letter (ا و ي).",
+   12
+  ],
+  [
+   "المد الأصلي",
+   "Natural madd",
+   "Basic lengthening of two counts, with no hamzah or sukūn after it.",
+   12
+  ],
+  [
+   "الحركة",
+   "Count (ḥarakah)",
+   "The unit for measuring the length of a madd.",
+   12
+  ],
+  [
+   "المد المتصل",
+   "Connected madd",
+   "Madd letter followed by hamzah in the same word; obligatory (wājib).",
+   13
+  ],
+  [
+   "المد المنفصل",
+   "Separated madd",
+   "Madd letter at the end of a word and hamzah at the start of the next; permissible (jā’iz).",
+   13
+  ],
+  [
+   "المد اللازم",
+   "Necessary madd",
+   "Madd letter followed by an original sukūn; held for six counts.",
+   14
+  ],
+  [
+   "المخرج",
+   "Makhraj",
+   "The point of articulation where a letter is produced.",
+   15
+  ],
+  [
+   "الصفة",
+   "Ṣifah",
+   "A quality of a letter, such as whispering or strength.",
+   16
+  ],
+  [
+   "القلقلة",
+   "Qalqalah",
+   "A slight echoing bounce on ق ط ب ج د when they are sākin.",
+   16
+  ]
  ],
  "fiqh": [
-  ["الطهارة","Ṭahārah","Ritual purity, required for prayer.",1],
-  ["الماء الطهور","Purifying water","Natural water that is pure and can be used for wuḍū’ and ghusl.",1],
-  ["الوضوء","Wuḍū’","Washing specific body parts in a set way before prayer.",2],
-  ["الفرض","Farḍ","An obligatory act; leaving it makes the act of worship invalid.",2],
-  ["السنة","Sunnah","A recommended act from the Prophet’s ﷺ practice; rewarded, but not obligatory.",3],
-  ["النية","Niyyah","The intention in the heart to perform the act of worship.",2],
-  ["نواقض الوضوء","Nullifiers of wuḍū’","Things that break wuḍū’, so it must be renewed.",4],
-  ["الحدث","Ḥadath","The state of impurity that prevents prayer until one purifies.",4],
-  ["الشرط","Condition (sharṭ)","Something that must be present before and during the act for it to be valid.",5],
-  ["القبلة","Qiblah","The direction of the Ka‘bah in Makkah, faced in prayer.",5],
-  ["الركن","Pillar (rukn)","An essential part inside the prayer; it is invalid without it.",7],
-  ["مبطلات الصلاة","Invalidators of prayer","Things that cancel the prayer, so it must be repeated.",8],
-  ["الغسل","Ghusl","Washing the whole body for ritual purity.",9],
-  ["التيمم","Tayammum","Dry ablution using clean earth when water is unavailable or harmful.",10],
-  ["المسح على الخفين","Wiping over khuffs","Wiping over leather socks worn in purity, instead of washing the feet.",11],
-  ["القصر","Qaṣr","Shortening four-unit prayers to two during travel.",12],
-  ["الجمع","Jam‘","Combining two prayers in the time of one of them, for a valid reason.",12]
+  [
+   "الطهارة",
+   "Ṭahārah",
+   "Ritual purity, required for prayer.",
+   1
+  ],
+  [
+   "الماء الطهور",
+   "Purifying water",
+   "Natural water that is pure and can be used for wuḍū’ and ghusl.",
+   1
+  ],
+  [
+   "الوضوء",
+   "Wuḍū’",
+   "Washing specific body parts in a set way before prayer.",
+   2
+  ],
+  [
+   "الفرض",
+   "Farḍ",
+   "An obligatory act; leaving it makes the act of worship invalid.",
+   2
+  ],
+  [
+   "السنة",
+   "Sunnah",
+   "A recommended act from the Prophet’s ﷺ practice; rewarded, but not obligatory.",
+   3
+  ],
+  [
+   "النية",
+   "Niyyah",
+   "The intention in the heart to perform the act of worship.",
+   2
+  ],
+  [
+   "نواقض الوضوء",
+   "Nullifiers of wuḍū’",
+   "Things that break wuḍū’, so it must be renewed.",
+   4
+  ],
+  [
+   "الحدث",
+   "Ḥadath",
+   "The state of impurity that prevents prayer until one purifies.",
+   4
+  ],
+  [
+   "الشرط",
+   "Condition (sharṭ)",
+   "Something that must be present before and during the act for it to be valid.",
+   5
+  ],
+  [
+   "القبلة",
+   "Qiblah",
+   "The direction of the Ka‘bah in Makkah, faced in prayer.",
+   5
+  ],
+  [
+   "الركن",
+   "Pillar (rukn)",
+   "An essential part inside the prayer; it is invalid without it.",
+   7
+  ],
+  [
+   "مبطلات الصلاة",
+   "Invalidators of prayer",
+   "Things that cancel the prayer, so it must be repeated.",
+   8
+  ],
+  [
+   "الغسل",
+   "Ghusl",
+   "Washing the whole body for ritual purity.",
+   9
+  ],
+  [
+   "التيمم",
+   "Tayammum",
+   "Dry ablution using clean earth when water is unavailable or harmful.",
+   10
+  ],
+  [
+   "المسح على الخفين",
+   "Wiping over khuffs",
+   "Wiping over leather socks worn in purity, instead of washing the feet.",
+   11
+  ],
+  [
+   "القصر",
+   "Qaṣr",
+   "Shortening four-unit prayers to two during travel.",
+   12
+  ],
+  [
+   "الجمع",
+   "Jam‘",
+   "Combining two prayers in the time of one of them, for a valid reason.",
+   12
+  ]
  ],
  "shiir": [
-  ["الشعر","Poetry","Speech with metre (wazn) and rhyme (qāfiyah) that carries meaning and feeling.",1],
-  ["البيت","Verse (bayt)","One line of a poem, made of two halves.",1],
-  ["الصدر","First half (ṣadr)","The first half of a verse.",1],
-  ["العجز","Second half (‘ajz)","The second half of a verse.",1],
-  ["الوزن","Metre","The musical rhythm of the verse.",1],
-  ["القافية","Rhyme","The repeated sound at the end of every verse.",1],
-  ["القصيدة","Qaṣīdah","A complete poem with one metre and one rhyme.",1],
-  ["المعلقة","Mu‘allaqah","One of the famous long pre-Islamic poems.",2],
-  ["الحكمة","Wisdom","A short, true saying drawn from life experience.",2],
-  ["المخضرم","Mukhaḍram","A poet who lived in both the pre-Islamic era and Islam.",3],
-  ["الغرض","Purpose (theme)","The topic of a poem, such as praise, wisdom or description.",12],
-  ["المدح","Madḥ","Praise poetry.",4],
-  ["الوصف","Waṣf","Descriptive poetry.",5],
-  ["الرثاء","Rithā’","Poetry lamenting loss; in this course, for lost cities.",8],
-  ["العصر","Era","A historical period of Arabic literature (pre-Islamic, Umayyad, Abbasid…).",12]
+  [
+   "الشعر",
+   "Poetry",
+   "Speech with metre (wazn) and rhyme (qāfiyah) that carries meaning and feeling.",
+   1
+  ],
+  [
+   "البيت",
+   "Verse (bayt)",
+   "One line of a poem, made of two halves.",
+   1
+  ],
+  [
+   "الصدر",
+   "First half (ṣadr)",
+   "The first half of a verse.",
+   1
+  ],
+  [
+   "العجز",
+   "Second half (‘ajz)",
+   "The second half of a verse.",
+   1
+  ],
+  [
+   "الوزن",
+   "Metre",
+   "The musical rhythm of the verse.",
+   1
+  ],
+  [
+   "القافية",
+   "Rhyme",
+   "The repeated sound at the end of every verse.",
+   1
+  ],
+  [
+   "القصيدة",
+   "Qaṣīdah",
+   "A complete poem with one metre and one rhyme.",
+   1
+  ],
+  [
+   "المعلقة",
+   "Mu‘allaqah",
+   "One of the famous long pre-Islamic poems.",
+   2
+  ],
+  [
+   "الحكمة",
+   "Wisdom",
+   "A short, true saying drawn from life experience.",
+   2
+  ],
+  [
+   "المخضرم",
+   "Mukhaḍram",
+   "A poet who lived in both the pre-Islamic era and Islam.",
+   3
+  ],
+  [
+   "الغرض",
+   "Purpose (theme)",
+   "The topic of a poem, such as praise, wisdom or description.",
+   12
+  ],
+  [
+   "المدح",
+   "Madḥ",
+   "Praise poetry.",
+   4
+  ],
+  [
+   "الوصف",
+   "Waṣf",
+   "Descriptive poetry.",
+   5
+  ],
+  [
+   "الرثاء",
+   "Rithā’",
+   "Poetry lamenting loss; in this course, for lost cities.",
+   8
+  ],
+  [
+   "العصر",
+   "Era",
+   "A historical period of Arabic literature (pre-Islamic, Umayyad, Abbasid…).",
+   12
+  ]
  ],
  "imla": [
-  ["الإملاء","Imlā’","Spelling: writing words correctly by the rules.",1],
-  ["التاء المربوطة","Tied tā’ (ة)","Written ة; pronounced h when you stop on it.",1],
-  ["التاء المفتوحة","Open tā’ (ت)","Written ت; always pronounced t.",1],
-  ["واو الجماعة","Wāw of the group","The wāw meaning ‘they’ on verbs; followed by a written alif (كتبوا).",2],
-  ["تنوين النصب","Tanwīn of naṣb","The -an ending; usually written with an extra alif (كتابًا).",2],
-  ["همزة الوصل","Connecting hamzah","Pronounced only at the start of speech; written as a bare alif (اكتبْ).",4],
-  ["همزة القطع","Cutting hamzah","Always pronounced; written with a hamzah sign (أكرمَ).",4],
-  ["الهمزة المتوسطة","Middle hamzah","A hamzah in the middle of a word; its seat follows the strongest vowel.",6],
-  ["الكرسي","Seat (kursī)","The letter a hamzah sits on: ا, و or ى (ئ).",6],
-  ["الهمزة المتطرفة","Final hamzah","A hamzah at the end of a word; its seat follows the vowel before it.",8],
-  ["الألف اللينة","Soft alif","A final alif written either as ا or as ى.",9],
-  ["الألف المقصورة","Alif maqṣūrah","A final alif written like yā’ without dots (ى).",9],
-  ["علامات الترقيم","Punctuation marks","Signs like ، . ؟ ! that organise meaning.",12]
+  [
+   "الإملاء",
+   "Imlā’",
+   "Spelling: writing words correctly by the rules.",
+   1
+  ],
+  [
+   "التاء المربوطة",
+   "Tied tā’ (ة)",
+   "Written ة; pronounced h when you stop on it.",
+   1
+  ],
+  [
+   "التاء المفتوحة",
+   "Open tā’ (ت)",
+   "Written ت; always pronounced t.",
+   1
+  ],
+  [
+   "واو الجماعة",
+   "Wāw of the group",
+   "The wāw meaning ‘they’ on verbs; followed by a written alif (كتبوا).",
+   2
+  ],
+  [
+   "تنوين النصب",
+   "Tanwīn of naṣb",
+   "The -an ending; usually written with an extra alif (كتابًا).",
+   2
+  ],
+  [
+   "همزة الوصل",
+   "Connecting hamzah",
+   "Pronounced only at the start of speech; written as a bare alif (اكتبْ).",
+   4
+  ],
+  [
+   "همزة القطع",
+   "Cutting hamzah",
+   "Always pronounced; written with a hamzah sign (أكرمَ).",
+   4
+  ],
+  [
+   "الهمزة المتوسطة",
+   "Middle hamzah",
+   "A hamzah in the middle of a word; its seat follows the strongest vowel.",
+   6
+  ],
+  [
+   "الكرسي",
+   "Seat (kursī)",
+   "The letter a hamzah sits on: ا, و or ى (ئ).",
+   6
+  ],
+  [
+   "الهمزة المتطرفة",
+   "Final hamzah",
+   "A hamzah at the end of a word; its seat follows the vowel before it.",
+   8
+  ],
+  [
+   "الألف اللينة",
+   "Soft alif",
+   "A final alif written either as ا or as ى.",
+   9
+  ],
+  [
+   "الألف المقصورة",
+   "Alif maqṣūrah",
+   "A final alif written like yā’ without dots (ى).",
+   9
+  ],
+  [
+   "علامات الترقيم",
+   "Punctuation marks",
+   "Signs like ، . ؟ ! that organise meaning.",
+   12
+  ]
  ],
  "nahw": [
-  ["النحو","Naḥw","Grammar: rules for the endings and roles of words in a sentence.",1],
-  ["الكلام","Kalām","A meaningful sentence.",1],
-  ["الاسم","Noun (ism)","A word for a person, thing or idea, without time.",1],
-  ["الفعل","Verb (fi‘l)","A word for an action linked to time.",1],
-  ["الحرف","Particle (ḥarf)","A word whose meaning appears only with other words.",1],
-  ["الإعراب","I‘rāb","Change of a word’s ending according to its role.",2],
-  ["الرفع","Raf‘","Nominative case; main sign ḍammah (ـُ).",2],
-  ["النصب","Naṣb","Accusative case; main sign fatḥah (ـَ).",2],
-  ["الجر / الخفض","Jarr / Khafḍ","Genitive case; main sign kasrah (ـِ).",2],
-  ["الجزم","Jazm","Jussive mood for verbs; main sign sukūn (ـْ).",2],
-  ["المبني","Mabnī","A word whose ending never changes.",2],
-  ["الممنوع من الصرف","Diptote","A noun that takes no tanwīn and uses fatḥah for jarr.",3],
-  ["المثنى","Dual","Two of something; ends in ـان / ـين.",4],
-  ["جمع المذكر السالم","Sound masculine plural","Ends in ـون / ـين.",4],
-  ["الأسماء الخمسة","The five nouns","أب، أخ، حم، فو، ذو — marked by letters (و ا ي).",4],
-  ["الفعل المضارع","Present verb","A verb for now or the future; it takes i‘rāb.",5],
-  ["الفاعل","Doer (fā‘il)","The one who does the action; marfū‘.",6],
-  ["نائب الفاعل","Deputy doer","Replaces the doer in a passive sentence; marfū‘.",6],
-  ["المبتدأ","Subject (mubtada’)","The noun a nominal sentence starts with; marfū‘.",7],
-  ["الخبر","Predicate (khabar)","What completes the meaning of the mubtada’; marfū‘.",7],
-  ["المفعول به","Object","The one the action happens to; manṣūb.",10],
-  ["النعت","Adjective (na‘t)","Describes the noun before it and follows its case.",9],
-  ["الحال","Ḥāl","Describes the state of someone at the time of the action; manṣūb.",11],
-  ["التمييز","Tamyīz","Clarifies a vague word, such as a number; manṣūb.",11]
+  [
+   "النحو",
+   "Naḥw",
+   "Grammar: rules for the endings and roles of words in a sentence.",
+   1
+  ],
+  [
+   "الكلام",
+   "Kalām",
+   "A meaningful sentence.",
+   1
+  ],
+  [
+   "الاسم",
+   "Noun (ism)",
+   "A word for a person, thing or idea, without time.",
+   1
+  ],
+  [
+   "الفعل",
+   "Verb (fi‘l)",
+   "A word for an action linked to time.",
+   1
+  ],
+  [
+   "الحرف",
+   "Particle (ḥarf)",
+   "A word whose meaning appears only with other words.",
+   1
+  ],
+  [
+   "الإعراب",
+   "I‘rāb",
+   "Change of a word’s ending according to its role.",
+   2
+  ],
+  [
+   "الرفع",
+   "Raf‘",
+   "Nominative case; main sign ḍammah (ـُ).",
+   2
+  ],
+  [
+   "النصب",
+   "Naṣb",
+   "Accusative case; main sign fatḥah (ـَ).",
+   2
+  ],
+  [
+   "الجر / الخفض",
+   "Jarr / Khafḍ",
+   "Genitive case; main sign kasrah (ـِ).",
+   2
+  ],
+  [
+   "الجزم",
+   "Jazm",
+   "Jussive mood for verbs; main sign sukūn (ـْ).",
+   2
+  ],
+  [
+   "المبني",
+   "Mabnī",
+   "A word whose ending never changes.",
+   2
+  ],
+  [
+   "الممنوع من الصرف",
+   "Diptote",
+   "A noun that takes no tanwīn and uses fatḥah for jarr.",
+   3
+  ],
+  [
+   "المثنى",
+   "Dual",
+   "Two of something; ends in ـان / ـين.",
+   4
+  ],
+  [
+   "جمع المذكر السالم",
+   "Sound masculine plural",
+   "Ends in ـون / ـين.",
+   4
+  ],
+  [
+   "الأسماء الخمسة",
+   "The five nouns",
+   "أب، أخ، حم، فو، ذو — marked by letters (و ا ي).",
+   4
+  ],
+  [
+   "الفعل المضارع",
+   "Present verb",
+   "A verb for now or the future; it takes i‘rāb.",
+   5
+  ],
+  [
+   "الفاعل",
+   "Doer (fā‘il)",
+   "The one who does the action; marfū‘.",
+   6
+  ],
+  [
+   "نائب الفاعل",
+   "Deputy doer",
+   "Replaces the doer in a passive sentence; marfū‘.",
+   6
+  ],
+  [
+   "المبتدأ",
+   "Subject (mubtada’)",
+   "The noun a nominal sentence starts with; marfū‘.",
+   7
+  ],
+  [
+   "الخبر",
+   "Predicate (khabar)",
+   "What completes the meaning of the mubtada’; marfū‘.",
+   7
+  ],
+  [
+   "المفعول به",
+   "Object",
+   "The one the action happens to; manṣūb.",
+   10
+  ],
+  [
+   "النعت",
+   "Adjective (na‘t)",
+   "Describes the noun before it and follows its case.",
+   9
+  ],
+  [
+   "الحال",
+   "Ḥāl",
+   "Describes the state of someone at the time of the action; manṣūb.",
+   11
+  ],
+  [
+   "التمييز",
+   "Tamyīz",
+   "Clarifies a vague word, such as a number; manṣūb.",
+   11
+  ]
+ ],
+ "arbaeen": [
+  [
+   "الحديث",
+   "Ḥadīth",
+   "A report of what the Prophet ﷺ said, did or approved.",
+   1
+  ],
+  [
+   "النية",
+   "Niyyah",
+   "The intention in the heart behind a deed.",
+   1
+  ],
+  [
+   "الإحسان",
+   "Iḥsān",
+   "Worshipping Allah as though you see Him; He sees you.",
+   1
+  ],
+  [
+   "الإيمان",
+   "Īmān",
+   "Belief in Allah, His angels, books, messengers, the Last Day and the decree.",
+   1
+  ],
+  [
+   "البدعة",
+   "Bid‘ah (innovation)",
+   "Something newly introduced into the religion that is not from it.",
+   3
+  ],
+  [
+   "الشبهات",
+   "Doubtful matters",
+   "Things not clearly lawful or unlawful; caution is to avoid them.",
+   3
+  ],
+  [
+   "النصيحة",
+   "Naṣīḥah",
+   "Sincere goodwill and counsel — to Allah, His Book, His Messenger, leaders and people.",
+   4
+  ],
+  [
+   "الحديث القدسي",
+   "Ḥadīth qudsī",
+   "What the Prophet ﷺ relates from his Lord.",
+   12
+  ],
+  [
+   "التقوى",
+   "Taqwā",
+   "Protecting oneself from Allah’s punishment by obeying Him.",
+   9
+  ],
+  [
+   "الحياء",
+   "Ḥayā’ (modesty)",
+   "A feeling that holds one back from what is shameful.",
+   10
+  ],
+  [
+   "الاستقامة",
+   "Istiqāmah",
+   "Keeping to the straight path of the Sharī‘ah without deviating.",
+   11
+  ],
+  [
+   "الزهد",
+   "Zuhd",
+   "Not clinging to worldly things.",
+   16
+  ],
+  [
+   "البيّنة",
+   "Bayyinah (proof)",
+   "Evidence the claimant must bring in a dispute.",
+   17
+  ],
+  [
+   "المنكر",
+   "Munkar",
+   "What Allah and His Messenger have forbidden.",
+   17
+  ],
+  [
+   "الحسد",
+   "Ḥasad (envy)",
+   "Disliking a blessing Allah gave someone else.",
+   18
+  ],
+  [
+   "البر",
+   "Birr",
+   "Abundant goodness; righteousness is good character.",
+   14
+  ],
+  [
+   "الإثم",
+   "Ithm (sin)",
+   "What troubles the soul and you dislike others to see.",
+   14
+  ],
+  [
+   "وليّ الله",
+   "Friend of Allah",
+   "Every pious believer.",
+   19
+  ]
  ]
 }

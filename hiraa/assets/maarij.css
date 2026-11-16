@@ -404,3 +404,12 @@ body.mjboard .mj .wrap,body.mjboard .mj{max-width:none}
 .mj .gs{border:1px solid #E1DACB;background:#FAF7F0;border-radius:999px;padding:5px 12px;cursor:pointer;font-family:"ThmanyahSans";white-space:nowrap}
 @media (max-width:640px){.mj .gi{grid-template-columns:1fr}.mj .gs{justify-self:start}}
 @media (max-width:640px){.mj .shead{gap:8px}.mj .shead .spacer{display:none}.mj .shead>div:first-child{flex-basis:100%}.mj .shead .btn{padding:7px 12px;font-size:14px}}
+/* الأربعون النووية */
+.mj .hadith{background:#FFFDF6;border:1px solid #EADFC4;border-inline-start:4px solid var(--gold);border-radius:16px;padding:14px 18px;margin:10px 0}
+.mj .hadith .hn{display:inline-block;background:var(--gold);color:#fff;border-radius:999px;padding:2px 12px;font:700 13px "ThmanyahSans",sans-serif}
+.mj .hadith .isn{color:var(--muted);font-size:15px;margin:8px 0 4px}
+.mj .hadith .mt{font-family:"Amiri","ThmanyahSerif",serif;font-size:22px;line-height:2.1;color:#1d2b3a;margin:4px 0}
+.mj .hadith .tk{font:600 13px "ThmanyahSans",sans-serif;color:var(--isl);margin:6px 0 0}
+.mj .hadith.en .mt{font-family:inherit;font-size:16px;line-height:1.7}
+.mj .les{margin:10px 0;padding-inline-start:22px}
+.mj .les li{margin:6px 0;line-height:1.8}
