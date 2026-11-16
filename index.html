@@ -4545,6 +4545,8 @@ window.HiraArcade = (function () {
     function irab() {
       const P = pool(), sents = byFocus(P.irabs).slice(0, 4), n = sents.length; if (!n) return menu();
       const roles = [...new Set(P.irabs.flatMap((x) => x.t.map((t) => t[1])))];
+      // علامات الوحدة نفسها (السكون، حذف النون، الفتحة نيابة عن الكسرة…) تنضمّ إلى العلامات الأصلية بدائلَ
+      const signs = [...new Set(SIGNS.concat(P.irabs.flatMap((x) => x.t.map((t) => t[2]).filter(Boolean))))];
       const total = sents.reduce((m, x) => m + x.t.length, 0); let si = 0, ti = 0, right = 0, done = 0; const missed = [];
       root.innerHTML = `${hud(T("مختبر الإعراب", "Grammar lab"), `<span class="arc-pill">${T("الجملة", "Sentence")} <b data-i>1</b> / ${n}</span><span class="arc-pill">✓ <b data-r>0</b> / ${total}</span>${sents.some((x) => x.draft) ? `<span class="arc-pill warn">${T("مسودّة", "Draft")}</span>` : ""}`)}<div class="arc-qbox"></div>`;
       bindHud();
@@ -4555,7 +4557,8 @@ window.HiraArcade = (function () {
       const GEN = ["اسم", "فعل", "حرف"], cls = (r) => { const n = bare(r); return /^فعل/.test(n) ? "فعل" : /^(حرف|لا الناهيه)/.test(n) ? "حرف" : "اسم"; };
       const okD = (c, d) => { const C = bare(c), D = bare(d); if (C === D) return false;
         if (GEN.includes(D) && cls(c) === D) return false; if (GEN.includes(C) && cls(d) === C) return false;
-        const pair = [C, D].sort().join("|"); if (pair === "معطوف|معطوف عليه") return true;
+        // المتقابلان لا يصدق أحدهما على الآخر: معطوف/معطوف عليه، مستثنى/مستثنى منه، بدل/مبدل منه
+        if (D === C + " عليه" || C === D + " عليه" || D === C + " منه" || C === D + " منه") return true;
         return !(C.startsWith(D + " ") || D.startsWith(C + " ")); };
       const roleOpts = (role) => { let d = shuffle(roles.filter((x) => okD(role, x))).slice(0, 3);
         if (d.length < 2) d = d.concat(shuffle(GEN.map((g) => ({ g, t: { اسم: "اسْمٌ", فعل: "فِعْلٌ", حرف: "حَرْفٌ" }[g] })).filter((o) => okD(role, o.t) && !d.includes(o.t)).map((o) => o.t))).slice(0, 3);
@@ -4589,7 +4592,7 @@ window.HiraArcade = (function () {
           const sol = `${S.w[wi]}: ${role}${sign ? ` · ${sign}` : ""}`;
           if (!sign) { box.querySelector(".arc-fb").innerHTML = okR ? `<b class="good">${T("أحسنت!", "Well done!")}</b>` : `<b class="bad">${T("الصواب:", "Correct:")}</b> ${esc(role)}`; return after(okR, sol); }
           SND.p(okR ? "tick" : "no");
-          const so = opts(sign, SIGNS, 3), s2 = box.querySelector(".arc-step2"), q2 = s2.querySelector('[data-q="s"]'); s2.hidden = false;
+          const so = opts(sign, signs.filter((x) => { const A = bare(sign), B = bare(x); return A !== B && !A.startsWith(B + " ") && !B.startsWith(A + " "); }), 3), s2 = box.querySelector(".arc-step2"), q2 = s2.querySelector('[data-q="s"]'); s2.hidden = false;
           q2.innerHTML = so.map((o, k) => `<button class="arc-opt" type="button" data-o="${k}" dir="rtl"><span>${esc(o)}</span></button>`).join("");
           q2.querySelectorAll("[data-o]").forEach((c) => c.onclick = () => {
             q2.querySelectorAll("[data-o]").forEach((x) => { x.disabled = true; });
