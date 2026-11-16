@@ -28,7 +28,7 @@
     let mine = {};
     if (isStudent() && state.session && !state.viewAs) {
       const ids = all.map((x) => x.lesson && x.lesson.id).filter(Boolean);
-      if (ids.length) { const { data } = await sb.from("lesson_reading").select("lesson_id, score, max_score, quiz_at, expr_at, wpm, wcpm, accuracy, skills").eq("student_id", state.session.user.id).in("lesson_id", ids); (data || []).forEach((r) => { mine[r.lesson_id] = r; }); }
+      if (ids.length) { const { data } = await sb.from("lesson_reading").select("lesson_id, score, max_score, quiz_at, expr_at, wpm, wcpm, accuracy, skills, act").eq("student_id", state.session.user.id).in("lesson_id", ids); (data || []).forEach((r) => { mine[r.lesson_id] = r; }); }
     }
     const target = await mdrTarget(year);
     const done = all.filter((x) => x.lesson && mine[x.lesson.id] && mine[x.lesson.id].quiz_at);
@@ -84,14 +84,14 @@
   }
   // دوري القراءة: نقاط وأوسمة وشهادة الفصل
   const MDR_BD = [["🌱", "قارِئٌ ناشِئٌ"], ["📘", "قارِئٌ نَشيطٌ"], ["⭐", "قارِئٌ مُتَمَكِّنٌ"], ["🏅", "قارِئٌ مُتَمَيِّزٌ"], ["🏆", "سَفيرُ الْقِراءَةِ"], ["👑", "فارِسُ الْقِراءَةِ"]];
-  const mdrPts = (r) => !r || !r.quiz_at ? 0 : 10 + (r.score === r.max_score && r.max_score ? 5 : 0) + (r.expr_at ? 5 : 0) + (r.wpm ? 2 : 0);
+  const mdrPts = (r) => !r || !r.quiz_at ? 0 : 10 + (r.score === r.max_score && r.max_score ? 5 : 0) + (r.expr_at ? 5 : 0) + (r.wpm ? 2 : 0) + (r.act && r.act.rrN ? 3 : 0);
   function mdrLeague(all, mine, year, term) {
     const rs = all.map((x) => x.lesson && mine[x.lesson.id]).filter((r) => r && r.quiz_at);
     const pts = rs.reduce((a, r) => a + mdrPts(r), 0), nb = Math.min(Math.floor(rs.length / 5), MDR_BD.length);
     const tt = all.filter((x) => x.term === term), td = tt.filter((x) => x.lesson && mine[x.lesson.id] && mine[x.lesson.id].quiz_at).length;
     const nx = nb < MDR_BD.length ? 5 * (nb + 1) - rs.length : 0;
     return `<div class="mdr-league"><div class="mdr-lg-h"><h4>🏁 دَوْري الْقِراءَةِ</h4><b class="mdr-pts">${pts} <small>نُقْطَةً</small></b></div>
-      <p class="muted">كُلُّ نَصٍّ تُنْجِزُهُ: 10 نِقاطٍ · الْعَلامَةُ الْكامِلَةُ +5 · إِرْسالُ التَّعْبيرِ +5 · قِياسُ الطَّلاقَةِ +2. وِسامٌ جَديدٌ كُلَّ 5 نُصوصٍ.</p>
+      <p class="muted">كُلُّ نَصٍّ تُنْجِزُهُ: 10 نِقاطٍ · الْعَلامَةُ الْكامِلَةُ +5 · إِرْسالُ التَّعْبيرِ +5 · قِياسُ الطَّلاقَةِ +2 · جَوْلَةُ الْقِراءَةِ الْمُتَكَرِّرَةِ +3. وِسامٌ جَديدٌ كُلَّ 5 نُصوصٍ.</p>
       <div class="mdr-badges">${MDR_BD.map((b, i) => `<span class="mdr-bd ${i < nb ? "on" : ""}" title="${b[1]}: ${5 * (i + 1)} نُصوصٍ"><i>${b[0]}</i>${b[1]}<small>${5 * (i + 1)} نُصوصٍ</small></span>`).join("")}</div>
       ${nx ? `<p class="muted">بَقِيَ <b>${nx}</b> ${nx === 1 ? "نَصٌّ" : "نُصوصٍ"} لِلْوِسامِ التّالي «${MDR_BD[nb][1]}».</p>` : ""}
       <div class="mdr-cert-row"><span>🎓 شَهادَةُ «قارِئِ الْفَصْلِ»: أَنْجَزْتَ <bdi dir="ltr">${td}/${tt.length}</bdi> مِنْ نُصوصِ هذا الْفَصْلِ</span>${tt.length && td === tt.length ? `<button class="btn btn-primary btn-small" id="mdrCert">🖨️ اطْبَعْ شَهادَتي</button>` : mdrBar(td, tt.length)}</div></div>`;
@@ -129,7 +129,7 @@
     async function draw() {
       const { data: roster } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur);
       const SS = (roster || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
-      const { data: rr } = SS.length && ids.length ? await sb.from("lesson_reading").select("student_id, lesson_id, score, max_score, quiz_at, expr_at, wpm, wcpm, accuracy, skills").in("lesson_id", ids).in("student_id", SS.map((s) => s.id)) : { data: [] };
+      const { data: rr } = SS.length && ids.length ? await sb.from("lesson_reading").select("student_id, lesson_id, score, max_score, quiz_at, expr_at, wpm, wcpm, accuracy, skills, act").in("lesson_id", ids).in("student_id", SS.map((s) => s.id)) : { data: [] };
       const B = {}; (rr || []).forEach((r) => { (B[r.student_id] = B[r.student_id] || []).push(r); });
       const KS = Object.keys(MDR_SK), groups = {}; KS.forEach((k) => { groups[k] = []; });
       const rows = SS.map((s) => { const rs = (B[s.id] || []).filter((r) => r.quiz_at); const sk = {}; KS.forEach((k) => { sk[k] = [0, 0]; });
@@ -144,7 +144,7 @@
         ${cls.length > 1 ? `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>` : ""}
         <div class="lp-stats"><div><b>${SS.length}</b><small>طالبًا</small></div><div><b>${rows.length ? Math.round(rows.reduce((a, r) => a + r.n, 0) / rows.length * 10) / 10 : "—"}</b><small>متوسط النصوص المنجزة من ${all.length}</small></div><div><b>${avgW.length ? Math.round(avgW.reduce((a, b) => a + b, 0) / avgW.length) : "—"}</b><small>متوسط الطلاقة${target ? ` · الهدف ${target}` : ""}</small></div>${target ? `<div><b><bdi dir="ltr">${rows.filter((r) => r.wpm && r.wpm >= target).length}/${SS.length}</bdi></b><small>بلغوا الهدف</small></div>` : ""}</div>
         <div class="lp-tw"><table class="lp-tbl mdr-heat"><thead><tr><th>الطالب</th><th>النصوص</th><th>الفهم</th>${KS.map((k) => `<th title="${MDR_SK[k][1]}">${MDR_SK[k][0]} ${{ ret: "الاسترجاع", inf: "الاستنتاج", int: "التفسير", eva: "التقويم" }[k]}</th>`).join("")}<th>الطلاقة</th><th>دقة القراءة</th><th>النقاط</th><th>يحتاج دعمًا في</th></tr></thead><tbody>
-        ${rows.map((r) => `<tr><td>${esc(r.s.name)}</td><td><bdi dir="ltr">${r.n}/${all.length}</bdi></td><td ${col(r.c)}>${r.c == null ? "—" : r.c + "%"}</td>${r.sk.map((p) => `<td ${col(p)}>${p == null ? "—" : p + "%"}</td>`).join("")}<td ${target && r.wpm ? col(Math.min(100, r.wpm * 100 / target)) : ""}>${r.wpm || "—"}</td><td ${r.acc != null ? col(Math.max(0, (r.acc - 85) * 100 / 15)) : ""} title="${r.acc != null ? mdrLvl(r.acc)[1] : ""}">${r.acc != null ? r.acc + "%" : "—"}</td><td>${r.pts}</td><td>${r.weak ? MDR_SK[r.weak][0] + " " + MDR_SK[r.weak][1] : "—"}</td></tr>`).join("") || `<tr><td colspan="${KS.length + 7}">لا يوجد طلاب في هذا الفصل</td></tr>`}
+        ${rows.map((r) => `<tr><td><a href="#/readreport/${r.s.id}" title="تقرير الطالب">${esc(r.s.name)}</a></td><td><bdi dir="ltr">${r.n}/${all.length}</bdi></td><td ${col(r.c)}>${r.c == null ? "—" : r.c + "%"}</td>${r.sk.map((p) => `<td ${col(p)}>${p == null ? "—" : p + "%"}</td>`).join("")}<td ${target && r.wpm ? col(Math.min(100, r.wpm * 100 / target)) : ""}>${r.wpm || "—"}</td><td ${r.acc != null ? col(Math.max(0, (r.acc - 85) * 100 / 15)) : ""} title="${r.acc != null ? mdrLvl(r.acc)[1] : ""}">${r.acc != null ? r.acc + "%" : "—"}</td><td>${r.pts}</td><td>${r.weak ? MDR_SK[r.weak][0] + " " + MDR_SK[r.weak][1] : "—"}</td></tr>`).join("") || `<tr><td colspan="${KS.length + 7}">لا يوجد طلاب في هذا الفصل</td></tr>`}
         </tbody></table></div>
         <h4>👥 مَجْموعاتُ الدَّعْمِ الْمُقْتَرَحَةُ</h4><p class="muted">الطالب في مجموعة أضعف مستوى له (أقل من 70% بعد سؤالين على الأقل).</p>
         <div class="mdr-groups">${KS.map((k) => `<div><b>${MDR_SK[k][0]} ${MDR_SK[k][1]} <small>(${groups[k].length})</small></b><span>${groups[k].length ? groups[k].map(esc).join("، ") : "—"}</span></div>`).join("")}</div></div>`;
@@ -173,13 +173,14 @@
       <h1>«${esc(it.t || "")}»</h1>
       <div class="head-meta"><span class="pill">📗 مدارج القراءة · النص ${pos + 1} من ${idx.length}</span><span class="pill">${it.kind === "i" ? "نص معلوماتي" : "نص سردي"}</span><span class="pill">${it.si || ""} ${esc(it.sn || "")}</span><span class="pill">${it.w || ""} كلمة</span>
         <a class="pill" href="#/lesson/${esc(l.code)}">🔗 درس الأسبوع: ${esc(String(l.title_ar || "").replace(/^[^:]*:\s*/, ""))}</a></div>
-      ${acc === "ok" ? `<div class="mdr-tools">${isStaff() && state.session ? `<button class="btn btn-primary btn-small" id="mdrHw">📌 كلِّف الفصل بهذا النص واجبًا</button>` : ""}<button class="btn btn-ghost btn-small" id="mdrPrint">🖨️ حزمة الطباعة</button></div>` : ""}
+      ${acc === "ok" ? `<div class="mdr-tools">${isStaff() && state.session ? `<button class="btn btn-primary btn-small" id="mdrHw">📌 كلِّف الفصل بهذا النص واجبًا</button><button class="btn btn-ghost btn-small" id="mdrBd">📺 اعرض على السبورة</button>` : ""}<button class="btn btn-ghost btn-small" id="mdrPrint">🖨️ حزمة الطباعة</button></div>` : ""}
     </div></section>
     <section class="wrap panel" id="panel"><div id="rdgBox"></div>
       <div class="mdr-pn">${nav(idx[pos - 1], "→")}${nav(idx[pos + 1], "←")}</div></section>`);
     const box = document.getElementById("rdgBox");
     if (acc !== "ok") { box.innerHTML = `<div class="paywall-box form-card"><strong>${lockIcon} ${state.session ? "هذا النص مقفل الآن" : "اشترك أولًا"}</strong><p>${state.session ? "يفتحه معلمك مع درسه، أو عند تفعيل اشتراك الصف." : "النص الأول من كل صف مجاني للتجربة، وبقية النصوص للمشتركين."}</p><a class="btn btn-primary" href="${listHref}">العودة إلى قائمة النصوص</a></div>`; return; }
     const hw = document.getElementById("mdrHw"); if (hw) hw.onclick = () => hwDialog(l, u, false, false, true, it.t);
+    const bd = document.getElementById("mdrBd"); if (bd) bd.onclick = async () => { const X = await mdrGet(id); try { const FX = await mdrTagFix(id); X.qs.forEach((q, j) => { if (FX[j]) q.pk = FX[j]; }); } catch (e) {} mdrBoard(X); };
     const pr = document.getElementById("mdrPrint"); if (pr) pr.onclick = async () => mdrPrintPack(await mdrGet(id), year);
     mdrRun(box, l, u, id);
   }
@@ -271,6 +272,7 @@
       if (part === 1) body = `<div class="mdr-card mdr-tip">${S.ic} <b>تَذَكَّرْ وَأَنْتَ تَقْرَأُ:</b> ${S.d.map(esc).join(" ")}</div>
           <div class="mdr-card mdr-flu"><h3>⏱️ أَقيسُ طَلاقَتي</h3><p class="muted">اضْغَطْ «أَبْدَأُ» وَاقْرَأِ النَّصَّ كُلَّهُ بِصَوْتٍ مَسْموعٍ وَبِفَهْمٍ، ثُمَّ اضْغَطْ «انْتَهَيْتُ». النَّصُّ ${X.w} كَلِمَةً.</p>
             <div class="mdr-rec"><button class="btn btn-dawn" id="fluB">▶️ أَبْدَأُ الْقِراءَةَ</button><span id="fluT" class="mdr-big">0:00</span><span id="fluR"></span></div>
+            <div class="mdr-rr" id="rrBox"></div>
             ${mine && mine.wcpm != null ? `<p class="mdr-fb ok">🧑‍🏫 قاسَ مُعَلِّمُكَ قِراءَتَكَ الْمُسَجَّلَةَ: <b>${mine.wcpm}</b> كَلِمَةً صَحيحَةً في الدَّقيقَةِ، بِدِقَّةِ <b>${mine.accuracy}%</b>. ${mdrLvl(mine.accuracy)[0]}</p>` : `<p class="muted">💡 سَجِّلْ قِراءَتَكَ الْجَهْرِيَّةَ في الْأَسْفَلِ، فَيَقيسُها مُعَلِّمُكَ بِدِقَّةٍ: كَمْ كَلِمَةً صَحيحَةً تَقْرَأُ في الدَّقيقَةِ.</p>`}</div>
           ${audName || isSuper() ? `<div class="mdr-card mdr-model-r"><h3>🎧 الْقِراءَةُ النَّموذَجِيَّةُ</h3>${audName ? `<p class="muted">اسْتَمِعْ وَتابِعِ الْكَلِماتِ الْمُضاءَةَ بِعَيْنِكَ، ثُمَّ اقْرَأْ أَنْتَ بِالطَّريقَةِ نَفْسِها.</p><div class="mdr-rec"><button class="btn btn-primary" id="audB">▶️ اسْتَمِعْ</button><button class="btn btn-ghost btn-small" id="audR" hidden>↻ مِنَ الْبِدايَةِ</button><select id="audS" class="mdr-speed"><option value="0.8">0.8×</option><option value="1" selected>1×</option><option value="1.2">1.2×</option></select></div>` : `<p class="muted">لَمْ يُرْفَعْ تَسْجيلُ هذا النَّصِّ بَعْدُ.</p>`}
             ${isSuper() ? `<div class="mdr-up"><label class="btn btn-ghost btn-small">⬆️ ${audName ? "اسْتَبْدِلِ" : "ارْفَعِ"} التَّسْجيلَ (mp3/m4a)<input type="file" accept="audio/*" id="audF" hidden></label><span class="muted" id="audSt"></span></div>` : ""}</div>` : ""}
@@ -355,7 +357,18 @@
           clearInterval(ftm); const s = (Date.now() - fs) / 1000; fs = 0; fb.textContent = "🔁 أُعيدُ الْقِياسَ";
           if (s < 5) { fr.textContent = "الْوَقْتُ قَصيرٌ جِدًّا، أَعِدِ الْقِياسَ."; return; }
           const wpm = Math.round(X.w * 60 / s); if (wpm > 250) { fr.textContent = "قَرَأْتَ بِسُرْعَةٍ لا تُناسِبُ الْقِراءَةَ الْجَهْرِيَّةَ الْمُتَأَنِّيَةَ؛ أَعِدِ الْقِراءَةَ كُلَّها بِصَوْتٍ مَسْموعٍ وَبِفَهْمٍ."; return; } fr.innerHTML = `سُرْعَتُكَ: <b>${wpm}</b> كَلِمَةً في الدَّقيقَةِ. ${mine && mine.wpm ? `(الْمَرَّةُ السّابِقَةُ ${mine.wpm})` : ""}`;
-          ACT.wpm = wpm; if (stu) { save({ p_wpm: wpm }); mine = Object.assign(mine || {}, { wpm }); } };
+          ACT.wpm = wpm; if (stu) { save({ p_wpm: wpm }); mine = Object.assign(mine || {}, { wpm }); }
+          const rr = (ACT.rr || []).length >= 3 ? [] : (ACT.rr || []).slice(); rr.push(wpm); const o = { rr };
+          if (rr.length === 3) { o.rrN = (ACT.rrN || 0) + 1; o.rrG = rr[2] - rr[0]; } putAct(o); rrDraw(); };
+        // القراءة المتكررة: ثلاث قراءات للنص نفسه، وفي كل مرة أوضح وأسلس
+        const rrDraw = () => { const el = box.querySelector("#rrBox"); if (!el) return; const rr = ACT.rr || [], mx = Math.max(...rr, 1);
+          const gain = rr.length >= 2 && rr[0] ? Math.round((rr[rr.length - 1] - rr[0]) * 100 / rr[0]) : null;
+          el.innerHTML = `<h4>🔁 الْقِراءَةُ الْمُتَكَرِّرَةُ ${ACT.rrN ? `<small class="muted">· أَتْمَمْتَ ${ACT.rrN} ${ACT.rrN === 1 ? "جَوْلَةً" : "جَوْلاتٍ"}</small>` : ""}</h4>
+            <p class="muted">اقْرَأِ النَّصَّ ثَلاثَ مَرّاتٍ، وَقِسْ كُلَّ مَرَّةٍ؛ وَفي كُلِّ قِراءَةٍ اجْعَلْ صَوْتَكَ أَوْضَحَ، وَوَقَفاتِكَ أَدَقَّ.</p>
+            <div class="mdr-rr-bars">${[0, 1, 2].map((i) => `<div class="${rr[i] ? "on" : ""}"><i style="height:${rr[i] ? Math.max(10, Math.round(rr[i] * 80 / mx)) : 6}px"></i><b>${rr[i] || "—"}</b><small>الْقِراءَةُ ${["الْأولى", "الثّانِيَةُ", "الثّالِثَةُ"][i]}</small></div>`).join("")}</div>
+            ${rr.length === 3 ? `<p class="mdr-fb ${gain > 0 ? "ok" : ""}">${gain > 0 ? `🎉 تَحَسَّنَتْ طَلاقَتُكَ بِنِسْبَةِ <b>${gain}%</b> مِنَ الْقِراءَةِ الْأولى إِلى الثّالِثَةِ.` : "أَحْسَنْتَ الْمُثابَرَةَ. رَكِّزْ في الْجَوْلَةِ الْقادِمَةِ عَلى الْكَلِماتِ الَّتي تَتَوَقَّفُ عِنْدَها."} الْقِياسُ التّالي يَبْدَأُ جَوْلَةً جَديدَةً.</p>`
+              : rr.length ? `<p class="muted">بَقِيَتْ ${3 - rr.length === 1 ? "قِراءَةٌ واحِدَةٌ" : "قِراءَتانِ"}${gain != null ? ` · ${gain >= 0 ? "+" : ""}${gain}% حَتّى الْآنَ` : ""}.</p>` : ""}`; };
+        rrDraw();
         // القراءة النموذجية: تظليل تقريبي يتبع تقدّم الصوت بحسب أطوال الكلمات ووقفات الترقيم
         const ab = box.querySelector("#audB");
         if (ab && audName) { const au = new Audio(mdrAudUrl(audName)); au.preload = "metadata"; const ws = [...box.querySelectorAll(".mdr-text .mdr-w")]; const tot = WW.reduce((a, b) => a + b, 0); const cum = []; WW.reduce((a, b, i) => (cum[i] = a + b), 0);
@@ -484,6 +497,97 @@
       drawR();
     };
     draw();
+  }
+
+  // ---------- وضع العرض على السبورة ----------
+  function mdrBoard(X) {
+    const S = X.strat, slides = [];
+    slides.push(() => `<div class="bd-c"><div class="bd-kick">📗 مدارج القراءة · ${X.kind === "i" ? "نص معلوماتي" : "نص سردي"}</div><h1>«${esc(X.t)}»</h1>${X.img ? `<img class="bd-img" src="${X.img}" alt="">` : ""}
+      <div class="bd-strat">${S.ic} أسلوب القراءة: <b>${esc(S.n)}</b></div><p class="bd-q">✏️ ${esc(S.p)}</p></div>`);
+    const GL = {}; (X.gl || []).forEach((g) => { GL[mdrStem(g[0])] = g; });
+    X.text.forEach((p, i) => slides.push(() => `<div class="bd-tx"><div class="bd-kick">الفقرة ${i + 1} من ${X.text.length} · ${S.ic} ${esc(S.d[0] || "")}</div>
+      <p>${p.split(" ").map((w) => { const g = GL[mdrStem(w)]; return g ? `<span class="bd-gw" title="${esc(g[1])}">${esc(w)}</span>` : esc(w); }).join(" ")}</p><div class="bd-mean" hidden></div></div>`));
+    X.qs.forEach((q, j) => slides.push(() => `<div class="bd-c bd-qs"><div class="bd-kick">سؤال ${j + 1} من ${X.qs.length} · ${MDR_SK[q.pk || "ret"][0]} ${MDR_SK[q.pk || "ret"][1]}</div><h2>${esc(q.q)}</h2>
+      ${q.k === "m" ? `<div class="bd-opts">${q.o.map((o, k) => `<div class="bd-opt" data-ok="${k === q.c ? 1 : 0}"><span>${"أبجد"[k] || k + 1}</span>${esc(o)}</div>`).join("")}</div>${q.why ? `<p class="bd-why" hidden>💡 ${esc(q.why)}</p>` : ""}`
+        : q.k === "o" ? `<p class="bd-why" hidden>💡 ${esc(q.a || "")}</p>` : q.k === "r" ? `<ol class="bd-why" hidden>${q.seq.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>` : q.items ? `<div class="bd-why" hidden>${q.items.map((it) => `<div>${esc(it[0])} ← <b>${esc(q.bins[it[1]])}</b></div>`).join("")}</div>` : ""}
+      <button class="bd-btn bd-rev">👁️ اكشف الإجابة</button></div>`));
+    slides.push(() => `<div class="bd-c"><div class="bd-kick">✍️ التعبير</div><h2>${esc(X.expr.w)}</h2><div class="bd-strat">🗣️ ${esc(X.expr.o)}</div></div>`);
+    let i = 0, fs = 0, ruler = 0;
+    const ov = document.createElement("div"); ov.className = "mdr-board"; ov.setAttribute("dir", "rtl"); document.body.appendChild(ov);
+    const close = () => { document.removeEventListener("keydown", key); try { if (document.fullscreenElement) document.exitFullscreen(); } catch (e) {} ov.remove(); };
+    const draw = () => { ov.innerHTML = `<div class="bd-top"><button class="bd-btn" data-a="x">✕ إغلاق</button><span>${i + 1} / ${slides.length}</span>
+        <span class="bd-tools"><button class="bd-btn" data-a="f-">أ−</button><button class="bd-btn" data-a="f+">أ+</button><button class="bd-btn ${ruler ? "on" : ""}" data-a="r">📏</button><button class="bd-btn" data-a="fs">⛶</button></span></div>
+      <div class="bd-main" style="font-size:${(1 + fs * 0.12).toFixed(2)}em">${slides[i]()}</div>
+      <div class="bd-nav"><button class="bd-btn" data-a="p" ${i ? "" : "disabled"}>→ السابق</button><div class="bd-dots">${slides.map((_, k) => `<i class="${k === i ? "on" : ""}"></i>`).join("")}</div><button class="bd-btn" data-a="n" ${i < slides.length - 1 ? "" : "disabled"}>التالي ←</button></div>`;
+      ov.querySelectorAll("[data-a]").forEach((b) => b.onclick = () => act(b.dataset.a));
+      const rv = ov.querySelector(".bd-rev"); if (rv) rv.onclick = () => { ov.querySelectorAll(".bd-opt").forEach((o) => o.classList.add(o.dataset.ok === "1" ? "ok" : "dim")); ov.querySelectorAll(".bd-why").forEach((w) => { w.hidden = false; }); rv.remove(); };
+      ov.querySelectorAll(".bd-opt").forEach((o) => o.onclick = () => o.classList.toggle("pick"));
+      ov.querySelectorAll(".bd-gw").forEach((g) => g.onclick = () => { const m = ov.querySelector(".bd-mean"); m.hidden = false; m.innerHTML = `<b>${esc(g.textContent)}</b>: ${esc(g.title)}`; });
+      const tx = ov.querySelector(".bd-tx p"); if (tx && ruler) { tx.style.position = "relative"; const r = document.createElement("div"); r.className = "mdr-ruler"; tx.appendChild(r); const lh = () => parseFloat(getComputedStyle(tx).lineHeight) || 60;
+        const mv = (y) => { const b = tx.getBoundingClientRect(), h2 = lh(); const ln = Math.max(0, Math.floor((y - b.top) / h2)); r.style.height = h2 + "px"; r.style.top = Math.min(tx.scrollHeight - h2, ln * h2) + "px"; };
+        tx.onpointermove = (e) => mv(e.clientY); tx.onpointerdown = (e) => mv(e.clientY); mv(tx.getBoundingClientRect().top + 2); } };
+    const act = (a) => { if (a === "x") return close(); if (a === "n" && i < slides.length - 1) i++; if (a === "p" && i > 0) i--; if (a === "f+") fs = Math.min(5, fs + 1); if (a === "f-") fs = Math.max(-2, fs - 1); if (a === "r") ruler = ruler ? 0 : 1;
+      if (a === "fs") { try { if (document.fullscreenElement) document.exitFullscreen(); else ov.requestFullscreen(); } catch (e) {} } draw(); };
+    const key = (e) => { if (e.key === "Escape" && !document.fullscreenElement) close(); else if (e.key === "ArrowLeft" || e.key === "PageDown" || e.key === " ") { e.preventDefault(); act("n"); } else if (e.key === "ArrowRight" || e.key === "PageUp") act("p"); };
+    document.addEventListener("keydown", key); draw();
+  }
+
+  // ---------- تقرير القراءة لوليّ الأمر (بطاقة في صفحة وليّ الأمر + صفحة كاملة للطباعة) ----------
+  const MDR_HOME = {
+    ret: "بعد القراءة اسأله: مَن؟ ماذا؟ أين؟ متى؟ واطلب منه أن يشير إلى الجملة التي فيها الجواب.",
+    inf: "اسأله: لماذا فعلت الشخصية ذلك؟ كيف عرفت؟ وشجّعه أن يذكر الدليل من النص.",
+    int: "اطلب منه أن يلخّص ما قرأه في ثلاث جمل، وأن يربط فكرته بموقف من حياته.",
+    eva: "اسأله: هل أعجبك أسلوب الكاتب؟ ما رأيك في تصرّف الشخصية؟ ولماذا؟",
+    flu: "اقرأ معه فقرة بصوت مسموع عشر دقائق يوميًّا: تقرأ أنت أولًا، ثم يعيدها هو بالطريقة نفسها."
+  };
+  async function mdrKidData(kid, year) {
+    const weekAgo = new Date(Date.now() - 7 * 864e5).toISOString();
+    const [{ data: rows }, { data: logs }, { data: pr }] = await Promise.all([
+      sb.from("lesson_reading").select("lesson_id, text_id, score, max_score, quiz_at, expr_at, wpm, wcpm, accuracy, skills, act, expr_rubric, expr_feedback, updated_at").eq("student_id", kid),
+      sb.from("reading_log").select("id, title, author, status, reviewed_at, created_at").eq("student_id", kid).order("created_at", { ascending: false }),
+      sb.from("profiles").select("school_id, year_group").eq("id", kid).maybeSingle()]);
+    const R = (rows || []).filter((r) => r.quiz_at), L = logs || [];
+    let target = null; if (pr && pr.school_id) { const { data: t } = await sb.from("reading_targets").select("wpm").eq("school_id", pr.school_id).eq("year_group", +(year || pr.year_group)).maybeSingle(); target = t ? t.wpm : null; }
+    const sk = { ret: [0, 0], inf: [0, 0], int: [0, 0], eva: [0, 0] }; R.forEach((r) => Object.keys(sk).forEach((k) => { const v = (r.skills || {})[k]; if (v) { sk[k][0] += v[0]; sk[k][1] += v[1]; } }));
+    const pc = (a) => a[1] ? Math.round(a[0] * 100 / a[1]) : null;
+    const weak = Object.keys(sk).filter((k) => sk[k][1] >= 2 && pc(sk[k]) < 80).sort((a, b) => pc(sk[a]) - pc(sk[b]))[0] || null;
+    const fl = R.concat((rows || []).filter((r) => !r.quiz_at)).filter((r) => r.wcpm != null || r.wpm).sort((a, b) => a.updated_at < b.updated_at ? -1 : 1);
+    const lastF = fl.length ? fl[fl.length - 1] : null, flv = lastF ? (lastF.wcpm != null ? lastF.wcpm : lastF.wpm) : null;
+    return { R, L, all: rows || [], target, sk, pc, weak, flv, flm: lastF && lastF.wcpm != null, acc: lastF && lastF.accuracy,
+      wkTexts: R.filter((r) => r.updated_at >= weekAgo).length, wkBooks: L.filter((x) => x.status === "approved" && x.reviewed_at >= weekAgo).length,
+      books: L.filter((x) => x.status === "approved").length, pts: R.reduce((a, r) => a + mdrPts(r), 0) };
+  }
+  function mdrKidHtml(D, name, total) {
+    const tips = []; if (D.weak) tips.push([MDR_SK[D.weak][0] + " " + MDR_SK[D.weak][1], MDR_HOME[D.weak]]);
+    if (D.target && D.flv && D.flv < D.target) tips.push(["⏱️ الطلاقة", MDR_HOME.flu]);
+    return `<div class="week-card mdr-kid"><h3>📗 القراءة العربية</h3>
+      <div class="week-nums"><div><b>${D.wkTexts}</b><span>نصوص هذا الأسبوع</span></div><div><b>${D.R.length}${total ? "/" + total : ""}</b><span>نصوص السنة</span></div>
+        <div><b>${D.books}/50</b><span>كتبًا حرة معتمدة${D.wkBooks ? ` (+${D.wkBooks} هذا الأسبوع)` : ""}</span></div>
+        <div><b>${D.flv || "—"}${D.flm ? " ✔" : ""}</b><span>كلمة في الدقيقة${D.target ? ` · الهدف ${D.target}` : ""}${D.flm && D.acc != null ? ` · دقة ${D.acc}%` : ""}</span></div></div>
+      ${tips.length ? tips.map((t) => `<p class="week-help">💡 <b>ساعده في ${t[0]}:</b> ${esc(t[1])}</p>`).join("") : D.R.length ? `<p class="muted">مستواه في الفهم جيد؛ شجّعه على الاستمرار وعلى قراءة كتاب حر من اختياره.</p>` : `<p class="muted">لم يبدأ نصوص القراءة بعد. شجّعه على قراءة نص الأسبوع.</p>`}
+      ${name != null ? `<div class="week-acts"><a class="btn btn-ghost btn-small" href="#/readreport/${D.kid}">📄 التقرير الكامل</a><a class="btn btn-ghost btn-small" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent([`قراءة ${name} على حراء هذا الأسبوع:`, `📗 ${D.wkTexts} نصوص قراءة (${D.R.length} في السنة)`, `📚 ${D.books} كتب حرة معتمدة من 50`, D.flv ? `⏱️ ${D.flv} كلمة في الدقيقة${D.target ? " (الهدف " + D.target + ")" : ""}` : "", ...tips.map((t) => `💡 ${t[1]}`)].filter(Boolean).join("\n"))}">شاركه على واتساب</a></div>` : ""}</div>`;
+  }
+  async function mdrKidRead(el, kid, name, year, track) {
+    try { const D = await mdrKidData(kid, year); D.kid = kid; const on = track === "native" && year >= 4 && year <= 9;
+      if (!on && !D.L.length && !D.R.length) return; const total = on ? ((await mdrIdxGet())[String(year)] || []).length : 0;
+      el.innerHTML = mdrKidHtml(D, name, total); } catch (e) {}
+  }
+  async function pageReadReport(kid) {
+    loading();
+    const { data: p } = await sb.from("profiles").select("full_name_ar, year_group, track").eq("id", kid).maybeSingle();
+    if (!p) { h(`<div class="wrap"><div class="form-card empty"><strong>لا يمكن عرض هذا التقرير</strong></div></div>`); return; }
+    state.pageSubject = "arabic"; setTheme();
+    const D = await mdrKidData(kid, p.year_group); D.kid = kid; const idx = (await mdrIdxGet())[String(p.year_group)] || []; const T = {}; idx.forEach((x) => { T[x.id] = x; });
+    const d = new Date();
+    h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/">الرئيسية</a> / تقرير القراءة</div>
+      <h1>📗 تقرير القراءة: ${esc(p.full_name_ar)}</h1><p class="muted">Grade ${p.year_group} · ${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}</p>
+      <div class="mdr-tools no-print"><button class="btn btn-ghost btn-small" onclick="print()">🖨️ طباعة</button></div></div></section>
+      <section class="wrap panel mdr-rep">${mdrKidHtml(D, null, idx.length)}
+      <div class="mdr-card"><h3>مستويات الفهم</h3><div class="mdr-skills">${Object.keys(D.sk).map((k) => `<div><span>${MDR_SK[k][0]} ${MDR_SK[k][1]}</span>${mdrBar(D.sk[k][0], D.sk[k][1])}<b>${D.pc(D.sk[k]) == null ? "—" : D.pc(D.sk[k]) + "%"}</b></div>`).join("")}</div></div>
+      <div class="mdr-card"><h3>🛂 جوازات القراءة الحرة</h3>${rlogPassports(D.books)}</div>
+      <div class="mdr-card"><h3>📖 نصوص «مدارج القراءة»</h3>${D.all.length ? `<div class="lp-tw"><table class="lp-tbl"><thead><tr><th>النص</th><th>الفهم</th><th>الطلاقة</th><th>التعبير</th><th>التاريخ</th></tr></thead><tbody>
+        ${D.all.slice().sort((a, b) => a.updated_at < b.updated_at ? 1 : -1).map((r) => `<tr><td>${T[r.text_id] ? esc(T[r.text_id].t) : esc(r.text_id)}</td><td>${r.quiz_at ? `<bdi dir="ltr">${r.score}/${r.max_score}</bdi>` : "—"}</td><td>${r.wcpm != null ? `✔ ${r.wcpm} (${r.accuracy}%)` : r.wpm || "—"}${r.act && r.act.rr && r.act.rr.length > 1 ? ` <small>🔁 ${r.act.rr.join("←")}</small>` : ""}</td><td>${r.expr_rubric ? r.expr_rubric.map((v) => MDR_LV[v] || "—").join("، ") : r.expr_at ? "أُرسل" : "—"}</td><td>${new Date(r.updated_at).toLocaleDateString("en-GB")}</td></tr>`).join("")}</tbody></table></div>` : `<p class="muted">لا توجد نصوص بعد.</p>`}</div>
+      <div class="mdr-card"><h3>📚 الكتب الحرة</h3>${D.L.length ? `<ul class="kid-list">${D.L.map((x) => `<li>${RLOG_ST[x.status][0]} ${esc(x.title)}${x.author ? " · " + esc(x.author) : ""}</li>`).join("")}</ul>` : `<p class="muted">لم يضف كتبًا بعد.</p>`}</div></section>`);
   }
 
   // ---------- سجل القراءة الحرة (على نظام «تحدي القراءة العربي»: 5 مراحل × 10 كتب) ----------

@@ -5373,6 +5373,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         return `<div class="kid-card"><div class="kid-top"><h2>${esc(k.full_name_ar)}</h2><button class="btn btn-dawn kid-go" data-famgo="${k.id}" data-kname="${esc(k.full_name_ar)}">▶ ${en ? "Start learning as " : "ادخل كـ"}${esc(String(k.full_name_ar || "").split(" ")[0])}</button></div><p class="muted">Grade ${k.year_group}${state.independent ? ` · <a href="#/year/${k.year_group}?track=${k.track}">${en ? "Lessons" : "الدروس"}</a> · <button class="linklike" data-kreset="${k.id}" data-kname="${esc(k.full_name_ar)}">${en ? "New login card" : "بطاقة دخول جديدة"}</button>` : ""}</p>
           ${state.independent ? `<div class="kid-acc" data-kid-acc="${k.id}" data-kg="${k.year_group}"></div>` : ""}
           <div class="kid-week" data-kid-week="${k.id}" data-kname="${esc(k.full_name_ar)}"></div>
+          <div class="kid-read" data-kid-read="${k.id}" data-kg="${k.year_group}" data-ktr="${k.track}" data-kname="${esc(k.full_name_ar)}"></div>
           <div class="kid-hw" data-kid-hw="${k.id}"></div>
           <h3>${en ? "Lessons opened this week" : "دروس فتحها هذا الأسبوع"} (${kViews.length})</h3>
           ${kViews.length ? `<ul class="kid-list">${kViews.slice(0, 8).map((v) => `<li><a href="#/lesson/${esc(v.lessons.code)}">${esc(en && v.lessons.title_en ? v.lessons.title_en : v.lessons.title_ar)}</a></li>`).join("")}</ul>` : `<p class="muted">${en ? "No lessons opened this week." : "لم يفتح دروسًا هذا الأسبوع."}</p>`}
@@ -5381,6 +5382,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <span>${a.score}/${a.max_score} · ${new Date(a.submitted_at).toLocaleDateString(LANG === "en" ? "en-GB" : "ar-AE")} · ${en ? "View mastery map" : "اعرض خريطة الإتقان"}</span></a>`).join("") : `<p class="muted">${en ? "No tests taken yet." : "لم يؤدِّ اختبارات بعد."}</p>`}
         </div>`; }).join("")}
       </div></section>`);
+    main.querySelectorAll("[data-kid-read]").forEach((b) => mdrKidRead(b, b.dataset.kidRead, b.dataset.kname, +b.dataset.kg, b.dataset.ktr));
     // weekly summary: four numbers, one thing to help with, and a WhatsApp share
     for (const box of [...main.querySelectorAll("[data-kid-week]")]) {
       const kid = box.dataset.kidWeek, name = box.dataset.kname;
@@ -13954,6 +13956,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "unit" && parts[1]) return pageUnit(parts[1], params);
       if (p0 === "reading" && parts[1]) return pageReading(parts[1]);
       if (p0 === "readlog") return pageReadLog();
+      if (p0 === "readreport" && parts[1]) return pageReadReport(parts[1]);
       if (p0 === "rl" && parts[1]) return mdrMapGet().then((m) => { if (m[parts[1]]) location.replace("#/reading/" + m[parts[1]]); else location.replace("#/lesson/" + parts[1]); });
       if (p0 === "plan" && parts[1]) return pagePlan(parts[1]);
       if (/^(access_token|error|type)=/.test(p0 || "")) { const hp = new URLSearchParams(p0);
