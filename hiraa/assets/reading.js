@@ -715,7 +715,7 @@
       case "qlist": return `<ol class="tdx-pts many">${d.qs.map((q) => `<li><span>${X(q.n)}</span><p>${X(q.q)} <small>(${q.marks})</small>${q.o ? `<em class="tdx-qo">${q.o.map((o, k) => `<i>${"أبجد"[k] || k + 1}) ${X(o)}</i>`).join("")}</em>` : ""}</p></li>`).join("")}</ol>`;
       case "qans": return `<div class="tdx-qans">${d.qs.map((q) => `<div class="rv"><b>${X(q.n)}</b><p>${X(q.model)}</p></div>`).join("")}</div>`;
       case "answer": return `<div class="tdx-ans big rv">${X(d.text)}<small>${d.words} كلمة</small></div>`;
-      case "mist": return `<div class="tdx-mist">${d.items.map((m) => `<div class="rv"><span>${m[0]}</span><b>${X(m[1])}</b><p>${X(m[2])}</p>${m[3] ? `<small>📄 ${src[m[3]]}</small>` : ""}</div>`).join("")}</div>`;
+      case "mist": return `<div class="tdx-mist${d.items.length > 6 ? " many" : ""}">${d.items.map((m) => `<div class="rv"><span>${m[0]}</span><b>${X(m[1])}</b><p>${X(m[2])}</p>${m[3] ? `<small>📄 ${src[m[3]]}</small>` : ""}</div>`).join("")}</div>`;
     }
     return "";
   }

@@ -2815,6 +2815,7 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .tdx-escore{display:flex;gap:14px;align-items:center;margin-top:10px;font-size:18px}.tdx-escore span{background:#eef6ff;border-radius:10px;padding:4px 12px}.tdx-escore small{margin-inline-start:auto;color:#64748b}
 .ews-ans{white-space:pre-line}
 .tdx-three{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px;align-items:start}.tdx-three .tdx-grid>div{padding:4px 10px;min-height:0}
+.tdx-mist.many{grid-template-columns:repeat(4,1fr);gap:10px}.tdx-mist.many>div{padding:10px}.tdx-mist.many span{font-size:24px}.tdx-mist.many b{font-size:18px}.tdx-mist.many p{font-size:15px}.tdx-mist.many small{font-size:12px}
 
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
@@ -7578,7 +7579,7 @@ window.HiraArcade = (function () {
       case "qlist": return `<ol class="tdx-pts many">${d.qs.map((q) => `<li><span>${X(q.n)}</span><p>${X(q.q)} <small>(${q.marks})</small>${q.o ? `<em class="tdx-qo">${q.o.map((o, k) => `<i>${"أبجد"[k] || k + 1}) ${X(o)}</i>`).join("")}</em>` : ""}</p></li>`).join("")}</ol>`;
       case "qans": return `<div class="tdx-qans">${d.qs.map((q) => `<div class="rv"><b>${X(q.n)}</b><p>${X(q.model)}</p></div>`).join("")}</div>`;
       case "answer": return `<div class="tdx-ans big rv">${X(d.text)}<small>${d.words} كلمة</small></div>`;
-      case "mist": return `<div class="tdx-mist">${d.items.map((m) => `<div class="rv"><span>${m[0]}</span><b>${X(m[1])}</b><p>${X(m[2])}</p>${m[3] ? `<small>📄 ${src[m[3]]}</small>` : ""}</div>`).join("")}</div>`;
+      case "mist": return `<div class="tdx-mist${d.items.length > 6 ? " many" : ""}">${d.items.map((m) => `<div class="rv"><span>${m[0]}</span><b>${X(m[1])}</b><p>${X(m[2])}</p>${m[3] ? `<small>📄 ${src[m[3]]}</small>` : ""}</div>`).join("")}</div>`;
     }
     return "";
   }

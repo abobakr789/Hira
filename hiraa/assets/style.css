@@ -2797,3 +2797,4 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .tdx-escore{display:flex;gap:14px;align-items:center;margin-top:10px;font-size:18px}.tdx-escore span{background:#eef6ff;border-radius:10px;padding:4px 12px}.tdx-escore small{margin-inline-start:auto;color:#64748b}
 .ews-ans{white-space:pre-line}
 .tdx-three{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px;align-items:start}.tdx-three .tdx-grid>div{padding:4px 10px;min-height:0}
+.tdx-mist.many{grid-template-columns:repeat(4,1fr);gap:10px}.tdx-mist.many>div{padding:10px}.tdx-mist.many span{font-size:24px}.tdx-mist.many b{font-size:18px}.tdx-mist.many p{font-size:15px}.tdx-mist.many small{font-size:12px}
