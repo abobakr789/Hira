@@ -360,3 +360,30 @@ body.mjboard .mj{zoom:1.3}
 body.mjboard .mj .wrap,body.mjboard .mj{max-width:none}
 .mj .path .stp .num{position:relative}
 .mj #rpA,.mj #rp,.mj #rpM{min-height:0}
+/* طيّ المستويات على الجوال */
+.mj .lvlname .chev{display:none;margin-inline-start:6px;transition:transform .2s;font-size:18px}
+@media (max-width:640px){
+ .mj .lvlname{cursor:pointer}
+ .mj .lvlname .chev{display:inline-block}
+ .mj .lvl.shut .path,.mj .lvl.shut .landing{display:none}
+ .mj .lvl.shut .lvlname .chev{transform:rotate(90deg)}
+ [dir=rtl] .mj .lvl.shut .lvlname .chev{transform:rotate(-90deg)}
+}
+/* شريط درجات المستوى في صفحة الدرجة */
+.mj .lstrip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fff;border:1px solid var(--line,#E7E1D3);border-radius:16px;padding:8px 12px;margin:10px 0}
+.mj .lstrip .lsd{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.mj .lstrip .lsd button{width:32px;height:32px;border-radius:50%;border:2px solid #E1DACB;background:#FAF7F0;font:700 14px "ThmanyahSans",sans-serif;cursor:pointer;color:var(--muted)}
+.mj .lstrip .lsd button.ok{background:#E8F6F4;border-color:#9FD5CC;color:#14735F}
+.mj .lstrip .lsd button.on{background:var(--isl);border-color:var(--isl);color:#fff;transform:scale(1.08)}
+.mj .lstrip small{font-family:"ThmanyahSans";color:var(--muted);font-size:13px}
+.mj .lstrip .lsa{width:34px;height:34px;border-radius:10px;border:1px solid #E1DACB;background:#fff;font-size:20px;cursor:pointer}
+.mj .lstrip .lsa:disabled{opacity:.35;cursor:default}
+.mj .cert.lv{max-width:640px;border-color:var(--isl)}
+@media print{
+ body *{visibility:hidden}
+ .mj .cert,.mj .cert *{visibility:visible}
+ .mj .cert{position:absolute;inset:0;margin:auto;height:fit-content;box-shadow:none}
+}
+.mj .lstrip .lsd{flex:1 1 180px;min-width:0;justify-content:center}
+.mj .lstrip small{flex-basis:100%;text-align:center;order:3}
+.mj .cert.lv p{font-size:17px}
