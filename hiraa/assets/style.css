@@ -2798,3 +2798,5 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .ews-ans{white-space:pre-line}
 .tdx-three{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px;align-items:start}.tdx-three .tdx-grid>div{padding:4px 10px;min-height:0}
 .tdx-mist.many{grid-template-columns:repeat(4,1fr);gap:10px}.tdx-mist.many>div{padding:10px}.tdx-mist.many span{font-size:24px}.tdx-mist.many b{font-size:18px}.tdx-mist.many p{font-size:15px}.tdx-mist.many small{font-size:12px}
+.ews-ans,.ews-ia p,.tdx-ia p,.ews-qa,.tdx-src,.tdx-ans p,.ews-iq b{unicode-bidi:plaintext}
+.tdx-three.g3{grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}.tdx-three.g3 .tdx-grid span{font-size:.85em}
