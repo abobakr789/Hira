@@ -47,9 +47,11 @@ window.HiraArcade = (function () {
   /* ---------- جمع المادّة من بيانات الدرس أو الوحدة ---------- */
   // lessons: [{ id, title, items:[{game,source,payload}], words:[[a,b]], quiz:[[text,bool]], rw:[[a,b]] }]
   function buildPool(lessons) {
-    const pairs = [], tf = [], mcq = [], sents = [], sorts = [], seqs = [], seenP = new Set(), seenT = new Set(), seenQ = new Set(), seenS = new Set();
+    const pairs = [], tf = [], mcq = [], sents = [], sorts = [], seqs = [], stmts = [], seenM = new Set(), seenP = new Set(), seenT = new Set(), seenQ = new Set(), seenS = new Set();
     // جملة للترتيب: من 3 إلى 12 كلمة، بلا نصّ قرآنيّ
-    const addSent = (text, prompt, lid, kind) => { const w = String(text || "").trim().split(/\s+/).filter(Boolean); if (w.length < 3 || w.length > 12 || QURANIC(text)) return;
+    // عبارة صحيحة للعبة «اكتشف الخطأ»: من 4 إلى 20 كلمة
+    const addStmt = (text, lid) => { const t = String(text || "").trim(), w = t.split(/\s+/); if (w.length < 4 || w.length > 20 || QURANIC(t)) return; const k = norm(t); if (seenM.has(k)) return; seenM.add(k); stmts.push({ text: t, words: w, lid }); };
+    const addSent = (text, prompt, lid, kind) => { addStmt(text, lid); const w = String(text || "").trim().split(/\s+/).filter(Boolean); if (w.length < 3 || w.length > 12 || QURANIC(text)) return;
       const k = norm(text); if (seenS.has(k)) return; seenS.add(k); sents.push({ k, words: w, prompt: prompt || "", lid, kind: kind || "sent" }); };
     const addPair = (a, b, lid) => {
       if (!a || !b || QURANIC(a) || QURANIC(b)) return;
@@ -86,7 +88,7 @@ window.HiraArcade = (function () {
       if (p.icon) { p.b = ""; return true; }
       if (seenB.has(norm(p.b))) return false; seenB.add(norm(p.b)); return true;
     });
-    return { pairs: clean, tf, mcq, sents, sorts, seqs };
+    return { pairs: clean, tf, mcq, sents, sorts, seqs, stmts };
   }
 
   /* ---------- صناعة الأسئلة ---------- */
@@ -123,6 +125,45 @@ window.HiraArcade = (function () {
     if (q.type === "mcq" && Array.isArray(q.options) && q.options.some((o) => o.ok)) return { key: q.key || rkey("m", q.prompt, q.solution), lid: q.lid,
       q: { t: "mcq", p: q.prompt, big: q.big || "", o: q.options.map((o) => ({ t: o.t || "", i: o.icon || "", ok: !!o.ok })), s: q.solution || "" } };
     return null;
+  }
+  /* «اكتشف الخطأ»: عبارة صحيحة من الدرس تُبدَّل فيها كلمة من مفرداته بكلمة أخرى من المفردات نفسها.
+     يلمس الطالب الكلمة الدخيلة، ثم يختار الكلمة الصحيحة مكانها. */
+  const wordKeys = (w) => { const n = norm(w), out = [n]; let x = String(w || "").replace(/[ً-ٰٟۖ-ۭـ]/g, "").replace(/[«»"(),.:؛،؟!]/g, "");
+    if (/^[وف]/.test(x)) { x = x.slice(1); out.push(norm(x)); }
+    if (/^(بال|كال|فال|وال)/.test(x)) out.push(norm(x.slice(1))); if (/^لل/.test(x)) out.push(norm("ال" + x.slice(2)));
+    return [...new Set(out.filter(Boolean))]; };
+  function spotBank(P) {
+    const byK = new Map(); P.pairs.forEach((p) => { if (p.a && !/\s/.test(p.a.trim()) && p.k.length >= 2) byK.set(p.k, p); });
+    const out = [], used = new Set();
+    shuffle(P.stmts).forEach((s) => {
+      const hits = []; s.words.forEach((w, i) => { const p = wordKeys(w).map((k) => byK.get(k)).find(Boolean); if (p) hits.push({ i, p }); });
+      if (!hits.length) return;
+      const h = shuffle(hits)[0], kd = kindOf(h.p);
+      const others = shuffle([...byK.values()].filter((o) => o !== h.p && kindOf(o) === kd && !s.words.some((w) => wordKeys(w).includes(o.k))));
+      if (others.length < 3) return;
+      const rep = others[0], key = s.text + "|" + h.i; if (used.has(key)) return; used.add(key);
+      const orig = s.words[h.i], m = orig.match(/^([وف]َ?)(?=\S)/), pre = m && !/^[وف]/.test(h.p.a) ? m[1] : "", tail = (orig.match(/[«»"(),.:؛،؟!]+$/) || [""])[0];
+      const words = s.words.slice(); words[h.i] = pre + rep.a + tail;
+      out.push({ kind: "word", lid: s.lid, words, at: h.i, orig, rep: words[h.i], opts: shuffle([orig, pre + others[1].a + tail, pre + others[2].a + tail]), text: s.text });
+    });
+    // الدخيل: بطاقات سلّة واحدة ومعها بطاقة من سلّة أخرى
+    P.sorts.forEach((st) => {
+      const cats = st.cats.filter((c) => c.items.length);
+      cats.forEach((c, ci) => {
+        if (c.items.length < 2 || cats.length < 2 || [c.name].concat(c.items).some(QURANIC)) return;
+        const oc = shuffle(cats.map((x, k) => ({ x, k })).filter((y) => y.k !== ci))[0], intr = shuffle(oc.x.items)[0];
+        if (!intr || QURANIC(intr) || c.items.includes(intr)) return;
+        const cards = shuffle(shuffle(c.items).slice(0, 3).concat([intr]));
+        out.push({ kind: "odd", lid: st.lid, title: st.title, cat: c.name, cards, intr, cats: cats.map((x) => x.name), home: oc.k });
+      });
+    });
+    // خطوتان متجاورتان تبادلتا مكانيهما
+    P.seqs.forEach((q) => {
+      const st = q.steps.slice(0, 8); if (st.length < 4 || st.some(QURANIC)) return;
+      const k = 1 + Math.floor(Math.random() * (st.length - 2)), shown = st.slice(); [shown[k], shown[k + 1]] = [shown[k + 1], shown[k]];
+      out.push({ kind: "order", lid: q.lid, title: q.title, steps: st, shown, at: [k, k + 1] });
+    });
+    return out;
   }
   // أسئلة جديدة لوِرد المراجعة من دروس الطالب الأخيرة (بلا نصّ قرآنيّ)
   function freshCards(lessons, en, n) {
@@ -161,6 +202,7 @@ window.HiraArcade = (function () {
     blitz: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="54" y="4" width="12" height="7" rx="2" fill="#102A4C"/><circle cx="60" cy="46" r="31" fill="#fff" stroke="#102A4C" stroke-width="5"/><path d="M60 46V24A22 22 0 0 1 81 52z" fill="#E8833A"/><circle cx="60" cy="46" r="4" fill="#102A4C"/><path d="M60 46L72 34" stroke="#102A4C" stroke-width="4" stroke-linecap="round"/></svg>`,
     sentence: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="10" y="16" width="46" height="18" rx="9" fill="#14A37F"/><rect x="62" y="16" width="48" height="18" rx="9" fill="#102A4C"/><rect x="24" y="50" width="34" height="18" rx="9" fill="#fff" stroke="#D4AA55" stroke-width="3"/><rect x="64" y="50" width="32" height="18" rx="9" fill="#D4AA55"/><path d="M40 40l4 6 4-6" stroke="#7C8DA6" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
     sort: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="44" y="4" width="32" height="20" rx="6" fill="#D4AA55"/><path d="M14 46h38l-5 32H19z" fill="#14A37F"/><path d="M68 46h38l-5 32H73z" fill="#102A4C"/><rect x="10" y="40" width="46" height="8" rx="4" fill="#0E8A6A"/><rect x="64" y="40" width="46" height="8" rx="4" fill="#0A1D36"/><path d="M60 26v8M54 32l6 6 6-6" stroke="#7C8DA6" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
+    spot: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="8" y="22" width="30" height="16" rx="8" fill="#102A4C"/><rect x="44" y="22" width="32" height="16" rx="8" fill="#fff" stroke="#E8833A" stroke-width="3"/><rect x="82" y="22" width="30" height="16" rx="8" fill="#102A4C"/><circle cx="60" cy="58" r="15" fill="none" stroke="#D4AA55" stroke-width="5"/><path d="M71 69l12 12" stroke="#D4AA55" stroke-width="6" stroke-linecap="round"/><path d="M53 30h14" stroke="#E8833A" stroke-width="3" stroke-linecap="round"/></svg>`,
     seq: `<svg viewBox="0 0 120 84" aria-hidden="true">${[0, 1, 2, 3].map((i) => `<rect x="${30 + i * 4}" y="${8 + i * 19}" width="${70 - i * 8}" height="14" rx="5" fill="${["#102A4C", "#14A37F", "#E8833A", "#D4AA55"][i]}"/><circle cx="18" cy="${15 + i * 19}" r="7" fill="#fff" stroke="#102A4C" stroke-width="2"/><text x="18" y="${19 + i * 19}" font-size="10" font-weight="700" text-anchor="middle" fill="#102A4C">${i + 1}</text>`).join("")}</svg>`
   };
 
@@ -170,10 +212,10 @@ window.HiraArcade = (function () {
     const all = cfg.lessons || [], focus = all.find((x) => x.id === cfg.focusId) || all[0] || { id: null };
     const poolL = buildPool([focus]), poolU = buildPool(all);
     const sizeOf = (p) => p.tf.length + p.mcq.length + p.pairs.length + p.sents.length + 3 * (p.sorts.length + p.seqs.length);
-    const GAMES = () => ({ memory, tower, ladder, blitz, sentence, sorter, seq });
+    const GAMES = () => ({ memory, tower, ladder, blitz, sentence, sorter, seq, spot });
     // هل تكفي المادّة لكلّ لعبة؟
     const okFor = (P) => { const qn = bank(P, T, focus.id).length;
-      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
+      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, spot: spotBank(P).length >= 3, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
     const run = (g) => GAMES()[g]();
     let scope = sizeOf(poolL) >= 8 || all.length < 2 ? "lesson" : "unit";
     const pool = () => (scope === "lesson" ? poolL : poolU);
@@ -203,6 +245,7 @@ window.HiraArcade = (function () {
           ${card("ladder", T("سلّم التحدّي", "Challenge ladder"), T("أسئلة تصعد درجة درجة، ومعك ثلاث وسائل مساعدة. هل تبلغ القمّة؟", "Questions get harder rung by rung, with three lifelines. Can you reach the top?"), T("التحدّي · الصفّ الثالث فما فوق", "Challenge · Grade 3+"), qn >= 5, `${Math.min(10, qn)} ${T("درجات", "rungs")}`)}
           ${card("blitz", T("سباق الستّين ثانية", "60-second race"), T("عبارات سريعة: صح أم خطأ؟ كلّ صواب نقطة، وكلّ خطأ يُنقص نقطة. حطّم رقمك.", "Quick statements: true or false? Each right answer +1, each wrong −1. Beat your record."), T("السرعة والدقّة · كلّ الأعمار", "Speed and accuracy · all ages"), blitzBank().length >= 6, best("blitz") ? `${T("رقمك", "Best")} ${best("blitz")}` : "")}
           ${card("sentence", T("رتّب الجملة", "Build the sentence"), T("كلمات مبعثرة من الدرس، أعدها إلى مكانها لتكوّن جملة صحيحة.", "Scrambled words from the lesson: put them back in order."), T("الفهم والتراكيب · كلّ الأعمار", "Meaning and structure · all ages"), P.sents.length >= 2, `${Math.min(5, P.sents.length)} ${T("جمل", "sentences")}`)}
+          ${(() => { const sb = spotBank(P).length; return card("spot", T("اكتشف الخطأ", "Spot the mistake"), T("كلمة دخيلة في عبارة، أو بطاقة في غير سلّتها، أو خطوتان في غير مكانهما. اكتشف الخطأ وصحّحه.", "A wrong word, a card in the wrong basket, or two steps out of place. Find the mistake and fix it."), T("الفهم الدقيق · الصفّ الثاني فما فوق", "Close reading · Grade 2+"), sb >= 3, sb >= 3 ? `${Math.min(5, sb)} ${T("عبارات", "statements")}` : ""); })()}
           ${card("sort", T("السلال", "Baskets"), T("ضع كلّ بطاقة في سلّتها الصحيحة، واكتشف ما يجمع بينها.", "Drop each card into the right basket."), T("التصنيف والتمييز", "Classifying"), P.sorts.length >= 1, P.sorts.length ? `${P.sorts.reduce((n, s) => n + s.cats.reduce((m, c) => m + c.items.length, 0), 0)} ${T("بطاقة", "cards")}` : "")}
           ${card("seq", T("رتّب الخطوات", "Order the steps"), T("خطوات أو أحداث مبعثرة، رتّبها من الأوّل إلى الأخير.", "Scrambled steps or events: put them in order."), T("التسلسل والبناء", "Sequencing"), P.seqs.length >= 1, P.seqs.length ? `${P.seqs.length} ${T("سلسلة", "sets")}` : "")}
           ${cfg.classic ? card("classic", T("الجولة الكلاسيكية", "Classic round"), T("صح أو خطأ، واختر، وصِل، ورتّب الآية أو الحديث أو الجملة.", "True/false, choose, match and order."), T("لعبة الدرس الأصلية", "The original lesson game"), true, "") : ""}
@@ -558,6 +601,83 @@ window.HiraArcade = (function () {
       };
       const end = () => { const max = Math.min(30, total), sc = Math.round(got * max / Math.max(total, 1));
         finish("seq", sc, max, { title: T("رتّب الخطوات", "Order the steps"), medal: "🔢", big: `${got} / ${total}`, sub: T("عدد الخطوات التي وضعتها في مكانها الصحيح.", "Steps placed in the right position."), missed }); };
+      draw();
+    }
+
+    /* ========== 8) اكتشف الخطأ: كلمة دخيلة، أو بطاقة في غير سلّتها، أو خطوتان في غير مكانهما ========== */
+    function spot() {
+      const B = byFocus(spotBank(pool())), byKind = { word: [], odd: [], order: [] }; B.forEach((r) => byKind[r.kind].push(r));
+      const rounds = []; while (rounds.length < 5 && (byKind.word.length || byKind.odd.length || byKind.order.length)) ["word", "odd", "order"].forEach((k) => { if (rounds.length < 5 && byKind[k].length) rounds.push(byKind[k].shift()); });
+      const n = rounds.length; if (!n) return menu();
+      let i = 0, right = 0; const missed = [];
+      root.innerHTML = `${hud(T("اكتشف الخطأ", "Spot the mistake"), `<span class="arc-pill">${T("السؤال", "Question")} <b data-i>1</b> / ${n}</span><span class="arc-pill">✓ <b data-r>0</b></span>`)}<div class="arc-qbox"></div>`;
+      bindHud();
+      const box = root.querySelector(".arc-qbox");
+      const next = (ok) => { if (ok) { right++; SND.p("ok"); } else SND.p("no"); root.querySelector("[data-r]").textContent = right;
+        nextBtn(box, i < n - 1 ? T("التالي ←", "Next →") : T("النتيجة ←", "Result →"), () => { i++; if (i < n) draw(); else end(); }, ok ? 1500 : 0); };
+      const fb = (h) => { box.querySelector(".arc-fb").innerHTML = h; };
+      const draw = () => {
+        const r = rounds[i]; root.querySelector("[data-i]").textContent = i + 1; delete box.dataset.s1; delete box.dataset.done;
+        if (r.kind === "word") {
+          const dir = isAr(r.text) ? "rtl" : "ltr";
+          box.innerHTML = `<div class="arc-q"><p class="arc-kind">${T("في هذه العبارة كلمة واحدة دخيلة تُفسد معناها. المسها.", "One word in this statement is wrong. Tap it.")}</p>
+            <p class="arc-spot" dir="${dir}">${r.words.map((w, k) => `<button type="button" class="arc-sw" data-w="${k}">${esc(w)}</button>`).join(" ")}</p>
+            <div class="arc-step2" hidden><p class="arc-kind">${T("اختر الكلمة الصحيحة مكانها:", "Choose the right word for its place:")}</p><div class="arc-opts">${r.opts.map((o, k) => `<button class="arc-opt" type="button" data-o="${k}" dir="auto"><span>${esc(o)}</span></button>`).join("")}</div></div>
+            <div class="arc-fb" aria-live="polite"></div></div>`;
+          let found = false; const bad = box.querySelector(`[data-w="${r.at}"]`);
+          box.querySelectorAll(".arc-sw").forEach((b) => b.onclick = () => {
+            if (box.dataset.s1) return; box.dataset.s1 = "1"; found = Number(b.dataset.w) === r.at;
+            box.querySelectorAll(".arc-sw").forEach((x) => { x.disabled = true; });
+            if (found) { b.classList.add("hit"); SND.p("coin"); } else { b.classList.add("miss"); bad.classList.add("hit", "late"); SND.p("no"); }
+            fb(found ? `<b class="good">${T("أحسنت! هذه هي الكلمة الدخيلة.", "Well spotted!")}</b>` : `<b class="bad">${T("الكلمة الدخيلة هي:", "The wrong word is:")}</b> <span dir="auto">${esc(r.rep)}</span>`);
+            box.querySelector(".arc-step2").hidden = false;
+          });
+          box.querySelectorAll("[data-o]").forEach((b) => b.onclick = () => {
+            box.querySelectorAll("[data-o]").forEach((x) => { x.disabled = true; });
+            const ok2 = r.opts[Number(b.dataset.o)] === r.orig, ok = found && ok2;
+            b.classList.add(ok2 ? "ok" : "no"); if (!ok2) { const rb = box.querySelector(`[data-o="${r.opts.indexOf(r.orig)}"]`); if (rb) rb.classList.add("ok"); }
+            bad.textContent = r.orig; bad.classList.remove("late"); bad.classList.add("fixed");
+            if (!ok) missed.push({ prompt: r.words.join(" "), solution: r.text, rq: { key: rkey("e", r.text, r.rep), lid: r.lid,
+              q: { t: "mcq", p: T(`ما الكلمة الصحيحة مكان «${r.rep}» في: `, `Which word should replace “${r.rep}” in: `) + r.words.join(" "), o: r.opts.map((o) => ({ t: o, i: "", ok: o === r.orig })), s: r.text } } });
+            fb((ok ? `<b class="good">${T("ممتاز! صحّحت العبارة.", "Excellent! You fixed it.")}</b>` : `<b class="bad">${T("العبارة الصحيحة:", "The correct statement:")}</b>`) + ` <span dir="${dir}">${esc(r.text)}</span>`);
+            next(ok);
+          });
+        } else if (r.kind === "odd") {
+          box.innerHTML = `<div class="arc-q"><p class="arc-kind">${T("بطاقة واحدة ليست من هذه السلّة. المسها.", "One card does not belong in this basket. Tap it.")}</p>
+            <p class="arc-prompt" dir="auto">🧺 ${esc(r.cat)}${r.title ? ` <small class="arc-tip">(${esc(r.title)})</small>` : ""}</p>
+            <div class="arc-opts">${r.cards.map((c, k) => `<button class="arc-opt" type="button" data-c="${k}" dir="auto"><span>${esc(c)}</span></button>`).join("")}</div>
+            <div class="arc-step2" hidden><p class="arc-kind">${T("إلى أيّ سلّة تنتمي إذن؟", "Which basket does it belong to?")}</p><div class="arc-opts">${r.cats.map((c, k) => `<button class="arc-opt" type="button" data-h="${k}" dir="auto" ${c === r.cat ? "disabled" : ""}><span>${esc(c)}</span></button>`).join("")}</div></div>
+            <div class="arc-fb" aria-live="polite"></div></div>`;
+          let found = false; const ib = box.querySelector(`[data-c="${r.cards.indexOf(r.intr)}"]`);
+          box.querySelectorAll("[data-c]").forEach((b) => b.onclick = () => {
+            box.querySelectorAll("[data-c]").forEach((x) => { x.disabled = true; }); found = r.cards[Number(b.dataset.c)] === r.intr;
+            if (found) { b.classList.add("ok"); SND.p("coin"); } else { b.classList.add("no"); ib.classList.add("ok"); SND.p("no"); }
+            fb(found ? `<b class="good">${T("أحسنت! هذه ليست من السلّة.", "Well spotted!")}</b>` : `<b class="bad">${T("البطاقة الدخيلة:", "The odd card:")}</b> <span dir="auto">${esc(r.intr)}</span>`);
+            const s2 = box.querySelector(".arc-step2"); if (r.cats.length > 2) s2.hidden = false; else { const ok = found; if (!ok) missed.push(oddMiss(r)); next(ok); }
+          });
+          box.querySelectorAll("[data-h]").forEach((b) => b.onclick = () => {
+            box.querySelectorAll("[data-h]").forEach((x) => { x.disabled = true; });
+            const ok2 = Number(b.dataset.h) === r.home, ok = found && ok2; b.classList.add(ok2 ? "ok" : "no");
+            if (!ok2) box.querySelector(`[data-h="${r.home}"]`).classList.add("ok");
+            fb(`${ok ? `<b class="good">${T("ممتاز!", "Excellent!")}</b>` : ""} <span dir="auto">${esc(r.intr)} ← ${esc(r.cats[r.home])}</span>`);
+            if (!ok) missed.push(oddMiss(r)); next(ok);
+          });
+        } else {
+          box.innerHTML = `<div class="arc-q"><p class="arc-kind">${T("في هذا الترتيب خطوتان متجاورتان تبادلتا مكانيهما. المس إحداهما.", "Two neighbouring steps swapped places. Tap one of them.")}</p>${r.title ? `<p class="arc-prompt" dir="auto">${esc(r.title)}</p>` : ""}
+            <ol class="arc-slots">${r.shown.map((t, k) => `<li data-k="${k}" class="arc-pick"><span class="arc-sn">${k + 1}</span><span class="arc-st" dir="auto">${esc(t)}</span></li>`).join("")}</ol>
+            <div class="arc-fb" aria-live="polite"></div></div>`;
+          box.querySelectorAll("[data-k]").forEach((li) => li.onclick = () => {
+            if (box.dataset.done) return; box.dataset.done = "1"; const ok = r.at.includes(Number(li.dataset.k));
+            r.at.forEach((k) => box.querySelector(`[data-k="${k}"]`).classList.add("ok")); if (!ok) li.classList.add("no");
+            fb((ok ? `<b class="good">${T("أحسنت! الترتيب الصحيح:", "Well spotted! The right order:")}</b>` : `<b class="bad">${T("الخطوتان المتبادلتان مظلّلتان. الترتيب الصحيح:", "The swapped steps are highlighted. The right order:")}</b>`) + `<ol class="arc-right">${r.steps.map((t) => `<li dir="auto">${esc(t)}</li>`).join("")}</ol>`);
+            if (!ok) missed.push({ prompt: r.title || T("رتّب الخطوات", "Order the steps"), solution: r.steps.map((t, k) => `${k + 1}. ${t}`).join("  "), rq: { key: rkey("q", r.title, r.steps.join(" ")), lid: r.lid, q: { t: "seq", p: r.title || "", steps: r.steps } } });
+            next(ok);
+          });
+        }
+      };
+      const oddMiss = (r) => ({ prompt: `🧺 ${r.cat}: ${r.cards.join(" · ")}`, solution: `${r.intr} ← ${r.cats[r.home]}`, rq: { key: rkey("b", r.intr, r.cats[r.home]), lid: r.lid,
+        q: { t: "mcq", p: T(`إلى أيّ سلّة تنتمي «${r.intr}»؟`, `Which basket does “${r.intr}” belong to?`) + (r.title ? ` (${r.title})` : ""), o: r.cats.map((c, k) => ({ t: c, i: "", ok: k === r.home })), s: `${r.intr} ← ${r.cats[r.home]}` } } });
+      const end = () => finish("spot", right, n, { title: T("اكتشف الخطأ", "Spot the mistake"), medal: "🔍", sub: T(`اكتشفت ${right} من ${n} أخطاء.`, `You spotted ${right} of ${n} mistakes.`), missed });
       draw();
     }
 

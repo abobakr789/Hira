@@ -224,3 +224,17 @@
 /* وِرد المراجعة في صفحة الطالب */
 .today-card.rv-home{border:2px solid #D4AA55;background:linear-gradient(160deg,#FFF8E8,#fff)}
 .today-card.rv-home .today-tag{background:#102A4C;color:#fff}
+/* اكتشف الخطأ */
+.arc .arc-spot{font-size:1.45rem;line-height:2.3;text-align:center;margin:10px 0 16px}
+.arc .arc-sw{font:inherit;font-weight:700;color:#102A4C;background:#fff;border:2px solid #DCE3EC;border-radius:12px;padding:2px 10px;margin:3px 1px;cursor:pointer;transition:transform .12s,border-color .12s}
+.arc .arc-sw:hover:not([disabled]){border-color:#D4AA55;transform:translateY(-2px)}
+.arc .arc-sw[disabled]{cursor:default}
+.arc .arc-sw.hit{border-color:#E8833A;background:#FFF1E6;text-decoration:line-through wavy #E8833A}
+.arc .arc-sw.miss{border-color:#D2453B;background:#FDECEA}
+.arc .arc-sw.late{animation:arcSpotPulse 1s ease 2}
+.arc .arc-sw.fixed{text-decoration:none;border-color:#14A37F;background:#E8F7EF;color:#0E6B53}
+@keyframes arcSpotPulse{50%{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){.arc .arc-sw.late{animation:none}}
+:root[data-theme="dark"] .arc .arc-sw{background:#16263D;color:#EAF0F8;border-color:#2C4466}
+.arc .arc-slots li.arc-pick{cursor:pointer}
+.arc .arc-slots li.arc-pick:hover{border-color:#D4AA55}
