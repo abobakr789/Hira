@@ -4715,7 +4715,8 @@ window.HiraArcade = (function () {
       const bare = (x) => String(x || "").replace(/[ً-ٰٟۖ-ۭـ]/g, "").replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/ى/g, "ي").trim();
       const GEN = ["اسم", "فعل", "حرف"], cls = (r) => { const n = bare(r); return /^فعل/.test(n) ? "فعل" : /^(حرف|لا الناهيه)/.test(n) ? "حرف" : "اسم"; };
       // موقع فيه وجهان جائزان يُكتب «… أو …»، فلا يُعرض بديلًا ما يصدق على أحد الوجهين
-      const alts = (x) => bare(x).split(/،?\s+او\s+/);
+      // وكذلك «…، وهو …» و«اسم شرط في محل رفع مبتدأ»: كل جزء منها يصدق على الكلمة
+      const alts = (x) => bare(x).split(/،?\s+او\s+|،\s*وهو\s+|\s+في محل (?:رفع|نصب|جر)\s+/);
       const okD = (c, d) => alts(c).every((a) => alts(d).every((b) => okD1(a, b)));
       const okD1 = (c, d) => { const C = bare(c), D = bare(d); if (C === D) return false;
         if (GEN.includes(D) && cls(c) === D) return false; if (GEN.includes(C) && cls(d) === C) return false;
