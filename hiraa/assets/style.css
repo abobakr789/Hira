@@ -2642,3 +2642,26 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .mdr-ruler{position:absolute;inset-inline:0;pointer-events:none;background:rgba(255,226,120,.28);border-block:2px solid rgba(224,163,40,.55);box-shadow:0 0 0 9999px rgba(15,23,42,.12);transition:top .08s;z-index:1}
 .mdr-pkfix{margin:4px 0 6px;font-size:.85rem;color:#8a5a00}.mdr-pkfix select{margin-inline-start:6px;padding:2px 6px;border-radius:8px}
 [data-theme="dark"] .mdr-curve svg{background:#0f1b2d}[data-theme="dark"] .mdr-bd.on{background:#3a2f12}[data-theme="dark"] .mdr-cert-row{background:#132238}
+/* مدارج: قياس الطلاقة من التسجيل */
+.mdr-flu-dlg{max-width:860px}
+.mdr-flu-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}.mdr-flu-tools input{width:80px;padding:4px 6px;border-radius:8px;border:1.5px solid #D7E5F7;margin-inline-start:4px}
+.mdr-flu-leg{display:flex;gap:6px;flex-wrap:wrap;font-size:.8rem}.mdr-flu-leg i{font-style:normal;padding:1px 8px;border-radius:8px}
+.mdr-flu-tx{max-height:46vh;overflow:auto;border:1.5px solid #E5E7EB!important;padding:10px 14px!important;border-radius:12px}
+.mdr-fw{cursor:pointer;border-radius:6px;padding:0 2px;transition:background .1s}.mdr-fw:hover{background:#EEF4FC}
+.mdr-fw.e1,.mdr-flu-leg .e1{background:#FAD4D4;color:#9b1c1c}.mdr-fw.e2,.mdr-flu-leg .e2{background:#E5E7EB;text-decoration:line-through;color:#6b7280}.mdr-fw.e3,.mdr-flu-leg .e3{background:#FDE7C3;color:#8a5a00}
+.mdr-fw.after{opacity:.35}.mdr-fw.last{outline:2.5px solid #2E6FBF;outline-offset:1px}
+.mdr-flu-res .lp-stats{margin:8px 0}
+.mdr-curve .pt.v{fill:#2E6FBF}
+/* سجل القراءة الحرة */
+.mdr-rlog-link{display:flex;align-items:center;gap:12px;margin-top:12px;padding:12px 14px;border-radius:14px;background:linear-gradient(90deg,#FFF6E0,#F3F8FF);border:1.5px solid #F2D58A;color:inherit;text-decoration:none}
+.mdr-rlog-link>span{font-size:1.8rem}.mdr-rlog-link small{display:block;color:var(--muted,#6b7280)}.mdr-rlog-link>i{margin-inline-start:auto;font-style:normal;font-size:1.3rem}
+.rlog-pp{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:8px}
+.rlog-p{border:1.5px solid #E5E7EB;border-radius:14px;padding:10px;text-align:center;opacity:.55}.rlog-p.on{opacity:1;border-color:#9DC0EA}.rlog-p.full{opacity:1;border-color:#F2C14E;background:#FFF9E8}
+.rlog-slots{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:8px 0}.rlog-slots i{height:16px;border-radius:4px;background:#EEF2F7}.rlog-slots i.on{background:linear-gradient(135deg,#1E6BC2,#2E9E6A)}
+.rlog-grid{display:grid;grid-template-columns:2fr 1.5fr 1fr;gap:10px}
+.rlog-form label{display:block;margin:6px 0;font-weight:600}.rlog-form input{display:block;width:100%;margin-top:4px;padding:8px 10px;border-radius:10px;border:1.5px solid #D7E5F7;font:inherit}
+.rlog-list{display:grid;gap:8px}.rlog-it{display:flex;gap:10px;justify-content:space-between;border:1.5px solid #EEE;border-inline-start:5px solid #CBD5E1;border-radius:12px;padding:8px 12px}
+.rlog-it small{display:block;color:var(--muted,#6b7280)}.rlog-it.st-approved{border-inline-start-color:#2E9E6A}.rlog-it.st-returned{border-inline-start-color:#E07B39}.rlog-it.st-pending{border-inline-start-color:#F2C14E}
+.rlog-act{display:flex;gap:4px;align-items:flex-start}
+@media (max-width:640px){.rlog-grid{grid-template-columns:1fr}}
+[data-theme="dark"] .mdr-rlog-link{background:#1a2638;border-color:#5a4a1c}[data-theme="dark"] .rlog-p.full{background:#3a2f12}
