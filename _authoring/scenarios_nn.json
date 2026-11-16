@@ -1,0 +1,2222 @@
+{
+"Y1-NN-T1-L03": [
+{
+"s": "You broke a cup by accident, and your mum asks: who broke it?",
+"o": [
+{
+"t": "I tell the truth: I broke it by mistake, and I say sorry.",
+"ok": true,
+"f": "Well done! A truthful person tells the truth even after a mistake."
+},
+{
+"t": "I say: my brother broke it.",
+"ok": false,
+"f": "That is a lie, and it is unfair to your brother."
+},
+{
+"t": "I keep quiet and hide the pieces under the table.",
+"ok": false,
+"f": "Hiding it does not fix it. Telling the truth is better."
+}
+],
+"idea": "A truthful person always tells the truth, and truthfulness is the way to Paradise."
+}
+],
+"Y1-NN-T1-L11": [
+{
+"s": "You are making wudu, and the tap is running very fast.",
+"o": [
+{
+"t": "I use only the water I need and do not waste it.",
+"ok": true,
+"f": "Right! We save water, even in wudu."
+},
+{
+"t": "I leave the tap running while I play.",
+"ok": false,
+"f": "That wastes the blessing of water."
+},
+{
+"t": "I wash each part ten times to be extra clean.",
+"ok": false,
+"f": "Extra washing is waste. Wudu has set steps."
+}
+],
+"idea": "Wudu is how we make ourselves clean for prayer. It has steps in order."
+}
+],
+"Y1-NN-T1-L12": [
+{
+"s": "You see a thirsty cat on a hot day.",
+"o": [
+{
+"t": "I put some water in a bowl for it to drink.",
+"ok": true,
+"f": "Well done! Allah loves kindness to animals."
+},
+{
+"t": "I throw a stone so it goes away.",
+"ok": false,
+"f": "That hurts a weak creature."
+},
+{
+"t": "I leave it and say: it is not my cat.",
+"ok": false,
+"f": "A little water would help it."
+}
+],
+"idea": "Islam teaches us to be kind to animals, and Allah is pleased with those who are kind to them."
+}
+],
+"Y1-NN-T2-L04": [
+{
+"s": "Your classmate falls in the playground and hurts his knee.",
+"o": [
+{
+"t": "I help him up and call the teacher.",
+"ok": true,
+"f": "Well done! Allah helps those who help others."
+},
+{
+"t": "I laugh at him with the other children.",
+"ok": false,
+"f": "Laughing makes him sadder and hurts more."
+},
+{
+"t": "I keep playing and do not look at him.",
+"ok": false,
+"f": "Your classmate needs you now."
+}
+],
+"idea": "A Muslim helps his brother, and Allah helps those who help others."
+}
+],
+"Y1-NN-T2-L05": [
+{
+"s": "Your grandma asks you for a glass of water while you are watching a programme.",
+"o": [
+{
+"t": "I get up straight away and bring her the water.",
+"ok": true,
+"f": "Well done! We help our grandparents when they ask."
+},
+{
+"t": "I say: wait until my programme ends.",
+"ok": false,
+"f": "Grandma's request matters more than the programme."
+},
+{
+"t": "I pretend I did not hear her.",
+"ok": false,
+"f": "That does not please Allah or your grandma."
+}
+],
+"idea": "I love my family: I obey my parents, cooperate with my brothers and sisters and visit my relatives."
+}
+],
+"Y1-NN-T2-L11": [
+{
+"s": "You bump into a classmate by mistake in the line.",
+"o": [
+{
+"t": "I say: sorry, I didn't mean it.",
+"ok": true,
+"f": "Well done! Saying sorry is part of good character."
+},
+{
+"t": "I say: you were standing in my way!",
+"ok": false,
+"f": "That makes the problem bigger."
+},
+{
+"t": "I walk on as if nothing happened.",
+"ok": false,
+"f": "A kind word puts things right."
+}
+],
+"idea": "Righteousness is good character: treating people kindly in what we say and do."
+}
+],
+"Y1-NN-T3-L04": [
+{
+"s": "Your mum gives you food you do not like very much.",
+"o": [
+{
+"t": "I say Bismillah, eat what I can and do not criticise the food.",
+"ok": true,
+"f": "Well done! We never find fault with food."
+},
+{
+"t": "I say: this food is horrible!",
+"ok": false,
+"f": "Criticising food upsets the person who made it."
+},
+{
+"t": "I throw the food in the bin.",
+"ok": false,
+"f": "Food is a blessing we do not throw away."
+}
+],
+"idea": "One of the manners of eating is never to find fault with food, and to thank Allah for it."
+}
+],
+"Y1-NN-T3-L05": [
+{
+"s": "Your little brother is crying because he fell over.",
+"o": [
+{
+"t": "I hug him, help him and calm him down.",
+"ok": true,
+"f": "Well done! Whoever shows mercy is shown mercy."
+},
+{
+"t": "I say: be quiet, you are annoying.",
+"ok": false,
+"f": "A little child needs mercy, not scolding."
+},
+{
+"t": "I laugh at him.",
+"ok": false,
+"f": "Laughing at him hurts him."
+}
+],
+"idea": "Whoever does not show mercy will not be shown mercy. Being merciful to creatures brings Allah's mercy."
+}
+],
+"Y1-NN-T3-L07": [
+{
+"s": "Your friend took your pencil without asking, then said «Sorry».",
+"o": [
+{
+"t": "I forgive him and say: that's okay.",
+"ok": true,
+"f": "Well done! Forgiving is part of a Muslim's character."
+},
+{
+"t": "I take his pencil too, to get him back.",
+"ok": false,
+"f": "Getting back at him does not fix the mistake."
+},
+{
+"t": "I never talk to him again.",
+"ok": false,
+"f": "He said sorry. Forgiving is better."
+}
+],
+"idea": "Tolerance is part of a Muslim's character: I share with others and forgive those who wrong me."
+}
+],
+"Y2-NN-T1-L05": [
+{
+"s": "Your friend got a star from the teacher, and you did not.",
+"o": [
+{
+"t": "I am happy for him, congratulate him and work hard to get a star too.",
+"ok": true,
+"f": "Well done! A believer loves for his brother what he loves for himself."
+},
+{
+"t": "I get angry and say: he doesn't deserve it.",
+"ok": false,
+"f": "That is envy, and it tires the heart."
+},
+{
+"t": "I hide his star from him.",
+"ok": false,
+"f": "That hurts your friend."
+}
+],
+"idea": "A Muslim's faith is not complete until he loves for his brother what he loves for himself."
+}
+],
+"Y2-NN-T1-L08": [
+{
+"s": "Your mum is tired, and there are lots of dishes after dinner.",
+"o": [
+{
+"t": "I help her clear the dishes from the table.",
+"ok": true,
+"f": "Well done! The Prophet ﷺ helped his family at home."
+},
+{
+"t": "I go and play; that is grown-ups' work.",
+"ok": false,
+"f": "Helping the family is honourable work for everyone at home."
+},
+{
+"t": "I complain about all the dishes.",
+"ok": false,
+"f": "Complaining does not help your mum."
+}
+],
+"idea": "The Prophet ﷺ loved work: he looked after sheep and worked in trade, earning his living with his own hands."
+}
+],
+"Y2-NN-T2-L05": [
+{
+"s": "You borrowed your friend's book, and you must return it tomorrow.",
+"o": [
+{
+"t": "I keep it clean and return it on time.",
+"ok": true,
+"f": "Well done! That is keeping a trust."
+},
+{
+"t": "I draw in it a little; it is an old book.",
+"ok": false,
+"f": "The book is a trust; we do not spoil it."
+},
+{
+"t": "I keep it as long as my friend doesn't ask for it.",
+"ok": false,
+"f": "We return what we borrow on time."
+}
+],
+"idea": "Trustworthiness means looking after what I am trusted with: worship, secrets and belongings."
+}
+],
+"Y2-NN-T2-L11": [
+{
+"s": "You sit down to eat and you are very hungry.",
+"o": [
+{
+"t": "I say Bismillah and eat with my right hand from what is in front of me.",
+"ok": true,
+"f": "Well done! These are the manners of eating."
+},
+{
+"t": "I eat quickly from the middle of the plate.",
+"ok": false,
+"f": "We eat calmly, from what is in front of us."
+},
+{
+"t": "I eat with my left hand because my right is a bit dirty.",
+"ok": false,
+"f": "We wash our hands and eat with the right."
+}
+],
+"idea": "Manners of eating: I say Allah's name, eat with my right hand from what is in front of me, and praise Allah afterwards."
+}
+],
+"Y2-NN-T3-L02": [
+{
+"s": "You and your friend are with a third classmate, and you want to tell your friend a secret.",
+"o": [
+{
+"t": "I wait until we are alone and do not whisper in front of my classmate.",
+"ok": true,
+"f": "Well done! Whispering in front of a third person upsets them."
+},
+{
+"t": "I whisper in my friend's ear in front of him.",
+"ok": false,
+"f": "Your classmate may think you are talking about him."
+},
+{
+"t": "We laugh and look at our classmate.",
+"ok": false,
+"f": "That hurts his feelings."
+}
+],
+"idea": "An Islamic manner: two people should not talk secretly and leave the third out, because it makes him sad."
+}
+],
+"Y2-NN-T3-L05": [
+{
+"s": "Your classmate is speaking in the lesson, and you want to give your opinion.",
+"o": [
+{
+"t": "I wait until he finishes, then raise my hand.",
+"ok": true,
+"f": "Well done! We do not interrupt someone who is speaking."
+},
+{
+"t": "I interrupt and speak louder.",
+"ok": false,
+"f": "Interrupting does not respect others."
+},
+{
+"t": "I tell him: you are wrong, be quiet.",
+"ok": false,
+"f": "We value our classmates' opinions."
+}
+],
+"idea": "Respecting others: I respect elders, value my classmates' opinions and follow the rules."
+}
+],
+"Y2-NN-T3-L10": [
+{
+"s": "Your elderly neighbour is carrying heavy bags.",
+"o": [
+{
+"t": "I hurry to help him carry them to his house.",
+"ok": true,
+"f": "Well done! We are good to our neighbours."
+},
+{
+"t": "I look at him and carry on walking.",
+"ok": false,
+"f": "Your neighbour needs your help."
+},
+{
+"t": "I say: he should have carried less.",
+"ok": false,
+"f": "That does not help him at all."
+}
+],
+"idea": "I love my neighbours: I am good to them, never harm them, and share joy and food with them."
+}
+],
+"Y3-NN-T1-L01": [
+{
+"s": "Your mum calls you while you are playing your favourite game.",
+"o": [
+{
+"t": "I stop playing and answer her straight away.",
+"ok": true,
+"f": "Well done! Kindness to parents means obeying them quickly."
+},
+{
+"t": "I say: in a minute, and carry on for an hour.",
+"ok": false,
+"f": "Obeying your mum comes before playing."
+},
+{
+"t": "I raise my voice: why now?!",
+"ok": false,
+"f": "Raising your voice at parents is not kindness."
+}
+],
+"idea": "Kindness to parents: obeying them and being good to them is one of the deeds Allah loves most, and a way to Paradise."
+}
+],
+"Y3-NN-T2-L01": [
+{
+"s": "You want to visit your friend after Asr.",
+"o": [
+{
+"t": "I ask permission and agree on a time before I go.",
+"ok": true,
+"f": "Well done! Asking permission is a manner of visiting."
+},
+{
+"t": "I turn up suddenly and bang on the door.",
+"ok": false,
+"f": "A visit without a set time may disturb the family."
+},
+{
+"t": "I stay at his house until night.",
+"ok": false,
+"f": "We do not stay too long."
+}
+],
+"idea": "Manners of visiting and hosting: I ask permission, agree on a time, and welcome my guest with a smile."
+}
+],
+"Y3-NN-T2-L06": [
+{
+"s": "A classmate took your rubber without asking, then said sorry.",
+"o": [
+{
+"t": "I forgive him and accept his apology.",
+"ok": true,
+"f": "Well done! Forgiving is a believer's manner."
+},
+{
+"t": "I complain about him to the whole class.",
+"ok": false,
+"f": "He said sorry. Forgiving is better."
+},
+{
+"t": "I take his rubber to punish him.",
+"ok": false,
+"f": "We do not answer a wrong with a wrong."
+}
+],
+"idea": "Tolerance is a believer's manner: I forgive those who wrong me, and Allah and people love me."
+}
+],
+"Y3-NN-T2-L10": [
+{
+"s": "You broke your brother's toy, and your dad asks what happened.",
+"o": [
+{
+"t": "I tell the truth, even if I get into trouble.",
+"ok": true,
+"f": "Well done! Truthfulness is the way of goodness."
+},
+{
+"t": "I say: it broke by itself.",
+"ok": false,
+"f": "That is a lie, and lying is the way of wrong."
+},
+{
+"t": "I say it as a joke and forget about it.",
+"ok": false,
+"f": "We never lie, even as a joke."
+}
+],
+"idea": "Truthfulness leads to righteousness and righteousness leads to Paradise; lying leads to wrongdoing and the Fire."
+}
+],
+"Y3-NN-T3-L06": [
+{
+"s": "Your grandmother lives far away, and you haven't seen her for a while.",
+"o": [
+{
+"t": "I ask my parents if we can visit her or call her.",
+"ok": true,
+"f": "Well done! Keeping family ties pleases Allah and your relatives."
+},
+{
+"t": "I wait for her to call first.",
+"ok": false,
+"f": "We take the first step in keeping ties."
+},
+{
+"t": "I say: I don't have time.",
+"ok": false,
+"f": "Visiting relatives is one of the best deeds."
+}
+],
+"idea": "Keeping ties with relatives means visiting them and being good to them. Whoever cuts off his relatives will not enter Paradise."
+}
+],
+"Y3-NN-T3-L09": [
+{
+"s": "Your neighbour's baby is asleep, and you want to play football near their window.",
+"o": [
+{
+"t": "I play further away and quietly so I don't disturb them.",
+"ok": true,
+"f": "Well done! We do not disturb our neighbours with noise."
+},
+{
+"t": "I play and shout as much as I like.",
+"ok": false,
+"f": "Noise harms your neighbour."
+},
+{
+"t": "I kick the ball against their wall.",
+"ok": false,
+"f": "That harms your neighbour."
+}
+],
+"idea": "The Prophet ﷺ loved his neighbours and told us to look after them: I am good to my neighbour, never harm him, and honour him."
+}
+],
+"Y4-NN-T1-L01": [
+{
+"s": "You want to go into your parents' room, and the door is closed.",
+"o": [
+{
+"t": "I knock and ask permission before going in.",
+"ok": true,
+"f": "Well done! We ask permission before entering any room."
+},
+{
+"t": "I open the door and walk straight in.",
+"ok": false,
+"f": "Going in without permission is not good manners."
+},
+{
+"t": "I look through the keyhole first.",
+"ok": false,
+"f": "Looking without permission goes against asking permission."
+}
+],
+"idea": "Manners of entering and leaving the house: I ask permission, say salam, say Allah's name and the du'a for leaving."
+}
+],
+"Y4-NN-T1-L09": [
+{
+"s": "You get a message: «School is closed tomorrow!» and you don't know who wrote it.",
+"o": [
+{
+"t": "I check with the school or my parents before I share it.",
+"ok": true,
+"f": "Well done! We check news before passing it on."
+},
+{
+"t": "I send it to all my friends straight away.",
+"ok": false,
+"f": "It may be a rumour that harms others."
+},
+{
+"t": "I believe it and don't go to school.",
+"ok": false,
+"f": "We do not believe everything we hear before checking."
+}
+],
+"idea": "Checking news: I do not pass on everything I hear; I make sure it is true first."
+}
+],
+"Y4-NN-T1-L10": [
+{
+"s": "The adhan is called while you are in the middle of your favourite game.",
+"o": [
+{
+"t": "I stop the game and get ready to pray.",
+"ok": true,
+"f": "Well done! We pray on time; prayer is the pillar of the religion."
+},
+{
+"t": "I finish until I win, then pray late.",
+"ok": false,
+"f": "We do not delay prayer for a game."
+},
+{
+"t": "I pray very fast so I can go back to playing.",
+"ok": false,
+"f": "We pray with focus and calm."
+}
+],
+"idea": "The obligatory prayer is the pillar of the religion, the first deed we are asked about, with manners that help us focus."
+}
+],
+"Y4-NN-T2-L03": [
+{
+"s": "You are buying food at the canteen, and the worker hands it to you.",
+"o": [
+{
+"t": "I smile and thank him with a kind word.",
+"ok": true,
+"f": "Well done! We respect workers and thank them."
+},
+{
+"t": "I take the food without looking at him.",
+"ok": false,
+"f": "A kind word is charity."
+},
+{
+"t": "I shout at him because he was a bit slow.",
+"ok": false,
+"f": "We treat everyone well."
+}
+],
+"idea": "Treating people well: I speak kindly and act well, and Allah and people love me."
+}
+],
+"Y4-NN-T2-L10": [
+{
+"s": "You said something unkind about your friend.",
+"o": [
+{
+"t": "I apologise to him and follow my mistake with a good deed.",
+"ok": true,
+"f": "Well done! A good deed after a mistake wipes it out."
+},
+{
+"t": "I wait until he forgets.",
+"ok": false,
+"f": "Apologising and doing good mend the heart."
+},
+{
+"t": "I say: he started it.",
+"ok": false,
+"f": "We treat people with good character."
+}
+],
+"idea": "Fear Allah wherever you are, follow a bad deed with a good one to wipe it out, and treat people with good character."
+}
+],
+"Y4-NN-T3-L03": [
+{
+"s": "Your little brother loudly asks for help while you are busy.",
+"o": [
+{
+"t": "I speak to him calmly: I'll help you in a minute.",
+"ok": true,
+"f": "Well done! Gentleness beautifies everything."
+},
+{
+"t": "I shout at him: leave me alone!",
+"ok": false,
+"f": "Shouting upsets him and solves nothing."
+},
+{
+"t": "I push him away.",
+"ok": false,
+"f": "We are gentle with little ones."
+}
+],
+"idea": "Gentleness means being soft and kind in word and action; it beautifies everything it is in."
+}
+],
+"Y4-NN-T3-L07": [
+{
+"s": "Your classmate forgot his lunch, and you have enough for two.",
+"o": [
+{
+"t": "I happily share my food with him.",
+"ok": true,
+"f": "Well done! Generosity means giving gladly."
+},
+{
+"t": "I eat alone; he is the one who forgot.",
+"ok": false,
+"f": "A generous Muslim shares what he has."
+},
+{
+"t": "I give him some and tell everyone: poor him.",
+"ok": false,
+"f": "Giving should not embarrass anyone."
+}
+],
+"idea": "Generosity means giving gladly. Allah, Al-Karim, loves the generous, and the Prophet ﷺ was the most generous of people."
+}
+],
+"Y4-NN-T3-L09": [
+{
+"s": "You left your room with the light and air conditioner on.",
+"o": [
+{
+"t": "I go back and switch them off.",
+"ok": true,
+"f": "Well done! The environment is our trust and responsibility."
+},
+{
+"t": "I leave them on; there's plenty of electricity.",
+"ok": false,
+"f": "That is waste that harms the environment."
+},
+{
+"t": "I wait for my mum to switch them off.",
+"ok": false,
+"f": "Protecting the environment is everyone's job."
+}
+],
+"idea": "My environment is my responsibility: I protect it and never spoil it, because it is a trust from Allah."
+}
+],
+"Y5-NN-T1-L02": [
+{
+"s": "A classmate made a mistake in a match, and you are very angry.",
+"o": [
+{
+"t": "I control my tongue and do not insult him.",
+"ok": true,
+"f": "Well done! Insults can take away good deeds on the Day of Judgement."
+},
+{
+"t": "I insult him; he deserves it.",
+"ok": false,
+"f": "Insulting is a wrong that takes from your good deeds."
+},
+{
+"t": "I mock him in front of the team.",
+"ok": false,
+"f": "Mocking hurts a fellow Muslim."
+}
+],
+"idea": "The truly bankrupt is the one who comes on the Day of Judgement with prayer, fasting and zakah, but had insulted and wronged others, so his good deeds are taken."
+}
+],
+"Y5-NN-T1-L07": [
+{
+"s": "The helper in your home has worked hard all day, and you want a glass of juice.",
+"o": [
+{
+"t": "I thank her and get the juice myself if I can.",
+"ok": true,
+"f": "Well done! We are good to those who work in our home."
+},
+{
+"t": "I shout at her to hurry up.",
+"ok": false,
+"f": "People differ only in God-consciousness."
+},
+{
+"t": "I leave my things everywhere for her to pick up.",
+"ok": false,
+"f": "That makes her more tired."
+}
+],
+"idea": "Kindness to people: people differ only in God-consciousness, and a Muslim is good to everyone."
+}
+],
+"Y5-NN-T2-L04": [
+{
+"s": "An elderly man gets on the school bus, and there is no seat for him.",
+"o": [
+{
+"t": "I stand and give him my seat.",
+"ok": true,
+"f": "Well done! We give our seat to those who need it."
+},
+{
+"t": "I stay sitting and look out of the window.",
+"ok": false,
+"f": "We respect and help older people."
+},
+{
+"t": "I put my bag on the empty seat.",
+"ok": false,
+"f": "Seats are for people, not bags."
+}
+],
+"idea": "Manners of travelling: I say the travel du'a, keep order and cleanliness, and respect others."
+}
+],
+"Y5-NN-T2-L07": [
+{
+"s": "You see a hungry cat in the burning sun.",
+"o": [
+{
+"t": "I put food and water for it in the shade.",
+"ok": true,
+"f": "Well done! A Muslim is merciful to animals."
+},
+{
+"t": "I chase it for fun.",
+"ok": false,
+"f": "Being cruel to animals is not a Muslim's character."
+},
+{
+"t": "I take a photo and walk away.",
+"ok": false,
+"f": "You could help it."
+}
+],
+"idea": "Mercy is only taken away from the wretched: a Muslim is merciful to people and animals."
+}
+],
+"Y5-NN-T2-L08": [
+{
+"s": "Your little brother broke your toy by mistake.",
+"o": [
+{
+"t": "I speak to him gently and teach him to be careful.",
+"ok": true,
+"f": "Well done! Gentleness puts things right."
+},
+{
+"t": "I shout at him and break his toy.",
+"ok": false,
+"f": "Anger does not bring the toy back."
+},
+{
+"t": "I complain about him and ask for a hard punishment.",
+"ok": false,
+"f": "He broke it by mistake."
+}
+],
+"idea": "Gentleness is good: Allah is Gentle and loves gentleness, and gentleness in teaching and dealing opens hearts."
+}
+],
+"Y5-NN-T3-L02": [
+{
+"s": "You disagree with your friend, you are right, and the discussion has turned into shouting.",
+"o": [
+{
+"t": "I calmly stop arguing.",
+"ok": true,
+"f": "Well done! Leaving an argument, even when right, brings great good."
+},
+{
+"t": "I keep going until he admits I'm right.",
+"ok": false,
+"f": "Arguing spoils friendship."
+},
+{
+"t": "I tell him: you don't understand anything.",
+"ok": false,
+"f": "That hurts him and makes things worse."
+}
+],
+"idea": "The road to Paradise: a house is guaranteed for one who leaves arguing, one who leaves lying, and one with good character."
+}
+],
+"Y5-NN-T3-L04": [
+{
+"s": "You see broken glass in the school corridor.",
+"o": [
+{
+"t": "I tell the cleaner or a teacher straight away so it is removed.",
+"ok": true,
+"f": "Well done! Removing harm from the way is charity."
+},
+{
+"t": "I walk past; it's not my business.",
+"ok": false,
+"f": "It could cut one of your classmates."
+},
+{
+"t": "I kick it to the side and walk on.",
+"ok": false,
+"f": "That does not remove the danger."
+}
+],
+"idea": "Manners of the road: give the road its rights: lower your gaze, avoid harm, return salam, and encourage good."
+}
+],
+"Y5-NN-T3-L08": [
+{
+"s": "You see an older pupil bullying a small child.",
+"o": [
+{
+"t": "I tell the teacher on duty straight away.",
+"ok": true,
+"f": "Well done! Courage is helping the wronged, wisely."
+},
+{
+"t": "I film it and share it.",
+"ok": false,
+"f": "Sharing hurts the child even more."
+},
+{
+"t": "I laugh along with the older pupil.",
+"ok": false,
+"f": "That encourages him to keep doing wrong."
+}
+],
+"idea": "Courage is strength of heart for the truth and stepping forward wisely; it is a quality of the strong believer."
+}
+],
+"Y6-NN-T1-L04": [
+{
+"s": "In a match, a player from the other team insults you.",
+"o": [
+{
+"t": "I control my tongue and do not answer an insult with an insult.",
+"ok": true,
+"f": "Well done! Insulting a Muslim is never part of team spirit."
+},
+{
+"t": "I insult him back even worse.",
+"ok": false,
+"f": "Answering insults makes you like him."
+},
+{
+"t": "I push him hard.",
+"ok": false,
+"f": "Anger is controlled, not let loose."
+}
+],
+"idea": "The sanctity of a Muslim: «Insulting a Muslim is wrongdoing and fighting him is disbelief.» Islam protects life, honour and speech."
+}
+],
+"Y6-NN-T1-L09": [
+{
+"s": "You spent three hours on your phone and did not revise your lesson.",
+"o": [
+{
+"t": "I take account of myself and plan tomorrow between study, worship and play.",
+"ok": true,
+"f": "Well done! We will be asked about our time."
+},
+{
+"t": "I say: there's plenty of time, never mind.",
+"ok": false,
+"f": "Time is life, and it does not come back."
+},
+{
+"t": "I stay up all night to catch up.",
+"ok": false,
+"f": "Planning is better than exhausting late nights."
+}
+],
+"idea": "Take account of yourselves: a servant's feet will not move on the Day of Judgement until he is asked about his life, knowledge, wealth and body."
+}
+],
+"Y6-NN-T2-L03": [
+{
+"s": "Your team lost the final after long training.",
+"o": [
+{
+"t": "I am patient and say: Alhamdulillah in every situation.",
+"ok": true,
+"f": "Well done! A believer is patient in hard times."
+},
+{
+"t": "I get angry and leave the team.",
+"ok": false,
+"f": "Patience is better than anger."
+},
+{
+"t": "I blame my teammates with hurtful words.",
+"ok": false,
+"f": "Hurtful blame does not change the result."
+}
+],
+"idea": "The believer between gratitude and patience: if good comes he is grateful, and it is good for him; if harm comes he is patient, and it is good for him."
+}
+],
+"Y6-NN-T2-L08": [
+{
+"s": "A classmate wronged you yesterday, and today he needs your help with a lesson.",
+"o": [
+{
+"t": "I forgive him and help him.",
+"ok": true,
+"f": "Well done! Forgiveness makes people love you."
+},
+{
+"t": "I refuse and remind him what he did.",
+"ok": false,
+"f": "Forgiving is closer to goodness."
+},
+{
+"t": "I help him but show off.",
+"ok": false,
+"f": "Humility is a quality people love."
+}
+],
+"idea": "Good character: charity never decreases wealth; Allah only increases a forgiving person in honour; and whoever is humble for Allah, Allah raises him.",
+"ev": {
+"t": "Good character: charity never decreases wealth; Allah only increases a forgiving person in honour; and whoever is humble for Allah, Allah raises him.",
+"src": "From the lesson idea"
+}
+}
+],
+"Y6-NN-T3-L03": [
+{
+"s": "A friend asks you to skip class and go out to the playground.",
+"o": [
+{
+"t": "I politely say no and choose friends who encourage me to do good.",
+"ok": true,
+"f": "Well done! A good friend benefits you."
+},
+{
+"t": "I go with him so he won't be upset.",
+"ok": false,
+"f": "Bad company harms you."
+},
+{
+"t": "I go, then tell the teacher I was ill.",
+"ok": false,
+"f": "That is one wrong on top of another."
+}
+],
+"idea": "Choosing companions: a good companion is like a perfume seller, and a bad one is like a blacksmith blowing the bellows."
+}
+],
+"Y6-NN-T3-L06": [
+{
+"s": "You are brushing your teeth with the tap running the whole time.",
+"o": [
+{
+"t": "I turn off the tap until I need it.",
+"ok": true,
+"f": "Well done! We save water and electricity."
+},
+{
+"t": "I leave it on; there's lots of water.",
+"ok": false,
+"f": "Waste harms the earth."
+},
+{
+"t": "I turn it up to be quicker.",
+"ok": false,
+"f": "That is even more waste."
+}
+],
+"idea": "My environment is a trust: Allah made the environment serve people, so they must protect it, not spoil it or waste its resources."
+}
+],
+"Y7-NN-T1-L05": [
+{
+"s": "You are alone in the classroom, and the answer key is on the teacher's desk.",
+"o": [
+{
+"t": "I stay away from it, because Allah sees me.",
+"ok": true,
+"f": "Well done! A believer is aware of Allah in private."
+},
+{
+"t": "I take a quick look; nobody can see me.",
+"ok": false,
+"f": "Allah sees you everywhere."
+},
+{
+"t": "I photograph it for my friends.",
+"ok": false,
+"f": "That is cheating and harms everyone."
+}
+],
+"idea": "Awareness of Allah: a Muslim feels that Allah sees him at all times, so he does good in private and in public."
+}
+],
+"Y7-NN-T1-L08": [
+{
+"s": "You wronged a classmate, and you feel your mistake is too big to be forgiven.",
+"o": [
+{
+"t": "I ask Allah's forgiveness, apologise to my classmate and never despair of Allah's mercy.",
+"ok": true,
+"f": "Well done! The door of repentance is open."
+},
+{
+"t": "I say: there's no point, I've done too much wrong.",
+"ok": false,
+"f": "Despairing of Allah's mercy does not suit a believer."
+},
+{
+"t": "I ignore it until everyone forgets.",
+"ok": false,
+"f": "Apologising and seeking forgiveness put the mistake right."
+}
+],
+"idea": "Repentance is the chance of a lifetime: Allah stretches out His hand at night to accept the repentance of the day's sinner, and by day for the night's sinner."
+}
+],
+"Y7-NN-T2-L01": [
+{
+"s": "Your classmates call you a liar about something true you said, and they mock you.",
+"o": [
+{
+"t": "I am patient with their hurt and keep doing good.",
+"ok": true,
+"f": "Well done! Patience and turning to Allah comfort the heart."
+},
+{
+"t": "I mock them back even more.",
+"ok": false,
+"f": "Answering hurt with hurt does not prove the truth."
+},
+{
+"t": "I stop telling the truth so they won't mock me.",
+"ok": false,
+"f": "We do not give up truthfulness because of mockery."
+}
+],
+"idea": "Surat Qaf (31–45): glad tidings of Paradise for the God-fearing, comfort for the Prophet ﷺ through patience and glorification, and a reminder to those who fear the warning."
+}
+],
+"Y7-NN-T2-L03": [
+{
+"s": "You received AED 500 as Eid money.",
+"o": [
+{
+"t": "I make a budget: some for needs, some for saving, some for charity.",
+"ok": true,
+"f": "Well done! That is moderation with money."
+},
+{
+"t": "I spend it all in one day.",
+"ok": false,
+"f": "That is waste, and nothing is left."
+},
+{
+"t": "I hide it all and never spend any of it.",
+"ok": false,
+"f": "Islam criticises stinginess as it criticises waste."
+}
+],
+"idea": "Moderation in spending: «Eat, drink, dress and give charity, without waste or arrogance.»"
+}
+],
+"Y7-NN-T2-L10": [
+{
+"s": "You have a school project you could finish quickly without care.",
+"o": [
+{
+"t": "I do it carefully and hope for Allah's reward.",
+"ok": true,
+"f": "Well done! Careful work is worship."
+},
+{
+"t": "I finish it any old way to get rid of it.",
+"ok": false,
+"f": "Doing work well is a believer's quality."
+},
+{
+"t": "I copy my classmate's project.",
+"ok": false,
+"f": "That is not your work, and there is no honesty in it."
+}
+],
+"idea": "Work is worship and civilisation: good, careful work done with a good intention is worship, and it builds civilisations."
+}
+],
+"Y7-NN-T3-L02": [
+{
+"s": "A pupil in your class has lost his father and comes back to school sad.",
+"o": [
+{
+"t": "I am kind to him, sit with him and help him with lessons.",
+"ok": true,
+"f": "Well done! Kindness to an orphan has a great reward."
+},
+{
+"t": "I avoid him because I don't know what to say.",
+"ok": false,
+"f": "Just being with him helps him feel safe."
+},
+{
+"t": "I ask him in front of everyone how his father died.",
+"ok": false,
+"f": "That makes him sadder."
+}
+],
+"idea": "Caring for orphans: «I and the one who cares for an orphan will be in Paradise like this», pointing with his index and middle fingers."
+}
+],
+"Y7-NN-T3-L03": [
+{
+"s": "Your team won the tournament, and you were the top scorer.",
+"o": [
+{
+"t": "I thank my teammates and do not boast.",
+"ok": true,
+"f": "Well done! Humility raises a person."
+},
+{
+"t": "I say: without me, you would never have won.",
+"ok": false,
+"f": "That arrogance spoils the team."
+},
+{
+"t": "I mock the losing team.",
+"ok": false,
+"f": "Humility is for everyone."
+}
+],
+"idea": "Humility: not being arrogant, accepting the truth and being gentle; the character of the prophets and the righteous."
+}
+],
+"Y7-NN-T3-L08": [
+{
+"s": "You walk into a gathering of elders, and a guest comes in after you.",
+"o": [
+{
+"t": "I say salam and make room for the newcomer.",
+"ok": true,
+"f": "Well done! These are the manners of gatherings."
+},
+{
+"t": "I sit at the head of the room and get busy with my phone.",
+"ok": false,
+"f": "A gathering has manners and respect for elders."
+},
+{
+"t": "I stay seated and ignore the guest.",
+"ok": false,
+"f": "We make room for newcomers."
+}
+],
+"idea": "Manners of gatherings: Islam has manners for entering, sitting, talking and leaving gatherings that protect friendship between people."
+}
+],
+"Y7-NN-T3-L10": [
+{
+"s": "Lots of food is left over after a party at home.",
+"o": [
+{
+"t": "We store it or take it to people in need.",
+"ok": true,
+"f": "Well done! We do not waste food."
+},
+{
+"t": "We throw it away; we're full.",
+"ok": false,
+"f": "Millions go to sleep hungry."
+},
+{
+"t": "We leave it until it goes bad, then throw it away.",
+"ok": false,
+"f": "That wastes a blessing."
+}
+],
+"idea": "Poverty in the Muslim world: poverty has personal and external causes, and is treated through work, zakah and social solidarity."
+}
+],
+"Y8-NN-T1-L03": [
+{
+"s": "You join a volunteering campaign, and your friend wants you to post photos of yourself for likes.",
+"o": [
+{
+"t": "I renew my intention to do it for Allah, not for people.",
+"ok": true,
+"f": "Well done! A deed's value lies in a sincere intention."
+},
+{
+"t": "I film myself every moment to become famous.",
+"ok": false,
+"f": "Doing it for people loses the reward."
+},
+{
+"t": "I only volunteer if I'm filmed.",
+"ok": false,
+"f": "Sincerity is the soul of the deed."
+}
+],
+"idea": "Actions are judged by intentions: intention is the basis of a deed being accepted, and it turns habits into worship."
+}
+],
+"Y8-NN-T1-L05": [
+{
+"s": "You are selling an item at the school charity sale, and it has a small fault.",
+"o": [
+{
+"t": "I tell the buyer about the fault.",
+"ok": true,
+"f": "Well done! Honesty in selling and seeking what is lawful."
+},
+{
+"t": "I hide the fault so it sells quickly.",
+"ok": false,
+"f": "That is cheating, and cheating is not a Muslim's character."
+},
+{
+"t": "I raise the price because it's the last one.",
+"ok": false,
+"f": "Honesty matters more than profit."
+}
+],
+"idea": "Good earnings: Allah is Good and accepts only what is good, and unlawful wealth blocks the answering of du'a."
+}
+],
+"Y8-NN-T1-L09": [
+{
+"s": "You failed a test even though you worked hard.",
+"o": [
+{
+"t": "I accept what Allah decreed, review my mistakes and work harder.",
+"ok": true,
+"f": "Well done! We take the means, then trust Allah."
+},
+{
+"t": "I say: it's my fate, so I won't study any more.",
+"ok": false,
+"f": "Believing in decree does not mean giving up work."
+},
+{
+"t": "I blame the teacher and the test.",
+"ok": false,
+"f": "A believer reviews himself and takes the means."
+}
+],
+"idea": "Belief in divine decree: a pillar of faith meaning everything happens by Allah's knowledge and will, while we still take the means."
+}
+],
+"Y8-NN-T2-L10": [
+{
+"s": "Your classmates plan to hide a pupil's bag «as a joke» to frighten him.",
+"o": [
+{
+"t": "I refuse to join in and advise them not to scare him.",
+"ok": true,
+"f": "Well done! Frightening a Muslim is not allowed, even as a joke."
+},
+{
+"t": "I join in; it's just a joke.",
+"ok": false,
+"f": "A joke that frightens is not a joke."
+},
+{
+"t": "I film it to share.",
+"ok": false,
+"f": "Sharing makes the harm worse."
+}
+],
+"idea": "The sanctity of not frightening people: «It is not lawful for a Muslim to frighten a Muslim.» Islam protects people's safety and peace of mind, even in jokes."
+}
+],
+"Y8-NN-T2-L11": [
+{
+"s": "You come home from school tired, and your little brother wants you to play with him.",
+"o": [
+{
+"t": "I play with him gently for a while and show him love.",
+"ok": true,
+"f": "Well done! The Prophet ﷺ was kind to his family."
+},
+{
+"t": "I shout at him: leave me alone!",
+"ok": false,
+"f": "Kindness starts at home."
+},
+{
+"t": "I shut the door in his face.",
+"ok": false,
+"f": "Family deserve our best character most."
+}
+],
+"idea": "I am the best to my family: the Prophet ﷺ was the best example with his wives, daughters, sons and grandchildren, and his family lived in love and happiness."
+}
+],
+"Y8-NN-T3-L02": [
+{
+"s": "Your friends laugh at a teacher after he leaves and want you to imitate him with them.",
+"o": [
+{
+"t": "I politely say «no» and do not copy them in what is wrong.",
+"ok": true,
+"f": "Well done! A believer has an independent character."
+},
+{
+"t": "I imitate him so they won't say I'm different.",
+"ok": false,
+"f": "Copying others in wrong is not following good."
+},
+{
+"t": "I film them and share the clip.",
+"ok": false,
+"f": "That spreads the disrespect."
+}
+],
+"idea": "Following in good: «Do not be an imma'ah»; a believer has an independent character, follows good and does not copy others in wrong."
+}
+],
+"Y8-NN-T3-L07": [
+{
+"s": "There are relatives you have not visited for a long time because of an old disagreement.",
+"o": [
+{
+"t": "I take the first step and call or visit them.",
+"ok": true,
+"f": "Well done! We keep ties even if others cut us off."
+},
+{
+"t": "I wait for them to make the first move.",
+"ok": false,
+"f": "Keeping ties does not wait."
+},
+{
+"t": "I speak badly of them to others.",
+"ok": false,
+"f": "That widens the gap."
+}
+],
+"idea": "Keeping family ties: «Whoever would like his provision to be increased and his life extended should keep ties with his relatives.»"
+}
+],
+"Y9-NN-T1-L01": [
+{
+"s": "A message arrives in the family group: «Urgent! Serious news about someone you know».",
+"o": [
+{
+"t": "I check the news before sharing it, and I don't share it if it isn't true.",
+"ok": true,
+"f": "Well done! Checking protects people from injustice."
+},
+{
+"t": "I forward it straight away; everyone is sharing it.",
+"ok": false,
+"f": "Being widely shared does not make news true."
+},
+{
+"t": "I add a comment to make it more exciting.",
+"ok": false,
+"f": "That doubles the harm."
+}
+],
+"idea": "Surat Al-Hujurat (1–10): manners with Allah, His Messenger ﷺ and those in authority: not putting oneself before Allah and His Messenger, lowering the voice, verifying news and reconciling believers."
+}
+],
+"Y9-NN-T1-L04": [
+{
+"s": "You notice a mistake in a classmate's work before he presents it to the class.",
+"o": [
+{
+"t": "I advise him privately and gently.",
+"ok": true,
+"f": "Well done! Private advice is more readily accepted."
+},
+{
+"t": "I point it out in front of everyone so they can learn.",
+"ok": false,
+"f": "Advising in public embarrasses him."
+},
+{
+"t": "I say nothing and let him make the mistake.",
+"ok": false,
+"f": "Sincere advice is part of the religion."
+}
+],
+"idea": "Advising one another in Islam: sincere advice is a religious and moral duty, given sincerely, gently and privately; it is the way of the prophets."
+}
+],
+"Y9-NN-T1-L06": [
+{
+"s": "A clip mocking a classmate's accent is going round the class.",
+"o": [
+{
+"t": "I do not join in the mockery, and I stand up for my classmate.",
+"ok": true,
+"f": "Well done! Mocking people is forbidden."
+},
+{
+"t": "I laugh with everyone; it's just a clip.",
+"ok": false,
+"f": "Laughing here hurts your classmate."
+},
+{
+"t": "I share the clip in another group.",
+"ok": false,
+"f": "Sharing spreads the harm."
+}
+],
+"idea": "Surat Al-Hujurat (11–13): a safe and united society: forbidding mockery, insults, offensive nicknames, suspicion, spying and backbiting; the most honoured is the most God-fearing."
+}
+],
+"Y9-NN-T1-L07": [
+{
+"s": "You find a product at half price in an unknown shop, and you don't know if it is genuine.",
+"o": [
+{
+"t": "I leave what makes me doubt and ask before buying.",
+"ok": true,
+"f": "Well done! We leave what is doubtful and ask people of knowledge."
+},
+{
+"t": "I buy it straight away; the price is tempting.",
+"ok": false,
+"f": "A low price does not remove the doubt."
+},
+{
+"t": "I buy it and sell it to my friends for more.",
+"ok": false,
+"f": "That doubles the doubt."
+}
+],
+"idea": "The lawful is clear: «The lawful is clear and the unlawful is clear, and between them are doubtful matters.» Whoever avoids doubtful matters protects his religion and honour; the body is sound when the heart is sound."
+}
+],
+"Y9-NN-T2-L06": [
+{
+"s": "You get a message: «You won a prize! Send your father's card number».",
+"o": [
+{
+"t": "I don't click it, and I tell my parents so we can report it.",
+"ok": true,
+"f": "Well done! Everyone shares responsibility for the community's safety."
+},
+{
+"t": "I send the number; the prize is big.",
+"ok": false,
+"f": "This is a well-known scam."
+},
+{
+"t": "I forward it to my friends to try.",
+"ok": false,
+"f": "That spreads the danger."
+}
+],
+"idea": "Safety and security: a great blessing Allah promised the righteous believers, achieved through faith, good deeds, obeying those in authority and solidarity."
+}
+],
+"Y9-NN-T2-L10": [
+{
+"s": "A classmate posts online that he feels nobody needs him.",
+"o": [
+{
+"t": "I talk to him, listen, and tell a trusted adult so he gets help.",
+"ok": true,
+"f": "Well done! Every life is precious to Allah, and supporting a sad friend matters."
+},
+{
+"t": "I scroll past and write nothing.",
+"ok": false,
+"f": "He may need a word from you."
+},
+{
+"t": "I write a sarcastic comment.",
+"ok": false,
+"f": "That hurts him at a hard time."
+}
+],
+"idea": "No to suicide: Allah honoured human life and forbade attacking it, even one's own; hope, patience and faith in Allah's decree are the way to face hardship.",
+"ev": {
+"t": "I talk to someone I trust when I feel low, and I support a sad classmate and tell an adult if I am worried about them.",
+"src": "From the lesson's «I apply»"
+}
+}
+],
+"Y9-NN-T3-L03": [
+{
+"s": "Your family wants to park in front of the neighbours' gate because it is closer.",
+"o": [
+{
+"t": "I suggest parking where we don't block their way.",
+"ok": true,
+"f": "Well done! We do not harm or inconvenience our neighbours."
+},
+{
+"t": "I say: the street is for everyone, no problem.",
+"ok": false,
+"f": "Your freedom ends where harm to others begins."
+},
+{
+"t": "We park there and stay away a long time.",
+"ok": false,
+"f": "That makes the harm to the neighbours worse."
+}
+],
+"idea": "No harm and no reciprocal harm: a great Prophetic principle forbidding harm to oneself or others, whether starting it or answering it, and the basis of laws protecting society."
+}
+],
+"Y9-NN-T3-L05": [
+{
+"s": "In a class discussion, a classmate gives a view you disagree with.",
+"o": [
+{
+"t": "I listen until he finishes, then give my view politely.",
+"ok": true,
+"f": "Well done! Polite dialogue respects difference."
+},
+{
+"t": "I interrupt: your view is totally wrong!",
+"ok": false,
+"f": "Interrupting loses the discussion."
+},
+{
+"t": "I mock his view to make the class laugh.",
+"ok": false,
+"f": "Mockery kills dialogue."
+}
+],
+"idea": "Tolerance of ideas: respecting others' views and their right to express them, discussing in the best way, without coercion or fanaticism, within fixed principles."
+}
+],
+"Y9-NN-T3-L08": [
+{
+"s": "Your classmate is ill and has been off school for a week.",
+"o": [
+{
+"t": "I visit or call him and send him the lessons.",
+"ok": true,
+"f": "Well done! Visiting the sick is a Muslim's right."
+},
+{
+"t": "I wait until he comes back.",
+"ok": false,
+"f": "Asking about him cheers him up while he is ill."
+},
+{
+"t": "I talk about his absence in front of classmates.",
+"ok": false,
+"f": "That does not help him."
+}
+],
+"idea": "The rights of a Muslim over a Muslim: «Six: when you meet him, greet him; when he invites you, accept; when he asks for advice, advise him; when he sneezes and praises Allah, bless him; when he is ill, visit him; when he dies, follow his funeral.»"
+}
+],
+"Y9-NN-T3-L09": [
+{
+"s": "In a long queue at a restaurant, you see a chance to push in front.",
+"o": [
+{
+"t": "I respect the queue and wait.",
+"ok": true,
+"f": "Well done! Respecting the queue is a manner of public places."
+},
+{
+"t": "I push in quickly before anyone notices.",
+"ok": false,
+"f": "That takes the right of those ahead of you."
+},
+{
+"t": "I ask my friend at the front to buy for me.",
+"ok": false,
+"f": "That is getting round the queue."
+}
+],
+"idea": "Manners of the market and public facilities: remembering Allah, generosity, lowering the gaze and not harming others; public facilities are a trust everyone protects."
+}
+],
+"Y9-NN-T3-L11": [
+{
+"s": "A dangerous online «challenge» is trending, and your friends are copying it.",
+"o": [
+{
+"t": "I think before copying and refuse what harms me.",
+"ok": true,
+"f": "Well done! Islam criticises blind imitation."
+},
+{
+"t": "I copy it so I don't look different.",
+"ok": false,
+"f": "Your values matter more than fitting in."
+},
+{
+"t": "I try it just once.",
+"ok": false,
+"f": "Danger is not safe just because it is once."
+}
+],
+"idea": "Blind imitation: copying others' words and actions without evidence or awareness. Islam condemns it and calls us to think and follow what is good."
+}
+],
+"Y10-NN-T1-L01": [
+{
+"s": "You have a big project tomorrow, and you told your friends: I will finish it.",
+"o": [
+{
+"t": "I say: I will finish it, in sha' Allah, and do it well.",
+"ok": true,
+"f": "Well done! We say in sha' Allah before any future plan."
+},
+{
+"t": "I say: I will definitely finish it; I need nothing.",
+"ok": false,
+"f": "The future is in Allah's hands."
+},
+{
+"t": "I take on many projects and do none of them well.",
+"ok": false,
+"f": "What counts is doing deeds well, not only many."
+}
+],
+"idea": "Surat Al-Kahf (1–8): praise to Allah who sent down the Book straight and without crookedness, warning and giving glad tidings; the world's adornment is a test and will pass.",
+"ev": {
+"t": "I say in sha' Allah before any future plan, and I do my deeds well, not only many.",
+"src": "From the lesson's «I apply»"
+}
+}
+],
+"Y10-NN-T1-L04": [
+{
+"s": "Your friend prays slightly differently from you because he follows another school of fiqh.",
+"o": [
+{
+"t": "I respect scholars' differences and ask qualified people if I want to understand.",
+"ok": true,
+"f": "Well done! Differences between schools are breadth and respect."
+},
+{
+"t": "I tell him: your prayer is wrong.",
+"ok": false,
+"f": "We do not judge without knowledge."
+},
+{
+"t": "I mock his way in front of others.",
+"ok": false,
+"f": "Mockery is not the manner of disagreement."
+}
+],
+"idea": "Schools of fiqh: the Companions understood texts differently, then two schools grew: the school of hadith in Madinah and the school of opinion in Iraq."
+}
+],
+"Y10-NN-T2-L08": [
+{
+"s": "Inappropriate content appears while you are browsing, though you didn't search for it.",
+"o": [
+{
+"t": "I lower my gaze, close it at once and choose what I watch carefully.",
+"ok": true,
+"f": "Well done! Lowering the gaze protects the heart."
+},
+{
+"t": "I keep watching since I didn't search for it.",
+"ok": false,
+"f": "Carrying on is a choice; lowering the gaze is a duty."
+},
+{
+"t": "I send it to my friends.",
+"ok": false,
+"f": "That spreads the harm."
+}
+],
+"idea": "Chastity and self-restraint: holding oneself back from what is unlawful or unseemly, in speech, sight, hands, food and private life; it is the path to dignity and Paradise."
+}
+],
+"Y10-NN-T2-L10": [
+{
+"s": "You and your brother are arguing over the remote, and voices are rising.",
+"o": [
+{
+"t": "I solve it calmly and we agree on turns.",
+"ok": true,
+"f": "Well done! Calm keeps love in the home."
+},
+{
+"t": "I snatch it from him.",
+"ok": false,
+"f": "Force makes the argument worse."
+},
+{
+"t": "I loudly complain to my parents.",
+"ok": false,
+"f": "A calm solution comes before complaining."
+}
+],
+"idea": "The Prophet's ﷺ care for his household: he was the best to his family, helped at home, was gentle with his wives, handled disagreements wisely and raised his children with love and knowledge."
+}
+],
+"Y10-NN-T3-L03": [
+{
+"s": "Your friend reads his «horoscope for today» before deciding anything.",
+"o": [
+{
+"t": "I gently advise him not to believe horoscopes; only Allah knows the unseen.",
+"ok": true,
+"f": "Well done! We do not believe horoscopes or fortune-tellers."
+},
+{
+"t": "I read mine with him for fun and act on it.",
+"ok": false,
+"f": "Acting on horoscopes is believing them."
+},
+{
+"t": "I say: maybe they're right sometimes.",
+"ok": false,
+"f": "The unseen belongs to Allah alone."
+}
+],
+"idea": "Belief in the unseen: a quality of the God-conscious, including belief in Allah, the angels, the Last Day, Paradise and Hell; the five keys of the unseen are known only to Allah."
+}
+],
+"Y10-NN-T3-L04": [
+{
+"s": "The light is red and the street is completely empty, and you are on your bike.",
+"o": [
+{
+"t": "I wait until it turns green.",
+"ok": true,
+"f": "Well done! We follow the state's laws even when no one sees."
+},
+{
+"t": "I cross quickly; nobody is here.",
+"ok": false,
+"f": "The law protects everyone at all times."
+},
+{
+"t": "I cross and say: the law is only for cars.",
+"ok": false,
+"f": "The law applies to everyone."
+}
+],
+"idea": "Obeying those in authority: obligatory in what is right; it brings security, stability and unity, and serves the Shari'ah's aim of protecting society."
+}
+],
+"Y10-NN-T3-L08": [
+{
+"s": "An unknown account keeps messaging you, urging you to travel and join «jihad».",
+"o": [
+{
+"t": "I don't respond, and I tell my parents so it can be reported.",
+"ok": true,
+"f": "Well done! We are wary of extremist ideas; war is declared only by the ruler."
+},
+{
+"t": "I chat with it secretly to understand its ideas.",
+"ok": false,
+"f": "These accounts lure young people in."
+},
+{
+"t": "I forward its messages to my friends.",
+"ok": false,
+"f": "That spreads the danger."
+}
+],
+"idea": "Jihad in the way of Allah (2): jihad as fighting is defence of religion and homeland, declared only by the ruler, with ethics that forbid aggression and terrorism."
+}
+],
+"Y11-NN-T1-L04": [
+{
+"s": "You are buying a used phone from someone, and the agreement is written down.",
+"o": [
+{
+"t": "I read the terms before accepting and keep to what we agreed.",
+"ok": true,
+"f": "Well done! We keep our contracts and read their terms."
+},
+{
+"t": "I sign without reading; it's simple.",
+"ok": false,
+"f": "Not knowing the terms can lose you your rights."
+},
+{
+"t": "I agree, then back out because I found it cheaper.",
+"ok": false,
+"f": "Keeping contracts is a duty."
+}
+],
+"idea": "Financial contracts in Islam: a contract is offer joined with acceptance in a lawful way; it has pillars and conditions and types such as exchange, donation and security contracts."
+}
+],
+"Y11-NN-T1-L08": [
+{
+"s": "A discussion in the class group turns into hurtful language.",
+"o": [
+{
+"t": "I listen before replying and discuss calmly.",
+"ok": true,
+"f": "Well done! Calm dialogue rescues a discussion."
+},
+{
+"t": "I reply with even harsher words.",
+"ok": false,
+"f": "That makes the quarrel worse."
+},
+{
+"t": "I copy the messages and post them outside the group.",
+"ok": false,
+"f": "That spreads the disagreement."
+}
+],
+"idea": "Manners of dialogue: dialogue is exchanging ideas to reach the truth; the speaker needs certain qualities and manners such as good listening, fairness and avoiding fanaticism."
+}
+],
+"Y11-NN-T2-L02": [
+{
+"s": "A post shares a moving «hadith» with the words: «Share it for reward».",
+"o": [
+{
+"t": "I check the hadith's grading with a trusted source before sharing.",
+"ok": true,
+"f": "Well done! We do not share unknown hadiths."
+},
+{
+"t": "I share it straight away for the reward.",
+"ok": false,
+"f": "You may attribute to the Prophet ﷺ what he never said."
+},
+{
+"t": "I share it and add some words of my own.",
+"ok": false,
+"f": "That changes a text attributed to the Prophet ﷺ."
+}
+],
+"idea": "Categories of hadith: by acceptance, hadith is sahih or hasan (accepted) and da'if (rejected); the worst is mawdu' (fabricated)."
+}
+],
+"Y11-NN-T2-L03": [
+{
+"s": "Your family is choosing a holiday destination, and your father asks your opinion.",
+"o": [
+{
+"t": "I share my view politely and respect what the family decides.",
+"ok": true,
+"f": "Well done! Taking part in discussion builds the family."
+},
+{
+"t": "I say: I don't care, you decide.",
+"ok": false,
+"f": "Your view is part of the family discussion."
+},
+{
+"t": "I insist on my view and get angry if it isn't taken.",
+"ok": false,
+"f": "Dialogue is not insisting and anger."
+}
+],
+"idea": "Islam's method in building the family: the family is the foundation of society; Islam surrounded it with guidance on choosing, rights and duties, love and mercy, so it can fulfil its functions."
+}
+],
+"Y11-NN-T3-L02": [
+{
+"s": "You are visiting a friend, it is getting late, and his family want to rest.",
+"o": [
+{
+"t": "I ask to leave and go; I don't overstay.",
+"ok": true,
+"f": "Well done! It is good manners not to burden the household."
+},
+{
+"t": "I stay; they haven't asked me to leave.",
+"ok": false,
+"f": "Shyness may stop them from asking."
+},
+{
+"t": "I ask for more food and carry on.",
+"ok": false,
+"f": "That tires the household even more."
+}
+],
+"idea": "Surat Al-Ahzab (49–56): divorce before consummation, the Prophet's ﷺ special marriage rulings, manners of the Prophet's household and asking permission, and sending blessings on the Prophet ﷺ."
+}
+],
+"Y11-NN-T3-L03": [
+{
+"s": "You are writing feedback on the work of a classmate you don't like.",
+"o": [
+{
+"t": "I am fair and mention his strengths and mistakes justly.",
+"ok": true,
+"f": "Well done! Fairness is a duty, even with those we dislike."
+},
+{
+"t": "I mention only his mistakes.",
+"ok": false,
+"f": "Dislike does not permit injustice."
+},
+{
+"t": "I give him the lowest mark.",
+"ok": false,
+"f": "That is unjust."
+}
+],
+"idea": "Fairness (insaf) in Islam: giving everyone their right justly, even against oneself or relatives; it has areas and effects, and faith and freedom from desire help achieve it."
+}
+],
+"Y11-NN-T3-L06": [
+{
+"s": "A photo of a classmate is posted without her permission, and mocking comments pour in.",
+"o": [
+{
+"t": "I don't comment or share, and I report the post.",
+"ok": true,
+"f": "Well done! We harm no one by word or deed."
+},
+{
+"t": "I write a funny comment.",
+"ok": false,
+"f": "That adds to the harm."
+},
+{
+"t": "I save the photo and send it on.",
+"ok": false,
+"f": "That violates her privacy."
+}
+],
+"idea": "Social rules, Surat Al-Ahzab (57–62): forbidding harm to Allah, His Messenger and the believers; the command of hijab to protect women; and warning the hypocrites and rumour-mongers."
+}
+],
+"Y11-NN-T3-L08": [
+{
+"s": "An advert says: «95% of doctors recommend this product!»",
+"o": [
+{
+"t": "I ask for the evidence: which doctors? where is the study?",
+"ok": true,
+"f": "Well done! A critical mind asks for evidence."
+},
+{
+"t": "I buy it at once; doctors recommend it.",
+"ok": false,
+"f": "A number alone is not evidence."
+},
+{
+"t": "I share the advert with my family.",
+"ok": false,
+"f": "We analyse news before believing it."
+}
+],
+"idea": "Methodical thinking in Islam (critical thinking): examining and evaluating ideas with evidence and logic; Islam encouraged it through verifying, analysing and drawing conclusions."
+}
+],
+"Y12-NN-T1-L01": [
+{
+"s": "A photo that looks fake is spreading about someone you know, with a serious accusation.",
+"o": [
+{
+"t": "I don't share it or speak about his honour without proof.",
+"ok": true,
+"f": "Well done! Protecting people's honour is one of the great aims."
+},
+{
+"t": "I share it with «if it's true».",
+"ok": false,
+"f": "Those words do not prevent injustice."
+},
+{
+"t": "I comment with what I heard about him before.",
+"ok": false,
+"f": "That adds accusation without proof."
+}
+],
+"idea": "Protecting society from moral crimes, Surat An-Nur (1–10): the surah of chastity and purity; Allah set penalties that protect society from indecency and false accusation, and the rule of li'an to protect lineage and the family."
+}
+],
+"Y12-NN-T1-L08": [
+{
+"s": "You see an exposed electric cable in the school playground.",
+"o": [
+{
+"t": "I report it to the school at once and warn my classmates.",
+"ok": true,
+"f": "Well done! Whoever sees a danger shares responsibility for it."
+},
+{
+"t": "I say: it's not my responsibility.",
+"ok": false,
+"f": "Seeing the danger makes you responsible."
+},
+{
+"t": "I wait for someone else to notice.",
+"ok": false,
+"f": "Delay could cause an accident."
+}
+],
+"idea": "Responsibility in Islam: bearing the results of one's freely chosen actions; it is individual and collective, covering religion, self, family, society and country."
+}
+],
+"Y12-NN-T2-L01": [
+{
+"s": "Your brother left his phone unlocked on the table.",
+"o": [
+{
+"t": "I don't open his messages; I respect his privacy.",
+"ok": true,
+"f": "Well done! Asking permission protects privacy."
+},
+{
+"t": "I read his messages since it's unlocked.",
+"ok": false,
+"f": "That is spying on his privacy."
+},
+{
+"t": "I screenshot his messages to tease him.",
+"ok": false,
+"f": "That violates his privacy."
+}
+],
+"idea": "Social interaction, behaviour and manners, Surat An-Nur (27–31): asking permission before entering homes, lowering the gaze and guarding chastity for believing men and women, and rules on showing adornment."
+}
+],
+"Y12-NN-T2-L02": [
+{
+"s": "Your friend feels very anxious before every exam and is embarrassed to ask for help.",
+"o": [
+{
+"t": "I encourage him to seek help from the counsellor or a specialist.",
+"ok": true,
+"f": "Well done! Seeking treatment is taking the means."
+},
+{
+"t": "I tell him: this is weak faith.",
+"ok": false,
+"f": "Seeking treatment does not contradict faith."
+},
+{
+"t": "I advise him to keep it hidden.",
+"ok": false,
+"f": "Hiding it may make it worse."
+}
+],
+"idea": "The Prophetic approach to health care: health is an aim of the Shari'ah; the Prophet ﷺ guided us to prevention, treatment and mental health, and set early principles of quarantine."
+}
+],
+"Y12-NN-T2-L03": [
+{
+"s": "You are selling your used things online.",
+"o": [
+{
+"t": "I describe the item honestly and mention its faults.",
+"ok": true,
+"f": "Well done! Honesty in selling brings blessing."
+},
+{
+"t": "I raise the price, then advertise a «big discount».",
+"ok": false,
+"f": "That deceives the buyer."
+},
+{
+"t": "I post photos of a nicer item.",
+"ok": false,
+"f": "That is cheating, however small."
+}
+],
+"idea": "Forbidden sales: Islam forbids sales involving injustice, uncertainty, usury or harm, such as usury, cheating and hoarding, to protect wealth and society."
+}
+],
+"Y12-NN-T2-L07": [
+{
+"s": "You have homework due tomorrow and an invitation to go out with friends tonight.",
+"o": [
+{
+"t": "I finish the homework first, then go if there's time.",
+"ok": true,
+"f": "Well done! We put duties before entertainment."
+},
+{
+"t": "I go out and leave the homework for the morning.",
+"ok": false,
+"f": "Putting it off loses the duty."
+},
+{
+"t": "I copy the homework from a classmate so I can go.",
+"ok": false,
+"f": "That is cheating and betrays the trust."
+}
+],
+"idea": "The fiqh of ordering deeds by their aims (priorities): putting each deed in its proper rank, so obligations come before voluntary acts, public interest before private, and preventing harm before gaining benefit."
+}
+],
+"Y12-NN-T3-L04": [
+{
+"s": "Your friend had a frightening dream and decided to cancel her trip.",
+"o": [
+{
+"t": "I advise her to seek refuge in Allah and not base her decision on the dream.",
+"ok": true,
+"f": "Well done! We seek refuge in Allah after a bad dream."
+},
+{
+"t": "I look up its meaning online for her.",
+"ok": false,
+"f": "Online interpretations are no basis for decisions."
+},
+{
+"t": "I tell everyone about her dream.",
+"ok": false,
+"f": "A bad dream is not told to others."
+}
+],
+"idea": "Islamic manners regarding dreams: what a sleeper sees is of three types: a good dream, a bad dream from Satan, and the mind's own thoughts; each has manners, and dreams are not used for rulings."
+}
+],
+"Y12-NN-T3-L08": [
+{
+"s": "A fatwa spreading on social media contradicts what you learned from official bodies.",
+"o": [
+{
+"t": "I ask trusted scholars and refer to the official fatwa centre.",
+"ok": true,
+"f": "Well done! We take religion from trusted people of knowledge."
+},
+{
+"t": "I follow it because it's more popular.",
+"ok": false,
+"f": "Popularity is not evidence."
+},
+{
+"t": "I pick whatever is easiest for me without asking.",
+"ok": false,
+"f": "Chasing easy options without knowledge is not a sound way."
+}
+],
+"idea": "Following and imitation: ittiba' is taking a view with its evidence; taqlid is accepting a view without knowing its evidence, allowed for non-specialists with trusted scholars, and blameworthy when blind or fanatical."
+}
+],
+"Y3-NN-T1-L06": [
+{
+"s": "A new pupil joins your class and looks shy.",
+"o": [
+{
+"t": "I meet him with a smile and invite him to play.",
+"ok": true,
+"f": "Well done! Good character is the heaviest thing on the scale."
+},
+{
+"t": "I ignore him; I already have friends.",
+"ok": false,
+"f": "A smile costs nothing and means a lot."
+},
+{
+"t": "I whisper about him with my friends.",
+"ok": false,
+"f": "That hurts his feelings."
+}
+],
+"idea": "Good character is the heaviest thing placed on a believer's scale on the Day of Judgement."
+}
+],
+"Y3-NN-T1-L10": [
+{
+"s": "Reading Qur'an is hard for you today, and you keep stumbling.",
+"o": [
+{
+"t": "I keep reading slowly and do not give up.",
+"ok": true,
+"f": "Well done! The one who stumbles but keeps going has a double reward."
+},
+{
+"t": "I close the mushaf and stop practising.",
+"ok": false,
+"f": "Giving up loses the reward of trying."
+},
+{
+"t": "I pretend to read so no one notices.",
+"ok": false,
+"f": "Honest practice is how we improve."
+}
+],
+"idea": "The skilled reciter is with the noble angels, and the one who stumbles but keeps trying gets a double reward."
+}
+]
+}

@@ -230,7 +230,7 @@ window.HiraArcade = (function () {
     const GAMES = () => ({ memory, tower, ladder, blitz, sentence, sorter, seq, spot, irab, wazn, timeline, scenario });
     // هل تكفي المادّة لكلّ لعبة؟
     const okFor = (P) => { const qn = bank(P, T, focus.id).length;
-      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, spot: spotBank(P).length >= 3, irab: P.irabs.length >= 1, wazn: P.wazns.length >= 3, timeline: tlCal(P).length >= 4, scenario: P.scns.length >= 2, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
+      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, spot: spotBank(P).length >= 3, irab: P.irabs.length >= 1, wazn: P.wazns.length >= 3, timeline: tlCal(P).length >= 3, scenario: P.scns.length >= 2, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
     const run = (g) => GAMES()[g]();
     // أحداث التقويم الأكثر في المادّة، بشرط أن تختلف تواريخها
     function tlCal(P) { const g = P.tls.filter((x) => x.cal === "g"), h = P.tls.filter((x) => x.cal === "h"); const L = g.length >= h.length ? g : h; return new Set(L.map((x) => x.k)).size >= 2 ? L : []; }
@@ -264,7 +264,7 @@ window.HiraArcade = (function () {
           ${card("sentence", T("رتّب الجملة", "Build the sentence"), T("كلمات مبعثرة من الدرس، أعدها إلى مكانها لتكوّن جملة صحيحة.", "Scrambled words from the lesson: put them back in order."), T("الفهم والتراكيب · كلّ الأعمار", "Meaning and structure · all ages"), P.sents.length >= 2, `${Math.min(5, P.sents.length)} ${T("جمل", "sentences")}`)}
           ${P.irabs.length || (scope === "lesson" && unitExtra && poolU.irabs.length) ? card("irab", T("مختبر الإعراب", "Grammar lab"), T("جمل من الدرس: حدّد موقع كلّ كلمة ملوّنة في الجملة، وعلامة إعرابها.", "Sentences from the lesson: name the role of each highlighted word."), T("النحو · العربية", "Grammar · Arabic") + (P.irabs.some((x) => x.draft) ? T(" · مسودّة للمراجعة", " · draft") : ""), P.irabs.length >= 1, P.irabs.length ? `${P.irabs.length} ${T("جمل", "sentences")}` : "") : ""}
           ${P.wazns.length || (scope === "lesson" && unitExtra && poolU.wazns.length) ? card("wazn", T("ميزان الكلمة", "Word scale"), T("زِنِ الكلمة على «فَعَلَ»، أو صُغْ من الفعل ما يطلبه الدرس، أو اعرف نوع المشتقّ.", "Find the pattern of a word, or derive the form the lesson asks for."), T("الصرف · العربية", "Morphology · Arabic"), P.wazns.length >= 3, P.wazns.length ? `${Math.min(8, P.wazns.length)} ${T("أسئلة", "questions")}` : "") : ""}
-          ${P.tls.length || (scope === "lesson" && unitExtra && poolU.tls.length) ? card("timeline", T("الخطّ الزمني", "Timeline"), T("ضع كلّ حدث في مكانه على خطّ الزمن، قبل ما سبقه أو بعده، ثم يظهر تاريخه.", "Place each event in its spot on the timeline, then see its date."), T("التاريخ والتسلسل", "History · sequence"), tlCal(P).length >= 4, tlCal(P).length >= 4 ? `${Math.min(7, tlCal(P).length)} ${T("أحداث", "events")}` : "") : ""}
+          ${P.tls.length || (scope === "lesson" && unitExtra && poolU.tls.length) ? card("timeline", T("الخطّ الزمني", "Timeline"), T("ضع كلّ حدث في مكانه على خطّ الزمن، قبل ما سبقه أو بعده، ثم يظهر تاريخه.", "Place each event in its spot on the timeline, then see its date."), T("التاريخ والتسلسل", "History · sequence"), tlCal(P).length >= 3, tlCal(P).length >= 3 ? `${Math.min(7, tlCal(P).length)} ${T("أحداث", "events")}` : "") : ""}
           ${P.scns.length || (scope === "lesson" && unitExtra && poolU.scns.length) ? card("scenario", T("ماذا تفعل؟", "What would you do?"), T("مواقف من الحياة، ولكلّ موقف ثلاثة تصرّفات. اختر الأحسن، ثم اقرأ ما يقوله الدرس.", "Real-life situations with three choices. Pick the best, then see what the lesson says."), T("القيم والسلوك", "Values · behaviour"), P.scns.length >= 2, P.scns.length >= 2 ? `${Math.min(5, P.scns.length)} ${T("مواقف", "situations")}` : "") : ""}
           ${(() => { const sb = spotBank(P).length; return card("spot", T("اكتشف الخطأ", "Spot the mistake"), T("كلمة دخيلة في عبارة، أو بطاقة في غير سلّتها، أو خطوتان في غير مكانهما. اكتشف الخطأ وصحّحه.", "A wrong word, a card in the wrong basket, or two steps out of place. Find the mistake and fix it."), T("الفهم الدقيق · الصفّ الثاني فما فوق", "Close reading · Grade 2+"), sb >= 3, sb >= 3 ? `${Math.min(5, sb)} ${T("عبارات", "statements")}` : ""); })()}
           ${card("sort", T("السلال", "Baskets"), T("ضع كلّ بطاقة في سلّتها الصحيحة، واكتشف ما يجمع بينها.", "Drop each card into the right basket."), T("التصنيف والتمييز", "Classifying"), P.sorts.length >= 1, P.sorts.length ? `${P.sorts.reduce((n, s) => n + s.cats.reduce((m, c) => m + c.items.length, 0), 0)} ${T("بطاقة", "cards")}` : "")}
@@ -817,7 +817,7 @@ window.HiraArcade = (function () {
 
     /* ========== 11) الخطّ الزمني ========== */
     function timeline() {
-      const P = pool(), all = tlCal(P); if (all.length < 4) return menu();
+      const P = pool(), all = tlCal(P); if (all.length < 3) return menu();
       // أحداث الدرس أوّلًا، وحتى 7 أحداث، ويبدأ الخطّ بحدث واحد ظاهر التاريخ
       let ev = byFocus(all).slice(0, 7); if (new Set(ev.map((x) => x.k)).size < 2) ev = shuffle(all).slice(0, 7);
       const placed = [ev[0]], queue = ev.slice(1), n = queue.length, missed = []; let right = 0, i = 0;
@@ -873,8 +873,8 @@ window.HiraArcade = (function () {
           if (ok) { right++; SND.p("coin"); } else { SND.p("no");
             missed.push({ prompt: Q.s, solution: good.t, rq: { key: rkey("c", Q.s, good.t), lid: Q.lid, q: { t: "mcq", p: `${Q.s} — ${T("ماذا تفعل؟", "What would you do?")}`, o: opts.map((o) => ({ t: o.t, i: "", ok: !!o.ok })), s: good.t } } }); }
           root.querySelector("[data-r]").textContent = right;
-          box.querySelector(".arc-fb").innerHTML = (ok ? `<b class="good">${T("أحسنت الاختيار!", "Good choice!")}</b>` : `<b class="bad">${T("الأحسن:", "Better:")}</b> ${esc(good.t)}`)
-            + (pick.f ? `<p class="arc-tip">${esc(ok ? pick.f.replace(/^(أحسنت|صحيح)!\s*/, "") : pick.f)}</p>` : "") + (!ok && good.f ? `<p class="arc-tip">${esc(good.f.replace(/^(أحسنت|صحيح)!\s*/, ""))}</p>` : "")
+          box.querySelector(".arc-fb").innerHTML = (ok ? `<b class="good">${T("أحسنت الاختيار!", "Good choice!")}</b>` : `<b class="bad">${T("الأحسن:", "Better:")}</b> <span dir="auto">${esc(good.t)}</span>`)
+            + (pick.f ? `<p class="arc-tip" dir="auto">${esc(ok ? pick.f.replace(/^(أحسنت|صحيح|Well done|Right)!\s*/, "") : pick.f)}</p>` : "") + (!ok && good.f ? `<p class="arc-tip" dir="auto">${esc(good.f.replace(/^(أحسنت|صحيح|Well done|Right)!\s*/, ""))}</p>` : "")
             + (Q.ev ? `<blockquote class="arc-ev" dir="auto">${esc(Q.ev.t)}${Q.ev.src ? `<cite>${esc(Q.ev.src)}</cite>` : ""}</blockquote>` : "");
           nextBtn(box, i < n - 1 ? T("الموقف التالي ←", "Next →") : T("النتيجة ←", "Result →"), () => { i++; if (i < n) draw(); else end(); }, 0);
         });
