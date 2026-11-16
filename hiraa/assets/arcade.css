@@ -254,5 +254,31 @@
 /* ميزان الكلمة */
 .arc .arc-wz{font-size:clamp(1.9rem,6vw,2.8rem);font-weight:800;text-align:center;margin:.2em 0 .4em;color:var(--arc-ink,#102A4C);line-height:1.6}
 .arc .arc-wz mark{background:rgba(212,170,85,.28);color:inherit;border-radius:.35em;padding:0 .2em}
-@media (prefers-color-scheme:dark){.arc .arc-wz{color:#F3EBDD}}
+:root[data-theme="dark"] .arc .arc-wz{color:#F3EBDD}
 .arc [data-q="z"] .arc-opt{font-size:1.4rem;line-height:1.9}
+
+/* الخطّ الزمني */
+.arc .arc-tl-card{border:2px dashed #D4AA55;border-radius:16px;padding:12px 14px;text-align:center;background:rgba(212,170,85,.08)}
+.arc .arc-tl-card small{display:block;opacity:.7}
+.arc .arc-tl-card p{margin:.3em 0 0;font-size:1.15rem;font-weight:700}
+.arc .arc-tl-card.ok{border-color:#14A37F}.arc .arc-tl-card.no{border-color:#D9534F}
+.arc .arc-tl-dir{margin:.5em 0;font-size:.85rem;opacity:.65;text-align:center}
+.arc .arc-tl-line{list-style:none;margin:0;padding:0 0 0 0;position:relative;display:flex;flex-direction:column;gap:6px}
+.arc .arc-tl-line::before{content:"";position:absolute;inset-block:0;inset-inline-start:18px;width:3px;background:#102A4C;opacity:.25;border-radius:2px}
+.arc .arc-tl-ev{position:relative;margin-inline-start:36px;padding:8px 12px;border-radius:12px;background:#fff;border:1px solid rgba(16,42,76,.15);display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.arc .arc-tl-ev::before{content:"";position:absolute;inset-inline-start:-23px;top:50%;width:11px;height:11px;margin-top:-5px;border-radius:50%;background:#14A37F}
+.arc .arc-tl-ev b{color:#B8862F;white-space:nowrap}
+.arc .arc-tl-ev.new.ok{border-color:#14A37F;box-shadow:0 0 0 2px rgba(20,163,127,.25)}
+.arc .arc-tl-ev.new.no{border-color:#D9534F;box-shadow:0 0 0 2px rgba(217,83,79,.25)}
+.arc .arc-tl-slot{margin-inline-start:36px;padding:6px;border:2px dashed rgba(16,42,76,.25);border-radius:10px;background:transparent;font:inherit;color:inherit;opacity:.75;cursor:pointer}
+.arc .arc-tl-slot:hover,.arc .arc-tl-slot:focus-visible{opacity:1;border-color:#D4AA55;background:rgba(212,170,85,.12)}
+/* المواقف */
+.arc .arc-scn-card{display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:16px;background:rgba(20,163,127,.08);border:1px solid rgba(20,163,127,.25)}
+.arc .arc-scn-card p{margin:0;font-size:1.12rem;line-height:1.9}
+.arc .arc-scn-ic{font-size:1.6rem}
+.arc .arc-ev{margin:.6em 0 0;padding:10px 12px;border-inline-start:4px solid #D4AA55;background:rgba(212,170,85,.1);border-radius:8px;line-height:1.9}
+.arc .arc-ev cite{display:block;font-style:normal;font-size:.85rem;opacity:.75;margin-top:.2em}
+:root[data-theme="dark"] .arc .arc-tl-ev{background:#162238;border-color:rgba(255,255,255,.12)}
+:root[data-theme="dark"] .arc .arc-tl-line::before{background:#F3EBDD}
+.arc .arc-scn .arc-fb{display:block}
+.arc .arc-scn .arc-fb .arc-tip{margin:.35em 0 0}
