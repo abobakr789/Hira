@@ -7924,6 +7924,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
   function tdBuild(ctx, part) { return tdBuild0(ctx, part); }
   function tdBuild0(ctx, part) {
+    // Arabic qualifications (IGCSE/GCSE/A Level) with an exam workshop: a focused exam-skill deck
+    if (ctx.ews) return tdBuildEws(ctx);
     // Arabic (primary): the young-learner deck without the Qur'an recitation opener
     if (ctx.l && ctx.l.units && [2, 3].includes(ctx.l.units.subject_id)) {
       const young = tdBuildYoung(ctx, part).filter((x) => !["open", "listen", "trans", "steps"].includes(x.t));
@@ -8190,6 +8192,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       case "exit": { const hw = `<img class="td-hw" src="art/brand/hiraa-lockup-light.svg" alt="حراء">`;
         b = head("🚪") + `<div class="td-exit"><div class="td-qr" id="tdqr${i}" data-url="${X(d.url)}"></div><div class="td-exit-t"><span ${tdE(0, "sub")}>${X(String(d.sub || "").replace(/\s*(حراء|Hira)\s*$/, ""))}</span>${hw}</div></div>`; break; }
       case "text": b = head("") + `<div class="td-free" ${tdE(0, "body")}>${X(d.body)}</div>`; break;
+      case "ex": b = head("") + tdExHtml(d, X); break;
       case "pic": b = `<img class="td-pic" src="${X(d.src)}" alt="" draggable="false">`; break;
       case "free": { const tdfTh = tdFreeTheme(d.bg);
         b = `<div class="tdf" style="background:${d.bg2 ? `linear-gradient(160deg,#${X(d.bg || "FBF6EC")},#${X(d.bg2)})` : "#" + X(d.bg || "FBF6EC")}">` + tdFreeDecor(i, tdfTh) + ((d.els || []).some((e) => e.l2) ? `<button class="tdf-l2btn" onclick="event.stopPropagation();document.body.classList.toggle('l2on')" title="Language support">عون لغوي · EN</button>` : "") + (d.els || []).map((e, j) => {
@@ -8291,6 +8294,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         let at = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /^(📖 نصّ القراءة|📖 قراءة إضافية|🎵 القصيدة)/.test(e.text)));
         if (at < 0) { const kb = ctx.free.findIndex((s) => (s.els || []).some((e) => typeof e.text === "string" && /كِتَابِي|كتابي/.test(e.text))); at = kb >= 0 ? kb + 1 : Math.min(5, ctx.free.length); }
         ctx.free.splice(at, 0, ...bs); } } } catch (e) {}
+    if (l.units && l.units.subject_id === 2 && QUAL_TRACKS.includes(u.track)) { try { if ((await ewsIdx()).includes(l.code)) { ctx.ews = await ewsGet(l.code); ctx.free = null;
+      const pre = l.code.split("-").slice(0, 3).join("-"); const { data: pl } = await sb.from("lessons").select("id").like("code", pre + "-%").lt("code", l.code).order("code", { ascending: false }).limit(4);
+      const ids = (pl || []).map((x) => x.id); const { data: ps } = ids.length ? await sb.from("lesson_summaries").select("content").in("lesson_id", ids) : { data: [] }; ctx.ewsPrev = (ps || []).map((x) => x.content).filter(Boolean); } } catch (e) {} }
     const base = () => tdBuild(ctx, part);
     const { data: saved } = await sb.from("teacher_decks").select("slides, updated_at").eq("lesson_id", l.id).eq("part", part).eq("kind", "deck").maybeSingle();
     let slides = saved && Array.isArray(saved.slides) && saved.slides.length ? saved.slides : base();

@@ -599,6 +599,48 @@
         <details open><summary>📝 إجابة نموذجية (${X.model_words} كلمة)</summary><p class="ews-ans">${esc(X.model)}</p></details></div>`; };
     draw();
   }
+  // ---------- شرائح ورشة الامتحان: تُبنى من ملف الورشة نفسه، مركّزة على المهارة والنماذج ----------
+  function tdBuildEws(ctx) {
+    const D = ctx.ews, W = D.where, E = D.example, X = D.exam, S = [];
+    const tf = []; (ctx.ewsPrev || []).forEach((c) => (c.quiz || []).forEach((q) => { if (q && q[0]) tf.push({ s: q[0], ok: !!q[1] }); }));
+    S.push({ t: "title", d: { title: ctx.l.title_ar, sub: `Pearson Edexcel ${D.qual} · ${W.paper} · ${W.q}` }, n: "" });
+    S.push({ t: "ex", d: { k: "where", title: "أين هذا في الامتحان؟", W }, n: "دقيقة واحدة: اقرأ تعليمات السؤال بصوت مسموع، واسأل: كم نقطة رئيسة نحتاج؟ وما الذي يُفقدنا درجة الجودة؟" });
+    S.push({ t: "sc", d: { title: "هدف الدرس ومعايير النجاح", obj: D.obj, items: D.sc.map((t) => ({ t })) }, n: "اقرأ المعايير، واطلب من كل طالب أن يحدّد المعيار الذي يراه الأصعب عليه." });
+    if (tf.length >= 2) S.push({ t: "starter", d: { title: "استرجاع سريع", sub: "صح أم خطأ؟ صحّح الخاطئة في دفترك", cards: tf.slice(0, 6) }, n: "3 دقائق: من الدروس السابقة في المؤهّل. انقر البطاقة لكشف الحكم." });
+    S.push({ t: "strategy", d: { title: "المهارة في ست خطوات", steps: D.skill.map((x) => `${x[0]} ${x[1]}: ${x[2]}`) }, n: "اكشف الخطوات واحدة واحدة، ومثّل لكل خطوة بجملة من النص القادم." });
+    S.push({ t: "ex", d: { k: "text", title: `أنا أطبّق أمامكم: «${E.title}»`, text: E.text, instr: W.instr + ` (${W.marks} درجات)` }, n: "فكّر بصوت مسموع: اقرأ الفقرة، وقل: «ما الفكرة الرئيسة هنا؟ وما المثال الذي سأحذفه؟». ظلّل بالقلم الأفكار الرئيسة." });
+    S.push({ t: "ex", d: { k: "points", title: "النقاط الرئيسة الأربع", items: E.points, note: "درجة لكل نقطة · والأمثلة والأقوال لا درجة لها" }, n: "اكشف النقاط واحدة واحدة، وقارن بما ظلّله الطلاب." });
+    const top = E.models.find((m) => m.score === 6) || E.models[0];
+    S.push({ t: "ex", d: { k: "model", title: `إجابة نموذجية (${top.lvl})`, m: top, points: E.points }, n: "اقرأ الإجابة، ثم اكشف علامات النقاط والتعليقات: كيف أعاد الصياغة؟ وأين أدوات الربط؟" });
+    E.models.filter((m) => m !== top).forEach((m) => S.push({ t: "ex", d: { k: "mark", title: "صحّح كممتحن", m, points: E.points, quality: D.quality, max: W.marks },
+      n: "دقيقتان: يصحّح الطلاب في أزواج بالمعيار (نقطة = درجة، والجودة 0–2) ويكتبون الدرجة، ثم اكشف درجة الممتحن وتعليقاته وناقش الفرق." }));
+    S.push({ t: "ex", d: { k: "sort", title: "نطبّق معًا: فكرة رئيسة أم تفصيل؟", items: D.drills.sort }, n: "يرفع الطلاب يدًا للفكرة الرئيسة وقبضة للتفصيل، ثم اكشف الإجابة." });
+    D.drills.para.forEach((q, j) => S.push({ t: "ex", d: { k: "para", title: `أفضل إعادة صياغة (${j + 1}/${D.drills.para.length})`, q }, n: "يكتب الطلاب رقم الخيار على السبورات الصغيرة، ثم اكشف الصحيح وسببه." }));
+    S.push({ t: "ex", d: { k: "task", title: `أنت تطبّق: «${X.title}»`, text: X.text, instr: W.instr + ` (${W.marks} درجات)`, min: X.minutes }, n: `${X.minutes} دقيقة: شغّل المؤقت. الكتابة فردية وبصمت، مع عدّ الكلمات في النهاية.` });
+    S.push({ t: "ex", d: { k: "peer", title: "تقييم الزميل بمعيار الامتحان", points: X.points, quality: D.quality, max: W.marks }, n: "يتبادل الطلاب الدفاتر، ويضعون ✔ لكل نقطة مكتوبة بأسلوب الزميل، ويختارون مستوى الجودة، ثم يكتبون نصيحة واحدة." });
+    S.push({ t: "ex", d: { k: "answer", title: "إجابة نموذجية للمقارنة", text: X.model, words: X.model_words }, n: "اكشفها بعد تقييم الزميل، واطلب من كل طالب تحسين جملة واحدة في تلخيصه." });
+    S.push({ t: "ex", d: { k: "mist", title: "أخطاء شائعة", items: D.mistakes }, n: "اسأل: أيّ هذه الأخطاء وقعتَ فيه اليوم؟" });
+    S.push({ t: "exit", d: { title: "بطاقة الخروج", sub: "امسح الرمز: ورشة الامتحان وسؤالها على حراء", url: appUrl() + "#/lesson/" + ctx.l.code }, n: "دقيقتان: يسلّم الطلاب تلخيصهم على المنصة ويصحّحون أنفسهم بالمعيار." });
+    return S;
+  }
+  function tdExHtml(d, X) {
+    const src = { ms: "معيار التصحيح", rep: "تقرير الممتحنين", q: "تعليمات السؤال" };
+    switch (d.k) {
+      case "where": { const W = d.W; return `<div class="tdx-where"><div><b>${X(W.q)}</b><span>${X(W.paper)}</span></div><div><b>${W.marks} درجات</b><span>${X(W.split)}</span></div><div><b>${X(W.words)}</b><span>طول الإجابة</span></div></div><div class="tdx-instr rv">«${X(W.instr)}»</div>`; }
+      case "text": return `<div class="tdx-tx">${d.text.map((p) => `<p>${X(p)}</p>`).join("")}</div><div class="tdx-instr">${X(d.instr)}</div>`;
+      case "points": return `<ol class="tdx-pts">${d.items.map((p, j) => `<li class="rv"><span>${j + 1}</span><p>${X(p)}</p></li>`).join("")}</ol>${d.note ? `<div class="tdx-note">${X(d.note)}</div>` : ""}`;
+      case "model": return `<div class="tdx-two"><div class="tdx-ans">${X(d.m.text)}<small>${d.m.words} كلمة</small></div><div class="tdx-side"><div class="tdx-chips">${d.points.map((p, j) => `<span class="rv ${d.m.marks[j] ? "ok" : "no"}">${d.m.marks[j] ? "✔" : "✘"} ${X(p.split(":")[0].split("،")[0])}</span>`).join("")}</div><ul class="tdx-notes">${d.m.notes.map((n) => `<li class="rv">${X(n)}</li>`).join("")}</ul></div></div>`;
+      case "mark": return `<div class="tdx-two"><div class="tdx-ans">${X(d.m.text)}<small>${d.m.words} كلمة</small></div><div class="tdx-side"><div class="tdx-grid"><b>النقاط (درجة لكل نقطة)</b>${d.points.map((p, j) => `<div><span>${X(p.split(":")[0].split("،")[0])}</span><em class="rv ${d.m.marks[j] ? "ok" : "no"}">${d.m.marks[j] ? "1" : "0"}</em></div>`).join("")}
+        <b>جودة الكتابة (0–2)</b><div><span>${X((d.quality.find((q) => q[0] === d.m.q) || [, ""])[1])}</span><em class="rv">${d.m.q}</em></div></div><div class="tdx-score rv">درجة الممتحن: <b>${d.m.score}/${d.max}</b></div><ul class="tdx-notes sm">${d.m.notes.slice(0, 2).map((n) => `<li class="rv">${X(n)}</li>`).join("")}</ul></div></div>`;
+      case "sort": return `<div class="tdx-sort">${d.items.map((s) => `<div><p>${X(s[0])}</p><em class="rv ${s[1]}">${s[1] === "main" ? "فكرة رئيسة" : "تفصيل أو مثال"}</em></div>`).join("")}</div>`;
+      case "para": return `<div class="tdx-src">«${X(d.q.src)}»</div><div class="tdx-opts">${d.q.o.map((o, k) => `<div class="${k === d.q.c ? "c" : ""}"><span>${k + 1}</span>${X(o)}</div>`).join("")}</div><div class="tdx-why rv">✔ الخيار ${d.q.c + 1}: ${X(d.q.why)}</div>`;
+      case "task": return `<div class="tdx-tx sm">${d.text.map((p) => `<p>${X(p)}</p>`).join("")}</div><div class="tdx-instr">${X(d.instr)} · ⏱️ ${d.min} دقيقة</div>`;
+      case "peer": return `<div class="tdx-two"><div class="tdx-grid"><b>✔ النقاط الرئيسة (درجة لكل نقطة)</b>${d.points.map((p) => `<div><span>${X(p)}</span><em>☐</em></div>`).join("")}</div><div class="tdx-grid"><b>جودة الكتابة</b>${d.quality.map((q) => `<div><span>${X(q[1])}</span><em>${q[0]}</em></div>`).join("")}<div class="tdx-score">المجموع: ...... / ${d.max}</div><div class="tdx-note">نصيحة واحدة لزميلي: ......................</div></div></div>`;
+      case "answer": return `<div class="tdx-ans big rv">${X(d.text)}<small>${d.words} كلمة</small></div>`;
+      case "mist": return `<div class="tdx-mist">${d.items.map((m) => `<div class="rv"><span>${m[0]}</span><b>${X(m[1])}</b><p>${X(m[2])}</p>${m[3] ? `<small>📄 ${src[m[3]]}</small>` : ""}</div>`).join("")}</div>`;
+    }
+    return "";
+  }
   async function ewsTeacher(el, D, l, u) {
     if (!el) return; const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
     let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.year_group === u.year_group && c.track === u.track && c.subject_id === u.subject_id);
