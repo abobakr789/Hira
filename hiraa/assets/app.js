@@ -3356,7 +3356,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const pb = document.getElementById("planBtn");
     if (pb) pb.onclick = () => printLessonPlan(l, u, axisName, ticket);
     const hb = document.getElementById("hwBtn");
-    if (hb) hb.onclick = () => hwDialog(l, u, !!(ticket && (ticket.assessment_questions || []).length), gameItems.length > 0);
+    if (hb) hb.onclick = () => hwDialog(l, u, !!(ticket && (ticket.assessment_questions || []).length), gameItems.length > 0, !!mdrId);
     if (state.session && isStudent() && !lockedForMe) duelFab(l, nn);
   }
 
@@ -12143,7 +12143,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
   }
 
   /* =================== HOMEWORK =================== */
-  const HW_TASKS = { lesson: ["افتح الدرس وراجع مواده", "Open the lesson"], ticket: ["حلّ بطاقة الخروج", "Do the exit ticket"], game: ["العب لعبة الدرس", "Play the lesson game"], recite: ["سجّل التسميع", "Record your recitation"], written: ["أجب عن السؤال كتابةً", "Write your answer"] };
+  const HW_TASKS = { lesson: ["افتح الدرس وراجع مواده", "Open the lesson"], ticket: ["حلّ بطاقة الخروج", "Do the exit ticket"], game: ["العب لعبة الدرس", "Play the lesson game"], reading: ["اقرأ نص «مدارج القراءة» وأجب عن أسئلته", "Read the reading text and answer"], rexpr: ["اكتب التعبير الكتابي لنص القراءة", "Write the reading response"], recite: ["سجّل التسميع", "Record your recitation"], written: ["أجب عن السؤال كتابةً", "Write your answer"] };
   async function hwProgress(assignments, studentIds) {
     if (!assignments.length || !studentIds.length) return {};
     const lids = [...new Set(assignments.map((a) => a.lesson_id).filter(Boolean))];
@@ -12155,6 +12155,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       lids.length ? sb.from("game_plays").select("user_id, lesson_id, played_at").in("lesson_id", lids).in("user_id", studentIds).gte("played_at", since) : { data: [] },
       sb.from("submissions").select("id, assignment_id, student_id, status, content, grade, feedback_ar, submitted_at").in("assignment_id", assignments.map((a) => a.id)).in("student_id", studentIds)
     ]);
+    const { data: rdg } = lids.length && assignments.some((a) => (a.tasks || []).some((k) => k === "reading" || k === "rexpr")) ? await sb.from("lesson_reading").select("student_id, lesson_id, quiz_at, expr_at").in("lesson_id", lids).in("student_id", studentIds) : { data: [] };
     const out = {};
     assignments.forEach((a) => {
       studentIds.forEach((s) => {
@@ -12165,6 +12166,8 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
           if (k === "recite") t[k] = (recs || []).some((r) => r.student_id === s && r.lesson_id === a.lesson_id && after(r.created_at));
           if (k === "game") t[k] = (plays || []).some((p) => p.user_id === s && p.lesson_id === a.lesson_id && after(p.played_at));
           if (k === "written") t[k] = (subs || []).some((x) => x.assignment_id === a.id && x.student_id === s && x.content);
+          if (k === "reading") t[k] = (rdg || []).some((x) => x.student_id === s && x.lesson_id === a.lesson_id && after(x.quiz_at));
+          if (k === "rexpr") t[k] = (rdg || []).some((x) => x.student_id === s && x.lesson_id === a.lesson_id && after(x.expr_at));
         });
         const sub = (subs || []).find((x) => x.assignment_id === a.id && x.student_id === s) || null;
         const n = Object.values(t).filter(Boolean).length, tot = (a.tasks || []).length;
@@ -12173,15 +12176,15 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
     });
     return out;
   }
-  async function hwDialog(l, u, hasTicket, hasGame) {
+  async function hwDialog(l, u, hasTicket, hasGame, hasReading, onlyReading) {
     const me = state.session.user.id;
     const { data: all } = await sb.from("classes").select("id, name, class_teachers(teacher_id)").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).order("name");
     const mine = state.profile.role === "teacher" ? (all || []).filter((c) => (c.class_teachers || []).some((x) => x.teacher_id === me)) : (all || []);
     let d = document.getElementById("hwDlg");
     if (!d) { d = document.createElement("dialog"); d.id = "hwDlg"; d.className = "wide-dlg"; document.body.appendChild(d); }
     const due = new Date(Date.now() + 3 * 864e5); const dueStr = `${due.getFullYear()}-${String(due.getMonth() + 1).padStart(2, "0")}-${String(due.getDate()).padStart(2, "0")}`;
-    const tasks = [["lesson", true, true], ["ticket", hasTicket, hasTicket], ["game", hasGame, hasGame], ["recite", true, false], ["written", true, false]];
-    d.innerHTML = `<h2 style="font-size:1.25rem">واجب: ${esc(l.title_ar)}</h2>
+    const tasks = [["lesson", true, !onlyReading], ["ticket", hasTicket, hasTicket && !onlyReading], ["game", hasGame, hasGame && !onlyReading], ...(hasReading ? [["reading", true, true], ["rexpr", true, !!onlyReading]] : []), ["recite", true, false], ["written", true, false]];
+    d.innerHTML = `<h2 style="font-size:1.25rem">واجب: ${esc(onlyReading ? "📗 " + onlyReading : l.title_ar)}</h2>
       ${mine.length ? `<p class="pref-label">الفصول</p><div class="hw-cls">${mine.map((c, i) => `<button type="button" class="chip tc" data-hc="${c.id}" aria-pressed="${i === 0}">${esc(c.name)}</button>`).join("")}</div>
       <p class="pref-label">المطلوب من الطالب</p><div class="hw-tasks">${tasks.map(([k, avail, on]) => `<label class="check ${avail ? "" : "dis"}"><input type="checkbox" data-ht="${k}" ${on ? "checked" : ""} ${avail ? "" : "disabled"}> ${HW_TASKS[k][0]}${avail ? "" : ' <small class="muted">(غير متاح لهذا الدرس)</small>'}</label>`).join("")}</div>
       <div class="field" id="hwQwrap" hidden><label for="hwQ">السؤال المكتوب</label><textarea id="hwQ" rows="2" placeholder="مثال: اذكر موقفًا طبّقت فيه قيمة الدرس هذا الأسبوع."></textarea></div>
@@ -12205,7 +12208,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       sv.disabled = true;
       const dueV = d.querySelector("#hwDue").value; const instr = (d.querySelector("#hwI").value || "").trim();
       const { data: cls } = await sb.from("classes").select("id, school_id").in("id", cids);
-      const rows = (cls || []).map((c) => ({ school_id: c.school_id, teacher_id: me, class_id: c.id, title_ar: l.title_ar, lesson_id: l.id, tasks: ts,
+      const rows = (cls || []).map((c) => ({ school_id: c.school_id, teacher_id: me, class_id: c.id, title_ar: onlyReading ? "📗 مدارج القراءة: " + onlyReading : l.title_ar, lesson_id: l.id, tasks: ts,
         instructions_ar: [instr, ts.includes("written") ? "السؤال: " + q : ""].filter(Boolean).join("\n") || null, due_at: dueV ? new Date(dueV + "T23:59:00").toISOString() : null }));
       const r = await sb.from("assignments").insert(rows); if (r.error) { err.textContent = "تعذّر الإرسال: " + r.error.message; sv.disabled = false; return; }
       await sb.from("class_lesson_unlocks").upsert(cids.map((c) => ({ class_id: c, lesson_id: l.id, unlocked_by: me, unlock_at: new Date().toISOString() })), { onConflict: "class_id,lesson_id" });
@@ -12236,7 +12239,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
         return `<div class="hw-card ${p.done ? "done" : late ? "late" : ""}" data-a="${a.id}"><div class="hw-h"><strong>${esc(en && a.lessons && a.lessons.title_en ? a.lessons.title_en : a.title_ar)}</strong>
           <span class="hw-due">${p.done ? (en ? "✓ Done" : "✓ أنجزته") : esc(dueTxt(a.due_at))}</span></div>
           ${a.instructions_ar ? `<p class="muted">${esc(a.instructions_ar.split("\n").filter((x) => !x.startsWith("السؤال: ")).join(" "))}</p>` : ""}
-          <ul class="hw-tasks-st">${(a.tasks || []).map((k) => `<li class="${p.t[k] ? "ok" : ""}">${p.t[k] ? "✓" : "○"} ${k === "written" || !a.lessons ? esc(CT(HW_TASKS[k][0], HW_TASKS[k][1])) : `<a href="#/lesson/${esc(a.lessons.code)}">${esc(CT(HW_TASKS[k][0], HW_TASKS[k][1]))}</a>`}</li>`).join("")}</ul>
+          <ul class="hw-tasks-st">${(a.tasks || []).map((k) => `<li class="${p.t[k] ? "ok" : ""}">${p.t[k] ? "✓" : "○"} ${k === "written" || !a.lessons ? esc(CT(HW_TASKS[k][0], HW_TASKS[k][1])) : `<a href="#/${k === "reading" || k === "rexpr" ? "rl" : "lesson"}/${esc(a.lessons.code)}">${esc(CT(HW_TASKS[k][0], HW_TASKS[k][1]))}</a>`}</li>`).join("")}</ul>
           ${(a.tasks || []).includes("written") ? `<div class="hw-write">${q ? `<p><b>${esc(q.replace("السؤال: ", ""))}</b></p>` : ""}<textarea rows="2" data-wa="${a.id}" placeholder="${en ? "Your answer" : "إجابتك"}">${esc((p.sub && p.sub.content) || "")}</textarea>
             <button class="btn btn-ghost btn-small" data-ws="${a.id}" ${p.sub && p.sub.grade != null ? "disabled" : ""}>${p.sub && p.sub.content ? (en ? "Update" : "تحديث الإجابة") : (en ? "Send" : "أرسل الإجابة")}</button></div>` : ""}
           ${p.sub && (p.sub.feedback_ar || p.sub.grade != null) ? `<p class="hw-fb">${p.sub.grade != null ? "★".repeat(Number(p.sub.grade)) + " " : ""}${esc(p.sub.feedback_ar || "")}</p>` : ""}</div>`; }).join("")}</div>` : ""}`;
@@ -13950,6 +13953,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "reset") return pageReset();
       if (p0 === "unit" && parts[1]) return pageUnit(parts[1], params);
       if (p0 === "reading" && parts[1]) return pageReading(parts[1]);
+      if (p0 === "rl" && parts[1]) return mdrMapGet().then((m) => { if (m[parts[1]]) location.replace("#/reading/" + m[parts[1]]); else location.replace("#/lesson/" + parts[1]); });
       if (p0 === "plan" && parts[1]) return pagePlan(parts[1]);
       if (/^(access_token|error|type)=/.test(p0 || "")) { const hp = new URLSearchParams(p0);
         if (hp.get("error")) { h(`<div class="wrap"><div class="form-card empty"><strong>${CT("الرابط غير صالح أو انتهت صلاحيته", "The link is invalid or has expired")}</strong>${CT("اطلب رابطًا جديدًا من صفحة الدخول.", "Request a new link from the sign-in page.")} <a href="#/login">${CT("تسجيل الدخول", "Sign in")}</a></div></div>`); return; }

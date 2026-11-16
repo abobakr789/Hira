@@ -2633,6 +2633,33 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .mdr-fbk{background:#F3FBF6;border-color:#BFE6CF}
 .mdr-rbg{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:8px 0}.mdr-rbg label{display:flex;flex-direction:column;font-size:.85rem;gap:2px}.mdr-rbg select{font:inherit;border-radius:8px}
 .mdr-grade summary{cursor:pointer}
+/* مدارج: المنحنى والدوري واللوحة ووضع القراءة */
+.mdr-curve,.mdr-league{margin-top:14px;border-top:1px dashed #D7E5F7;padding-top:10px}
+.mdr-curve h4,.mdr-league h4{margin:0 0 6px}
+.mdr-curve svg{width:100%;height:auto;max-height:200px;background:#F7FAFF;border-radius:12px}
+.mdr-curve .g{stroke:#E3ECF8;stroke-width:1}.mdr-curve .ax{font-size:11px;fill:#8a94a6}
+.mdr-curve .ln{fill:none;stroke:#2E6FBF;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.mdr-curve .pt{fill:#fff;stroke:#2E6FBF;stroke-width:2.5}
+.mdr-curve .tg{stroke:#E07B39;stroke-width:2;stroke-dasharray:6 5}.mdr-curve .tgl{font-size:12px;fill:#E07B39;font-weight:700}
+.mdr-lg-h{display:flex;justify-content:space-between;align-items:center}
+.mdr-pts{font-size:1.5rem;color:#2E6FBF}.mdr-pts small{font-size:.8rem;color:var(--muted,#6b7280)}
+.mdr-badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin:8px 0}
+.mdr-bd{display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 4px;border-radius:14px;border:1.5px solid #E5E7EB;filter:grayscale(1);opacity:.45;font-size:.85rem}
+.mdr-bd i{font-style:normal;font-size:1.6rem}.mdr-bd small{color:var(--muted,#6b7280);font-size:.72rem}
+.mdr-bd.on{filter:none;opacity:1;border-color:#F2C14E;background:#FFF9E8}
+.mdr-cert-row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#F3F8FF;border-radius:12px;padding:8px 12px}
+.mdr-cert-row .mdr-bar{min-width:120px;flex:0 0 140px}
+.mdr-staff{margin-bottom:14px}
+.mdr-tgt{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 10px}.mdr-tgt input{width:90px;padding:6px 8px;border-radius:10px;border:1.5px solid #D7E5F7}
+.mdr-heat td{text-align:center}.mdr-heat td:first-child{text-align:start;white-space:nowrap}
+.mdr-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.mdr-groups>div{border:1.5px solid #EEE;border-radius:12px;padding:8px 10px;display:flex;flex-direction:column;gap:4px}
+.mdr-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.mdr-rtool{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:6px 0;font-size:.9rem}
+.mdr-text.mdr-wide{line-height:2.7;word-spacing:.18em}.mdr-text.mdr-wide p{margin-bottom:18px}
+.mdr-ruler{position:absolute;inset-inline:0;pointer-events:none;background:rgba(255,226,120,.28);border-block:2px solid rgba(224,163,40,.55);box-shadow:0 0 0 9999px rgba(15,23,42,.12);transition:top .08s;z-index:1}
+.mdr-pkfix{margin:4px 0 6px;font-size:.85rem;color:#8a5a00}.mdr-pkfix select{margin-inline-start:6px;padding:2px 6px;border-radius:8px}
+[data-theme="dark"] .mdr-curve svg{background:#0f1b2d}[data-theme="dark"] .mdr-bd.on{background:#3a2f12}[data-theme="dark"] .mdr-cert-row{background:#132238}
 
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
@@ -6348,6 +6375,7 @@ window.HiraArcade = (function () {
       const ids = all.map((x) => x.lesson && x.lesson.id).filter(Boolean);
       if (ids.length) { const { data } = await sb.from("lesson_reading").select("lesson_id, score, max_score, quiz_at, expr_at, wpm, skills").eq("student_id", state.session.user.id).in("lesson_id", ids); (data || []).forEach((r) => { mine[r.lesson_id] = r; }); }
     }
+    const target = await mdrTarget(year);
     const done = all.filter((x) => x.lesson && mine[x.lesson.id] && mine[x.lesson.id].quiz_at);
     const sk = { ret: [0, 0], inf: [0, 0], int: [0, 0], eva: [0, 0] };
     done.forEach((x) => { const s = mine[x.lesson.id].skills || {}; Object.keys(sk).forEach((k) => { if (s[k]) { sk[k][0] += s[k][0]; sk[k][1] += s[k][1]; } }); });
@@ -6355,7 +6383,12 @@ window.HiraArcade = (function () {
     const passport = isStudent() && state.session ? `<div class="mdr-pass"><div class="mdr-pass-h"><span>📗</span><div><b>جَوازُ الْقِراءَةِ</b><small>الصَّفُّ ${MDR_GN[year]} · ${all.length} نَصًّا مِنْ كِتابِ «مَدارِجِ الْقِراءَةِ»</small></div></div>
         <div class="mdr-pass-s"><div><b><bdi dir="ltr">${done.length}/${all.length}</bdi></b><small>نُصوصٌ أَنْجَزْتُها</small>${mdrBar(done.length, all.length)}</div>
           <div><b>${wpms.length ? wpms[wpms.length - 1] : "—"}</b><small>كَلِمَةً في الدَّقيقَةِ (آخِرُ قِياسٍ)</small></div>
-          ${Object.keys(sk).map((k) => `<div><b>${sk[k][1] ? Math.round(sk[k][0] * 100 / sk[k][1]) + "%" : "—"}</b><small>${MDR_SK[k][0]} ${MDR_SK[k][1]}</small>${mdrBar(sk[k][0], sk[k][1])}</div>`).join("")}</div></div>` : "";
+          ${Object.keys(sk).map((k) => `<div><b>${sk[k][1] ? Math.round(sk[k][0] * 100 / sk[k][1]) + "%" : "—"}</b><small>${MDR_SK[k][0]} ${MDR_SK[k][1]}</small>${mdrBar(sk[k][0], sk[k][1])}</div>`).join("")}</div>
+        ${mdrCurve(all.map((x, i) => [i + 1, x.lesson && mine[x.lesson.id] && mine[x.lesson.id].wpm, x.t]).filter((p) => p[1]), target, all.length)}
+        ${mdrLeague(all, mine, year, term)}</div>` : "";
+    const staffBox = isStaff() && state.session ? `<div class="mdr-staff" id="mdrStaff"><div class="loading">جارٍ تحميل خريطة الفصل…</div></div>` : "";
+    if (staffBox) mdrDefer("mdrStaff", (el) => mdrStaffPanel(el, year, all, target));
+    if (passport) mdrDefer("mdrCert", (el) => { el.onclick = () => mdrCertPrint(year, term, all.filter((x) => x.term === term)); });
     const intro = `<div class="mdr-intro"><h2>📗 مَدارِجُ الْقِراءَةِ · ${["", "الْفَصْلُ الْأَوَّلُ", "الْفَصْلُ الثّاني", "الْفَصْلُ الثّالِثُ"][term]}</h2>
       <p>نُصوصٌ مِنْ كِتابِ «مَدارِجِ الْقِراءَةِ» لِوِزارَةِ التَّرْبِيَةِ وَالتَّعْليمِ. في كُلِّ نَصٍّ: أُسْلوبٌ قِرائِيٌّ، وَقِياسُ الطَّلاقَةِ وَالْقِراءَةُ الْجَهْرِيَّةُ، وَأَنْشِطَةٌ لِلْمُفْرَداتِ وَالتَّسَلْسُلِ، وَأَسْئِلَةُ فَهْمٍ في مُسْتَوَياتِ بيرْلِزَ الْأَرْبَعَةِ، وَتَعْبيرٌ كِتابِيٌّ وَشَفَهِيٌّ.</p>
       <div class="mdr-legend">${Object.keys(MDR_SK).map((k) => `<span>${MDR_SK[k][0]} ${MDR_SK[k][1]}</span>`).join("")}</div></div>`;
@@ -6368,7 +6401,100 @@ window.HiraArcade = (function () {
         <span><span class="t">${esc(x.t)}</span><span class="muted mdr-sub">${x.kind === "i" ? "📘 نَصٌّ مَعْلوماتِيٌّ" : "📕 نَصٌّ سَرْدِيٌّ"} · ${x.si} ${esc(x.sn)} · ${x.w} كَلِمَةً${l ? ` · مَعَ دَرْسِ «${esc(String(l.title_ar || "").replace(/^[^:]*:\s*/, ""))}»` : ""}</span></span>
         <span class="meta">${r && r.quiz_at ? `<span class="pill mdr-done">✅ <bdi dir="ltr">${r.score}/${r.max_score}</bdi></span>` : ""}${locked ? `<span class="pill lock-pill">${lockIcon} ${!state.session ? CT("للمشتركين", "Subscribers") : "مقفل"}</span>` : first && !state.session ? `<span class="pill free-pill">${CT("مجاني", "Free")}</span>` : `<span class="pill mdr-go">اقْرَأْ ←</span>`}</span></a>`;
     }).join("") : `<div class="empty"><strong>لا توجد نصوص لهذا الفصل</strong></div>`;
-    return `<div class="mdr-list">${intro}${passport}<div class="unit">${list}</div></div>`;
+    return `<div class="mdr-list">${intro}${passport}${staffBox}<div class="unit">${list}</div></div>`;
+  }
+
+  // ينتظر ظهور العنصر بعد رسم الصفحة ثم يربطه
+  function mdrDefer(id, fn) { let n = 0; const go = () => { const el = document.getElementById(id); if (el) { if (!el.dataset.w) { el.dataset.w = 1; fn(el); } } else if (n++ < 60) setTimeout(go, 50); }; setTimeout(go, 0); }
+  async function mdrTarget(year) {
+    const sid = state.profile && state.profile.school_id; if (!sid) return null;
+    const { data } = await sb.from("reading_targets").select("wpm").eq("school_id", sid).eq("year_group", +year).maybeSingle();
+    return data ? data.wpm : null;
+  }
+  // منحنى الطلاقة عبر نصوص السنة مع خط هدف المدرسة
+  function mdrCurve(pts, target, total) {
+    if (!pts.length) return `<div class="mdr-curve"><h4>📈 مُنْحَنى طَلاقَتي</h4><p class="muted">قِسْ طَلاقَتَكَ في خُطْوَةِ «أَقْرَأُ» لِيَظْهَرَ مُنْحَناكَ هُنا${target ? ` · هَدَفُ مَدْرَسَتِكَ: <b>${target}</b> كَلِمَةً في الدَّقيقَةِ` : ""}.</p></div>`;
+    const W = 600, H = 170, px = 34, py = 18, mx = Math.max(total, 2), top = Math.max(...pts.map((p) => p[1]), target || 0) * 1.15 || 100;
+    const X = (i) => px + (i - 1) * (W - px * 2) / (mx - 1), Y = (v) => H - py - v * (H - py * 2) / top;
+    const line = pts.map((p, k) => `${k ? "L" : "M"}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" ");
+    const last = pts[pts.length - 1][1], first = pts[0][1];
+    return `<div class="mdr-curve"><h4>📈 مُنْحَنى طَلاقَتي</h4>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="منحنى الطلاقة" dir="ltr">
+        ${[0.25, 0.5, 0.75, 1].map((f) => `<line x1="${px}" x2="${W - px}" y1="${Y(top * f / 1.15)}" y2="${Y(top * f / 1.15)}" class="g"/><text x="4" y="${Y(top * f / 1.15) + 4}" class="ax">${Math.round(top * f / 1.15)}</text>`).join("")}
+        ${target ? `<line x1="${px}" x2="${W - px}" y1="${Y(target)}" y2="${Y(target)}" class="tg"/><text x="${W - px}" y="${Y(target) - 5}" text-anchor="end" class="tgl">الهدف ${target}</text>` : ""}
+        <path d="${line}" class="ln"/>${pts.map((p) => `<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="5" class="pt"><title>النص ${p[0]} «${esc(p[2])}»: ${p[1]} كلمة/دقيقة</title></circle>`).join("")}
+      </svg>
+      <p class="muted">${pts.length > 1 ? (last >= first ? `تَقَدَّمْتَ مِنْ <b>${first}</b> إِلى <b>${last}</b> كَلِمَةً في الدَّقيقَةِ. ` : `آخِرُ قِياسٍ <b>${last}</b> (كانَ <b>${first}</b>)؛ اقْرَأْ بِتَأَنٍّ وَفَهْمٍ، فَالسُّرْعَةُ وَحْدَها لَيْسَتْ هَدَفًا. `) : ""}${target ? (last >= target ? "🎯 بَلَغْتَ هَدَفَ مَدْرَسَتِكَ." : `بَقِيَ <b>${target - last}</b> كَلِمَةً لِتَبْلُغَ هَدَفَ مَدْرَسَتِكَ (${target}).`) : ""}</p></div>`;
+  }
+  // دوري القراءة: نقاط وأوسمة وشهادة الفصل
+  const MDR_BD = [["🌱", "قارِئٌ ناشِئٌ"], ["📘", "قارِئٌ نَشيطٌ"], ["⭐", "قارِئٌ مُتَمَكِّنٌ"], ["🏅", "قارِئٌ مُتَمَيِّزٌ"], ["🏆", "سَفيرُ الْقِراءَةِ"], ["👑", "فارِسُ الْقِراءَةِ"]];
+  const mdrPts = (r) => !r || !r.quiz_at ? 0 : 10 + (r.score === r.max_score && r.max_score ? 5 : 0) + (r.expr_at ? 5 : 0) + (r.wpm ? 2 : 0);
+  function mdrLeague(all, mine, year, term) {
+    const rs = all.map((x) => x.lesson && mine[x.lesson.id]).filter((r) => r && r.quiz_at);
+    const pts = rs.reduce((a, r) => a + mdrPts(r), 0), nb = Math.min(Math.floor(rs.length / 5), MDR_BD.length);
+    const tt = all.filter((x) => x.term === term), td = tt.filter((x) => x.lesson && mine[x.lesson.id] && mine[x.lesson.id].quiz_at).length;
+    const nx = nb < MDR_BD.length ? 5 * (nb + 1) - rs.length : 0;
+    return `<div class="mdr-league"><div class="mdr-lg-h"><h4>🏁 دَوْري الْقِراءَةِ</h4><b class="mdr-pts">${pts} <small>نُقْطَةً</small></b></div>
+      <p class="muted">كُلُّ نَصٍّ تُنْجِزُهُ: 10 نِقاطٍ · الْعَلامَةُ الْكامِلَةُ +5 · إِرْسالُ التَّعْبيرِ +5 · قِياسُ الطَّلاقَةِ +2. وِسامٌ جَديدٌ كُلَّ 5 نُصوصٍ.</p>
+      <div class="mdr-badges">${MDR_BD.map((b, i) => `<span class="mdr-bd ${i < nb ? "on" : ""}" title="${b[1]}: ${5 * (i + 1)} نُصوصٍ"><i>${b[0]}</i>${b[1]}<small>${5 * (i + 1)} نُصوصٍ</small></span>`).join("")}</div>
+      ${nx ? `<p class="muted">بَقِيَ <b>${nx}</b> ${nx === 1 ? "نَصٌّ" : "نُصوصٍ"} لِلْوِسامِ التّالي «${MDR_BD[nb][1]}».</p>` : ""}
+      <div class="mdr-cert-row"><span>🎓 شَهادَةُ «قارِئِ الْفَصْلِ»: أَنْجَزْتَ <bdi dir="ltr">${td}/${tt.length}</bdi> مِنْ نُصوصِ هذا الْفَصْلِ</span>${tt.length && td === tt.length ? `<button class="btn btn-primary btn-small" id="mdrCert">🖨️ اطْبَعْ شَهادَتي</button>` : mdrBar(td, tt.length)}</div></div>`;
+  }
+  function mdrCertPrint(year, term, tt) {
+    const name = (state.profile && state.profile.full_name_ar) || "";
+    const w = window.open("", "_blank"); if (!w) { toast("اسمح بالنوافذ المنبثقة للطباعة"); return; }
+    const d = new Date(); const ds = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+    w.document.write(`<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>شهادة قارئ الفصل</title><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet"><style>
+      @page{size:A4 landscape;margin:12mm}body{font-family:Amiri,serif;margin:0;color:#1f2937}
+      .c{border:10px double #2E6FBF;border-radius:18px;padding:40px 50px;text-align:center;min-height:150mm;display:flex;flex-direction:column;justify-content:center;gap:10px}
+      h1{font-size:46px;color:#2E6FBF;margin:0}h2{font-size:40px;margin:6px 0;color:#0f5132}p{font-size:22px;margin:4px 0}.s{display:flex;justify-content:space-between;margin-top:30px;font-size:18px}
+      .t{font-size:15px;color:#555;columns:2;text-align:right;margin:10px auto;max-width:80%}</style></head><body><div class="c">
+      <div style="font-size:54px">📗</div><h1>شَهادَةُ قارِئِ الْفَصْلِ</h1><p>تَشْهَدُ مَنَصَّةُ حِراءٍ بِأَنَّ الطّالِبَ/الطّالِبَةَ</p><h2>${esc(name) || "...................."}</h2>
+      <p>قَدْ أَتَمَّ قِراءَةَ نُصوصِ ${["", "الْفَصْلِ الدِّراسِيِّ الْأَوَّلِ", "الْفَصْلِ الدِّراسِيِّ الثّاني", "الْفَصْلِ الدِّراسِيِّ الثّالِثِ"][term]} مِنْ كِتابِ «مَدارِجِ الْقِراءَةِ» لِلصَّفِّ ${MDR_GN[year]}، وَعَدَدُها ${tt.length} نُصوصٍ، مَعَ أَسْئِلَةِ الْفَهْمِ.</p>
+      <div class="t">${tt.map((x) => `<div>• ${esc(x.t)}</div>`).join("")}</div>
+      <p>نَسْأَلُ اللهَ لَهُ التَّوْفيقَ وَالسَّدادَ.</p>
+      <div class="s"><span>التّاريخُ: ${ds}</span><span>تَوْقيعُ الْمُعَلِّمِ: ....................</span></div></div>
+      <script>setTimeout(function(){print()},700)<\/script></body></html>`);
+    w.document.close();
+  }
+  // لوحة المعلم: هدف الطلاقة وخريطة الفصل الحرارية
+  async function mdrStaffPanel(el, year, all, target) {
+    const sid = state.profile && state.profile.school_id;
+    const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+    let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.year_group === +year && c.track === "native" && c.subject_id === 2);
+    if (!cls.length && (isSchoolAdmin() || isSuper())) { const { data } = await sb.from("classes").select("id, name").eq("year_group", +year).eq("track", "native").eq("subject_id", 2).order("name").limit(30); cls = data || []; }
+    const tgtH = () => sid ? `<div class="mdr-tgt"><label>🎯 هَدَفُ الطَّلاقَةِ لِلصَّفِّ ${MDR_GN[year]} في مَدْرَسَتِكَ (كَلِمَة/دَقيقَة):</label><input type="number" min="20" max="250" id="mdrTgtV" value="${target || ""}" placeholder="مثال: 90"><button class="btn btn-ghost btn-small" id="mdrTgtS">حفظ</button><small class="muted">يظهر خطًّا في منحنى كل طالب.</small></div>` : "";
+    if (!cls.length) { el.innerHTML = `<div class="mdr-card">${tgtH()}<p class="muted">لا توجد فصول مرتبطة بك في هذا الصف، فلا تظهر خريطة الفصل.</p></div>`; wireT(); return; }
+    let cur = cls[0].id;
+    function wireT() { const b = el.querySelector("#mdrTgtS"); if (b) b.onclick = async () => { const v = +el.querySelector("#mdrTgtV").value; if (!(v >= 20 && v <= 250)) { toast("اكتب رقمًا بين 20 و250"); return; }
+      b.disabled = true; const { error } = await sb.rpc("set_reading_target", { p_year: +year, p_wpm: v }); b.disabled = false; if (error) toast("تعذّر الحفظ: " + error.message); else { target = v; toast("حُفظ الهدف"); if (cls.length) draw(); } }; }
+    const ids = all.map((x) => x.lesson && x.lesson.id).filter(Boolean);
+    const col = (p) => p == null ? "" : `style="background:hsl(${Math.round(p * 1.2)},70%,${88 - p * 0.1}%)"`;
+    async function draw() {
+      const { data: roster } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur);
+      const SS = (roster || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
+      const { data: rr } = SS.length && ids.length ? await sb.from("lesson_reading").select("student_id, lesson_id, score, max_score, quiz_at, expr_at, wpm, skills").in("lesson_id", ids).in("student_id", SS.map((s) => s.id)) : { data: [] };
+      const B = {}; (rr || []).forEach((r) => { (B[r.student_id] = B[r.student_id] || []).push(r); });
+      const KS = Object.keys(MDR_SK), groups = {}; KS.forEach((k) => { groups[k] = []; });
+      const rows = SS.map((s) => { const rs = (B[s.id] || []).filter((r) => r.quiz_at); const sk = {}; KS.forEach((k) => { sk[k] = [0, 0]; });
+        rs.forEach((r) => KS.forEach((k) => { const v = (r.skills || {})[k]; if (v) { sk[k][0] += v[0]; sk[k][1] += v[1]; } }));
+        const sc = rs.reduce((a, r) => [a[0] + r.score, a[1] + r.max_score], [0, 0]); const pc = (a) => a[1] ? Math.round(a[0] * 100 / a[1]) : null;
+        const wps = (B[s.id] || []).map((r) => r.wpm).filter(Boolean); const wpm = wps.length ? Math.round(wps.reduce((a, b) => a + b, 0) / wps.length) : null;
+        const weak = KS.filter((k) => sk[k][1] >= 2).sort((a, b) => pc(sk[a]) - pc(sk[b]))[0]; if (weak && pc(sk[weak]) < 70) groups[weak].push(s.name);
+        return { s, n: rs.length, c: pc(sc), sk: KS.map((k) => pc(sk[k])), wpm, weak: weak && pc(sk[weak]) < 70 ? weak : null, pts: rs.reduce((a, r) => a + mdrPts(r), 0) }; });
+      const avgW = rows.map((r) => r.wpm).filter(Boolean);
+      el.innerHTML = `<div class="mdr-card"><h3>🗺️ خَريطَةُ الْفَصْلِ الْقِرائِيَّةُ</h3>${tgtH()}
+        ${cls.length > 1 ? `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>` : ""}
+        <div class="lp-stats"><div><b>${SS.length}</b><small>طالبًا</small></div><div><b>${rows.length ? Math.round(rows.reduce((a, r) => a + r.n, 0) / rows.length * 10) / 10 : "—"}</b><small>متوسط النصوص المنجزة من ${all.length}</small></div><div><b>${avgW.length ? Math.round(avgW.reduce((a, b) => a + b, 0) / avgW.length) : "—"}</b><small>متوسط الطلاقة${target ? ` · الهدف ${target}` : ""}</small></div>${target ? `<div><b><bdi dir="ltr">${rows.filter((r) => r.wpm && r.wpm >= target).length}/${SS.length}</bdi></b><small>بلغوا الهدف</small></div>` : ""}</div>
+        <div class="lp-tw"><table class="lp-tbl mdr-heat"><thead><tr><th>الطالب</th><th>النصوص</th><th>الفهم</th>${KS.map((k) => `<th title="${MDR_SK[k][1]}">${MDR_SK[k][0]} ${{ ret: "الاسترجاع", inf: "الاستنتاج", int: "التفسير", eva: "التقويم" }[k]}</th>`).join("")}<th>الطلاقة</th><th>النقاط</th><th>يحتاج دعمًا في</th></tr></thead><tbody>
+        ${rows.map((r) => `<tr><td>${esc(r.s.name)}</td><td><bdi dir="ltr">${r.n}/${all.length}</bdi></td><td ${col(r.c)}>${r.c == null ? "—" : r.c + "%"}</td>${r.sk.map((p) => `<td ${col(p)}>${p == null ? "—" : p + "%"}</td>`).join("")}<td ${target && r.wpm ? col(Math.min(100, r.wpm * 100 / target)) : ""}>${r.wpm || "—"}</td><td>${r.pts}</td><td>${r.weak ? MDR_SK[r.weak][0] + " " + MDR_SK[r.weak][1] : "—"}</td></tr>`).join("") || `<tr><td colspan="${KS.length + 6}">لا يوجد طلاب في هذا الفصل</td></tr>`}
+        </tbody></table></div>
+        <h4>👥 مَجْموعاتُ الدَّعْمِ الْمُقْتَرَحَةُ</h4><p class="muted">الطالب في مجموعة أضعف مستوى له (أقل من 70% بعد سؤالين على الأقل).</p>
+        <div class="mdr-groups">${KS.map((k) => `<div><b>${MDR_SK[k][0]} ${MDR_SK[k][1]} <small>(${groups[k].length})</small></b><span>${groups[k].length ? groups[k].map(esc).join("، ") : "—"}</span></div>`).join("")}</div></div>`;
+      el.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; draw(); });
+      wireT();
+    }
+    draw();
   }
 
   // ---------- صفحة النص ----------
@@ -6390,19 +6516,60 @@ window.HiraArcade = (function () {
       <h1>«${esc(it.t || "")}»</h1>
       <div class="head-meta"><span class="pill">📗 مدارج القراءة · النص ${pos + 1} من ${idx.length}</span><span class="pill">${it.kind === "i" ? "نص معلوماتي" : "نص سردي"}</span><span class="pill">${it.si || ""} ${esc(it.sn || "")}</span><span class="pill">${it.w || ""} كلمة</span>
         <a class="pill" href="#/lesson/${esc(l.code)}">🔗 درس الأسبوع: ${esc(String(l.title_ar || "").replace(/^[^:]*:\s*/, ""))}</a></div>
+      ${acc === "ok" ? `<div class="mdr-tools">${isStaff() && state.session ? `<button class="btn btn-primary btn-small" id="mdrHw">📌 كلِّف الفصل بهذا النص واجبًا</button>` : ""}<button class="btn btn-ghost btn-small" id="mdrPrint">🖨️ حزمة الطباعة</button></div>` : ""}
     </div></section>
     <section class="wrap panel" id="panel"><div id="rdgBox"></div>
       <div class="mdr-pn">${nav(idx[pos - 1], "→")}${nav(idx[pos + 1], "←")}</div></section>`);
     const box = document.getElementById("rdgBox");
     if (acc !== "ok") { box.innerHTML = `<div class="paywall-box form-card"><strong>${lockIcon} ${state.session ? "هذا النص مقفل الآن" : "اشترك أولًا"}</strong><p>${state.session ? "يفتحه معلمك مع درسه، أو عند تفعيل اشتراك الصف." : "النص الأول من كل صف مجاني للتجربة، وبقية النصوص للمشتركين."}</p><a class="btn btn-primary" href="${listHref}">العودة إلى قائمة النصوص</a></div>`; return; }
+    const hw = document.getElementById("mdrHw"); if (hw) hw.onclick = () => hwDialog(l, u, false, false, true, it.t);
+    const pr = document.getElementById("mdrPrint"); if (pr) pr.onclick = async () => mdrPrintPack(await mdrGet(id), year);
     mdrRun(box, l, u, id);
   }
+
+  // حزمة الطباعة: النص والأنشطة والأسئلة ومعايير التعبير في ورقة واحدة
+  async function mdrPrintPack(X, year) {
+    const fx = await mdrTagFix(X.id); const pk = (q, j) => fx[j] || q.pk || "ret";
+    const w = window.open("", "_blank"); if (!w) { toast("اسمح بالنوافذ المنبثقة للطباعة"); return; }
+    const lines = (n) => `<div class="ln">${"<i></i>".repeat(n)}</div>`;
+    const core = (s) => s.replace(/[،؛:.!؟?»«"()\-…]+$/g, "");
+    let cz = ""; if (X.cloze) { const toks = X.text[X.cloze.p].split(" "); cz = `<h2>🔤 أُكْمِلُ الْفَراغاتِ بِكَلِمَةٍ مِنَ الْبَنْكِ</h2><p class="bank">${X.cloze.w.map((k) => core(toks[k])).sort(() => Math.random() - 0.5).map(esc).join(" · ")}</p><p>${toks.map((t, k) => X.cloze.w.includes(k) ? "…………" + esc(t.slice(core(t).length)) : esc(t)).join(" ")}</p>`; }
+    const sq = X.seq ? `<h2>🧵 أُرَتِّبُ الْأَحْداثَ (1، 2، 3…)</h2>${X.seq.map((s, k) => [s, k]).sort(() => Math.random() - 0.5).map(([s]) => `<p>(&nbsp;&nbsp;&nbsp;) ${esc(s)}…</p>`).join("")}` : "";
+    const gm = (X.gl || []).map((g) => g[1]).sort(() => Math.random() - 0.5);
+    const gl = (X.gl || []).length ? `<h2>🔗 أَصِلُ الْكَلِمَةَ بِمَعْناها</h2><table class="m">${X.gl.map((g, i) => `<tr><td>${esc(g[0])}</td><td class="sp"></td><td>${esc(gm[i])}</td></tr>`).join("")}</table>` : "";
+    const qs = X.qs.map((q, j) => `<div class="q"><b>${j + 1}. ${esc(q.q)}</b> <small>[${MDR_SK[pk(q, j)][1]}]</small>${q.k === "m" ? `<ol type="أ">${q.o.map((o) => `<li>${esc(o)}</li>`).join("")}</ol>` : q.k === "r" ? q.seq.map((s) => [s]).sort(() => Math.random() - 0.5).map(([s]) => `<p>(&nbsp;&nbsp;&nbsp;) ${esc(s)}</p>`).join("") : q.items ?`<table class="m">${q.items.map((it) => `<tr><td>${esc(it[0])}</td><td>${q.bins.map(esc).join(" / ")}</td></tr>`).join("")}</table>` : lines(3)}</div>`).join("");
+    const key = X.qs.map((q, j) => q.k === "m" ? `${j + 1}: ${esc(q.o[q.c])}` : q.k === "o" && q.a ? `${j + 1}: ${esc(q.a)}` : "").filter(Boolean).join(" · ");
+    w.document.write(`<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>${esc(X.t)} · حزمة الطباعة</title><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet"><style>
+      @page{size:A4;margin:14mm}body{font-family:Amiri,serif;font-size:17px;line-height:1.9;color:#111}h1{font-size:28px;margin:0;color:#2E6FBF}h2{font-size:20px;margin:18px 0 6px;border-bottom:2px solid #2E6FBF;color:#2E6FBF}
+      .hd{display:flex;justify-content:space-between;border-bottom:3px double #2E6FBF;padding-bottom:6px;margin-bottom:10px}.hd small{font-size:14px}.tx p{text-indent:1.5em;margin:4px 0;font-size:19px;line-height:2.1}
+      .bank{border:1.5px dashed #888;padding:4px 10px;border-radius:8px}.q{margin:10px 0;break-inside:avoid}.q small{color:#666}ol{margin:2px 30px 0 0}table.m{border-collapse:collapse;width:100%}table.m td{border:1px solid #bbb;padding:4px 8px}td.sp{width:20%}
+      .ln i{display:block;border-bottom:1px dotted #777;height:32px}.rb{border-collapse:collapse;width:100%;font-size:14px}.rb td,.rb th{border:1px solid #999;padding:4px;text-align:center}.pb{break-before:page}.key{font-size:13px;color:#444;border-top:1px solid #ccc;margin-top:24px;padding-top:6px}
+      img{max-width:45%;float:left;margin:0 12px 8px 0;border-radius:8px}</style></head><body>
+      <div class="hd"><div><h1>«${esc(X.t)}»</h1><small>${X.kind === "i" ? "نَصٌّ مَعْلوماتِيٌّ" : "نَصٌّ سَرْدِيٌّ"} · أُسْلوبُ الْقِراءَةِ: ${esc(X.strat.n)} · ${X.w} كَلِمَةً · الصَّفُّ ${MDR_GN[year]}</small></div><small>الِاسْمُ: ....................<br>التّاريخُ: ............</small></div>
+      <h2>${X.strat.ic} قَبْلَ الْقِراءَةِ</h2><p>${esc(X.strat.p)}</p>${lines(2)}
+      <h2>📖 النَّصُّ</h2><div class="tx">${X.img ? `<img src="${X.img}" alt="">` : ""}${X.text.map((p) => `<p>${esc(p)}</p>`).join("")}</div>
+      <p><small>⏱️ زَمَنُ قِراءَتي الْجَهْرِيَّةِ: ...... دَقيقَةً ...... ثانِيَةً</small></p>
+      <div class="pb"></div>${cz}${sq}${gl}<h2>❓ أَسْئِلَةُ الْفَهْمِ</h2>${qs}
+      <h2>✍️ التَّعْبيرُ الْكِتابِيُّ</h2><p>${esc(X.expr.w)}</p>${lines(8)}
+      <table class="rb"><tr><th>الْمِعْيارُ</th>${[1, 2, 3, 4].map((k) => `<th>${MDR_LV[k]}</th>`).join("")}</tr>${MDR_RB.map((c) => `<tr><td>${c[0]} ${c[1]}</td><td></td><td></td><td></td><td></td></tr>`).join("")}</table>
+      <h2>🗣️ التَّعْبيرُ الشَّفَهِيُّ</h2><p>${esc(X.expr.o)}</p>
+      <p><small>كتاب «مدارج القراءة»، وزارة التربية والتعليم · ص ${X.p} · منصة حراء</small></p>
+      ${isStaff() ? `<div class="pb key"><b>🔑 مِفْتاحُ الْإِجابَةِ (لِلْمُعَلِّمِ، صَفْحَةٌ مُنْفَصِلَةٌ لا تُوَزَّعُ):</b><br>${key}</div>` : ""}
+      <script>window.onload=function(){setTimeout(function(){print()},600)}<\/script></body></html>`);
+    w.document.close();
+  }
+  async function mdrTagFix(tid) { const { data } = await sb.from("reading_tag_fix").select("q_index, pk").eq("text_id", tid); const o = {}; (data || []).forEach((r) => { o[r.q_index] = r.pk; }); return o; }
+  const MDR_PREF_K = "hiraa.mdrPrefs";
+  const mdrPrefGet = () => { try { return Object.assign({ fs: 0, sp: 0, rl: 0 }, JSON.parse(localStorage.getItem(MDR_PREF_K) || "{}")); } catch (e) { return { fs: 0, sp: 0, rl: 0 }; } };
+  const mdrPrefSet = (p) => { try { localStorage.setItem(MDR_PREF_K, JSON.stringify(p)); } catch (e) {} };
 
   // ---------- مشغّل النص: ست خطوات ----------
   async function mdrRun(box, l, u, id) {
     box.innerHTML = `<div class="loading">جارٍ التحميل…</div>`;
     let X; try { X = await mdrGet(id); } catch (e) { box.innerHTML = `<div class="empty"><strong>تعذّر تحميل النص</strong></div>`; return; }
     thmFonts();
+    try { const FX = await mdrTagFix(X.id); X.qs.forEach((q, j) => { if (FX[j]) q.pk = FX[j]; }); } catch (e) {}
+    const PF = mdrPrefGet();
     const stu = isStudent() && state.session && !state.viewAs, me = stu ? state.session.user.id : null;
     let mine = null;
     if (stu) mine = (await sb.from("lesson_reading").select("*").eq("lesson_id", l.id).eq("student_id", me).maybeSingle()).data || null;
@@ -6449,6 +6616,9 @@ window.HiraArcade = (function () {
             <div class="mdr-rec"><button class="btn btn-dawn" id="fluB">▶️ أَبْدَأُ الْقِراءَةَ</button><span id="fluT" class="mdr-big">0:00</span><span id="fluR"></span></div></div>
           ${audName || isSuper() ? `<div class="mdr-card mdr-model-r"><h3>🎧 الْقِراءَةُ النَّموذَجِيَّةُ</h3>${audName ? `<p class="muted">اسْتَمِعْ وَتابِعِ الْكَلِماتِ الْمُضاءَةَ بِعَيْنِكَ، ثُمَّ اقْرَأْ أَنْتَ بِالطَّريقَةِ نَفْسِها.</p><div class="mdr-rec"><button class="btn btn-primary" id="audB">▶️ اسْتَمِعْ</button><button class="btn btn-ghost btn-small" id="audR" hidden>↻ مِنَ الْبِدايَةِ</button><select id="audS" class="mdr-speed"><option value="0.8">0.8×</option><option value="1" selected>1×</option><option value="1.2">1.2×</option></select></div>` : `<p class="muted">لَمْ يُرْفَعْ تَسْجيلُ هذا النَّصِّ بَعْدُ.</p>`}
             ${isSuper() ? `<div class="mdr-up"><label class="btn btn-ghost btn-small">⬆️ ${audName ? "اسْتَبْدِلِ" : "ارْفَعِ"} التَّسْجيلَ (mp3/m4a)<input type="file" accept="audio/*" id="audF" hidden></label><span class="muted" id="audSt"></span></div>` : ""}</div>` : ""}
+          <div class="mdr-rtool" role="toolbar" aria-label="وضع القراءة المريح"><span>👓 وَضْعُ الْقِراءَةِ:</span>
+            <button class="btn btn-ghost btn-small" data-rt="fs-" aria-label="تصغير الخط">أ−</button><button class="btn btn-ghost btn-small" data-rt="fs+" aria-label="تكبير الخط">أ+</button>
+            <button class="btn btn-small ${PF.sp ? "btn-primary" : "btn-ghost"}" data-rt="sp">↕️ تَباعُدٌ أَوْسَعُ</button><button class="btn btn-small ${PF.rl ? "btn-primary" : "btn-ghost"}" data-rt="rl">📏 مِسْطَرَةُ السَّطْرِ</button></div>
           <p class="muted mdr-taphint">👆 ${(X.gl || []).length ? "الْكَلِماتُ الْمُسَطَّرَةُ لَها مَعْنًى: اُنْقُرْها. وَ" : ""}اُنْقُرْ أَيَّ كَلِمَةٍ صَعْبَةٍ لِتُضيفَها إِلى «بَنْكِ كَلِماتي».</p>
           ${textHtml()}
           ${(X.gl || []).length ? `<div class="mdr-card"><h3>🔤 مَعاني الْكَلِماتِ${X.glh ? ` <small class="muted">(مِنْ إِعْدادِ حِراءٍ)</small>` : ""}</h3><div class="mdr-gl">${X.gl.map((g) => `<div><b>${esc(g[0])}</b><span>${esc(g[1])}</span></div>`).join("")}</div></div>` : ""}
@@ -6459,10 +6629,11 @@ window.HiraArcade = (function () {
       if (part === 3) body = `<details class="mdr-card"><summary>📖 اعْرِضِ النَّصَّ</summary>${textHtml(1)}</details>
           <p class="muted">لِكُلِّ سُؤالٍ مُسْتَواهُ مِنْ مُسْتَوَياتِ الْفَهْمِ الْأَرْبَعَةِ (بيرْلِز). أَجِبْ عَنْ أَسْئِلَةِ الِاخْتِيارِ، ثُمَّ اكْتُبْ إِجاباتِكَ لِلْمَفْتوحَةِ وَقارِنْها بِالْإِجابَةِ النَّموذَجِيَّةِ.</p>
           ${X.qs.map((q, j) => `<div class="mdr-q" id="mq${j}"><div class="mdr-qt"><span>${j + 1}</span><div>${esc(q.q)}<small class="mdr-pk pk-${q.pk || "ret"}">${MDR_SK[q.pk || "ret"][0]} ${MDR_SK[q.pk || "ret"][1]}</small></div></div>${
-            q.k === "m" ? `<div class="mdr-opts">${q.o.map((o, k) => `<button class="mdr-opt" data-q="${j}" data-o="${k}">${esc(o)}</button>`).join("")}</div><div class="mdr-fb" id="mf${j}"></div>`
+            (isSuper() ? `<div class="mdr-pkfix"><label>🛠️ مستوى السؤال: <select data-pkq="${j}">${Object.keys(MDR_SK).map((k) => `<option value="${k}" ${(q.pk || "ret") === k ? "selected" : ""}>${MDR_SK[k][1]}</option>`).join("")}</select></label></div>` : "") +
+            (q.k === "m" ? `<div class="mdr-opts">${q.o.map((o, k) => `<button class="mdr-opt" data-q="${j}" data-o="${k}">${esc(o)}</button>`).join("")}</div><div class="mdr-fb" id="mf${j}"></div>`
             : q.k === "o" ? `${ta("mo" + j, "إِجابَتي…", A["o" + j], 2)}<details class="mdr-model"><summary>💡 الْإِجابَةُ النَّموذَجِيَّةُ</summary><p>${esc(q.a)}</p></details>`
             : q.k === "r" ? `<p class="muted">اُنْقُرِ الْعِباراتِ بِالتَّرْتيبِ الصَّحيحِ.</p><div class="mdr-ord" data-q="${j}">${q.seq.map((s, k) => [s, k]).sort(() => Math.random() - 0.5).map(([s, k]) => `<button class="mdr-tok" data-k="${k}">${esc(s)}</button>`).join("")}</div><ol class="mdr-ordo" id="mro${j}"></ol><div class="mdr-fb" id="mf${j}"></div>`
-            : `<div class="mdr-sort">${q.items.map((it, k) => `<div><span>${esc(it[0])}</span><select data-q="${j}" data-i="${k}"><option value="">—</option>${q.bins.map((b, bi) => `<option value="${bi}">${esc(b)}</option>`).join("")}</select></div>`).join("")}</div><button class="btn btn-ghost btn-small mdr-chk" data-q="${j}">تَحَقَّقْ</button><div class="mdr-fb" id="mf${j}"></div>`}</div>`).join("")}
+            : `<div class="mdr-sort">${q.items.map((it, k) => `<div><span>${esc(it[0])}</span><select data-q="${j}" data-i="${k}"><option value="">—</option>${q.bins.map((b, bi) => `<option value="${bi}">${esc(b)}</option>`).join("")}</select></div>`).join("")}</div><button class="btn btn-ghost btn-small mdr-chk" data-q="${j}">تَحَقَّقْ</button><div class="mdr-fb" id="mf${j}"></div>`)}</div>`).join("")}
           <div class="mdr-score" id="mdrScore"></div>
           ${stu ? `<div class="mdr-nav"><span></span><button class="btn btn-primary" id="mdrQS">💾 أَحْفَظُ إِجاباتي</button></div>` : ""}` + nav(2, 4);
       if (part === 4) body = `<div class="mdr-card"><h3>${S.ic} بَعْدَ الْقِراءَةِ</h3><label class="mdr-lbl">${S.a.map(esc).join(" ")}</label>${ta("mdrNote", "اكْتُبْ هُنا…", mine && mine.strat_note)}</div>
@@ -6505,6 +6676,21 @@ window.HiraArcade = (function () {
       if (seq.length === items.length) { const ok = seq.every((k, i) => k === i); fb.className = "mdr-fb " + (ok ? "ok" : "no"); fb.innerHTML = ok ? "✅ تَرْتيبٌ صَحيحٌ." : "❌ التَّرْتيبُ الصَّحيحُ: " + items.map(esc).join(" ← "); if (done) done(ok); } }); };
     const wire = () => {
       if (part === 1) {
+        // وضع القراءة المريح: حجم الخط، والتباعد، ومسطرة تتبع السطر
+        const tx = box.querySelector(".mdr-text"); let rul = null;
+        const applyP = () => { tx.style.fontSize = (1.3 * (1 + PF.fs * 0.12)).toFixed(2) + "rem"; tx.classList.toggle("mdr-wide", !!PF.sp); tx.classList.toggle("mdr-ruled", !!PF.rl);
+          if (PF.rl && !rul) { rul = document.createElement("div"); rul.className = "mdr-ruler"; tx.appendChild(rul); const lh = () => parseFloat(getComputedStyle(tx).lineHeight) || 40;
+            const wsR = [...tx.querySelectorAll(".mdr-w")];
+            const mv = (y) => { const r = tx.getBoundingClientRect(); const h2 = lh(); let best = null, bd = 1e9;
+              for (const w of wsR) { const q = w.getBoundingClientRect(), c = q.top + q.height / 2, d = Math.abs(c - y); if (d < bd) { bd = d; best = c; } if (q.top > y + h2) break; }
+              const cy = best == null ? y : best; rul.style.height = h2 + "px"; rul.style.top = Math.max(0, Math.min(tx.scrollHeight - h2, cy - r.top - h2 / 2)) + "px"; };
+            tx.onpointermove = (e) => mv(e.clientY); tx.onpointerdown = (e) => mv(e.clientY); const fp = tx.querySelector("p"); if (fp) mv(fp.getBoundingClientRect().top + lh() / 2); }
+          if (!PF.rl && rul) { rul.remove(); rul = null; tx.onpointermove = tx.onpointerdown = null; } };
+        applyP();
+        box.querySelectorAll("[data-rt]").forEach((b) => b.onclick = () => { const k = b.dataset.rt;
+          if (k === "fs+") PF.fs = Math.min(4, PF.fs + 1); if (k === "fs-") PF.fs = Math.max(-2, PF.fs - 1); if (k === "sp") PF.sp = PF.sp ? 0 : 1; if (k === "rl") PF.rl = PF.rl ? 0 : 1;
+          if (k === "sp" || k === "rl") { b.classList.toggle("btn-primary", !!PF[k]); b.classList.toggle("btn-ghost", !PF[k]); }
+          mdrPrefSet(PF); applyP(); });
         const fb = box.querySelector("#fluB"), ft = box.querySelector("#fluT"), fr = box.querySelector("#fluR"); let fs = 0, ftm = null;
         fb.onclick = () => { if (!fs) { fs = Date.now(); fb.textContent = "⏹ انْتَهَيْتُ"; fr.textContent = ""; ftm = setInterval(() => { const s = Math.floor((Date.now() - fs) / 1000); ft.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; }, 250); return; }
           clearInterval(ftm); const s = (Date.now() - fs) / 1000; fs = 0; fb.textContent = "🔁 أُعيدُ الْقِياسَ";
@@ -6557,6 +6743,9 @@ window.HiraArcade = (function () {
       }
       if (part === 3) {
         M.forEach(([q, j]) => mark(j)); score();
+        box.querySelectorAll("select[data-pkq]").forEach((s) => s.onchange = async () => { const j = +s.dataset.pkq, v = s.value;
+          const { error } = await sb.from("reading_tag_fix").upsert({ text_id: X.id, q_index: j, pk: v, updated_by: state.session.user.id, updated_at: new Date().toISOString() }, { onConflict: "text_id,q_index" });
+          if (error) { toast("تعذّر الحفظ: " + error.message); return; } X.qs[j].pk = v; keep(); toast("عُدِّل مستوى السؤال لكل الطلاب"); draw(); });
         box.querySelectorAll(".mdr-opt").forEach((b) => b.onclick = () => { const j = +b.dataset.q; if (A["m" + j] != null) return; A["m" + j] = +b.dataset.o; mark(j); score(); });
         box.querySelectorAll(".mdr-ord[data-q]").forEach((w) => { const j = +w.dataset.q; ordWire(w, box.querySelector("#mro" + j), X.qs[j].seq, box.querySelector("#mf" + j)); });
         box.querySelectorAll(".mdr-chk").forEach((b) => b.onclick = () => { const j = +b.dataset.q, q = X.qs[j]; let ok = 0; box.querySelectorAll(`select[data-q="${j}"]`).forEach((s) => { const it = q.items[+s.dataset.i]; const g = s.value === "" ? -1 : +s.value; s.classList.toggle("ok", g === it[1]); s.classList.toggle("no", g !== it[1]); if (g === it[1]) ok++; });
@@ -8275,7 +8464,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const pb = document.getElementById("planBtn");
     if (pb) pb.onclick = () => printLessonPlan(l, u, axisName, ticket);
     const hb = document.getElementById("hwBtn");
-    if (hb) hb.onclick = () => hwDialog(l, u, !!(ticket && (ticket.assessment_questions || []).length), gameItems.length > 0);
+    if (hb) hb.onclick = () => hwDialog(l, u, !!(ticket && (ticket.assessment_questions || []).length), gameItems.length > 0, !!mdrId);
     if (state.session && isStudent() && !lockedForMe) duelFab(l, nn);
   }
 
@@ -17062,7 +17251,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
   }
 
   /* =================== HOMEWORK =================== */
-  const HW_TASKS = { lesson: ["افتح الدرس وراجع مواده", "Open the lesson"], ticket: ["حلّ بطاقة الخروج", "Do the exit ticket"], game: ["العب لعبة الدرس", "Play the lesson game"], recite: ["سجّل التسميع", "Record your recitation"], written: ["أجب عن السؤال كتابةً", "Write your answer"] };
+  const HW_TASKS = { lesson: ["افتح الدرس وراجع مواده", "Open the lesson"], ticket: ["حلّ بطاقة الخروج", "Do the exit ticket"], game: ["العب لعبة الدرس", "Play the lesson game"], reading: ["اقرأ نص «مدارج القراءة» وأجب عن أسئلته", "Read the reading text and answer"], rexpr: ["اكتب التعبير الكتابي لنص القراءة", "Write the reading response"], recite: ["سجّل التسميع", "Record your recitation"], written: ["أجب عن السؤال كتابةً", "Write your answer"] };
   async function hwProgress(assignments, studentIds) {
     if (!assignments.length || !studentIds.length) return {};
     const lids = [...new Set(assignments.map((a) => a.lesson_id).filter(Boolean))];
@@ -17074,6 +17263,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       lids.length ? sb.from("game_plays").select("user_id, lesson_id, played_at").in("lesson_id", lids).in("user_id", studentIds).gte("played_at", since) : { data: [] },
       sb.from("submissions").select("id, assignment_id, student_id, status, content, grade, feedback_ar, submitted_at").in("assignment_id", assignments.map((a) => a.id)).in("student_id", studentIds)
     ]);
+    const { data: rdg } = lids.length && assignments.some((a) => (a.tasks || []).some((k) => k === "reading" || k === "rexpr")) ? await sb.from("lesson_reading").select("student_id, lesson_id, quiz_at, expr_at").in("lesson_id", lids).in("student_id", studentIds) : { data: [] };
     const out = {};
     assignments.forEach((a) => {
       studentIds.forEach((s) => {
@@ -17084,6 +17274,8 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
           if (k === "recite") t[k] = (recs || []).some((r) => r.student_id === s && r.lesson_id === a.lesson_id && after(r.created_at));
           if (k === "game") t[k] = (plays || []).some((p) => p.user_id === s && p.lesson_id === a.lesson_id && after(p.played_at));
           if (k === "written") t[k] = (subs || []).some((x) => x.assignment_id === a.id && x.student_id === s && x.content);
+          if (k === "reading") t[k] = (rdg || []).some((x) => x.student_id === s && x.lesson_id === a.lesson_id && after(x.quiz_at));
+          if (k === "rexpr") t[k] = (rdg || []).some((x) => x.student_id === s && x.lesson_id === a.lesson_id && after(x.expr_at));
         });
         const sub = (subs || []).find((x) => x.assignment_id === a.id && x.student_id === s) || null;
         const n = Object.values(t).filter(Boolean).length, tot = (a.tasks || []).length;
@@ -17092,15 +17284,15 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
     });
     return out;
   }
-  async function hwDialog(l, u, hasTicket, hasGame) {
+  async function hwDialog(l, u, hasTicket, hasGame, hasReading, onlyReading) {
     const me = state.session.user.id;
     const { data: all } = await sb.from("classes").select("id, name, class_teachers(teacher_id)").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).order("name");
     const mine = state.profile.role === "teacher" ? (all || []).filter((c) => (c.class_teachers || []).some((x) => x.teacher_id === me)) : (all || []);
     let d = document.getElementById("hwDlg");
     if (!d) { d = document.createElement("dialog"); d.id = "hwDlg"; d.className = "wide-dlg"; document.body.appendChild(d); }
     const due = new Date(Date.now() + 3 * 864e5); const dueStr = `${due.getFullYear()}-${String(due.getMonth() + 1).padStart(2, "0")}-${String(due.getDate()).padStart(2, "0")}`;
-    const tasks = [["lesson", true, true], ["ticket", hasTicket, hasTicket], ["game", hasGame, hasGame], ["recite", true, false], ["written", true, false]];
-    d.innerHTML = `<h2 style="font-size:1.25rem">واجب: ${esc(l.title_ar)}</h2>
+    const tasks = [["lesson", true, !onlyReading], ["ticket", hasTicket, hasTicket && !onlyReading], ["game", hasGame, hasGame && !onlyReading], ...(hasReading ? [["reading", true, true], ["rexpr", true, !!onlyReading]] : []), ["recite", true, false], ["written", true, false]];
+    d.innerHTML = `<h2 style="font-size:1.25rem">واجب: ${esc(onlyReading ? "📗 " + onlyReading : l.title_ar)}</h2>
       ${mine.length ? `<p class="pref-label">الفصول</p><div class="hw-cls">${mine.map((c, i) => `<button type="button" class="chip tc" data-hc="${c.id}" aria-pressed="${i === 0}">${esc(c.name)}</button>`).join("")}</div>
       <p class="pref-label">المطلوب من الطالب</p><div class="hw-tasks">${tasks.map(([k, avail, on]) => `<label class="check ${avail ? "" : "dis"}"><input type="checkbox" data-ht="${k}" ${on ? "checked" : ""} ${avail ? "" : "disabled"}> ${HW_TASKS[k][0]}${avail ? "" : ' <small class="muted">(غير متاح لهذا الدرس)</small>'}</label>`).join("")}</div>
       <div class="field" id="hwQwrap" hidden><label for="hwQ">السؤال المكتوب</label><textarea id="hwQ" rows="2" placeholder="مثال: اذكر موقفًا طبّقت فيه قيمة الدرس هذا الأسبوع."></textarea></div>
@@ -17124,7 +17316,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       sv.disabled = true;
       const dueV = d.querySelector("#hwDue").value; const instr = (d.querySelector("#hwI").value || "").trim();
       const { data: cls } = await sb.from("classes").select("id, school_id").in("id", cids);
-      const rows = (cls || []).map((c) => ({ school_id: c.school_id, teacher_id: me, class_id: c.id, title_ar: l.title_ar, lesson_id: l.id, tasks: ts,
+      const rows = (cls || []).map((c) => ({ school_id: c.school_id, teacher_id: me, class_id: c.id, title_ar: onlyReading ? "📗 مدارج القراءة: " + onlyReading : l.title_ar, lesson_id: l.id, tasks: ts,
         instructions_ar: [instr, ts.includes("written") ? "السؤال: " + q : ""].filter(Boolean).join("\n") || null, due_at: dueV ? new Date(dueV + "T23:59:00").toISOString() : null }));
       const r = await sb.from("assignments").insert(rows); if (r.error) { err.textContent = "تعذّر الإرسال: " + r.error.message; sv.disabled = false; return; }
       await sb.from("class_lesson_unlocks").upsert(cids.map((c) => ({ class_id: c, lesson_id: l.id, unlocked_by: me, unlock_at: new Date().toISOString() })), { onConflict: "class_id,lesson_id" });
@@ -17155,7 +17347,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
         return `<div class="hw-card ${p.done ? "done" : late ? "late" : ""}" data-a="${a.id}"><div class="hw-h"><strong>${esc(en && a.lessons && a.lessons.title_en ? a.lessons.title_en : a.title_ar)}</strong>
           <span class="hw-due">${p.done ? (en ? "✓ Done" : "✓ أنجزته") : esc(dueTxt(a.due_at))}</span></div>
           ${a.instructions_ar ? `<p class="muted">${esc(a.instructions_ar.split("\n").filter((x) => !x.startsWith("السؤال: ")).join(" "))}</p>` : ""}
-          <ul class="hw-tasks-st">${(a.tasks || []).map((k) => `<li class="${p.t[k] ? "ok" : ""}">${p.t[k] ? "✓" : "○"} ${k === "written" || !a.lessons ? esc(CT(HW_TASKS[k][0], HW_TASKS[k][1])) : `<a href="#/lesson/${esc(a.lessons.code)}">${esc(CT(HW_TASKS[k][0], HW_TASKS[k][1]))}</a>`}</li>`).join("")}</ul>
+          <ul class="hw-tasks-st">${(a.tasks || []).map((k) => `<li class="${p.t[k] ? "ok" : ""}">${p.t[k] ? "✓" : "○"} ${k === "written" || !a.lessons ? esc(CT(HW_TASKS[k][0], HW_TASKS[k][1])) : `<a href="#/${k === "reading" || k === "rexpr" ? "rl" : "lesson"}/${esc(a.lessons.code)}">${esc(CT(HW_TASKS[k][0], HW_TASKS[k][1]))}</a>`}</li>`).join("")}</ul>
           ${(a.tasks || []).includes("written") ? `<div class="hw-write">${q ? `<p><b>${esc(q.replace("السؤال: ", ""))}</b></p>` : ""}<textarea rows="2" data-wa="${a.id}" placeholder="${en ? "Your answer" : "إجابتك"}">${esc((p.sub && p.sub.content) || "")}</textarea>
             <button class="btn btn-ghost btn-small" data-ws="${a.id}" ${p.sub && p.sub.grade != null ? "disabled" : ""}>${p.sub && p.sub.content ? (en ? "Update" : "تحديث الإجابة") : (en ? "Send" : "أرسل الإجابة")}</button></div>` : ""}
           ${p.sub && (p.sub.feedback_ar || p.sub.grade != null) ? `<p class="hw-fb">${p.sub.grade != null ? "★".repeat(Number(p.sub.grade)) + " " : ""}${esc(p.sub.feedback_ar || "")}</p>` : ""}</div>`; }).join("")}</div>` : ""}`;
@@ -18869,6 +19061,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "reset") return pageReset();
       if (p0 === "unit" && parts[1]) return pageUnit(parts[1], params);
       if (p0 === "reading" && parts[1]) return pageReading(parts[1]);
+      if (p0 === "rl" && parts[1]) return mdrMapGet().then((m) => { if (m[parts[1]]) location.replace("#/reading/" + m[parts[1]]); else location.replace("#/lesson/" + parts[1]); });
       if (p0 === "plan" && parts[1]) return pagePlan(parts[1]);
       if (/^(access_token|error|type)=/.test(p0 || "")) { const hp = new URLSearchParams(p0);
         if (hp.get("error")) { h(`<div class="wrap"><div class="form-card empty"><strong>${CT("الرابط غير صالح أو انتهت صلاحيته", "The link is invalid or has expired")}</strong>${CT("اطلب رابطًا جديدًا من صفحة الدخول.", "Request a new link from the sign-in page.")} <a href="#/login">${CT("تسجيل الدخول", "Sign in")}</a></div></div>`); return; }
