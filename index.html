@@ -2866,6 +2866,7 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 :root[data-theme="dark"] .arc .arc-iw.cur{background:#3A2E12;color:#FFE6A6}
 :root[data-theme="dark"] .arc .arc-irt td{border-color:#2C4466}
 :root[data-theme="dark"] .arc .arc-irt td:first-child{color:#EAF0F8}
+.arc .arc-src{margin:-8px 0 6px;text-align:center;font-size:.85rem}
 
 @font-face{font-family:"MaarijHafs";src:url("art/fonts/uthmanic-hafs.woff2") format("woff2");font-display:swap}
 .mj{
@@ -3751,7 +3752,7 @@ window.HiraArcade = (function () {
       (L.items || []).forEach((it) => {
         const p = it.payload || {}; if (it.source === "quran" || it.source === "hadith") return;
         // مختبر الإعراب: المسودّات يراها الطاقم وحده حتى تُعتمد
-        if (it.game === "irab") { if ((it.source === "lesson" || (it.source === "draft" && opt && opt.drafts)) && p.s && Array.isArray(p.t) && p.t.length && !QURANIC(p.s)) irabs.push({ s: p.s, w: p.s.split(" "), t: p.t, title: p.title || "", draft: it.source === "draft", lid: L.id }); return; }
+        if (it.game === "irab") { if ((it.source === "lesson" || (it.source === "draft" && opt && opt.drafts)) && p.s && Array.isArray(p.t) && p.t.length && !QURANIC(p.s)) irabs.push({ s: p.s, w: p.s.split(" "), t: p.t, title: p.title || "", src: p.src || "", draft: it.source === "draft", lid: L.id }); return; }
         if (it.source === "draft") return;
         if (it.game === "match") (p.pairs || []).forEach((x) => addPair(x[0], x[1], L.id));
         else if (it.game === "tf") { addTF(p.text, p.answer, L.id); if (p.answer === true) addSent(p.text, "", L.id); }
@@ -4383,12 +4384,23 @@ window.HiraArcade = (function () {
       bindHud();
       const box = root.querySelector(".arc-qbox");
       const opts = (right0, pool0, k) => shuffle([right0].concat(shuffle(pool0.filter((x) => x !== right0)).slice(0, k)));
+      // بدائل الموقع: لا نعرض بديلًا يصدق على الكلمة أيضًا (اسم مع مبتدأ، فعل ماضٍ مع فعل ماضٍ ناقص، خبر مع خبر جملة…)
+      const bare = (x) => String(x || "").replace(/[ً-ٰٟۖ-ۭـ]/g, "").replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/ى/g, "ي").trim();
+      const GEN = ["اسم", "فعل", "حرف"], cls = (r) => { const n = bare(r); return /^فعل/.test(n) ? "فعل" : /^(حرف|لا الناهيه)/.test(n) ? "حرف" : "اسم"; };
+      const okD = (c, d) => { const C = bare(c), D = bare(d); if (C === D) return false;
+        if (GEN.includes(D) && cls(c) === D) return false; if (GEN.includes(C) && cls(d) === C) return false;
+        const pair = [C, D].sort().join("|"); if (pair === "معطوف|معطوف عليه") return true;
+        return !(C.startsWith(D + " ") || D.startsWith(C + " ")); };
+      const roleOpts = (role) => { let d = shuffle(roles.filter((x) => okD(role, x))).slice(0, 3);
+        if (d.length < 2) d = d.concat(shuffle(GEN.map((g) => ({ g, t: { اسم: "اسْمٌ", فعل: "فِعْلٌ", حرف: "حَرْفٌ" }[g] })).filter((o) => okD(role, o.t) && !d.includes(o.t)).map((o) => o.t))).slice(0, 3);
+        return shuffle([role].concat(d)); };
       const draw = () => {
         const S = sents[si], [wi, role, sign] = S.t[ti];
         root.querySelector("[data-i]").textContent = si + 1;
-        const ro = opts(role, roles, Math.min(3, roles.length - 1));
+        const ro = roleOpts(role);
         box.innerHTML = `<div class="arc-q">${S.title ? `<p class="arc-kind">${esc(S.title)}</p>` : ""}
           <p class="arc-spot" dir="rtl">${S.w.map((w, k) => `<span class="arc-iw${k === wi ? " cur" : ""}${S.t.slice(0, ti).some((t) => t[0] === k) ? " done" : ""}">${esc(w)}</span>`).join(" ")}</p>
+          ${S.src ? `<p class="arc-tip arc-src">📚 ${esc(S.src)}</p>` : ""}
           <p class="arc-prompt" dir="rtl">${T(`ما مَوْقِعُ «${esc(S.w[wi])}» في الْجُمْلَةِ؟`, `What is the role of “${esc(S.w[wi])}”?`)}</p>
           <div class="arc-opts" data-q="r">${ro.map((o, k) => `<button class="arc-opt" type="button" data-o="${k}" dir="rtl"><span>${esc(o)}</span></button>`).join("")}</div>
           <div class="arc-step2" hidden><p class="arc-kind">${T("وما عَلامَةُ إِعْرابِها؟", "And its case marker?")}</p><div class="arc-opts" data-q="s"></div></div>
@@ -4397,7 +4409,7 @@ window.HiraArcade = (function () {
         const after = (ok, solution) => {
           done++; if (ok) { right++; SND.p("coin"); } else { SND.p("no");
             missed.push({ prompt: `${S.w[wi]} ← ${S.s}`, solution, rq: { key: rkey("i", S.s, String(wi)), lid: S.lid,
-              q: { t: "mcq", p: T(`ما مَوْقِعُ «${S.w[wi]}» في: `, `Role of “${S.w[wi]}” in: `) + S.s, o: opts(role, roles, Math.min(3, roles.length - 1)).map((o) => ({ t: o, i: "", ok: o === role })), s: solution } } }); }
+              q: { t: "mcq", p: T(`ما مَوْقِعُ «${S.w[wi]}» في: `, `Role of “${S.w[wi]}” in: `) + S.s, o: roleOpts(role).map((o) => ({ t: o, i: "", ok: o === role })), s: solution } } }); }
           root.querySelector("[data-r]").textContent = right;
           const last = ti === S.t.length - 1;
           if (last) box.querySelector(".arc-fb").insertAdjacentHTML("beforeend", `<table class="arc-irt">${S.t.map((t) => `<tr><td>${esc(S.w[t[0]])}</td><td>${esc(t[1])}${t[2] ? ` · ${T("عَلامَتُهُ", "marker")}: ${esc(t[2])}` : ""}</td></tr>`).join("")}</table>`);

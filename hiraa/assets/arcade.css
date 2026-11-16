@@ -249,3 +249,4 @@
 :root[data-theme="dark"] .arc .arc-iw.cur{background:#3A2E12;color:#FFE6A6}
 :root[data-theme="dark"] .arc .arc-irt td{border-color:#2C4466}
 :root[data-theme="dark"] .arc .arc-irt td:first-child{color:#EAF0F8}
+.arc .arc-src{margin:-8px 0 6px;text-align:center;font-size:.85rem}
