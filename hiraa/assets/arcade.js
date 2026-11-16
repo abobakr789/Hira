@@ -47,7 +47,7 @@ window.HiraArcade = (function () {
   /* ---------- جمع المادّة من بيانات الدرس أو الوحدة ---------- */
   // lessons: [{ id, title, items:[{game,source,payload}], words:[[a,b]], quiz:[[text,bool]], rw:[[a,b]] }]
   function buildPool(lessons, opt) {
-    const pairs = [], tf = [], mcq = [], sents = [], sorts = [], seqs = [], stmts = [], irabs = [], seenM = new Set(), seenP = new Set(), seenT = new Set(), seenQ = new Set(), seenS = new Set();
+    const pairs = [], tf = [], mcq = [], sents = [], sorts = [], seqs = [], stmts = [], irabs = [], wazns = [], seenM = new Set(), seenP = new Set(), seenT = new Set(), seenQ = new Set(), seenS = new Set();
     // جملة للترتيب: من 3 إلى 12 كلمة، بلا نصّ قرآنيّ
     // عبارة صحيحة للعبة «اكتشف الخطأ»: من 4 إلى 20 كلمة
     const addStmt = (text, lid) => { const t = String(text || "").trim(), w = t.split(/\s+/); if (w.length < 4 || w.length > 20 || QURANIC(t)) return; const k = norm(t); if (seenM.has(k)) return; seenM.add(k); stmts.push({ text: t, words: w, lid }); };
@@ -66,6 +66,8 @@ window.HiraArcade = (function () {
         // مختبر الإعراب: المسودّات يراها الطاقم وحده حتى تُعتمد
         if (it.game === "irab") { if ((it.source === "lesson" || (it.source === "draft" && opt && opt.drafts)) && p.s && Array.isArray(p.t) && p.t.length && !QURANIC(p.s)) irabs.push({ s: p.s, w: p.s.split(" "), t: p.t, title: p.title || "", src: p.src || "", draft: it.source === "draft", lid: L.id }); return; }
         if (it.source === "draft") return;
+        // ميزان الكلمة: k = w (وزن) أو s (صياغة ببدائل d) أو n (نوع المشتق)
+        if (it.game === "wazn") { if (p.a && (p.w || p.p) && ["w", "s", "n"].includes(p.k) && !QURANIC(p.w || p.p)) wazns.push({ k: p.k, w: p.w || "", p: p.p || "", c: p.c || "", a: p.a, d: Array.isArray(p.d) ? p.d : [], x: p.x || "", src: p.src || "", lid: L.id }); return; }
         if (it.game === "match") (p.pairs || []).forEach((x) => addPair(x[0], x[1], L.id));
         else if (it.game === "tf") { addTF(p.text, p.answer, L.id); if (p.answer === true) addSent(p.text, "", L.id); }
         else if (it.game === "order" && it.source === "lesson") addSent(p.text, /^رتّب$|^رَتِّبِ الْكَلِمَاتِ$/.test(p.ref || "") ? "" : p.ref, L.id, "order");
@@ -91,7 +93,7 @@ window.HiraArcade = (function () {
       if (p.icon) { p.b = ""; return true; }
       if (seenB.has(norm(p.b))) return false; seenB.add(norm(p.b)); return true;
     });
-    return { pairs: clean, tf, mcq, sents, sorts, seqs, stmts, irabs };
+    return { pairs: clean, tf, mcq, sents, sorts, seqs, stmts, irabs, wazns };
   }
 
   /* ---------- صناعة الأسئلة ---------- */
@@ -207,6 +209,7 @@ window.HiraArcade = (function () {
     sort: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="44" y="4" width="32" height="20" rx="6" fill="#D4AA55"/><path d="M14 46h38l-5 32H19z" fill="#14A37F"/><path d="M68 46h38l-5 32H73z" fill="#102A4C"/><rect x="10" y="40" width="46" height="8" rx="4" fill="#0E8A6A"/><rect x="64" y="40" width="46" height="8" rx="4" fill="#0A1D36"/><path d="M60 26v8M54 32l6 6 6-6" stroke="#7C8DA6" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
     spot: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="8" y="22" width="30" height="16" rx="8" fill="#102A4C"/><rect x="44" y="22" width="32" height="16" rx="8" fill="#fff" stroke="#E8833A" stroke-width="3"/><rect x="82" y="22" width="30" height="16" rx="8" fill="#102A4C"/><circle cx="60" cy="58" r="15" fill="none" stroke="#D4AA55" stroke-width="5"/><path d="M71 69l12 12" stroke="#D4AA55" stroke-width="6" stroke-linecap="round"/><path d="M53 30h14" stroke="#E8833A" stroke-width="3" stroke-linecap="round"/></svg>`,
     irab: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="8" y="12" width="32" height="18" rx="9" fill="#102A4C"/><rect x="44" y="12" width="32" height="18" rx="9" fill="#D4AA55"/><rect x="80" y="12" width="32" height="18" rx="9" fill="#102A4C"/><path d="M60 32v12" stroke="#D4AA55" stroke-width="3"/><rect x="30" y="46" width="60" height="16" rx="8" fill="#fff" stroke="#14A37F" stroke-width="3"/><rect x="42" y="66" width="36" height="12" rx="6" fill="#14A37F"/></svg>`,
+    wazn: `<svg viewBox="0 0 120 84" aria-hidden="true"><path d="M60 10v58M34 74h52" stroke="#102A4C" stroke-width="4" stroke-linecap="round"/><path d="M22 24h76" stroke="#D4AA55" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="10" r="5" fill="#D4AA55"/><path d="M22 24l-12 22h24zM98 24l-12 22h24z" fill="none" stroke="#102A4C" stroke-width="3" stroke-linejoin="round"/><path d="M8 46a14 6 0 0 0 28 0zM84 46a14 6 0 0 0 28 0z" fill="#14A37F"/></svg>`,
     seq: `<svg viewBox="0 0 120 84" aria-hidden="true">${[0, 1, 2, 3].map((i) => `<rect x="${30 + i * 4}" y="${8 + i * 19}" width="${70 - i * 8}" height="14" rx="5" fill="${["#102A4C", "#14A37F", "#E8833A", "#D4AA55"][i]}"/><circle cx="18" cy="${15 + i * 19}" r="7" fill="#fff" stroke="#102A4C" stroke-width="2"/><text x="18" y="${19 + i * 19}" font-size="10" font-weight="700" text-anchor="middle" fill="#102A4C">${i + 1}</text>`).join("")}</svg>`
   };
 
@@ -215,11 +218,11 @@ window.HiraArcade = (function () {
     const en = !!cfg.en, T = (a, b) => (en ? b : a);
     const all = cfg.lessons || [], focus = all.find((x) => x.id === cfg.focusId) || all[0] || { id: null };
     const poolL = buildPool([focus], { drafts: !!cfg.drafts }), poolU = buildPool(all, { drafts: !!cfg.drafts });
-    const sizeOf = (p) => p.tf.length + p.mcq.length + p.pairs.length + p.sents.length + 3 * (p.sorts.length + p.seqs.length + p.irabs.length);
-    const GAMES = () => ({ memory, tower, ladder, blitz, sentence, sorter, seq, spot, irab });
+    const sizeOf = (p) => p.tf.length + p.mcq.length + p.pairs.length + p.sents.length + 3 * (p.sorts.length + p.seqs.length + p.irabs.length) + p.wazns.length;
+    const GAMES = () => ({ memory, tower, ladder, blitz, sentence, sorter, seq, spot, irab, wazn });
     // هل تكفي المادّة لكلّ لعبة؟
     const okFor = (P) => { const qn = bank(P, T, focus.id).length;
-      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, spot: spotBank(P).length >= 3, irab: P.irabs.length >= 1, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
+      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, spot: spotBank(P).length >= 3, irab: P.irabs.length >= 1, wazn: P.wazns.length >= 3, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
     const run = (g) => GAMES()[g]();
     let scope = sizeOf(poolL) >= 8 || all.length < 2 ? "lesson" : "unit";
     const pool = () => (scope === "lesson" ? poolL : poolU);
@@ -250,6 +253,7 @@ window.HiraArcade = (function () {
           ${card("blitz", T("سباق الستّين ثانية", "60-second race"), T("عبارات سريعة: صح أم خطأ؟ كلّ صواب نقطة، وكلّ خطأ يُنقص نقطة. حطّم رقمك.", "Quick statements: true or false? Each right answer +1, each wrong −1. Beat your record."), T("السرعة والدقّة · كلّ الأعمار", "Speed and accuracy · all ages"), blitzBank().length >= 6, best("blitz") ? `${T("رقمك", "Best")} ${best("blitz")}` : "")}
           ${card("sentence", T("رتّب الجملة", "Build the sentence"), T("كلمات مبعثرة من الدرس، أعدها إلى مكانها لتكوّن جملة صحيحة.", "Scrambled words from the lesson: put them back in order."), T("الفهم والتراكيب · كلّ الأعمار", "Meaning and structure · all ages"), P.sents.length >= 2, `${Math.min(5, P.sents.length)} ${T("جمل", "sentences")}`)}
           ${P.irabs.length || (scope === "lesson" && unitExtra && poolU.irabs.length) ? card("irab", T("مختبر الإعراب", "Grammar lab"), T("جمل من الدرس: حدّد موقع كلّ كلمة ملوّنة في الجملة، وعلامة إعرابها.", "Sentences from the lesson: name the role of each highlighted word."), T("النحو · العربية", "Grammar · Arabic") + (P.irabs.some((x) => x.draft) ? T(" · مسودّة للمراجعة", " · draft") : ""), P.irabs.length >= 1, P.irabs.length ? `${P.irabs.length} ${T("جمل", "sentences")}` : "") : ""}
+          ${P.wazns.length || (scope === "lesson" && unitExtra && poolU.wazns.length) ? card("wazn", T("ميزان الكلمة", "Word scale"), T("زِنِ الكلمة على «فَعَلَ»، أو صُغْ من الفعل ما يطلبه الدرس، أو اعرف نوع المشتقّ.", "Find the pattern of a word, or derive the form the lesson asks for."), T("الصرف · العربية", "Morphology · Arabic"), P.wazns.length >= 3, P.wazns.length ? `${Math.min(8, P.wazns.length)} ${T("أسئلة", "questions")}` : "") : ""}
           ${(() => { const sb = spotBank(P).length; return card("spot", T("اكتشف الخطأ", "Spot the mistake"), T("كلمة دخيلة في عبارة، أو بطاقة في غير سلّتها، أو خطوتان في غير مكانهما. اكتشف الخطأ وصحّحه.", "A wrong word, a card in the wrong basket, or two steps out of place. Find the mistake and fix it."), T("الفهم الدقيق · الصفّ الثاني فما فوق", "Close reading · Grade 2+"), sb >= 3, sb >= 3 ? `${Math.min(5, sb)} ${T("عبارات", "statements")}` : ""); })()}
           ${card("sort", T("السلال", "Baskets"), T("ضع كلّ بطاقة في سلّتها الصحيحة، واكتشف ما يجمع بينها.", "Drop each card into the right basket."), T("التصنيف والتمييز", "Classifying"), P.sorts.length >= 1, P.sorts.length ? `${P.sorts.reduce((n, s) => n + s.cats.reduce((m, c) => m + c.items.length, 0), 0)} ${T("بطاقة", "cards")}` : "")}
           ${card("seq", T("رتّب الخطوات", "Order the steps"), T("خطوات أو أحداث مبعثرة، رتّبها من الأوّل إلى الأخير.", "Scrambled steps or events: put them in order."), T("التسلسل والبناء", "Sequencing"), P.seqs.length >= 1, P.seqs.length ? `${P.seqs.length} ${T("سلسلة", "sets")}` : "")}
@@ -753,6 +757,49 @@ window.HiraArcade = (function () {
         });
       };
       const end = () => finish("irab", Math.min(30, right), Math.min(30, total), { title: T("مختبر الإعراب", "Grammar lab"), medal: "🔬", sub: T(`أعربت ${right} من ${total} ${total <= 10 ? "كلمات" : "كلمةً"} إعرابًا صحيحًا.`, `${right} of ${total} words analysed correctly.`), missed });
+      draw();
+    }
+
+    /* ========== 10) ميزان الكلمة ========== */
+    // أوزان شائعة تُكمِل البدائل إذا قلّت أوزان الوحدة (تُقارَن بالشكل كاملًا: فَعْل غير فَعَل)
+    const WZ = ["فَعَلَ", "فَعِلَ", "فَعُلَ", "فاعِل", "مَفْعول", "فَعّال", "مِفْعال", "فَعول", "فَعيل", "فَعِل", "أَفْعَل", "مَفْعَل", "مَفْعِل", "فَعَّلَ", "فاعَلَ", "أَفْعَلَ", "تَفَعَّلَ", "تَفاعَلَ", "انْفَعَلَ", "افْتَعَلَ", "اسْتَفْعَلَ"];
+    const KINDS = ["اسْمُ فاعِلٍ", "اسْمُ مَفْعولٍ", "صيغَةُ مُبالَغَةٍ", "صِفَةٌ مُشَبَّهَةٌ", "اسْمُ زَمانٍ", "اسْمُ مَكانٍ", "اسْمُ آلَةٍ", "اسْمُ تَفْضيلٍ"];
+    function wazn() {
+      const P = pool(), qs = byFocus(P.wazns).slice(0, 8), n = qs.length; if (!n) return menu();
+      let i = 0, right = 0; const missed = [];
+      const fill = (a, src, extra) => { const seen = new Set([a]), out = [];
+        shuffle(src).concat(shuffle(extra || [])).forEach((x) => { if (x && !seen.has(x) && out.length < 3) { seen.add(x); out.push(x); } }); return out; };
+      root.innerHTML = `${hud(T("ميزان الكلمة", "Word scale"), `<span class="arc-pill">${T("السؤال", "Question")} <b data-i>1</b> / ${n}</span><span class="arc-pill">✓ <b data-r>0</b></span>`)}<div class="arc-qbox"></div>`;
+      bindHud();
+      const box = root.querySelector(".arc-qbox");
+      const draw = () => {
+        const Q = qs[i]; root.querySelector("[data-i]").textContent = i + 1;
+        let prompt, big, opts;
+        if (Q.k === "w") { prompt = T(`ما وَزْنُ «${Q.w}»؟`, `Pattern of “${Q.w}”?`); big = Q.w;
+          opts = shuffle([Q.a].concat(fill(Q.a, P.wazns.filter((x) => x.k === "w").map((x) => x.a), WZ))); }
+        else if (Q.k === "n") { prompt = T(`ما نَوْعُ «${Q.w}»${Q.c ? " في هذا التركيب" : ""}؟`, `What kind of word is “${Q.w}”?`); big = Q.c || Q.w;
+          opts = shuffle([Q.a].concat(fill(Q.a, P.wazns.filter((x) => x.k === "n").map((x) => x.a), KINDS))); }
+        else { prompt = Q.p; big = ""; opts = shuffle([Q.a].concat(Q.d.filter((x) => x !== Q.a).slice(0, 3))); }
+        const bigHtml = big ? `<p class="arc-wz" dir="rtl">${Q.c ? esc(Q.c).replace(esc(Q.w), `<mark>${esc(Q.w)}</mark>`) : esc(big)}</p>` : "";
+        box.innerHTML = `<div class="arc-q">${bigHtml}
+          <p class="arc-prompt" dir="rtl">${esc(prompt)}</p>
+          <div class="arc-opts" data-q="z">${opts.map((o, k) => `<button class="arc-opt" type="button" data-o="${k}" dir="rtl"><span>${esc(o)}</span></button>`).join("")}</div>
+          <div class="arc-fb" aria-live="polite"></div></div>`;
+        box.querySelectorAll("[data-o]").forEach((b) => b.onclick = () => {
+          box.querySelectorAll("[data-o]").forEach((x) => { x.disabled = true; });
+          const ok = opts[Number(b.dataset.o)] === Q.a; b.classList.add(ok ? "ok" : "no");
+          if (!ok) box.querySelector(`[data-o="${opts.indexOf(Q.a)}"]`).classList.add("ok");
+          const sol = `${Q.w || Q.p}: ${Q.a}`;
+          if (ok) { right++; SND.p("coin"); } else { SND.p("no");
+            missed.push({ prompt: Q.w ? `${prompt}${Q.c ? ` (${Q.c})` : ""}` : prompt, solution: sol, rq: { key: rkey("z", Q.w || Q.p, Q.a), lid: Q.lid,
+              q: { t: "mcq", p: Q.c ? `${prompt} — ${Q.c}` : prompt, o: opts.map((o) => ({ t: o, i: "", ok: o === Q.a })), s: sol } } }); }
+          root.querySelector("[data-r]").textContent = right;
+          box.querySelector(".arc-fb").innerHTML = (ok ? `<b class="good">${T("أحسنت!", "Well done!")}</b>` : `<b class="bad">${T("الصواب:", "Correct:")}</b> ${esc(Q.a)}`)
+            + (Q.x ? `<p class="arc-tip">${esc(Q.x)}</p>` : "") + (Q.src ? `<p class="arc-tip arc-src">📚 ${esc(Q.src)}</p>` : "");
+          nextBtn(box, i < n - 1 ? T("التالي ←", "Next →") : T("النتيجة ←", "Result →"), () => { i++; if (i < n) draw(); else end(); }, ok && !Q.x ? 1100 : 0);
+        });
+      };
+      const end = () => finish("wazn", right, n, { title: T("ميزان الكلمة", "Word scale"), medal: "⚖️", sub: T(`أصبت في ${right} من ${n}.`, `${right} of ${n} correct.`), missed });
       draw();
     }
 

@@ -12027,7 +12027,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
     const cnt = (n, one, two, few, many, enOne, enMany) => en ? `${n} ${n === 1 ? enOne : enMany}` : n === 1 ? `${one} واحد` : n === 2 ? two : `${n} ${n <= 10 ? few : many}`;
     const stN = (n) => cnt(n, "طالب", "طالبان", "طلاب", "طالبًا", "student", "students");
     const rdN = (n) => (en ? cnt(n, "", "", "", "", "round", "rounds") : n === 1 ? "جولة واحدة" : n === 2 ? "جولتان" : `${n} ${n <= 10 ? "جولات" : "جولة"}`);
-    const MODE = { classic: T("الكلاسيكية", "Classic"), memory: T("الذاكرة", "Memory"), tower: T("البرج", "Tower"), ladder: T("السلّم", "Ladder"), blitz: T("السباق", "Race"), sentence: T("الجملة", "Sentence"), sort: T("السلال", "Baskets"), seq: T("الخطوات", "Steps"), spot: T("اكتشف الخطأ", "Spot"), irab: T("الإعراب", "Grammar") };
+    const MODE = { classic: T("الكلاسيكية", "Classic"), memory: T("الذاكرة", "Memory"), tower: T("البرج", "Tower"), ladder: T("السلّم", "Ladder"), blitz: T("السباق", "Race"), sentence: T("الجملة", "Sentence"), sort: T("السلال", "Baskets"), seq: T("الخطوات", "Steps"), spot: T("اكتشف الخطأ", "Spot"), irab: T("الإعراب", "Grammar"), wazn: T("ميزان الكلمة", "Word scale") };
     const load = async (cid) => {
       body.innerHTML = `<p class="muted">${T("جارٍ التحميل…", "Loading…")}</p>`;
       const { data: st } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cid);
