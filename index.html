@@ -2821,6 +2821,29 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .tdx-grid .tdx-score{color:#7c2d12!important;background:#fff7e6!important;font-weight:700;opacity:1!important;justify-content:center}
 .ews-aud-b{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}.ews-tr{margin-top:.6rem}.ews-tr p{margin:.35rem 0;line-height:1.9;unicode-bidi:plaintext}.ews-tr summary{cursor:pointer;font-weight:600}
 
+/* ===== صفحة الدرس: ثلاث خطوات (أتعلّم ← أتدرّب ← أتحقّق) ===== */
+.ls-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:22px;counter-reset:ls}
+.ls-step{position:relative;display:flex;align-items:center;gap:12px;text-align:start;padding:14px 16px;border-radius:18px;border:2px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;font:inherit;transition:border-color .15s ease,background .15s ease,transform .15s ease,box-shadow .15s ease}
+.ls-step:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--hira) 45%,var(--line))}
+.ls-step:focus-visible{outline:3px solid var(--hira);outline-offset:2px}
+.ls-n{flex:none;width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05rem;background:var(--hira-soft);color:var(--hira-deep)}
+.ls-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ls-t b{font-size:1.12rem}
+.ls-t small{color:var(--muted);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ls-step[aria-pressed="true"]{border-color:var(--hira);background:linear-gradient(to bottom,var(--hira-soft),var(--paper));box-shadow:0 8px 20px color-mix(in srgb,var(--hira) 16%,transparent)}
+.ls-step[aria-pressed="true"] .ls-n{background:var(--hira);color:var(--on-hira,#fff)}
+.ls-c{position:absolute;top:-9px;inset-inline-end:-6px;min-width:24px;height:24px;padding:0 6px;border-radius:99px;display:none;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;background:var(--dawn);color:#2B2006;box-shadow:0 0 0 3px var(--paper)}
+.ls-c:not(:empty){display:inline-flex}
+.ls-c.full{background:#2E9E5B;color:#fff}
+.ls-step.ls-staff{border-style:dashed}
+.ls-step.ls-staff .ls-n{background:var(--stone,#F1F3F2);font-size:1.1rem}
+.lesson-tabs{margin-top:14px!important}
+.lesson-tab[hidden]{display:none!important}
+.lesson-tab.ls-done::after{content:" ✓";color:#2E9E5B;font-weight:800}
+.ls-hint{margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:14px;background:var(--dawn-soft,#FEF3D6);border:1px solid color-mix(in srgb,var(--dawn) 50%,transparent)}
+@media (max-width:640px){.ls-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.ls-step{flex-direction:column;text-align:center;padding:10px 6px;gap:6px}.ls-t small{display:none}.ls-n{width:32px;height:32px}.ls-step.ls-staff{grid-column:1/-1;flex-direction:row;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.ls-step{transition:none}.ls-step:hover{transform:none}}
+
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
 .arc button { font: inherit; color: inherit; }
@@ -3669,7 +3692,7 @@ const SUBJ=[
    {t:['فن الإملاء','Spelling'],d:['12 درجة · الهمزات والتاء والألف والترقيم','12 steps · hamzah, tā’, alif, punctuation'],live:1,id:'imla',n:12,icon:'pen'},
    {t:['قل ولا تقل','Say it right'],d:['27 مسألة في 9 درجات · من درة الغوّاص','27 slips in 9 steps · from Durrat al-Ghawwāṣ'],live:1,id:'qul',n:9,icon:'chat'},
    {t:['مفاتيح النحو','Keys of Grammar'],d:['12 درجة على متن الآجرومية','12 steps through al-Ājurrūmiyyah'],live:1,id:'nahw',n:12,icon:'key'},
-   {t:['البلاغة الميسرة','Easy Rhetoric'],d:['التشبيه والاستعارة والكناية','Simile, metaphor, metonymy'],icon:'spark'},
+   {t:['البلاغة الميسّرة','Rhetoric Made Easy'],d:['البيان والبديع والمعاني في 12 درجة · من جواهر البلاغة','Imagery, embellishment & meanings in 12 steps'],live:1,id:'balagha',n:12,icon:'spark'},
    {t:['الشعر عبر العصور','Poetry Through the Ages'],d:['12 درجة · أبيات موثّقة من مصادرها','12 steps · every verse sourced'],live:1,id:'shiir',n:12,icon:'scroll'},
    {t:['الأمثال والحكم','Proverbs & Wisdom'],d:['قصة المثل ومعناه','Story and meaning'],icon:'chat'}]},
  {id:'soc',c:'var(--soc)',s:'var(--soc-s)',courses:[
@@ -3692,7 +3715,7 @@ const ICONS={
 
 T.report=['تقرير الطلاب','Student report'];T.repT=['تقرير معارج حراء','Ma‘ārij report'];T.student=['الطالب','Student'];T.steps=['الدرجات','Steps'];T.curStep=['الدرجة الحالية','Current step'];T.medals=['الأوسمة','Medals'];T.updated=['آخر نشاط','Last active'];T.noData=['لا يوجد تقدم مسجل لطلابك بعد.','No progress recorded for your students yet.'];T.loading=['جارٍ التحميل…','Loading…'];T.signHint=['سجّل الدخول ليُحفظ تقدّمك ويراه معلمك.','Sign in to save your progress and share it with your teacher.'];
 let SURAH,LEVELS,STEPS,PLACE,D=null,C=null,syncT=null,CID='tajweed',N=16;
-const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json',arbaeen:'art/maarij/arbaeen.json',asmaa:'art/maarij/asmaa.json',qul:'art/maarij/qul.json'};const CACHE={},LOADED={};
+const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json',arbaeen:'art/maarij/arbaeen.json',asmaa:'art/maarij/asmaa.json',qul:'art/maarij/qul.json',balagha:'art/maarij/balagha.json'};const CACHE={},LOADED={};
 const KEY=()=>'hiraa-maarij-'+CID;
 let S={passed:[],tests:{},open:false,name:'',start:0};
 let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}
@@ -4141,7 +4164,7 @@ window.HiraaMaarij=async function(ctx){
   const parts=ctx.parts||[];
   if(parts[1]&&!COURSES[parts[1]]){location.hash='#/maarij';return}
   SUB=!parts[1]?'courses':(parts[2]||'course');
-  ctx.h(`<div class="mj" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><nav class="mj-crumb" id="mjCrumb"></nav><div id="mjApp">${t('loading')}</div><p class="note">${parts[1]==='madarij'?t('foot3'):(['shiir','imla','nahw','arbaeen','qul'].includes(parts[1]))?t('foot2'):t('foot')}${ctx.state.session?'':' · '+t('signHint')}</p></div></div>`);
+  ctx.h(`<div class="mj" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><nav class="mj-crumb" id="mjCrumb"></nav><div id="mjApp">${t('loading')}</div><p class="note">${parts[1]==='madarij'?t('foot3'):(['shiir','imla','nahw','arbaeen','qul','balagha'].includes(parts[1]))?t('foot2'):t('foot')}${ctx.state.session?'':' · '+t('signHint')}</p></div></div>`);
   if(parts[1]){
     const cid=parts[1];
     if(!CACHE[cid]){try{CACHE[cid]=await (await fetch(COURSES[cid],{cache:'no-cache'})).json()}catch(e){$('mjApp').textContent='تعذّر تحميل الدورة.';return}}
@@ -4154,11 +4177,11 @@ window.HiraaMaarij=async function(ctx){
 
 /* ---------- ربط دروس المنهج بمعارج: بطاقة «أتقن هذا في معارج» داخل صفحة الدرس ---------- */
 (function(){
-  const COURSE_FILES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json',arbaeen:'art/maarij/arbaeen.json',asmaa:'art/maarij/asmaa.json',qul:'art/maarij/qul.json'};
-  const NAMES={tajweed:['التجويد','Tajwīd'],fiqh:['أحكام الطهارة والصلاة','Purification & Prayer'],shiir:['الشعر عبر العصور','Poetry Through the Ages'],imla:['فن الإملاء','The Art of Spelling'],nahw:['مفاتيح النحو','Keys to Grammar'],arbaeen:['الأربعون النووية','An-Nawawī’s Forty'],asmaa:['أسماء الله الحسنى','The Beautiful Names'],qul:['قل ولا تقل','Say It Right']};
+  const COURSE_FILES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json',arbaeen:'art/maarij/arbaeen.json',asmaa:'art/maarij/asmaa.json',qul:'art/maarij/qul.json',balagha:'art/maarij/balagha.json'};
+  const NAMES={tajweed:['التجويد','Tajwīd'],fiqh:['أحكام الطهارة والصلاة','Purification & Prayer'],shiir:['الشعر عبر العصور','Poetry Through the Ages'],imla:['فن الإملاء','The Art of Spelling'],nahw:['مفاتيح النحو','Keys to Grammar'],arbaeen:['الأربعون النووية','An-Nawawī’s Forty'],asmaa:['أسماء الله الحسنى','The Beautiful Names'],qul:['قل ولا تقل','Say It Right'],balagha:['البلاغة الميسّرة','Rhetoric Made Easy']};
   /* [نمط، دورة، درجة (0 = صفحة الدورة)، للعربية فقط؟] — الأدق أولًا */
   const RULES=[
-   [/الاعمال بالنيات|حديث جبريل|الاسلام والايمان والاحسان/,'arbaeen',1,0],[/بني الاسلام علي خمس/,'arbaeen',2,0],[/الحلال بين/,'arbaeen',3,0],[/الدين النصيحه/,'arbaeen',4,0],[/دع ما يريبك/,'arbaeen',6,0],[/لا تغضب/,'arbaeen',8,0],[/احفظ الله/,'arbaeen',10,0],[/قل امنت بالله/,'arbaeen',11,0],[/لا ضرر ولا ضرار/,'arbaeen',16,0],[/من راي منكم منكرا/,'arbaeen',17,0],[/لا تحاسدوا/,'arbaeen',18,0],[/الاربعين النوويه|الاربعون النوويه/,'arbaeen',0,0],[/الاسماء الحسني|اسماء الله/,'asmaa',0,0],[/قل ولا تقل|الاخطاء الشائعه|الاخطاء اللغويه/,'qul',0,1],[/اسم التفضيل/,'qul',4,1],[/الحي القيوم/,'asmaa',5,0],[/التواب|التوبه/,'asmaa',6,0],
+   [/الاعمال بالنيات|حديث جبريل|الاسلام والايمان والاحسان/,'arbaeen',1,0],[/بني الاسلام علي خمس/,'arbaeen',2,0],[/الحلال بين/,'arbaeen',3,0],[/الدين النصيحه/,'arbaeen',4,0],[/دع ما يريبك/,'arbaeen',6,0],[/لا تغضب/,'arbaeen',8,0],[/احفظ الله/,'arbaeen',10,0],[/قل امنت بالله/,'arbaeen',11,0],[/لا ضرر ولا ضرار/,'arbaeen',16,0],[/من راي منكم منكرا/,'arbaeen',17,0],[/لا تحاسدوا/,'arbaeen',18,0],[/الاربعين النوويه|الاربعون النوويه/,'arbaeen',0,0],[/الاسماء الحسني|اسماء الله/,'asmaa',0,0],[/قل ولا تقل|الاخطاء الشائعه|الاخطاء اللغويه/,'qul',0,1],[/البلاغه|علم البيان|علم البديع|علم المعاني/,'balagha',0,1],[/التشبيه/,'balagha',1,1],[/الاستعاره/,'balagha',3,1],[/الكنايه/,'balagha',5,1],[/الطباق/,'balagha',6,1],[/المقابله/,'balagha',7,1],[/الجناس/,'balagha',8,1],[/السجع/,'balagha',9,1],[/الخبر والانشاء|الانشاء الطلبي/,'balagha',10,1],[/اسلوب الامر/,'balagha',11,1],[/اسلوب الاستفهام|ادوات الاستفهام/,'balagha',12,1],[/اسم التفضيل/,'qul',4,1],[/الحي القيوم/,'asmaa',5,0],[/التواب|التوبه/,'asmaa',6,0],
    [/الاظهار|النون الساكنه والتنوين/,'tajweed',1,0],[/الادغام/,'tajweed',2,0],[/الاقلاب/,'tajweed',4,0],[/الاخفاء/,'tajweed',5,0],
    [/الميم الساكنه/,'tajweed',7,0],[/المد الاصلي/,'tajweed',12,0],[/المد الفرعي/,'tajweed',13,0],[/احكام المد/,'tajweed',12,0],[/مخارج الحروف/,'tajweed',15,0],[/صفات الحروف/,'tajweed',16,0],[/التجويد/,'tajweed',0,0],
    [/نواقض الوضوء/,'fiqh',4,0],[/الوضوء/,'fiqh',2,0],[/الطهاره/,'fiqh',1,0],[/شروط الصلاه/,'fiqh',5,0],[/(فرائض|اركان) الصلاه/,'fiqh',7,0],[/(سنن|مبطلات)/,'fiqh',8,-1],
@@ -9534,6 +9557,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       return out.slice(0, 24); })();
     const relBox = isStaff() && summary ? `<div id="relBox" class="rel-box"></div>` : "";
     const ewsOn = subject === "arabic" && QUAL_TRACKS.includes(u.track) && (await ewsIdx()).includes(l.code);
+    const LS_STEPS = [["learn", "أتعلّم", "Learn"], ["practice", "أتدرّب", "Practise"], ["check", "أتحقّق", "Check"], ["staff", "للمعلم وولي الأمر", "Teacher & parent"]];
+    const LS_GROUP = { exam: "learn", slides: "learn", booktext: "learn", madarij: "learn", video: "learn", evidence: "learn", res: "learn", identity: "learn", outcomes: "learn",
+      cards: "practice", reader: "practice", games: "practice", work: "practice", group: "practice",
+      prog: "check", quiz: "check", recite: "check", weekly: "staff", parent: "staff" };
     const TABS = [
       ...(ewsOn ? [["exam", "🎯 ورشة الامتحان", lockedForMe && !isStaff() ? lockedMsg : `<div id="ewsBox"></div>`]] : []),
       ["slides", nnEn ? "Slides" : "الشرائح", relBox + slidesPanel()],
@@ -9582,9 +9609,15 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <span class="pill">${TRACK_SHORT[u.track]}</span>
         ${isStaff() ? '<button class="btn btn-dawn btn-small" id="planBtn">خطة الدرس للطباعة</button> <button class="btn btn-primary btn-small" id="hwBtn">كلّف بواجب</button>' : ""}
       </div>
-      <div class="lesson-tabs" role="tablist" aria-label="أقسام الدرس">
-        ${TABS.map(([k, t], i) => `<button class="lesson-tab" role="tab" id="tab-${k}" aria-controls="panel" aria-selected="${i === 0}" data-k="${k}">${t}</button>`).join("")}
-      </div>
+      ${(() => {
+        const g = (k) => LS_GROUP[k] || "learn";
+        const vis = TABS.filter(([k]) => g(k) !== "staff" || isStaff() || (k === "parent" && isParent()));
+        const steps = LS_STEPS.filter((st) => vis.some(([k]) => g(k) === st[0]));
+        return `<nav class="ls-steps" aria-label="${nnEn ? "Lesson steps" : "خطوات الدرس"}">${steps.map((st, i) => `<button type="button" class="ls-step ls-${st[0]}" data-g="${st[0]}" aria-pressed="${i === 0}">
+            <span class="ls-n">${st[0] === "staff" ? "🧑‍🏫" : i + 1}</span><span class="ls-t"><b>${nnEn ? st[2] : st[1]}</b><small>${vis.filter(([k]) => g(k) === st[0]).map(([, t]) => t.replace(/^\P{L}+/u, "")).slice(0, 3).join(" · ")}</small></span><span class="ls-c" data-g="${st[0]}"></span></button>`).join("")}</nav>
+        <div class="lesson-tabs" role="tablist" aria-label="أقسام الدرس">
+        ${vis.map(([k, t], i) => `<button class="lesson-tab" role="tab" id="tab-${k}" aria-controls="panel" aria-selected="${i === 0}" data-k="${k}" data-g="${g(k)}">${t}</button>`).join("")}
+        </div>`; })()}
     </div></section>
     ${state._liveBanner ? `<div class="wrap" style="margin-top:14px">${state._liveBanner}</div>` : ""}
     <section class="wrap panel" id="panel" role="tabpanel"></section>`);
@@ -9648,8 +9681,30 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         if (dl) dl.onclick = async () => { if (!confirm("حذف نص الكتاب لهذا الدرس؟")) return; await sb.from("lesson_book_texts").delete().eq("lesson_id", l.id); toast("حُذف النص"); location.reload(); };
       }
     };
-    document.querySelectorAll(".lesson-tab").forEach((b) => b.addEventListener("click", () => { show(b.dataset.k); wire(b.dataset.k); }));
-    show("slides");
+    document.querySelectorAll(".lesson-tab").forEach((b) => b.addEventListener("click", () => { show(b.dataset.k); wire(b.dataset.k); lsMark(b.dataset.k); }));
+    // خطوات الدرس: أتعلّم ← أتدرّب ← أتحقّق، وتحت كل خطوة أنشطتها فقط، مع علامة ✓ لما زاره الطالب
+    const lsKey = "hira-ls-" + l.code;
+    const lsSeen = (() => { try { return new Set(JSON.parse(localStorage.getItem(lsKey) || "[]")); } catch (e) { return new Set(); } })();
+    const lsGroupOf = (k) => { const b = document.getElementById("tab-" + k); return b ? b.dataset.g : "learn"; };
+    const lsPaint = () => {
+      document.querySelectorAll(".lesson-tab").forEach((b) => b.classList.toggle("ls-done", lsSeen.has(b.dataset.k)));
+      document.querySelectorAll(".ls-c").forEach((c) => { const all = [...document.querySelectorAll(`.lesson-tab[data-g="${c.dataset.g}"]`)], n = all.filter((b) => lsSeen.has(b.dataset.k)).length;
+        c.textContent = n && n === all.length ? "✓" : n ? `${n}/${all.length}` : ""; c.classList.toggle("full", n > 0 && n === all.length); });
+    };
+    const lsStep = (g) => {
+      document.querySelectorAll(".ls-step").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.g === g)));
+      document.querySelectorAll(".lesson-tab").forEach((b) => { b.hidden = b.dataset.g !== g; });
+      const old = document.getElementById("lsHint"); if (old) old.remove();
+      if (g === "check" && !isStaff() && document.querySelector('.lesson-tab[data-g="practice"]') && ![...lsSeen].some((k) => lsGroupOf(k) === "practice")) {
+        const hn = document.createElement("div"); hn.id = "lsHint"; hn.className = "ls-hint";
+        hn.innerHTML = `<span>💡 ${nnEn ? "Tip: practise first, then check yourself. You'll do better!" : "نصيحة: تدرّب أولًا ثم تحقّق، فتكون نتيجتك أفضل."}</span><button type="button" class="btn btn-ghost btn-small">${nnEn ? "Go to practice" : "اذهب إلى «أتدرّب»"}</button>`;
+        hn.querySelector("button").onclick = () => lsGo("practice"); document.querySelector(".lesson-tabs").after(hn);
+      }
+    };
+    const lsGo = (g) => { lsStep(g); const first = document.querySelector(`.lesson-tab[data-g="${g}"]`); if (first) first.click(); };
+    function lsMark(k) { lsStep(lsGroupOf(k)); if (!lsSeen.has(k)) { lsSeen.add(k); try { localStorage.setItem(lsKey, JSON.stringify([...lsSeen])); } catch (e) {} } lsPaint(); }
+    document.querySelectorAll(".ls-step").forEach((b) => b.addEventListener("click", () => lsGo(b.dataset.g)));
+    show("slides"); lsMark("slides");
     const pb = document.getElementById("planBtn");
     if (pb) pb.onclick = () => printLessonPlan(l, u, axisName, ticket);
     const hb = document.getElementById("hwBtn");
