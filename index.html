@@ -9218,7 +9218,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const counts = { 1: 0, 2: 0, 3: 0 };
     units.forEach((u) => { counts[u.term] += (u.lessons || []).length; });
     const nn = track === "non_native" || LANG === "en";
-    const href = (t, tr, d) => `#/year/${year}?subject=${subject}&track=${tr}&term=${t}${(d === undefined ? domain : d) ? "&domain=" + (d === undefined ? domain : d) : ""}${d === undefined && tr === track && params.get("mdr") === "1" ? "&mdr=1" : ""}${ctl && tr === track ? "&ctl=" + ctl.id : ""}`;
+    // «أبجد» مسار مستقلّ عن الصف (دروسه مسجّلة على الصف 6): نتذكّر صفّ الطالب الأصلي ليعود إليه من التبويبات
+    const fromY = track === "launch" && Number(params.get("from")) >= 1 && Number(params.get("from")) <= 12 ? Number(params.get("from")) : 0;
+    const navYear = fromY || year;
+    const href = (t, tr, d) => `#/year/${tr === "launch" ? year : navYear}?subject=${subject}&track=${tr}&term=${t}${tr === "launch" && fromY ? "&from=" + fromY : ""}${(d === undefined ? domain : d) ? "&domain=" + (d === undefined ? domain : d) : ""}${d === undefined && tr === track && params.get("mdr") === "1" ? "&mdr=1" : ""}${ctl && tr === track ? "&ctl=" + ctl.id : ""}`;
     const domainOf = (c) => (state.axes.find((a) => a.code === c) || {}).domain_id;
     const termLessons = termUnits.flatMap((u) => u.lessons || []);
     const dCounts = {};
@@ -9291,19 +9294,19 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     h(`
     <section class="page-head"><div class="wrap">
       <div class="crumbs"><a href="#/">الرئيسية</a> / <a href="#/grades?subject=${subject}">${SUBJECTS[subject].name}</a></div>
-      <h1><span dir="ltr">Grade ${year}</span> · ${SUBJECTS[subject].name}</h1>
-      <p class="muted">الصف ${ORD_GRADE[year] || year}${outcomes.length && !QUAL_TRACKS.includes(track) ? ` · ${outcomes.length} ناتج تعلم من الإطار الوطني` : track === "igcse" ? ` · <span dir="ltr">Pearson Edexcel International GCSE Arabic (4AA1)</span>` : track === "gcse" ? ` · <span dir="ltr">Pearson Edexcel GCSE Arabic (1AA0)</span>` : track === "alevel" ? ` · <span dir="ltr">Pearson Edexcel A Level Arabic (9AA0)</span>` : ""}</p>
+      <h1>${track === "launch" ? "أبجد" : `<span dir="ltr">Grade ${year}</span>`} · ${SUBJECTS[subject].name}</h1>
+      <p class="muted">${track === "launch" ? "مسار الانطلاقة للمتعلّمين اليافعين المبتدئين في العربية · لجميع الصفوف" : `الصف ${ORD_GRADE[year] || year}`}${track !== "launch" && outcomes.length && !QUAL_TRACKS.includes(track) ? ` · ${outcomes.length} ناتج تعلم من الإطار الوطني` : track === "igcse" ? ` · <span dir="ltr">Pearson Edexcel International GCSE Arabic (4AA1)</span>` : track === "gcse" ? ` · <span dir="ltr">Pearson Edexcel GCSE Arabic (1AA0)</span>` : track === "alevel" ? ` · <span dir="ltr">Pearson Edexcel A Level Arabic (9AA0)</span>` : ""}</p>
       <div class="controls">
         <div class="seg" role="group" aria-label="المسار">
-          <a href="${testsView ? `#/year/${year}?subject=${subject}&track=native&term=tests` : href(term, "native")}" aria-current="${track === "native"}">${TRACKS.native}</a>
-          <a href="${testsView ? `#/year/${year}?subject=${subject}&track=non_native&term=tests` : href(term, "non_native")}" aria-current="${track === "non_native"}">${TRACKS.non_native}</a>
-          ${subject === "arabic" && [11, 12].includes(Number(year)) ? `<a href="${testsView ? `#/year/${year}?subject=${subject}&track=alevel&term=tests` : href(term, "alevel")}" aria-current="${track === "alevel"}" dir="ltr">A Level</a>` : ""}
-          ${subject === "arabic" && Number(year) >= 1 && Number(year) <= 12 ? `<a href="#/year/6?subject=${subject}&track=launch&term=${testsView ? "tests" : term}" aria-current="${track === "launch"}" title="للمتعلّمين اليافعين المبتدئين في العربية">أبجد</a>` : ""}
-          ${subject === "arabic" && [9, 10].includes(Number(year)) ? `<a href="${testsView ? `#/year/${year}?subject=${subject}&track=gcse&term=tests` : href(term, "gcse")}" aria-current="${track === "gcse"}" dir="ltr" title="GCSE Arabic (1AA0): العربية لغة أجنبية">GCSE</a><a href="${testsView ? `#/year/${year}?subject=${subject}&track=igcse&term=tests` : href(term, "igcse")}" aria-current="${track === "igcse"}" dir="ltr" title="International GCSE Arabic (4AA1): للناطقين بالعربية">IGCSE</a>` : ""}
+          <a href="${testsView ? `#/year/${navYear}?subject=${subject}&track=native&term=tests` : href(term, "native")}" aria-current="${track === "native"}">${TRACKS.native}</a>
+          <a href="${testsView ? `#/year/${navYear}?subject=${subject}&track=non_native&term=tests` : href(term, "non_native")}" aria-current="${track === "non_native"}">${TRACKS.non_native}</a>
+          ${subject === "arabic" && [11, 12].includes(navYear) ? `<a href="${testsView ? `#/year/${navYear}?subject=${subject}&track=alevel&term=tests` : href(term, "alevel")}" aria-current="${track === "alevel"}" dir="ltr">A Level</a>` : ""}
+          ${subject === "arabic" && navYear >= 1 && navYear <= 12 ? `<a href="#/year/6?subject=${subject}&track=launch&term=${testsView ? "tests" : term}&from=${navYear}" aria-current="${track === "launch"}" title="للمتعلّمين اليافعين المبتدئين في العربية">أبجد</a>` : ""}
+          ${subject === "arabic" && [9, 10].includes(navYear) ? `<a href="${testsView ? `#/year/${navYear}?subject=${subject}&track=gcse&term=tests` : href(term, "gcse")}" aria-current="${track === "gcse"}" dir="ltr" title="GCSE Arabic (1AA0): العربية لغة أجنبية">GCSE</a><a href="${testsView ? `#/year/${navYear}?subject=${subject}&track=igcse&term=tests` : href(term, "igcse")}" aria-current="${track === "igcse"}" dir="ltr" title="International GCSE Arabic (4AA1): للناطقين بالعربية">IGCSE</a>` : ""}
         </div>
         <div class="term-tabs" role="tablist">
           ${[1, 2, 3].map((t) => `<a class="term-tab" role="tab" href="${href(t, track, 0)}" aria-selected="${!testsView && t === term}" style="text-decoration:none">${(isStudent() || ctl) && counts[t] && !termOpen[t] ? lockIcon + " " : ""}${TERMS[t]} <span class="muted">(${counts[t]})</span></a>`).join("")}
-          <a class="term-tab tests-tab" role="tab" href="#/year/${year}?subject=${subject}&track=${track}&term=tests" aria-selected="${testsView}" style="text-decoration:none">${lockIcon} ${LANG === "en" ? "Tests" : "الاختبارات"}</a>
+          <a class="term-tab tests-tab" role="tab" href="#/year/${year}?subject=${subject}&track=${track}&term=tests${fromY ? "&from=" + fromY : ""}" aria-selected="${testsView}" style="text-decoration:none">${lockIcon} ${LANG === "en" ? "Tests" : "الاختبارات"}</a>
         </div>
       </div>
     </div></section>
