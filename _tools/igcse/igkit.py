@@ -39,12 +39,12 @@ class Deck:
                 f'<p style="font-size:22px;color:#8A8475;white-space:nowrap">{e(s.footer)}</p></div>')
         s.sl.append(f'<section class="sl" id="{sid}" style="background:{bg};color:#1F2A3C;font-family:\'Thmanyah Text\',\'Cairo\',Tahoma,sans-serif;'
                     f'padding:118px 128px 150px;display:flex;flex-direction:column;gap:22px;direction:ltr">{logo}{orbs}{head}{body}{foot}<aside>{e(notes)}</aside></section>')
-    def save(s, out):
+    def save(s, out, label='Teacher presentation', drop=()):
         h = open(TEMPLATE, encoding='utf-8').read()
         i = h.find('<div id="wrap"><div id="stage">'); j = h.rfind('</section>')
         pre, post = h[:i], h[j + 10:]
-        pre = re.sub(r'<title>.*?</title>', f'<title>Teacher presentation · {e(s.title)} · Hiraa</title>', pre, count=1, flags=re.S)
-        pre = re.sub(r'<b>Teacher presentation · [^<]*</b>', f'<b>Teacher presentation · {e(s.title)}</b>', pre, count=1)
+        pre = re.sub(r'<title>.*?</title>', f'<title>{label} · {e(s.title)} · Hiraa</title>', pre, count=1, flags=re.S)
+        pre = re.sub(r'<b>Teacher presentation · [^<]*</b>', f'<b>{label} · {e(s.title)}</b>', pre, count=1)
         # The template's fill-zoom and shrink passes run before the web fonts load, so with the real (wider) fonts
         # zoomed content could overflow the footer. Run them once the fonts are ready instead.
         a = post.find("<script>(function(){document.querySelectorAll('.sl').forEach(function(s){if(s.id=='cover')return;")
@@ -54,8 +54,10 @@ class Deck:
             post = (post[:a + 8] + "function __igfit(){" + blk + "}\n(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(__igfit));\n" + post[z:])
         pre = pre.replace('</style>', '@font-face{font-family:"Hafs";src:url("../../../art/fonts/uthmanic-hafs.woff2") format("woff2")}</style>', 1)
         os.makedirs(os.path.dirname(out), exist_ok=True)
-        open(out, 'w', encoding='utf-8').write(pre + '<div id="wrap"><div id="stage">' + ''.join(s.sl) + post)
-        return len(s.sl)
+        sl = [x for x in s.sl if not any(f'id="{d}"' in x[:60] for d in drop)]
+        if drop: sl = [re.sub(r'<aside>.*?</aside>', '<aside></aside>', x, flags=re.S) for x in sl]
+        open(out, 'w', encoding='utf-8').write(pre + '<div id="wrap"><div id="stage">' + ''.join(sl) + post)
+        return len(sl)
 
 # ---- building blocks ----
 def card(inner, col='#2F6A9A', bg='#fff', w=None, build=0, pad='22px 30px', extra=''):

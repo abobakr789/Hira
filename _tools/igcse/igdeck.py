@@ -1,6 +1,7 @@
 # Builds an IGCSE Islamic Studies (4IS1) teacher deck from a lesson dict (see ig_t1.py).
 # Structure: where it sits → retrieval → hook → success criteria → key terms → set passage → content (spec a, b, c…)
 # → I do (a), (b) → check → we do (c) → examiner advice → (d) plan + model → you do (d) → self-mark → groups → exit → reflect.
+from pearson_en import pearson_lines, official
 import os, json, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from igkit import *
@@ -57,6 +58,8 @@ def build(C):
             "Key terms lift AO1 marks. Students add them to their glossary.", "4 min")
     # 7 set passage
     sp = C["passage"]
+    if sp.get("en"): sp["en"] = pearson_lines(C["num"], sp["en"])
+    if sp.get("hadith") and official(C["num"]): sp["hadith"] = official(C["num"])
     if sp.get("hadith"):
         pbody = card(P(sp["hadith"], 32 if len(sp["hadith"]) < 420 else 27, '#1F2A3C', extra='font-style:italic;line-height:1.6') + P(sp["src"], 24, '#8A6D1E'), '#8A6D1E', '#FFF8E2', pad='34px 42px')
         pnote = "Read the hadith aloud twice. It is printed in the exam for (d) questions: learn its key phrases."
@@ -64,7 +67,7 @@ def build(C):
         n = sum(len(x) for _, x in sp["ar"]); sz = sp.get("size") or (46 if n < 260 else 40 if n < 420 else 34 if n < 650 else 29)
         en = ''.join(P(f"({k}) {t}", 25 if n < 420 else 22, '#3F4A5A', extra='font-style:italic') for k, t in sp["en"])
         pbody = quran(sp["ar"], sp["ref_ar"], sz) + card(en, '#3F6E5B')
-        pnote = "Recite (the recitation plays under the verses), then read the translation (Saheeh International, as in the specification). The passage is printed in the exam for (d) questions."
+        pnote = "Recite (the recitation plays under the verses), then read the English text exactly as it is printed in the Pearson specification (Appendix 4). The passage is printed in the exam for (d) questions."
     if sp.get("also"): pbody += tagline("📖 Also set for this topic: " + sp["also"], size=24)
     D.slide("passage", 'mint', "Set passage: " + sp["ref"], "Learn it · quote it in (d)", pbody, pnote, "5 min")
     # 8 passage unpacked
@@ -150,4 +153,7 @@ if __name__ == "__main__":
     mod = importlib.import_module(sys.argv[1])
     for C in mod.L:
         if len(sys.argv) > 2 and C["code"] not in sys.argv[2:]: continue
-        D = build(C); n = D.save(os.path.join(ROOT, "resources/ie", C["code"], "teacher-deck.html")); print(C["code"], n)
+        D = build(C); n = D.save(os.path.join(ROOT, "resources/ie", C["code"], "teacher-deck.html"))
+        # student revision deck: same slides without the worked model answers, group logistics and teacher notes
+        m = D.save(os.path.join(ROOT, "resources/ie", C["code"], "student-deck.html"), "Revision slides", ("idoa", "idob", "wedoc", "dmodel", "groups"))
+        print(C["code"], n, m)

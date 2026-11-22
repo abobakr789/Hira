@@ -1,6 +1,7 @@
 # IGCSE Islamic Studies (4IS1): student and teacher papers built from the same lesson data as the teacher deck.
 # Files (same names as Hiraa's Islamic Education packs): worksheets-A4.html (Bronze (a) · Silver (b) · Gold (c) · Diamond (d)),
 # pod-sheet.html, sources-concept-card.html, group-work.html, answer-key.html.
+from pearson_en import pearson_lines, official
 import os, re, sys, json, html as _h, hashlib
 sys.path.insert(0, os.path.dirname(__file__))
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
@@ -33,6 +34,8 @@ def strip(k): return "<div class='strip'>" + "".join(f"<div class='{'on' if j ==
 def q(n, col, title, body=""): return f"<div class='q'><div class='qh'><span class='n' style='background:{col}'>{n}</span><span>{md(title)}</span></div>{body}</div>"
 def passage(C, full=True):
     sp = C["passage"]
+    if sp.get("en"): sp = dict(sp, en=pearson_lines(C["num"], sp["en"]))
+    if sp.get("hadith") and official(C["num"]): sp = dict(sp, hadith=official(C["num"]))
     if sp.get("hadith"): return f"<div class='txt'><div class='h'>📜 Set passage · {e(sp['ref'])}</div><div class='trn' style='font-size:11.5pt'>{e(sp['hadith'])}</div><div class='lv'>{e(sp['src'])}</div></div>"
     ar = " ".join(f"{e(x.replace(chr(0x08F1), chr(0x065E)).replace(chr(0x0640), ''))} ﴿{n}﴾" for n, x in sp["ar"])
     en = "".join(f"<div class='trn'>({n}) {e(t)}</div>" for n, t in sp["en"]) if full else ""
