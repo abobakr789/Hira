@@ -3375,6 +3375,20 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const lsKey = "hira-ls-" + l.code;
     const lsSeen = (() => { try { return new Set(JSON.parse(localStorage.getItem(lsKey) || "[]")); } catch (e) { return new Set(); } })();
     const lsGroupOf = (k) => { const b = document.getElementById("tab-" + k); return b ? b.dataset.g : "learn"; };
+    // للطالب المسجَّل: نحفظ التبويبات المفتوحة في قاعدة البيانات أيضًا، فتنتقل معه بين الأجهزة ويراها معلمه وولي أمره. الحفظ المحلي يبقى احتياطًا.
+    const lsCloud = !!(state.session && isStudent() && !lockedForMe);
+    let lsPend = new Set(), lsTimer = null;
+    const lsFlush = () => { lsTimer = null; if (!lsCloud || !lsPend.size) return; const batch = [...lsPend]; lsPend = new Set(); sb.rpc("save_lesson_tabs", { p_lesson: l.id, p_tabs: batch }).then(({ error }) => { if (error) batch.forEach((k) => lsPend.add(k)); }, () => batch.forEach((k) => lsPend.add(k))); };
+    const lsSave = (k) => { if (!lsCloud) return; lsPend.add(k); if (!lsTimer) lsTimer = setTimeout(lsFlush, 1500); };
+    if (lsCloud) {
+      window.addEventListener("pagehide", lsFlush);
+      sb.from("lesson_tabs_seen").select("tabs").eq("student_id", state.session.user.id).eq("lesson_id", l.id).maybeSingle().then(({ data }) => {
+        if (!data || !data.tabs) { lsSeen.forEach((k) => lsPend.add(k)); lsFlush(); return; }
+        const had = lsSeen.size; data.tabs.forEach((k) => { if (document.getElementById("tab-" + k)) lsSeen.add(k); });
+        if (lsSeen.size !== had) { try { localStorage.setItem(lsKey, JSON.stringify([...lsSeen])); } catch (e) {} }
+        lsSeen.forEach((k) => { if (!data.tabs.includes(k)) lsPend.add(k); }); lsFlush(); lsPaint();
+      }, () => {});
+    }
     const lsPaint = () => {
       document.querySelectorAll(".lesson-tab").forEach((b) => b.classList.toggle("ls-done", lsSeen.has(b.dataset.k)));
       document.querySelectorAll(".ls-c").forEach((c) => { const all = [...document.querySelectorAll(`.lesson-tab[data-g="${c.dataset.g}"]`)], n = all.filter((b) => lsSeen.has(b.dataset.k)).length;
@@ -3391,7 +3405,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       }
     };
     const lsGo = (g) => { lsStep(g); const first = document.querySelector(`.lesson-tab[data-g="${g}"]`); if (first) first.click(); };
-    function lsMark(k) { lsStep(lsGroupOf(k)); if (!lsSeen.has(k)) { lsSeen.add(k); try { localStorage.setItem(lsKey, JSON.stringify([...lsSeen])); } catch (e) {} } lsPaint(); }
+    function lsMark(k) { lsStep(lsGroupOf(k)); if (!lsSeen.has(k)) { lsSeen.add(k); lsSave(k); try { localStorage.setItem(lsKey, JSON.stringify([...lsSeen])); } catch (e) {} } lsPaint(); }
     document.querySelectorAll(".ls-step").forEach((b) => b.addEventListener("click", () => lsGo(b.dataset.g)));
     show("slides"); lsMark("slides");
     const pb = document.getElementById("planBtn");
