@@ -2347,6 +2347,7 @@ b.below { background: var(--ar-below); } b.at { background: var(--ar-at); } b.ab
 .seg [data-subj="arabic"][aria-pressed="true"],.seg [data-subj="arabic"][aria-current="true"]{background:var(--v-coral);color:#fff}
 .seg [data-subj="social"][aria-pressed="true"],.seg [data-subj="social"][aria-current="true"]{background:var(--v-sky);color:#fff}
 .seg [data-subj="igcse"][aria-pressed="true"],.seg [data-subj="igcse"][aria-current="true"]{background:var(--v-violet);color:#fff}
+.seg [data-subj="sanaa"][aria-pressed="true"],.seg [data-subj="sanaa"][aria-current="true"]{background:#B0782A;color:#fff}
 
 /* لون لكل حلقة في بطاقات الصفوف */
 .stage.st1{--cc:var(--v-sun-b);--ct:var(--v-sun);--cs:var(--v-sun-s)}
@@ -2371,6 +2372,9 @@ html[data-subj="social"][data-theme="dark"]{--hira:#7FB6F2;--hira-deep:#BCD8F8;-
 html[data-subj="igcse"]{--hira:#6A45C2;--hira-deep:#4E2F99;--hira-soft:#EFE9FC;--sj-b:#8A66E0}
 @media (prefers-color-scheme: dark){html[data-subj="igcse"]:not([data-theme="light"]){--hira:#B9A0F2;--hira-deep:#DDD0F9;--hira-soft:#251C3D}}
 html[data-subj="igcse"][data-theme="dark"]{--hira:#B9A0F2;--hira-deep:#DDD0F9;--hira-soft:#251C3D}
+html[data-subj="sanaa"]{--hira:#A8731F;--hira-deep:#7E5314;--hira-soft:#FBF1D9;--sj-b:#D09A3E}
+@media (prefers-color-scheme: dark){html[data-subj="sanaa"]:not([data-theme="light"]){--hira:#E3B565;--hira-deep:#F2D9A6;--hira-soft:#33260F}}
+html[data-subj="sanaa"][data-theme="dark"]{--hira:#E3B565;--hira-deep:#F2D9A6;--hira-soft:#33260F}
 html[data-subj] .page-head{position:relative;background:radial-gradient(520px 240px at 95% 0%,var(--hira-soft),transparent 72%),radial-gradient(360px 200px at 0% 100%,color-mix(in srgb,var(--sj-b) 10%,transparent),transparent 70%),var(--paper)!important;border-bottom:0!important}
 html[data-subj] .page-head::after{content:"";position:absolute;inset:auto 0 0 0;height:5px;background:linear-gradient(to left,var(--sj-b),color-mix(in srgb,var(--sj-b) 35%,transparent))}
 html[data-subj] .page-head h1{color:var(--hira)}
@@ -6654,11 +6658,15 @@ window.HiraArcade = (function () {
     islamic: { id: 1, name: "التربية الإسلامية", en: "Islamic Education" },
     arabic: { id: 2, name: "اللغة العربية", en: "Arabic Language" },
     social: { id: 3, name: "الدراسات الاجتماعية", en: "Social Studies" },
-    igcse: { id: 4, name: "التربية الإسلامية · IGCSE", en: "Islamic Education · IGCSE" }
+    igcse: { id: 4, name: "التربية الإسلامية · IGCSE", en: "Islamic Education · IGCSE" },
+    sanaa: { id: 5, name: "السنع الإماراتي", en: "Emirati Sanaa" }
   };
-  const SUBJECT_BY_ID = { 1: "islamic", 2: "arabic", 3: "social", 4: "igcse" };
+  // مواد قيد الاختبار: لا تظهر في قوائم الزوّار، وتُفتح بالرابط المباشر #/grades?subject=… حتى يُعتمد نشرها
+  const PREVIEW_SUBJECTS = ["sanaa"];
+  const listedSubjects = (current) => Object.keys(SUBJECTS).filter((k) => !PREVIEW_SUBJECTS.includes(k) || k === current);
+  const SUBJECT_BY_ID = { 1: "islamic", 2: "arabic", 3: "social", 4: "igcse", 5: "sanaa" };
   const subjOf = (params) => (SUBJECTS[params && params.get("subject")] ? params.get("subject") : "islamic");
-  const subjectSeg = (current, hrefFn) => `<div class="seg" role="group" aria-label="المادة">${Object.keys(SUBJECTS).filter((k) => k !== "igcse").map((k) =>
+  const subjectSeg = (current, hrefFn) => `<div class="seg" role="group" aria-label="المادة">${listedSubjects(current).filter((k) => k !== "igcse").map((k) =>
     `<a href="${hrefFn(k)}" aria-current="${k === current}">${SUBJECTS[k].name}</a>`).join("")}</div>`;
   function tdBookSlides(bt) {
     // book text -> clean reading slides: one sentence (or one verse row) per block, sized from its length so nothing overlaps
@@ -8981,7 +8989,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <h2>المواد والصفوف</h2>
           <p>لكل صف مساران: للناطقين بالعربية، ولغير الناطقين بها.</p>
         </div>
-        <div class="seg" role="group" aria-label="المادة" id="homeSubj" style="margin-bottom:28px">${Object.keys(SUBJECTS).map((k, i) =>
+        <div class="seg" role="group" aria-label="المادة" id="homeSubj" style="margin-bottom:28px">${listedSubjects().map((k, i) =>
           `<button type="button" data-subj="${k}" aria-pressed="${i === 0}">${SUBJECTS[k].name}</button>`).join("")}</div>
         <div id="ladder" class="loading">جارٍ التحميل…</div>
       </div>

@@ -1462,11 +1462,15 @@
     islamic: { id: 1, name: "التربية الإسلامية", en: "Islamic Education" },
     arabic: { id: 2, name: "اللغة العربية", en: "Arabic Language" },
     social: { id: 3, name: "الدراسات الاجتماعية", en: "Social Studies" },
-    igcse: { id: 4, name: "التربية الإسلامية · IGCSE", en: "Islamic Education · IGCSE" }
+    igcse: { id: 4, name: "التربية الإسلامية · IGCSE", en: "Islamic Education · IGCSE" },
+    sanaa: { id: 5, name: "السنع الإماراتي", en: "Emirati Sanaa" }
   };
-  const SUBJECT_BY_ID = { 1: "islamic", 2: "arabic", 3: "social", 4: "igcse" };
+  // مواد قيد الاختبار: لا تظهر في قوائم الزوّار، وتُفتح بالرابط المباشر #/grades?subject=… حتى يُعتمد نشرها
+  const PREVIEW_SUBJECTS = ["sanaa"];
+  const listedSubjects = (current) => Object.keys(SUBJECTS).filter((k) => !PREVIEW_SUBJECTS.includes(k) || k === current);
+  const SUBJECT_BY_ID = { 1: "islamic", 2: "arabic", 3: "social", 4: "igcse", 5: "sanaa" };
   const subjOf = (params) => (SUBJECTS[params && params.get("subject")] ? params.get("subject") : "islamic");
-  const subjectSeg = (current, hrefFn) => `<div class="seg" role="group" aria-label="المادة">${Object.keys(SUBJECTS).filter((k) => k !== "igcse").map((k) =>
+  const subjectSeg = (current, hrefFn) => `<div class="seg" role="group" aria-label="المادة">${listedSubjects(current).filter((k) => k !== "igcse").map((k) =>
     `<a href="${hrefFn(k)}" aria-current="${k === current}">${SUBJECTS[k].name}</a>`).join("")}</div>`;
   function tdBookSlides(bt) {
     // book text -> clean reading slides: one sentence (or one verse row) per block, sized from its length so nothing overlaps
@@ -2644,7 +2648,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <h2>المواد والصفوف</h2>
           <p>لكل صف مساران: للناطقين بالعربية، ولغير الناطقين بها.</p>
         </div>
-        <div class="seg" role="group" aria-label="المادة" id="homeSubj" style="margin-bottom:28px">${Object.keys(SUBJECTS).map((k, i) =>
+        <div class="seg" role="group" aria-label="المادة" id="homeSubj" style="margin-bottom:28px">${listedSubjects().map((k, i) =>
           `<button type="button" data-subj="${k}" aria-pressed="${i === 0}">${SUBJECTS[k].name}</button>`).join("")}</div>
         <div id="ladder" class="loading">جارٍ التحميل…</div>
       </div>
