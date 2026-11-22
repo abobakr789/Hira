@@ -50,8 +50,8 @@ def run(specs_by_year, ids_fn, rows):
             A, B = pick(L, y)
             last = L[-1]['stem']; code = 'SN-Y%d-%s' % (y, last)
             out = '/home/claude/hira/resources/ssd/%s/' % code
-            open(out + 'unit-quiz.html', 'w', encoding='utf8').write(quiz(unit, y, A, B))
-            open(out + 'unit-quiz-key.html', 'w', encoding='utf8').write(key(unit, y, A, B))
+            open(out + 'unit-quiz.html', 'w', encoding='utf8').write(G.noemoji(quiz(unit, y, A, B)))
+            open(out + 'unit-quiz-key.html', 'w', encoding='utf8').write(G.noemoji(key(unit, y, A, B)))
             rows.append((code, unit, len(A) + len(B)))
 if __name__ == '__main__':
     rows = []

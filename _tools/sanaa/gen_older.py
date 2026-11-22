@@ -22,6 +22,12 @@ DEPTH = {5: ('بجملة كاملة.', 'وأذكر مثالًا من حياتي.
          11: ('وأوثّق رأيي بالكتاب.', 'وأنقد الموقف بحجة.', 'وأصمم مشروعًا مجتمعيًّا بمؤشرات.'),
          12: ('وأوثّق وأناقش البدائل.', 'وأقيّم الموقف وأقترح معالجة.', 'وأقود مشروعًا وأقيّم أثره.')}
 
+import re as _re
+_EMO = _re.compile('[\U0001F000-\U0001FAFF\u2705\u274C\u2753\u2B50\u2728\u270D\u270F\u2600-\u26FE\uFE0F\u200d]')
+def noemoji(t):
+    t = _EMO.sub('', t)
+    return _re.sub(r'(>|\|)[ \u00a0]+', r'\1 ', t).replace('<b> ', '<b>') if False else t
+
 def sw(sp, y, title_kind, bg, pill, pc):
     sub = 'السنع الإماراتي · الصف %s · %s' % (GN[y], sp['pages'])
     return (f"<div class='hd' style='background:{bg}'><div><div class='t'>{title_kind}: {esc(sp['title'])}</div><div class='m'>{sub}</div></div>"
@@ -277,8 +283,9 @@ def parent(sp, y):
 def run(sp, y, ids):
     code = 'SN-Y%d-%s' % (y, sp['stem']); sp = _shuf(dict(sp)); sp['code'] = code
     out = ROOT + '/resources/ssd/%s/' % code; os.makedirs(out, exist_ok=True)
-    W = lambda f, s: open(out + f, 'w', encoding='utf8').write(s)
+    W = lambda f, s: open(out + f, 'w', encoding='utf8').write(noemoji(s))
     W('worksheets-A4.html', worksheets(sp, y)); W('pod-sheet.html', pod(sp, y)); W('sources-concept-card.html', sources(sp, y))
     W('group-work.html', group(sp, y)); W('parent-note.html', parent(sp, y)); W('answer-key.html', key(sp, y))
     k = deck(sp, y, ids[code], out + 'teacher-deck.html')
+    _f = out + 'teacher-deck.html'; open(_f, 'w', encoding='utf8').write(noemoji(open(_f, encoding='utf8').read()))
     print(code, 'slides', k)
