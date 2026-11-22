@@ -59,7 +59,7 @@ const SUBJ=[
    {t:['أسماء الله الحسنى','The Beautiful Names'],d:['28 اسمًا في 9 درجات · المعنى والدليل والأثر','28 names in 9 steps · meaning, evidence, effect'],live:1,id:'asmaa',n:9,icon:'star'}]},
  {id:'ar',c:'var(--ar)',s:'var(--ar-s)',courses:[
    {t:['فن الإملاء','Spelling'],d:['12 درجة · الهمزات والتاء والألف والترقيم','12 steps · hamzah, tā’, alif, punctuation'],live:1,id:'imla',n:12,icon:'pen'},
-   {t:['قل ولا تقل','Say it right'],d:['الأخطاء اللغوية الشائعة','Common language errors'],icon:'chat'},
+   {t:['قل ولا تقل','Say it right'],d:['27 مسألة في 9 درجات · من درة الغوّاص','27 slips in 9 steps · from Durrat al-Ghawwāṣ'],live:1,id:'qul',n:9,icon:'chat'},
    {t:['مفاتيح النحو','Keys of Grammar'],d:['12 درجة على متن الآجرومية','12 steps through al-Ājurrūmiyyah'],live:1,id:'nahw',n:12,icon:'key'},
    {t:['البلاغة الميسرة','Easy Rhetoric'],d:['التشبيه والاستعارة والكناية','Simile, metaphor, metonymy'],icon:'spark'},
    {t:['الشعر عبر العصور','Poetry Through the Ages'],d:['12 درجة · أبيات موثّقة من مصادرها','12 steps · every verse sourced'],live:1,id:'shiir',n:12,icon:'scroll'},
@@ -84,7 +84,7 @@ const ICONS={
 
 T.report=['تقرير الطلاب','Student report'];T.repT=['تقرير معارج حراء','Ma‘ārij report'];T.student=['الطالب','Student'];T.steps=['الدرجات','Steps'];T.curStep=['الدرجة الحالية','Current step'];T.medals=['الأوسمة','Medals'];T.updated=['آخر نشاط','Last active'];T.noData=['لا يوجد تقدم مسجل لطلابك بعد.','No progress recorded for your students yet.'];T.loading=['جارٍ التحميل…','Loading…'];T.signHint=['سجّل الدخول ليُحفظ تقدّمك ويراه معلمك.','Sign in to save your progress and share it with your teacher.'];
 let SURAH,LEVELS,STEPS,PLACE,D=null,C=null,syncT=null,CID='tajweed',N=16;
-const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json',arbaeen:'art/maarij/arbaeen.json',asmaa:'art/maarij/asmaa.json'};const CACHE={},LOADED={};
+const COURSES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json',arbaeen:'art/maarij/arbaeen.json',asmaa:'art/maarij/asmaa.json',qul:'art/maarij/qul.json'};const CACHE={},LOADED={};
 const KEY=()=>'hiraa-maarij-'+CID;
 let S={passed:[],tests:{},open:false,name:'',start:0};
 let SUBJ_SEL='isl';try{SUBJ_SEL=localStorage.getItem('hiraa-maarij-subj')||'isl'}catch(e){}
@@ -533,7 +533,7 @@ window.HiraaMaarij=async function(ctx){
   const parts=ctx.parts||[];
   if(parts[1]&&!COURSES[parts[1]]){location.hash='#/maarij';return}
   SUB=!parts[1]?'courses':(parts[2]||'course');
-  ctx.h(`<div class="mj" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><nav class="mj-crumb" id="mjCrumb"></nav><div id="mjApp">${t('loading')}</div><p class="note">${parts[1]==='madarij'?t('foot3'):(['shiir','imla','nahw','arbaeen'].includes(parts[1]))?t('foot2'):t('foot')}${ctx.state.session?'':' · '+t('signHint')}</p></div></div>`);
+  ctx.h(`<div class="mj" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><nav class="mj-crumb" id="mjCrumb"></nav><div id="mjApp">${t('loading')}</div><p class="note">${parts[1]==='madarij'?t('foot3'):(['shiir','imla','nahw','arbaeen','qul'].includes(parts[1]))?t('foot2'):t('foot')}${ctx.state.session?'':' · '+t('signHint')}</p></div></div>`);
   if(parts[1]){
     const cid=parts[1];
     if(!CACHE[cid]){try{CACHE[cid]=await (await fetch(COURSES[cid],{cache:'no-cache'})).json()}catch(e){$('mjApp').textContent='تعذّر تحميل الدورة.';return}}
@@ -546,11 +546,11 @@ window.HiraaMaarij=async function(ctx){
 
 /* ---------- ربط دروس المنهج بمعارج: بطاقة «أتقن هذا في معارج» داخل صفحة الدرس ---------- */
 (function(){
-  const COURSE_FILES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json',arbaeen:'art/maarij/arbaeen.json',asmaa:'art/maarij/asmaa.json'};
-  const NAMES={tajweed:['التجويد','Tajwīd'],fiqh:['أحكام الطهارة والصلاة','Purification & Prayer'],shiir:['الشعر عبر العصور','Poetry Through the Ages'],imla:['فن الإملاء','The Art of Spelling'],nahw:['مفاتيح النحو','Keys to Grammar'],arbaeen:['الأربعون النووية','An-Nawawī’s Forty'],asmaa:['أسماء الله الحسنى','The Beautiful Names']};
+  const COURSE_FILES={tajweed:'art/maarij/tajweed.json',fiqh:'art/maarij/fiqh.json',shiir:'art/maarij/shiir.json',imla:'art/maarij/imla.json',nahw:'art/maarij/nahw.json',arbaeen:'art/maarij/arbaeen.json',asmaa:'art/maarij/asmaa.json',qul:'art/maarij/qul.json'};
+  const NAMES={tajweed:['التجويد','Tajwīd'],fiqh:['أحكام الطهارة والصلاة','Purification & Prayer'],shiir:['الشعر عبر العصور','Poetry Through the Ages'],imla:['فن الإملاء','The Art of Spelling'],nahw:['مفاتيح النحو','Keys to Grammar'],arbaeen:['الأربعون النووية','An-Nawawī’s Forty'],asmaa:['أسماء الله الحسنى','The Beautiful Names'],qul:['قل ولا تقل','Say It Right']};
   /* [نمط، دورة، درجة (0 = صفحة الدورة)، للعربية فقط؟] — الأدق أولًا */
   const RULES=[
-   [/الاعمال بالنيات|حديث جبريل|الاسلام والايمان والاحسان/,'arbaeen',1,0],[/بني الاسلام علي خمس/,'arbaeen',2,0],[/الحلال بين/,'arbaeen',3,0],[/الدين النصيحه/,'arbaeen',4,0],[/دع ما يريبك/,'arbaeen',6,0],[/لا تغضب/,'arbaeen',8,0],[/احفظ الله/,'arbaeen',10,0],[/قل امنت بالله/,'arbaeen',11,0],[/لا ضرر ولا ضرار/,'arbaeen',16,0],[/من راي منكم منكرا/,'arbaeen',17,0],[/لا تحاسدوا/,'arbaeen',18,0],[/الاربعين النوويه|الاربعون النوويه/,'arbaeen',0,0],[/الاسماء الحسني|اسماء الله/,'asmaa',0,0],[/الحي القيوم/,'asmaa',5,0],[/التواب|التوبه/,'asmaa',6,0],
+   [/الاعمال بالنيات|حديث جبريل|الاسلام والايمان والاحسان/,'arbaeen',1,0],[/بني الاسلام علي خمس/,'arbaeen',2,0],[/الحلال بين/,'arbaeen',3,0],[/الدين النصيحه/,'arbaeen',4,0],[/دع ما يريبك/,'arbaeen',6,0],[/لا تغضب/,'arbaeen',8,0],[/احفظ الله/,'arbaeen',10,0],[/قل امنت بالله/,'arbaeen',11,0],[/لا ضرر ولا ضرار/,'arbaeen',16,0],[/من راي منكم منكرا/,'arbaeen',17,0],[/لا تحاسدوا/,'arbaeen',18,0],[/الاربعين النوويه|الاربعون النوويه/,'arbaeen',0,0],[/الاسماء الحسني|اسماء الله/,'asmaa',0,0],[/قل ولا تقل|الاخطاء الشائعه|الاخطاء اللغويه/,'qul',0,1],[/اسم التفضيل/,'qul',4,1],[/الحي القيوم/,'asmaa',5,0],[/التواب|التوبه/,'asmaa',6,0],
    [/الاظهار|النون الساكنه والتنوين/,'tajweed',1,0],[/الادغام/,'tajweed',2,0],[/الاقلاب/,'tajweed',4,0],[/الاخفاء/,'tajweed',5,0],
    [/الميم الساكنه/,'tajweed',7,0],[/المد الاصلي/,'tajweed',12,0],[/المد الفرعي/,'tajweed',13,0],[/احكام المد/,'tajweed',12,0],[/مخارج الحروف/,'tajweed',15,0],[/صفات الحروف/,'tajweed',16,0],[/التجويد/,'tajweed',0,0],
    [/نواقض الوضوء/,'fiqh',4,0],[/الوضوء/,'fiqh',2,0],[/الطهاره/,'fiqh',1,0],[/شروط الصلاه/,'fiqh',5,0],[/(فرائض|اركان) الصلاه/,'fiqh',7,0],[/(سنن|مبطلات)/,'fiqh',8,-1],

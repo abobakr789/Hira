@@ -762,5 +762,61 @@
    "Appreciating and rewarding good deeds.",
    9
   ]
+ ],
+ "qul": [
+  [
+   "الأفصح",
+   "Most eloquent",
+   "The form preferred by the best Arabic usage.",
+   1
+  ],
+  [
+   "جمع القلة",
+   "Few-plural",
+   "Plural patterns for 3–10 items, e.g. أشهر، أبحر.",
+   2
+  ],
+  [
+   "اسم المفعول",
+   "Passive participle",
+   "Word for the one acted upon, e.g. مصون.",
+   3
+  ],
+  [
+   "المصدر",
+   "Verbal noun",
+   "The noun of an action, e.g. حيازة.",
+   3
+  ],
+  [
+   "اسم التفضيل",
+   "Comparative",
+   "Af‘al form for comparing, e.g. أفضل.",
+   4
+  ],
+  [
+   "التعجب",
+   "Exclamation",
+   "Mā af‘ala form: ما أحسن!",
+   4
+  ],
+  [
+   "التعدية",
+   "Transitivity",
+   "Making a verb take an object (hamzah or bā’).",
+   5
+  ],
+  [
+   "الفاعل",
+   "Subject (doer)",
+   "After it the verb stays singular: قام الرجلان.",
+   6
+  ],
+  [
+   "الضبط",
+   "Vowelling",
+   "Marking the short vowels to fix meaning.",
+   8
+  ]
  ]
 }

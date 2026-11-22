@@ -416,3 +416,12 @@ body.mjboard .mj .wrap,body.mjboard .mj{max-width:none}
 /* أسماء الله الحسنى */
 .mj .nm-card{margin:10px 0}
 .mj .nm-card .nm{display:inline-block;font-family:"Amiri","ThmanyahDisplay",serif;font-size:30px;color:var(--isl);background:var(--isl-s,#E8F6F4);border-radius:14px;padding:2px 18px;margin-bottom:6px}
+/* قل ولا تقل */
+.mj .ql{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.mj .ql>div{border-radius:14px;padding:10px 14px;display:flex;flex-direction:column;gap:4px}
+.mj .ql b{font:700 13px "ThmanyahSans",sans-serif}
+.mj .ql span{font-size:20px;font-family:"Amiri","ThmanyahSerif",serif}
+.mj .ql-no{background:#FDECEC;color:#8A2B2B}
+.mj .ql-no span{text-decoration:line-through;text-decoration-color:#d77}
+.mj .ql-yes{background:#E8F6F4;color:#14735F}
+@media(max-width:640px){.mj .ql{grid-template-columns:1fr}}
