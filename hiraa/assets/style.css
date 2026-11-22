@@ -2858,3 +2858,14 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .rt-hist{margin-top:14px}.rt-hrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:6px 0;border-bottom:1px solid #F0E7D2}
 .btx-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.ev-rt{margin-top:6px}
 @media print{.btx-acts,.ev-rt{display:none!important}}
+/* كشف التسميع */
+.rs-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:6px 0 14px}.rs-acts{display:flex;gap:8px;flex-wrap:wrap}
+.rs-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:14px}
+.rs-sum>div{background:#fff;border:1px solid #E6DCC4;border-radius:14px;padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:4px 8px;align-items:center}
+.rs-sum i{grid-column:1/-1;height:6px;border-radius:9px;background:linear-gradient(90deg,#0F7A55 var(--p),#EEE6D2 var(--p))}.rs-sum small{grid-column:1/-1;color:#667}
+.rs-t td,.rs-t th{text-align:center;vertical-align:middle}.rs-t .rs-n{text-align:start;font-weight:600;white-space:nowrap}
+.rs-c{cursor:pointer;min-width:86px;line-height:1.25}.rs-c b{display:block;font-size:1.1rem}.rs-c small{font-size:.75rem;opacity:.75}.rs-c:hover{outline:2px solid #0F7A55;outline-offset:-2px}
+.rs-ta{background:#DDF3E6;color:#0B6B47}.rs-tb{background:#EEF7D9;color:#4E6B12}.rs-tc{background:#FFF3CF;color:#8A6200}.rs-td{background:#FDE3E3;color:#A12B2B}
+.rs-none{background:repeating-linear-gradient(45deg,#FFF8EC,#FFF8EC 6px,#FBEBD0 6px,#FBEBD0 12px);color:#A8741F;font-size:.85rem}
+.rs-key span{display:inline-block;padding:.15em .6em;border-radius:8px;margin-inline-end:4px;font-size:.85rem}
+.rs-last{font-size:.8rem}.rt-ay input{width:4.5em}.rt-row #rtRef{flex:1;min-width:12em}

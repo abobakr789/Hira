@@ -2953,7 +2953,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   const rtShuf = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
   function rtFromBtn(b) {
-    const lessonId = b.dataset.rtL || null; let items = [], source = "text", ref = b.dataset.rtRef || "";
+    const lessonId = b.dataset.rtL || null; let items = [], source = "text", ref = b.dataset.rtRef || ""; const extra = {};
     if (b.dataset.rt === "ev") { items = [{ t: String(b.dataset.rtT || "").replace(/[«»"]/g, "").trim() }]; source = "hadith"; }
     else {
       const card = b.closest(".form-card"); const ays = card ? [...card.querySelectorAll(".mus-ay")] : [];
@@ -2961,22 +2961,23 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         source = "quran";
         items = ays.map((a) => ({ t: (a.querySelector(".mus-t") || a).textContent.trim(), n: +a.dataset.a }));
         const ttl = card.querySelector(".mus-ttl"); const n1 = items[0].n, n2 = items[items.length - 1].n;
+        const mst = (card.querySelector(".mus") || {})._mus; if (mst && mst.s) { extra.surah = mst.s; extra.a1 = n1; extra.a2 = n2; }
         ref = (ttl ? ttl.textContent.trim() : ref) + " (" + (n1 === n2 ? n1 : n1 + "–" + n2) + ")";
       } else if (card) items = [...card.querySelectorAll(".bk-read p, .bk-read div")].map((p) => ({ t: p.textContent.trim() })).filter((x) => x.t);
     }
     items = items.filter((x) => x.t);
     if (!items.length) { toast("لا يوجد نص يُختبر فيه هنا."); return; }
-    rtOpen({ lessonId, source, ref, items });
+    rtOpen(Object.assign({ lessonId, source, ref, items }, extra));
   }
 
   function rtOpen(ctx) {
-    const staff = isStaff(), en = LANG === "en";
+    const staff = isStaff(), en = LANG === "en", only = !!ctx.gradeOnly;
     const T = (a, e) => (en ? e : a);
     const d = document.createElement("dialog"); d.className = "dialog rt-dlg"; d.dir = en ? "ltr" : "rtl";
     const q = (s) => d.querySelector(s);
     d.innerHTML = `<div class="rt-top"><b>${staff ? "🎙️ " + T("اختبار التلاوة والحفظ", "Recitation & memorisation test") : "🧠 " + T("اختبر نفسك", "Test yourself")}</b>
-      <span class="pill">${esc(ctx.ref || "")}</span><button type="button" class="btn btn-ghost btn-small rt-x" aria-label="${T("إغلاق", "Close")}">✕</button></div>
-      ${staff ? `<div class="rt-tabs"><button type="button" class="rt-tab on" data-t="grade">📝 ${T("تقييم طالب", "Grade a student")}</button><button type="button" class="rt-tab" data-t="self">🧠 ${T("اختبار ذاتي", "Self-test")}</button></div>` : ""}
+      ${ctx.ref ? `<span class="pill">${esc(ctx.ref)}</span>` : ""}<button type="button" class="btn btn-ghost btn-small rt-x" aria-label="${T("إغلاق", "Close")}">✕</button></div>
+      ${staff && !only ? `<div class="rt-tabs"><button type="button" class="rt-tab on" data-t="grade">📝 ${T("تقييم طالب", "Grade a student")}</button><button type="button" class="rt-tab" data-t="self">🧠 ${T("اختبار ذاتي", "Self-test")}</button></div>` : ""}
       <div class="rt-body"></div>`;
     document.body.appendChild(d);
     q(".rt-x").onclick = () => d.close();
@@ -2984,12 +2985,13 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     d.addEventListener("click", (e) => { if (e.target === d) d.close(); });
     const body = q(".rt-body");
     d.querySelectorAll(".rt-tab").forEach((t) => t.onclick = () => { d.querySelectorAll(".rt-tab").forEach((x) => x.classList.toggle("on", x === t)); t.dataset.t === "grade" ? rtGrade(body, ctx) : rtSelf(body, ctx); });
-    staff ? rtGrade(body, ctx) : rtSelf(body, ctx);
+    staff ? rtGrade(body, ctx, d) : rtSelf(body, ctx);
     d.showModal();
   }
 
   /* ----- المعلم: تقييم طالب (من فصوله أو باسمٍ يكتبه) ----- */
-  async function rtGrade(box, ctx) {
+  async function rtGrade(box, ctx, dlg) {
+    const P = ctx.preset || {};
     const me = state.session && state.session.user.id; if (!me) { box.innerHTML = `<p class="muted">سجّل الدخول أولًا.</p>`; return; }
     box.innerHTML = `<p class="muted">⏳</p>`;
     let { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group)").eq("teacher_id", me);
@@ -2998,7 +3000,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const r = await sb.from("classes").select("id, name, year_group").eq("school_id", state.profile.school_id).order("year_group"); classes = r.data || [];
     }
     classes.sort((a, b) => (a.year_group || 0) - (b.year_group || 0) || String(a.name).localeCompare(String(b.name), "ar"));
-    const hadith = ctx.source === "hadith", S = { term: rtTermNow(), skill: "tilawa", max: 10, rub: new Set() };
+    const hadith = ctx.source === "hadith", S = { term: P.term || rtTermNow(), skill: P.skill || "tilawa", max: 10, rub: new Set() };
+    if (P.classId && !classes.some((c) => c.id === P.classId)) classes.unshift({ id: P.classId, name: P.className || "الفصل" });
     const skLbl = (k) => (k === "tilawa" && hadith ? "قراءة" : RT_SK[k][0]);
     box.innerHTML = `<div class="rt-form">
       <div class="rt-row"><span class="rt-l">الطالب</span>
@@ -3006,6 +3009,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       <div class="rt-row rt-cls" ${classes.length ? "" : "hidden"}><select id="rtCls"><option value="">— اختر الفصل —</option>${classes.map((c) => `<option value="${c.id}">${esc(c.name)}${c.year_group ? " · Y" + c.year_group : ""}</option>`).join("")}</select>
         <select id="rtStu" disabled><option value="">— اختر الطالب —</option></select></div>
       <div class="rt-row rt-nm" ${classes.length ? "hidden" : ""}><input id="rtName" placeholder="اسم الطالب" autocomplete="off" list="rtNames"><datalist id="rtNames"></datalist></div>
+      ${ctx.askRef ? `<div class="rt-row"><span class="rt-l">المقطع</span><select id="rtSur"><option value="">— السورة (اختياري) —</option>${TD_SURAHS.map((n, i) => `<option value="${i + 1}" ${ctx.surah === i + 1 ? "selected" : ""}>${i + 1}. ${n}</option>`).join("")}</select>
+        <label class="rt-ay">من <input id="rtA1" type="number" min="1" value="${ctx.a1 || ""}"></label><label class="rt-ay">إلى <input id="rtA2" type="number" min="1" value="${ctx.a2 || ""}"></label>
+        <input id="rtRef" placeholder="أو اكتب: حديث، أو موضع آخر" value="${esc(ctx.surah ? "" : ctx.ref || "")}"></div>` : ""}
       <div class="rt-row"><span class="rt-l">الفصل الدراسي</span><span class="rt-seg">${[1, 2, 3].map((t) => `<button type="button" class="rt-c ${t === S.term ? "on" : ""}" data-term="${t}">${["الأول", "الثاني", "الثالث"][t - 1]}</button>`).join("")}</span></div>
       <div class="rt-row"><span class="rt-l">المهارة</span><span class="rt-seg">${Object.keys(RT_SK).map((k) => `<button type="button" class="rt-c ${k === S.skill ? "on" : ""}" data-sk="${k}">${skLbl(k)}</button>`).join("")}</span></div>
       <div class="rt-row"><span class="rt-l">ملاحظات سريعة</span><span class="rt-rub"></span></div>
@@ -3015,7 +3021,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       <div class="rt-row"><textarea id="rtNote" rows="2" placeholder="ملاحظة للطالب (اختياري)"></textarea></div>
       <label class="rt-gb" hidden><input type="checkbox" id="rtGb"> <span></span></label>
       <div class="rt-row"><button type="button" class="btn btn-primary" id="rtSave">حفظ الدرجة</button></div>
-      <h4 class="rt-h">تقييماتي في هذا الدرس</h4><div class="rt-log"><p class="muted">⏳</p></div></div>`;
+      <h4 class="rt-h">${ctx.lessonId ? "تقييماتي في هذا الدرس" : "آخر تقييماتي في هذا الفصل"}</h4><div class="rt-log"><p class="muted">⏳</p></div></div>`;
     const $ = (s) => box.querySelector(s), cls = $("#rtCls"), stu = $("#rtStu"), nm = $("#rtName");
     let who = classes.length ? "cls" : "name";
     const paintRub = () => { $(".rt-rub").innerHTML = RT_RUB[S.skill].map((r) => `<button type="button" class="rt-c rt-sm ${S.rub.has(r) ? "on" : ""}" data-rub="${esc(r)}">${esc(r)}</button>`).join(""); };
@@ -3043,10 +3049,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       stu.disabled = false; paintGb();
     };
     stu.onchange = paintGb;
+    if (P.classId) { cls.value = P.classId; await cls.onchange(); if (P.studentId) stu.value = P.studentId; paintGb(); }
+    if (ctx.askRef) { const sr = $("#rtSur"); sr.onchange = () => { const n = +sr.value; if (n) { $("#rtA1").value = $("#rtA1").value || 1; $("#rtA2").value = TD_AYAHS[n - 1]; } }; }
     const loadLog = async () => {
       let qy = sb.from("recitation_tests").select("id, student_id, student_name, term, skill, score, max_score, note, created_at, profiles!recitation_tests_student_id_fkey(full_name_ar)")
         .eq("created_by", me).eq("is_self", false).order("created_at", { ascending: false }).limit(60);
-      if (ctx.lessonId) qy = qy.eq("lesson_id", ctx.lessonId);
+      if (ctx.lessonId) qy = qy.eq("lesson_id", ctx.lessonId); else if (P.classId) qy = qy.eq("class_id", P.classId);
       const { data, error } = await qy;
       const lg = $(".rt-log"); if (!lg) return;
       if (error) { lg.innerHTML = `<p class="muted">${esc(error.message)}</p>`; return; }
@@ -3066,8 +3074,15 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (who === "name" && !name) { toast("اكتب اسم الطالب."); nm.focus(); return; }
       if (!(sc >= 0 && sc <= mx)) { toast(`اكتب درجة بين 0 و${mx}.`); $("#rtScore").focus(); return; }
       const note = [[...S.rub].join("، "), $("#rtNote").value.trim()].filter(Boolean).join(" — ") || null;
-      const row = { lesson_id: ctx.lessonId, class_id: who === "cls" ? cls.value : null, student_id: sid, student_name: name, term: S.term, skill: S.skill,
-        source: ctx.source, ref: ctx.ref || null, score: sc, max_score: mx, note, is_self: false };
+      let surah = ctx.surah || null, a1 = ctx.a1 || null, a2 = ctx.a2 || null, ref = ctx.ref || null, source = ctx.source || "quran";
+      if (ctx.askRef) {
+        surah = +$("#rtSur").value || null; a1 = surah ? Math.max(1, +$("#rtA1").value || 1) : null; a2 = surah ? Math.min(TD_AYAHS[surah - 1], Math.max(a1, +$("#rtA2").value || TD_AYAHS[surah - 1])) : null;
+        const free = $("#rtRef").value.trim();
+        ref = surah ? `سورة ${TD_SURAHS[surah - 1]} (${a1 === a2 ? a1 : a1 + "–" + a2})` : (free || ref);
+        if (!surah && free) source = /حديث|رواه|قال رسول/.test(free) ? "hadith" : "text";
+      }
+      const row = { lesson_id: ctx.lessonId || null, class_id: who === "cls" ? cls.value : null, student_id: sid, student_name: name, term: S.term, skill: S.skill,
+        source, ref, surah, ayah_from: a1, ayah_to: a2, recitation_id: ctx.recitationId || null, score: sc, max_score: mx, note, is_self: false };
       const btn = $("#rtSave"); btn.disabled = true;
       const r = await sb.from("recitation_tests").insert(row); btn.disabled = false;
       if (r.error) { toast("تعذّر الحفظ: " + r.error.message); return; }
@@ -3081,6 +3096,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         }
       }
       toast(msg);
+      if (ctx.onSaved) { try { ctx.onSaved(row); } catch (e) {} }
+      if (ctx.closeOnSave && dlg) { dlg.close(); return; }
       $("#rtScore").value = ""; $("#rtNote").value = ""; S.rub.clear(); paintRub();
       if (who === "name") nm.value = ""; else if (stu.selectedIndex < stu.options.length - 1) { stu.selectedIndex += 1; paintGb(); }
       loadLog();
@@ -3155,7 +3172,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <div class="rt-acts"><button type="button" class="btn btn-primary" id="rtAgain">أعد الاختبار</button><button type="button" class="btn btn-ghost" id="rtBack">طريقة أخرى</button></div><p class="muted rt-saved"></p></div>`;
         box.querySelector("#rtAgain").onclick = () => run(mode);
         box.querySelector("#rtBack").onclick = () => rtSelf(box, ctx);
-        if (me && isStudent()) sb.from("recitation_tests").insert({ lesson_id: ctx.lessonId, student_id: me, term: rtTermNow(), skill: "hifz", source: ctx.source, ref: ctx.ref || null,
+        if (me && isStudent()) sb.from("recitation_tests").insert({ lesson_id: ctx.lessonId, student_id: me, term: rtTermNow(), skill: "hifz", source: ctx.source, ref: ctx.ref || null, surah: ctx.surah || null, ayah_from: ctx.a1 || null, ayah_to: ctx.a2 || null,
           score: sc10, max_score: 10, note: ({ gap: "الكلمة الناقصة", next: "ما التالي", recall: "تسميع ذاتي" })[mode], is_self: true })
           .then(({ error }) => { const s = box.querySelector(".rt-saved"); if (s) s.textContent = error ? "" : "حُفظت نتيجتك، ويراها معلمك."; });
       };
@@ -3193,6 +3210,69 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     let done = false; const once = () => { if (!done) { done = true; setTimeout(go, 300); } };
     setTimeout(once, 3000);   /* لا ننتظر أكثر من ثلاث ثوانٍ إن تأخر خطٌّ */
     try { if (w.document.fonts && w.document.fonts.ready) w.document.fonts.ready.then(once); else setTimeout(once, 900); } catch (e) { setTimeout(once, 900); }
+  }
+
+
+  /* =================== كشف التسميع للفصل =================== */
+  const rtAvg = (L) => (L.length ? Math.round((L.reduce((s, x) => s + x.score / x.max_score, 0) / L.length) * 100) / 10 : null);   // من 10
+  const rtTone = (v) => (v == null ? "" : v >= 9 ? "ta" : v >= 7 ? "tb" : v >= 5 ? "tc" : "td");
+  async function rtClassData(clsId) {
+    const [{ data: c }, { data: cs }] = await Promise.all([
+      sb.from("classes").select("id, name, year_group, track, subject_id, school_id").eq("id", clsId).maybeSingle(),
+      sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", clsId)]);
+    const S = (cs || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
+    const ids = S.map((s) => s.id).concat(["00000000-0000-0000-0000-000000000000"]);
+    const [{ data: tr }, { data: sf }] = await Promise.all([
+      sb.from("recitation_tests").select("id, student_id, term, skill, score, max_score, note, ref, surah, ayah_from, ayah_to, created_at").eq("class_id", clsId).eq("is_self", false).order("created_at", { ascending: false }).limit(5000),
+      sb.from("recitation_tests").select("student_id, term, score, max_score, created_at").in("student_id", ids).eq("is_self", true).limit(5000)]);
+    return { c, S, T: tr || [], SF: sf || [] };
+  }
+  async function pageReciteSheet(params) {
+    setNav("teacher");
+    if (!isStaff()) { h('<div class="wrap loading">كشف التسميع للمعلمين.</div>'); return; }
+    loading();
+    const clsId = params.get("class"); let term = +(params.get("t") || rtTermNow());
+    const { c, S, T, SF } = await rtClassData(clsId);
+    if (!c) { h('<div class="wrap loading">لم يُعثر على الفصل.</div>'); return; }
+    const SK = ["tilawa", "hifz", "tafsir"];
+    const cell = (sid, t, k) => T.filter((r) => r.student_id === sid && r.term === t && r.skill === k);
+    const draw = () => {
+      const tested = SK.map((k) => S.filter((s) => cell(s.id, term, k).length).length);
+      const rows = S.map((s, i) => {
+        const tds = SK.map((k) => { const L = cell(s.id, term, k), v = rtAvg(L);
+          return `<td class="rs-c ${L.length ? "rs-" + rtTone(v) : "rs-none"}" data-s="${s.id}" data-k="${k}" title="${L.length ? esc(L.map((x) => `${x.ref || ""} ${+x.score}/${+x.max_score}`).join("\n")) : "لم يُختبر — اضغط لتقييمه"}">
+            ${L.length ? `<b>${v}</b><small>${L.length > 1 ? L.length + " تقييمات" : "تقييم"}</small>` : `<span>لم يُختبر</span>`}</td>`; }).join("");
+        const self = SF.filter((x) => x.student_id === s.id && x.term === term), last = T.find((r) => r.student_id === s.id && r.term === term);
+        return `<tr><td class="muted">${i + 1}</td><td class="rs-n">${esc(s.name)}</td>${tds}
+          <td class="rs-self">${self.length ? `${self.length} · ${rtAvg(self)}` : "—"}</td><td class="muted rs-last">${last ? esc(last.ref || "") + "<br>" + new Date(last.created_at).toLocaleDateString("ar-AE") : ""}</td></tr>`;
+      }).join("");
+      h(`<section class="section"><div class="wrap">
+        <div class="page-head"><a class="muted" href="#/teacher?class=${c.id}">← ${esc(c.name)}</a><h1>📋 كشف التسميع</h1>
+          <p class="muted">${esc(c.name)}${c.year_group ? " · Year " + c.year_group : ""} · ${S.length} طالبًا. الدرجات متوسطات من 10. اضغط أي خانة لتقييم الطالب فيها.</p></div>
+        <div class="rs-bar"><div class="seg">${[1, 2, 3].map((t) => `<a role="button" href="#/recite-sheet?class=${clsId}&t=${t}" aria-pressed="${t === term}">الفصل ${["الأول", "الثاني", "الثالث"][t - 1]}</a>`).join("")}</div>
+          <span class="rs-acts"><button class="btn btn-ghost btn-small" id="rsAdd">➕ تقييم جديد</button><button class="btn btn-ghost btn-small" id="rsX">⬇️ Excel</button></span></div>
+        <div class="rs-sum">${SK.map((k, i) => `<div><b>${RT_SK[k][0]}</b><span>${tested[i]} / ${S.length}</span><i style="--p:${S.length ? Math.round((tested[i] / S.length) * 100) : 0}%"></i><small>${S.length - tested[i] ? `بقي ${S.length - tested[i]}` : "اكتمل ✓"}</small></div>`).join("")}</div>
+        ${S.length ? `<div class="table-wrap"><table class="admin-table rs-t"><thead><tr><th>#</th><th>الطالب</th>${SK.map((k) => `<th>${RT_SK[k][0]}</th>`).join("")}<th>اختبار ذاتي<br><small>عدد · متوسط</small></th><th>آخر تقييم</th></tr></thead><tbody>${rows}</tbody></table></div>`
+          : `<div class="form-card empty">لا طلاب في هذا الفصل بعد.</div>`}
+        <p class="muted rs-key"><span class="rs-ta">9–10</span> <span class="rs-tb">7–8.9</span> <span class="rs-tc">5–6.9</span> <span class="rs-td">أقل من 5</span> <span class="rs-none">لم يُختبر</span></p>
+      </div></section>`);
+      const reopen = async () => { const d = await rtClassData(clsId); T.length = 0; T.push(...d.T); draw(); };
+      const open = (sid, k) => rtOpen({ gradeOnly: true, askRef: true, source: "quran", ref: "", items: [], preset: { classId: clsId, className: c.name, studentId: sid, term, skill: k }, onSaved: reopen });
+      document.querySelectorAll(".rs-c").forEach((td) => td.onclick = () => open(td.dataset.s, td.dataset.k));
+      document.getElementById("rsAdd").onclick = () => open(null, "tilawa");
+      document.getElementById("rsX").onclick = async () => {
+        if (!(await loadXlsx())) { toast("تعذّر تحميل أداة Excel"); return; }
+        const h1 = ["#", "الطالب"]; [1, 2, 3].forEach((t) => SK.forEach((k) => h1.push(`${RT_SK[k][0]} ف${t}`))); h1.push("اختبارات ذاتية");
+        const data = S.map((s, i) => { const r = [i + 1, s.name]; [1, 2, 3].forEach((t) => SK.forEach((k) => r.push(rtAvg(cell(s.id, t, k))))); r.push(SF.filter((x) => x.student_id === s.id).length); return r; });
+        const log = [["التاريخ", "الطالب", "الفصل", "المهارة", "المقطع", "الدرجة", "من", "ملاحظة"]].concat(T.map((r) => [new Date(r.created_at).toLocaleDateString("en-GB"), (S.find((s) => s.id === r.student_id) || {}).name || "", r.term, RT_SK[r.skill][0], r.ref || "", +r.score, +r.max_score, r.note || ""]));
+        const wb = XLSX.utils.book_new(); wb.Workbook = { Views: [{ RTL: true }, { RTL: true }] };
+        const ws = XLSX.utils.aoa_to_sheet([[`كشف التسميع · ${c.name} (متوسطات من 10)`], h1, ...data]); ws["!cols"] = h1.map((x, i) => ({ wch: i === 1 ? 26 : 12 }));
+        const wl = XLSX.utils.aoa_to_sheet(log); wl["!cols"] = [{ wch: 12 }, { wch: 24 }, { wch: 6 }, { wch: 12 }, { wch: 26 }, { wch: 7 }, { wch: 5 }, { wch: 40 }];
+        XLSX.utils.book_append_sheet(wb, ws, "الكشف"); XLSX.utils.book_append_sheet(wb, wl, "كل التقييمات");
+        XLSX.writeFile(wb, `Hira_Recitation_${c.name}.xlsx`);
+      };
+    };
+    draw();
   }
 
   async function pageLesson(code) {
@@ -5186,6 +5266,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <a class="btn btn-ghost btn-small" href="#/access">طلبات الوصول</a>
           <h3 style="margin-top:14px">التسميع</h3>
           <a class="btn ${pendingRec ? "btn-dawn" : "btn-ghost"} btn-small" href="#/recitations?class=${cls.id}">${pendingRec ? `${pendingRec} بانتظار التقييم` : "لا تسميعات جديدة"}</a>
+          <a class="btn btn-primary btn-small" href="#/recite-sheet?class=${cls.id}">📋 كشف التسميع</a>
         </div>
       </div>`;
       lessonsHtml = dash + `
@@ -14301,6 +14382,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "result" && parts[1]) return pageResult(parts[1], params);
       if (p0 === "results") return pageResults(params);
       if (p0 === "recitations") return pageRecitations(params);
+      if (p0 === "recite-sheet") return pageReciteSheet(params);
       if (p0 === "preview" && parts[1]) return pagePreview(parts[1], params);
       if (p0 === "access") return pageAccess(params);
       if (p0 === "pricing") return params.get("for") === "school" ? pagePricing(params) : pagePricing2(params);
