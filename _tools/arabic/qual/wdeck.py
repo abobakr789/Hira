@@ -64,7 +64,7 @@ def build(C):
     # 11 I do: analytical paragraph (PEEL)
     I = C["ido"]; s = D.new("👩‍🏫 شاهدني أطبّق", "فقرة تحليلية: نقطة ← دليل ← تحليل ← ربط", 7, "اكشف الفقرة جزءًا جزءًا، واسأل عن وظيفة كل جزء. السؤال من امتحان حقيقي (" + I["src"] + ").")
     s["els"].append(T("السؤال: " + I["q"], L, 146, W, 50, 22, DK, True, fill="FEF3C7", rad=True))
-    if I.get("en"): s["els"].append(T(I["en"], L, 200, W, 36, 18, BLUE, True, "left"))
+    if I.get("en"): s["els"].append(T(I["en"], L, 200, W, 36, 18 if len(I["en"]) < 100 else 15, BLUE, True, "left"))
     for i, (h, t) in enumerate(zip(["النقطة", "الدليل", "التحليل", "الربط"], I["parts"])):
         y = 244 + i * 102
         s["els"] += [T(t, 300, y, 941, 92, 20, DK, False, fill="FFFFFF", rad=True, rv=i + 1), T(h, L, y, 245, 92, 23, "FFFFFF", True, "center", COLS4[i], True, rv=i + 1)]
@@ -97,7 +97,7 @@ def build(C):
     s["els"].append(T("🎯 " + C["exLink"], L, 586, W, 64, 21, "FFFFFF", True, "center", PURPLE, True, rv=3))
     # 17 past question plan
     X = C["exam"]; s = D.new("📝 سؤال امتحان حقيقي", "خطة مقال: " + X["src"], 7, "السؤال من معيار تصحيح " + X["src"] + "؛ الصياغة العربية ترجمة حراء. خطّط مع الطلاب قبل كشف الخطة، ونقاط الخطة من المحتوى الإرشادي في معيار التصحيح.")
-    s["els"].append(T(X["en"], L, 146, W, 46, 20, BLUE, True, "left", "FFFFFF", True))
+    s["els"].append(T(X["en"], L, 146, W, 46, 20 if len(X["en"]) < 100 else 16, BLUE, True, "left", "FFFFFF", True))
     s["els"].append(T("«" + X["ar"] + "»", L, 198, W, 52, 22, DK, True, "center", "FEF3C7", True))
     for i, (h, t) in enumerate(X["rows"]):
         y = 258 + i * 80
