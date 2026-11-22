@@ -2869,3 +2869,22 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .rs-none{background:repeating-linear-gradient(45deg,#FFF8EC,#FFF8EC 6px,#FBEBD0 6px,#FBEBD0 12px);color:#A8741F;font-size:.85rem}
 .rs-key span{display:inline-block;padding:.15em .6em;border-radius:8px;margin-inline-end:4px;font-size:.85rem}
 .rs-last{font-size:.8rem}.rt-ay input{width:4.5em}.rt-row #rtRef{flex:1;min-width:12em}
+/* دور التسميع */
+.rtn{background:#FFFDF6;min-height:80vh}.rtn:fullscreen{overflow:auto;padding:20px}
+.rtn-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px}.rtn-acts{display:flex;gap:8px}
+.rtn-set{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:center;background:#fff;border:1px solid #E6DCC4;border-radius:16px;padding:10px 12px}
+.rtn-ref{display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap}.rtn-ref select,.rtn-ref input,.rtn-max select{font:inherit;padding:.35em .5em;border-radius:10px;border:1px solid rgba(16,42,76,.25);background:#fff}.rtn-ref input{width:4.5em}
+.rtn-stage{display:flex;flex-direction:column;align-items:center;gap:16px;margin:22px 0}
+.rtn-card{width:min(760px,100%);text-align:center;background:linear-gradient(#FFF9E8,#F6E9C6);border:2px solid #C9A85C;border-radius:28px;padding:22px 16px 16px;box-shadow:inset 0 0 0 6px #FBF4E2}
+.rtn-ref-show{font-family:"ThmanyahDisplay","ThmanyahSans",serif;color:#0F5E44;font-weight:700;font-size:1.3rem;min-height:1.6em}
+.rtn-name{font-family:"ThmanyahDisplay","ThmanyahSans",serif;font-weight:800;font-size:clamp(2.4rem,7vw,5rem);color:#102A4C;line-height:1.3;min-height:1.4em}
+.rtn-name.spin{color:#A8741F}.rtn-left{color:#667;font-size:.95rem}
+.rtn-pick{font-size:1.2rem;padding:.7em 1.8em}
+.rtn-grade{display:flex;flex-direction:column;align-items:center;gap:10px;width:min(860px,100%)}
+.rtn-scores{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.rtn-s{appearance:none;font:inherit;font-weight:800;font-size:1.35rem;width:2.8em;height:2.3em;border-radius:14px;border:1px solid rgba(16,42,76,.2);background:#fff;color:#102A4C;cursor:pointer}
+.rtn-s:hover{background:#0F7A55;color:#fff}.rtn-s:disabled{opacity:.5}
+.rtn-rub{justify-content:center}.rtn-row{display:flex;gap:8px}
+.rtn-done h4{margin:8px 0}.rtn-chips{display:flex;flex-wrap:wrap;gap:8px}
+.rtn-chip{background:#fff;border:1px solid #E6DCC4;border-radius:999px;padding:.3em .5em .3em .8em;display:inline-flex;gap:6px;align-items:center}
+.rtn-chip button{appearance:none;border:0;background:#F6EEDC;border-radius:999px;cursor:pointer;width:1.8em;height:1.8em}

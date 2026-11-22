@@ -3250,7 +3250,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div class="page-head"><a class="muted" href="#/teacher?class=${c.id}">← ${esc(c.name)}</a><h1>📋 كشف التسميع</h1>
           <p class="muted">${esc(c.name)}${c.year_group ? " · Year " + c.year_group : ""} · ${S.length} طالبًا. الدرجات متوسطات من 10. اضغط أي خانة لتقييم الطالب فيها.</p></div>
         <div class="rs-bar"><div class="seg">${[1, 2, 3].map((t) => `<a role="button" href="#/recite-sheet?class=${clsId}&t=${t}" aria-pressed="${t === term}">الفصل ${["الأول", "الثاني", "الثالث"][t - 1]}</a>`).join("")}</div>
-          <span class="rs-acts"><button class="btn btn-ghost btn-small" id="rsAdd">➕ تقييم جديد</button><button class="btn btn-ghost btn-small" id="rsX">⬇️ Excel</button></span></div>
+          <span class="rs-acts"><a class="btn btn-primary btn-small" href="#/recite-turn?class=${clsId}&t=${term}">🎯 دور التسميع في الحصة</a><button class="btn btn-ghost btn-small" id="rsAdd">➕ تقييم جديد</button><button class="btn btn-ghost btn-small" id="rsX">⬇️ Excel</button></span></div>
         <div class="rs-sum">${SK.map((k, i) => `<div><b>${RT_SK[k][0]}</b><span>${tested[i]} / ${S.length}</span><i style="--p:${S.length ? Math.round((tested[i] / S.length) * 100) : 0}%"></i><small>${S.length - tested[i] ? `بقي ${S.length - tested[i]}` : "اكتمل ✓"}</small></div>`).join("")}</div>
         ${S.length ? `<div class="table-wrap"><table class="admin-table rs-t"><thead><tr><th>#</th><th>الطالب</th>${SK.map((k) => `<th>${RT_SK[k][0]}</th>`).join("")}<th>اختبار ذاتي<br><small>عدد · متوسط</small></th><th>آخر تقييم</th></tr></thead><tbody>${rows}</tbody></table></div>`
           : `<div class="form-card empty">لا طلاب في هذا الفصل بعد.</div>`}
@@ -3273,6 +3273,84 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       };
     };
     draw();
+  }
+
+
+  /* =================== دور التسميع داخل الحصة (على السبورة) =================== */
+  async function pageReciteTurn(params) {
+    setNav("teacher");
+    if (!isStaff() || !state.session) { h('<div class="wrap loading">دور التسميع للمعلمين.</div>'); return; }
+    loading();
+    const clsId = params.get("class"), me = state.session.user.id;
+    const { c, S, T } = await rtClassData(clsId);
+    if (!c) { h('<div class="wrap loading">لم يُعثر على الفصل.</div>'); return; }
+    const st = (() => { try { return JSON.parse(localStorage.getItem("hiraa.turn") || "{}"); } catch (e) { return {}; } })();
+    const R = { term: +(params.get("t") || rtTermNow()), skill: st.skill || "hifz", max: st.max || 10, sur: st.sur || 0, a1: st.a1 || "", a2: st.a2 || "", hide: st.hide !== false,
+      cur: null, done: [], skipped: new Set(), rub: new Set() };
+    const keep = () => { try { localStorage.setItem("hiraa.turn", JSON.stringify({ skill: R.skill, max: R.max, sur: R.sur, a1: R.a1, a2: R.a2, hide: R.hide })); } catch (e) {} };
+    const testedNow = (sid) => T.some((r) => r.student_id === sid && r.term === R.term && r.skill === R.skill) || R.done.some((d) => d.sid === sid);
+    const refTxt = () => (R.sur ? `سورة ${TD_SURAHS[R.sur - 1]}${R.a1 ? ` (${R.a1}${R.a2 && R.a2 != R.a1 ? "–" + R.a2 : ""})` : ""}` : "");
+    h(`<section class="section rtn"><div class="wrap">
+      <div class="rtn-top"><a class="muted" href="#/recite-sheet?class=${clsId}&t=${R.term}">← كشف التسميع · ${esc(c.name)}</a>
+        <span class="rtn-acts"><button class="btn btn-ghost btn-small" id="rtnHide"></button><button class="btn btn-ghost btn-small" id="rtnFs">⛶ ملء الشاشة</button></span></div>
+      <div class="rtn-set">
+        <span class="rt-seg">${[1, 2, 3].map((t) => `<button type="button" class="rt-c ${t === R.term ? "on" : ""}" data-term="${t}">الفصل ${["الأول", "الثاني", "الثالث"][t - 1]}</button>`).join("")}</span>
+        <span class="rt-seg">${Object.keys(RT_SK).map((k) => `<button type="button" class="rt-c ${k === R.skill ? "on" : ""}" data-sk="${k}">${RT_SK[k][0]}</button>`).join("")}</span>
+        <span class="rtn-ref"><select id="rtnSur"><option value="0">— المقطع (اختياري) —</option>${TD_SURAHS.map((n, i) => `<option value="${i + 1}" ${R.sur === i + 1 ? "selected" : ""}>${i + 1}. ${n}</option>`).join("")}</select>
+          <label>من <input id="rtnA1" type="number" min="1" value="${R.a1}"></label><label>إلى <input id="rtnA2" type="number" min="1" value="${R.a2}"></label></span>
+        <label class="rtn-max">الدرجة من <select id="rtnMax">${[5, 10, 20].map((m) => `<option ${m === R.max ? "selected" : ""}>${m}</option>`).join("")}</select></label>
+      </div>
+      <div class="rtn-stage"><div class="rtn-card"><div class="rtn-ref-show"></div><div class="rtn-name">؟</div><div class="rtn-left"></div></div>
+        <button class="btn btn-primary rtn-pick" id="rtnPick">🎲 اختر طالبًا</button>
+        <div class="rtn-grade" hidden><div class="rt-rub rtn-rub"></div><div class="rtn-scores"></div>
+          <div class="rtn-row"><button class="btn btn-ghost btn-small" id="rtnSkip">⏭️ غائب / لاحقًا</button></div></div></div>
+      <div class="rtn-done"></div>
+    </div></section>`);
+    const $ = (s) => document.querySelector(s), name = $(".rtn-name");
+    const pool = () => { const free = S.filter((s) => !testedNow(s.id) && !R.skipped.has(s.id)); return free.length ? free : S.filter((s) => !R.done.some((d) => d.sid === s.id) && !R.skipped.has(s.id)); };
+    const paintLeft = () => { const n = S.filter((s) => !testedNow(s.id)).length; $(".rtn-left").textContent = S.length ? (n ? `بقي ${n} من ${S.length} لم يُختبروا في ${RT_SK[R.skill][0]} هذا الفصل` : `اختُبر الجميع في ${RT_SK[R.skill][0]} ✓`) : "لا طلاب في الفصل"; };
+    const paintRef = () => { $(".rtn-ref-show").textContent = refTxt(); };
+    const paintHide = () => { $("#rtnHide").textContent = R.hide ? "👁️ إظهار الدرجات" : "🙈 إخفاء الدرجات عن الشاشة"; paintDone(); };
+    const paintDone = () => { $(".rtn-done").innerHTML = R.done.length ? `<h4>اختُبر في هذه الحصة (${R.done.length})</h4><div class="rtn-chips">${R.done.map((d, i) => `<span class="rtn-chip">${esc(d.name)}${R.hide ? " ✓" : ` <b>${d.score}/${d.max}</b>`} <button type="button" data-undo="${i}" title="تراجع">↶</button></span>`).join("")}</div>` : "";
+      document.querySelectorAll("[data-undo]").forEach((b) => b.onclick = async () => { const d = R.done[+b.dataset.undo]; if (!confirm(`حذف درجة ${d.name}؟`)) return;
+        const r = await sb.from("recitation_tests").delete().eq("id", d.id); if (r.error) { toast(r.error.message); return; } R.done.splice(+b.dataset.undo, 1); paintDone(); paintLeft(); }); };
+    const paintGrade = () => {
+      const m = R.max, vals = m <= 10 ? Array.from({ length: m + 1 }, (_, i) => m - i) : [m, 19, 18, 17, 16, 15, 14, 12, 10, 8, 5, 0];
+      $(".rtn-scores").innerHTML = vals.map((v) => `<button type="button" class="rtn-s" data-v="${v}">${v}</button>`).join("");
+      $(".rtn-rub").innerHTML = RT_RUB[R.skill].map((r) => `<button type="button" class="rt-c rt-sm ${R.rub.has(r) ? "on" : ""}" data-rub="${esc(r)}">${esc(r)}</button>`).join("");
+    };
+    const pick = () => {
+      const P = pool(); if (!P.length) { name.textContent = "اختُبر الجميع 🎉"; $(".rtn-grade").hidden = true; return; }
+      $(".rtn-grade").hidden = true; R.rub.clear(); let n = 0; const steps = 14 + Math.floor(Math.random() * 6);
+      $("#rtnPick").disabled = true; name.classList.add("spin");
+      const tick = () => { const s = P[Math.floor(Math.random() * P.length)]; name.textContent = s.name; R.cur = s;
+        if (++n < steps) setTimeout(tick, 60 + n * 9); else { name.classList.remove("spin"); $("#rtnPick").disabled = false; $("#rtnPick").textContent = "🎲 اختر غيره"; paintGrade(); $(".rtn-grade").hidden = false; } };
+      tick();
+    };
+    document.querySelector(".rtn-set").addEventListener("click", (e) => { const b = e.target.closest(".rt-c"); if (!b) return;
+      if (b.dataset.term) { R.term = +b.dataset.term; document.querySelectorAll("[data-term]").forEach((x) => x.classList.toggle("on", x === b)); }
+      if (b.dataset.sk) { R.skill = b.dataset.sk; document.querySelectorAll("[data-sk]").forEach((x) => x.classList.toggle("on", x === b)); paintGrade(); }
+      keep(); paintLeft(); });
+    $("#rtnSur").onchange = () => { R.sur = +$("#rtnSur").value; if (R.sur && !$("#rtnA1").value) { $("#rtnA1").value = 1; $("#rtnA2").value = TD_AYAHS[R.sur - 1]; } R.a1 = $("#rtnA1").value; R.a2 = $("#rtnA2").value; keep(); paintRef(); };
+    ["#rtnA1", "#rtnA2"].forEach((s) => $(s).oninput = () => { R.a1 = $("#rtnA1").value; R.a2 = $("#rtnA2").value; keep(); paintRef(); });
+    $("#rtnMax").onchange = () => { R.max = +$("#rtnMax").value; keep(); paintGrade(); };
+    $("#rtnPick").onclick = pick;
+    $("#rtnSkip").onclick = () => { if (R.cur) R.skipped.add(R.cur.id); pick(); };
+    $("#rtnHide").onclick = () => { R.hide = !R.hide; keep(); paintHide(); };
+    $("#rtnFs").onclick = () => { const el = document.querySelector(".rtn"); if (document.fullscreenElement) document.exitFullscreen(); else if (el.requestFullscreen) el.requestFullscreen().catch(() => {}); };
+    $(".rtn-grade").addEventListener("click", async (e) => {
+      const rb = e.target.closest("[data-rub]"); if (rb) { const r = rb.dataset.rub; R.rub.has(r) ? R.rub.delete(r) : R.rub.add(r); rb.classList.toggle("on"); return; }
+      const b = e.target.closest(".rtn-s"); if (!b || !R.cur) return;
+      const sc = +b.dataset.v, s = R.cur, a1 = R.sur ? Math.max(1, +R.a1 || 1) : null, a2 = R.sur ? Math.min(TD_AYAHS[R.sur - 1], Math.max(a1, +R.a2 || TD_AYAHS[R.sur - 1])) : null;
+      document.querySelectorAll(".rtn-s").forEach((x) => (x.disabled = true));
+      const { data, error } = await sb.from("recitation_tests").insert({ class_id: clsId, student_id: s.id, term: R.term, skill: R.skill, source: "quran", ref: refTxt() || null,
+        surah: R.sur || null, ayah_from: a1, ayah_to: a2, score: sc, max_score: R.max, note: [...R.rub].join("، ") || null, is_self: false }).select("id").single();
+      if (error) { toast("تعذّر الحفظ: " + error.message); document.querySelectorAll(".rtn-s").forEach((x) => (x.disabled = false)); return; }
+      R.done.unshift({ id: data.id, sid: s.id, name: s.name, score: sc, max: R.max }); R.cur = null;
+      name.textContent = "✓"; $(".rtn-grade").hidden = true; $("#rtnPick").textContent = "🎲 اختر طالبًا"; paintDone(); paintLeft();
+      setTimeout(() => { if (!R.cur) name.textContent = "؟"; }, 900);
+    });
+    paintRef(); paintLeft(); paintHide();
   }
 
   async function pageLesson(code) {
@@ -5266,7 +5344,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <a class="btn btn-ghost btn-small" href="#/access">طلبات الوصول</a>
           <h3 style="margin-top:14px">التسميع</h3>
           <a class="btn ${pendingRec ? "btn-dawn" : "btn-ghost"} btn-small" href="#/recitations?class=${cls.id}">${pendingRec ? `${pendingRec} بانتظار التقييم` : "لا تسميعات جديدة"}</a>
-          <a class="btn btn-primary btn-small" href="#/recite-sheet?class=${cls.id}">📋 كشف التسميع</a>
+          <a class="btn btn-primary btn-small" href="#/recite-sheet?class=${cls.id}">📋 كشف التسميع</a> <a class="btn btn-ghost btn-small" href="#/recite-turn?class=${cls.id}">🎯 دور التسميع</a>
         </div>
       </div>`;
       lessonsHtml = dash + `
@@ -14399,6 +14477,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "results") return pageResults(params);
       if (p0 === "recitations") return pageRecitations(params);
       if (p0 === "recite-sheet") return pageReciteSheet(params);
+      if (p0 === "recite-turn") return pageReciteTurn(params);
       if (p0 === "preview" && parts[1]) return pagePreview(parts[1], params);
       if (p0 === "access") return pageAccess(params);
       if (p0 === "pricing") return params.get("for") === "school" ? pagePricing(params) : pagePricing2(params);
