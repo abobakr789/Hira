@@ -322,5 +322,5 @@ def run(sp, y, ids):
     W('worksheets-A4.html', worksheets(sp, y)); W('pod-sheet.html', pod(sp, y)); W('sources-concept-card.html', sources(sp, y))
     W('group-work.html', group(sp, y)); W('parent-note.html', parent(sp, y)); W('answer-key.html', key(sp, y))
     k = deck(sp, y, ids[code], out + 'teacher-deck.html')
-    _f = out + 'teacher-deck.html'; open(_f, 'w', encoding='utf8').write(noemoji(open(_f, encoding='utf8').read()))
+    _f = out + 'teacher-deck.html'; _h = noemoji(open(_f, encoding='utf8').read()); open(_f, 'w', encoding='utf8').write(_h)
     print(code, 'slides', k)
