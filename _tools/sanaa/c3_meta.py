@@ -1,10 +1,13 @@
 import sys, os, importlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 LES = []
-for m in 'abcdefghijk': LES += importlib.import_module('c3_' + m).C3
+for m in 'abcdefghijkl': LES += importlib.import_module('c3_' + m).C3
 YEARS = (9, 10, 11, 12)
+import re
+LES_SORT = lambda L: sorted(L, key=lambda s: (int(s['stem'][1]), int(s['stem'][4:])))
 def term(stem): return int(stem[1])
 def code(y, stem): return 'SN-Y%d-%s' % (y, stem)
+LES[:] = LES_SORT(LES)
 def units():
     seen = []; 
     for s in LES:
