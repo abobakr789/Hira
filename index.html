@@ -6662,7 +6662,7 @@ window.HiraArcade = (function () {
     sanaa: { id: 5, name: "السنع الإماراتي", en: "Emirati Sanaa" }
   };
   // مواد قيد الاختبار: لا تظهر في قوائم الزوّار، وتُفتح بالرابط المباشر #/grades?subject=… حتى يُعتمد نشرها
-  const PREVIEW_SUBJECTS = ["sanaa"];
+  const PREVIEW_SUBJECTS = [];
   const listedSubjects = (current) => Object.keys(SUBJECTS).filter((k) => !PREVIEW_SUBJECTS.includes(k) || k === current);
   const SUBJECT_BY_ID = { 1: "islamic", 2: "arabic", 3: "social", 4: "igcse", 5: "sanaa" };
   const subjOf = (params) => (SUBJECTS[params && params.get("subject")] ? params.get("subject") : "islamic");
