@@ -185,5 +185,5 @@ def run(sp):
     print(sp['code'], 'slides', deck(sp), sheets(sp))
 
 if __name__=='__main__':
-    import lessons_y1_t1 as L
-    for k in sys.argv[1:]: run(getattr(L,k))
+    import lessons_y1_t1 as L, lessons_y1_t1_b as L2
+    for k in sys.argv[1:]: run(getattr(L,k,None) or getattr(L2,k))
