@@ -1730,6 +1730,11 @@
     const deck = "lesson:" + l.code, me = state.session && state.session.user && state.session.user.id;
     let q = cards0.slice(), i = 0, known = 0, flipped = false; const T2 = (a, b) => (en ? b : a);
     const save = (c, ok) => { if (!me || !isStudent()) return; sb.from("memo_progress").upsert({ user_id: me, deck, card: c.id, box: ok ? 2 : 1, due_at: new Date(Date.now() + (ok ? 3 : 1) * 864e5).toISOString(), reviews: 1, last_review: new Date().toISOString() }).then(() => {}); };
+    // ما يطلب الطالب مراجعته يدخل أيضًا «وِرد المراجعة» (مرة واحدة لكل بطاقة في الجلسة)
+    const sent = new Set(); let told = false;
+    const toReview = (c) => { if (!me || !isStudent() || sent.has(c.id) || !window.HiraArcade || !window.HiraArcade.flashQ) return;
+      const rq = window.HiraArcade.flashQ(c, cards0, en, l.id); if (!rq) return; sent.add(c.id); rvSaveMissed([rq], en);
+      if (!told) { told = true; toast(T2("أُضيفت إلى وِرد المراجعة، وتعود إليك غدًا 📦", "Added to your daily review; it comes back tomorrow 📦")); } };
     const draw = () => {
       if (i >= q.length) { box.innerHTML = `<div class="fc-done"><div class="fc-star">🌟</div><h3>${T2("أَحْسَنْتَ! أَنْهَيْتَ الْبِطاقاتِ", "Well done! You finished the cards")}</h3><p>${T2("عَرَفْتَ", "You knew")} <b>${known}</b> ${T2("مِنْ", "of")} <b>${cards0.length}</b></p><button class="btn btn-primary" id="fcAgain">🔁 ${T2("أَبْدَأُ مِنْ جَديدٍ", "Start again")}</button></div>`; box.querySelector("#fcAgain").onclick = () => { q = cards0.slice().sort(() => Math.random() - 0.5); i = 0; known = 0; draw(); }; return; }
       const c = q[i]; flipped = false;
@@ -1741,7 +1746,7 @@
       card.onclick = flip; card.onkeydown = (e) => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); flip(); } };
       box.querySelector("#fcMix").onclick = () => { q = q.slice(i).sort(() => Math.random() - 0.5); i = 0; draw(); };
       box.querySelector("#fcKnow").onclick = () => { known++; save(c, true); i++; draw(); };
-      box.querySelector("#fcAgainOne").onclick = () => { save(c, false); q.push(c); i++; draw(); };
+      box.querySelector("#fcAgainOne").onclick = () => { save(c, false); toReview(c); q.push(c); i++; draw(); };
     };
     draw();
   }

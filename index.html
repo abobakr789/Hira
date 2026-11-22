@@ -4412,6 +4412,17 @@ window.HiraArcade = (function () {
     return shuffle(out).slice(0, n || 10);
   }
 
+  // «أراجعها مرّة أخرى» في البطاقات التعليمية → سؤال لوِرد المراجعة (بلا نصّ قرآنيّ). الصواب/الخطأ يبقى كما هو، وبطاقة الكلمة تصير اختيارًا من متعدّد.
+  function flashQ(c, all, en, lid) {
+    const T = (a, b) => (en ? b : a), isW = (x) => /^(w|m):/.test(String(x.id || ""));
+    if (!c || !c.f || !c.b || QURANIC(c.f) || QURANIC(c.b)) return null;
+    if (/[✔✖]/.test(c.b)) return { key: rkey("t", c.f, ""), lid, q: { t: "tf", p: c.f, a: /✔/.test(c.b), s: "" } };
+    if (!isW(c)) return null;
+    const others = shuffle((all || []).filter((x) => x.id !== c.id && isW(x) && x.b && x.b !== c.b && !QURANIC(x.b))).slice(0, 3);
+    if (others.length < 3) return null;
+    return { key: rkey("m", c.f, c.b), lid, q: { t: "mcq", p: T(`ما معنى «${c.f}»؟`, `What does “${c.f}” mean?`), o: shuffle([{ t: c.b, i: "", ok: true }].concat(others.map((x) => ({ t: x.b, i: "", ok: false })))), s: c.b } };
+  }
+
   // كل الأسئلة الممكنة، سؤال واحد لكل كلمة في الجولة
   function bank(pool, T, focusId) {
     const out = [];
@@ -5176,7 +5187,7 @@ window.HiraArcade = (function () {
     return { menu, pool: () => ({ lesson: poolL, unit: poolU }) };
   }
 
-  return { mount, buildPool, sound: SND, freshCards, BOXDAYS };
+  return { mount, buildPool, sound: SND, freshCards, flashQ, BOXDAYS };
 })();
 
 /* حراء — تطبيق صفحة واحدة يقرأ محتواه من Supabase */
@@ -8045,6 +8056,11 @@ window.HiraArcade = (function () {
     const deck = "lesson:" + l.code, me = state.session && state.session.user && state.session.user.id;
     let q = cards0.slice(), i = 0, known = 0, flipped = false; const T2 = (a, b) => (en ? b : a);
     const save = (c, ok) => { if (!me || !isStudent()) return; sb.from("memo_progress").upsert({ user_id: me, deck, card: c.id, box: ok ? 2 : 1, due_at: new Date(Date.now() + (ok ? 3 : 1) * 864e5).toISOString(), reviews: 1, last_review: new Date().toISOString() }).then(() => {}); };
+    // ما يطلب الطالب مراجعته يدخل أيضًا «وِرد المراجعة» (مرة واحدة لكل بطاقة في الجلسة)
+    const sent = new Set(); let told = false;
+    const toReview = (c) => { if (!me || !isStudent() || sent.has(c.id) || !window.HiraArcade || !window.HiraArcade.flashQ) return;
+      const rq = window.HiraArcade.flashQ(c, cards0, en, l.id); if (!rq) return; sent.add(c.id); rvSaveMissed([rq], en);
+      if (!told) { told = true; toast(T2("أُضيفت إلى وِرد المراجعة، وتعود إليك غدًا 📦", "Added to your daily review; it comes back tomorrow 📦")); } };
     const draw = () => {
       if (i >= q.length) { box.innerHTML = `<div class="fc-done"><div class="fc-star">🌟</div><h3>${T2("أَحْسَنْتَ! أَنْهَيْتَ الْبِطاقاتِ", "Well done! You finished the cards")}</h3><p>${T2("عَرَفْتَ", "You knew")} <b>${known}</b> ${T2("مِنْ", "of")} <b>${cards0.length}</b></p><button class="btn btn-primary" id="fcAgain">🔁 ${T2("أَبْدَأُ مِنْ جَديدٍ", "Start again")}</button></div>`; box.querySelector("#fcAgain").onclick = () => { q = cards0.slice().sort(() => Math.random() - 0.5); i = 0; known = 0; draw(); }; return; }
       const c = q[i]; flipped = false;
@@ -8056,7 +8072,7 @@ window.HiraArcade = (function () {
       card.onclick = flip; card.onkeydown = (e) => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); flip(); } };
       box.querySelector("#fcMix").onclick = () => { q = q.slice(i).sort(() => Math.random() - 0.5); i = 0; draw(); };
       box.querySelector("#fcKnow").onclick = () => { known++; save(c, true); i++; draw(); };
-      box.querySelector("#fcAgainOne").onclick = () => { save(c, false); q.push(c); i++; draw(); };
+      box.querySelector("#fcAgainOne").onclick = () => { save(c, false); toReview(c); q.push(c); i++; draw(); };
     };
     draw();
   }
