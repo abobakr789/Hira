@@ -3246,6 +3246,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       return out.slice(0, 24); })();
     const relBox = isStaff() && summary ? `<div id="relBox" class="rel-box"></div>` : "";
     const ewsOn = subject === "arabic" && QUAL_TRACKS.includes(u.track) && (await ewsIdx()).includes(l.code);
+    const LS_STEPS = [["learn", "أتعلّم", "Learn"], ["practice", "أتدرّب", "Practise"], ["check", "أتحقّق", "Check"], ["staff", "للمعلم وولي الأمر", "Teacher & parent"]];
+    const LS_GROUP = { exam: "learn", slides: "learn", booktext: "learn", madarij: "learn", video: "learn", evidence: "learn", res: "learn", identity: "learn", outcomes: "learn",
+      cards: "practice", reader: "practice", games: "practice", work: "practice", group: "practice",
+      prog: "check", quiz: "check", recite: "check", weekly: "staff", parent: "staff" };
     const TABS = [
       ...(ewsOn ? [["exam", "🎯 ورشة الامتحان", lockedForMe && !isStaff() ? lockedMsg : `<div id="ewsBox"></div>`]] : []),
       ["slides", nnEn ? "Slides" : "الشرائح", relBox + slidesPanel()],
@@ -3294,9 +3298,15 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <span class="pill">${TRACK_SHORT[u.track]}</span>
         ${isStaff() ? '<button class="btn btn-dawn btn-small" id="planBtn">خطة الدرس للطباعة</button> <button class="btn btn-primary btn-small" id="hwBtn">كلّف بواجب</button>' : ""}
       </div>
-      <div class="lesson-tabs" role="tablist" aria-label="أقسام الدرس">
-        ${TABS.map(([k, t], i) => `<button class="lesson-tab" role="tab" id="tab-${k}" aria-controls="panel" aria-selected="${i === 0}" data-k="${k}">${t}</button>`).join("")}
-      </div>
+      ${(() => {
+        const g = (k) => LS_GROUP[k] || "learn";
+        const vis = TABS.filter(([k]) => g(k) !== "staff" || isStaff() || (k === "parent" && isParent()));
+        const steps = LS_STEPS.filter((st) => vis.some(([k]) => g(k) === st[0]));
+        return `<nav class="ls-steps" aria-label="${nnEn ? "Lesson steps" : "خطوات الدرس"}">${steps.map((st, i) => `<button type="button" class="ls-step ls-${st[0]}" data-g="${st[0]}" aria-pressed="${i === 0}">
+            <span class="ls-n">${st[0] === "staff" ? "🧑‍🏫" : i + 1}</span><span class="ls-t"><b>${nnEn ? st[2] : st[1]}</b><small>${vis.filter(([k]) => g(k) === st[0]).map(([, t]) => t.replace(/^\P{L}+/u, "")).slice(0, 3).join(" · ")}</small></span><span class="ls-c" data-g="${st[0]}"></span></button>`).join("")}</nav>
+        <div class="lesson-tabs" role="tablist" aria-label="أقسام الدرس">
+        ${vis.map(([k, t], i) => `<button class="lesson-tab" role="tab" id="tab-${k}" aria-controls="panel" aria-selected="${i === 0}" data-k="${k}" data-g="${g(k)}">${t}</button>`).join("")}
+        </div>`; })()}
     </div></section>
     ${state._liveBanner ? `<div class="wrap" style="margin-top:14px">${state._liveBanner}</div>` : ""}
     <section class="wrap panel" id="panel" role="tabpanel"></section>`);
@@ -3360,8 +3370,30 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         if (dl) dl.onclick = async () => { if (!confirm("حذف نص الكتاب لهذا الدرس؟")) return; await sb.from("lesson_book_texts").delete().eq("lesson_id", l.id); toast("حُذف النص"); location.reload(); };
       }
     };
-    document.querySelectorAll(".lesson-tab").forEach((b) => b.addEventListener("click", () => { show(b.dataset.k); wire(b.dataset.k); }));
-    show("slides");
+    document.querySelectorAll(".lesson-tab").forEach((b) => b.addEventListener("click", () => { show(b.dataset.k); wire(b.dataset.k); lsMark(b.dataset.k); }));
+    // خطوات الدرس: أتعلّم ← أتدرّب ← أتحقّق، وتحت كل خطوة أنشطتها فقط، مع علامة ✓ لما زاره الطالب
+    const lsKey = "hira-ls-" + l.code;
+    const lsSeen = (() => { try { return new Set(JSON.parse(localStorage.getItem(lsKey) || "[]")); } catch (e) { return new Set(); } })();
+    const lsGroupOf = (k) => { const b = document.getElementById("tab-" + k); return b ? b.dataset.g : "learn"; };
+    const lsPaint = () => {
+      document.querySelectorAll(".lesson-tab").forEach((b) => b.classList.toggle("ls-done", lsSeen.has(b.dataset.k)));
+      document.querySelectorAll(".ls-c").forEach((c) => { const all = [...document.querySelectorAll(`.lesson-tab[data-g="${c.dataset.g}"]`)], n = all.filter((b) => lsSeen.has(b.dataset.k)).length;
+        c.textContent = n && n === all.length ? "✓" : n ? `${n}/${all.length}` : ""; c.classList.toggle("full", n > 0 && n === all.length); });
+    };
+    const lsStep = (g) => {
+      document.querySelectorAll(".ls-step").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.g === g)));
+      document.querySelectorAll(".lesson-tab").forEach((b) => { b.hidden = b.dataset.g !== g; });
+      const old = document.getElementById("lsHint"); if (old) old.remove();
+      if (g === "check" && !isStaff() && document.querySelector('.lesson-tab[data-g="practice"]') && ![...lsSeen].some((k) => lsGroupOf(k) === "practice")) {
+        const hn = document.createElement("div"); hn.id = "lsHint"; hn.className = "ls-hint";
+        hn.innerHTML = `<span>💡 ${nnEn ? "Tip: practise first, then check yourself. You'll do better!" : "نصيحة: تدرّب أولًا ثم تحقّق، فتكون نتيجتك أفضل."}</span><button type="button" class="btn btn-ghost btn-small">${nnEn ? "Go to practice" : "اذهب إلى «أتدرّب»"}</button>`;
+        hn.querySelector("button").onclick = () => lsGo("practice"); document.querySelector(".lesson-tabs").after(hn);
+      }
+    };
+    const lsGo = (g) => { lsStep(g); const first = document.querySelector(`.lesson-tab[data-g="${g}"]`); if (first) first.click(); };
+    function lsMark(k) { lsStep(lsGroupOf(k)); if (!lsSeen.has(k)) { lsSeen.add(k); try { localStorage.setItem(lsKey, JSON.stringify([...lsSeen])); } catch (e) {} } lsPaint(); }
+    document.querySelectorAll(".ls-step").forEach((b) => b.addEventListener("click", () => lsGo(b.dataset.g)));
+    show("slides"); lsMark("slides");
     const pb = document.getElementById("planBtn");
     if (pb) pb.onclick = () => printLessonPlan(l, u, axisName, ticket);
     const hb = document.getElementById("hwBtn");
