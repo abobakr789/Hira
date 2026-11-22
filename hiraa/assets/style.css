@@ -2829,3 +2829,32 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .ls-hint{margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:14px;background:var(--dawn-soft,#FEF3D6);border:1px solid color-mix(in srgb,var(--dawn) 50%,transparent)}
 @media (max-width:640px){.ls-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.ls-step{flex-direction:column;text-align:center;padding:10px 6px;gap:6px}.ls-t small{display:none}.ls-n{width:32px;height:32px}.ls-step.ls-staff{grid-column:1/-1;flex-direction:row;justify-content:center}}
 @media (prefers-reduced-motion:reduce){.ls-step{transition:none}.ls-step:hover{transform:none}}
+/* اختبار التلاوة والحفظ */
+.rt-dlg{width:min(760px,94vw);max-height:90vh;overflow:auto;border:0;border-radius:18px;padding:16px 18px;box-shadow:0 18px 50px rgba(16,42,76,.25)}
+.rt-dlg::backdrop{background:rgba(16,42,76,.45)}
+.rt-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}.rt-top b{font-size:1.1rem}.rt-top .rt-x{margin-inline-start:auto}
+.rt-tabs{display:flex;gap:6px;margin-bottom:12px;border-bottom:1px solid #E6DCC4;padding-bottom:8px}
+.rt-tab{appearance:none;font:inherit;cursor:pointer;padding:.45em 1em;border-radius:999px;border:1px solid transparent;background:none;color:#102A4C}
+.rt-tab.on{background:#E6F2EC;border-color:#0F7A55;color:#0F7A55;font-weight:700}
+.rt-form{display:flex;flex-direction:column;gap:10px}.rt-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.rt-l{min-width:7.5em;font-weight:600;color:#102A4C}.rt-row select,.rt-row input,.rt-row textarea{font:inherit;padding:.45em .6em;border-radius:10px;border:1px solid rgba(16,42,76,.25);background:#fff}
+.rt-row textarea{width:100%}.rt-row input#rtName{flex:1;min-width:14em}.rt-score{display:inline-flex;gap:6px;align-items:center}.rt-score input{width:5.5em}
+.rt-seg,.rt-rub,.rt-quick{display:flex;flex-wrap:wrap;gap:6px}
+.rt-c{appearance:none;font:inherit;cursor:pointer;padding:.38em .9em;border-radius:999px;border:1px solid rgba(16,42,76,.22);background:#fff;color:#102A4C}
+.rt-c.on{background:#0F7A55;border-color:#0F7A55;color:#fff;font-weight:700}.rt-c.rt-sm{padding:.25em .7em;font-size:.9em}.rt-rub .rt-c.on{background:#E6F2EC;color:#0F7A55}
+.rt-gb{display:flex;gap:8px;align-items:center;font-size:.92em;background:#FFF8EC;border:1px dashed #E3D3A8;border-radius:10px;padding:.5em .7em}
+.rt-h{margin:12px 0 4px;font-size:1rem}.rt-tbl td,.rt-tbl th{font-size:.9em}
+.rt-modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.rt-mode{appearance:none;font:inherit;cursor:pointer;text-align:start;padding:14px;border-radius:14px;border:1px solid #E3D3A8;background:#FFFDF6;display:flex;flex-direction:column;gap:4px;color:#102A4C}
+.rt-mode:hover{border-color:#0F7A55;background:#F2FAF5}.rt-mode small{opacity:.75}
+.rt-prog{display:flex;justify-content:space-between;font-weight:600;color:#0F5E44;margin-bottom:8px}
+.rt-t{background:#FFFDF6;border:1px solid #E3D3A8;border-radius:14px;padding:12px 14px;font-size:1.25rem;line-height:2;text-align:center}
+.rt-qt{font-family:"HiraaMushaf","HiraaQuran","Amiri Quran",serif}.rt-t.rt-qt{font-size:1.7rem}
+.rt-gap{display:inline-block;min-width:3em;border-bottom:2px dashed #A8741F;color:#A8741F;font-weight:700}.rt-gap.ok{color:#0F7A55;border-color:#0F7A55}.rt-gap.no{color:#D64545;border-color:#D64545}
+.rt-opts{display:grid;gap:8px;margin-top:10px}.rt-opt{appearance:none;font:inherit;cursor:pointer;padding:.6em .9em;border-radius:12px;border:1px solid rgba(16,42,76,.22);background:#fff;color:#14243F;text-align:center;font-size:1.05rem;line-height:1.9}
+.rt-opt.rt-qt{font-family:"HiraaMushaf","HiraaQuran","Amiri Quran",serif;font-size:1.4rem}.rt-opt:hover:not(:disabled){background:#F6EEDC}.rt-opt.ok{background:#E6F2EC;border-color:#0F7A55;color:#0F5E44;font-weight:700}.rt-opt.no{background:#FDECEC;border-color:#D64545;color:#A12B2B}
+.rt-acts{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.rt-res{text-align:center}.rt-big{font-size:2.6rem;font-weight:800;color:#0F7A55}
+.rt-hist{margin-top:14px}.rt-hrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:6px 0;border-bottom:1px solid #F0E7D2}
+.btx-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.ev-rt{margin-top:6px}
+@media print{.btx-acts,.ev-rt{display:none!important}}

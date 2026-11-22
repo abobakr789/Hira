@@ -2940,6 +2940,261 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     }));
   }
 
+
+  /* =================== اختبار التلاوة والحفظ: تقييم المعلم + «اختبر نفسك» للطالب =================== */
+  const RT_SK = { tilawa: ["تلاوة", "Recitation"], hifz: ["حفظ وتسميع", "Memorisation"], tafsir: ["تفسير وفهم", "Meaning"] };
+  const RT_RUB = {
+    tilawa: ["مخارج الحروف", "أحكام التجويد", "الطلاقة", "الوقف والابتداء", "ضبط الحركات"],
+    hifz: ["حفظ متقن", "تردد يسير", "أخطاء في الكلمات", "يحتاج إلى مراجعة", "ترتيب الآيات"],
+    tafsir: ["معاني المفردات", "المعنى الإجمالي", "الدروس المستفادة", "الربط بالواقع"]
+  };
+  const rtTermNow = () => { const m = new Date().getMonth(); return m >= 7 ? 1 : m <= 2 ? 2 : 3; };
+  const rtPlain = (t) => String(t || "").replace(/[ؐ-ًؚ-ٰٟۖ-ۭ࣓-ࣿـ]/g, "").replace(/[^ء-ي\s]/g, "").trim();
+  const rtShuf = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+  function rtFromBtn(b) {
+    const lessonId = b.dataset.rtL || null; let items = [], source = "text", ref = b.dataset.rtRef || "";
+    if (b.dataset.rt === "ev") { items = [{ t: String(b.dataset.rtT || "").replace(/[«»"]/g, "").trim() }]; source = "hadith"; }
+    else {
+      const card = b.closest(".form-card"); const ays = card ? [...card.querySelectorAll(".mus-ay")] : [];
+      if (ays.length) {
+        source = "quran";
+        items = ays.map((a) => ({ t: (a.querySelector(".mus-t") || a).textContent.trim(), n: +a.dataset.a }));
+        const ttl = card.querySelector(".mus-ttl"); const n1 = items[0].n, n2 = items[items.length - 1].n;
+        ref = (ttl ? ttl.textContent.trim() : ref) + " (" + (n1 === n2 ? n1 : n1 + "–" + n2) + ")";
+      } else if (card) items = [...card.querySelectorAll(".bk-read p, .bk-read div")].map((p) => ({ t: p.textContent.trim() })).filter((x) => x.t);
+    }
+    items = items.filter((x) => x.t);
+    if (!items.length) { toast("لا يوجد نص يُختبر فيه هنا."); return; }
+    rtOpen({ lessonId, source, ref, items });
+  }
+
+  function rtOpen(ctx) {
+    const staff = isStaff(), en = LANG === "en";
+    const T = (a, e) => (en ? e : a);
+    const d = document.createElement("dialog"); d.className = "dialog rt-dlg"; d.dir = en ? "ltr" : "rtl";
+    const q = (s) => d.querySelector(s);
+    d.innerHTML = `<div class="rt-top"><b>${staff ? "🎙️ " + T("اختبار التلاوة والحفظ", "Recitation & memorisation test") : "🧠 " + T("اختبر نفسك", "Test yourself")}</b>
+      <span class="pill">${esc(ctx.ref || "")}</span><button type="button" class="btn btn-ghost btn-small rt-x" aria-label="${T("إغلاق", "Close")}">✕</button></div>
+      ${staff ? `<div class="rt-tabs"><button type="button" class="rt-tab on" data-t="grade">📝 ${T("تقييم طالب", "Grade a student")}</button><button type="button" class="rt-tab" data-t="self">🧠 ${T("اختبار ذاتي", "Self-test")}</button></div>` : ""}
+      <div class="rt-body"></div>`;
+    document.body.appendChild(d);
+    q(".rt-x").onclick = () => d.close();
+    d.addEventListener("close", () => d.remove());
+    d.addEventListener("click", (e) => { if (e.target === d) d.close(); });
+    const body = q(".rt-body");
+    d.querySelectorAll(".rt-tab").forEach((t) => t.onclick = () => { d.querySelectorAll(".rt-tab").forEach((x) => x.classList.toggle("on", x === t)); t.dataset.t === "grade" ? rtGrade(body, ctx) : rtSelf(body, ctx); });
+    staff ? rtGrade(body, ctx) : rtSelf(body, ctx);
+    d.showModal();
+  }
+
+  /* ----- المعلم: تقييم طالب (من فصوله أو باسمٍ يكتبه) ----- */
+  async function rtGrade(box, ctx) {
+    const me = state.session && state.session.user.id; if (!me) { box.innerHTML = `<p class="muted">سجّل الدخول أولًا.</p>`; return; }
+    box.innerHTML = `<p class="muted">⏳</p>`;
+    let { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group)").eq("teacher_id", me);
+    let classes = (tc || []).map((r) => r.classes).filter(Boolean);
+    if (!classes.length && state.profile && state.profile.school_id && ["school_admin", "super_admin"].includes(effRole())) {
+      const r = await sb.from("classes").select("id, name, year_group").eq("school_id", state.profile.school_id).order("year_group"); classes = r.data || [];
+    }
+    classes.sort((a, b) => (a.year_group || 0) - (b.year_group || 0) || String(a.name).localeCompare(String(b.name), "ar"));
+    const hadith = ctx.source === "hadith", S = { term: rtTermNow(), skill: "tilawa", max: 10, rub: new Set() };
+    const skLbl = (k) => (k === "tilawa" && hadith ? "قراءة" : RT_SK[k][0]);
+    box.innerHTML = `<div class="rt-form">
+      <div class="rt-row"><span class="rt-l">الطالب</span>
+        <span class="rt-seg"><button type="button" class="rt-c ${classes.length ? "on" : ""}" data-who="cls">من فصولي</button><button type="button" class="rt-c ${classes.length ? "" : "on"}" data-who="name">كتابة الاسم</button></span></div>
+      <div class="rt-row rt-cls" ${classes.length ? "" : "hidden"}><select id="rtCls"><option value="">— اختر الفصل —</option>${classes.map((c) => `<option value="${c.id}">${esc(c.name)}${c.year_group ? " · Y" + c.year_group : ""}</option>`).join("")}</select>
+        <select id="rtStu" disabled><option value="">— اختر الطالب —</option></select></div>
+      <div class="rt-row rt-nm" ${classes.length ? "hidden" : ""}><input id="rtName" placeholder="اسم الطالب" autocomplete="off" list="rtNames"><datalist id="rtNames"></datalist></div>
+      <div class="rt-row"><span class="rt-l">الفصل الدراسي</span><span class="rt-seg">${[1, 2, 3].map((t) => `<button type="button" class="rt-c ${t === S.term ? "on" : ""}" data-term="${t}">${["الأول", "الثاني", "الثالث"][t - 1]}</button>`).join("")}</span></div>
+      <div class="rt-row"><span class="rt-l">المهارة</span><span class="rt-seg">${Object.keys(RT_SK).map((k) => `<button type="button" class="rt-c ${k === S.skill ? "on" : ""}" data-sk="${k}">${skLbl(k)}</button>`).join("")}</span></div>
+      <div class="rt-row"><span class="rt-l">ملاحظات سريعة</span><span class="rt-rub"></span></div>
+      <div class="rt-row"><span class="rt-l">الدرجة</span><span class="rt-score"><input id="rtScore" type="number" min="0" step="0.5" inputmode="decimal"> من
+        <select id="rtMax">${[5, 10, 20, 100].map((m) => `<option ${m === 10 ? "selected" : ""}>${m}</option>`).join("")}</select></span>
+        <span class="rt-quick"></span></div>
+      <div class="rt-row"><textarea id="rtNote" rows="2" placeholder="ملاحظة للطالب (اختياري)"></textarea></div>
+      <label class="rt-gb" hidden><input type="checkbox" id="rtGb"> <span></span></label>
+      <div class="rt-row"><button type="button" class="btn btn-primary" id="rtSave">حفظ الدرجة</button></div>
+      <h4 class="rt-h">تقييماتي في هذا الدرس</h4><div class="rt-log"><p class="muted">⏳</p></div></div>`;
+    const $ = (s) => box.querySelector(s), cls = $("#rtCls"), stu = $("#rtStu"), nm = $("#rtName");
+    let who = classes.length ? "cls" : "name";
+    const paintRub = () => { $(".rt-rub").innerHTML = RT_RUB[S.skill].map((r) => `<button type="button" class="rt-c rt-sm ${S.rub.has(r) ? "on" : ""}" data-rub="${esc(r)}">${esc(r)}</button>`).join(""); };
+    const paintQuick = () => { const m = S.max; const v = m <= 10 ? Array.from({ length: m + 1 }, (_, i) => i).reverse().slice(0, 6) : [m, m * 0.9, m * 0.8, m * 0.7, m * 0.6, m * 0.5].map((x) => Math.round(x * 2) / 2);
+      $(".rt-quick").innerHTML = v.map((x) => `<button type="button" class="rt-c rt-sm" data-q="${x}">${x}</button>`).join(""); };
+    const paintGb = () => { const ok = who === "cls" && stu.value && S.skill !== "tafsir"; const g = $(".rt-gb"); g.hidden = !ok;
+      if (ok) g.querySelector("span").textContent = `انقل إلى سجل الدرجات: «${S.skill === "tilawa" ? "تلاوة" : "حفظ وتسميع"}» للفصل ${["الأول", "الثاني", "الثالث"][S.term - 1]} (متوسط تقييماتك فيه، من 20)`; };
+    paintRub(); paintQuick();
+    box.addEventListener("click", (e) => {
+      const c = e.target.closest(".rt-c"); if (!c) return;
+      if (c.dataset.who) { who = c.dataset.who; box.querySelectorAll("[data-who]").forEach((x) => x.classList.toggle("on", x === c)); $(".rt-cls").hidden = who !== "cls"; $(".rt-nm").hidden = who !== "name"; if (who === "name") nm.focus(); }
+      else if (c.dataset.term) { S.term = +c.dataset.term; box.querySelectorAll("[data-term]").forEach((x) => x.classList.toggle("on", x === c)); }
+      else if (c.dataset.sk) { S.skill = c.dataset.sk; S.rub.clear(); box.querySelectorAll("[data-sk]").forEach((x) => x.classList.toggle("on", x === c)); paintRub(); }
+      else if (c.dataset.rub) { const r = c.dataset.rub; S.rub.has(r) ? S.rub.delete(r) : S.rub.add(r); c.classList.toggle("on"); }
+      else if (c.dataset.q != null) { $("#rtScore").value = c.dataset.q; }
+      paintGb();
+    });
+    $("#rtMax").onchange = () => { S.max = +$("#rtMax").value; paintQuick(); };
+    cls.onchange = async () => {
+      stu.disabled = true; stu.innerHTML = `<option value="">⏳</option>`;
+      if (!cls.value) { stu.innerHTML = `<option value="">— اختر الطالب —</option>`; paintGb(); return; }
+      const { data } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cls.value);
+      const L = (data || []).map((r) => ({ id: r.student_id, n: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.n.localeCompare(b.n, "ar"));
+      stu.innerHTML = `<option value="">— اختر الطالب (${L.length}) —</option>` + L.map((s) => `<option value="${s.id}">${esc(s.n)}</option>`).join("");
+      stu.disabled = false; paintGb();
+    };
+    stu.onchange = paintGb;
+    const loadLog = async () => {
+      let qy = sb.from("recitation_tests").select("id, student_id, student_name, term, skill, score, max_score, note, created_at, profiles!recitation_tests_student_id_fkey(full_name_ar)")
+        .eq("created_by", me).eq("is_self", false).order("created_at", { ascending: false }).limit(60);
+      if (ctx.lessonId) qy = qy.eq("lesson_id", ctx.lessonId);
+      const { data, error } = await qy;
+      const lg = $(".rt-log"); if (!lg) return;
+      if (error) { lg.innerHTML = `<p class="muted">${esc(error.message)}</p>`; return; }
+      const names = [...new Set((data || []).filter((r) => r.student_name).map((r) => r.student_name))];
+      $("#rtNames").innerHTML = names.map((n) => `<option value="${esc(n)}">`).join("");
+      lg.innerHTML = (data || []).length ? `<table class="admin-table rt-tbl"><thead><tr><th>الطالب</th><th>الفصل</th><th>المهارة</th><th>الدرجة</th><th>ملاحظة</th><th></th></tr></thead><tbody>${data.map((r) => `<tr>
+        <td>${esc(r.student_name || (r.profiles && r.profiles.full_name_ar) || "—")}</td><td>${["الأول", "الثاني", "الثالث"][r.term - 1]}</td><td>${skLbl(r.skill)}</td>
+        <td><b>${+r.score}</b> / ${+r.max_score}</td><td class="muted">${esc(r.note || "")}</td><td><button type="button" class="btn btn-ghost btn-small" data-rtdel="${r.id}" title="حذف">🗑️</button></td></tr>`).join("")}</tbody></table>`
+        : `<p class="muted">لا تقييمات بعد.</p>`;
+      lg.querySelectorAll("[data-rtdel]").forEach((b) => b.onclick = async () => { if (!confirm("حذف هذا التقييم؟")) return; const r = await sb.from("recitation_tests").delete().eq("id", b.dataset.rtdel); if (r.error) toast(r.error.message); loadLog(); });
+    };
+    loadLog();
+    $("#rtSave").onclick = async () => {
+      const sc = parseFloat($("#rtScore").value), mx = S.max;
+      const sid = who === "cls" ? stu.value : null, name = who === "name" ? nm.value.trim() : null;
+      if (who === "cls" && !sid) { toast("اختر الطالب من الفصل، أو اكتب اسمه."); return; }
+      if (who === "name" && !name) { toast("اكتب اسم الطالب."); nm.focus(); return; }
+      if (!(sc >= 0 && sc <= mx)) { toast(`اكتب درجة بين 0 و${mx}.`); $("#rtScore").focus(); return; }
+      const note = [[...S.rub].join("، "), $("#rtNote").value.trim()].filter(Boolean).join(" — ") || null;
+      const row = { lesson_id: ctx.lessonId, class_id: who === "cls" ? cls.value : null, student_id: sid, student_name: name, term: S.term, skill: S.skill,
+        source: ctx.source, ref: ctx.ref || null, score: sc, max_score: mx, note, is_self: false };
+      const btn = $("#rtSave"); btn.disabled = true;
+      const r = await sb.from("recitation_tests").insert(row); btn.disabled = false;
+      if (r.error) { toast("تعذّر الحفظ: " + r.error.message); return; }
+      let msg = "حُفظت الدرجة ✓";
+      if (sid && S.skill !== "tafsir" && $("#rtGb").checked) {
+        const { data: all } = await sb.from("recitation_tests").select("score, max_score").eq("class_id", cls.value).eq("student_id", sid).eq("term", S.term).eq("skill", S.skill).eq("is_self", false);
+        const avg = (all || []).length ? Math.round((all.reduce((s, x) => s + x.score / x.max_score, 0) / all.length) * 20 * 2) / 2 : null;
+        if (avg != null) {
+          const g = await sb.from("gradebook").upsert({ class_id: cls.value, student_id: sid, term: S.term, component: S.skill === "tilawa" ? "rec" : "mem", score: avg, updated_by: me, updated_at: new Date().toISOString() }, { onConflict: "class_id,student_id,term,component" });
+          msg += g.error ? " — تعذّر النقل إلى سجل الدرجات: " + g.error.message : ` — وفي سجل الدرجات: ${avg} من 20`;
+        }
+      }
+      toast(msg);
+      $("#rtScore").value = ""; $("#rtNote").value = ""; S.rub.clear(); paintRub();
+      if (who === "name") nm.value = ""; else if (stu.selectedIndex < stu.options.length - 1) { stu.selectedIndex += 1; paintGb(); }
+      loadLog();
+    };
+  }
+
+  /* ----- الطالب: اختبر نفسك (الكلمة الناقصة · ما التالي؟ · سمّع من ذاكرتك) ----- */
+  function rtSelf(box, ctx) {
+    const isQ = ctx.source === "quran", tcls = isQ ? "rt-t rt-qt" : "rt-t";
+    const units = (() => {
+      if (isQ || ctx.items.length >= 3) return ctx.items.map((x) => x.t);
+      const all = ctx.items.map((x) => x.t).join(" ");
+      let seg = all.split(/(?<=[،,.؛:!؟?])\s+/).map((s) => s.trim()).filter((s) => rtPlain(s).length > 2);
+      if (seg.length < 3) { const w = all.split(/\s+/); seg = []; for (let i = 0; i < w.length; i += 5) seg.push(w.slice(i, i + 5).join(" ")); }
+      return seg;
+    })();
+    const words = []; units.forEach((u, ui) => u.split(/\s+/).forEach((w, wi) => { if (rtPlain(w).replace(/\s/g, "").length >= 3) words.push({ ui, wi, w }); }));
+    const modes = [["gap", "🧩 الكلمة الناقصة", "اختر الكلمة المحذوفة من النص", words.length >= 4],
+      ["next", isQ ? "➡️ ما الآية التالية؟" : "➡️ ما التالي؟", isQ ? "اختر الآية التي تلي الآية المعروضة" : "اختر الجزء الذي يلي الجزء المعروض", units.length >= 3],
+      ["recall", "🗣️ سمّع من ذاكرتك", "تظهر أوائل كل " + (isQ ? "آية" : "جزء") + "، فسمّعها ثم تحقّق", units.length >= 1]];
+    box.innerHTML = `<p class="muted rt-intro">اختر طريقة الاختبار:</p><div class="rt-modes">${modes.filter((m) => m[3]).map((m) => `<button type="button" class="rt-mode" data-m="${m[0]}"><b>${m[1]}</b><small>${m[2]}</small></button>`).join("")}</div><div class="rt-hist"></div>`;
+    box.querySelectorAll(".rt-mode").forEach((b) => b.onclick = () => run(b.dataset.m));
+    const me = state.session && state.session.user.id;
+    if (me && isStudent() && ctx.lessonId) sb.from("recitation_tests").select("score, max_score, created_at, term, skill, created_by, note").eq("student_id", me).eq("lesson_id", ctx.lessonId).order("created_at", { ascending: false }).limit(8).then(({ data }) => {
+      const h = box.querySelector(".rt-hist"); if (!h || !(data || []).length) return;
+      h.innerHTML = `<h4 class="rt-h">نتائجي في هذا الدرس</h4>` + data.map((r) => `<div class="rt-hrow"><span>${r.created_by === me ? "🧠 اختبار ذاتي" : "🎙️ " + (RT_SK[r.skill] || [""])[0] + " · المعلم"}</span><b>${+r.score} / ${+r.max_score}</b><small class="muted">${new Date(r.created_at).toLocaleDateString("ar-AE")}</small>${r.note && r.created_by !== me ? `<small>${esc(r.note)}</small>` : ""}</div>`).join("");
+    });
+    function run(mode) {
+      let Q = [];
+      if (mode === "gap") {
+        Q = rtShuf(words).slice(0, Math.min(8, words.length)).map((x) => {
+          const pool = rtShuf(words.filter((y) => rtPlain(y.w) !== rtPlain(x.w))); const opts = [];
+          for (const y of pool) { if (opts.length >= 3) break; if (!opts.some((o) => rtPlain(o) === rtPlain(y.w))) opts.push(y.w); }
+          const ws = units[x.ui].split(/\s+/); ws[x.wi] = `<span class="rt-gap">……</span>`;
+          return { stem: ws.map((w, i) => (i === x.wi ? w : esc(w))).join(" "), ans: x.w, opts: rtShuf([x.w, ...opts]) };
+        });
+      } else if (mode === "next") {
+        Q = rtShuf(units.slice(0, -1).map((u, i) => i)).slice(0, Math.min(6, units.length - 1)).map((i) => {
+          const others = rtShuf(units.filter((u, j) => j !== i + 1 && j !== i)).slice(0, 2);
+          return { stem: esc(units[i]), ans: units[i + 1], opts: rtShuf([units[i + 1], ...others]) };
+        });
+      } else Q = units.map((u) => ({ u }));
+      let k = 0, ok = 0;
+      const draw = () => {
+        if (k >= Q.length) return finish();
+        const x = Q[k], head = `<div class="rt-prog"><span>${k + 1} / ${Q.length}</span><span>✓ ${ok}</span></div>`;
+        if (mode === "recall") {
+          const w = x.u.split(/\s+/), cue = w.slice(0, Math.min(2, Math.max(1, w.length - 1))).join(" ");
+          box.innerHTML = head + `<div class="${tcls} rt-stem">${esc(cue)} <span class="rt-gap">…</span></div><p class="muted">سمّع ${isQ ? "الآية" : "الجزء"} كاملًا من حفظك، ثم اضغط «تحقّق».</p>
+            <div class="rt-acts"><button type="button" class="btn btn-primary" id="rtShow">تحقّق</button></div>`;
+          box.querySelector("#rtShow").onclick = () => {
+            box.querySelector(".rt-stem").innerHTML = esc(x.u);
+            box.querySelector(".rt-acts").innerHTML = `<button type="button" class="btn btn-primary" data-r="1">✓ سمّعتها صحيحة</button><button type="button" class="btn btn-ghost" data-r="0">✗ أخطأت فيها</button>`;
+            box.querySelectorAll("[data-r]").forEach((b) => b.onclick = () => { if (b.dataset.r === "1") ok++; k++; draw(); });
+          };
+          return;
+        }
+        box.innerHTML = head + `<div class="${tcls} rt-stem">${x.stem}</div><div class="rt-opts">${x.opts.map((o, i) => `<button type="button" class="rt-opt ${isQ ? "rt-qt" : ""}" data-i="${i}">${esc(o)}</button>`).join("")}</div><div class="rt-acts"></div>`;
+        box.querySelectorAll(".rt-opt").forEach((b) => b.onclick = () => {
+          const good = x.opts[+b.dataset.i] === x.ans; if (good) ok++;
+          box.querySelectorAll(".rt-opt").forEach((o) => { o.disabled = true; if (x.opts[+o.dataset.i] === x.ans) o.classList.add("ok"); });
+          if (!good) b.classList.add("no");
+          if (mode === "gap") { const g = box.querySelector(".rt-gap"); if (g) { g.textContent = x.ans; g.classList.add(good ? "ok" : "no"); } }
+          box.querySelector(".rt-acts").innerHTML = `<button type="button" class="btn btn-primary" id="rtNext">${k + 1 < Q.length ? "التالي ←" : "النتيجة"}</button>`;
+          box.querySelector("#rtNext").onclick = () => { k++; draw(); };
+        });
+      };
+      const finish = () => {
+        const pct = Q.length ? ok / Q.length : 0, sc10 = Math.round(pct * 20) / 2;
+        const msg = pct >= 0.9 ? "ممتاز، بارك الله فيك! 🌟" : pct >= 0.7 ? "أحسنت، راجع ما أخطأت فيه." : pct >= 0.5 ? "جيد، تحتاج إلى مراجعة أكثر." : "راجع النص ثم أعد المحاولة.";
+        box.innerHTML = `<div class="rt-res"><div class="rt-big">${ok} / ${Q.length}</div><p>${msg}</p>
+          <div class="rt-acts"><button type="button" class="btn btn-primary" id="rtAgain">أعد الاختبار</button><button type="button" class="btn btn-ghost" id="rtBack">طريقة أخرى</button></div><p class="muted rt-saved"></p></div>`;
+        box.querySelector("#rtAgain").onclick = () => run(mode);
+        box.querySelector("#rtBack").onclick = () => rtSelf(box, ctx);
+        if (me && isStudent()) sb.from("recitation_tests").insert({ lesson_id: ctx.lessonId, student_id: me, term: rtTermNow(), skill: "hifz", source: ctx.source, ref: ctx.ref || null,
+          score: sc10, max_score: 10, note: ({ gap: "الكلمة الناقصة", next: "ما التالي", recall: "تسميع ذاتي" })[mode], is_self: true })
+          .then(({ error }) => { const s = box.querySelector(".rt-saved"); if (s) s.textContent = error ? "" : "حُفظت نتيجتك، ويراها معلمك."; });
+      };
+      draw();
+    }
+  }
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-rt]"); if (!b) return; e.preventDefault(); rtFromBtn(b); });
+
+  /* طباعة نص الكتاب بالتنسيق الظاهر على الشاشة نفسه (إطار المصحف، العنوان، أرقام الآيات) */
+  function btxPrintLike(btn, title) {
+    const card = btn.closest(".form-card"); if (!card) return;
+    const cl = card.cloneNode(true);
+    cl.querySelectorAll(".mus-tools,.til-bar,.til-cap,.til-rp,.btx-acts,button,select,script").forEach((x) => x.remove());
+    cl.querySelectorAll(".til-ay").forEach((x) => x.replaceWith(...x.childNodes));
+    cl.querySelectorAll(".til-now").forEach((x) => x.classList.remove("til-now"));
+    /* لا ننسخ أنماط المنصة كلها (فيها قواعد طباعة تُخفي الصفحة)؛ نكتفي بالخطوط وأنماط المصحف */
+    let faces = ""; for (const sh of document.styleSheets) { try { for (const r of sh.cssRules) if (r.type === 5) faces += r.cssText + "\n"; } catch (e) {} }
+    const tc = document.getElementById("til-css");
+    const css = [...document.querySelectorAll('link[rel="stylesheet"][href*="fonts.googleapis"]')].map((x) => x.outerHTML).join("") + `<style>${faces}</style>` + (tc ? `<style>${tc.textContent}</style>` : "");
+    const w = window.open("", "_blank"); if (!w) { toast("اسمح بالنوافذ المنبثقة للطباعة."); return; }
+    w.document.write(`<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><base href="${esc(document.baseURI)}"><title>${esc(title)}</title>${css}
+      <style>@page{size:A4;margin:12mm}html,body{background:#fff!important;margin:0;padding:0}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      body{font-family:"ThmanyahSans","Readex Pro",system-ui,sans-serif;color:#14243F;padding:0 2mm}
+      .prx{border:1px solid #E9DBB4;border-radius:16px;padding:14px 16px;background:#FFF8EC}.prx h3{margin:0 0 10px;font-size:18px;color:#102A4C}
+      .prx .pill{display:inline-block;font-size:12px;font-weight:500;padding:.15em .7em;border:1px solid #C9B78A;border-radius:999px;margin-inline-start:6px;vertical-align:middle}
+      .prx .bk-read p{margin:.3em 0}.prx mark{background:#FFE9A8;color:#8A2D0E;font-weight:700;padding:0 3px;border-radius:4px}.prx .muted{color:#667}
+      .prx .mus-flow,.prx .mus-ar,.prx .mus-bsm{font-size:26px!important;line-height:2.15!important}.prx .bk-read{font-size:20px;line-height:2.1}
+      .pr-stu{display:flex;gap:28px;font-family:"Readex Pro",system-ui,sans-serif;font-size:14px;margin:0 0 12px;color:#102A4C}.pr-stu span{flex:1;border-bottom:1px dotted #8a8a8a;padding-bottom:4px}
+      .pr-q{font-family:"Readex Pro",system-ui,sans-serif;font-size:16px;margin:22px 0 6px;color:#102A4C}.ln{border-bottom:1px solid #999;height:34px}
+      .mus-ay,.mus-row{break-inside:avoid}</style></head>
+      <body><div class="pr-stu"><span>الاسم:</span><span>الصف:</span><span>التاريخ:</span></div><div class="form-card prx">${cl.innerHTML}</div>
+      <div class="pr-q">أسئلتي عن النص:</div>${Array.from({ length: 5 }, () => '<div class="ln"></div>').join("")}</body></html>`);
+    w.document.close();
+    const go = () => { try { w.focus(); w.print(); } catch (e) {} };
+    let done = false; const once = () => { if (!done) { done = true; setTimeout(go, 300); } };
+    setTimeout(once, 3000);   /* لا ننتظر أكثر من ثلاث ثوانٍ إن تأخر خطٌّ */
+    try { if (w.document.fonts && w.document.fonts.ready) w.document.fonts.ready.then(once); else setTimeout(once, 900); } catch (e) { setTimeout(once, 900); }
+  }
+
   async function pageLesson(code) {
     setNav("grades");
     loading();
@@ -2973,7 +3228,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const bookTxHtml = () => {
       const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">${bookTx.kind === "study" ? "📘" : "📖"} ${esc(bookTx.title || (bookTx.kind === "study" ? "نص الدرس" : "نص الكتاب"))}${bookTx.pages ? ` <span class="pill">كتاب الطالب ص ${esc(bookTx.pages)}</span>` : ""}${bookTx.kind === "study" ? ' <span class="pill">من إعداد حراء</span>' : ""}</h3>
         ${((h) => TIL.musHtml(bookTx.body, h, { tr: nn ? "en" : "", en: nnEn }) || h)(`<div dir="rtl" class="bk-read" style="${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div>`)}
-        <div style="margin-top:12px"><button class="btn btn-ghost btn-small" id="btxPrint">🖨️ طباعة النص للطالب</button></div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
+        <div class="btx-acts"><button class="btn btn-ghost btn-small" id="btxPrint">🖨️ طباعة النص للطالب</button>
+          <button class="btn btn-primary btn-small" data-rt="book" data-rt-l="${l.id}" data-rt-ref="${esc(bookTx.title || l.title_ar)}">${isStaff() ? "🎙️ اختبار تلاوة وحفظ" : "🧠 اختبر نفسك"}</button></div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
       const ed = isSuper() ? `<div class="form-card" style="margin-top:14px"><h3 style="margin-top:0">✏️ إضافة نص الكتاب أو تعديله</h3>
         <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option></select></div>
         <div class="field"><label for="btxTitle">عنوان النص</label><input id="btxTitle" value="${esc((bookTx && bookTx.title) || "")}"></div>
@@ -3086,7 +3342,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       : `<div class="evidence"><p class="txt">${esc(e.text_ar)}</p>
           ${e.translation_en ? `<p dir="ltr" class="muted">${esc(e.translation_en)}</p>` : ""}
           <div class="src"><span>${esc(e.source || "")}</span>${e.hadith_grade ? `<span>· ${esc(e.hadith_grade)}</span>` : ""}
-          ${e.is_verified ? '<span class="pill axis">موثّق</span>' : '<span class="pill warn">قيد التوثيق</span>'}</div></div>`).join("")
+          ${e.is_verified ? '<span class="pill axis">موثّق</span>' : '<span class="pill warn">قيد التوثيق</span>'}</div>
+          <div class="ev-rt"><button class="btn btn-ghost btn-small" data-rt="ev" data-rt-l="${l.id}" data-rt-ref="${esc(e.source || "الحديث")}" data-rt-t="${esc(e.full_ar || e.text_ar || "")}">${isStaff() ? "🎙️ اختبار حفظ الحديث" : "🧠 اختبر حفظك للحديث"}</button></div></div>`).join("")
       : `<div class="empty"><strong>لم تُضف أدلة لهذا الدرس بعد</strong></div>`;
 
     const idHtml = lockedForMe ? lockedMsg : (l.lesson_identity_links || []).length ? uaeFlag() + l.lesson_identity_links.map((x) => `
@@ -3330,7 +3587,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (k === "prog") { const pb = document.getElementById("pgBox"); if (pb) (isStaff() ? progTeacher(pb, l, u, nnEn) : progStudent(pb, l, nnEn)); }
       if (k === "booktext") {
         const pr = document.getElementById("btxPrint");
-        if (pr) pr.onclick = () => { const w = window.open("", "_blank"); w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>${esc(bookTx.title || l.title_ar)}</title><style>body{font-family:'Noto Naskh Arabic','Amiri',serif;padding:32px;font-size:20px;line-height:2.2}h1{font-size:24px}.poem{text-align:center;font-weight:700}.ln{border-bottom:1px solid #999;height:34px}mark{background:#FFE9A8;color:#8A2D0E;font-weight:700;padding:0 3px;border-radius:4px}</style></head><body><h1>${esc(bookTx.title || l.title_ar)}${bookTx.pages ? " · " + esc(bookTx.pages) : ""}</h1><div class="${bookTx.kind === "poem" ? "poem" : ""}">${bookLines(bookTx.body).map((x) => `<div>${bkHL(esc(x))}</div>`).join("")}</div><h2 style="font-size:20px;margin-top:28px">أسئلتي عن النص:</h2>${Array.from({ length: 6 }, () => '<div class="ln"></div>').join("")}</body></html>`); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
+        if (pr) pr.onclick = () => btxPrintLike(pr, (bookTx.title || l.title_ar) + (bookTx.pages ? " · " + bookTx.pages : ""));
         const sv = document.getElementById("btxSave");
         if (sv) sv.onclick = async () => { const body = document.getElementById("btxBody").value.trim(); if (!body) { toast("اكتب النص أولًا"); return; }
           const r = await sb.from("lesson_book_texts").upsert({ lesson_id: l.id, kind: document.getElementById("btxKind").value, title: document.getElementById("btxTitle").value.trim() || null, pages: document.getElementById("btxPages").value.trim() || null, body, updated_at: new Date().toISOString() });
@@ -10429,7 +10686,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     }
     const BLK = "p,li,td,th,blockquote,dd,figcaption,h1,h2,h3,h4,h5,h6,div,section,article";
     /* العناوين في صفحات المنصة (خارج شرائح العروض) */
-    const TTL = "h1,h2,h3,h4,h5,h6,.unit-head,.lesson-row,a.t,.lp-title,.cp-title,.stage-title,.card-title,.lesson-title,.page-title";
+    const TTL = "h1,h2,h3,h4,h5,h6,.unit-head,.lesson-row,a.t,.lp-title,.cp-title,.stage-title,.card-title,.lesson-title,.page-title,.pill,.chip,nav,.crumbs,.breadcrumb,.tab,[role=tab]";
     const isTitle = (el) => !!el.closest(TTL) && !el.closest(".td-slide,.sl,[data-build-in]") && !el.ownerDocument.querySelector("[data-build-in]");
     const blockOf = (el) => el.closest(BLK);
     const shortText = (el) => (el && el.nodeType === 1 ? String(el.textContent || "").slice(0, 220) : "");
