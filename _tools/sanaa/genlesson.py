@@ -139,7 +139,25 @@ def sheets(sp):
     pgs = []
     for i, (nm, c, bg) in enumerate(LEVELS):
         h = hd('وَرَقَةُ عَمَلٍ', bg, 'الْمُسْتَوى: ' + nm, c) + NM + intro()
-        if i == 0:
+        gy = sp.get('gy', 1)
+        if gy >= 3 and i < 2:
+            def tfrows(items):
+                return ''.join(f"<div class='row'><span class='s'>{t}</span><span style='font-size:20pt;white-space:nowrap'>☐ ✓ &nbsp; ☐ ✗</span></div>" for t in items)
+            ln = "<div class='ln'></div>"
+            tfs = [t for t, _ in sp['tf']]; fals = [t for t, v in sp['tf'] if not v]
+            if i == 0:
+                if gy == 3:
+                    body = q(1, c, 'أَقْرَأُ الْعِباراتِ وَأَضَعُ ( ✓ ) أَمامَ الصَّحيحَةِ وَ ( ✗ ) أَمامَ الْخاطِئَةِ:', tfrows(tfs)) + q(2, c, 'أَكْتُبُ اسْمَ ما يَدُلُّ عَلَيْهِ كُلُّ رَمْزٍ:', ''.join(f"<div class='row'><span style='font-size:30pt'>{e}</span><span class='s' style='flex:1'>{ln}</span></div>" for e, _ in sp['learn'][:3]))
+                else:
+                    body = q(1, c, 'أَحْكُمُ عَلى الْعِباراتِ ( ✓ / ✗ ) ثُمَّ أَكْتُبُ الصَّوابَ لِلْخاطِئَةِ:', tfrows(tfs) + ln) + q(2, c, 'أَكْتُبُ جُمْلَةً مُفيدَةً عَنْ كُلِّ رَمْزٍ:', ''.join(f"<div class='row'><span style='font-size:30pt'>{e}</span><span class='s' style='flex:1'>{ln}</span></div>" for e, _ in sp['learn'][:3]))
+            else:
+                M = ''.join(f"<div class='row'><span class='s'>{b} &nbsp;←&nbsp; ____________________</span></div>" for a, b in sp['ws']['s_match'])
+                cd = sp['check']['cards']
+                if gy == 3:
+                    body = q(1, c, 'أَقْرَأُ كُلَّ مَوْقِفٍ وَأَكْتُبُ السَّنْعَ الْمُناسِبَ لَهُ:', M) + q(2, c, 'أَخْتارُ عِبارَةً خاطِئَةً وَأَكْتُبُها صَحيحَةً بِجُمْلَةٍ كامِلَةٍ:', f"<div class='k'>{fals[0]}</div>{ln}")
+                else:
+                    body = q(1, c, 'أَقْرَأُ كُلَّ مَوْقِفٍ وَأَكْتُبُ السَّنْعَ الْمُناسِبَ لَهُ وَأُعَلِّلُ:', M + ln) + q(2, c, 'أُقارِنُ بَيْنَ الْمَوْقِفَيْنِ وَأَخْتارُ الْأَنْسَبَ وَأُعَلِّلُ:', ''.join(f"<div class='row'><span class='s'>{x[1]} {x[0]} {x[2]}</span></div>" for x in cd) + ln)
+        elif i == 0:
             body = q(1, c, 'أُلَوِّنُ الرَّمْزَ الْمُناسِبَ:', ''.join(row(t, pics(*e)) for t, e in ws['b_pics'])) + q(2, c, 'أُلَوِّنُ 👍 إِذا كانَتِ الْجُمْلَةُ صَحيحَةً، وَ 👎 إِذا كانَتْ خَطَأً:', thp(*ws['b_tf']))
         elif i == 1:
             L = ''.join(f"<div><span style='flex:1'>{a}</span><span class='dot'></span></div>" for a, _ in ws['s_match']); R = ''.join(f"<div><span class='dot'></span><span style='flex:1'>{bb}</span></div>" for _, bb in ws['s_match'][::-1])
@@ -197,9 +215,12 @@ def lift(sp, y):
     if IDS is None:
         import fix_ids; IDS = fix_ids.IDS
     sp = copy.deepcopy(sp)
-    l = sp['code'].split('-')[-1]
-    sp['code'] = 'SN-Y%d-T1-%s' % (y, l)
-    sp['lesson_id'] = IDS[y][l]
+    pr = sp['code'].split('-'); l = pr[-1]; tm = pr[2]
+    sp['code'] = 'SN-Y%d-%s-%s' % (y, tm, l)
+    if tm == 'T1':
+        sp['lesson_id'] = IDS[y][l]
+    else:
+        import ids_t2t3; sp['lesson_id'] = ids_t2t3.IDS[sp['code']]
     if y < 3:
         return sp
     A = {3: (' بِجُمْلَةٍ كامِلَةٍ.', ' وَأَذْكُرُ مِثالًا مِنْ بيئَتي.', ' وَأَقْتَرِحُ سُلوكًا بَديلًا.'),
@@ -213,6 +234,13 @@ def lift(sp, y):
     lw = sp['levels_work']
     rep = {3: 'أَكْتُبُ فِقْرَةً عَنْ مَوْقِفٍ', 4: 'أَكْتُبُ فِقْرَةً وَأَقْتَرِحُ مُبادَرَةً بِشَأْنِ مَوْقِفٍ'}[y]
     lw['challenge'] = lw['challenge'].replace('أُفَكِّرُ وَأَرْسُمُ مَوْقِفًا', rep)
+    sp['gy'] = y
+    ok = ' · '.join('✓' if v else '✗' for _, v in sp['tf'])
+    sp['key']['b'] = '1 - ' + ok + ' &nbsp;|&nbsp; 2 - إِجابَةٌ مَفْتوحَةٌ: يُسَمّي الطّالِبُ ما يَدُلُّ عَلَيْهِ كُلُّ رَمْزٍ مِنْ بِطاقَةِ الْمَصادِرِ.' + (' وَيُصَوِّبُ الْعِباراتِ الْخاطِئَةَ بِجُمَلٍ صَحيحَةٍ.' if y == 4 else '')
+    sp['key']['s'] = '1 - ' + ' · '.join(f'{b} ← {a}' for a, b in sp['ws']['s_match']) + ' &nbsp;|&nbsp; 2 - ' + ('تُقْبَلُ كُلُّ جُمْلَةٍ كامِلَةٍ تُصَوِّبُ الْخَطَأَ مِنْ نَصِّ الْكِتابِ.' if y == 3 else 'تُقْبَلُ كُلُّ مُقارَنَةٍ مُعَلَّلَةٍ؛ وَالْأَنْسَبُ (أ).')
+    R = {3: [['أَحْكُمُ عَلى الْعِباراتِ ( ✓ / ✗ ).', 'أَكْتُبُ اسْمَ ما يَدُلُّ عَلَيْهِ كُلُّ رَمْزٍ.'], ['أَكْتُبُ السَّنْعَ الْمُناسِبَ لِكُلِّ مَوْقِفٍ.', 'أُصَوِّبُ عِبارَةً خاطِئَةً بِجُمْلَةٍ كامِلَةٍ.']],
+         4: [['أَحْكُمُ عَلى الْعِباراتِ وَأُصَوِّبُ الْخَطَأَ.', 'أَكْتُبُ جُمْلَةً مُفيدَةً عَنْ كُلِّ رَمْزٍ.'], ['أَكْتُبُ السَّنْعَ الْمُناسِبَ لِكُلِّ مَوْقِفٍ وَأُعَلِّلُ.', 'أُقارِنُ بَيْنَ مَوْقِفَيْنِ وَأُعَلِّلُ اخْتِيارِي.']]}[y]
+    lw['rows'][0] = R[0]; lw['rows'][1] = R[1]
     ws = sp['ws']
     tail = {3: ' وَأَكْتُبُ جُمْلَتَيْنِ تَصِفانِهِ:', 4: ' وَأَسْتَشْهِدُ بِعِبارَةٍ مِنَ الْكِتابِ:'}[y]
     d = ws['d_draw']
