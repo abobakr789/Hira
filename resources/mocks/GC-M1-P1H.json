@@ -3,14 +3,123 @@
   "qual": "1AA0",
   "title": "Mock 1 — Paper 1: Listening and understanding in Arabic (Higher) · 50 marks",
   "minutes": 45,
-  "note": "امتحان استماع تجريبي من تأليف حراء بشكل الورقة 1 في GCSE العربية (المستوى الأعلى). يُقرأ كل مقطع بصوت عربي آلي مرتين كحدّ أقصى. القسم أ بالإنجليزية، والقسم ب بالعربية.",
+  "note": "امتحان استماع تجريبي من تأليف حراء بشكل الورقة 1 في GCSE العربية (المستوى الأعلى). يُقرأ كل مقطع بصوت عربي آلي مرتين كحدّ أقصى. القسم أ: أسئلة بالعربية (10 درجات)، والقسم ب: أسئلة بالإنجليزية (40 درجة)، كما في ورقة Pearson.",
   "sections": [
     {
-      "title": "Section A (questions in English)",
-      "intro": "Listen to each recording twice, then answer in English.",
+      "title": "القسم أ (الأسئلة بالعربية)",
+      "intro": "استمع إلى كل تسجيل مرتين، ثم أجب بالعربية.",
       "qs": [
         {
           "n": 1,
+          "type": "short",
+          "q": "برنامج إذاعي عن القراءة. أ) ما سبب تراجع القراءة عند الشباب؟ ب) ما الحلّ المقترح؟ ج) كم نسبة الشباب الذين يقرؤون يوميًّا؟ د) ماذا تفعل النوادي؟ هـ) ما رأي المذيعة؟",
+          "audio": [
+            {
+              "s": "f",
+              "t": "تراجعت القراءة عند الشباب بسبب الهواتف الذكية."
+            },
+            {
+              "s": "f",
+              "t": "ويقترح الخبراء إنشاء نوادٍ للقراءة في المدارس،"
+            },
+            {
+              "s": "f",
+              "t": "تجمع الطلاب أسبوعيًّا لمناقشة الكتب."
+            },
+            {
+              "s": "f",
+              "t": "وتشير دراسة إلى أنّ ثلاثين في المئة فقط يقرؤون يوميًّا."
+            },
+            {
+              "s": "f",
+              "t": "وأنا أرى أنّ الأسرة يجب أن تكون القدوة."
+            }
+          ],
+          "max": 5,
+          "pts": [
+            [
+              "الهواتف"
+            ],
+            [
+              "نوادي",
+              "نواد"
+            ],
+            [
+              "ثلاثين",
+              "30"
+            ],
+            [
+              "مناقشه",
+              "الكتب",
+              "اسبوعيا"
+            ],
+            [
+              "الاسره",
+              "القدوه"
+            ]
+          ],
+          "model": "الهواتف الذكية؛ نوادي القراءة؛ ثلاثون في المئة؛ تجمع الطلاب لمناقشة الكتب؛ أن الأسرة يجب أن تكون القدوة."
+        },
+        {
+          "n": 2,
+          "type": "short",
+          "q": "مقابلة مع مخترعة إماراتية شابّة. أ) ماذا اخترعت؟ ب) من أين جاءتها الفكرة؟ ج) كم يوفّر الجهاز؟ د) ما نصيحتها للشباب؟ هـ) ما مشروعها القادم؟",
+          "audio": [
+            {
+              "s": "f",
+              "t": "اخترعتُ جهازًا يوفّر الماء في ريّ الحدائق."
+            },
+            {
+              "s": "f",
+              "t": "جاءتني الفكرة من مزرعة جدّي في العين."
+            },
+            {
+              "s": "f",
+              "t": "يوفّر الجهاز نحو أربعين في المئة من الماء."
+            },
+            {
+              "s": "f",
+              "t": "نصيحتي للشباب: لا تستسلموا بعد أوّل فشل."
+            },
+            {
+              "s": "f",
+              "t": "ومشروعي القادم جهاز مثله للمنازل."
+            }
+          ],
+          "max": 5,
+          "pts": [
+            [
+              "الماء",
+              "الري",
+              "جهازا"
+            ],
+            [
+              "مزرعه",
+              "جدي"
+            ],
+            [
+              "اربعين",
+              "40"
+            ],
+            [
+              "لا تستسلموا",
+              "الفشل"
+            ],
+            [
+              "المنازل",
+              "للمنازل"
+            ]
+          ],
+          "model": "جهازًا يوفّر الماء في ريّ الحدائق؛ من مزرعة جدّها؛ نحو 40%؛ لا تستسلموا؛ جهاز للمنازل."
+        }
+      ]
+    },
+    {
+      "title": "Section B (questions in English)",
+      "intro": "Listen to each recording twice, then answer in English.",
+      "qs": [
+        {
+          "n": 3,
           "type": "short",
           "q": "Two friends discuss social media. (a) Give ONE advantage Rami mentions. (b) What is Rami's problem? (c) What did Lina do before her exams? (d) How does she feel now? (e) Does Lina have a positive or negative view?",
           "audio": [
@@ -63,7 +172,7 @@
           "model": "(a) Keeps in touch with cousins abroad (b) Spends too long, affects his sleep (c) Deleted the apps (d) Calmer and more focused (e) Mostly negative"
         },
         {
-          "n": 2,
+          "n": 4,
           "type": "mcq",
           "q": "News report about a new park. Choose the correct answer.",
           "audio": [
@@ -124,7 +233,7 @@
           ]
         },
         {
-          "n": 3,
+          "n": 5,
           "type": "short",
           "q": "Youssef talks about his future. (a) What did he want to be as a child? (b) What does he want to be now? (c) Why? (d) Where does he volunteer? (e) What has volunteering taught him?",
           "audio": [
@@ -168,7 +277,7 @@
           "model": "(a) A pilot (b) An engineer (c) Good at maths (d) At a hospital (e) Patience"
         },
         {
-          "n": 4,
+          "n": 6,
           "type": "mcq",
           "q": "A hotel complaint. Choose the correct answer.",
           "audio": [
@@ -233,7 +342,7 @@
           ]
         },
         {
-          "n": 5,
+          "n": 7,
           "type": "short",
           "q": "Eid then and now. (a) Where did the family celebrate Eid in the past? (b) What do many families do now? (c) Which does the speaker prefer? (d) Why?",
           "audio": [
@@ -279,7 +388,7 @@
           "model": "(a) At the grandparents' house (b) Travel (c) The old way (d) The whole family gathered in one place"
         },
         {
-          "n": 6,
+          "n": 8,
           "type": "mcq",
           "q": "A school environment campaign. Choose the correct answer.",
           "audio": [
@@ -328,68 +437,11 @@
               "c": 0
             }
           ]
-        }
-      ]
-    },
-    {
-      "title": "القسم ب (الأسئلة بالعربية)",
-      "intro": "استمع إلى كل تسجيل مرتين، ثم أجب بالعربية.",
-      "qs": [
-        {
-          "n": 7,
-          "type": "short",
-          "q": "برنامج إذاعي عن القراءة. أ) ما سبب تراجع القراءة عند الشباب؟ ب) ما الحلّ المقترح؟ ج) كم نسبة الشباب الذين يقرؤون يوميًّا؟ د) ماذا تفعل النوادي؟ هـ) ما رأي المذيعة؟",
-          "audio": [
-            {
-              "s": "f",
-              "t": "تراجعت القراءة عند الشباب بسبب الهواتف الذكية."
-            },
-            {
-              "s": "f",
-              "t": "ويقترح الخبراء إنشاء نوادٍ للقراءة في المدارس،"
-            },
-            {
-              "s": "f",
-              "t": "تجمع الطلاب أسبوعيًّا لمناقشة الكتب."
-            },
-            {
-              "s": "f",
-              "t": "وتشير دراسة إلى أنّ ثلاثين في المئة فقط يقرؤون يوميًّا."
-            },
-            {
-              "s": "f",
-              "t": "وأنا أرى أنّ الأسرة يجب أن تكون القدوة."
-            }
-          ],
-          "max": 5,
-          "pts": [
-            [
-              "الهواتف"
-            ],
-            [
-              "نوادي",
-              "نواد"
-            ],
-            [
-              "ثلاثين",
-              "30"
-            ],
-            [
-              "مناقشه",
-              "الكتب",
-              "اسبوعيا"
-            ],
-            [
-              "الاسره",
-              "القدوه"
-            ]
-          ],
-          "model": "الهواتف الذكية؛ نوادي القراءة؛ ثلاثون في المئة؛ تجمع الطلاب لمناقشة الكتب؛ أن الأسرة يجب أن تكون القدوة."
         },
         {
-          "n": 8,
+          "n": 9,
           "type": "mcq",
-          "q": "نقاش عن الزيّ المدرسي. اختر الإجابة الصحيحة.",
+          "q": "A discussion about school uniform. Choose the correct answer.",
           "audio": [
             {
               "s": "m",
@@ -410,103 +462,51 @@
           ],
           "items": [
             {
-              "prompt": "ما الفائدة الأولى للزيّ؟",
+              "prompt": "What is the first advantage of uniform?",
               "options": [
-                "المساواة بين الطلاب",
-                "الأناقة",
-                "الرخص",
-                "الدفء"
+                "Equality between students",
+                "It looks smart",
+                "It is cheap",
+                "It is warm"
               ],
               "c": 0
             },
             {
-              "prompt": "ما الفائدة الثانية؟",
+              "prompt": "What is the second advantage?",
               "options": [
-                "توفير الوقت",
-                "توفير المال",
-                "الراحة",
-                "النظافة"
+                "It saves time",
+                "It saves money",
+                "It is comfortable",
+                "It is clean"
               ],
               "c": 0
             },
             {
-              "prompt": "ما عيب الزيّ في رأي المتحدّثة؟",
+              "prompt": "What is the disadvantage, according to the female speaker?",
               "options": [
-                "يمنع التعبير عن الشخصية",
-                "غالٍ",
-                "حارّ",
-                "قبيح"
+                "It stops students expressing their personality",
+                "It is expensive",
+                "It is hot",
+                "It is ugly"
               ],
               "c": 0
             },
             {
-              "prompt": "ماذا تقترح؟",
+              "prompt": "What does she suggest?",
               "options": [
-                "يومًا حرًّا في الأسبوع",
-                "إلغاء الزيّ",
-                "زيًّا جديدًا",
-                "ألوانًا مختلفة"
+                "A free day each week without uniform",
+                "Getting rid of uniform",
+                "A new uniform",
+                "Different colours"
               ],
               "c": 0
             }
           ]
         },
         {
-          "n": 9,
-          "type": "short",
-          "q": "مقابلة مع مخترعة إماراتية شابّة. أ) ماذا اخترعت؟ ب) من أين جاءتها الفكرة؟ ج) كم يوفّر الجهاز؟ د) ما نصيحتها للشباب؟ هـ) ما مشروعها القادم؟",
-          "audio": [
-            {
-              "s": "f",
-              "t": "اخترعتُ جهازًا يوفّر الماء في ريّ الحدائق."
-            },
-            {
-              "s": "f",
-              "t": "جاءتني الفكرة من مزرعة جدّي في العين."
-            },
-            {
-              "s": "f",
-              "t": "يوفّر الجهاز نحو أربعين في المئة من الماء."
-            },
-            {
-              "s": "f",
-              "t": "نصيحتي للشباب: لا تستسلموا بعد أوّل فشل."
-            },
-            {
-              "s": "f",
-              "t": "ومشروعي القادم جهاز مثله للمنازل."
-            }
-          ],
-          "max": 5,
-          "pts": [
-            [
-              "الماء",
-              "الري",
-              "جهازا"
-            ],
-            [
-              "مزرعه",
-              "جدي"
-            ],
-            [
-              "اربعين",
-              "40"
-            ],
-            [
-              "لا تستسلموا",
-              "الفشل"
-            ],
-            [
-              "المنازل",
-              "للمنازل"
-            ]
-          ],
-          "model": "جهازًا يوفّر الماء في ريّ الحدائق؛ من مزرعة جدّها؛ نحو 40%؛ لا تستسلموا؛ جهاز للمنازل."
-        },
-        {
           "n": 10,
           "type": "mcq",
-          "q": "تقرير عن السياحة. اختر الإجابة الصحيحة.",
+          "q": "A report about tourism. Choose the correct answer.",
           "audio": [
             {
               "s": "m",
@@ -531,52 +531,52 @@
           ],
           "items": [
             {
-              "prompt": "كيف يتغيّر عدد السيّاح؟",
+              "prompt": "How is the number of tourists changing?",
               "options": [
-                "يزداد",
-                "ينقص",
-                "ثابت",
-                "يتغيّر كل شهر"
+                "It is increasing",
+                "It is decreasing",
+                "It is stable",
+                "It changes every month"
               ],
               "c": 0
             },
             {
-              "prompt": "ما فائدة السياحة؟",
+              "prompt": "What is one benefit of tourism?",
               "options": [
-                "الوظائف",
-                "الهدوء",
-                "رخص الأسعار",
-                "قلة الزحام"
+                "Jobs",
+                "Peace and quiet",
+                "Lower prices",
+                "Less traffic"
               ],
               "c": 0
             },
             {
-              "prompt": "ما المشكلة الأولى؟",
+              "prompt": "What is the first problem?",
               "options": [
-                "الازدحام",
-                "التلوّث",
-                "الضجيج",
-                "البرد"
+                "Crowding",
+                "Pollution",
+                "Noise",
+                "Cold weather"
               ],
               "c": 0
             },
             {
-              "prompt": "ما المشكلة الثانية؟",
+              "prompt": "What is the second problem?",
               "options": [
-                "ارتفاع الأسعار",
-                "قلة الفنادق",
-                "الحرّ",
-                "البطالة"
+                "Higher prices",
+                "Too few hotels",
+                "The heat",
+                "Unemployment"
               ],
               "c": 0
             },
             {
-              "prompt": "ماذا تفعل الحكومة؟",
+              "prompt": "What is the government doing?",
               "options": [
-                "تنظّم المواقع السياحية",
-                "تمنع السيّاح",
-                "تبني مطارًا",
-                "تخفّض الأسعار"
+                "Organising tourist sites",
+                "Stopping tourists",
+                "Building an airport",
+                "Lowering prices"
               ],
               "c": 0
             }
@@ -585,7 +585,7 @@
         {
           "n": 11,
           "type": "short",
-          "q": "مستقبل العمل. أ) ما الذي سيغيّر العمل في المستقبل؟ ب) و ج) اذكر مهارتين يحتاجهما الشباب. د) ما نصيحة المتحدّث؟ هـ) لماذا؟ و) هل هو متفائل؟",
+          "q": "The future of work. (a) What will change many jobs? (b) and (c) Give TWO skills young people need. (d) What does the speaker advise? (e) Why? (f) Is he optimistic?",
           "audio": [
             {
               "s": "m",
@@ -611,27 +611,29 @@
           "max": 6,
           "pts": [
             [
-              "الذكاء الاصطناعي"
+              "artificial intelligence",
+              "ai"
             ],
             [
-              "الابداع"
+              "creativ"
             ],
             [
-              "التواصل"
+              "communicat"
             ],
             [
-              "اللغات"
+              "language"
             ],
             [
-              "الشركات",
-              "اكثر من لغه"
+              "compan",
+              "more than one language",
+              "employers"
             ],
             [
-              "متفائل",
-              "نعم"
+              "yes",
+              "optimistic"
             ]
           ],
-          "model": "الذكاء الاصطناعي؛ الإبداع والتواصل؛ تعلّم اللغات؛ لأنّ الشركات تبحث عمّن يتحدّث أكثر من لغة؛ نعم، متفائل."
+          "model": "(a) Artificial intelligence (b)(c) Creativity and communication (d) Learn languages (e) Companies look for employees who speak more than one language (f) Yes, if we prepare well."
         }
       ]
     }
