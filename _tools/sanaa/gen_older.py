@@ -82,8 +82,13 @@ def pod(sp, y):
 def sources(sp, y):
     c = ('#3F6E5B', '#DCEAE4'); h = sw(sp, y, 'بطاقة المصادر والمفاهيم', c[1], 'للجميع', c[0])
     if sp.get('orig'):
-        pts = ''.join("<div style='margin-bottom:5px'><span style='font-size:8.5pt;color:#8A6A2A'>[%s]</span> %s</div>" % (esc(r), esc(t).replace(' | ', '<br>')) for r, t in sp['orig'])
-        fs = '10.5pt' if sum(len(t) for _, t in sp['orig']) < 2200 else '9.5pt'
+        og, tot, cut = [], 0, False
+        for r, t in sp['orig']:
+            if tot >= 4200: cut = True; break
+            og.append((r, t)); tot += len(t)
+        pts = ''.join("<div style='margin-bottom:5px'><span style='font-size:8.5pt;color:#8A6A2A'>[%s]</span> %s</div>" % (esc(r), esc(t).replace(' | ', '<br>')) for r, t in og)
+        if cut: pts += "<div style='margin-top:6px;font-weight:700'>تتمة النص في كتابك: %s.</div>" % esc(sp['pages'])
+        fs = '10.5pt' if tot < 2200 else ('9.5pt' if tot < 3200 else '9pt')
     else:
         pts = '<br>'.join('• ' + esc(p) for p in sp['points']); fs = '13pt'
     b = f"<div class='k' style='background:#FFF8EA;border-color:#E3C07A'><b>📖 من كتابي {esc(sp['pages'])}</b><div style='font-size:{fs};line-height:1.7;margin-top:4px'>{pts}</div>"
@@ -284,19 +289,21 @@ def parent(sp, y):
     b += "<p style='margin-top:16px;font-size:12.5pt'>شكرًا لتعاونكم في تعليم أبنائنا. — معلم/معلمة المادة</p>"
     return doc('ملاحظة لأولياء الأمور · ' + sp['title'], page(h + b).replace(G['SELF'], ''))
 
-def _orig(sp):
+def _orig(sp, y):
     import re
     try:
-        import orig_c2, orig_c3
-        O = dict(orig_c2.O); O.update(orig_c3.O)
-    except ImportError:
-        try:
-            import orig_c2; O = orig_c2.O
-        except ImportError:
+        if y == 5:
+            import orig_c2; O = orig_c2.O; part = ()
+        elif y == 9:
+            import orig_c3; O = orig_c3.O; part = getattr(orig_c3, 'PARTIAL', ())
+        else:
             return sp
-    o = O.get(sp['stem'])
-    if not o:
+    except ImportError:
         return sp
+    o = O.get(sp['stem'])
+    if not o or sp['stem'] in part:
+        return sp
+    sp = dict(sp)
     sp['orig'] = o
     sents = []
     for r, t in o:
@@ -309,7 +316,7 @@ def _orig(sp):
 
 def run(sp, y, ids):
     code = 'SN-Y%d-%s' % (y, sp['stem']); sp = _shuf(dict(sp)); sp['code'] = code
-    sp = _orig(sp)
+    sp = _orig(sp, y)
     out = ROOT + '/resources/ssd/%s/' % code; os.makedirs(out, exist_ok=True)
     W = lambda f, s: open(out + f, 'w', encoding='utf8').write(noemoji(s))
     W('worksheets-A4.html', worksheets(sp, y)); W('pod-sheet.html', pod(sp, y)); W('sources-concept-card.html', sources(sp, y))
