@@ -413,3 +413,6 @@ body.mjboard .mj .wrap,body.mjboard .mj{max-width:none}
 .mj .hadith.en .mt{font-family:inherit;font-size:16px;line-height:1.7}
 .mj .les{margin:10px 0;padding-inline-start:22px}
 .mj .les li{margin:6px 0;line-height:1.8}
+/* أسماء الله الحسنى */
+.mj .nm-card{margin:10px 0}
+.mj .nm-card .nm{display:inline-block;font-family:"Amiri","ThmanyahDisplay",serif;font-size:30px;color:var(--isl);background:var(--isl-s,#E8F6F4);border-radius:14px;padding:2px 18px;margin-bottom:6px}
