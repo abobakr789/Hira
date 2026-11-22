@@ -2953,6 +2953,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   const rtShuf = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
   function rtFromBtn(b) {
+    if (b.dataset.rt === "tafsir") return tcFromBtn(b);
     const lessonId = b.dataset.rtL || null; let items = [], source = "text", ref = b.dataset.rtRef || ""; const extra = {};
     if (b.dataset.rt === "ev") { items = [{ t: String(b.dataset.rtT || "").replace(/[«»"]/g, "").trim() }]; source = "hadith"; }
     else {
@@ -2967,13 +2968,13 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     }
     items = items.filter((x) => x.t);
     if (!items.length) { toast("لا يوجد نص يُختبر فيه هنا."); return; }
-    rtOpen(Object.assign({ lessonId, source, ref, items }, extra));
+    rtOpen(Object.assign({ lessonId, source, ref, items, en: b.dataset.rtEn === "1" }, extra));
   }
 
   function rtOpen(ctx) {
     const staff = isStaff(), en = LANG === "en", only = !!ctx.gradeOnly;
     const T = (a, e) => (en ? e : a);
-    const d = document.createElement("dialog"); d.className = "dialog rt-dlg"; d.dir = en ? "ltr" : "rtl";
+    const d = document.createElement("dialog"); d.className = "dialog rt-dlg"; d.dir = en ? "ltr" : "rtl"; d.setAttribute("data-no-tilawa", "");
     const q = (s) => d.querySelector(s);
     d.innerHTML = `<div class="rt-top"><b>${staff ? "🎙️ " + T("اختبار التلاوة والحفظ", "Recitation & memorisation test") : "🧠 " + T("اختبر نفسك", "Test yourself")}</b>
       ${ctx.ref ? `<span class="pill">${esc(ctx.ref)}</span>` : ""}<button type="button" class="btn btn-ghost btn-small rt-x" aria-label="${T("إغلاق", "Close")}">✕</button></div>
@@ -3120,6 +3121,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       ["recall", "🗣️ سمّع من ذاكرتك", "تظهر أوائل كل " + (isQ ? "آية" : "جزء") + "، فسمّعها ثم تحقّق", units.length >= 1]];
     box.innerHTML = `${isStudent() ? `<p class="rt-hzl"><a href="#/hifz">📖 سجل حفظي في المقرر</a></p>` : ""}<p class="muted rt-intro">اختر طريقة الاختبار:</p><div class="rt-modes">${modes.filter((m) => m[3]).map((m) => `<button type="button" class="rt-mode" data-m="${m[0]}"><b>${m[1]}</b><small>${m[2]}</small></button>`).join("")}</div><div class="rt-hist"></div>`;
     box.querySelectorAll(".rt-mode").forEach((b) => b.onclick = () => run(b.dataset.m));
+    const ayMap = {}; ctx.items.forEach((x) => { if (x.n) ayMap[x.n] = x.t; });
+    let TQC = [];
+    if (isQ && ctx.surah) tcLoad(ctx.surah).then((L) => { TQC = tcFor(L, ctx.a1 || 1, ctx.a2 || 999).filter((c) => c.status === "approved" || !isStudent());
+      if (!TQC.length || !tcQuestions(TQC, ayMap, ctx.en).length) return; const md = box.querySelector(".rt-modes"); if (!md) return;
+      const b = document.createElement("button"); b.type = "button"; b.className = "rt-mode tc-mode"; b.dataset.m = "tafsir";
+      b.innerHTML = `<b>📘 افهم الآيات</b><small>معاني الكلمات والآيات وما نتعلّمه منها</small>`; b.onclick = () => run("tafsir"); md.appendChild(b); }).catch(() => {});
     const me = state.session && state.session.user.id;
     if (me && isStudent() && ctx.lessonId) sb.from("recitation_tests").select("score, max_score, created_at, term, skill, created_by, note").eq("student_id", me).eq("lesson_id", ctx.lessonId).order("created_at", { ascending: false }).limit(8).then(({ data }) => {
       const h = box.querySelector(".rt-hist"); if (!h || !(data || []).length) return;
@@ -3139,7 +3146,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           const others = rtShuf(units.filter((u, j) => j !== i + 1 && j !== i)).slice(0, 2);
           return { stem: esc(units[i]), ans: units[i + 1], opts: rtShuf([units[i + 1], ...others]) };
         });
-      } else Q = units.map((u) => ({ u }));
+      } else if (mode === "tafsir") Q = tcQuestions(TQC, ayMap, ctx.en);
+      else Q = units.map((u) => ({ u }));
       let k = 0, ok = 0;
       const draw = () => {
         if (k >= Q.length) return finish();
@@ -3155,7 +3163,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           };
           return;
         }
-        box.innerHTML = head + `<div class="${tcls} rt-stem">${x.stem}</div><div class="rt-opts">${x.opts.map((o, i) => `<button type="button" class="rt-opt ${isQ ? "rt-qt" : ""}" data-i="${i}">${esc(o)}</button>`).join("")}</div><div class="rt-acts"></div>`;
+        box.innerHTML = head + `<div class="${x.sq === false ? "rt-t tc-stem" : tcls} rt-stem">${x.stem}</div><div class="rt-opts">${x.opts.map((o, i) => `<button type="button" class="rt-opt ${(x.oq != null ? x.oq : isQ) ? "rt-qt" : ""}" data-i="${i}">${esc(o)}</button>`).join("")}</div><div class="rt-acts"></div>`;
         box.querySelectorAll(".rt-opt").forEach((b) => b.onclick = () => {
           const good = x.opts[+b.dataset.i] === x.ans; if (good) ok++;
           box.querySelectorAll(".rt-opt").forEach((o) => { o.disabled = true; if (x.opts[+o.dataset.i] === x.ans) o.classList.add("ok"); });
@@ -3172,8 +3180,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <div class="rt-acts"><button type="button" class="btn btn-primary" id="rtAgain">أعد الاختبار</button><button type="button" class="btn btn-ghost" id="rtBack">طريقة أخرى</button></div><p class="muted rt-saved"></p></div>`;
         box.querySelector("#rtAgain").onclick = () => run(mode);
         box.querySelector("#rtBack").onclick = () => rtSelf(box, ctx);
-        if (me && isStudent()) sb.from("recitation_tests").insert({ lesson_id: ctx.lessonId, student_id: me, term: rtTermNow(), skill: "hifz", source: ctx.source, ref: ctx.ref || null, surah: ctx.surah || null, ayah_from: ctx.a1 || null, ayah_to: ctx.a2 || null,
-          score: sc10, max_score: 10, note: ({ gap: "الكلمة الناقصة", next: "ما التالي", recall: "تسميع ذاتي" })[mode], is_self: true })
+        if (me && isStudent()) sb.from("recitation_tests").insert({ lesson_id: ctx.lessonId, student_id: me, term: rtTermNow(), skill: mode === "tafsir" ? "tafsir" : "hifz", source: ctx.source, ref: ctx.ref || null, surah: ctx.surah || null, ayah_from: ctx.a1 || null, ayah_to: ctx.a2 || null,
+          score: sc10, max_score: 10, note: ({ gap: "الكلمة الناقصة", next: "ما التالي", recall: "تسميع ذاتي", tafsir: "افهم الآيات" })[mode], is_self: true })
           .then(({ error }) => { const s = box.querySelector(".rt-saved"); if (s) s.textContent = error ? "" : "حُفظت نتيجتك، ويراها معلمك."; });
       };
       draw();
@@ -3370,10 +3378,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const T = tests || [];
     const items = (plan || []).map((p) => {
       const hits = T.filter((t) => t.lesson_id === p.lesson_id || (t.surah === p.surah && (t.ayah_from || 1) <= p.a1 && (t.ayah_to || 999) >= p.a2));
-      const teach = hits.filter((t) => !t.is_self && t.skill === "hifz"), self = hits.filter((t) => t.is_self), last = teach[0];
+      const teach = hits.filter((t) => !t.is_self && t.skill === "hifz"), self = hits.filter((t) => t.is_self && t.skill !== "tafsir").concat(hits.filter((t) => t.is_self && t.skill === "tafsir")), last = teach[0];
       const pct = last ? last.score / last.max_score : null;
       const st = last ? (pct >= 0.8 ? "done" : "rev") : self.length ? "prac" : "none";
-      return Object.assign({}, p, { st, last, selfBest: self.length ? Math.max(...self.map((x) => x.score / x.max_score)) : null, tries: teach.length });
+      const fT = hits.filter((t) => !t.is_self && t.skill === "tafsir")[0], fS = hits.filter((t) => t.is_self && t.skill === "tafsir");
+      const fm = fT ? (fT.score / fT.max_score >= 0.8 ? "done" : "rev") : fS.some((x) => x.score / x.max_score >= 0.8) ? "prac" : fS.length ? "try" : "none";
+      return Object.assign({}, p, { st, fm, last, selfBest: self.filter((x) => x.skill !== "tafsir").length ? Math.max(...self.filter((x) => x.skill !== "tafsir").map((x) => x.score / x.max_score)) : null, tries: teach.length });
     });
     return { name: (pr && pr.full_name_ar) || "", year, track, items };
   }
@@ -3401,7 +3411,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <a class="hz-card" style="--c:${HZ_ST[x.st][1]};--b:${HZ_ST[x.st][2]}" href="#/lesson/${esc(x.code)}">
           <b>${esc(hzLabel(x))}</b><span class="hz-st">${HZ_ST[x.st][0]}</span>
           <small>${x.last ? `آخر تقييم: ${+x.last.score}/${+x.last.max_score} · ${new Date(x.last.created_at).toLocaleDateString("ar-AE")}${x.tries > 1 ? ` · ${x.tries} محاولات` : ""}` : x.selfBest != null ? `أفضل اختبار ذاتي: ${Math.round(x.selfBest * 10)}/10` : own ? "افتح الدرس واختبر نفسك" : "لم يُختبر بعد"}</small>
-          ${x.last && x.last.note ? `<small class="hz-note">${esc(x.last.note)}</small>` : ""}</a>`).join("")}</div>` : ""; }).join("") || `<div class="form-card empty">لا يوجد مقرر حفظ مسجّل لهذا الصف بعد.</div>`}
+          ${x.last && x.last.note ? `<small class="hz-note">${esc(x.last.note)}</small>` : ""}
+          <small class="hz-fm hz-fm-${x.fm}">📘 الفهم: ${({ done: "متقن ✓", rev: "يحتاج مراجعة", prac: "فهم في الاختبار الذاتي", try: "يتدرّب", none: "لم يُختبر" })[x.fm]}</small></a>`).join("")}</div>` : ""; }).join("") || `<div class="form-card empty">لا يوجد مقرر حفظ مسجّل لهذا الصف بعد.</div>`}
       <p class="muted hz-hint">«أتقن الحفظ» عند آخر تقييم للمعلم بنسبة 80% فأكثر في «حفظ وتسميع». الاختبار الذاتي يُظهر «يتدرّب» ولا يكفي وحده للإتقان.</p>
     </div></section>`);
     document.querySelectorAll("[data-cert]").forEach((b) => b.onclick = () => hifzCert(D, b.dataset.cert === "all" ? null : +b.dataset.cert));
@@ -3443,6 +3454,71 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <small class="muted">${new Date(r.created_at).toLocaleDateString("ar-AE")}</small>${r.note ? `<br><small>📝 ${esc(r.note)}</small>` : ""}</li>`; }).join("")}</ul>`
       : `<p class="muted">لم يسجّل المعلم تقييمًا للتلاوة أو الحفظ بعد.</p>`}<a class="btn btn-ghost btn-small" href="#/hifz?student=${sid}">📖 سجل الحفظ في المقرر</a>`;
   }
+
+  /* =================== افهم ما تحفظ: بطاقات معاني الآيات (من التفسير الميسر بتصرّف يسير) =================== */
+  const TCC = {};
+  const tcLoad = (s) => TCC[s] || (TCC[s] = sb.from("tafsir_cards").select("*").eq("surah", s).order("a1").then(({ data }) => data || []));
+  const tcFor = (L, a1, a2) => L.filter((c) => c.a1 <= a2 && c.a2 >= a1);
+  const tcAyText = (ay, c) => { const t = []; for (let n = c.a1; n <= c.a2; n++) if (ay[n]) t.push(ay[n]); return t.join(" ۝ "); };
+  function tcFromBtn(b) {
+    const card = b.closest(".form-card"), mus = card && card.querySelector(".mus"), st = mus && mus._mus;
+    if (!st) { toast("انتظر حتى يظهر نص الآيات ثم حاول مرة أخرى."); return; }
+    const ay = {}; card.querySelectorAll(".mus-ay").forEach((a) => { ay[+a.dataset.a] = (a.querySelector(".mus-t") || a).textContent.trim(); });
+    const ns = Object.keys(ay).map(Number);
+    tcOpen({ s: st.s, a1: Math.min(...ns), a2: Math.max(...ns), ay, en: b.dataset.rtEn === "1" });
+  }
+  async function tcOpen(o) {
+    const en = !!o.en, T = (a, e) => (en ? e : a), staff = isStaff(), sup = isSuper();
+    const d = document.createElement("dialog"); d.className = "dialog rt-dlg tc-dlg"; d.dir = en ? "ltr" : "rtl"; d.setAttribute("data-no-tilawa", "");
+    d.innerHTML = `<div class="rt-top"><b>📘 ${T("افهم الآيات", "Understand the ayat")}</b><span class="pill">${T("سورة ", "Surah ")}${esc(TD_SURAHS[o.s - 1])} (${o.a1}–${o.a2})</span>
+      <button type="button" class="btn btn-ghost btn-small rt-x">✕</button></div><div class="tc-body"><p class="muted">⏳</p></div>`;
+    document.body.appendChild(d); d.querySelector(".rt-x").onclick = () => d.close(); d.addEventListener("close", () => d.remove());
+    d.addEventListener("click", (e) => { if (e.target === d) d.close(); });
+    d.showModal();
+    const draw = async () => {
+      delete TCC[o.s]; const C = tcFor(await tcLoad(o.s), o.a1, o.a2), body = d.querySelector(".tc-body");
+      if (!C.length) { body.innerHTML = `<p class="muted">${staff ? "لم تُكتب بطاقات المعاني لهذه الآيات بعد." : T("ستُضاف معاني هذه الآيات قريبًا بإذن الله.", "The meanings of these ayat will be added soon, in sha Allah.")}</p>`; return; }
+      const rev = C.filter((c) => c.status !== "approved").length;
+      body.innerHTML = (staff && rev ? `<div class="tc-revbar">🟡 ${rev} ${rev > 2 ? "بطاقات" : "بطاقة"} قيد المراجعة، لا يراها الطلاب حتى تُعتمد.${sup ? ` <button type="button" class="btn btn-primary btn-small" data-tcall>✓ اعتماد الكل</button>` : ""}</div>` : "") +
+        C.map((c) => `<article class="tc-card ${c.status !== "approved" ? "tc-rev" : ""}" data-tc="${c.id}">
+          <div class="tc-ay rt-qt">﴿${esc(tcAyText(o.ay, c))}﴾ <span class="tc-n">(${c.a1 === c.a2 ? c.a1 : c.a1 + "–" + c.a2})</span></div>
+          ${(c.words || []).length ? `<div class="tc-ws">${c.words.map((w) => `<span class="tc-w"><b>${esc(w.w)}</b>${esc(en && w.en ? w.en : w.ar)}</span>`).join("")}</div>` : ""}
+          <p class="tc-m"><b>${T("المعنى:", "Meaning:")}</b> ${esc(en && c.meaning_en ? c.meaning_en : c.meaning_ar)}</p>
+          ${c.benefit_ar ? `<p class="tc-b">💡 <b>${T("أتعلّم:", "I learn:")}</b> ${esc(en && c.benefit_en ? c.benefit_en : c.benefit_ar)}</p>` : ""}
+          ${staff ? `<details class="tc-src"><summary>نص «التفسير الميسر» ${c.status !== "approved" ? '<span class="tc-badge">قيد المراجعة</span>' : '<span class="tc-badge ok">معتمد</span>'}</summary><p>${esc(c.src_ar || "")}</p><small class="muted">${esc(c.src_ref || "")}</small>
+            ${sup ? `<div class="tc-ed"><label>المعنى المبسّط<textarea data-f="meaning_ar" rows="2">${esc(c.meaning_ar)}</textarea></label><label>أتعلّم<textarea data-f="benefit_ar" rows="2">${esc(c.benefit_ar || "")}</textarea></label>
+              <label>Meaning (EN)<textarea data-f="meaning_en" rows="2" dir="ltr">${esc(c.meaning_en || "")}</textarea></label><label>I learn (EN)<textarea data-f="benefit_en" rows="2" dir="ltr">${esc(c.benefit_en || "")}</textarea></label>
+              <div class="rt-acts"><button type="button" class="btn btn-primary btn-small" data-tcok>${c.status === "approved" ? "حفظ التعديل" : "✓ حفظ واعتماد"}</button>${c.status === "approved" ? '<button type="button" class="btn btn-ghost btn-small" data-tcback>إرجاع للمراجعة</button>' : ""}</div></div>` : ""}</details>` : ""}
+        </article>`).join("") +
+        `<p class="muted tc-foot">${T("المعاني مبسّطة من «التفسير الميسر» (مجمع الملك فهد لطباعة المصحف الشريف)، ومعاني المفردات من كتاب الطالب.", "Meanings simplified from «At-Tafsir Al-Muyassar» (King Fahd Complex); word meanings from the student book.")}</p>`;
+      const save = async (art, status) => { const row = { status, updated_by: state.session.user.id, updated_at: new Date().toISOString() };
+        art.querySelectorAll("[data-f]").forEach((t) => (row[t.dataset.f] = t.value.trim() || null)); if (!row.meaning_ar) { toast("المعنى المبسّط مطلوب"); return; }
+        const r = await sb.from("tafsir_cards").update(row).eq("id", art.dataset.tc); if (r.error) toast("تعذّر الحفظ: " + r.error.message); else { toast(status === "approved" ? "اعتُمدت البطاقة ✓" : "أُعيدت للمراجعة"); draw(); } };
+      body.querySelectorAll("[data-tcok]").forEach((b) => b.onclick = () => save(b.closest("[data-tc]"), "approved"));
+      body.querySelectorAll("[data-tcback]").forEach((b) => b.onclick = () => save(b.closest("[data-tc]"), "review"));
+      const all = body.querySelector("[data-tcall]");
+      if (all) all.onclick = async () => { if (!confirm(`اعتماد ${rev} بطاقة كما هي؟ ستظهر للطلاب.`)) return;
+        const r = await sb.from("tafsir_cards").update({ status: "approved", updated_by: state.session.user.id, updated_at: new Date().toISOString() }).in("id", C.filter((c) => c.status !== "approved").map((c) => c.id));
+        if (r.error) toast(r.error.message); else { toast("اعتُمدت البطاقات ✓"); draw(); } };
+    };
+    draw();
+  }
+  /* أسئلة الفهم: معنى الكلمة، والآية التي تحمل معنًى، وما نتعلّمه */
+  function tcQuestions(C, ay, en) {
+    const W = []; C.forEach((c) => (c.words || []).forEach((w) => W.push({ w: w.w, m: en && w.en ? w.en : w.ar })));
+    const uniq = (arr) => [...new Set(arr)];
+    const Q = [];
+    W.forEach((x) => { const others = rtShuf(uniq(W.filter((y) => y.m !== x.m).map((y) => y.m))).slice(0, 3); if (others.length >= 2)
+      Q.push({ stem: en ? `What does «${esc(x.w)}» mean?` : `ما معنى «${esc(x.w)}»؟`, ans: x.m, opts: rtShuf([x.m, ...others]), sq: false, oq: false }); });
+    const withAy = C.filter((c) => tcAyText(ay, c));
+    if (withAy.length >= 3) withAy.forEach((c) => { const v = tcAyText(ay, c), others = rtShuf(withAy.filter((z) => z !== c)).slice(0, 2).map((z) => tcAyText(ay, z));
+      Q.push({ stem: (en ? "Which ayah means: " : "أيّ آية معناها: ") + `«${esc(en && c.meaning_en ? c.meaning_en : c.meaning_ar)}»`, ans: v, opts: rtShuf([v, ...others]), sq: false, oq: true }); });
+    const B = withAy.filter((c) => c.benefit_ar);
+    if (B.length >= 3) B.forEach((c) => { const b = en && c.benefit_en ? c.benefit_en : c.benefit_ar, others = rtShuf(uniq(B.filter((z) => z !== c).map((z) => (en && z.benefit_en ? z.benefit_en : z.benefit_ar)).filter((x) => x !== b))).slice(0, 2);
+      Q.push({ stem: (en ? "What do we learn from: " : "ماذا نتعلّم من قوله تعالى: ") + `<span class="rt-qt tc-inl">﴿${esc(tcAyText(ay, c))}﴾</span>`, ans: b, opts: rtShuf([b, ...others]), sq: false, oq: false }); });
+    return rtShuf(Q).slice(0, 10);
+  }
+
   async function pageLesson(code) {
     setNav("grades");
     loading();
@@ -3477,7 +3553,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const view = bookTx ? `<div class="form-card" style="background:#FFF8EC"><h3 style="margin-top:0">${bookTx.kind === "study" ? "📘" : "📖"} ${esc(bookTx.title || (bookTx.kind === "study" ? "نص الدرس" : "نص الكتاب"))}${bookTx.pages ? ` <span class="pill">كتاب الطالب ص ${esc(bookTx.pages)}</span>` : ""}${bookTx.kind === "study" ? ' <span class="pill">من إعداد حراء</span>' : ""}</h3>
         ${((h) => TIL.musHtml(bookTx.body, h, { tr: nn ? "en" : "", en: nnEn }) || h)(`<div dir="rtl" class="bk-read" style="${bookTx.kind === "poem" ? "text-align:center;font-weight:600" : ""}">${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div>`)}
         <div class="btx-acts"><button class="btn btn-ghost btn-small" id="btxPrint">🖨️ طباعة النص للطالب</button>
-          <button class="btn btn-primary btn-small" data-rt="book" data-rt-l="${l.id}" data-rt-ref="${esc(bookTx.title || l.title_ar)}">${isStaff() ? "🎙️ اختبار تلاوة وحفظ" : "🧠 اختبر نفسك"}</button></div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
+          <button class="btn btn-primary btn-small" data-rt="book" data-rt-l="${l.id}" data-rt-en="${nnEn ? 1 : ""}" data-rt-ref="${esc(bookTx.title || l.title_ar)}">${isStaff() ? "🎙️ اختبار تلاوة وحفظ" : "🧠 اختبر نفسك"}</button>
+          ${/^(سورة|Surah)\s/.test(String(bookTx.body || "")) ? `<button class="btn btn-dawn btn-small" data-rt="tafsir" data-rt-en="${nnEn ? 1 : ""}">📘 ${nnEn ? "Understand the ayat" : "افهم الآيات"}</button>` : ""}</div></div>` : `<div class="form-card empty">لم يُضف نص الكتاب لهذا الدرس بعد.</div>`;
       const ed = isSuper() ? `<div class="form-card" style="margin-top:14px"><h3 style="margin-top:0">✏️ إضافة نص الكتاب أو تعديله</h3>
         <div class="field"><label for="btxKind">النوع</label><select id="btxKind"><option value="prose" ${!bookTx || bookTx.kind === "prose" ? "selected" : ""}>نص نثري</option><option value="poem" ${bookTx && bookTx.kind === "poem" ? "selected" : ""}>شعر / نشيد</option></select></div>
         <div class="field"><label for="btxTitle">عنوان النص</label><input id="btxTitle" value="${esc((bookTx && bookTx.title) || "")}"></div>
