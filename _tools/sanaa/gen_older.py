@@ -292,7 +292,7 @@ def parent(sp, y):
 def _orig(sp, y):
     import re
     try:
-        if y == 5:
+        if 5 <= y <= 8:
             import orig_c2; O = orig_c2.O; part = ()
         elif y >= 9:
             import orig_c3; O = orig_c3.O; part = getattr(orig_c3, 'PARTIAL', ())
