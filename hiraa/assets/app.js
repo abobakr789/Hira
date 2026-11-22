@@ -6031,7 +6031,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const showAll = params.get("all") === "1";
     const { data: cs } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cls.id);
     const names = {}; (cs || []).forEach((r) => { names[r.student_id] = r.profiles ? r.profiles.full_name_ar : ""; });
-    let q = sb.from("recitations").select("id, student_id, title, audio_path, duration_sec, status, teacher_note, created_at").in("student_id", Object.keys(names).length ? Object.keys(names) : ["00000000-0000-0000-0000-000000000000"]).order("created_at", { ascending: false }).limit(100);
+    let q = sb.from("recitations").select("id, student_id, lesson_id, title, audio_path, duration_sec, status, teacher_note, created_at").in("student_id", Object.keys(names).length ? Object.keys(names) : ["00000000-0000-0000-0000-000000000000"]).order("created_at", { ascending: false }).limit(100);
     if (!showAll) q = q.eq("status", "submitted");
     const { data: recs } = await q;
     const ST = { submitted: ["بانتظار التقييم", "developing"], mastered: ["أتقن", "mastered"], redo: ["يحتاج إعادة", "needs_support"] };
@@ -6047,7 +6047,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <p>${esc(r.title)}${r.duration_sec ? ` · ${Math.floor(r.duration_sec / 60)}:${String(r.duration_sec % 60).padStart(2, "0")}` : ""}</p>
           <button class="btn btn-ghost btn-small" data-listen="${esc(r.audio_path)}">استمع</button>
           <div class="rec-eval"><input class="rec-note" placeholder="ملاحظة للطالب (اختياري)" value="${esc(r.teacher_note || "")}">
-            <button class="btn btn-primary btn-small" data-eval="mastered">أتقن</button><button class="btn btn-ghost btn-small" data-eval="redo">يحتاج إعادة</button></div></div>`).join("")
+            <button class="btn btn-primary btn-small" data-eval="mastered">أتقن</button><button class="btn btn-ghost btn-small" data-eval="redo">يحتاج إعادة</button>
+            <button class="btn btn-dawn btn-small" data-grade="${r.id}">🎙️ ضع درجة</button></div></div>`).join("")
           : `<div class="empty"><strong>${showAll ? "لا توجد تسميعات بعد" : "لا توجد تسميعات بانتظار التقييم"}</strong>يسجّل الطلاب تسميعهم من تبويب «التسميع» في صفحة الدرس.</div>`}
       </div></section>`);
     main.querySelectorAll("[data-listen]").forEach((b) => b.addEventListener("click", async () => {
@@ -6061,6 +6062,21 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (error) { toast("تعذّر الحفظ: " + error.message); return; }
       toast(b.dataset.eval === "mastered" ? "قُيّم: أتقن" : "قُيّم: يحتاج إعادة");
       if (!showAll) box.remove(); else pageRecitations(params);
+    }));
+    /* «ضع درجة»: نافذة اختبار التلاوة نفسها، فتُحفظ الدرجة في كشف التسميع ويُقيَّم التسجيل معًا */
+    main.querySelectorAll("[data-grade]").forEach((b) => b.addEventListener("click", () => {
+      const r = (recs || []).find((x) => x.id === b.dataset.grade); if (!r) return;
+      const box = b.closest("[data-rec]"), t = String(r.title || "");
+      const nz = (x) => rtPlain(x).replace(/[أإآٱ]/g, "ا").replace(/ة/g, "ه").replace(/ى/g, "ي"), tn = nz(t);
+      let sur = 0; TD_SURAHS.forEach((n, i) => { const m = nz(n); if (m.length > 2 && tn.includes(m) && (!sur || m.length > nz(TD_SURAHS[sur - 1]).length)) sur = i + 1; });
+      rtOpen({ gradeOnly: true, askRef: true, closeOnSave: true, source: /حديث/.test(t) ? "hadith" : "quran", ref: t, items: [], lessonId: r.lesson_id || null, recitationId: r.id,
+        surah: sur || null, a1: sur ? 1 : null, a2: sur ? TD_AYAHS[sur - 1] : null,
+        preset: { classId: cls.id, className: cls.name, studentId: r.student_id, skill: "tilawa" },
+        onSaved: async (row) => {
+          const good = row.score / row.max_score >= 0.8, note = [box.querySelector(".rec-note").value.trim(), row.note].filter(Boolean).join(" — ") || null;
+          await sb.from("recitations").update({ status: good ? "mastered" : "redo", teacher_note: note, reviewed_by: me, reviewed_at: new Date().toISOString() }).eq("id", r.id);
+          if (!showAll) box.remove(); else pageRecitations(params);
+        } });
     }));
   }
 
