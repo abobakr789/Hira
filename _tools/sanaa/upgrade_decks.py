@@ -72,7 +72,7 @@ def add_answers(sec):
     return sec, True
 
 def stagger(sec):
-    if ' rs' in sec or 'class="stag' in sec or ' stag' in sec.split('>', 1)[0]:
+    if 'class="rs' in sec or 'class="stag' in sec or ' rs' in sec:
         return sec, False
     # direct-child absolute blocks (depth-aware scan)
     head_end = sec.find('>') + 1
