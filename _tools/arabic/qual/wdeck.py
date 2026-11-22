@@ -1,5 +1,5 @@
 # A Level works deck (Paper 2 Sections B/C): modelling-first analytical essay skills.
-# Facts: 9AA0 specification; June 2024/2025 Paper 2 mark schemes (questions + indicative content) and examiner reports.
+# Facts: ⁦9AA0⁩ specification; June 2024/2025 Paper 2 mark schemes (questions + indicative content) and examiner reports.
 import sys, os; sys.path.insert(0, os.path.dirname(__file__))
 from qlib import *
 COLS4 = [BLUE, GREEN, ORANGE, PURPLE]
@@ -13,10 +13,10 @@ def build(C):
     D = Deck(C["code"], C["foot"]); film = C["kind"] == "فيلم"
     sec = "الورقة 2 · القسم ج: الأفلام" if film else "الورقة 2 · القسم ب: الأعمال الأدبية"
     # 1 cover
-    s = D.new("🎓 A Level العربية · 9AA0", "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
+    s = D.new("🎓 A Level العربية · ⁦9AA0⁩", "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
     s["els"] += [T(f"{sec} · {C['kind']} «{C['work']}» · {C['author']} ({C['year']})", 330, 92, 911, 50, 21, ORANGE, True),
       T(C["title"], 330, 150, 911, 130, 40 if len(C["title"]) < 44 else 34, DK, True),
-      T(f"{C.get('yr', 'السنة الأولى')} · مواصفات Pearson Edexcel ‏9AA0", 330, 286, 911, 44, 22, TE, False),
+      T(f"{C.get('yr', 'السنة الأولى')} · مواصفات Pearson Edexcel ⁦9AA0⁩", 330, 286, 911, 44, 22, TE, False),
       PIC("art/" + C.get("pic", "girlbook.webp"), 48, 96, 260, 260),
       R(L, 400, W, 220, CARD, TE, lw=2), T("🎯 هدف الحصة: " + C["goal"], 60, 412, 1160, 196, 26, DK, False, va="top")]
     s["n"] = C.get("srcNote", "")
@@ -91,7 +91,7 @@ def build(C):
                      T("أعلى مستوى: " + b, x, 294, w, 240, 20, DK, False, fill="FFFFFF", rad=True, va="top", rv=2)]
     s["els"].append(T("🔗 " + C["gridLink"], L, 552, W, 92, 22, "FFFFFF", True, "center", TE, True, rv=3))
     # 16 examiner report
-    s = D.new("⚠️ من تقارير الممتحنين", "الورقة 2: صيف 2024 و2025", 4, "من تقريري الممتحنين للورقة 2 (9AA0). " + C.get("exNote", ""))
+    s = D.new("⚠️ من تقارير الممتحنين", "الورقة 2: صيف 2024 و2025", 4, "من تقريري الممتحنين للورقة 2 (⁦9AA0⁩). " + C.get("exNote", ""))
     c = cols(2)
     for k in range(2): card(s, c[k][0], 150, c[k][1], 420, EXR2[k][0], EXR2[k][1], EXR2[k][2], 20, rv=k + 1, hsize=24)
     s["els"].append(T("🎯 " + C["exLink"], L, 586, W, 64, 21, "FFFFFF", True, "center", PURPLE, True, rv=3))

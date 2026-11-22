@@ -13,10 +13,10 @@ def build(C):
     reg = _reg(); code = C["code"]
     D = Deck(code, C["foot"])
     # 1 cover
-    s = D.new("🎓 A Level العربية · 9AA0", "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
+    s = D.new("🎓 A Level العربية · ⁦9AA0⁩", "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
     s["els"] += [T(f"{C['theme']} · المحور الفرعي: {C['sub']}", 330, 92, 911, 50, 22, ORANGE, True),
       T(C["title"], 330, 150, 911, 130, 44 if len(C["title"]) < 48 else 38, DK, True),
-      T(f"{C.get('year', 'السنة الأولى')} · مواصفات Pearson Edexcel ‏9AA0", 330, 286, 911, 44, 22, TE, False),
+      T(f"{C.get('year', 'السنة الأولى')} · مواصفات Pearson Edexcel ⁦9AA0⁩", 330, 286, 911, 44, 22, TE, False),
       PIC("art/" + C.get("pic", "teacher.webp"), 48, 96, 260, 260),
       R(L, 400, W, 220, CARD, TE, lw=2), T("🎯 هدف الحصة: " + C["goal"], 60, 412, 1160, 196, 26, DK, False, va="top")]
     s["n"] = f"لا يوجد كتاب مدرسي مقرّر لـA Level؛ النص في هذا العرض من إعداد حراء على نمط نصوص الامتحان. موقع الدرس في المواصفات: {C['sub']}."
@@ -128,7 +128,7 @@ def build(C):
     s["els"].append(T("📏 معيار التصحيح:\n" + "\n".join("• " + m for m in X["ms"]), L, 260, W, 200, 20, DK, False, fill="FEF3C7", rad=True, va="top", rv=1))
     s["els"].append(T("✅ " + X["model"], L, 472, W, 170, 21, "FFFFFF", True, X.get("align", "right"), GREEN, True, va="top", rv=2))
     # 21 mistakes
-    s = D.new("⚠️ أخطاء يذكرها الممتحنون", "من تقارير Pearson للورقة 1", 3, "من تقرير الممتحنين للورقة 1 (9AA0). اربط كل خطأ بما تدرّبنا عليه اليوم.")
+    s = D.new("⚠️ أخطاء يذكرها الممتحنون", "من تقارير Pearson للورقة 1", 3, "من تقرير الممتحنين للورقة 1 (⁦9AA0⁩). اربط كل خطأ بما تدرّبنا عليه اليوم.")
     for i, (h, b, col) in enumerate(MIST_AL):
         x, w = cols(2)[i % 2]; card(s, x, 160 + (i // 2) * 240, w, 220, h, b, col, 23, rv=i + 1, hsize=27)
     # 22 UAE

@@ -1,14 +1,14 @@
 # A Level revision decks (Y12 T3): full-paper practice and answer analysis.
-# Facts: 9AA0 specification; June 2025 question papers (P1, P3), mark schemes and examiner reports (P1, P2, P3), 2024 P2 report.
+# Facts: ⁦9AA0⁩ specification; June 2025 question papers (P1, P3), mark schemes and examiner reports (P1, P2, P3), 2024 P2 report.
 import sys, os; sys.path.insert(0, os.path.dirname(__file__))
 from qlib import *
 COLS = [BLUE, GREEN, ORANGE, PURPLE, TE]
 
 def build(C):
     D = Deck(C["code"], C["foot"])
-    s = D.new("🎓 A Level العربية · 9AA0", "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
+    s = D.new("🎓 A Level العربية · ⁦9AA0⁩", "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
     s["els"] += [T("المراجعة النهائية · السنة الثانية", 330, 92, 911, 50, 22, ORANGE, True), T(C["title"], 330, 150, 911, 130, 38, DK, True),
-                 T("مواصفات Pearson Edexcel ‏9AA0 · أوراق صيف 2025", 330, 286, 911, 44, 22, TE, False), PIC("art/" + C.get("pic", "check.webp"), 48, 96, 260, 260),
+                 T("مواصفات Pearson Edexcel ⁦9AA0⁩ · أوراق صيف 2025", 330, 286, 911, 44, 22, TE, False), PIC("art/" + C.get("pic", "check.webp"), 48, 96, 260, 260),
                  R(L, 400, W, 220, CARD, TE, lw=2), T("🎯 هدف الحصة: " + C["goal"], 60, 412, 1160, 196, 26, DK, False, va="top")]
     s["n"] = C["src"]
     # map

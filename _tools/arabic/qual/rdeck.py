@@ -1,5 +1,5 @@
 # A Level independent-research skills deck (Paper 1 Section C): modelling-first.
-# Facts from the 9AA0 specification, the June 2025 Paper 1 question paper, mark scheme and examiner report.
+# Facts from the ⁦9AA0⁩ specification, the June 2025 Paper 1 question paper, mark scheme and examiner report.
 import sys, os; sys.path.insert(0, os.path.dirname(__file__))
 from qlib import *
 COLS4 = [BLUE, GREEN, ORANGE, PURPLE]
@@ -13,10 +13,10 @@ EXR = [("✅ ما فعلته الإجابات القوية", "• دمجت مع�
 def build(C):
     D = Deck(C["code"], C["foot"])
     # 1 cover
-    s = D.new("🎓 A Level العربية · 9AA0", "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
+    s = D.new("🎓 A Level العربية · ⁦9AA0⁩", "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
     s["els"] += [T("البحث المستقل · الورقة 1 · القسم ج", 330, 92, 911, 50, 22, ORANGE, True),
       T(C["title"], 330, 150, 911, 130, 40, DK, True),
-      T("السنة الأولى · مواصفات Pearson Edexcel ‏9AA0", 330, 286, 911, 44, 22, TE, False),
+      T("السنة الأولى · مواصفات Pearson Edexcel ⁦9AA0⁩", 330, 286, 911, 44, 22, TE, False),
       PIC("art/" + C.get("pic", "lensboy.webp"), 48, 96, 260, 260),
       R(L, 400, W, 220, CARD, TE, lw=2), T("🎯 هدف الحصة: " + C["goal"], 60, 412, 1160, 196, 26, DK, False, va="top")]
     s["n"] = "درس مهارات. المواصفات: البحث مستقل؛ يوجّه المعلم توجيهًا عامًّا، ولا يعلّم محتوى البحث ولا يقدّم المصادر. الأمثلة في العرض للتدريب على المهارة فقط."
@@ -87,7 +87,7 @@ def build(C):
                      T("أعلى مستوى: " + b, x, 294, w, 230, 20, DK, False, fill="FFFFFF", rad=True, va="top", rv=2)]
     s["els"].append(T("🔗 " + C["gridLink"], L, 540, W, 100, 22, "FFFFFF", True, "center", TE, True, rv=3))
     # 15 examiner report
-    s = D.new("⚠️ من تقرير الممتحنين", "القسم ج في امتحان صيف 2025", 4, "من تقرير الممتحنين للورقة 1 (9AA0، 2025). اسأل: أيّ نقطة تعالجها مهارة اليوم؟")
+    s = D.new("⚠️ من تقرير الممتحنين", "القسم ج في امتحان صيف 2025", 4, "من تقرير الممتحنين للورقة 1 (⁦9AA0⁩، 2025). اسأل: أيّ نقطة تعالجها مهارة اليوم؟")
     c = cols(2)
     for k in range(2): card(s, c[k][0], 150, c[k][1], 400, EXR[k][0], EXR[k][1], EXR[k][2], 21, rv=k + 1, hsize=25)
     s["els"].append(T("🎯 مهارة اليوم تعالج: " + C["exLink"], L, 570, W, 76, 22, "FFFFFF", True, "center", PURPLE, True, rv=3))
