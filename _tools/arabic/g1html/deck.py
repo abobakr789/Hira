@@ -44,7 +44,7 @@ def rq(c):
     if b in FILL or not b.strip(): return a
     if bare(a).startswith("سؤال من"): return b
     return (a+" "+b).strip()
-LAT=re.compile(r"\(?[A-Za-z](?:[A-Za-z0-9 ,'’/&\-\.:;]*[A-Za-z0-9])?[\?!\.]*\)?")
+LAT=re.compile(r"\(?[0-9]*[A-Za-z](?:[A-Za-z0-9 ,'’/&\-\.:;]*[A-Za-z0-9])?[\?!\.]*\)?")
 def bidify(html):
     out=[]; svg=0
     for part in re.split(r"(<[^>]+>)",html):
