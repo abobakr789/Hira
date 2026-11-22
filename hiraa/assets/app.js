@@ -3361,6 +3361,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (clsId) { const { data } = await sb.from("classes").select("year_group, track").eq("id", clsId).maybeSingle(); if (data) { year = data.year_group; track = data.track; } }
     if (!year) { const { data } = await sb.from("class_students").select("classes(year_group, track, subject_id)").eq("student_id", sid);
       const c = (data || []).map((r) => r.classes).filter(Boolean).find((c) => c.subject_id === 1) || (data || []).map((r) => r.classes).find(Boolean); if (c) { year = c.year_group; track = c.track; } }
+    if (!year) { const { data: pf } = await sb.from("profiles").select("year_group, track").eq("id", sid).maybeSingle(); if (pf && pf.year_group) { year = pf.year_group; track = pf.track || "native"; } }
     if (!year && state.session && sid === state.session.user.id) { year = (state.myGrades || [])[0] || null; track = state.myTrack || "native"; }
     const [{ data: pr }, { data: plan }, { data: tests }] = await Promise.all([
       sb.from("profiles").select("full_name_ar").eq("id", sid).maybeSingle(),
@@ -3433,6 +3434,15 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     setTimeout(go, 3000); try { w.document.fonts.ready.then(go); } catch (e) {}
   }
 
+  /* بطاقة ولي الأمر: آخر تقييمات التلاوة والحفظ وملاحظات المعلم */
+  async function rtKidBox(el, sid) {
+    const { data } = await sb.from("recitation_tests").select("skill, ref, score, max_score, note, created_at").eq("student_id", sid).eq("is_self", false).order("created_at", { ascending: false }).limit(4);
+    const L = data || [];
+    el.innerHTML = `<h3>🎙️ التلاوة والحفظ</h3>${L.length ? `<ul class="kid-list kid-rt">${L.map((r) => { const pct = r.score / r.max_score;
+      return `<li><b class="kid-rt-s" style="--c:${pct >= 0.8 ? "#0F7A55" : pct >= 0.6 ? "#A8741F" : "#C0392B"}">${+r.score}/${+r.max_score}</b> ${RT_SK[r.skill][0]}${r.ref ? " · " + esc(r.ref) : ""}
+        <small class="muted">${new Date(r.created_at).toLocaleDateString("ar-AE")}</small>${r.note ? `<br><small>📝 ${esc(r.note)}</small>` : ""}</li>`; }).join("")}</ul>`
+      : `<p class="muted">لم يسجّل المعلم تقييمًا للتلاوة أو الحفظ بعد.</p>`}<a class="btn btn-ghost btn-small" href="#/hifz?student=${sid}">📖 سجل الحفظ في المقرر</a>`;
+  }
   async function pageLesson(code) {
     setNav("grades");
     loading();
@@ -5923,6 +5933,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <div class="kid-week" data-kid-week="${k.id}" data-kname="${esc(k.full_name_ar)}"></div>
           <div class="kid-read" data-kid-read="${k.id}" data-kg="${k.year_group}" data-ktr="${k.track}" data-kname="${esc(k.full_name_ar)}"></div>
           <div class="kid-hw" data-kid-hw="${k.id}"></div>
+          <div class="kid-rec" data-kid-rec="${k.id}"></div>
           <h3>${en ? "Lessons opened this week" : "دروس فتحها هذا الأسبوع"} (${kViews.length})</h3>
           ${kViews.length ? `<ul class="kid-list">${kViews.slice(0, 8).map((v) => `<li><a href="#/lesson/${esc(v.lessons.code)}">${esc(en && v.lessons.title_en ? v.lessons.title_en : v.lessons.title_ar)}</a></li>`).join("")}</ul>` : `<p class="muted">${en ? "No lessons opened this week." : "لم يفتح دروسًا هذا الأسبوع."}</p>`}
           <h3>${en ? "Test results" : "نتائج الاختبارات"}</h3>
@@ -5931,6 +5942,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         </div>`; }).join("")}
       </div></section>`);
     main.querySelectorAll("[data-kid-read]").forEach((b) => mdrKidRead(b, b.dataset.kidRead, b.dataset.kname, +b.dataset.kg, b.dataset.ktr));
+    main.querySelectorAll("[data-kid-rec]").forEach((b) => rtKidBox(b, b.dataset.kidRec));
     // weekly summary: four numbers, one thing to help with, and a WhatsApp share
     for (const box of [...main.querySelectorAll("[data-kid-week]")]) {
       const kid = box.dataset.kidWeek, name = box.dataset.kname;

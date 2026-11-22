@@ -2898,3 +2898,4 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .hz-card{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:14px;background:var(--b);border:1px solid color-mix(in srgb,var(--c) 35%,transparent);border-inline-start:6px solid var(--c);color:#14243F;text-decoration:none}
 .hz-card:hover{filter:brightness(.98);box-shadow:0 4px 14px rgba(16,42,76,.1)}.hz-card b{font-size:1.05rem}.hz-st{color:var(--c);font-weight:700;font-size:.9rem}
 .hz-card small{color:#556;font-size:.8rem}.hz-note{font-style:italic}.hz-hint{margin-top:14px;font-size:.85rem}
+.kid-rt li{margin:.35em 0}.kid-rt-s{display:inline-block;min-width:3.2em;text-align:center;color:#fff;background:var(--c);border-radius:8px;padding:0 .4em;margin-inline-end:4px}
