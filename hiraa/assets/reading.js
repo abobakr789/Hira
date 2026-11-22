@@ -399,9 +399,9 @@
         // القراءة النموذجية: تظليل تقريبي يتبع تقدّم الصوت بحسب أطوال الكلمات ووقفات الترقيم
         const ab = box.querySelector("#audB");
         if (ab && audName) { const au = new Audio(mdrAudUrl(audName)); au.preload = "metadata"; const ws = [...box.querySelectorAll(".mdr-text .mdr-w")]; const tot = WW.reduce((a, b) => a + b, 0); const cum = []; WW.reduce((a, b, i) => (cum[i] = a + b), 0);
-          let cur = -1; const lit = (i) => { if (i === cur) return; if (cur >= 0 && ws[cur]) ws[cur].classList.remove("lit"); cur = i; if (ws[i]) { ws[i].classList.add("lit"); ws.slice(0, i).forEach((w) => w.classList.add("past")); } };
+          let cur = -1; const lit = (i) => { if (i === cur) return; if (i < 0) { ws.forEach((w) => w.classList.remove("lit", "past")); cur = -1; return; } if (cur >= 0 && ws[cur]) ws[cur].classList.remove("lit"); cur = i; if (ws[i]) { ws[i].classList.add("lit"); ws.slice(0, i).forEach((w) => w.classList.add("past")); } };
           const WT = TIM ? mdrWordTimes(TIM, WW) : null;
-          au.ontimeupdate = () => { if (!au.duration) return; if (WT) { const t = au.currentTime; let i = 0; while (i < WT.length - 1 && WT[i + 1] <= t) i++; lit(i); return; } const x = au.currentTime / au.duration * tot; let i = cum.findIndex((c) => c >= x); lit(i < 0 ? ws.length - 1 : i); };
+          au.ontimeupdate = () => { if (!au.duration) return; if (WT) { const t = au.currentTime; if (t < WT[0] - 0.05) { lit(-1); return; } let i = 0; while (i < WT.length - 1 && WT[i + 1] <= t) i++; lit(i); return; } const x = au.currentTime / au.duration * tot; let i = cum.findIndex((c) => c >= x); lit(i < 0 ? ws.length - 1 : i); };
           au.onplay = () => { ab.textContent = "⏸ أَوْقِفْ"; box.querySelector("#audR").hidden = false; }; au.onpause = () => { ab.textContent = "▶️ أَكْمِلْ"; };
           au.onended = () => { ab.textContent = "▶️ اسْتَمِعْ مَرَّةً أُخْرى"; ws.forEach((w) => w.classList.remove("lit", "past")); cur = -1; };
           au.onerror = () => { ab.disabled = true; ab.textContent = "⚠️ تَعَذَّرَ تَشْغيلُ الصَّوْتِ"; };
