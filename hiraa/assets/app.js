@@ -3249,7 +3249,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const LS_STEPS = [["learn", "أتعلّم", "Learn"], ["practice", "أتدرّب", "Practise"], ["check", "أتحقّق", "Check"], ["staff", "للمعلم وولي الأمر", "Teacher & parent"]];
     const LS_GROUP = { exam: "learn", slides: "learn", booktext: "learn", madarij: "learn", video: "learn", evidence: "learn", res: "learn", identity: "learn", outcomes: "learn",
       cards: "practice", reader: "practice", games: "practice", work: "practice", group: "practice",
-      prog: "check", quiz: "check", recite: "check", weekly: "staff", parent: "staff" };
+      prog: "check", quiz: "check", recite: "check", weekly: "staff", parent: "staff", clsprog: "staff" };
     const TABS = [
       ...(ewsOn ? [["exam", "🎯 ورشة الامتحان", lockedForMe && !isStaff() ? lockedMsg : `<div id="ewsBox"></div>`]] : []),
       ["slides", nnEn ? "Slides" : "الشرائح", relBox + slidesPanel()],
@@ -3260,6 +3260,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       ...(isStaff() && summary && !lockedForMe ? [["weekly", CT("الخطة الأسبوعية", "Weekly plan"), `<div class="papers-box"><h3>📅 ${CT("الخطة الأسبوعية", "Weekly plan")}</h3>
         <p class="muted">${CT("تُبنى تلقائيًّا من الدرس: ما تمّ الانتهاء منه، ودرس الأسبوع، والهدف، ومعايير النجاح، والهوية الوطنية، وHPL، والحصة القادمة، والمطلوب من الطالب. عدّلها بالكتابة عليها، واحفظ نسختك، ثم اطبعها أو أرسلها لأولياء الأمور.", "Built from the lesson: what was completed, this week's lesson, objective, success criteria, national identity, HPL, next lesson and student tasks. Edit it, save your copy, then print or send it to parents.")}</p>
         <button class="btn btn-primary pp-open" data-kind="wp">📅 ${CT("فتح الخطة الأسبوعية وتعديلها", "Open and edit the weekly plan")}</button></div>`]] : []),
+      ...(isStaff() && !lockedForMe ? [["clsprog", CT("تقدّم الصف", "Class progress"), `<div id="clsProgBox"></div>`]] : []),
       ...(NEWAR ? [
         ["work", nnEn ? "Worksheets" : "أوراق العمل", resList(["worksheet"], "لم تُضف أوراق عمل لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
         ["group", nnEn ? "Group work" : "العمل الجماعي", resList(["group_pack"], "لم تُضف مهام المجموعات لهذا الدرس بعد", "مواد المعلم", "مواد الطالب")],
@@ -3324,6 +3325,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     };
     const wire = (k) => {
       if (k === "quiz") { const eb = document.getElementById("editTicket"); if (eb) eb.onclick = () => ticketEditor(l, u, ticket); }
+      if (k === "clsprog") { const cb = document.getElementById("clsProgBox"); if (cb) classStepsBoard(cb, l, u, LS_GROUP, TABS.map((t) => t[0])); }
       if (k === "recite" && isStudent() && !lockedForMe) recorder(l, nn);
       if (k === "games" && !lockedForMe) arcadeRun(l, gameItems, summary, reader, nnEn);
       if (k === "cards" && !lockedForMe) fcRun(l, fcCards, nnEn);
@@ -11119,6 +11121,36 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       const { error } = await sb.from("class_releases").upsert({ class_id: cid, lesson_id: l.id, slides: !!cur.slides, work: !!cur.work, grp: !!cur.grp, updated_at: new Date().toISOString() });
       if (error) { toast(error.message); x.checked = !x.checked; return; } toast(x.checked ? CT("فُتحت الشرائح للفصل ✓", "Slides opened for the class ✓") : CT("أُغلقت الشرائح عن الفصل", "Slides locked for the class"));
     });
+  }
+
+  /* ===== teacher: which students of a class went through the lesson's steps (أتعلّم / أتدرّب / أتحقّق) ===== */
+  async function classStepsBoard(box, l, u, G, keys) {
+    if (!box || box.dataset.done) return; box.dataset.done = 1;
+    box.innerHTML = `<p class="muted">${CT("جارٍ التحميل…", "Loading…")}</p>`;
+    const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+    let cls = (tc || []).map((x) => x.classes).filter((c) => c && c.year_group === u.year_group && c.track === u.track && c.subject_id === u.subject_id);
+    if (!cls.length && (isSchoolAdmin() || isSuper())) { const { data } = await sb.from("classes").select("id, name, year_group, track, subject_id").eq("year_group", u.year_group).eq("track", u.track).eq("subject_id", u.subject_id).limit(20); cls = data || []; }
+    if (!cls.length) { box.innerHTML = `<div class="empty">${CT("لا يوجد فصل لك في هذه المادة والصف.", "You have no class for this subject and year.")}</div>`; return; }
+    const steps = [["learn", CT("أتعلّم", "Learn")], ["practice", CT("أتدرّب", "Practise")], ["check", CT("أتحقّق", "Check")]];
+    const tot = {}; steps.forEach(([g]) => { tot[g] = keys.filter((k) => G[k] === g).length; });
+    const draw = async (cid) => {
+      const out = box.querySelector("#clsOut"); out.innerHTML = `<p class="muted">${CT("جارٍ التحميل…", "Loading…")}</p>`;
+      const { data, error } = await sb.rpc("class_lesson_steps", { p_class: cid, p_lesson: l.id });
+      if (error) { out.innerHTML = `<div class="empty">${esc(error.message)}</div>`; return; }
+      const rows = (data || []).map((s) => { const seen = s.tabs || [], n = {}; steps.forEach(([g]) => { n[g] = seen.filter((k) => G[k] === g && keys.includes(k)).length; });
+        return { s, n, any: seen.length > 0 || s.views > 0, all: steps.every(([g]) => !tot[g] || n[g] === tot[g]) }; });
+      if (!rows.length) { out.innerHTML = `<div class="empty">${CT("لا طلاب في هذا الفصل بعد.", "No students in this class yet.")}</div>`; return; }
+      const started = rows.filter((r) => r.any).length, done = rows.filter((r) => r.any && r.all).length;
+      const cell = (r, g) => !tot[g] ? "<td>—</td>" : `<td>${r.n[g] === tot[g] ? "✓" : r.n[g] ? `${r.n[g]}/${tot[g]}` : "·"}</td>`;
+      out.innerHTML = `<p><b>${started}</b> ${CT("من", "of")} <b>${rows.length}</b> ${CT("فتحوا الدرس", "opened the lesson")} · <b>${done}</b> ${CT("أنهوا كل الخطوات", "finished every step")}</p>
+        <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>${CT("الطالب", "Student")}</th>${steps.map(([, t]) => `<th>${t}</th>`).join("")}<th>${CT("آخر زيارة", "Last visit")}</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${esc(r.s.name || "")}</td>${steps.map(([g]) => cell(r, g)).join("")}<td>${r.s.seen_at ? new Date(r.s.seen_at).toLocaleDateString(LANG === "en" ? "en-GB" : "ar-AE") : "—"}</td></tr>`).join("")}</tbody></table></div>
+        <small class="muted">${CT("✓ = فتح كل تبويبات الخطوة، والأرقام = ما فتحه من تبويباتها. يُحسب ما يفتحه الطلاب بحساباتهم المسجَّلة ابتداءً من إطلاق هذه الميزة، فلا تظهر زيارات سابقة.", "✓ = opened every tab in the step; numbers = tabs opened. Counted from signed-in student accounts since this feature launched, so earlier visits don't appear.")}</small>`;
+    };
+    box.innerHTML = `<div class="papers-box"><h3>📊 ${CT("تقدّم الصف في هذا الدرس", "Class progress in this lesson")}</h3>
+      ${cls.length > 1 ? `<select id="clsSel" class="input">${cls.map((c) => `<option value="${c.id}">${esc(c.name)}</option>`).join("")}</select>` : `<p class="muted">${esc(cls[0].name)}</p>`}
+      <div id="clsOut"></div></div>`;
+    const sel = box.querySelector("#clsSel"); if (sel) sel.onchange = () => draw(sel.value);
+    draw(cls[0].id);
   }
 
   async function appendBooks() {
