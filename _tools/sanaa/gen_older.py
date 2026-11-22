@@ -294,7 +294,7 @@ def _orig(sp, y):
     try:
         if y == 5:
             import orig_c2; O = orig_c2.O; part = ()
-        elif y == 9:
+        elif y >= 9:
             import orig_c3; O = orig_c3.O; part = getattr(orig_c3, 'PARTIAL', ())
         else:
             return sp
