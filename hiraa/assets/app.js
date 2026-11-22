@@ -3118,7 +3118,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const modes = [["gap", "🧩 الكلمة الناقصة", "اختر الكلمة المحذوفة من النص", words.length >= 4],
       ["next", isQ ? "➡️ ما الآية التالية؟" : "➡️ ما التالي؟", isQ ? "اختر الآية التي تلي الآية المعروضة" : "اختر الجزء الذي يلي الجزء المعروض", units.length >= 3],
       ["recall", "🗣️ سمّع من ذاكرتك", "تظهر أوائل كل " + (isQ ? "آية" : "جزء") + "، فسمّعها ثم تحقّق", units.length >= 1]];
-    box.innerHTML = `<p class="muted rt-intro">اختر طريقة الاختبار:</p><div class="rt-modes">${modes.filter((m) => m[3]).map((m) => `<button type="button" class="rt-mode" data-m="${m[0]}"><b>${m[1]}</b><small>${m[2]}</small></button>`).join("")}</div><div class="rt-hist"></div>`;
+    box.innerHTML = `${isStudent() ? `<p class="rt-hzl"><a href="#/hifz">📖 سجل حفظي في المقرر</a></p>` : ""}<p class="muted rt-intro">اختر طريقة الاختبار:</p><div class="rt-modes">${modes.filter((m) => m[3]).map((m) => `<button type="button" class="rt-mode" data-m="${m[0]}"><b>${m[1]}</b><small>${m[2]}</small></button>`).join("")}</div><div class="rt-hist"></div>`;
     box.querySelectorAll(".rt-mode").forEach((b) => b.onclick = () => run(b.dataset.m));
     const me = state.session && state.session.user.id;
     if (me && isStudent() && ctx.lessonId) sb.from("recitation_tests").select("score, max_score, created_at, term, skill, created_by, note").eq("student_id", me).eq("lesson_id", ctx.lessonId).order("created_at", { ascending: false }).limit(8).then(({ data }) => {
@@ -3243,7 +3243,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           return `<td class="rs-c ${L.length ? "rs-" + rtTone(v) : "rs-none"}" data-s="${s.id}" data-k="${k}" title="${L.length ? esc(L.map((x) => `${x.ref || ""} ${+x.score}/${+x.max_score}`).join("\n")) : "لم يُختبر — اضغط لتقييمه"}">
             ${L.length ? `<b>${v}</b><small>${L.length > 1 ? L.length + " تقييمات" : "تقييم"}</small>` : `<span>لم يُختبر</span>`}</td>`; }).join("");
         const self = SF.filter((x) => x.student_id === s.id && x.term === term), last = T.find((r) => r.student_id === s.id && r.term === term);
-        return `<tr><td class="muted">${i + 1}</td><td class="rs-n">${esc(s.name)}</td>${tds}
+        return `<tr><td class="muted">${i + 1}</td><td class="rs-n"><a href="#/hifz?student=${s.id}&class=${clsId}" title="سجل الحفظ">${esc(s.name)}</a></td>${tds}
           <td class="rs-self">${self.length ? `${self.length} · ${rtAvg(self)}` : "—"}</td><td class="muted rs-last">${last ? esc(last.ref || "") + "<br>" + new Date(last.created_at).toLocaleDateString("ar-AE") : ""}</td></tr>`;
       }).join("");
       h(`<section class="section"><div class="wrap">
@@ -3351,6 +3351,86 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       setTimeout(() => { if (!R.cur) name.textContent = "؟"; }, 900);
     });
     paintRef(); paintLeft(); paintHide();
+  }
+
+
+  /* =================== سجل حفظ السور للطالب + شهادة الإتمام =================== */
+  const HZ_ST = { done: ["أتقن الحفظ", "#0F7A55", "#DDF3E6"], rev: ["يحتاج مراجعة", "#A8741F", "#FFF3CF"], prac: ["يتدرّب", "#3D6FB6", "#E4EEFB"], none: ["لم يبدأ", "#8A8F98", "#F3F1EC"] };
+  async function hifzData(sid, clsId) {
+    let year = null, track = null;
+    if (clsId) { const { data } = await sb.from("classes").select("year_group, track").eq("id", clsId).maybeSingle(); if (data) { year = data.year_group; track = data.track; } }
+    if (!year) { const { data } = await sb.from("class_students").select("classes(year_group, track, subject_id)").eq("student_id", sid);
+      const c = (data || []).map((r) => r.classes).filter(Boolean).find((c) => c.subject_id === 1) || (data || []).map((r) => r.classes).find(Boolean); if (c) { year = c.year_group; track = c.track; } }
+    if (!year && state.session && sid === state.session.user.id) { year = (state.myGrades || [])[0] || null; track = state.myTrack || "native"; }
+    const [{ data: pr }, { data: plan }, { data: tests }] = await Promise.all([
+      sb.from("profiles").select("full_name_ar").eq("id", sid).maybeSingle(),
+      year ? sb.rpc("hifz_plan", { p_year: year, p_track: track || "native" }) : Promise.resolve({ data: [] }),
+      sb.from("recitation_tests").select("lesson_id, skill, surah, ayah_from, ayah_to, score, max_score, is_self, created_at, note").eq("student_id", sid).order("created_at", { ascending: false }).limit(1000)]);
+    const T = tests || [];
+    const items = (plan || []).map((p) => {
+      const hits = T.filter((t) => t.lesson_id === p.lesson_id || (t.surah === p.surah && (t.ayah_from || 1) <= p.a1 && (t.ayah_to || 999) >= p.a2));
+      const teach = hits.filter((t) => !t.is_self && t.skill === "hifz"), self = hits.filter((t) => t.is_self), last = teach[0];
+      const pct = last ? last.score / last.max_score : null;
+      const st = last ? (pct >= 0.8 ? "done" : "rev") : self.length ? "prac" : "none";
+      return Object.assign({}, p, { st, last, selfBest: self.length ? Math.max(...self.map((x) => x.score / x.max_score)) : null, tries: teach.length });
+    });
+    return { name: (pr && pr.full_name_ar) || "", year, track, items };
+  }
+  const hzLabel = (p) => `سورة ${TD_SURAHS[p.surah - 1]}${p.a1 === 1 && p.a2 === TD_AYAHS[p.surah - 1] ? "" : ` (${p.a1 === p.a2 ? p.a1 : p.a1 + "–" + p.a2})`}`;
+  async function pageHifz(params) {
+    setNav("");
+    if (!state.session) { location.hash = "#/login"; return; }
+    loading();
+    const me = state.session.user.id, sid = params.get("student") || me, clsId = params.get("class");
+    const D = await hifzData(sid, clsId);
+    if (!D.year) { h(`<div class="wrap"><div class="form-card empty"><strong>لم نعرف صف الطالب بعد.</strong> يظهر سجل الحفظ عند إضافة الطالب إلى فصل.</div></div>`); return; }
+    const I = D.items, n = I.length, done = I.filter((x) => x.st === "done").length;
+    // السور التي اكتملت كل مقاطعها في المقرر
+    const bySur = {}; I.forEach((x) => { (bySur[x.surah] = bySur[x.surah] || []).push(x); });
+    const surDone = Object.keys(bySur).map(Number).filter((s) => bySur[s].every((x) => x.st === "done"));
+    const own = sid === me;
+    h(`<section class="section"><div class="wrap hz">
+      <div class="page-head">${clsId ? `<a class="muted" href="#/recite-sheet?class=${clsId}">← كشف التسميع</a>` : ""}<h1>📖 سجل الحفظ</h1>
+        <p class="muted">${esc(D.name)} · Year ${D.year} · مقرر الحفظ في كتاب الطالب</p></div>
+      <div class="hz-top"><div class="hz-ring" style="--p:${n ? Math.round((done / n) * 100) : 0}"><b>${done}/${n}</b><small>مقطعًا متقنًا</small></div>
+        <div class="hz-legend">${Object.keys(HZ_ST).map((k) => `<span style="--c:${HZ_ST[k][1]};--b:${HZ_ST[k][2]}">${HZ_ST[k][0]} · ${I.filter((x) => x.st === k).length}</span>`).join("")}</div>
+        <div class="hz-cert">${n && done === n ? `<button class="btn btn-dawn" data-cert="all">🏅 شهادة إتمام مقرر الحفظ</button>` : ""}
+          ${surDone.map((s) => `<button class="btn btn-ghost btn-small" data-cert="${s}">🏅 شهادة سورة ${TD_SURAHS[s - 1]}</button>`).join("")}</div></div>
+      ${[1, 2, 3].map((t) => { const L = I.filter((x) => x.term === t); return L.length ? `<h3 class="hz-term">الفصل ${["الأول", "الثاني", "الثالث"][t - 1]}</h3><div class="hz-grid">${L.map((x) => `
+        <a class="hz-card" style="--c:${HZ_ST[x.st][1]};--b:${HZ_ST[x.st][2]}" href="#/lesson/${esc(x.code)}">
+          <b>${esc(hzLabel(x))}</b><span class="hz-st">${HZ_ST[x.st][0]}</span>
+          <small>${x.last ? `آخر تقييم: ${+x.last.score}/${+x.last.max_score} · ${new Date(x.last.created_at).toLocaleDateString("ar-AE")}${x.tries > 1 ? ` · ${x.tries} محاولات` : ""}` : x.selfBest != null ? `أفضل اختبار ذاتي: ${Math.round(x.selfBest * 10)}/10` : own ? "افتح الدرس واختبر نفسك" : "لم يُختبر بعد"}</small>
+          ${x.last && x.last.note ? `<small class="hz-note">${esc(x.last.note)}</small>` : ""}</a>`).join("")}</div>` : ""; }).join("") || `<div class="form-card empty">لا يوجد مقرر حفظ مسجّل لهذا الصف بعد.</div>`}
+      <p class="muted hz-hint">«أتقن الحفظ» عند آخر تقييم للمعلم بنسبة 80% فأكثر في «حفظ وتسميع». الاختبار الذاتي يُظهر «يتدرّب» ولا يكفي وحده للإتقان.</p>
+    </div></section>`);
+    document.querySelectorAll("[data-cert]").forEach((b) => b.onclick = () => hifzCert(D, b.dataset.cert === "all" ? null : +b.dataset.cert));
+  }
+  function hifzCert(D, sur) {
+    const what = sur ? `سورة ${TD_SURAHS[sur - 1]}` : `مقرر الحفظ للصف ${D.year}`;
+    const list = sur ? "" : `<p class="ls">${[...new Set(D.items.map((x) => x.surah))].map((s) => "سورة " + TD_SURAHS[s - 1]).join(" · ")}</p>`;
+    const dt = new Date(); let hj = ""; try { hj = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }).format(dt); } catch (e) {}
+    let faces = ""; for (const sh of document.styleSheets) { try { for (const r of sh.cssRules) if (r.type === 5) faces += r.cssText + "\n"; } catch (e) {} }
+    const w = window.open("", "_blank"); if (!w) { toast("اسمح بالنوافذ المنبثقة لطباعة الشهادة."); return; }
+    w.document.write(`<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><base href="${esc(document.baseURI)}"><title>شهادة إتمام الحفظ · ${esc(D.name)}</title>
+      <style>${faces}@page{size:A4 landscape;margin:0}html,body{margin:0;background:#fff}body{-webkit-print-color-adjust:exact;print-color-adjust:exact;font-family:"ThmanyahSans","Readex Pro",system-ui,sans-serif;color:#14243F}
+      .c{width:297mm;height:210mm;box-sizing:border-box;padding:12mm;background:#FFFDF6}
+      .f{height:100%;box-sizing:border-box;border:2.5mm double #C9A85C;border-radius:6mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10mm 18mm;
+        background:radial-gradient(circle at 50% 0,#FFF6DD,transparent 60%),#FFFDF6;box-shadow:inset 0 0 0 3mm #FBF4E2,inset 0 0 0 3.6mm #E9DBB4}
+      .b{font-family:"ThmanyahDisplay","ThmanyahSans",serif;font-weight:800;color:#0F5E44;font-size:15mm;margin:0}
+      .s{font-size:5mm;color:#667;margin:2mm 0 8mm}.n{font-family:"ThmanyahDisplay","ThmanyahSans",serif;font-size:13mm;font-weight:800;margin:3mm 0;border-bottom:.6mm solid #C9A85C;padding:0 12mm 2mm}
+      .t{font-size:6.2mm;line-height:1.9;margin:4mm 0}.w{font-family:"ThmanyahDisplay","ThmanyahSans",serif;font-weight:800;color:#A8741F;font-size:8mm}
+      .ls{font-size:4.2mm;color:#445;max-width:220mm}.d{font-family:"HiraaMushaf","Amiri Quran",serif;font-size:7mm;color:#0F5E44;margin:4mm 0}
+      .ft{display:flex;justify-content:space-between;width:100%;margin-top:auto;font-size:4.4mm}.ft div{min-width:70mm;border-top:.4mm solid #9a8a5a;padding-top:2mm}</style></head>
+      <body><div class="c"><div class="f">
+        <p class="b">شهادة إتمام حفظ</p><p class="s">منصة حراء · التربية الإسلامية</p>
+        <p class="t">يسرّنا أن نشهد بأن الطالب/ة</p><p class="n">${esc(D.name || "....................")}</p>
+        <p class="t">قد أتمّ حفظ <span class="w">${esc(what)}</span> حفظًا متقنًا،<br>نسأل الله أن يجعل القرآن ربيع قلبه ونور صدره.</p>${list}
+        <p class="d">﴿وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ﴾ <small>[القمر: 17]</small></p>
+        <div class="ft"><div>معلم المادة</div><div>${dt.toLocaleDateString("ar-AE", { day: "numeric", month: "long", year: "numeric" })}${hj ? "<br>" + hj : ""}</div><div>إدارة المدرسة</div></div>
+      </div></div></body></html>`);
+    w.document.close();
+    let done = false; const go = () => { if (done) return; done = true; setTimeout(() => { try { w.focus(); w.print(); } catch (e) {} }, 300); };
+    setTimeout(go, 3000); try { w.document.fonts.ready.then(go); } catch (e) {}
   }
 
   async function pageLesson(code) {
@@ -14478,6 +14558,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "recitations") return pageRecitations(params);
       if (p0 === "recite-sheet") return pageReciteSheet(params);
       if (p0 === "recite-turn") return pageReciteTurn(params);
+      if (p0 === "hifz") return pageHifz(params);
       if (p0 === "preview" && parts[1]) return pagePreview(parts[1], params);
       if (p0 === "access") return pageAccess(params);
       if (p0 === "pricing") return params.get("for") === "school" ? pagePricing(params) : pagePricing2(params);
