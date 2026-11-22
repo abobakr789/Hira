@@ -97,7 +97,7 @@ def build(C):
             "Ask: which level would 'he received the Qur'an, he was a role model, he built a community' get? (Level 1–2: points listed, not developed.)", "3 min")
     # examiner advice
     D.slide("examiner", 'rose', "What the examiners said (June 2025)", "Learn from real scripts",
-            grid([chipcard(a, t, j, build=j + 1, size=25) for j, (a, t) in enumerate(C["examiner"])], 2),
+            grid([chipcard(a, t, j, build=j + 1, size=23) for j, (a, t) in enumerate(C["examiner"])], 2),
             "From Pearson's 2025 examiners' report for 4IS1. Ask each student: which of these do I do?", "4 min")
     # (d) plan
     d = C["d"]
