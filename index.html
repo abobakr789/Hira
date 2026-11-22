@@ -8365,7 +8365,7 @@ async function pageArMocks(params) {
     setNav("grades"); const q = params.get("q") || "igcse";
     let idx = []; try { idx = await (await fetch(new URL("resources/mocks/index.json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
     const L = idx.filter((x) => x.qual === q);
-    h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/grades?subject=arabic">اللغة العربية</a></div><h1>📝 امتحانات تجريبية · ${q === "igcse" ? "International GCSE (4AA1)" : "GCSE (1AA0)"}</h1>
+    h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/grades?subject=arabic">اللغة العربية</a></div><h1>📝 امتحانات تجريبية · ${q === "igcse" ? "International GCSE (4AA1)" : q === "alevel" ? "A Level (9AA0)" : "GCSE (1AA0)"}</h1>
       <p class="muted">امتحانات أصلية من تأليف حراء بشكل امتحانات Pearson نفسه: الأسئلة والدرجات والزمن ومعايير التصحيح. يجيب الطالب ويحصل فورًا على درجة تقديرية وملاحظات، ويراجع المعلم الأسئلة المقالية.</p></div></section>
       <section class="section"><div class="wrap"><div class="card-grid">${L.length ? L.map((x) => `<a class="card" href="#/ar-mock/${x.id}" style="padding:18px;text-decoration:none"><h3 style="margin:0 0 6px">${esc(x.title)}</h3><p class="muted" style="margin:0">${esc(x.sub)}</p></a>`).join("") : `<div class="empty">قريبًا.</div>`}</div></div></section>`);
   }
@@ -8432,12 +8432,26 @@ async function pageArMocks(params) {
     try { localStorage.setItem("hiraa.mockBack", location.hash); } catch (e) {}
     let idx = []; try { idx = await (await fetch(new URL("resources/mocks/index.json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
     const L = idx.filter((x) => x.qual === q);
-    let mine = []; if (state.session && isStudent()) { try { const { data } = await sb.from("ar_mock_attempts").select("paper, total, max, teacher_marks, created_at").order("created_at", { ascending: false }); mine = data || []; } catch (e) {} }
+    let mine = []; if (state.session && isStudent()) { try { const { data } = await sb.from("ar_mock_attempts").select("id, paper, total, max, teacher_marks, created_at").order("created_at", { ascending: false }); mine = data || []; } catch (e) {} }
     const best = (id) => { const m = mine.filter((x) => x.paper === id); if (!m.length) return null; const b = m.map((x) => Math.round(((x.teacher_marks ? x.teacher_marks.total : x.total) / x.max) * 100)); return Math.max(...b); };
     const facts = (MK_GUIDE[q] || {}).facts || [];
     el.innerHTML = `<div class="form-card" style="border-inline-start:5px solid #0F6E72;max-width:none;width:100%;margin:0"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><h2 style="margin:0 0 4px">📝 الامتحانات التجريبية</h2><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-small" href="#/ar-guide/${q}">🧭 كيف أجيب؟</a>${isStaff() ? `<a class="btn btn-small btn-primary" href="#/ar-mock-review">📋 نتائج طلابي</a>` : ""}</div></div>
       <p style="margin:6px 0">${facts.map((f) => `<span class="pill" style="margin:3px">${esc(f)}</span>`).join("")}</p><p class="muted" style="margin:0 0 12px">بشكل امتحانات Pearson نفسه (الأسئلة والدرجات والزمن)، بنصوص من تأليف حراء، مع تصحيح فوري ودرجة تقديرية.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span>${best(x.id) != null ? `<span class="pill" style="display:inline-block;margin-top:8px;background:#E7F6EC">أفضل نتيجة: ${best(x.id)}% · ${mkGradeQ(q, best(x.id))}</span>` : ""}</a>`).join("") : `<div class="empty">قريبًا.</div>`}</div></div>`;
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span>${best(x.id) != null ? `<span class="pill" style="display:inline-block;margin-top:8px;background:#E7F6EC">أفضل نتيجة: ${best(x.id)}% · ${mkGradeQ(q, best(x.id))}</span>` : ""}</a>`).join("") : `<div class="empty">قريبًا.</div>`}</div>
+      ${mine.filter((x) => L.some((p) => p.id === x.paper)).length ? `<h3 style="margin:18px 0 6px">📋 محاولاتي</h3><div style="overflow-x:auto"><table class="tbl" style="width:100%"><thead><tr><th>الامتحان</th><th>التاريخ</th><th>الدرجة الآلية</th><th>درجة المعلم</th><th></th></tr></thead><tbody>${mine.filter((x) => L.some((p) => p.id === x.paper)).slice(0, 10).map((x) => `<tr><td>${esc((L.find((p) => p.id === x.paper) || {}).title || x.paper)}</td><td>${new Date(x.created_at).toLocaleDateString("ar-AE", { numberingSystem: "latn" })}</td><td>${x.total} / ${x.max}</td><td>${x.teacher_marks ? `<b>${x.teacher_marks.total} / ${x.max}</b>` : `<span class="muted">بانتظار المعلم</span>`}</td><td><a class="btn btn-small" href="#/ar-mock-attempt/${x.id}">عرض</a></td></tr>`).join("")}</tbody></table></div>` : ""}</div>`;
+  }
+  async function pageArMockAttempt(id) {
+    setNav("grades"); loading();
+    const { data: a } = await sb.from("ar_mock_attempts").select("*").eq("id", id).maybeSingle(); if (!a) { location.hash = "#/grades?subject=arabic"; return; }
+    let P; try { P = await (await fetch(new URL("resources/mocks/" + a.paper + ".json", location.href.split("#")[0]).href, { cache: "no-cache" })).json(); } catch (e) {}
+    const allQ = P ? P.sections.flatMap((s) => s.qs) : [], T = a.teacher_marks, tq = (T && T.q) || {};
+    const ansView = (q) => { const v = (a.answers || {})[q.n]; if (v == null) return "<i class='muted'>لم تُجب</i>"; if (typeof v === "string") return `<div style="white-space:pre-wrap;background:#FFFDF7;border-radius:10px;padding:10px">${esc(v)}</div>`;
+      return (q.items || []).map((it, i) => `<div>${String.fromCharCode(1571 + i)}) ${q.type === "mcq" ? esc(it.options[v[i]] || "—") : esc(v[i] || "—")}</div>`).join(""); };
+    h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="${(() => { try { return localStorage.getItem("hiraa.mockBack") || "#/grades?subject=arabic"; } catch (e) { return "#/grades?subject=arabic"; } })()}">الامتحانات التجريبية</a></div><h1>${esc(P ? P.title : a.paper)}</h1>
+        <p>الدرجة الآلية: ${a.total} / ${a.max} · ${T ? `<b>درجة المعلم: ${T.total} / ${a.max}</b> (${mkGradeQ(P ? P.qual : "", Math.round((T.total / a.max) * 100))})` : `<span class="muted">لم يراجعها المعلم بعد.</span>`}</p>
+        ${T && T.note ? `<div class="form-card" style="max-width:none;background:#FFF8EC">💬 <b>ملاحظات المعلم:</b> ${esc(T.note)}</div>` : ""}</div></section>
+      <section class="section"><div class="wrap" style="max-width:960px;margin-inline:auto">${allQ.filter((q) => (a.marks || {})[q.n]).map((q) => { const m = a.marks[q.n];
+        return `<article class="form-card" style="max-width:none;margin:12px 0"><h3 style="margin-top:0">سؤال ${q.n} <small class="muted">· آلي: ${m.got} / ${m.max}${tq[q.n] != null ? ` · <b>المعلم: ${tq[q.n]} / ${m.max}</b>` : ""}</small></h3><p class="muted">${esc(q.q)}</p>${ansView(q)}${m.model ? `<p><b>إجابة نموذجية:</b> ${esc(m.model)}</p>` : ""}</article>`; }).join("")}</div></section>`);
   }
   const MK_GUIDE = {
     alevel: { title: "A Level العربية (9AA0): كيف أجيب؟", facts: ["📝 الورقة 1: ساعتان ونصف · ترجمة إلى الإنجليزية + قراءة + سؤال بحثي (80)", "✍️ الورقة 2: ساعتان و40 دقيقة · ترجمة إلى العربية + مقالان عن العملين (110)", "🎧 الورقة 3: استماع وقراءة وكتابة (60)", "🎯 سلّم A*–E"],
@@ -8490,9 +8504,10 @@ async function pageArMocks(params) {
       <section class="section"><div class="wrap" style="max-width:960px;margin-inline:auto">${allQ.filter((q) => a.marks[q.n]).map((q) => { const m = a.marks[q.n];
         return `<article class="form-card" style="max-width:none;margin:12px 0"><h3 style="margin-top:0">سؤال ${q.n} <small class="muted">· آلي: ${m.got} / ${m.max}</small></h3><p class="muted">${esc(q.q)}</p>${ansView(q)}${m.info ? `<p class="muted">${esc(m.info)}</p>` : ""}
           <label style="display:block;margin-top:8px">درجة المعلم: <input type="number" min="0" max="${m.max}" step="1" data-tq="${q.n}" value="${tq[q.n] != null ? tq[q.n] : m.got}" style="width:90px"> / ${m.max}</label></article>`; }).join("")}
+        <div class="field"><label>ملاحظات للطالب (نقطة قوة + خطوة تطوير)</label><textarea id="tqNote" rows="3">${esc((a.teacher_marks && a.teacher_marks.note) || "")}</textarea></div>
         <div style="text-align:center;margin:20px 0"><button class="btn btn-primary" id="tqSave">حفظ درجة المعلم</button></div></div></section>`);
     document.getElementById("tqSave").onclick = async () => { const q = {}; let tot = 0; document.querySelectorAll("[data-tq]").forEach((el) => { const v = Math.max(0, Math.min(+el.max, +el.value || 0)); q[el.dataset.tq] = v; tot += v; });
-      const r = await sb.from("ar_mock_attempts").update({ teacher_marks: { q, total: tot, at: new Date().toISOString() } }).eq("id", a.id); if (r.error) toast("تعذّر الحفظ: " + r.error.message); else { toast("حُفظت درجة المعلم: " + tot + " / " + a.max); location.hash = "#/ar-mock-review"; } };
+      const r = await sb.from("ar_mock_attempts").update({ teacher_marks: { q, total: tot, note: document.getElementById("tqNote").value.trim(), by: state.session.user.id, at: new Date().toISOString() } }).eq("id", a.id); if (r.error) toast("تعذّر الحفظ: " + r.error.message); else { toast("حُفظت درجة المعلم: " + tot + " / " + a.max); location.hash = "#/ar-mock-review"; } };
   }
   
 const TRACKS = { native: "الناطقون بالعربية", non_native: "غير الناطقين", alevel: "A Level", launch: "أبجد", gcse: "GCSE", igcse: "IGCSE" };
@@ -21318,6 +21333,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "reports") return pageReports();
       if (p0 === "inspection") return pageInspection(params);
       if (p0 === "ar-mock-review") return pageArMockReview(parts[1]);
+      if (p0 === "ar-mock-attempt" && parts[1]) return pageArMockAttempt(parts[1]);
       if (p0 === "ar-guide") return pageArGuide(parts[1]);
       if (p0 === "igcse") return pageIgcse();
       if (p0 === "seerah-practice") return pageSeerahPractice(params);
