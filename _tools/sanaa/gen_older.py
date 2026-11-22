@@ -197,7 +197,7 @@ def deck(sp, y, lesson_id, out):
        'دع الطلاب يقرؤون بصمت ثم يشاركون.')
     # think-pair-share
     sl('peach', 'فكر · زاوج · شارك', '3 د', 'أفكر مع زميلي', abs_(120, 330, 1680, card(P('❓ ' + esc(sp['case'][1]), 42, A('peach'), True, align='right'), 1680, 220, ac=A('peach'), bg='#FFF1E6')) +
-       abs_(120, 580, 1680, card(P('١ أفكر وحدي ٣٠ ثانية  ·  ٢ أناقش زميلي  ·  ٣ نشارك الصف', 34, align='right'), 1680, 150, ac=A('peach'), border=False)),
+       abs_(120, 580, 1680, card(P('1 أفكر وحدي 30 ثانية  ·  2 أناقش زميلي  ·  3 نشارك الصف', 34, align='right'), 1680, 150, ac=A('peach'), border=False)),
        'استعمل استراتيجية فكر-زاوج-شارك.')
     # phrases
     if sp.get('phrases'):
@@ -221,8 +221,11 @@ def deck(sp, y, lesson_id, out):
            abs_(120, 780, 1680, card(P('👥 القائد · المسجّل · المتحدث · حارس الوقت   |   ⏱ 10 دقائق', 28, '#5B6472'), 1680, 100, ac=GC[i][0], border=False)),
            'تابع المجموعة %d وقدّم لها التغذية الراجعة.' % (i + 1))
     # verify
-    sl('mint', 'نتحقق معًا', '4 د', 'نماذج الإجابة', _stack([sp['short'][0] + ' ← ' + sp['short_key'][0], sp['short'][1] + ' ← ' + sp['short_key'][1], 'الحالة ← ' + sp['case_key']], A('mint'), 34, avail=600),
-       'قارن إجابات المجموعات بالنماذج وصحّح المفاهيم الخاطئة.')
+    _qs = [sp['short'][0], sp['short'][1], 'الحالة: ' + sp['case'][1]]
+    _ans = ''.join('<p style="margin:0 0 10px"><b>%d)</b> %s</p>' % (i + 1, esc(a)) for i, a in enumerate([sp['short_key'][0], sp['short_key'][1], sp['case_key']]))
+    sl('mint', 'نتحقق معًا', '4 د', 'نناقش ثم نقارن بالنموذج', _stack(_qs, A('mint'), 34, avail=560, numbered=True) +
+       '<button class="mabtn" data-ia onclick="this.nextElementSibling.classList.toggle(\'on\')">الإجابة النموذجية</button><div class="mabox" data-ia onclick="this.classList.remove(\'on\')"><b>الإجابة النموذجية</b>' + _ans + '</div>',
+       'اترك المجموعات تجيب أولًا ثم اضغط زر الإجابة النموذجية وقارن وصحّح المفاهيم الخاطئة.')
     # peer feedback
     sl('gold', 'تغذية راجعة', '3 د', 'أشجّع زميلي', abs_(120, 330, 820, card(P('⭐⭐ نجمتان', 40, A('gold'), True, True) + P('أذكر شيئين أعجباني في عمل المجموعة الأخرى.', 30), 820, 330, ac=A('gold'))) +
        abs_(980, 330, 820, card(P('💭 أمنية', 40, A('gold'), True, True) + P('أقترح تحسينًا واحدًا بلطف.', 30), 820, 330, ac=A('gold'))), 'علّم الطلاب أدب النقد: نجمتان وأمنية.')
@@ -249,8 +252,13 @@ def deck(sp, y, lesson_id, out):
     sl('sand', 'مع أسرتي', '', 'رسالتي إلى البيت', _stack(['أسأل أسرتي عن موقف من السنع مر بهم في موضوع الدرس.', 'أشاركهم ما تعلمته اليوم: ' + sp['title'], 'نتفق على سلوك واحد نطبقه معًا.'], A('sand'), 36, avail=520, numbered=True), 'رسالة أسرية قصيرة.')
     return K.build(out, T, lesson_id, S)
 
+def _shuf(sp):
+    h = sum(ord(c) for c in sp['stem']); out = []
+    for i, (qq, o, c) in enumerate(sp['mcq']):
+        k = (h + i) % len(o); o2 = o[-k:] + o[:-k] if k else list(o); out.append((qq, o2, (c + k) % len(o)))
+    sp['mcq'] = out; return sp
 def run(sp, y, ids):
-    code = 'SN-Y%d-%s' % (y, sp['stem']); sp = dict(sp); sp['code'] = code
+    code = 'SN-Y%d-%s' % (y, sp['stem']); sp = _shuf(dict(sp)); sp['code'] = code
     out = ROOT + '/resources/ssd/%s/' % code; os.makedirs(out, exist_ok=True)
     W = lambda f, s: open(out + f, 'w', encoding='utf8').write(s)
     W('worksheets-A4.html', worksheets(sp, y)); W('pod-sheet.html', pod(sp, y)); W('sources-concept-card.html', sources(sp, y))
