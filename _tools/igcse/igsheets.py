@@ -33,6 +33,7 @@ def strip(k): return "<div class='strip'>" + "".join(f"<div class='{'on' if j ==
 def q(n, col, title, body=""): return f"<div class='q'><div class='qh'><span class='n' style='background:{col}'>{n}</span><span>{md(title)}</span></div>{body}</div>"
 def passage(C, full=True):
     sp = C["passage"]
+    if sp.get("hadith"): return f"<div class='txt'><div class='h'>📜 Set passage · {e(sp['ref'])}</div><div class='trn' style='font-size:11.5pt'>{e(sp['hadith'])}</div><div class='lv'>{e(sp['src'])}</div></div>"
     ar = " ".join(f"{e(x.replace(chr(0x08F1), chr(0x065E)).replace(chr(0x0640), ''))} ﴿{n}﴾" for n, x in sp["ar"])
     en = "".join(f"<div class='trn'>({n}) {e(t)}</div>" for n, t in sp["en"]) if full else ""
     return f"<div class='txt'><div class='h'>📖 Set passage · {e(sp['ref'])}</div><div class='qt'>{ar}</div>{en}</div>"
@@ -47,11 +48,11 @@ def build(C):
     K = []  # answer key: (section, label, answer)
     # ---------- worksheets (4 levels) ----------
     pages = []
-    terms = C["terms"][:6]; right = mix([b for _, b in terms], C["code"])
+    terms = C["terms"][:4 if sum(len(x) for _, x in (sp.get("ar") or [])) + len(sp.get("hadith") or "") > 560 else 6]; right = mix([b for _, b in terms], C["code"])
     kb = [head(C, f"Worksheet: {T}", "Level: Bronze", *LV[0][2:]), strip(0), goal(C),
           q(1, LV[0][2], "Match each key term with its meaning (write the letter).", table(["Term", "Letter", "Meaning"], [[f"{i + 1}) {a}", "", f"{'ABCDEF'[j]}) {r}"] for i, ((a, _), j, r) in enumerate(zip(terms, range(6), right))])),
           passage(C),
-          q(2, LV[0][2], "Which verse of the passage says this? Write 38, 39 or 40.", table(["Statement", "Verse"], [[r[1], ""] for r in mix(sp["unpack"], "v")])),
+          q(2, LV[0][2], "Which part of the set passage says this? Write the verse or phrase.", table(["Statement", "Verse / phrase"], [[r[1], ""] for r in mix(sp["unpack"], "v")])),
           q(3, LV[0][2], C["ido_a"]["q"].replace("(a) ", ""), lines(2))]
     K += [("Bronze", "1 (match)", ", ".join(f"{i + 1}–{'ABCDEF'[right.index(b)]}" for i, (_, b) in enumerate(terms))),
           ("Bronze", "2 (verses)", " · ".join(f"{r[1]} → {r[0]}" for r in mix(sp["unpack"], "v"))),

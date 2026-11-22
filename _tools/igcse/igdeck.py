@@ -12,6 +12,11 @@ LEVELS_D = [("Level 3 · 9–12", "Balanced argument; excellent use of the set t
             ("Level 2 · 5–8", "Partly balanced; good use of the text; some other views. Missing the text or a second view keeps you here (examiners' report 2025)."),
             ("Level 1 · 1–4", "One-sided; little or no use of the text; no other views; basic interpretation.")]
 
+GEN_EX = [("(b) Describe", "A series of simple points gets about 1 mark; develop each point to reach 3."),
+          ("(c) Explain", "«A series of simple points will rarely allow them to gain more than half the available marks» (examiners' reports 2023–2025)."),
+          ("(d) Four elements", "Use the set text, give another point of view, support your opinion with reasons, and reach a balanced conclusion."),
+          ("(d) The cap", "Without the text or without a second view, answers were held at Level 2 (no more than 8 out of 12).")]
+
 def build(C):
     D = Deck(C["code"], C["title"], f'4IS1 · {C["title"]}')
     sec = C["sec"]
@@ -37,7 +42,7 @@ def build(C):
             grid([qa(q, a, k, k + 1, 27) for k, (q, a) in enumerate(C["recall"])], 2), "Students answer on mini-whiteboards; reveal one at a time.", "4 min")
     # 4 hook
     hk = C["hook"]
-    D.slide("hook", 'peach', hk["title"], "Think – pair – share", card(P(hk["q"], 40, '#1F2A3C', True, 'center'), '#B0582F', pad='40px 50px')
+    D.slide("hook", 'peach', hk["title"], "Think – pair – share", card(P(hk["q"], 40 if len(hk["q"]) < 120 else 34, '#1F2A3C', True, 'center'), '#B0582F', pad='34px 46px')
             + grid([chipcard(a, b, k + 3, build=k + 1) for k, (a, b) in enumerate(hk["prompts"])], len(hk["prompts"])), "Pairs for 2 minutes; take 2–3 answers. Come back to this at the end.", "3 min")
     # 5 success criteria
     D.slide("sc", 'blue', "Success criteria", "Where are we heading?",
@@ -52,12 +57,19 @@ def build(C):
             "Key terms lift AO1 marks. Students add them to their glossary.", "4 min")
     # 7 set passage
     sp = C["passage"]
-    D.slide("passage", 'mint', "Set passage: " + sp["ref"], "Learn it · quote it in (d)",
-            quran(sp["ar"], sp["ref_ar"], sp.get("size", 44)) + card(''.join(P(f"({n}) {t}", 25, '#3F4A5A', extra='font-style:italic') for n, t in sp["en"]), '#3F6E5B'),
-            "Recite, then read the translation (from the specification). The passage is printed in the exam for (d) questions.", "5 min")
+    if sp.get("hadith"):
+        pbody = card(P(sp["hadith"], 32 if len(sp["hadith"]) < 420 else 27, '#1F2A3C', extra='font-style:italic;line-height:1.6') + P(sp["src"], 24, '#8A6D1E'), '#8A6D1E', '#FFF8E2', pad='34px 42px')
+        pnote = "Read the hadith aloud twice. It is printed in the exam for (d) questions: learn its key phrases."
+    else:
+        n = sum(len(x) for _, x in sp["ar"]); sz = sp.get("size") or (46 if n < 260 else 40 if n < 420 else 34 if n < 650 else 29)
+        en = ''.join(P(f"({k}) {t}", 25 if n < 420 else 22, '#3F4A5A', extra='font-style:italic') for k, t in sp["en"])
+        pbody = quran(sp["ar"], sp["ref_ar"], sz) + card(en, '#3F6E5B')
+        pnote = "Recite (the recitation plays under the verses), then read the translation (Saheeh International, as in the specification). The passage is printed in the exam for (d) questions."
+    if sp.get("also"): pbody += tagline("📖 Also set for this topic: " + sp["also"], size=24)
+    D.slide("passage", 'mint', "Set passage: " + sp["ref"], "Learn it · quote it in (d)", pbody, pnote, "5 min")
     # 8 passage unpacked
     D.slide("unpack", 'mint', "What the passage gives you", "Text → argument",
-            table([("Verse", 1), ("It says…", 3), ("Use it in an answer to…", 3)], sp["unpack"], size=25, build_rows=True),
+            table([("Verse" if not sp.get("hadith") else "Phrase", 1), ("It says…", 3), ("Use it in an answer to…", 3)], sp["unpack"], size=25 if len(sp["unpack"]) < 4 else 22, build_rows=True),
             "Show how each verse becomes evidence. Ask: which verse supports the statement, which challenges it?", "5 min")
     # 9.. content slides
     for k, cs in enumerate(C["content"]):
@@ -96,8 +108,8 @@ def build(C):
             + tagline("Our model scores Level 3: three different ideas, each explained with a reason and linked to the question's focus.", build=2, size=25),
             "Ask: which level would 'he received the Qur'an, he was a role model, he built a community' get? (Level 1–2: points listed, not developed.)", "3 min")
     # examiner advice
-    D.slide("examiner", 'rose', "What the examiners said (June 2025)", "Learn from real scripts",
-            grid([chipcard(a, t, j, build=j + 1, size=23) for j, (a, t) in enumerate(C["examiner"])], 2),
+    D.slide("examiner", 'rose', "What the examiners said", "Learn from real scripts",
+            grid([chipcard(a, t, j, build=j + 1, size=23) for j, (a, t) in enumerate((C.get("examiner") or [])[:2] + GEN_EX[len((C.get("examiner") or [])[:2]):])], 2),
             "From Pearson's 2025 examiners' report for 4IS1. Ask each student: which of these do I do?", "4 min")
     # (d) plan
     d = C["d"]
