@@ -7,9 +7,11 @@ from deckkit import *
 ROOT = '/home/claude/hira'
 OLDF = 'مَفْهومُ السَّنْعِ الْإِماراتِيِّ · السَّنْعُ الْإِماراتِيُّ · الصَّفُّ الْأَوَّلُ'
 LCOL = ['#B0782A', '#5E6672', '#5546A3']
+GN = 'الْأَوَّلُ'  # grade word, set by run(); Y1 default
+
 
 def deck(sp):
-    FOOT = sp['title'] + ' · السَّنْعُ الْإِماراتِيُّ · الصَّفُّ الْأَوَّلُ'
+    FOOT = sp['title'] + ' · السَّنْعُ الْإِماراتِيُّ · الصَّفُّ ' + GN
     GOAL = sp['goal']; PIC = '../../sn/g1/SN-Y1-T1-L01/'
     b.FOOT = FOOT
     b.LV = [(s, n, t, c) for (s, n), t, c in zip((('⭐', 'مُبْتَدِئٌ'), ('⭐⭐', 'مُتَطَوِّرٌ'), ('⭐⭐⭐', 'مُتَمَكِّنٌ')), sp['levels'], LCOL)]
@@ -22,7 +24,7 @@ def deck(sp):
       '<div style="position:absolute;left:-60px;bottom:-280px;width:1200px;height:560px;border-radius:50%;background:#B0782A;opacity:.12"></div>'
       '<div style="position:absolute;left:56px;top:34px;display:flex"><img src="../../../art/brand/hiraa-lockup-light.svg" alt="حراء" style="width:240px;height:96px;object-fit:contain"></div>' + pic +
       '<div style="position:absolute;right:110px;top:190px;width:1000px;display:flex;flex-direction:column;gap:22px;align-items:flex-start">'
-      + P('السَّنْعُ الْإِماراتِيُّ · الصَّفُّ الْأَوَّلُ', 34, '#B0782A', True, False, 'right')
+      + P('السَّنْعُ الْإِماراتِيُّ · الصَّفُّ ' + GN, 34, '#B0782A', True, False, 'right')
       + '<h1 style="' + FONT + ';font-size:84px;line-height:1.3;text-align:right">' + sp['title'] + '</h1>'
       + P(sp['sub'] + ' · كِتابي ' + sp['pages'], 30, '#5B6472', False, False, 'right')
       + '<div style="background:#fff;border:3px solid #B0782A;border-radius:28px;padding:20px 30px;margin-top:20px;display:flex">' + P('🎯 ' + GOAL, 38, '#1F2A3C', True, True, 'right') + '</div>'
@@ -126,7 +128,7 @@ def sheets(sp):
     src = open(os.path.join(HERE, 'sheets_y1_t1_l01.py'), encoding='utf8').read().split('# ---------- worksheets')[0]
     g = {}; exec(src, g)
     OUT = ROOT + '/resources/ssd/%s/' % sp['code']; os.makedirs(OUT, exist_ok=True)
-    g['T'] = sp['title']; g['SUB'] = 'السَّنْعُ الْإِماراتِيُّ · الصَّفُّ الْأَوَّلُ · ' + sp['pages']
+    g['T'] = sp['title']; g['SUB'] = 'السَّنْعُ الْإِماراتِيُّ · الصَّفُّ ' + GN + ' · ' + sp['pages']
     doc, hd, NM, q, pics, row, TH, page, LEVELS = (g[x] for x in ('doc', 'hd', 'NM', 'q', 'pics', 'row', 'TH', 'page', 'LEVELS'))
     PIC = g['PIC']; ws = sp['ws']; pod = sp['pod']
     def intro(h=24):
@@ -181,9 +183,53 @@ def sheets(sp):
     open(OUT + 'group-work.html', 'w', encoding='utf8').write(doc('بِطاقَةُ مَجْموعَةٍ', "<div class='page'><div class='fit'>" + gc(0) + gc(1) + "</div></div><div class='page'><div class='fit'>" + gc(2) + gc(3) + "</div></div>"))
     return sorted(os.listdir(OUT))
 
-def run(sp):
+GRADE_NAMES = {1: 'الْأَوَّلُ', 2: 'الثّانِي', 3: 'الثّالِثُ', 4: 'الرَّابِعُ'}
+IDS = None
+
+def _cut(t):
+    return t.rstrip('.').rstrip()
+
+def lift(sp, y):
+    """Depth layer for Y3/Y4 on top of the Y1 spec: same book text, higher-demand wording
+    (writing, justification, comparison, initiative). Y1/Y2 are returned unchanged apart from code/id."""
+    import copy
+    global IDS
+    if IDS is None:
+        import fix_ids; IDS = fix_ids.IDS
+    sp = copy.deepcopy(sp)
+    l = sp['code'].split('-')[-1]
+    sp['code'] = 'SN-Y%d-T1-%s' % (y, l)
+    sp['lesson_id'] = IDS[y][l]
+    if y < 3:
+        return sp
+    A = {3: (' بِجُمْلَةٍ كامِلَةٍ.', ' وَأَذْكُرُ مِثالًا مِنْ بيئَتي.', ' وَأَقْتَرِحُ سُلوكًا بَديلًا.'),
+         4: (' وَأَسْتَشْهِدُ بِعِبارَةٍ مِنَ الْكِتابِ.', ' وَأُقارِنُ بَيْنَهُما.', ' وَأَقْتَرِحُ مُبادَرَةً صَغيرَةً.')}[y]
+    sp['levels'] = [_cut(t) + a for t, a in zip(sp['levels'], A)]
+    st = {3: ' وَنَكْتُبُ جُمْلَةً مِنْ عِنْدِنا.', 4: ' وَنَسْتَشْهِدُ بِالْكِتابِ.'}[y]
+    ch = {3: 'أَكْتُبُ فِقْرَةً قَصيرَةً مِنْ ثَلاثِ جُمَلٍ.', 4: 'أُقَدِّمُ مُبادَرَةً أُشَجِّعُ بِها زُمَلائي.'}[y]
+    for g in sp['groups']:
+        g['steps'][-1] = _cut(g['steps'][-1]) + st
+        g['challenge'] = ch
+    lw = sp['levels_work']
+    rep = {3: 'أَكْتُبُ فِقْرَةً عَنْ مَوْقِفٍ', 4: 'أَكْتُبُ فِقْرَةً وَأَقْتَرِحُ مُبادَرَةً بِشَأْنِ مَوْقِفٍ'}[y]
+    lw['challenge'] = lw['challenge'].replace('أُفَكِّرُ وَأَرْسُمُ مَوْقِفًا', rep)
+    ws = sp['ws']
+    tail = {3: ' وَأَكْتُبُ جُمْلَتَيْنِ تَصِفانِهِ:', 4: ' وَأَسْتَشْهِدُ بِعِبارَةٍ مِنَ الْكِتابِ:'}[y]
+    d = ws['d_draw']
+    if d.endswith(' وَأَكْتُبُ اسْمَهُ:'):
+        ws['d_draw'] = d[:-len(' وَأَكْتُبُ اسْمَهُ:')] + tail
+    ws['d_think'] = _cut(ws['d_think']).rstrip('؟') + '؟' + {3: ' وَأَذْكُرُ سَبَبًا.', 4: ' وَأُعَلِّلُ بِدَليلٍ.'}[y] if ws['d_think'].rstrip('.').endswith('؟') else ws['d_think']
+    return sp
+
+def run(sp, y=1):
+    global GN
+    GN = GRADE_NAMES[y]
+    if y != 1:
+        sp = lift(sp, y)
     print(sp['code'], 'slides', deck(sp), sheets(sp))
 
 if __name__=='__main__':
     import lessons_y1_t1 as L, lessons_y1_t1_b as L2
-    for k in sys.argv[1:]: run(getattr(L,k,None) or getattr(L2,k))
+    a = sys.argv[1:]; y = 1
+    if a and a[0] == '--y': y = int(a[1]); a = a[2:]
+    for k in a: run(getattr(L,k,None) or getattr(L2,k), y)
