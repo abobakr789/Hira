@@ -257,11 +257,28 @@ def _shuf(sp):
     for i, (qq, o, c) in enumerate(sp['mcq']):
         k = (h + i) % len(o); o2 = o[-k:] + o[:-k] if k else list(o); out.append((qq, o2, (c + k) % len(o)))
     sp['mcq'] = out; return sp
+def parent(sp, y):
+    c = ('#2F6A9A', '#DDEBF7'); h = sw(sp, y, 'ملاحظة لأولياء الأمور', c[1], 'للأسرة', c[0])
+    cs = sp['concepts']; t1 = cs[0][0]; t2 = cs[1][0] if len(cs) > 1 else cs[0][0]
+    tick = lambda t: "<p style='font-size:12.5pt;line-height:1.9'><span style='display:inline-block;width:16px;height:16px;border:2px solid #6B7585;border-radius:4px;vertical-align:middle;margin-left:8px'></span>" + esc(t) + "</p>"
+    b = "<h2 style='font-size:15pt;color:#2F6A9A;margin:10px 0 4px'>ماذا تعلّمنا؟</h2>"
+    b += "<p style='font-size:12.5pt;line-height:1.9'>تعلّم ابنكم/ابنتكم في هذا الدرس: " + esc(sp['obj']) + " (كتاب الطالب " + esc(sp['pages']) + ").</p>"
+    b += "<h2 style='font-size:15pt;color:#2F6A9A;margin:10px 0 4px'>كيف تساعدونه في البيت؟</h2>"
+    b += tick('اطلبوا منه أن يشرح لكم معنى «%s» و«%s» بكلماته، ويذكر مثالًا من حياته.' % (t1, t2))
+    b += tick('اقرؤوا معه هذا الموقف وناقشوه: ' + sp['case'][0] + ' ' + sp['case'][1])
+    b += tick('شجّعوه حين يطبّق ما تعلّمه، وامدحوا سلوكه الحسن أمام الأسرة.')
+    b += "<h2 style='font-size:15pt;color:#2F6A9A;margin:10px 0 4px'>مهمة البيت</h2>"
+    b += "<p style='font-size:12.5pt;line-height:1.9'>يختار ابنكم/ابنتكم سلوكًا واحدًا من الدرس ويلتزم به هذا الأسبوع، ثم يكتب ما فعله ليعرضه على الصف:</p>" + lines(4, 11)
+    words = [a for a, _ in cs] + [a for a, _ in sp.get('phrases', [])]
+    b += "<h2 style='font-size:15pt;color:#2F6A9A;margin:10px 0 4px'>كلمات نتدرّب عليها</h2><div style='display:flex;gap:8px;flex-wrap:wrap'>" + ''.join("<span style='border:2px solid #2F6A9A;border-radius:20px;padding:3px 16px;font-weight:700;font-size:13pt'>%s</span>" % esc(w) for w in words) + "</div>"
+    b += "<p style='margin-top:16px;font-size:12.5pt'>شكرًا لتعاونكم في تعليم أبنائنا. — معلم/معلمة المادة</p>"
+    return doc('ملاحظة لأولياء الأمور · ' + sp['title'], page(h + b).replace(G['SELF'], ''))
+
 def run(sp, y, ids):
     code = 'SN-Y%d-%s' % (y, sp['stem']); sp = _shuf(dict(sp)); sp['code'] = code
     out = ROOT + '/resources/ssd/%s/' % code; os.makedirs(out, exist_ok=True)
     W = lambda f, s: open(out + f, 'w', encoding='utf8').write(s)
     W('worksheets-A4.html', worksheets(sp, y)); W('pod-sheet.html', pod(sp, y)); W('sources-concept-card.html', sources(sp, y))
-    W('group-work.html', group(sp, y)); W('answer-key.html', key(sp, y))
+    W('group-work.html', group(sp, y)); W('parent-note.html', parent(sp, y)); W('answer-key.html', key(sp, y))
     k = deck(sp, y, ids[code], out + 'teacher-deck.html')
     print(code, 'slides', k)
