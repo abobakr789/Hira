@@ -13,8 +13,19 @@
   const mdrNorm = (w) => String(w || "").replace(/[\u064B-\u0652\u0640]/g, "").replace(/[^\u0621-\u064A]/g, "").replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/ى/g, "ي");
   const mdrStem = (w) => mdrNorm(w).replace(/^(وال|فال|بال|كال|لل|ال)/, "");
   let MDR_AUD = null;
-  async function mdrAudList() { if (MDR_AUD) return MDR_AUD; MDR_AUD = new Set(); try { const { data } = await sb.storage.from("reader-audio").list("madarij", { limit: 500 }); (data || []).forEach((f) => MDR_AUD.add(f.name)); } catch (e) {} return MDR_AUD; }
-  const mdrAudUrl = (name) => ((window.HIRAA_CONFIG && window.HIRAA_CONFIG.supabaseUrl) || "") + "/storage/v1/object/public/reader-audio/madarij/" + encodeURIComponent(name);
+  // التسجيلات: الأصل في Supabase (reader-audio/madarij)، وإن لم يُرفع نص فيها فيُقرأ تسجيله من مجلد المستودع art/madarij/audio
+  let MDR_LOC = new Set();
+  async function mdrAudList() {
+    if (MDR_AUD) return MDR_AUD; MDR_AUD = new Set(); MDR_LOC = new Set();
+    try { const { data } = await sb.storage.from("reader-audio").list("madarij", { limit: 500 }); (data || []).forEach((f) => MDR_AUD.add(f.name)); } catch (e) {}
+    try {
+      const have = new Set([...MDR_AUD].filter((n) => !/\.json$/.test(n)).map((n) => n.replace(/\.[^.]+$/, "")));
+      const loc = await (await fetch("art/madarij/audio/index.json")).json();
+      (loc || []).forEach((n) => { if (!have.has(n.replace(/\.[^.]+$/, ""))) { MDR_AUD.add(n); MDR_LOC.add(n); } });
+    } catch (e) {}
+    return MDR_AUD;
+  }
+  const mdrAudUrl = (name) => MDR_LOC.has(name) ? "art/madarij/audio/" + encodeURIComponent(name) : ((window.HIRAA_CONFIG && window.HIRAA_CONFIG.supabaseUrl) || "") + "/storage/v1/object/public/reader-audio/madarij/" + encodeURIComponent(name);
   const mdrBar = (v, max) => `<span class="mdr-bar"><i style="width:${max ? Math.round(v * 100 / max) : 0}%"></i></span>`;
 
   const rubricView = (r) => r ? `<div class="mdr-rbv">${MDR_RB.map((c, i) => { const v = +r[i] || 0; return `<div><span>${c[0]} ${c[1]}</span><span class="mdr-dots">${[1, 2, 3, 4].map((k) => `<i class="${k <= v ? "on" : ""}"></i>`).join("")}</span><b>${MDR_LV[v] || "—"}</b></div>`; }).join("")}</div>` : "";

@@ -1,5 +1,5 @@
 /* Hira service worker: app shell offline, curriculum data cached for offline reading */
-const VERSION = "hira-v81";
+const VERSION = "hira-v82";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 // only public curriculum tables are cached (never student data, resources or results)
 const CURRICULUM = /\/rest\/v1\/(units|lessons|learning_outcomes|lesson_outcomes|fw_domains|fw_axes|fw_standards|evidences|identity_tags|lesson_identity_links|success_criteria)\b/;
@@ -38,7 +38,7 @@ self.addEventListener("fetch", (e) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   // only app-shell navigations use the cached index; files (resources/*.pdf) go straight to the network
-  if (url.origin === location.origin && url.pathname.includes("/resources/")) return;
+  if (url.origin === location.origin && (url.pathname.includes("/resources/") || url.pathname.includes("/art/madarij/audio/"))) return;
   if (req.mode === "navigate") { e.respondWith(networkFirst(req, "./index.html")); return; }
   if (url.origin === location.origin) { e.respondWith(networkFirst(req)); return; }
   if (/fonts\.(googleapis|gstatic)\.com$/.test(url.hostname) || url.hostname === "cdnjs.cloudflare.com" || url.hostname === "cdn.jsdelivr.net") {
