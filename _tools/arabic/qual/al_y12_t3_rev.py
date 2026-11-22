@@ -39,7 +39,7 @@ def build(C):
         s["els"] += [T(h, x, 150, w, 70, 21, "FFFFFF", True, "center", COLS[i], True), T(m, x, 228, w, 50, 24, COLS[i], True, "center", "FFFFFF", True, rv=1),
                      T(b, x, 288, w, 350, 19, DK, False, fill="FFFFFF", rad=True, va="top", rv=2)]
     # practice protocol
-    s = D.new("📝 التدريب الكامل", "قبل الحصة وفي أثنائها وبعدها", 5, "التدريب الكامل يكون بورقة حقيقية من موقع Pearson وبشروط الامتحان.")
+    s = D.new("📝 التدريب الكامل", "قبل الحصة وفي أثنائها وبعدها", 5, "التدريب الكامل يكون بامتحان تجريبي كامل من حراء (بشكل أوراق Pearson نفسه) وبشروط الامتحان.")
     for i, (h, b) in enumerate(C["protocol"]):
         x, w = cols(4)[i]; chip(s, x, 160, w, 250, h, b, COLS[i], rv=i + 1)
     s["els"].append(T("📚 " + C["papersNote"], L, 440, W, 200, 21, DK, False, fill="FFFFFF", rad=True, va="top", rv=5))
@@ -77,7 +77,7 @@ def build(C):
     if bad: print("OVERLAP", C["code"], bad)
     return D
 
-PAPERS = "الأوراق الرسمية ومعايير تصحيحها وتقارير الممتحنين متاحة على موقع Pearson (qualifications.pearson.com) في صفحة A Level Arabic، ضمن Exam materials؛ وبعضها يحتاج حساب المدرسة."
+PAPERS = "التدريب الكامل: «الامتحانات التجريبية» في صفحة A Level على حراء، بشكل أوراق Pearson نفسه (الأسئلة والدرجات والزمن)، مع تصحيح فوري. والمعايير وملاحظات الممتحنين في هذا العرض وفي ورش الامتحان."
 PROT = [("قبل", "ورقة حقيقية كاملة\nبلا قاموس"), ("أثناء", "توقيت صارم\nكالامتحان"), ("بعد", "تصحيح بمعيار\nالتصحيح الرسمي"), ("ثم", "سجلّ أخطاء\nوخطّة علاج")]
 LS = []
 

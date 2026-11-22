@@ -7519,7 +7519,7 @@ window.HiraArcade = (function () {
             ${!stu ? `<p class="muted">جرّب الكتابة هنا؛ لا تُحفظ إجابتك إلا بحساب طالب.</p>` : ""}</div><div id="ewsSelf"></div>` : ""}
           ${isStaff() && state.session ? `<div id="ewsT2"></div>` : ""}`; }
       if (part === 5) b = `<div class="ews-mist">${D.mistakes.map((m) => `<div><span>${m[0]}</span><b>${esc(m[1])}</b><p>${esc(m[2])}</p>${m[3] ? `<small>${m[3] === "ms" ? "📄 من معيار التصحيح" : m[3] === "rep" ? "📄 من تقرير الممتحنين" : "📄 من تعليمات السؤال"}</small>` : ""}</div>`).join("")}</div>
-        <div class="mdr-card"><h4>📚 المصادر الرسمية</h4><ul>${D.sources.map((s) => `<li>${s[1] ? `<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>` : esc(s[0])}</li>`).join("")}</ul><p class="muted">النصوص والإجابات النموذجية في هذه الورشة من تأليف حراء، على شكل أسئلة Pearson ومعايير تصحيحها.</p></div>`;
+        <div class="mdr-card"><h4>📚 المصادر الرسمية</h4><ul>${D.sources.map((s) => `<li>${esc(s[0])}</li>`).join("")}</ul><p class="muted">النصوص والإجابات النموذجية في هذه الورشة من تأليف حراء، على شكل أسئلة Pearson ومعايير تصحيحها.</p></div>`;
       box.innerHTML = `<div class="ews"><div class="ews-hd"><b>🎯 ورشة الامتحان</b><span dir="ltr">Pearson Edexcel ${esc(D.qual)}</span>${mine && mine.graded_at ? `<span class="pill ok">درجة معلمك: ${mine.t_score}/${mine.max_score}</span>` : mine && mine.submitted_at ? `<span class="pill">تصحيحك الذاتي: ${mine.self_score}/${mine.max_score}</span>` : ""}</div>
         <div class="mdr-steps">${P.map((p, k) => `<button class="mdr-sp ${k === part ? "on" : ""}" data-ep="${k}"><span>${p[0]}</span>${p[1]}</button>`).join("")}</div><div class="ews-body">${b}</div>
         <div class="mdr-nav">${part ? `<button class="btn btn-ghost" data-ep="${part - 1}">→ ${P[part - 1][1]}</button>` : "<span></span>"}${part < P.length - 1 ? `<button class="btn btn-primary" data-ep="${part + 1}">${P[part + 1][1]} ←</button>` : ""}</div></div>`;
@@ -8333,20 +8333,6 @@ async function pageArMocks(params) {
     render();
   }
   
-const PEARSON_LINKS = {
-    gcse: [["🏠 صفحة المؤهّل على موقع Pearson (فيها تسجيلات الاستماع ومواد التقييم)", "https://qualifications.pearson.com/en/qualifications/edexcel-gcses/arabic-2017.html"],
-      ["📘 المواصفات (Issue 5)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/specification-and-sample-assessments/specification-gcse2017-l12-arabic-issue5.pdf"],
-      ["📝 مواد التقييم النموذجية SAMs (Issue 3): نصوص الاستماع والأسئلة ومعايير التصحيح", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/specification-and-sample-assessments/sams-gcse-arabic-2022-issue-3.pdf"],
-      ["🎧 ورقة الاستماع 2024 — الأساسي (1F)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1f-que-20240516.pdf"],
-      ["🎧 معيار تصحيح ونص استماع 2024 — الأساسي (1F)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1f-rms-20240822.pdf"],
-      ["🎧 ورقة الاستماع 2024 — الأعلى (1H)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1h-que-20240516.pdf"],
-      ["🎧 معيار تصحيح ونص استماع 2024 — الأعلى (1H)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1h-rms-20240822.pdf"],
-      ["📊 تقرير الممتحنين 2025 — الاستماع الأعلى (1H)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1h-pef-20250821.pdf"],
-      ["📊 تقرير الممتحنين 2025 — الاستماع الأساسي (1F)", "https://qualifications.pearson.com/content/dam/pdf/GCSE/Arabic/2017/Exam-materials/1aa0-1f-pef-20250821.pdf"]],
-    igcse: [["🏠 صفحة المؤهّل على موقع Pearson", "https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses/international-gcse-arabic-as-1st-language-2017.html"],
-      ["📝 مواد التقييم النموذجية SAMs", "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Arabic%20as%20a%20first%20language/2017/specification-and-sample-assessments/International-GCSE-Arabic-SAMs.pdf"]],
-    alevel: [["🏠 صفحة المؤهّل على موقع Pearson (فيها تسجيلات الاستماع لمواد التقييم)", "https://qualifications.pearson.com/en/qualifications/edexcel-a-levels/arabic-2018.html"],
-      ["📝 مواد التقييم النموذجية SAMs (الأوراق الثلاث ومعايير التصحيح)", "https://qualifications.pearson.com/content/dam/pdf/A%20Level/Arabic/2018/specification-and-sample-assessments/A-level-Arabic-SAMs.pdf"]] };
   async function fillArMocks() {
     const el = document.getElementById("arMocksPane"); if (!el) return; const q = el.dataset.q;
     try { localStorage.setItem("hiraa.mockBack", location.hash); } catch (e) {}
@@ -8357,7 +8343,7 @@ const PEARSON_LINKS = {
     const facts = (MK_GUIDE[q] || {}).facts || [];
     el.innerHTML = `<div class="form-card" style="border-inline-start:5px solid #0F6E72;max-width:none;width:100%;margin:0"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><h2 style="margin:0 0 4px">📝 الامتحانات التجريبية</h2><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-small" href="#/ar-guide/${q}">🧭 كيف أجيب؟</a>${isStaff() ? `<a class="btn btn-small btn-primary" href="#/ar-mock-review">📋 نتائج طلابي</a>` : ""}</div></div>
       <p style="margin:6px 0">${facts.map((f) => `<span class="pill" style="margin:3px">${esc(f)}</span>`).join("")}</p><p class="muted" style="margin:0 0 12px">بشكل امتحانات Pearson نفسه (الأسئلة والدرجات والزمن)، بنصوص من تأليف حراء، مع تصحيح فوري ودرجة تقديرية.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span>${best(x.id) != null ? `<span class="pill" style="display:inline-block;margin-top:8px;background:#E7F6EC">أفضل نتيجة: ${best(x.id)}% · ${mkGradeQ(q, best(x.id))}</span>` : ""}</a>`).join("") : `<div class="empty">قريبًا.</div>`}</div><details style="margin-top:16px" open><summary style="cursor:pointer;font-weight:800">📚 مواد Pearson الرسمية</summary><div style="display:grid;gap:6px;margin-top:8px">${(PEARSON_LINKS[q] || []).map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener" style="display:block;padding:10px 12px;border:1px solid rgba(15,110,114,.2);border-radius:10px;text-decoration:none">${esc(t)} ↗</a>`).join("")}</div><p class="muted" style="margin:10px 0 0;font-size:.9rem">المصدر: Pearson Edexcel — qualifications.pearson.com. تُفتح الملفات من موقع Pearson مباشرة، وحقوقها محفوظة لـ © Pearson Education Ltd. تسجيلات الاستماع لمواد التقييم النموذجية موجودة في صفحة المؤهّل ضمن «Course materials».</p></details></div>`;
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">${L.length ? L.map((x) => `<a href="#/ar-mock/${x.id}" style="display:block;padding:16px;border:1px solid rgba(15,110,114,.25);border-radius:14px;background:#F6FBFA;text-decoration:none;color:inherit"><b style="display:block;margin-bottom:4px;color:#0F6E72">📄 ${esc(x.title)}</b><span class="muted">${esc(x.sub)}</span>${best(x.id) != null ? `<span class="pill" style="display:inline-block;margin-top:8px;background:#E7F6EC">أفضل نتيجة: ${best(x.id)}% · ${mkGradeQ(q, best(x.id))}</span>` : ""}</a>`).join("") : `<div class="empty">قريبًا.</div>`}</div></div>`;
   }
   const MK_GUIDE = {
     alevel: { title: "A Level العربية (9AA0): كيف أجيب؟", facts: ["📝 الورقة 1: ساعتان ونصف · ترجمة إلى الإنجليزية + قراءة + سؤال بحثي (80)", "✍️ الورقة 2: ساعتان و40 دقيقة · ترجمة إلى العربية + مقالان عن العملين (110)", "🎧 الورقة 3: استماع وقراءة وكتابة (60)", "🎯 سلّم A*–E"],
@@ -9437,7 +9423,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const evHtml = lockedForMe ? lockedMsg : ev.length ? ev.map((e) => e.kind === "quran"
       ? `<div class="evidence"><p class="quran-ref">${esc(e.text_ar)}</p>
           <div class="src"><span>الآيات ${e.ayah_from}–${e.ayah_to}</span>${e.is_verified ? '<span class="pill axis">موثّق</span>' : ""}
-          <a href="https://quran.com/${e.surah_no}" target="_blank" rel="noopener">اقرأ السورة واستمع إليها</a></div></div>`
+          <a href="#" data-mushaf="${e.surah_no}:${e.ayah_from || 1}:${e.ayah_to || e.ayah_from || 0}">اقرأ الآيات واستمع إليها</a></div></div>`
       : `<div class="evidence"><p class="txt">${esc(e.text_ar)}</p>
           ${e.translation_en ? `<p dir="ltr" class="muted">${esc(e.translation_en)}</p>` : ""}
           <div class="src"><span>${esc(e.source || "")}</span>${e.hadith_grade ? `<span>· ${esc(e.hadith_grade)}</span>` : ""}
@@ -12977,7 +12963,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (it.k === "poem") return `<article class="syl-card p"><header><b>${esc(it.title || "")}</b><small>${esc(it.poet || "")}</small>${chk}</header>${it.desc ? `<p class="muted">${esc(it.desc)}</p>` : ""}${en && it.en ? `<p class="syl-en" dir="ltr">${esc(it.en)}</p>` : ""}
       <ol class="syl-verses" dir="rtl">${(it.verses || []).map((v) => `<li><span>${T(v[0] || "")}</span><span>${T(v[1] || "")}</span></li>`).join("")}</ol></article>`;
     if (it.k === "surah") return `<article class="syl-card s"><header><span class="syl-n">${it.no || ""}</span><b>${esc(it.title || "")}</b>${en && it.en ? `<small dir="ltr">${esc(it.en)}</small>` : ""}${chk}</header>
-      ${it.no ? `<a class="btn btn-ghost btn-small" href="https://quran.com/${it.no}" target="_blank" rel="noopener">📖 ${CT("اقرأ واستمع", "Read & listen")}</a>` : ""}</article>`;
+      ${it.no ? `<button type="button" class="btn btn-ghost btn-small" data-mushaf="${+it.no}">📖 ${CT("اقرأ واستمع", "Read & listen")}</button>` : ""}</article>`;
     if (it.k === "event") return `<article class="syl-card e"><header><span class="syl-n">${i + 1}</span><b>${esc(it.title || "")}</b><small>${esc(it.when || "")}</small>${chk}</header><p>${T(it.text || "")}</p>${it.lesson ? `<p class="syl-les">💡 ${esc(it.lesson)}</p>` : ""}</article>`;
     return `<article class="syl-card n"><header><b>${esc(it.title || "")}</b>${chk}</header><p>${T(it.text || "")}</p></article>`;
   }
@@ -13037,6 +13023,21 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       <body><h1>${esc(L_(c, "title"))}</h1><h2>${lvObj ? esc(L_(lvObj, "name")) + " · " + esc(L_(lvObj, "requirement")) : ""}</h2>${body}</body></html>`);
     f.contentDocument.close(); setTimeout(() => { f.contentWindow.focus(); f.contentWindow.print(); setTimeout(() => f.remove(), 2000); }, 900);
   }
+
+  /* قارئ المصحف داخل المنصة (بدل الروابط الخارجية): السورة بخط المصحف مع تلاوة الطنيجي والترجمة الاختيارية.
+     أي عنصر فيه data-mushaf="رقم السورة[:من آية[:إلى آية]]" يفتحه. */
+  function openMushaf(s, a1, a2) {
+    s = +s; if (!(s >= 1 && s <= 114)) return;
+    const d = document.createElement("div"); d.className = "td-ov mus-ov"; document.body.appendChild(d); document.body.style.overflow = "hidden";
+    const key = (e) => { if (e.key === "Escape") close(); };
+    const close = () => { d.querySelectorAll("audio").forEach((a) => { try { a.pause(); } catch (e) {} }); d.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", key); };
+    const nn = state.myTrack === "non_native", en = LANG === "en";
+    d.innerHTML = `<div class="td-bar"><button class="btn btn-ghost btn-small" data-mx>✕ ${CT("إغلاق", "Close")}</button><b>📖 ${CT("المصحف", "The Mushaf")}</b><span style="flex:1"></span></div>
+      <div style="flex:1;overflow:auto;background:#FBF8F1;color:#1B2A33;padding:18px 14px"><div style="max-width:920px;margin:0 auto">
+        <div class="mus" data-mus="${+a1 || 1}-${+a2 || 0}" data-mus-s="${s}"${nn || en ? ' data-mus-tr="en"' : ""}${en ? ' data-mus-en="1"' : ""}><p class="muted" style="text-align:center">${CT("جارٍ فتح السورة…", "Opening the surah…")}</p></div></div></div>`;
+    d.querySelector("[data-mx]").onclick = close; document.addEventListener("keydown", key);
+  }
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-mushaf]"); if (!b) return; e.preventDefault(); const [s, a1, a2] = String(b.dataset.mushaf).split(":"); openMushaf(s, a1, a2); });
 
   function sylPresent(c, lvObj, items, en) {
     let i = 0, hide = false; const d = document.createElement("div"); d.className = "td-ov syl-show"; document.body.appendChild(d); document.body.style.overflow = "hidden";
@@ -17351,10 +17352,12 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       el.setAttribute("data-mus-on", "1");
       const [la, lz] = el.dataset.mus.split("-").map(Number); let q = []; try { q = JSON.parse(el.dataset.musQ || "[]"); } catch (e) {}
       ready().then(() => {
-        let s = 0;
+        let s = +el.dataset.musS || 0;                              // رقم السورة صريحًا (قارئ المصحف داخل المنصة)
         for (let k = 0; k < q.length && !s; k++) { const r = find(q[k], { s: new Set(), n: la + k, prev: null }); if (r && r[0] === r[1] && IX.keys[r[0]][1] === la + k) s = IX.keys[r[0]][0]; }
-        if (!s || TM.st[s - 1].length < lz) return;               // لم تُعرف السورة: يبقى النص كما هو
-        const st = { s, la, lz, a1: la, a2: lz, N: TM.st[s - 1].length, en: !!el.dataset.musEn,
+        if (!s || !TM.st[s - 1]) return;
+        const zz = lz || TM.st[s - 1].length;                         // 0 = إلى آخر السورة
+        if (TM.st[s - 1].length < zz) return;                         // لم تُعرف السورة: يبقى النص كما هو
+        const st = { s, la, lz: zz, a1: la, a2: zz, N: TM.st[s - 1].length, en: !!el.dataset.musEn,
           tr: MS.tr !== undefined ? MS.tr : (el.dataset.musTr || ""), lat: MS.lat !== undefined ? !!MS.lat : false, fs: MS.fs || 1 };
         el._mus = st; musRender(el);
       }).catch((e) => { try { console.error("TIL mushaf", e && e.stack); } catch (x) {} });
