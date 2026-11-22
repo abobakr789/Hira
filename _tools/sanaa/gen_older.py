@@ -116,49 +116,137 @@ def key(sp, y):
 
 # ---------------- deck ----------------
 PALS = ['sand', 'blue', 'mint', 'rose', 'lav', 'gold', 'sky', 'peach']
+import math
+def _fit(texts, base, w=1630, top=300, avail=660, gap=22, minfs=26):
+    """return (fs, heights) so a vertical stack of texts fits in `avail` px."""
+    fs = base
+    while True:
+        cpl = max(20, int(w / (fs * 0.50)))
+        hs = [int(math.ceil(len(t) / cpl) * fs * 1.6 + 56) for t in texts]
+        if sum(hs) + gap * (len(hs) - 1) <= avail or fs <= minfs: return fs, hs
+        fs -= 2
+def _stack(texts, ac, base=38, top=300, avail=660, gap=22, w=1680, bg='#fff', numbered=False, align='right'):
+    fs, hs = _fit(texts, base, w - 50, top, avail, gap); body = ''; y = top
+    for i, (t, h) in enumerate(zip(texts, hs)):
+        tt = esc(t) if not numbered else '<b style="color:%s">%d.</b> %s' % (ac, i + 1, esc(t))
+        body += abs_(120, y, w, card(P(tt, fs, align=align), w, h, ac=ac, bg=bg, extra='align-items:flex-start'))
+        y += h + gap
+    return body
 def deck(sp, y, lesson_id, out):
     S = []; foot = 'حراء · السنع الإماراتي · الصف %s' % GN[y]; n = [0]; T = sp['title']
     def sl(pal, badge, mins, title, body, notes):
         n[0] += 1; S.append(frame('s%d' % n[0], pal, badge, mins, title, body, notes, foot))
-    d = DEPTH[y]
+    d = DEPTH[y]; pg = sp['pages']; A = lambda p: K.PAL[p][1]
+    tfs, mc, mt, sh = sp['tf'], sp['mcq'], sp['match'], sp['short']
     # 1 cover
-    sl('sand', sp['unit'], '', T, abs_(120, 380, 1680, card(P(esc(sp['obj']), 44, bold=True, display=True) + P('من كتاب الطالب ' + esc(sp['pages']) + ' · الصف ' + GN[y], 30, '#5B6472'), 1680, 360, ac='#B0782A'), 'justify-content:center'),
-       'ترحيب. اعرض عنوان الدرس والهدف. الوقت الكلي: حصة واحدة.')
+    sl('sand', sp['unit'], '', T, abs_(120, 380, 1680, card(P(esc(sp['obj']), 44, bold=True, display=True) + P('من كتاب الطالب ' + esc(pg) + ' · الصف ' + GN[y], 30, '#5B6472'), 1680, 360, ac='#B0782A'), 'justify-content:center'),
+       'ترحيب. اعرض عنوان الدرس والهدف. الوقت الكلي: حصة واحدة (نحو 45 دقيقة).')
     # 2 warm-up
-    sl('blue', 'تمهيد', '5 د', 'أبدأ بسؤال', abs_(120, 330, 1680, card(P(esc(sp['warm']), 42, align='right'), 1680, 300, ac='#2F6A9A', extra='align-items:flex-start')) +
+    sl('blue', 'تهيئة', '3 د', 'نتذكر معًا قبل أن نبدأ', abs_(120, 330, 1680, card(P(esc(sp['warm']), 44, align='right'), 1680, 300, ac='#2F6A9A', extra='align-items:flex-start')) +
        abs_(120, 680, 1680, card(P('أناقش مع زميلي دقيقة ثم نشارك الصف.', 32, '#5B6472', align='right'), 1680, 130, ac='#2F6A9A', border=False)),
        'اطلب إجابات حرة قبل فتح الكتاب. لا تصحح الآن.')
-    # 3-4 points
-    pts = sp['points']; per = 3 if len(pts) <= 6 else 4
+    # 3 curiosity
+    sl('peach', 'نتساءل', '4 د', 'لحظة فضول', abs_(120, 320, 1680, card(P(esc(sp['case'][0]), 42, align='right'), 1680, 300, ac=A('peach'), extra='align-items:flex-start')) +
+       abs_(120, 660, 1680, card(P('🤔 ما رأيك؟ اكتب توقعك في جملة، وسنعود إليه في نهاية الدرس.', 34, A('peach'), True, align='right'), 1680, 150, ac=A('peach'), bg='#FFF1E6')),
+       'لا تجب عن السؤال الآن؛ اجمع توقعات الطلاب وارجع إليها في الختام.')
+    # 4 detectives: guess the term
+    ms = [m for _, m in sp['concepts']]
+    sl('sky', 'تحدي المحققين', '3 د', 'خمّن المصطلح!', _stack(ms, A('sky'), 36, numbered=True, avail=560) +
+       abs_(120, 880, 1680, P('المصطلحات: ' + ' · '.join(t for t, _ in sp['concepts']) + ' (للمعلم)', 22, '#8A8475', align='right')),
+       'اعرض التعريفات واطلب من الطلاب تخمين المصطلح قبل كشفه من الدرس. الإجابات بالترتيب: ' + ' ، '.join(t for t, _ in sp['concepts']) + '.')
+    # 5 predict
+    pr = [s for s, _, _ in tfs[:3]]
+    sl('lav', 'قبل الدرس', '3 د', 'أتوقع: صحيحة أم خاطئة؟', _stack(pr, A('lav'), 38, numbered=True, avail=560) +
+       abs_(120, 880, 1680, P('نتحقق من توقعاتنا بعد القراءة.', 28, '#5B6472', align='right')),
+       'اجمع التصويت بالأيدي. الإجابات: ' + ' ، '.join('صحيحة' if b else 'خاطئة' for _, b, _ in tfs[:3]) + '.')
+    # 6 aim
+    sl('gold', 'هدف الدرس', '2 د', 'وجهتنا اليوم', abs_(120, 330, 1680, card(P('🎯 ' + esc(sp['obj']), 44, A('gold'), True, align='right'), 1680, 220, ac=A('gold'), bg='#FFF6DD')) +
+       abs_(120, 590, 1680, card(P('معيار نجاحي: ' + esc(d[0]), 34, align='right') + P('وأربط ما تعلمته بسلوك أطبقه.', 30, '#5B6472', align='right'), 1680, 220, ac=A('gold'), extra='align-items:flex-start')),
+       'اقرأ الهدف مع الطلاب واطلب منهم إعادة صياغته.')
+    # 7 map
+    steps = ['نتذكر', 'مفاتيح الدرس', 'نقرأ من الكتاب', 'نطبق معًا', 'نعمل في مجموعات', 'نتحدى مستوياتنا', 'نختم']
+    cb = ''.join(abs_(120 + (i % 4) * 430, 330 + (i // 4) * 260, 400, card(P('%d' % (i + 1), 44, A(PALS[i]), True, True) + P(t, 30), 400, 220, ac=A(PALS[i]))) for i, t in enumerate(steps))
+    sl('sand', 'خريطة الحصة', '1 د', 'رحلة درسنا', cb, 'اعرض مراحل الحصة سريعًا.')
+    # 8 pre-progress
+    outs = [sp['obj'], 'أشرح: ' + sp['concepts'][0][0] + ' و' + sp['concepts'][1][0], 'أطبق ما تعلمته في موقف من حياتي']
+    sl('mint', 'قياس التقدم', '2 د', 'أين أنا الآن؟ (قبل الدرس)', _stack([o + '   ☐ لا أعرف  ☐ أعرف قليلًا  ☐ أعرف جيدًا' for o in outs], A('mint'), 34, avail=560, numbered=True),
+       'يقيّم الطالب نفسه قبل الدرس بوضع علامة. نعيد التقييم بعد الدرس.')
+    # 9 concepts
+    nc = len(sp['concepts']); cw = (1680 - 40 * (nc - 1)) // nc
+    cb = ''.join(abs_(120 + i * (cw + 40), 330, cw, card(P(esc(t), 48 if nc < 4 else 42, A(PALS[i]), True, True) + P(esc(m), 32 if nc < 4 else 28), cw, 460, ac=A(PALS[i]))) for i, (t, m) in enumerate(sp['concepts']))
+    sl('mint', 'مفاتيح الدرس', '5 د', 'كلمات جديدة ومفاهيم', cb, 'اطلب من الطلاب إعادة صياغة كل مفهوم بكلماتهم.')
+    # 10 match
+    colA = ''.join(abs_(120, 320 + i * 150, 780, card(P(esc(a), 34, A('blue'), True), 780, 125, ac=A('blue'))) for i, (a, _) in enumerate(mt))
+    order = [2, 0, 3, 1] if len(mt) == 4 else list(range(len(mt)))
+    colB = ''.join(abs_(1020, 320 + i * 150, 780, card(P(esc(mt[k][1]), 32), 780, 125, ac='#5B6472')) for i, k in enumerate(order))
+    sl('blue', 'نطبق معًا', '4 د', 'أصل المفهوم بمعناه', colA + colB, 'اطلب الوصل شفهيًا ثم اكشف: ' + ' ، '.join('%s ← %s' % (a, b) for a, b in mt))
+    # 11 word of the lesson
+    t0, m0 = sp['concepts'][0]
+    sl('rose', 'كلمة الدرس', '4 د', 'رحلتي مع «%s»' % t0, abs_(120, 320, 1680, card(P('المعنى: ' + esc(m0), 40, align='right'), 1680, 200, ac=A('rose'), extra='align-items:flex-start')) +
+       abs_(120, 560, 820, card(P('✍️ أستعملها في جملة من عندي', 32, A('rose'), True), 820, 200, ac=A('rose'))) + abs_(980, 560, 820, card(P('🌍 مثال من حياتي أو مجتمعي', 32, A('rose'), True), 820, 200, ac=A('rose'))),
+       'اطلب جملًا وأمثلة من الطلاب.')
+    # knowledge slides
+    pts = sp['points']; per = 2 if len(pts) > 4 else 2
     chunks = [pts[i:i + per] for i in range(0, len(pts), per)]
     for ci, ch in enumerate(chunks):
-        body = ''
-        for i, p in enumerate(ch):
-            body += abs_(120, 300 + i * 190, 1680, card(P(esc(p), 36, align='right'), 1680, 160, ac=K.PAL[PALS[(ci + 1) % 8]][1], extra='align-items:flex-start'))
-        sl(PALS[(ci + 2) % 8], 'من الكتاب', '10 د', 'ماذا يقول الكتاب؟ (%d/%d)' % (ci + 1, len(chunks)), body,
-           'اقرأوا النص من الكتاب ' + sp['pages'] + ' ثم اربطوا كل نقطة بمثال.')
-    # concepts
-    cb = ''
-    nc = len(sp['concepts']); cw = (1680 - 40 * (nc - 1)) // nc
-    for i, (t, m) in enumerate(sp['concepts']):
-        cb += abs_(120 + i * (cw + 40), 330, cw, card(P(esc(t), 48 if nc < 4 else 42, K.PAL[PALS[i]][1], True, True) + P(esc(m), 32 if nc < 4 else 28), cw, 420, ac=K.PAL[PALS[i]][1]))
-    sl('mint', 'مفاهيم', '5 د', 'كلماتي ومفاهيمي', cb, 'اطلب من الطلاب إعادة صياغة كل مفهوم بكلماتهم.')
-    # phrases/quote slide
+        sl(PALS[(ci + 2) % 8], 'بناء المعرفة', '4 د', 'نتعلم (%d/%d)' % (ci + 1, len(chunks)), _stack(ch, A(PALS[(ci + 1) % 8]), 38, avail=640),
+           'اقرأوا النص من الكتاب ' + pg + ' ثم اربطوا كل نقطة بمثال.')
+    # read from book
+    sl('sky', 'من كتابي', '4 د', 'نقرأ النص من كتابي', abs_(120, 320, 1680, card(P('📘 أفتح كتابي: ' + esc(pg), 44, A('sky'), True, align='right'), 1680, 170, ac=A('sky'))) +
+       _stack(['أضع خطًّا تحت أهم جملة في الفقرة.', 'أكتب بكلماتي فكرة رئيسة واحدة.', 'أحدد كلمة جديدة وأشرحها ' + d[0]], A('sky'), 34, top=520, avail=420, numbered=True),
+       'دع الطلاب يقرؤون بصمت ثم يشاركون.')
+    # think-pair-share
+    sl('peach', 'فكر · زاوج · شارك', '3 د', 'أفكر مع زميلي', abs_(120, 330, 1680, card(P('❓ ' + esc(sp['case'][1]), 42, A('peach'), True, align='right'), 1680, 220, ac=A('peach'), bg='#FFF1E6')) +
+       abs_(120, 580, 1680, card(P('١ أفكر وحدي ٣٠ ثانية  ·  ٢ أناقش زميلي  ·  ٣ نشارك الصف', 34, align='right'), 1680, 150, ac=A('peach'), border=False)),
+       'استعمل استراتيجية فكر-زاوج-شارك.')
+    # phrases
     if sp.get('phrases'):
-        bd = ''.join(abs_(120, 300 + i * 150, 1680, card(P('<b>%s</b> — %s' % (esc(a), esc(bb)), 34, align='right'), 1680, 125, ac='#1B7F9E', extra='align-items:flex-start')) for i, (a, bb) in enumerate(sp['phrases'][:5]))
-        sl('sky', 'عبارات السنع', '5 د', 'من عبارات السنع في الكتاب', bd, 'العبارات بنصها من الكتاب. اطلب تمثيل موقف قصير تُقال فيه كل عبارة.')
-    # case
-    sl('rose', 'تطبيق', '8 د', 'دراسة حالة', abs_(120, 330, 1680, card(P(esc(sp['case'][0]), 38, align='right'), 1680, 330, ac='#B4483F', extra='align-items:flex-start')) +
-       abs_(120, 700, 1680, card(P('❓ ' + esc(sp['case'][1]) + ' ' + esc(d[1]), 36, '#B4483F', True, align='right'), 1680, 190, ac='#B4483F', bg='#FDF1F0')), 'ناقشوا الحالة في أزواج ثم اعرضوا الحلول.')
-    # group
-    gb = ''
-    gt = ['اقرأ واستخرج الأفكار الرئيسة', 'اشرح المفاهيم بأمثلة', 'حلّل دراسة الحالة', 'صمّم مشروعًا صغيرًا']
-    for i, t in enumerate(gt):
-        gb += abs_(120 + (i % 2) * 850, 320 + (i // 2) * 300, 820, card(P('المجموعة %d' % (i + 1), 34, GC[i][0], True, True) + P(t, 36), 820, 260, ac=GC[i][0]))
-    sl('lav', 'عمل جماعي', '10 د', 'العمل الجماعي: أربع مجموعات', gb, 'وزّع بطاقات المجموعات (ملف group-work). لكل مجموعة قائد ومسجّل ومتحدث وحارس وقت.')
-    # exit
-    sl('gold', 'الختام', '5 د', 'تذكرة الخروج', abs_(120, 330, 1680, card(P('✍️ أكتب ثلاث نقاط تعلمتها اليوم، وسلوكًا واحدًا سأطبقه هذا الأسبوع.', 40, align='right'), 1680, 260, ac='#8A5A1E', extra='align-items:flex-start')) +
-       abs_(120, 640, 1680, card(P('📌 مشروعي: ' + esc(sp['proj']), 34, '#8A5A1E', True, align='right'), 1680, 220, ac='#8A5A1E', bg='#FFF6DD')), 'اجمع التذاكر. المشروع واجب اختياري للمستوى الماسي.')
+        bd = ''.join(abs_(120, 320 + i * 150, 1680, card(P('<b>%s</b> — %s' % (esc(a), esc(bb)), 36, align='right'), 1680, 125, ac='#1B7F9E', extra='align-items:flex-start')) for i, (a, bb) in enumerate(sp['phrases'][:5]))
+        sl('sky', 'عبارات السنع', '4 د', 'من عبارات السنع في الكتاب', bd, 'اطلب تمثيل موقف قصير تُقال فيه كل عبارة.')
+    # true/false
+    rows = ''.join(abs_(120, 300 + i * 118, 1680, card(P('%d. %s' % (i + 1, esc(s)) + '   <span style="color:#8A8475">☐ صح  ☐ خطأ</span>', 32, align='right'), 1680, 100, ac=A('rose'), pad=14, extra='align-items:flex-start')) for i, (s, _, _) in enumerate(tfs))
+    sl('rose', 'نتحقق', '3 د', 'أفكر وأصحح: صح أم خطأ؟', rows, 'الإجابات: ' + ' | '.join('%d %s%s' % (i + 1, 'صح' if b else 'خطأ', ('' if b else ' (التصحيح: ' + c + ')')) for i, (_, b, c) in enumerate(tfs)))
+    # group map
+    gt = ['أقرأ وأستخرج الأفكار الرئيسة', 'أشرح المفاهيم بأمثلة', 'أحلل دراسة الحالة', 'أصمم مشروعًا صغيرًا']
+    gb = ''.join(abs_(120 + (i % 2) * 850, 320 + (i // 2) * 300, 820, card(P('المجموعة %d' % (i + 1), 34, GC[i][0], True, True) + P(t, 36), 820, 260, ac=GC[i][0])) for i, t in enumerate(gt))
+    sl('lav', 'عمل جماعي', '2 د', 'خريطة المجموعات', gb, 'وزّع بطاقات المجموعات (ملف group-work). لكل مجموعة قائد ومسجّل ومتحدث وحارس وقت.')
+    # 4 group slides
+    gdet = [
+        ['أقرأ نقاط الكتاب (' + pg + ') وأستخرج ثلاث أفكار رئيسة.', 'أرتبها بحسب الأهمية.', 'أعرضها في جملتين ' + d[0]],
+        ['أشرح مفهومين على الأقل: ' + ' · '.join(t for t, _ in sp['concepts'][:3]) + '.', 'أكتب مثالًا من الحياة لكل مفهوم.', 'أستعمل كلماتي لا نص الكتاب.'],
+        ['أقرأ الحالة: ' + sp['case'][0], sp['case'][1], 'أصيغ الحل ' + d[1]],
+        ['أصمم المشروع: ' + sp['proj'], 'أحدد خطوتين للتنفيذ.', 'أعرض الفكرة في دقيقة ' + d[2]]]
+    for i in range(4):
+        sl(PALS[(i + 4) % 8], 'عمل جماعي', '10 د', 'المجموعة %d: %s' % (i + 1, gt[i]), _stack(gdet[i], GC[i][0], 34, avail=430, top=300) +
+           abs_(120, 780, 1680, card(P('👥 القائد · المسجّل · المتحدث · حارس الوقت   |   ⏱ 10 دقائق', 28, '#5B6472'), 1680, 100, ac=GC[i][0], border=False)),
+           'تابع المجموعة %d وقدّم لها التغذية الراجعة.' % (i + 1))
+    # verify
+    sl('mint', 'نتحقق معًا', '4 د', 'نماذج الإجابة', _stack([sp['short'][0] + ' ← ' + sp['short_key'][0], sp['short'][1] + ' ← ' + sp['short_key'][1], 'الحالة ← ' + sp['case_key']], A('mint'), 34, avail=600),
+       'قارن إجابات المجموعات بالنماذج وصحّح المفاهيم الخاطئة.')
+    # peer feedback
+    sl('gold', 'تغذية راجعة', '3 د', 'أشجّع زميلي', abs_(120, 330, 820, card(P('⭐⭐ نجمتان', 40, A('gold'), True, True) + P('أذكر شيئين أعجباني في عمل المجموعة الأخرى.', 30), 820, 330, ac=A('gold'))) +
+       abs_(980, 330, 820, card(P('💭 أمنية', 40, A('gold'), True, True) + P('أقترح تحسينًا واحدًا بلطف.', 30), 820, 330, ac=A('gold'))), 'علّم الطلاب أدب النقد: نجمتان وأمنية.')
+    # levels challenge
+    lv = ['صحيحة أم خاطئة؟ ' + tfs[0][0], 'أصل: ' + mt[0][0] + ' بما يناسبه.', sh[0], 'ما الحل في الحالة؟ ' + sp['case'][1]]
+    lb = ''.join(abs_(120 + (i % 2) * 850, 310 + (i // 2) * 320, 820, card(P('⭐ ' + LEVELS[i][0], 34, LEVELS[i][1], True, True) + P(esc(t), 28), 820, 290, ac=LEVELS[i][1], bg=LEVELS[i][2])) for i, t in enumerate(lv))
+    sl('lav', 'تحدي المستويات', '10 د', 'كلٌّ في مستواه', lb, 'يختار الطالب مستواه ويحل من أوراق المستويات الأربعة (ملف worksheets).')
+    # behaviour
+    sl('mint', 'قيمة نعيشها', '3 د', 'من درسي إلى سلوكي', _stack(['أختار سلوكًا واحدًا من الدرس وألتزم به هذا الأسبوع.', 'أكتب متى وأين سأطبقه ' + d[2], 'أخبر أسرتي بما تعلمته.'], A('mint'), 36, avail=500, numbered=True), 'ربط الدرس بالسلوك العملي.')
+    # enrichment
+    sl('sand', 'إثراء', '3 د', 'هل تعلم؟', abs_(120, 330, 1680, card(P('💡 ' + esc(sp['points'][-1]), 38, align='right'), 1680, 420, ac=A('sand'), extra='align-items:flex-start')), 'من الكتاب: نقطة إثرائية للتوسع.')
+    # quick quiz
+    qz = []
+    for q_, o, c_ in mc: qz.append('%s   أ) %s   ب) %s   ج) %s' % (q_, o[0], o[1], o[2]))
+    qz.append(sh[1])
+    sl('rose', 'تحدي حراء', '3 د', 'تحدي حراء السريع: 4 أسئلة', _stack(qz, A('rose'), 32, numbered=True, avail=620), 'الإجابات: ' + ' | '.join('%d) %s' % (i + 1, o[c_]) for i, (_, o, c_) in enumerate(mc)) + ' | ' + sp['short_key'][1])
+    # post progress
+    sl('mint', 'قياس التقدم', '2 د', 'كم تعلمت؟ (بعد الدرس)', _stack([o + '   ☐ لا أعرف  ☐ أعرف قليلًا  ☐ أعرف جيدًا' for o in outs], A('mint'), 34, avail=560, numbered=True), 'قارن مع القياس القبلي ووضّح التقدم.')
+    # exit ticket
+    sl('gold', 'الختام', '4 د', 'بطاقة الخروج', abs_(120, 330, 1680, card(P('✍️ أكتب ثلاث نقاط تعلمتها اليوم، وسلوكًا واحدًا سأطبقه هذا الأسبوع.', 40, align='right'), 1680, 260, ac='#8A5A1E', extra='align-items:flex-start')) +
+       abs_(120, 640, 1680, card(P('📌 مشروعي: ' + esc(sp['proj']), 34, '#8A5A1E', True, align='right'), 1680, 220, ac='#8A5A1E', bg='#FFF6DD')), 'اجمع التذاكر. ارجع إلى توقعات لحظة الفضول. المشروع واجب اختياري للمستوى الماسي.')
+    # mirror + home
+    sl('lav', 'مرآة التعلم', '2 د', 'ماذا تعلمت؟', _stack(['تعلمت ...', 'أدهشني ...', 'أريد أن أعرف أكثر عن ...'], A('lav'), 38, avail=420) , 'يكمل الطلاب الجمل شفهيًا أو كتابيًا.')
+    sl('sand', 'مع أسرتي', '', 'رسالتي إلى البيت', _stack(['أسأل أسرتي عن موقف من السنع مر بهم في موضوع الدرس.', 'أشاركهم ما تعلمته اليوم: ' + sp['title'], 'نتفق على سلوك واحد نطبقه معًا.'], A('sand'), 36, avail=520, numbered=True), 'رسالة أسرية قصيرة.')
     return K.build(out, T, lesson_id, S)
 
 def run(sp, y, ids):
