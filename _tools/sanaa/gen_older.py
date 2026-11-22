@@ -3,6 +3,7 @@
 import os, sys, re
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import deckkit as K
+import art_sn as AS
 from deckkit import frame, abs_, card, P, esc
 ROOT = '/home/claude/hira'
 _src = open(os.path.join(HERE, 'sheets_y1_t1_l01.py'), encoding='utf8').read().split('# ---------- worksheets')[0]
@@ -31,7 +32,7 @@ def noemoji(t):
 def sw(sp, y, title_kind, bg, pill, pc):
     sub = 'السنع الإماراتي · الصف %s · %s' % (GN[y], sp['pages'])
     return (f"<div class='hd' style='background:{bg}'><div><div class='t'>{title_kind}: {esc(sp['title'])}</div><div class='m'>{sub}</div></div>"
-            f"<div style='display:flex;align-items:center;gap:10px'><span class='pill' style='background:{pc}'>{pill}</span>{LOGO}</div></div>")
+            f"<div style='display:flex;align-items:center;gap:10px'><div style='width:84px;height:56px'>{AS.scene(sp['stem'], y)}</div><span class='pill' style='background:{pc}'>{pill}</span>{LOGO}</div></div>")
 
 def lines(n, h=9):
     return ''.join(f"<div class='ln' style='height:{h}mm'></div>" for _ in range(n))
@@ -71,6 +72,22 @@ def worksheets(sp, y):
     b += q(2, c[1], 'مشروعي:', row(esc(sp['proj']) + ' ' + d[2]) + "<div class='box' style='height:44mm'></div>")
     out.append(page(h + b))
     return doc('أوراق المستويات · ' + sp['title'], ''.join(out))
+
+
+def activity(sp, y):
+    d = DEPTH[y]; c = ('#C9822B', '#FBEBD6')
+    h = sw(sp, y, 'نشاط تطبيقي', c[1], 'أبدع وأطبق', c[0]) + NM
+    t0 = sp['concepts'][0][0]
+    ph = sp.get('phrases') or []
+    b = "<div style='height:50mm;margin:2mm 0'>" + AS.scene(sp['stem'], y) + "</div>"
+    b += q(1, c[0], 'أتأمل الصورة وأربطها بالدرس:', row('أكتب ثلاث كلمات من الدرس تعبّر عن الصورة ' + d[0].replace('وأ', 'وأ')) + lines(2, 9))
+    b += q(2, c[0], 'أصمم بطاقة أو ملصقًا قصيرًا:', row(esc(sp['proj']) + ' ' + d[2]) + "<div class='box' style='height:42mm'></div>")
+    b += q(3, c[0], 'أسأل أسرتي:', row('أسأل أحد كبار الأسرة: كيف كان يُطبَّق «%s» في الماضي؟ وأكتب ما سمعته.' % esc(t0)) + lines(2, 9))
+    if ph:
+        b += q(4, c[0], 'أطبّق عبارة من السنع:', row('أستخدم عبارة «%s» (%s) في موقف حقيقي هذا الأسبوع، وأصفه.' % (esc(ph[0][0]), esc(ph[0][1]))) + lines(1, 9))
+    else:
+        b += q(4, c[0], 'أطبّق ما تعلمت:', row('أختار سلوكًا من الدرس وألتزم به هذا الأسبوع، ثم أصفه.') + lines(2, 9))
+    return doc('نشاط تطبيقي · ' + sp['title'], page(h + b))
 
 def pod(sp, y):
     c = ('#3F6E5B', '#DCEAE4'); h = sw(sp, y, 'نشاط أصحاب الهمم', c[1], 'أنا أستطيع!', c[0]) + NM
@@ -154,7 +171,7 @@ def deck(sp, y, lesson_id, out):
     d = DEPTH[y]; pg = sp['pages']; A = lambda p: K.PAL[p][1]
     tfs, mc, mt, sh = sp['tf'], sp['mcq'], sp['match'], sp['short']
     # 1 cover
-    sl('sand', sp['unit'], '', T, abs_(120, 380, 1680, card(P(esc(sp['obj']), 44, bold=True, display=True) + P('من كتاب الطالب ' + esc(pg) + ' · الصف ' + GN[y], 30, '#5B6472'), 1680, 360, ac='#B0782A'), 'justify-content:center'),
+    sl('sand', sp['unit'], '', T, abs_(120, 380, 1040, card(P(esc(sp['obj']), 40, bold=True, display=True) + P('من كتاب الطالب ' + esc(pg) + ' · الصف ' + GN[y], 30, '#5B6472'), 1040, 400, ac='#B0782A'), 'justify-content:center') + f'<div style="position:absolute;left:110px;top:330px;width:620px;height:410px;filter:drop-shadow(0 10px 22px rgba(31,42,60,.12))">{AS.scene(sp["stem"], y)}</div>',
        'ترحيب. اعرض عنوان الدرس والهدف. الوقت الكلي: حصة واحدة (نحو 45 دقيقة).')
     # 2 warm-up
     sl('blue', 'تهيئة', '3 د', 'نتذكر معًا قبل أن نبدأ', abs_(120, 330, 1680, card(P(esc(sp['warm']), 44, align='right'), 1680, 300, ac='#2F6A9A', extra='align-items:flex-start')) +
@@ -320,7 +337,7 @@ def run(sp, y, ids):
     out = ROOT + '/resources/ssd/%s/' % code; os.makedirs(out, exist_ok=True)
     W = lambda f, s: open(out + f, 'w', encoding='utf8').write(noemoji(s))
     W('worksheets-A4.html', worksheets(sp, y)); W('pod-sheet.html', pod(sp, y)); W('sources-concept-card.html', sources(sp, y))
-    W('group-work.html', group(sp, y)); W('parent-note.html', parent(sp, y)); W('answer-key.html', key(sp, y))
+    W('group-work.html', group(sp, y)); W('activity-page.html', activity(sp, y)); W('parent-note.html', parent(sp, y)); W('answer-key.html', key(sp, y))
     k = deck(sp, y, ids[code], out + 'teacher-deck.html')
     _f = out + 'teacher-deck.html'; _h = noemoji(open(_f, encoding='utf8').read()); open(_f, 'w', encoding='utf8').write(_h)
     print(code, 'slides', k)
