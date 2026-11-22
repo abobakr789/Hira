@@ -28,9 +28,11 @@ def build(C):
     s["els"].append(T("اليوم نتدرّب على: " + C["skills"], L, 532, W, 110, 22, DK, False, fill="FFFFFF", rad=True, rv=3))
     # 3 starter: cumulative theme vocabulary, else given questions
     prev = [w for c2, r in sorted(reg.items()) if c2 < code and r["t"] == C["theme"] for w in r["v"]]
+    ttl = "مفردات المحور حتى الآن"
+    if len(prev) < 4 and "starter" not in C: prev = [w for c2, r in sorted(reg.items()) if c2 < code for w in r["v"]]; ttl = "مفردات المحاور السابقة"
     if len(prev) >= 4:
         import random; rnd = random.Random(code); pick = rnd.sample(prev, 4)
-        s = D.new("🔁 نتذكّر معًا", "مفردات المحور حتى الآن", 3, "مراجعة تراكمية لمفردات الدروس السابقة في المحور: يكتب الطلاب المعنى والترجمة على السبورات، ثم اكشف.")
+        s = D.new("🔁 نتذكّر معًا", ttl, 3, "مراجعة تراكمية لمفردات الدروس السابقة في المحور: يكتب الطلاب المعنى والترجمة على السبورات، ثم اكشف.")
         rows = [(f"ما معنى «{w[0]}»؟ وما ترجمتها؟", f"{w[1]} · {w[2]}") for w in pick]
     else:
         s = D.new("🔁 نتذكّر معًا", C["starter"][0], 3, "يجيب الطلاب على السبورات الصغيرة، ثم اكشف كل إجابة.")

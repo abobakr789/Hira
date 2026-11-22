@@ -30,7 +30,7 @@ class Deck:
         bg = bg or BGS[len(self.slides) % len(BGS)]
         els = [T(stage, 390, 13, 500, 46, 22, "FFFFFF", True, "center", TE, True)]
         if mins: els.append(T(f"⏱ {mins} {'دقائق' if 3 <= mins <= 10 else 'دقيقة'}", L, 74, 173, 54, 22, DK, True, "center", SUN, True))
-        els.append(T(title, 230, 67, 1011, 70, 38, DK, True, "right"))
+        els.append(T(title, 230, 67, 1011, 70, 38 if len(title) <= 48 else (32 if len(title) <= 58 else 27), DK, True, "right"))
         if foot: els.append(T("🎯 " + self.foot, 180, 664, 1061, 44, 19, TE, True, "center", SOFT, True))
         s = {"bg": bg, "els": els, "n": notes}; self.slides.append(s); return s
     def save(self, path):
