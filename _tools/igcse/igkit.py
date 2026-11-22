@@ -45,6 +45,13 @@ class Deck:
         pre, post = h[:i], h[j + 10:]
         pre = re.sub(r'<title>.*?</title>', f'<title>Teacher presentation · {e(s.title)} · Hiraa</title>', pre, count=1, flags=re.S)
         pre = re.sub(r'<b>Teacher presentation · [^<]*</b>', f'<b>Teacher presentation · {e(s.title)}</b>', pre, count=1)
+        # The template's fill-zoom and shrink passes run before the web fonts load, so with the real (wider) fonts
+        # zoomed content could overflow the footer. Run them once the fonts are ready instead.
+        a = post.find("<script>(function(){document.querySelectorAll('.sl').forEach(function(s){if(s.id=='cover')return;")
+        z = post.find("const S=[...document.querySelectorAll('.sl')]", a)
+        if a >= 0 and z > a:
+            blk = post[a + 8:z]
+            post = (post[:a + 8] + "function __igfit(){" + blk + "}\n(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(__igfit));\n" + post[z:])
         pre = pre.replace('</style>', '@font-face{font-family:"Hafs";src:url("../../../art/fonts/uthmanic-hafs.woff2") format("woff2")}</style>', 1)
         os.makedirs(os.path.dirname(out), exist_ok=True)
         open(out, 'w', encoding='utf-8').write(pre + '<div id="wrap"><div id="stage">' + ''.join(s.sl) + post)
