@@ -81,8 +81,12 @@ def pod(sp, y):
 
 def sources(sp, y):
     c = ('#3F6E5B', '#DCEAE4'); h = sw(sp, y, 'بطاقة المصادر والمفاهيم', c[1], 'للجميع', c[0])
-    pts = '<br>'.join('• ' + esc(p) for p in sp['points'])
-    b = f"<div class='k' style='background:#FFF8EA;border-color:#E3C07A'><b>📖 من كتابي {esc(sp['pages'])}</b><div style='font-size:13pt;line-height:1.9;margin-top:4px'>{pts}</div>"
+    if sp.get('orig'):
+        pts = ''.join("<div style='margin-bottom:5px'><span style='font-size:8.5pt;color:#8A6A2A'>[%s]</span> %s</div>" % (esc(r), esc(t).replace(' | ', '<br>')) for r, t in sp['orig'])
+        fs = '10.5pt' if sum(len(t) for _, t in sp['orig']) < 2200 else '9.5pt'
+    else:
+        pts = '<br>'.join('• ' + esc(p) for p in sp['points']); fs = '13pt'
+    b = f"<div class='k' style='background:#FFF8EA;border-color:#E3C07A'><b>📖 من كتابي {esc(sp['pages'])}</b><div style='font-size:{fs};line-height:1.7;margin-top:4px'>{pts}</div>"
     b += f"<div style='text-align:center;font-size:9.5pt;color:#5B6472'>{esc(sp['src_note'])}</div></div>"
     cs = ''.join(f"<div style='flex:1;min-width:30%;border-radius:14px;background:{LEVELS[i][2]};padding:6px 10px;text-align:center'><div style='font-family:TD;font-size:17pt;color:{LEVELS[i][1]}'>{esc(t)}</div><div style='font-size:11pt'>{esc(m)}</div></div>" for i, (t, m) in enumerate(sp['concepts']))
     b += f"<div class='k'><b>📘 كلماتي</b> <span style='font-size:9.5pt;color:#5B6472'>(الشرح المبسّط من إعداد حراء)</span><div style='display:flex;gap:8px;flex-wrap:wrap;margin-top:6px'>{cs}</div></div>"
@@ -280,8 +284,32 @@ def parent(sp, y):
     b += "<p style='margin-top:16px;font-size:12.5pt'>شكرًا لتعاونكم في تعليم أبنائنا. — معلم/معلمة المادة</p>"
     return doc('ملاحظة لأولياء الأمور · ' + sp['title'], page(h + b).replace(G['SELF'], ''))
 
+def _orig(sp):
+    import re
+    try:
+        import orig_c2, orig_c3
+        O = dict(orig_c2.O); O.update(orig_c3.O)
+    except ImportError:
+        try:
+            import orig_c2; O = orig_c2.O
+        except ImportError:
+            return sp
+    o = O.get(sp['stem'])
+    if not o:
+        return sp
+    sp['orig'] = o
+    sents = []
+    for r, t in o:
+        for x in re.split(r'(?<=[.؟!])\s+|\s\|\s', t):
+            x = x.strip()
+            if 25 <= len(x) <= 230: sents.append(x)
+    sp['points'] = sents[:8] if len(sents) >= 4 else sp['points']
+    sp['src_note'] = 'النص منقول من كتاب الطالب كما ورد، دون تعديل.'
+    return sp
+
 def run(sp, y, ids):
     code = 'SN-Y%d-%s' % (y, sp['stem']); sp = _shuf(dict(sp)); sp['code'] = code
+    sp = _orig(sp)
     out = ROOT + '/resources/ssd/%s/' % code; os.makedirs(out, exist_ok=True)
     W = lambda f, s: open(out + f, 'w', encoding='utf8').write(noemoji(s))
     W('worksheets-A4.html', worksheets(sp, y)); W('pod-sheet.html', pod(sp, y)); W('sources-concept-card.html', sources(sp, y))
