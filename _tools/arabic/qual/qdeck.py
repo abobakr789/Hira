@@ -22,7 +22,7 @@ def build(C):
     s["n"] = f"لا يوجد كتاب مدرسي مقرّر لـA Level؛ النص في هذا العرض من إعداد حراء على نمط نصوص الامتحان. موقع الدرس في المواصفات: {C['sub']}."
     # 2 where
     s = D.new("🗺️ أين في المنهج والامتحان؟", "من المواصفات إلى ورقة الامتحان", 3, "اقرأ بند المواصفات، ثم بيّن أن نصوص الأوراق تأتي من المحاور الأربعة، فمفردات الدرس قد تظهر في أيّ ورقة.")
-    s["els"].append(T("المواصفات: «" + C["spec"] + "»", L, 150, W, 70, 22, DK, True, fill="FFFFFF", rad=True))
+    s["els"].append(T("المواصفات: «" + C["spec"] + "»", L, 150, W, 70, 22 if len(C["spec"]) < 105 else 18, DK, True, fill="FFFFFF", rad=True))
     for (x, w), (h, sub, col) in zip(cols(4), PAPERS_AL): chip(s, x, 240, w, 170, h, sub, col, rv=1)
     s["els"].append(T("📌 كل نصوص الامتحان «مأخوذة من المحاور الأربعة»؛ فمفردات اليوم وتراكيبه قد تظهر في أي ورقة من الثلاث.", L, 432, W, 86, 23, "FFFFFF", True, fill=TE, rad=True, rv=2))
     s["els"].append(T("اليوم نتدرّب على: " + C["skills"], L, 532, W, 110, 22, DK, False, fill="FFFFFF", rad=True, rv=3))
