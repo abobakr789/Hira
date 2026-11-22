@@ -312,7 +312,8 @@ html[data-tr=flip-r]::view-transition-new(slide){animation:vt-flip-in-r .8s .15s
 window.HIRAA_DEEP=1;
 const t=setTimeout(boot,9000);
 (function go(){
+  if(/^AR-Y\d+-(AL|GC|IG)-/.test(CODE||"")){ clearTimeout(t); boot(); return; }
   if(!window.supabase&&!window.HIRAA_MOCK){ const s=document.createElement("script"); s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"; s.onload=go2; s.onerror=()=>{clearTimeout(t);boot();}; document.head.appendChild(s);} else go2();
-  function go2(){ (window.HIRAA_MOCK?Promise.resolve(window.HIRAA_MOCK):load()).then(D=>{try{build(D);}catch(e){console.error(e);} clearTimeout(t); boot();}).catch(e=>{console.warn("deepen:",e); clearTimeout(t); boot();}); }
+  function go2(){ if(/^AR-Y\d+-(AL|GC|IG)-/.test(CODE||"")){ clearTimeout(t); boot(); return; } /* IGCSE/GCSE/A Level: the lesson deck alone, no added slides */ (window.HIRAA_MOCK?Promise.resolve(window.HIRAA_MOCK):load()).then(D=>{try{build(D);}catch(e){console.error(e);} clearTimeout(t); boot();}).catch(e=>{console.warn("deepen:",e); clearTimeout(t); boot();}); }
 })();
 })();
