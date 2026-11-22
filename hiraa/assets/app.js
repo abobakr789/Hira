@@ -5446,11 +5446,14 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const { data: w } = await sb.rpc("child_week", { p_student: kid });
       if (!w) continue;
       const weak = w.weak;
-      const lines = en ? [`${name}'s week on Hira:`, `📖 ${w.lessons} lessons opened`, `🎮 ${w.games} games · ${w.points} points`, `🧠 ${w.memo} hadiths reviewed · ${w.memo_known}/42 memorised`, ...(w.tests || []).map((t) => `✅ ${t.title_en || t.title}: ${t.score}/${t.max}`), weak ? `To review together: ${weak.outcome_en || weak.outcome}` : ""]
-        : [`أسبوع ${name} على حراء:`, `📖 ${w.lessons} دروس فتحها`, `🎮 ${w.games} ألعاب · ${w.points} نقطة`, `🧠 راجع ${w.memo} أحاديث · حفظ ${w.memo_known} من 42`, ...(w.tests || []).map((t) => `✅ ${t.title}: ${t.score}/${t.max}`), weak ? `للمراجعة معه: ${weak.outcome}` : ""];
+      const { data: st } = await sb.rpc("child_week_steps", { p_student: kid });
+      const stepLine = st && st.lessons > 0 ? (en ? `🧭 practised in ${st.practised} and checked understanding in ${st.checked} of ${st.lessons} lessons` : `🧭 تدرّب في ${st.practised} وتحقّق في ${st.checked} من ${st.lessons} دروس`) : "";
+      const lines = en ? [`${name}'s week on Hira:`, `📖 ${w.lessons} lessons opened`, ...(stepLine ? [stepLine] : []), `🎮 ${w.games} games · ${w.points} points`, `🧠 ${w.memo} hadiths reviewed · ${w.memo_known}/42 memorised`, ...(w.tests || []).map((t) => `✅ ${t.title_en || t.title}: ${t.score}/${t.max}`), weak ? `To review together: ${weak.outcome_en || weak.outcome}` : ""]
+        : [`أسبوع ${name} على حراء:`, `📖 ${w.lessons} دروس فتحها`, ...(stepLine ? [stepLine] : []), `🎮 ${w.games} ألعاب · ${w.points} نقطة`, `🧠 راجع ${w.memo} أحاديث · حفظ ${w.memo_known} من 42`, ...(w.tests || []).map((t) => `✅ ${t.title}: ${t.score}/${t.max}`), weak ? `للمراجعة معه: ${weak.outcome}` : ""];
       const msg = lines.filter(Boolean).join("\n");
       box.innerHTML = `<div class="week-card"><h3>${en ? "This week" : "ملخص الأسبوع"}</h3>
         <div class="week-nums"><div><b>${w.lessons}</b><span>${en ? "lessons" : "دروس"}</span></div><div><b>${w.games}</b><span>${en ? "games" : "ألعاب"}</span></div><div><b>${w.points}</b><span>${en ? "points" : "نقطة"}</span></div><div><b>${w.memo_known}/42</b><span>${en ? "hadiths memorised" : "حديثًا حفظه"}</span></div></div>
+        ${stepLine ? `<p class="muted">${esc(stepLine)}</p>` : ""}
         ${weak ? `<p class="week-help">💡 <b>${en ? "Help with:" : "ساعده في:"}</b> ${esc(en && weak.outcome_en ? weak.outcome_en : weak.outcome)}${weak.lesson ? ` · <a href="#/lesson/${esc(weak.lesson)}">${en ? "open the lesson" : "افتح الدرس"}</a>` : ""}</p>`
           : `<p class="muted">${en ? "No outcome needs extra help right now." : "لا يوجد ناتج يحتاج دعمًا الآن."}</p>`}
         <div class="week-acts"><a class="btn btn-ghost btn-small" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg)}">${en ? "Share on WhatsApp" : "شاركه على واتساب"}</a>
