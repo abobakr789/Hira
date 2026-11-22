@@ -425,3 +425,7 @@ body.mjboard .mj .wrap,body.mjboard .mj{max-width:none}
 .mj .ql-no span{text-decoration:line-through;text-decoration-color:#d77}
 .mj .ql-yes{background:#E8F6F4;color:#14735F}
 @media(max-width:640px){.mj .ql{grid-template-columns:1fr}}
+.mj .mth{margin-top:14px;text-align:center;font-family:"ThmanyahDisplay",serif;font-size:30px;line-height:1.7;color:var(--navy);background:linear-gradient(180deg,#FFFCF4,#FFF6E2);border:1.5px solid var(--gold-l);border-radius:20px;padding:16px 20px}
+.mj .mth small{display:block;font-family:"ThmanyahSans";font-size:14px;color:var(--muted);direction:ltr}
+.mj .story{margin-top:12px;background:#fff;border:1px dashed var(--gold-l);border-radius:16px;padding:12px 16px;line-height:1.9}
+@media(max-width:640px){.mj .mth{font-size:23px}}
