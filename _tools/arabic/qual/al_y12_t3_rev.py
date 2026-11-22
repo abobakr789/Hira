@@ -6,9 +6,9 @@ COLS = [BLUE, GREEN, ORANGE, PURPLE, TE]
 
 def build(C):
     D = Deck(C["code"], C["foot"])
-    s = D.new("🎓 A Level العربية · ⁦9AA0⁩", "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
-    s["els"] += [T("المراجعة النهائية · السنة الثانية", 330, 92, 911, 50, 22, ORANGE, True), T(C["title"], 330, 150, 911, 130, 38, DK, True),
-                 T("مواصفات Pearson Edexcel ⁦9AA0⁩ · أوراق صيف 2025", 330, 286, 911, 44, 22, TE, False), PIC("art/" + C.get("pic", "check.webp"), 48, 96, 260, 260),
+    s = D.new(C.get("badge", "🎓 A Level العربية · ⁦9AA0⁩"), "", foot=False, bg="EAF5F4"); s["els"] = s["els"][:1]
+    s["els"] += [T(C.get("band", "المراجعة النهائية · السنة الثانية"), 330, 92, 911, 50, 22, ORANGE, True), T(C["title"], 330, 150, 911, 130, 38, DK, True),
+                 T(C.get("spec", "مواصفات Pearson Edexcel ⁦9AA0⁩ · أوراق صيف 2025"), 330, 286, 911, 44, 22, TE, False), PIC("art/" + C.get("pic", "check.webp"), 48, 96, 260, 260),
                  R(L, 400, W, 220, CARD, TE, lw=2), T("🎯 هدف الحصة: " + C["goal"], 60, 412, 1160, 196, 26, DK, False, va="top")]
     s["n"] = C["src"]
     # map
@@ -28,10 +28,10 @@ def build(C):
     for i, (h, b) in enumerate(C["strat"]):
         x, w = cols(2)[i % 2]; card(s, x, 150 + (i // 2) * 250, w, 236, h, b, COLS[i % 5], 20, rv=i + 1, hsize=23)
     # examiner
-    s = D.new("⚠️ من تقارير الممتحنين", C["exTitle"], 4, "من تقرير الممتحنين الرسمي. اسأل كل طالب: أيّ نقطة تخصّني؟")
+    s = D.new(C.get("exHead", "⚠️ من تقارير الممتحنين"), C["exTitle"], 4, C.get("exNote", "من تقرير الممتحنين الرسمي. اسأل كل طالب: أيّ نقطة تخصّني؟"))
     c = cols(2)
-    card(s, c[0][0], 150, c[0][1], 440, "✅ ما فعله الأقوياء", "\n".join("• " + x for x in C["good"]), GREEN, 20, rv=1, hsize=24)
-    card(s, c[1][0], 150, c[1][1], 440, "❌ ما أضعف الإجابات", "\n".join("• " + x for x in C["weak"]), RED, 20, rv=2, hsize=24)
+    card(s, c[0][0], 150, c[0][1], 440, C.get("goodH", "✅ ما فعله الأقوياء"), "\n".join("• " + x for x in C["good"]), GREEN, 20, rv=1, hsize=24)
+    card(s, c[1][0], 150, c[1][1], 440, C.get("weakH", "❌ ما أضعف الإجابات"), "\n".join("• " + x for x in C["weak"]), RED, 20, rv=2, hsize=24)
     # mark scheme
     s = D.new("📏 أصحّح بنفسي", C["msTitle"], 4, "يستعمل الطلاب هذه المعايير لتصحيح إجاباتهم في التدريب الكامل.")
     for i, (h, m, b) in enumerate(C["ms"]):
