@@ -1,0 +1,41 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-T3-L06/answer-key.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://www.zayedprize.org.ae/",
+      "https://www.zayedprize.org.ae/statute"
+    ],
+    "local_qa": "PASS all changed slide and print pixels inspected",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L06/teacher-deck.html",
+    "views": [
+      "models",
+      "watani",
+      "quick"
+    ],
+    "sources": [
+      "https://www.zayedprize.org.ae/",
+      "https://www.zayedprize.org.ae/statute"
+    ],
+    "local_qa": "PASS all changed slide and print pixels inspected",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L18/teacher-deck.html",
+    "views": [
+      "together",
+      "mirror"
+    ],
+    "sources": [
+      "https://www.kew.org/plants/saguaro",
+      "https://www.fda.gov/consumers/consumer-updates/fda-101-dietary-supplements"
+    ],
+    "local_qa": "PASS all changed slide and print pixels inspected",
+    "live_qa": "pending"
+  }
+]
