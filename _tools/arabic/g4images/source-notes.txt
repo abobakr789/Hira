@@ -1,0 +1,10 @@
+Targeted imagery edits for Arabic native grade4, terms1-3. Existing teacher decks are the source for lesson facts and brand. Only term1 daily-life/application picture panels and term2/3 s4 teaching-slide picture areas are edited. Assessment slides and existing media remain unchanged.
+Official Microsoft Fluent Emoji, MIT licence retained in art/emoji/LICENSE-fluentui-emoji-MIT.txt. New official asset URLs:
+https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Leopard/Color/leopard_color.svg
+https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Coat/Color/coat_color.svg
+https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Sports%20medal/Color/sports_medal_color.svg
+https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Sunflower/Color/sunflower_color.svg
+https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Graduation%20cap/Color/graduation_cap_color.svg
+Original SVG diagrams: parking, desert camp, generic space probe, project growth, illustrative memorial and islands (not actual maps or monuments), presentation, Braille six-dot cell, dialogue, turning point, support, oryx. Clothing is an original composition of licensed icons. Coat recolored crimson.
+
+Validation: all 56 existing decks match the scoped transform applied to latest upstream; all markup outside the 80 selected slide sections and scoped CSS is byte-identical. Video/audio/source/iframe references unchanged. Transform is idempotent. Actual converter regeneration checked for all 32 term2/3 lessons using Python3.12 and in-memory substitutions for existing machine-specific ROOT/META paths only. Rich term1 builders share the same shell.page hook. All 80 changed slides individually inspected at 1920x1080; term2/3 re-inspected after installing missing local emoji font. No site font change was needed.

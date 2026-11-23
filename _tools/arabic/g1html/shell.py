@@ -46,4 +46,6 @@ Object.assign(window,{{show,next,prev,snd,cnt,rst,redraw,boom,fb}});window.S=S;}
     import sys as _sys, os as _os
     _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), "..", "g23images"))
     from images import apply_html as _pictures23
-    return _pictures23(code, result)
+    _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), "..", "g4images"))
+    from g4images import apply_html as _pictures4
+    return _pictures4(code, _pictures23(code, result))
