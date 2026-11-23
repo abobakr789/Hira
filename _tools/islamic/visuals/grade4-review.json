@@ -177,7 +177,7 @@
       "exit"
     ],
     "local_qa": "PASS individually inspected 1920x1080 pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS: individually inspected deployed1920x1080 capture, exactHTML match; deployment45227421762"
   },
   {
     "lesson": "IE-Y4-N-T2-L02",
@@ -357,7 +357,7 @@
       "exit"
     ],
     "local_qa": "PASS individually inspected 1920x1080 pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS: individually inspected deployed1920x1080 capture, exactHTML match; deployment45227421762"
   },
   {
     "lesson": "IE-Y4-N-T3-L03",
@@ -417,7 +417,7 @@
       "exit"
     ],
     "local_qa": "PASS individually inspected 1920x1080 pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS: individually inspected deployed1920x1080 capture, exactHTML match; deployment45227421762"
   },
   {
     "lesson": "IE-Y4-N-T3-L07",
@@ -462,7 +462,7 @@
       "exit"
     ],
     "local_qa": "PASS individually inspected 1920x1080 pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS: individually inspected deployed1920x1080 capture, exactHTML match; deployment45227421762"
   },
   {
     "lesson": "IE-Y4-N-T3-L10",
@@ -657,7 +657,7 @@
       "exit"
     ],
     "local_qa": "PASS individually inspected 1920x1080 pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS: individually inspected deployed1920x1080 capture, exactHTML match; deployment45227421762"
   },
   {
     "lesson": "IE-Y4-NN-T2-L02",
@@ -837,7 +837,7 @@
       "exit"
     ],
     "local_qa": "PASS individually inspected 1920x1080 pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS: individually inspected deployed1920x1080 capture, exactHTML match; deployment45227421762"
   },
   {
     "lesson": "IE-Y4-NN-T3-L03",
@@ -897,7 +897,7 @@
       "exit"
     ],
     "local_qa": "PASS individually inspected 1920x1080 pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS: individually inspected deployed1920x1080 capture, exactHTML match; deployment45227421762"
   },
   {
     "lesson": "IE-Y4-NN-T3-L07",
@@ -942,7 +942,7 @@
       "exit"
     ],
     "local_qa": "PASS individually inspected 1920x1080 pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS: individually inspected deployed1920x1080 capture, exactHTML match; deployment45227421762"
   },
   {
     "lesson": "IE-Y4-NN-T3-L10",

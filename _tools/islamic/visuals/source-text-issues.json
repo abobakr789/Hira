@@ -78,9 +78,9 @@
     "exact_wording": "We learn 2 We learn ⏱ 4 minutes Success criterion 2 ✋ Allah made the thumb with two joints and the other fingers with three, so we can grip things. Allah, the Almighty Creator · Grade 2 Explain with the picture; ask one question to check understanding.",
     "arabic_counterpart": "نَتَعَلَّمُ 2 نَتَعَلَّمُ ⏱ 4 دَقائِقَ مِعْيارُ النَّجاحِ 2 ✋ خلق الله الإبهام بسلاميتين وبقية الأصابع بثلاث، لنمسك بها الأشياء. الله الخالق القدير · الصَّفُّ الثّاني Explain with the picture; ask one question to check understanding.",
     "issue": "Translation terminology differs: Arabic phalanges versus English joints. OpenStax confirms two thumb and three finger phalanges. Joint counts depend on inclusion of base joints, so this is not classified as a confirmed false count.",
-    "suggested_fix": "For precise alignment, consider replacing joints with phalanges (finger bones), subject to user review. No change made.",
+    "suggested_fix": "Applied approved precise translation: two bones; the other fingers with three.",
     "source": "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb",
-    "status": "Authorized precision correction made; all4 local slides individually inspected. Live QA pending.",
+    "status": "Authorized precision correction complete: all4affected slides individually inspected locally and live; deployed HTML exactmatch.",
     "replacement_from": "two joints",
     "replacement_to": "two bones",
     "occurrences": 4,
@@ -93,7 +93,9 @@
     "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMzNTZFRDgxQTc2OURGQTdEQTU5RjBCQzAxRDQyNkYA",
     "verified_sources": [
       "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45227421762",
+    "content_commit": "83930229"
   },
   {
     "lesson": "IE-Y3-N-T2-L04",
@@ -106,7 +108,7 @@
     "issue": "Assessment alignment question, not a false-hadith finding. Core teaching addresses insults, curses and foul speech; quick question2 and group3 main scenario instead use loving for a brother what one loves for oneself. Both tracks have the same distinction.",
     "suggested_fix": "Check intended curriculum coverage; if the assessment is meant to test the taught hadith, propose an aligned question/scenario for approval. Preserve both authentic texts unless a specific change is approved.",
     "source": "resources/ie/IE-Y3-N-T2-L04/teacher-deck.html; Arabic counterpart IE-Y3-N-T2-L04",
-    "status": "User-approved Q2/scenario alignment applied to8files. All6changed teaching slides and8changed print pages individually inspected locally. Minimal quick-slide height adjustment keeps revealed answers inside options. Teaching quotations and media unchanged. Live QA pending.",
+    "status": "CLOSED. User-approved assessment replacements deployed. All 6 changed slides and 8 affected print pages individually inspected locally and live; all 8 live HTML files exactly match repository. Original teaching quotations and media unchanged.",
     "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFNzAyOTI3RTkxNjIzMzg5QTk5MDAwRDNCQzdDODQA",
     "applied_question": "عندما أغضب، ماذا أفعل؟",
     "applied_scenario": "اختلفت مع زميلك أثناء اللعب وشعرت بالغضب. كيف تردّ عليه بكلام طيب دون سبّ أو لعن؟",
@@ -136,7 +138,9 @@
       "think",
       "g3",
       "quick"
-    ]
+    ],
+    "content_commit": "c92c60f5",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45228465935"
   },
   {
     "lesson": "IE-Y3-NN-T2-L04",
@@ -149,7 +153,7 @@
     "issue": "Assessment alignment question, not a false-hadith finding. Core teaching addresses insults, curses and foul speech; quick question2 and group3 main scenario instead use loving for a brother what one loves for oneself. Both tracks have the same distinction.",
     "suggested_fix": "Check intended curriculum coverage; if the assessment is meant to test the taught hadith, propose an aligned question/scenario for approval. Preserve both authentic texts unless a specific change is approved.",
     "source": "resources/ie/IE-Y3-NN-T2-L04/teacher-deck.html; Arabic counterpart IE-Y3-N-T2-L04",
-    "status": "User-approved Q2/scenario alignment applied to8files. All6changed teaching slides and8changed print pages individually inspected locally. Minimal quick-slide height adjustment keeps revealed answers inside options. Teaching quotations and media unchanged. Live QA pending.",
+    "status": "CLOSED. User-approved assessment replacements deployed. All 6 changed slides and 8 affected print pages individually inspected locally and live; all 8 live HTML files exactly match repository. Original teaching quotations and media unchanged.",
     "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFNzAyOTI3RTkxNjIzMzg5QTk5MDAwRDNCQzdDODQA",
     "applied_question": "When I am angry, what should I do?",
     "applied_scenario": "You disagree with a classmate during a game and feel angry. How can you reply kindly without insults or curses?",
@@ -179,6 +183,8 @@
       "think",
       "g3",
       "quick"
-    ]
+    ],
+    "content_commit": "c92c60f5",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45228465935"
   }
 ]
