@@ -501,3 +501,36 @@ def hajj_types(en):
 for track in ['N','NN']:
  for suffix,fn,after in [('T1-L05',zakat_share,'part1'),('T1-L09',hajj_types,'part2')]:
   GRADE5_SPECS[f'IE-Y9-{track}-{suffix}']=(after,fn)
+
+def hijrah_boundary(en):
+ s=txt(800,55,'The Hijrah is the time boundary' if en else 'الهِجْرَةُ هِيَ الحَدُّ الزَّمَنِيُّ',44)
+ for x,c in [(90,BLUE),(870,GREEN)]:s+=card(x,160,640,350,c)
+ s+=txt(410,245,'Before the Hijrah' if en else 'ما نَزَلَ قَبْلَ الهِجْرَةِ',42,BLUE)
+ s+=txt(1190,245,'After the Hijrah' if en else 'ما نَزَلَ بَعْدَ الهِجْرَةِ',42,GREEN)
+ s+=txt(410,370,'Makki' if en else 'مَكِّيٌّ',66,BLUE)+txt(1190,370,'Madani' if en else 'مَدَنِيٌّ',66,GREEN)
+ s+=line(800,125,800,570,GOLD)
+ s+=txt(800,640,'Classify by time of revelation, not the place name' if en else 'التَّصْنيفُ بِزَمانِ النُّزولِ، لا بِاسْمِ المَكانِ',35)
+ s+=txt(800,705,'This is not a map or a scale of the periods' if en else 'لَيْسَتْ خَريطَةً وَلا مِقياسًا لِمُدَدِ الفَتْرَتَيْنِ',27)
+ return s,'Time, not geography' if en else 'الزَّمانُ لا المَكانُ'
+def waqf_asset(en):
+ s=txt(800,45,'An illustrative agricultural endowment' if en else 'مِثالٌ تَوْضيحِيٌّ لِوَقْفٍ زِراعِيٍّ',42)
+ s+=card(80,110,660,480,GREEN)+card(890,110,620,480,BLUE)
+ s+=txt(410,180,'Asset retained' if en else 'أَصْلٌ مَحْبوسٌ',39,GREEN)
+ s+='<path d="M150 460L250 335 610 335 685 460Z" fill="#DEBF89" stroke="#8E7048" stroke-width="4"/>'
+ for x in [255,350,445,540]:
+  s+=line(x,425,x,290,GREEN)
+  s+=f'<path d="M{x} 355q-45-55-55-12q35 18 55 12M{x} 325q45-55 55-12q-35 18-55 12" fill="#80AD7A"/>'
+  s+=f'<ellipse cx="{x}" cy="280" rx="13" ry="38" fill="#D7A33B"/>'
+ s+=txt(410,545,'The land remains endowed' if en else 'الأَرْضُ تَبْقى وَقْفًا',31,GREEN)
+ s+=line(755,345,875,345,BLUE)+'<path d="M850 325l25 20-25 20" stroke="#306D9D" stroke-width="5" fill="none"/>'
+ s+=txt(1200,180,'Benefit given' if en else 'مَنْفَعَةٌ مُسَبَّلَةٌ',39,BLUE)
+ for i in range(3):
+  x=1055+i*145;s+=f'<path d="M{x-45} 330h90l-12 100h-66Z" fill="#DDBF8D" stroke="#8E7048" stroke-width="3"/>'
+  for j in range(3):s+=f'<ellipse cx="{x-24+j*24}" cy="{323-(j%2)*10}" rx="18" ry="12" fill="#D7A33B"/>'
+ s+=txt(1200,510,'Produce for charity' if en else 'غَلَّةٌ لِوُجوهِ البِرِّ',33,BLUE)
+ s+=txt(800,665,'The asset and its benefit are not the same thing' if en else 'أُمَيِّزُ بَيْنَ الأَصْلِ المَوْقوفِ وَمَنْفَعَتِهِ',34)
+ s+=txt(800,720,'A general example, not a portrait of a historical waqf' if en else 'مِثالٌ عامٌّ، وَلَيْسَ تَصْويرًا لِوَقْفٍ تاريخِيٍّ بِعَيْنِهِ',25)
+ return s,'The asset stays, its benefit is given' if en else 'يَبْقى الأَصْلُ وَتُبْذَلُ المَنْفَعَةُ'
+for track in ['N','NN']:
+ for suffix,fn,after in [('T1-L02',hijrah_boundary,'part0'),('T1-L09',waqf_asset,'part0')]:
+  GRADE5_SPECS[f'IE-Y10-{track}-{suffix}']=(after,fn)
