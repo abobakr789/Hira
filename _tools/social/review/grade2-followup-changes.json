@@ -1,0 +1,265 @@
+[
+  {
+    "file": "resources/ssd/SS-Y2-T1-L16/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "تصحيح جغرافي: مضيق هرمز ممر مائي ضيق يصل الخليج العربي ببحر عمان، وليس رأسا من اليابسة.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L16/teacher-deck.html",
+    "views": [
+      "story"
+    ],
+    "reason": "تصحيح جغرافي: مضيق هرمز ممر مائي ضيق يصل الخليج العربي ببحر عمان، وليس رأسا من اليابسة.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L06/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: مدينة مصدر تسعى لتقليل الانبعاثات والنفايات وحفظ الموارد، ولا يعني ذلك أنها خالية تماما من التلوث والنفايات.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L06/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: مدينة مصدر تسعى لتقليل الانبعاثات والنفايات وحفظ الموارد، ولا يعني ذلك أنها خالية تماما من التلوث والنفايات.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L06/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reason": "توضيح: مدينة مصدر تسعى لتقليل الانبعاثات والنفايات وحفظ الموارد، ولا يعني ذلك أنها خالية تماما من التلوث والنفايات.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L06/teacher-deck.html",
+    "views": [
+      "vocab",
+      "story",
+      "model",
+      "check",
+      "models",
+      "mirror"
+    ],
+    "reason": "توضيح: مدينة مصدر تسعى لتقليل الانبعاثات والنفايات وحفظ الموارد، ولا يعني ذلك أنها خالية تماما من التلوث والنفايات.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L06/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: مدينة مصدر تسعى لتقليل الانبعاثات والنفايات وحفظ الموارد، ولا يعني ذلك أنها خالية تماما من التلوث والنفايات.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L02/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: تختلف مجانية الخدمات ورسومها بحسب الخدمة وشروط الاستحقاق. التعليم والعلاج ليسا مجانيين للجميع.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L02/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: تختلف مجانية الخدمات ورسومها بحسب الخدمة وشروط الاستحقاق. التعليم والعلاج ليسا مجانيين للجميع.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L02/worksheets-A4.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: تختلف مجانية الخدمات ورسومها بحسب الخدمة وشروط الاستحقاق. التعليم والعلاج ليسا مجانيين للجميع.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
+    "views": [
+      "story",
+      "truefalse",
+      "models"
+    ],
+    "reason": "توضيح: تختلف مجانية الخدمات ورسومها بحسب الخدمة وشروط الاستحقاق. التعليم والعلاج ليسا مجانيين للجميع.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L02/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: تختلف مجانية الخدمات ورسومها بحسب الخدمة وشروط الاستحقاق. التعليم والعلاج ليسا مجانيين للجميع.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L03/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: تختلف رسوم التعليم والعلاج والتغطية الصحية بحسب شروط الاستحقاق والتأمين. العلاج يكون بإرشاد مختص.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L03/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: تختلف رسوم التعليم والعلاج والتغطية الصحية بحسب شروط الاستحقاق والتأمين. العلاج يكون بإرشاد مختص.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L03/teacher-deck.html",
+    "views": [
+      "story",
+      "models"
+    ],
+    "reason": "توضيح: تختلف رسوم التعليم والعلاج والتغطية الصحية بحسب شروط الاستحقاق والتأمين. العلاج يكون بإرشاد مختص.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L06/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: نسبة الجوع في النص ليست إحصاء حديثا. يتغير عدد المتأثرين بالجوع كل عام، ولا نهدر الطعام.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L06/teacher-deck.html",
+    "views": [
+      "story",
+      "model",
+      "models"
+    ],
+    "reason": "توضيح: نسبة الجوع في النص ليست إحصاء حديثا. يتغير عدد المتأثرين بالجوع كل عام، ولا نهدر الطعام.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح تاريخي: كانت الإبرة المغناطيسية معروفة قبل ابن ماجد بقرون. من إنجازاته المؤكدة تأليف كتب مهمة في الملاحة.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح تاريخي: كانت الإبرة المغناطيسية معروفة قبل ابن ماجد بقرون. من إنجازاته المؤكدة تأليف كتب مهمة في الملاحة.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
+    "views": [
+      "story",
+      "models",
+      "mirror"
+    ],
+    "reason": "توضيح تاريخي: كانت الإبرة المغناطيسية معروفة قبل ابن ماجد بقرون. من إنجازاته المؤكدة تأليف كتب مهمة في الملاحة.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L17/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح تاريخي: تنسب روايات قديمة محاولة طيران إلى ابن فرناس، لكن تفاصيلها ومدتها وتواريخها محل بحث. لا نجرب الطيران أو القفز.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L17/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح تاريخي: تنسب روايات قديمة محاولة طيران إلى ابن فرناس، لكن تفاصيلها ومدتها وتواريخها محل بحث. لا نجرب الطيران أو القفز.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L17/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reason": "توضيح تاريخي: تنسب روايات قديمة محاولة طيران إلى ابن فرناس، لكن تفاصيلها ومدتها وتواريخها محل بحث. لا نجرب الطيران أو القفز.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L17/teacher-deck.html",
+    "views": [
+      "cover",
+      "goal",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "check",
+      "groups",
+      "models",
+      "exit",
+      "progress2",
+      "mirror"
+    ],
+    "reason": "توضيح تاريخي: تنسب روايات قديمة محاولة طيران إلى ابن فرناس، لكن تفاصيلها ومدتها وتواريخها محل بحث. لا نجرب الطيران أو القفز.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L17/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح تاريخي: تنسب روايات قديمة محاولة طيران إلى ابن فرناس، لكن تفاصيلها ومدتها وتواريخها محل بحث. لا نجرب الطيران أو القفز.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L17/group-work.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح تاريخي: تنسب روايات قديمة محاولة طيران إلى ابن فرناس، لكن تفاصيلها ومدتها وتواريخها محل بحث. لا نجرب الطيران أو القفز.",
+    "local_qa": "PASS: all 30 changed slides and 25 print pages inspected; final annotations, assessments and worksheet revisions re-rendered on 24 November 2026",
+    "live_qa": "pending"
+  }
+]
