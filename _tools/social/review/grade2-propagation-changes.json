@@ -5,8 +5,13 @@
       "mirror"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L02/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "261f093abd91b812fdcd1df5b874afea5503346f95e2535dd17fd2c144ce3982",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L03/teacher-deck.html",
@@ -16,8 +21,13 @@
       "mirror"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L03/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "bb3b5fc4c8eb5cf58ca3376acc70b0512219c4418c3531b7e80af3c3302a74fc",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L05/teacher-deck.html",
@@ -25,8 +35,13 @@
       "quick"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L05/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "2e9d57ee008938ee6a10baa139b8f382f289cbd7cdb625f6b26c5f38d18be316",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L08/answer-key.html",
@@ -34,8 +49,13 @@
       0
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L08/answer-key.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "a6539dfb398ba77444554b95ba24eb1ba12c40eda10602663cdf8dec70261c6f",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L08/pod-sheet.html",
@@ -43,8 +63,13 @@
       0
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L08/pod-sheet.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "ea87e1dc1648706f43ac1896fdd88ee9e458dec9718859426aa531a63563795b",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L08/sources-concept-card.html",
@@ -52,8 +77,13 @@
       0
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L08/sources-concept-card.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "ff6e61728a62c8bb6be5ef3c36a3f63f9dff7c7c2bea71a2fb23811b856675ea",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L08/teacher-deck.html",
@@ -66,8 +96,13 @@
       "exit"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L08/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "ccd5a119a8a233774d1242b031b1a49634a19c75020ca15b81dacc2cf7073955",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L08/worksheets-A4.html",
@@ -78,8 +113,13 @@
       3
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L08/worksheets-A4.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "8306caf5be3f836ddf17f6508e910e96524fdf96801c2583a837450e85793c81",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L09/teacher-deck.html",
@@ -87,8 +127,13 @@
       "check"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L09/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "be7c4deb7f663c5c3602fe695eb2f10b21a0401e6fe99607efb051131000db7d",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L11/teacher-deck.html",
@@ -96,8 +141,13 @@
       "home"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L11/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "e7a7ff8e781e12a038f125a705b5e09ffcca4228d631afe534fc88360e6552b5",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L12/teacher-deck.html",
@@ -105,8 +155,13 @@
       "exit"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L12/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "0e0eccdbf25415857cead74bee83625c5517ec9892bed8bdd30c6c8fe3d27ec3",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T1-L13/teacher-deck.html",
@@ -114,8 +169,13 @@
       "mirror"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T1-L13/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "302eb5dc4408e850b3743f1030f7ca8d935bb48eac51891dc99ab7f05dc51af0",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T2-L01/teacher-deck.html",
@@ -123,8 +183,13 @@
       "mirror"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T2-L01/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "93c27e86b3739a2d1c91e220717064a9ed23aeb5a71f8820a437dcb2bff55771",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T2-L06/teacher-deck.html",
@@ -132,8 +197,13 @@
       "hook"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T2-L06/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "d764cf61433e1199cd2eee39f1011bdbb136e46ffff6b7db679d68668ae87318",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T2-L07/teacher-deck.html",
@@ -142,8 +212,13 @@
       "watani"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T2-L07/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "561958f3fbf4882de399c31e35da3428cd7aba8ae132e42fe2bb457876f2b902",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T2-L09/teacher-deck.html",
@@ -151,8 +226,13 @@
       "watani"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T2-L09/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "104335076c140bd53435e6742be08900f0d50af648b8a50a7df03fced8d2c459",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
@@ -162,8 +242,13 @@
       "mirror"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "bc8ff00c72202d4cfbf1054c0f10123138f51b5450c810124c79a825adbd4af1",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L03/teacher-deck.html",
@@ -171,8 +256,13 @@
       "mirror"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L03/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "e80d4c00542deaf236f1fa3305966ebb071ba8b6ff062fadc61f5daa4c08b703",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L07/teacher-deck.html",
@@ -180,8 +270,13 @@
       "watani"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L07/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "ea3f308b6cd5aafeb32dd12d355a045a271fb6393a2a396600d628d952e95ab7",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L11/teacher-deck.html",
@@ -189,8 +284,13 @@
       "mirror"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L11/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "834548e75af46a565d5900c418093898cedeb590660176aa9a9dae7688f6c1c3",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L12/pod-sheet.html",
@@ -198,8 +298,13 @@
       0
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L12/pod-sheet.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "1b371ba991148c5e9e68e2b4ab09212714f653951ea8541065fbadcefd19217e",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L12/sources-concept-card.html",
@@ -207,8 +312,13 @@
       0
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L12/sources-concept-card.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "8fd2ede45a28ed254d4617aa163d1ebfc612c748237215fb77e9123d4ebcece1",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L12/teacher-deck.html",
@@ -222,8 +332,13 @@
       "exit"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L12/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "24b571f91d0d11e4296eba7b8324196608adf4732ff4c77eae7e65266b62f735",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L12/worksheets-A4.html",
@@ -232,8 +347,13 @@
       2
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L12/worksheets-A4.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "7b42d053506f7dad105d0f6520fd187844dee0dfa870a7f4cef56ee64181c0d7",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L14/teacher-deck.html",
@@ -242,8 +362,13 @@
       "home"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L14/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "2b5c710d42ac70ef8adb189e1897289e82690e4ec5703a804e79cfe5f07c8ff2",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L15/group-work.html",
@@ -251,8 +376,13 @@
       1
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L15/group-work.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "e5392c2b91be14d7fa6973870e52a6132f7ab206563ea32159a84f0b98a0361e",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L15/pod-sheet.html",
@@ -260,8 +390,13 @@
       0
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L15/pod-sheet.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "e0c6fb235bbfc9906c029ac35c0ebc61a1541a00461be67dc2562119c7a579a5",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L15/sources-concept-card.html",
@@ -269,8 +404,13 @@
       0
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L15/sources-concept-card.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "ff5a56dc345746e53b03a3001f37b01803231ee3b18364a4f9c8bdb488886bdb",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
@@ -283,8 +423,13 @@
       "quick"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "602cfb2dbd4f4f1831ec1b67c9b2283aa946dae759f04ee88f7f0b28f7dd5f6a",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L15/worksheets-A4.html",
@@ -293,8 +438,13 @@
       3
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L15/worksheets-A4.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "024f4d54faae2deeb57c26c6d84231fb1bd22f1d9e2b0f293ade18d19589a82e",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L16/teacher-deck.html",
@@ -303,8 +453,13 @@
       "watani"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L16/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "c1a36f4ea433eb80b2152391eded12accdd231e08c682a728b9c7d53ef5ef842",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L17/answer-key.html",
@@ -312,8 +467,13 @@
       0
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L17/answer-key.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "a25cdf95e44e04122d3d938a05ac9d2ef512e900452f71c5a23cb9bbce42e5bc",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L17/sources-concept-card.html",
@@ -321,8 +481,13 @@
       0
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L17/sources-concept-card.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "8665af36bca45e55901fb0440d27782e8b863fbb2687480faec72de25f61b6ae",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L17/teacher-deck.html",
@@ -332,8 +497,13 @@
       "home"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L17/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "fd0d2c6ab9a00e3256e4ebb9a5f2a52c398ea2fe212cc4e0739647578d2d5e5f",
+    "live_byte_match": true
   },
   {
     "file": "resources/ssd/SS-Y2-T3-L18/teacher-deck.html",
@@ -341,7 +511,12 @@
       "retrieve"
     ],
     "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
-    "live_qa": "pending",
-    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+    "live_qa": "PASS: all changed slide/print views inspected from fresh live captures; no clipping or overlap",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-T3-L18/teacher-deck.html",
+    "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45283259682",
+    "content_commit": "6b670daf",
+    "live_sha256": "0d0ad221ebd0706856f239799ad1e4a58a485c4cc7d166a79453a55559c7e1f4",
+    "live_byte_match": true
   }
 ]
