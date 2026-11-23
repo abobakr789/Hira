@@ -20,7 +20,7 @@
       "https://kids.britannica.com/kids/article/fungus/353159"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending final removal of red mushroom proxy; prior view inspected",
+    "live_qa": "PASS byte-exact deployment and every changed slide/print pixel inspected",
     "changes": "Separate fungus from annual plant category in goal, explanation, model, picture task, summary and print resources; preserve source media"
   },
   {

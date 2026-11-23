@@ -1,0 +1,89 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-T1-L03/answer-key.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://u.ae/en/about-uae/founders-of-the-union"
+    ],
+    "local_qa": "PASS every changed slide and print page inspected",
+    "live_qa": "pending",
+    "changes": "Separate present seven-emirate membership from 1971 founding; synchronize group answer keys"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T1-L09/answer-key.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://u.ae/en/about-uae/founders-of-the-union"
+    ],
+    "local_qa": "PASS every changed slide and print page inspected",
+    "live_qa": "pending",
+    "changes": "Separate present seven-emirate membership from 1971 founding; synchronize group answer keys"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T1-L09/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://u.ae/en/about-uae/founders-of-the-union"
+    ],
+    "local_qa": "PASS every changed slide and print page inspected",
+    "live_qa": "pending",
+    "changes": "Separate present seven-emirate membership from 1971 founding; synchronize group answer keys"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T1-L09/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "sources": [
+      "https://u.ae/en/about-uae/founders-of-the-union"
+    ],
+    "local_qa": "PASS every changed slide and print page inspected",
+    "live_qa": "pending",
+    "changes": "Separate present seven-emirate membership from 1971 founding; synchronize group answer keys"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T1-L09/teacher-deck.html",
+    "views": [
+      "mirror"
+    ],
+    "sources": [
+      "https://u.ae/en/about-uae/founders-of-the-union"
+    ],
+    "local_qa": "PASS every changed slide and print page inspected",
+    "live_qa": "pending",
+    "changes": "Separate present seven-emirate membership from 1971 founding; synchronize group answer keys"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T1-L09/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://u.ae/en/about-uae/founders-of-the-union"
+    ],
+    "local_qa": "PASS every changed slide and print page inspected",
+    "live_qa": "pending",
+    "changes": "Separate present seven-emirate membership from 1971 founding; synchronize group answer keys"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T2-L11/teacher-deck.html",
+    "views": [
+      "mirror"
+    ],
+    "sources": [
+      "https://u.ae/en/about-uae/founders-of-the-union"
+    ],
+    "local_qa": "PASS every changed slide and print page inspected",
+    "live_qa": "pending",
+    "changes": "Separate present seven-emirate membership from 1971 founding; synchronize group answer keys"
+  }
+]
