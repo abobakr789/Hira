@@ -1583,16 +1583,6 @@
    ]
   ]
  },
- "AR-Y9-NN-T1-L01": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "house",
-    "منزل"
-   ]
-  ]
- },
  "AR-Y9-NN-T1-L04": {
   "slide": "s5",
   "family": "text",
@@ -1618,16 +1608,6 @@
    [
     "astronaut",
     "رائد فضاء"
-   ]
-  ]
- },
- "AR-Y9-NN-T1-L09": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "books",
-    "كتب"
    ]
   ]
  },
@@ -1698,16 +1678,6 @@
    [
     "person_running",
     "رياضة"
-   ]
-  ]
- },
- "AR-Y10-NN-T3-L02": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "handshake",
-    "مصافحة"
    ]
   ]
  }
