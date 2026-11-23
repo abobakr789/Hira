@@ -1520,5 +1520,353 @@
         "ابتكار"
       ]
     ]
+  },
+  "AR-Y8-NN-T1-L02": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "globe_showing_europe_africa",
+        "أكثر من ٢٠٠ جنسية"
+      ],
+      [
+        "handshake",
+        "تعايش"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T1-L03": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "school",
+        "صفّ جديد"
+      ],
+      [
+        "handshake",
+        "صداقة"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T1-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "speech_bubbles",
+        "حوار وآراء"
+      ],
+      [
+        "ear",
+        "إصغاء"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T1-L06": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "smiling_face_with_smiling_eyes",
+        "ابتسامة"
+      ],
+      [
+        "notebook",
+        "أشياء ممتنّ لها"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T2-L04": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "sun",
+        "طاقة شمسية"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T2-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "robot",
+        "روبوت"
+      ],
+      [
+        "laptop",
+        "برمجة"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T3-L01": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "teacher",
+        "معلّم"
+      ],
+      [
+        "uae_flag",
+        "خدمة الوطن"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T3-L03": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "cloud_with_rain",
+        "أمطار غزيرة"
+      ],
+      [
+        "coin",
+        "تبرّع"
+      ],
+      [
+        "palms_up_together",
+        "تطوّع"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T3-L04": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "megaphone",
+        "إعلان"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T1-L01": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "house",
+        "منزل الأحلام"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T1-L04": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "mountain",
+        "جبل فوجي"
+      ],
+      [
+        "blossom",
+        "أزهار الربيع"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T1-L07": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "notebook",
+        "مذكّرة"
+      ],
+      [
+        "astronaut",
+        "رائد فضاء"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T1-L09": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "books",
+        "مكتبة الحيّ"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T2-L01": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "uae_flag",
+        "الاتحاد ١٩٧١"
+      ],
+      [
+        "deciduous_tree",
+        "ملايين الأشجار"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T2-L03": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "musical_notes",
+        "موسيقى"
+      ],
+      [
+        "ear",
+        "فقد سمعه"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T2-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "airplane",
+        "حلم الطيران"
+      ],
+      [
+        "glowing_star",
+        "خمس نجوم"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T2-L06": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "television",
+        "برنامج"
+      ],
+      [
+        "watch",
+        "ساعتان يوميًّا"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T3-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "laptop",
+        "ألعاب إلكترونية"
+      ],
+      [
+        "medal",
+        "بطولات عالمية"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T3-L06": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "laptop",
+        "منصّة رقمية"
+      ],
+      [
+        "school",
+        "تعليم حضوري"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T1-L01": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "backpack",
+        "دراسة"
+      ],
+      [
+        "alarm_clock",
+        "وقت"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T1-L02": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "graduation",
+        "دراسة جامعية"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T1-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "globe_showing_europe_africa",
+        "قضايا العالم"
+      ],
+      [
+        "droplet",
+        "توفير الماء"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T1-L10": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "graduation",
+        "طالب"
+      ],
+      [
+        "cityscape",
+        "مدن مستدامة"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T2-L03": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "mobile_phone",
+        "الشاشات"
+      ],
+      [
+        "sleeping_face",
+        "النوم"
+      ],
+      [
+        "person_running",
+        "رياضة"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T3-L02": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "handshake",
+        "علاقات جديدة"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T3-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "robot",
+        "ذكاء اصطناعي"
+      ],
+      [
+        "automobile",
+        "سيارة ذاتية القيادة"
+      ]
+    ]
   }
 }
