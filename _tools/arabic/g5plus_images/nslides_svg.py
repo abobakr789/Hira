@@ -8,19 +8,15 @@ def box(x,y,w,h,c,t1,t2=''):
     if t2: s+=f'<text x="{x+w/2}" y="{y+h/2+38}" text-anchor="middle" font-size="30" fill="#334155" {F}>{t2}</text>'
     return s
 def numbers():
-    cols=['#2563EB','#16A34A','#D97706','#7C3AED','#DC2626']
-    steps=[('العدّ البدائي','أصابع وحصى'),('الرموز','حضارات قديمة'),('النظام العشري',''),('الصفر','نقلة كبرى'),('الحساب الحديث','')]
-    w,h,gap=270,150,60; x0=1700-30-w; out=''
-    for i,(a,b) in enumerate(steps):
-        x=x0-i*(w+gap); out+=box(x,40,w,h,cols[i],a,b)
-        if i<4: out+=f'<path d="M{x-12} {40+h/2} L{x-gap+14} {40+h/2}" stroke="#64748B" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M{x-gap+10} {40+h/2-14} L{x-gap-6} {40+h/2} L{x-gap+10} {40+h/2+14} Z" fill="#64748B"/>'
+    out=f'<text x="850" y="115" text-anchor="middle" font-size="60" fill="#102A4C" {F}>أشكال مختلفة، قيمة واحدة</text>'
+    out+=f'<text x="850" y="230" text-anchor="middle" font-size="80" fill="#2563EB" {F} direction="ltr" unicode-bidi="bidi-override">٢٠٥ = 205</text>'
     out+='<rect x="120" y="290" width="1460" height="150" rx="26" fill="#fff" stroke="#CBD5E1" stroke-width="4"/>'
     out+=f'<text x="850" y="338" text-anchor="middle" font-size="34" fill="#334155" {F}>الأرقام في الكتابة العربية</text>'
     out+=f'<text x="850" y="415" text-anchor="middle" font-size="66" fill="#102A4C" {F} direction="ltr" unicode-bidi="bidi-override" xml:space="preserve">٠   ١   ٢   ٣   ٤   ٥   ٦   ٧   ٨   ٩</text>'
     out+='<rect x="120" y="470" width="1460" height="150" rx="26" fill="#fff" stroke="#CBD5E1" stroke-width="4"/>'
     out+=f'<text x="850" y="518" text-anchor="middle" font-size="34" fill="#334155" {F}>الأرقام المستخدمة عالميًّا</text>'
     out+=f'<text x="850" y="595" text-anchor="middle" font-size="66" fill="#102A4C" {F} direction="ltr" unicode-bidi="bidi-override" xml:space="preserve">0   1   2   3   4   5   6   7   8   9</text>'
-    return out,'أرقام نستخدمها كل يوم','الأرقام: من العدّ بالأصابع إلى النظام الحديث','مرحلة تبني على التي قبلها: اقرؤوا السلسلة من اليمين إلى اليسار، ثم قارنوا شكلَي الأرقام في الصفّين.','1700 620'
+    return out,'أرقام نستخدمها كل يوم','مقارنة أشكال الأرقام','كل رقم في الصف العلوي يقابله رقم بالقيمة نفسها في الصف السفلي. اطلبوا من الطلاب كتابة عدد بالشكلين، ثم قراءة قيمته.','1700 620'
 def graphene():
     r=34; dx=r*math.sqrt(3); out='<g>'
     pts=[];lines=''
@@ -42,7 +38,15 @@ def graphene():
         out+=box(1000,y,640,140,c,a,b)
         if i<2: out+=f'<path d="M1320 {y+146} L1320 {y+176}" stroke="#64748B" stroke-width="7" stroke-linecap="round"/><path d="M1306 {y+170} L1320 {y+186} L1334 {y+170} Z" fill="#64748B"/>'
     return out,'الغرافين','الغرافين: من التركيب إلى التطبيق','ثلاث مراحل في تعريف المصطلح: التركيب، ثم الخصائص، ثم التطبيقات. الرسم يوضح شكل الطبقة: ذرّات كربون في خلايا سداسية.','1700 620'
-SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene}
+def pronouns():
+    out=box(600,20,500,125,'#102A4C','كَتَبْتُهُ','')
+    out+='<path d="M850 150V185 M310 185H1390 M310 185V220 M850 185V220 M1390 185V220" fill="none" stroke="#64748B" stroke-width="6"/>'
+    for x,c,word,name,role in [(1180,'#2563EB','كَتَبْـ','الفعل','فعل ماضٍ'),(640,'#16A34A','ـتُـ','التاء: المتكلّم','في محلّ رفع فاعل'),(100,'#D97706','ـهُ','الهاء: الشيء المكتوب','في محلّ نصب مفعول به')]:
+        out+=f'<rect x="{x}" y="230" width="420" height="300" rx="26" fill="#fff" stroke="{c}" stroke-width="6"/>'
+        for y,txt,size,col in [(310,word,62,c),(405,name,33,'#334155'),(475,role,32,'#334155')]:
+            out+=f'<text x="{x+210}" y="{y}" text-anchor="middle" font-size="{size}" fill="{col}" {F}>{txt}</text>'
+    return out,'تفكيك الكلمة','كلمة واحدة: فعل وضميران','ابدؤوا بالكلمة كاملة، ثم تتبّعوا الفروع. من كتب؟ وما الشيء الذي كُتب؟ اربطوا المعنى بالمحلّ الإعرابي لكل ضمير.','1700 620'
+SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns}
 def apply_html(code,t):
  fn=SPECS.get(code)
  if not fn or 'id="s6d"' in t: return t
