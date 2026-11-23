@@ -2,7 +2,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L04/teacher-deck.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       "vocab",
       "g4",
@@ -13,7 +13,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L04/sources-concept-card.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       0
     ],
@@ -22,7 +22,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L04/answer-key.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       0
     ],
@@ -31,7 +31,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L04/worksheets-A4.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       0,
       1,
@@ -43,7 +43,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L04/pod-sheet.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       0
     ],
@@ -52,7 +52,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L04/group-work.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       1
     ],
@@ -61,7 +61,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L11/teacher-deck.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       "vocab",
       "g3",
@@ -73,7 +73,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L11/sources-concept-card.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       0
     ],
@@ -82,7 +82,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L11/group-work.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       1
     ],
@@ -91,7 +91,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L13/teacher-deck.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       "vocab",
       "groups"
@@ -101,7 +101,7 @@
   {
     "file": "resources/ssd/SS-Y2-T1-L13/sources-concept-card.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       0
     ],
@@ -110,7 +110,7 @@
   {
     "file": "resources/ssd/SS-Y2-T2-L01/teacher-deck.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       "g3",
       "levels"
@@ -120,7 +120,7 @@
   {
     "file": "resources/ssd/SS-Y2-T2-L01/group-work.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       1
     ],
@@ -129,7 +129,7 @@
   {
     "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       "g3"
     ],
@@ -138,7 +138,7 @@
   {
     "file": "resources/ssd/SS-Y2-T3-L14/teacher-deck.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       "g3"
     ],
@@ -147,7 +147,7 @@
   {
     "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       "g4",
       "mirror"
@@ -157,7 +157,7 @@
   {
     "file": "resources/ssd/SS-Y2-T3-L16/teacher-deck.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       "g4",
       "mirror"
@@ -167,7 +167,7 @@
   {
     "file": "resources/ssd/SS-Y2-T3-L16/group-work.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "views": [
       1
     ],
@@ -176,7 +176,7 @@
   {
     "file": "resources/ssd/SS-Y2-T3-L02/group-work.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "media_reference_check": "PASS: original media refs unchanged",
     "views": [
       1
@@ -185,7 +185,7 @@
   {
     "file": "resources/ssd/SS-Y2-T3-L14/group-work.html",
     "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
-    "live_qa": "pending",
+    "live_qa": "PASS: every changed slide and print page pixel-inspected; 20/20 live HTML files byte-exact after successful deployment",
     "media_reference_check": "PASS: original media refs unchanged",
     "views": [
       1

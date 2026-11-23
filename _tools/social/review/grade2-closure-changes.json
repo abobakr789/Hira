@@ -1,0 +1,104 @@
+[
+  {
+    "file": "resources/ssd/SS-Y2-T1-L03/teacher-deck.html",
+    "views": [
+      "cover",
+      "goal"
+    ],
+    "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L10/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L10/group-work.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L10/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L10/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L10/teacher-deck.html",
+    "views": [
+      "cover",
+      "goal",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "groups",
+      "g1",
+      "models",
+      "levels",
+      "quick",
+      "progress2",
+      "mirror",
+      "home",
+      "g2"
+    ],
+    "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L10/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L03/teacher-deck.html",
+    "views": [
+      "cover",
+      "goal"
+    ],
+    "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L11/teacher-deck.html",
+    "views": [
+      "goal"
+    ],
+    "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  }
+]
