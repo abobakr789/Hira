@@ -1,30 +1,30 @@
-lesson,result,rationale
-AR-Y6-NN-T3-L03,retained,Particular reading sequence/causal model: قلق قبل الاختبار / تعبير عن المشاعر / تنفّس ببطء / هدوء وراحة. Not labelled a universal required process.
-AR-Y6-NN-T3-L06,retained,Particular reading sequence/causal model: اسأل / ابحث وتعلّم / تطوّر مستمر. Not labelled a universal required process.
-AR-Y7-NN-T1-L03,retained,Particular reading sequence/causal model: فكرة المشروع / حساب التكلفة / الإعلان والبيع / حساب الربح. Not labelled a universal required process.
-AR-Y7-NN-T2-L06,retained,Particular reading sequence/causal model: تربة جافّة / الحسّاس يكتشف / النظام يفتح الماء. Not labelled a universal required process.
-AR-Y8-NN-T1-L01,retained,Particular reading sequence/causal model: رسالة مؤذية / أبلغ المعلّم / تدخّل المدرسة. Not labelled a universal required process.
-AR-Y8-NN-T1-L08,retained,Particular reading sequence/causal model: تعثر في الاختبار / دراسة ومساعدة / محاولة جديدة. Not labelled a universal required process.
-AR-Y8-NN-T1-L09,retained,Particular reading sequence/causal model: طعام زائد / بنك الطعام / توزيع آمن. Not labelled a universal required process.
-AR-Y8-NN-T1-L10,retained,Particular reading sequence/causal model: غضب / تنفّس وعُدّ / اهدأ ثمّ تكلّم. Not labelled a universal required process.
-AR-Y8-NN-T2-L01,retained,Particular reading sequence/causal model: بذور / ريّ وسماد / نموّ / حصاد. Not labelled a universal required process.
-AR-Y8-NN-T2-L03,retained,Particular reading sequence/causal model: فرز النفايات / ورق · بلاستيك · زجاج / إعادة التدوير. Not labelled a universal required process.
-AR-Y9-NN-T1-L02,retained,Particular reading sequence/causal model: دراسة ومؤهّل / تدريب وخبرة / سيرة ذاتية / مقابلة. Not labelled a universal required process.
-AR-Y9-NN-T1-L05,retained,Particular reading sequence/causal model: حلم وخطّة / عمل وتجارب / تعلّم من الخطأ / تحقّق الهدف. Not labelled a universal required process.
-AR-Y9-NN-T1-L08,retained,Particular reading sequence/causal model: قصص الطفولة / إلهام / مسوّدات ومراجعة / نشر الرواية. Not labelled a universal required process.
-AR-Y9-NN-T2-L04,corrected,"Overlapping cinematic features, visible qualification, not strict history."
-AR-Y10-NN-T1-L08,retained,Particular reading sequence/causal model: إعلان وظيفة / طلب وسيرة ذاتية / مقابلة / قبول. Not labelled a universal required process.
-AR-Y10-NN-T1-L09,retained,Particular reading sequence/causal model: هدف وخطّة / محاولة / تعلّم من الفشل / محاولة جديدة. Not labelled a universal required process.
-AR-Y10-NN-T2-L02,retained,Particular reading sequence/causal model: فقر / جوع / ضعف ومرض. Not labelled a universal required process.
-AR-Y10-NN-T2-L05,retained,"Parallel environmental rules, no causality asserted."
-AR-Y10-NN-T3-L06,retained,Particular reading sequence/causal model: رسائل ورقية / هاتف / إنترنت / اتصال بالصورة. Not labelled a universal required process.
-AR-Y8-NN-T1-L07,retained,Particular reading sequence/causal model: فوضى في الممر / سقوط طالب وبكاؤه / تذكير المدير بالنظام / هدوء واحترام. Not labelled a universal required process.
-AR-Y8-NN-T2-L06,retained,Particular reading sequence/causal model: إطلاق المسبار ٢٠٢٠ / الوصول إلى المدار ٢٠٢١ / دراسة الغلاف الجوي / إرسال البيانات للعلماء. Not labelled a universal required process.
-AR-Y9-NN-T1-L06,retained,Particular reading sequence/causal model: مسابقة القراءة / توتر قبل البداية / الفوز بالمركز الثاني / احتفال مع الأسرة. Not labelled a universal required process.
-AR-Y9-NN-T3-L01,retained,Particular reading sequence/causal model: لعب في الشارع / المدرّب يرى الموهبة / تدريب كل يوم / لاعب محترف. Not labelled a universal required process.
-AR-Y9-NN-T1-L10,retained,Particular reading sequence/causal model: ضائع وجائع / أسرة رحيمة / بيت دافئ وصاحب. Not labelled a universal required process.
-AR-Y10-NN-T1-L03,retained,Particular reading sequence/causal model: وجد المحفظة / سلّمها للإدارة / شكر صاحبها. Not labelled a universal required process.
-AR-Y10-NN-T1-L04,retained,Particular reading sequence/causal model: حملة وصناديق / جمع خمسمئة كتاب / إرسال للمدارس. Not labelled a universal required process.
-AR-Y10-NN-T2-L01,corrected,Concurrent risks grouped before narrative ignored signal/crash.
-AR-Y10-NN-T1-L06,retained,Particular reading sequence/causal model: رسم في الطفولة / تدريب وتطوير / إتقان التصميم / مصمّمة في شركة. Not labelled a universal required process.
-AR-Y10-NN-T2-L06,retained,Particular reading sequence/causal model: انبعاثات المصانع والسيارات / احتباس حراري / ذوبان الجليد وفيضانات. Not labelled a universal required process.
+lesson,result,rationale,visual_qa
+AR-Y6-NN-T3-L03,retained,Particular reading sequence/causal model: قلق قبل الاختبار / تعبير عن المشاعر / تنفّس ببطء / هدوء وراحة. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y6-NN-T3-L06,retained,Particular reading sequence/causal model: اسأل / ابحث وتعلّم / تطوّر مستمر. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y7-NN-T1-L03,retained,Particular reading sequence/causal model: فكرة المشروع / حساب التكلفة / الإعلان والبيع / حساب الربح. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y7-NN-T2-L06,retained,Particular reading sequence/causal model: تربة جافّة / الحسّاس يكتشف / النظام يفتح الماء. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y8-NN-T1-L01,retained,Particular reading sequence/causal model: رسالة مؤذية / أبلغ المعلّم / تدخّل المدرسة. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y8-NN-T1-L08,retained,Particular reading sequence/causal model: تعثر في الاختبار / دراسة ومساعدة / محاولة جديدة. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y8-NN-T1-L09,retained,Particular reading sequence/causal model: طعام زائد / بنك الطعام / توزيع آمن. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y8-NN-T1-L10,retained,Particular reading sequence/causal model: غضب / تنفّس وعُدّ / اهدأ ثمّ تكلّم. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y8-NN-T2-L01,retained,Particular reading sequence/causal model: بذور / ريّ وسماد / نموّ / حصاد. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y8-NN-T2-L03,retained,Particular reading sequence/causal model: فرز النفايات / ورق · بلاستيك · زجاج / إعادة التدوير. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y9-NN-T1-L02,retained,Particular reading sequence/causal model: دراسة ومؤهّل / تدريب وخبرة / سيرة ذاتية / مقابلة. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y9-NN-T1-L05,retained,Particular reading sequence/causal model: حلم وخطّة / عمل وتجارب / تعلّم من الخطأ / تحقّق الهدف. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y9-NN-T1-L08,retained,Particular reading sequence/causal model: قصص الطفولة / إلهام / مسوّدات ومراجعة / نشر الرواية. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y9-NN-T2-L04,corrected,"Overlapping cinematic features, visible qualification, not strict history.","Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T1-L08,retained,Particular reading sequence/causal model: إعلان وظيفة / طلب وسيرة ذاتية / مقابلة / قبول. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T1-L09,retained,Particular reading sequence/causal model: هدف وخطّة / محاولة / تعلّم من الفشل / محاولة جديدة. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T2-L02,retained,Particular reading sequence/causal model: فقر / جوع / ضعف ومرض. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T2-L05,retained,"Parallel environmental rules, no causality asserted.","Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T3-L06,retained,Particular reading sequence/causal model: رسائل ورقية / هاتف / إنترنت / اتصال بالصورة. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y8-NN-T1-L07,retained,Particular reading sequence/causal model: فوضى في الممر / سقوط طالب وبكاؤه / تذكير المدير بالنظام / هدوء واحترام. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y8-NN-T2-L06,retained,Particular reading sequence/causal model: إطلاق المسبار ٢٠٢٠ / الوصول إلى المدار ٢٠٢١ / دراسة الغلاف الجوي / إرسال البيانات للعلماء. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y9-NN-T1-L06,retained,Particular reading sequence/causal model: مسابقة القراءة / توتر قبل البداية / الفوز بالمركز الثاني / احتفال مع الأسرة. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y9-NN-T3-L01,retained,Particular reading sequence/causal model: لعب في الشارع / المدرّب يرى الموهبة / تدريب كل يوم / لاعب محترف. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y9-NN-T1-L10,retained,Particular reading sequence/causal model: ضائع وجائع / أسرة رحيمة / بيت دافئ وصاحب. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T1-L03,retained,Particular reading sequence/causal model: وجد المحفظة / سلّمها للإدارة / شكر صاحبها. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T1-L04,retained,Particular reading sequence/causal model: حملة وصناديق / جمع خمسمئة كتاب / إرسال للمدارس. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T2-L01,corrected,Concurrent risks grouped before narrative ignored signal/crash.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T1-L06,retained,Particular reading sequence/causal model: رسم في الطفولة / تدريب وتطوير / إتقان التصميم / مصمّمة في شركة. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
+AR-Y10-NN-T2-L06,retained,Particular reading sequence/causal model: انبعاثات المصانع والسيارات / احتباس حراري / ذوبان الجليد وفيضانات. Not labelled a universal required process.,"Individual live full-size pixels inspected 2026-11-23 20:01; readable, no clipping"
