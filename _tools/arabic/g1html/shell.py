@@ -57,4 +57,7 @@ Object.assign(window,{{show,next,prev,snd,cnt,rst,redraw,boom,fb}});window.S=S;}
     _ns = _ilu.spec_from_file_location("hira_g5plus_nslides", _np)
     _nm = _ilu.module_from_spec(_ns); _ns.loader.exec_module(_nm)
     # Added explanatory diagram slides (grade 5+ native), applied last so regeneration restores them.
-    return _nm.apply_html(code, _im.apply_html(code, _pictures4(code, _pictures23(code, result))))
+    _pp = _os.path.join(_os.path.dirname(__file__), "..", "g5plus_images", "nslides_photo.py")
+    _ps = _ilu.spec_from_file_location("hira_g5plus_nslides_photo", _pp)
+    _pm = _ilu.module_from_spec(_ps); _ps.loader.exec_module(_pm)
+    return _pm.apply_html(code, _nm.apply_html(code, _im.apply_html(code, _pictures4(code, _pictures23(code, result)))))

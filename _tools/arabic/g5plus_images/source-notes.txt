@@ -12,3 +12,4 @@ Build integration: g1html/shell.py page() runs the grade5+ transform after exist
 
 Text-family panels (23Nov2026): Fluent Emoji (MIT, art/emoji) icons with Arabic captions taken from the existing reading text, added beside the 5-line NN reading slides in Y8-Y10. Dropped after inspection: Y8 T1-L04 (four-area list exceeds panel capacity), Y10 T1-L07 (panel narrows text and clips a long line), plus gendered teacher icon (Y10 T1-L02) and vague island icon (Y9 T1-L09). Unchanged with rationale: Y8 T3-L06 (kandura/abaya, no accurate licensed image).
 Y7-N-T1-L21: hand-drawn SVG diagram (original work, no external asset)
+Y8-N-T2-L05: Wooden_Dhow_Boat.jpg, Gaurav Dhwaj Khadka, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Wooden_Dhow_Boat.jpg (resized, EXIF stripped)
