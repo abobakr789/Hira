@@ -423,5 +423,199 @@
     "text": "Velatrix · CC0"
    }
   ]
+ },
+ "AR-Y6-NN-T1-L01": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "books",
+    "كُتُبٌ"
+   ],
+   [
+    "watch",
+    "سَاعَةٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T1-L03": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "coin",
+    "نُقُودٌ مَعْدِنِيَّةٌ"
+   ],
+   [
+    "mobile_phone",
+    "هَاتِفٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T1-L05": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "t_shirt",
+    "قَمِيصٌ"
+   ],
+   [
+    "package",
+    "طَلَبٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T1-L06": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "tomato",
+    "طَمَاطِمُ"
+   ],
+   [
+    "banana",
+    "مَوْزٌ"
+   ],
+   [
+    "red_apple",
+    "تُفَّاحٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T1-L07": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "credit_card",
+    "بِطَاقَةٌ بَنْكِيَّةٌ"
+   ],
+   [
+    "coin",
+    "نُقُودٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T1-L08": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "clothing",
+    "مَلَابِسُ"
+   ],
+   [
+    "gold_bars",
+    "ذَهَبٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T2-L02": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "luggage",
+    "حَقِيبَةُ سَفَرٍ"
+   ],
+   [
+    "airplane",
+    "طَائِرَةٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T2-L03": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "mobile_phone",
+    "هَاتِفٌ"
+   ],
+   [
+    "airplane",
+    "طَائِرَةٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T2-L05": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "arid_mountains",
+    "جَبَلٌ"
+   ],
+   [
+    "camel",
+    "جَمَلٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T2-L06": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "rocket",
+    "صَارُوخٌ"
+   ],
+   [
+    "globe_showing_europe_africa",
+    "الْأَرْضُ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T3-L01": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "egg",
+    "بَيْضٌ"
+   ],
+   [
+    "cooked_rice",
+    "أَرُزٌّ"
+   ],
+   [
+    "poultry_leg",
+    "دَجَاجٌ مَطْهُوٌّ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T3-L02": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "person_walking",
+    "مَشْيٌ"
+   ],
+   [
+    "person_swimming",
+    "سِبَاحَةٌ"
+   ]
+  ]
+ },
+ "AR-Y6-NN-T3-L05": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "camel",
+    "جَمَلٌ"
+   ],
+   [
+    "horse_racing",
+    "فُرُوسِيَّةٌ"
+   ],
+   [
+    "soccer_ball",
+    "كُرَةُ الْقَدَمِ"
+   ]
+  ]
  }
 }
