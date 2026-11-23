@@ -246,7 +246,12 @@
   ]
  },
  "AR-Y1-N-T1-L12": {
-  "d-real": [],
+  "d-real": [
+   [
+    "gold_bars",
+    "ذَهَبٌ"
+   ]
+  ],
   "d-apply": [
    [
     "ear",
@@ -833,7 +838,7 @@
     "هَدَفٌ"
    ],
    [
-    "clapping_hands",
+    "megaphone",
     "هَتَفَ"
    ]
   ],
