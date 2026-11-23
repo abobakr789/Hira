@@ -1,0 +1,63 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-T2-L09/answer-key.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://www.nasa.gov/image-article/science-on-the-space-station-with-nasa-astronaut-jessica-watkins/"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Correct astronaut work to scientific experiments; remove robot proxy for AI"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T2-L09/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://www.nasa.gov/image-article/science-on-the-space-station-with-nasa-astronaut-jessica-watkins/"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Correct astronaut work to scientific experiments; remove robot proxy for AI"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T2-L09/worksheets-A4.html",
+    "views": [
+      1
+    ],
+    "sources": [
+      "https://www.nasa.gov/image-article/science-on-the-space-station-with-nasa-astronaut-jessica-watkins/"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Correct astronaut work to scientific experiments; remove robot proxy for AI"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T2-L09/teacher-deck.html",
+    "views": [
+      "vocab",
+      "models"
+    ],
+    "sources": [
+      "https://www.nasa.gov/image-article/science-on-the-space-station-with-nasa-astronaut-jessica-watkins/"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Correct astronaut work to scientific experiments; remove robot proxy for AI"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L06/teacher-deck.html",
+    "views": [
+      "vocab"
+    ],
+    "sources": [
+      "https://www.epa.gov/recycle/recycling-basics-and-benefits"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Distinguish recycling from reuse in vocabulary"
+  }
+]
