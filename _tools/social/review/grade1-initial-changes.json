@@ -8,8 +8,9 @@
       "https://education.nationalgeographic.org/resource/cardinal-directions-and-maps/"
     ],
     "local_qa": "PASS full-size pixels",
-    "live_qa": "pending",
-    "changes": "Literal spatial diagram, original sections unchanged"
+    "live_qa": "PASS all changed pixels; deployed byte exact",
+    "changes": "Literal spatial diagram, original sections unchanged",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45258277179"
   },
   {
     "file": "resources/ssd/SS-Y1-T1-L18/teacher-deck.html",
@@ -20,8 +21,9 @@
       "https://vig.gmo.gov.ae/en/guideline/the-uae-flag"
     ],
     "local_qa": "PASS full-size pixels",
-    "live_qa": "pending",
-    "changes": "Literal spatial diagram, original sections unchanged"
+    "live_qa": "PASS all changed pixels; deployed byte exact",
+    "changes": "Literal spatial diagram, original sections unchanged",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45258277179"
   },
   {
     "file": "resources/ssd/SS-Y1-T1-L15/teacher-deck.html",
@@ -34,7 +36,8 @@
       "https://rulebook.centralbank.ae/en/rulebook/21-terminology-and-definitions"
     ],
     "local_qa": "PASS full-size pixels",
-    "live_qa": "pending",
-    "changes": "Clarify Emirates ID applies to citizens and residents. Original textbook narrative and historical agency name preserved."
+    "live_qa": "PASS all changed pixels; deployed byte exact",
+    "changes": "Clarify Emirates ID applies to citizens and residents. Original textbook narrative and historical agency name preserved.",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45258277179"
   }
 ]

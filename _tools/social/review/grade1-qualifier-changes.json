@@ -1,0 +1,41 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-T2-L06/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "sources": [
+      "deck textbook passage: money used alongside trade"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Avoid old barter versus modern cash false binary"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L04/answer-key.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://masdarcity.ae/sustainable-urban-development/Sustainability-at-masdar-city"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Qualify absolute pollution-free first-city claim as sustainability and pollution reduction"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L04/teacher-deck.html",
+    "views": [
+      "models",
+      "watani",
+      "quick"
+    ],
+    "sources": [
+      "https://masdarcity.ae/sustainable-urban-development/Sustainability-at-masdar-city"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Qualify absolute pollution-free first-city claim as sustainability and pollution reduction"
+  }
+]
