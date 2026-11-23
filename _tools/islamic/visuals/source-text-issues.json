@@ -6,7 +6,7 @@
     "issue": "Camel hump storage contradicts Library of Congress zoology answer.",
     "suggested_fix": "Replace water with fat, preserving other adaptations, only after approval.",
     "source": "https://www.loc.gov/everyday-mysteries/categories/zoology/item/how-much-water-does-a-camels-hump-hold/",
-    "status": "Corrected with user authorization 2026-11-23 20:57 Dubai; all four affected local slides visually checked; live QA pending",
+    "status": "Corrected with user authorization 2026-11-23 20:57 Dubai; all four affected slides individually visually checked locally and live; deployed HTML exact match",
     "replacement_from": "يخزن فيه الماء",
     "replacement_to": "يخزن فيه الدهون",
     "occurrences": 4,
@@ -19,7 +19,9 @@
     "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3QUE4QkNGMTZFMkRBNDJDMDk2M0RGMjFERjM0MzAA",
     "verified_sources": [
       "https://www.loc.gov/everyday-mysteries/categories/zoology/item/how-much-water-does-a-camels-hump-hold/"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45222839830",
+    "content_commit": "97c5e5dd"
   },
   {
     "lesson": "IE-Y1-NN-T1-L07",
@@ -28,7 +30,7 @@
     "issue": "Camel hump storage contradicts Library of Congress zoology answer.",
     "suggested_fix": "Replace water with fat, only after approval.",
     "source": "https://www.loc.gov/everyday-mysteries/categories/zoology/item/how-much-water-does-a-camels-hump-hold/",
-    "status": "Corrected with user authorization 2026-11-23 20:57 Dubai; all four affected local slides visually checked; live QA pending",
+    "status": "Corrected with user authorization 2026-11-23 20:57 Dubai; all four affected slides individually visually checked locally and live; deployed HTML exact match",
     "replacement_from": "hump to store water",
     "replacement_to": "hump to store fat",
     "occurrences": 4,
@@ -41,7 +43,9 @@
     "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3QUE4QkNGMTZFMkRBNDJDMDk2M0RGMjFERjM0MzAA",
     "verified_sources": [
       "https://www.loc.gov/everyday-mysteries/categories/zoology/item/how-much-water-does-a-camels-hump-hold/"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45222839830",
+    "content_commit": "97c5e5dd"
   },
   {
     "lesson": "IE-Y1-NN-T2-L07",
@@ -50,7 +54,7 @@
     "issue": "English adds a flat-earth assertion absent from the Arabic counterpart.",
     "suggested_fix": "Use: Allah created the earth and prepared it for people to live on. Only after approval.",
     "source": "resources/ie/IE-Y1-N-T2-L07/teacher-deck.html#learn1",
-    "status": "Corrected with user authorization 2026-11-23 20:57 Dubai; all four affected local slides visually checked; live QA pending",
+    "status": "Corrected with user authorization 2026-11-23 20:57 Dubai; all four affected slides individually visually checked locally and live; deployed HTML exact match",
     "replacement_from": "made it flat for",
     "replacement_to": "prepared it for",
     "occurrences": 4,
@@ -64,6 +68,8 @@
     "verified_sources": [
       "resources/ie/IE-Y1-N-T2-L07/teacher-deck.html#learn1",
       "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-earth-grades-k-4/"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45222839830",
+    "content_commit": "97c5e5dd"
   }
 ]
