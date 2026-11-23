@@ -549,3 +549,19 @@ def arabic_root_family(en):
  return s,'See the shared root' if en else 'أُلاحِظُ حُروفَ الجَذْرِ'
 for track in ['N','NN']:
  GRADE5_SPECS[f'IE-Y11-{track}-T1-L05']=('part1',arabic_root_family)
+
+def covered_vessels(en):
+ s=txt(800,55,'Two examples of covering and closing' if en else 'مِثالانِ لِلتَّغْطِيَةِ وَالإِغْلاقِ',43)
+ for x,c in [(90,GREEN),(870,BLUE)]:s+=card(x,130,640,440,c)
+ s+='<g transform="translate(0 -40)">'
+ # Literal cooking pot with fitted lid and a water bottle with screw cap.
+ s+='<path d="M240 300h340v175q-170 65-340 0z" fill="#9CBDB2" stroke="#3F6E5B" stroke-width="6"/><ellipse cx="410" cy="300" rx="170" ry="25" fill="#C0D5CC" stroke="#3F6E5B" stroke-width="6"/><path d="M235 300q175-145 350 0" fill="#94B5A7" stroke="#3F6E5B" stroke-width="6"/><rect x="372" y="217" width="76" height="22" rx="11" fill="#3F6E5B"/><path d="M240 355h-45v60h45m340-60h45v60h-45" fill="none" stroke="#3F6E5B" stroke-width="12"/>'
+ s+='<path d="M1145 250v55q-65 35-65 90v100q120 50 240 0V395q0-55-65-90v-55z" fill="#D0E5EB" stroke="#306D9D" stroke-width="6"/><rect x="1140" y="210" width="120" height="58" rx="12" fill="#5388A4"/>'
+ for y in [225,240,255]:s+=line(1152,y,1248,y,'#8EB9CA')
+ s+='</g>'
+ s+=txt(410,535,'Covered food vessel' if en else 'إِناءُ طَعامٍ مُغَطًّى',33,GREEN)+txt(1190,535,'Closed water container' if en else 'وِعاءُ ماءٍ مُغْلَقٌ',32,BLUE)
+ s+=txt(800,635,'A preventive practice, alongside cleanliness and seeking treatment' if en else 'مِنْ آدابِ الوِقايَةِ، مَعَ النَّظافَةِ وَطَلَبِ العِلاجِ',30)
+ s+=txt(800,710,'Modern examples of the practice in Sahih Muslim 2012a, not historical objects' if en else 'أَمْثِلَةٌ مُعاصِرَةٌ لِلمَعْنى الوارِدِ في صَحيحِ مُسْلِم ٢٠١٢، لا أَدَواتٌ تاريخِيَّةٌ',24)
+ return s,'Cover food and close water containers' if en else 'أُغَطّي الطَّعامَ وَأُغْلِقُ وِعاءَ الماءِ'
+for track in ['N','NN']:
+ GRADE5_SPECS[f'IE-Y12-{track}-T2-L02']=('part1',covered_vessels)

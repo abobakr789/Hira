@@ -1,0 +1,954 @@
+[
+  {
+    "lesson": "IE-Y12-N-T1-L01",
+    "title": "عرض المعلم · وقاية المجتمع من الجرائم الأخلاقية: سورة النور (1–10) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No depiction of sacred people or punishment. Lian and proof rules require precise text, not a diagram that omits conditions. Source corrections handled separately.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L02",
+    "title": "عرض المعلم · مناهج المفسرين · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Tafsir methods and online-source evaluation are the assessed comparison. No decorative book or scholar proxy.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L03",
+    "title": "عرض المعلم · الإسلام ينبذ التطرف · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No extremist imagery or misleading moderate/extreme scale. Causes, refutation and peer intervention are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L04",
+    "title": "عرض المعلم · آداب الفراق وضوابطه في الإسلام · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No automatic divorce procedure; waiting periods and judicial separation need conditions. Dialogue and respectful separation are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L05",
+    "title": "عرض المعلم · رسول الله ﷺ والحياة الاجتماعية · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Prophet or Companion depiction. Neighbour and charter comparison are assessed; a generic community icon adds no teaching.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L06",
+    "title": "عرض المعلم · حديث الإفك عظة وعبرة: سورة النور (11–26) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No depiction of Aisha or historical rumour scene. Rumour-spread diagram is explicitly the group challenge and must remain student work.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L07",
+    "title": "عرض المعلم · السنن الربانية · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No divine action depicted or deterministic study-success chart. Identifying a pattern and designing a change plan are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L08",
+    "title": "عرض المعلم · المسؤولية في الإسلام · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No generic responsibility wheel. Roles and incident responsibility are assessed and context dependent.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L09",
+    "title": "عرض المعلم · مقاصد التشريع الخمسة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A completed five-aims diagram would answer the assessed law-to-purpose mapping. Keep distinctions in text.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L10",
+    "title": "عرض المعلم · الشيخة فاطمة بنت مبارك حفظها الله · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No unlicensed identity portrait or timeline built on inconsistent birthplace. Empowerment comparison is assessed; factual corrections separate.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T2-L01",
+    "title": "عرض المعلم · التواصل الاجتماعي سلوك وآداب: سورة النور (27–31) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Privacy rules are already clear text; a completed digital-conduct comparison answers group work. No generic phone panel.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T2-L02",
+    "title": "عرض المعلم · المنهج النبوي في الرعاية الصحية · Hiraa",
+    "decision": "added literal preventive-practice diagram",
+    "rationale": "Covered food and capped drinking water vessels illustrate the specific practice attested in Sahih Muslim 2012a. Modern examples, no health-cure claim, sacred figures or unseen depiction. Original lesson content unchanged.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "PASS",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y12-N-T2-L03",
+    "title": "عرض المعلم · البيوع المحرمة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No automatic halal/haram transaction tree. Qualifications and real trading cases are assessed; existing text carries the legal conditions.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T2-L04",
+    "title": "عرض المعلم · الخدمة الوطنية واجب شرعي ومطلب وطني · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No generic flag/soldier panel or invented military scene. National-service dimensions and civic conduct are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T2-L05",
+    "title": "عرض المعلم · الزواج طريق الاستعفاف: سورة النور (32–34) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No marriage process or financial promises. Wedding cost solutions are assessed; no sacred person depiction.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T2-L06",
+    "title": "عرض المعلم · التفكير الإبداعي في الإسلام · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No battle reconstruction or sacred persons. Innovation/innovation-in-religion comparison is the task, not supplied completed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T2-L07",
+    "title": "عرض المعلم · فقه ترتيب الأعمال بحسب مقاصدها · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No universal ranked priority chart that ignores context. Ranking the student cases is assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T2-L08",
+    "title": "عرض المعلم · العولمة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No globe as proxy for globalisation. Evaluating cultural exchange and identity is assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L01",
+    "title": "عرض المعلم · الله نور السماوات والأرض: سورة النور (35–45) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No divine light, unseen reality or faith-in-heart illustration. Light/darkness comparison is an explicit assessed metaphor.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L02",
+    "title": "عرض المعلم · الطاعة والامتثال طريق الإيمان: سورة النور (46–57) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No labelled hypocrite/faithful person or reward outcome graphic. Attitudes and obedience are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L03",
+    "title": "عرض المعلم · التسامح مع المخالفين في العقيدة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No religious stereotypes or equivalence symbols. Rights, boundaries and response to neighbour kindness are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L04",
+    "title": "عرض المعلم · آداب الإسلام في الرؤى والأحلام · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No dream or unseen illustration. Dream interpretation is not made into a predictive flow; comparing conduct is assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L05",
+    "title": "عرض المعلم · النظام الاقتصادي في الإسلام · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No caricature economic-system chart. Comparison is assessed and source wording needs qualification, handled separately.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L06",
+    "title": "عرض المعلم · بيوت طاهرة مجتمع نقي: سورة النور (58–61) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A finished three-private-times organiser would answer the explicit family guide challenge. No bedroom scene; preserve privacy.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L07",
+    "title": "عرض المعلم · الأدب مع الرسول ﷺ: سورة النور (62–64) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Prophet or Companion depiction. Conduct comparisons and etiquette after his death are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L08",
+    "title": "عرض المعلم · الاتباع والتقليد · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No false authority ladder or scholar portraits. Evaluating a circulating fatwa is assessed and needs source context.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L09",
+    "title": "عرض المعلم · الشيخ زايد بن سلطان آل نهيان رحمه الله · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No invented Sheikh Zayed portrait or decorative skyline. Decision-to-human-development analysis is assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L10",
+    "title": "عرض المعلم · الإسلام واقتصاد المعرفة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No laptop as knowledge-economy proxy. Project design, intellectual-property ethics and pillars are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L01",
+    "title": "Teacher presentation · Protecting Society against Moral Crimes: Surat An-Nur (1–10) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No depiction of sacred people or punishment. Lian and proof rules require precise text, not a diagram that omits conditions. Source corrections handled separately.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L02",
+    "title": "Teacher presentation · Methods of Qur'anic Exegesis (Manahij al-Tafsir) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Tafsir methods and online-source evaluation are the assessed comparison. No decorative book or scholar proxy.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L03",
+    "title": "Teacher presentation · Islam Rejects Extremism · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No extremist imagery or misleading moderate/extreme scale. Causes, refutation and peer intervention are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L04",
+    "title": "Teacher presentation · Marital Dissolution: Separation between Spouses · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No automatic divorce procedure; waiting periods and judicial separation need conditions. Dialogue and respectful separation are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L05",
+    "title": "Teacher presentation · Allah's Messenger ﷺ and Social Life · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Prophet or Companion depiction. Neighbour and charter comparison are assessed; a generic community icon adds no teaching.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L06",
+    "title": "Teacher presentation · The Slander against Aishah (Ifk): Exhortation and Moral Lesson: Surat An-Nur (11–26) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No depiction of Aisha or historical rumour scene. Rumour-spread diagram is explicitly the group challenge and must remain student work.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L07",
+    "title": "Teacher presentation · Divine Laws (Sunan Rabbaniyyah) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No divine action depicted or deterministic study-success chart. Identifying a pattern and designing a change plan are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L08",
+    "title": "Teacher presentation · Responsibility in Islam · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No generic responsibility wheel. Roles and incident responsibility are assessed and context dependent.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L09",
+    "title": "Teacher presentation · The Five Purposes of Islamic Legislation · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A completed five-aims diagram would answer the assessed law-to-purpose mapping. Keep distinctions in text.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L10",
+    "title": "Teacher presentation · Sheikha Fatima bint Mubarak · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No unlicensed identity portrait or timeline built on inconsistent birthplace. Empowerment comparison is assessed; factual corrections separate.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T2-L01",
+    "title": "Teacher presentation · Social Interaction: Good Conduct and Manners: Surat An-Nur (27–31) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Privacy rules are already clear text; a completed digital-conduct comparison answers group work. No generic phone panel.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T2-L02",
+    "title": "Teacher presentation · The Prophetic Methodology in Healthcare · Hiraa",
+    "decision": "added literal preventive-practice diagram",
+    "rationale": "Covered food and capped drinking water vessels illustrate the specific practice attested in Sahih Muslim 2012a. Modern examples, no health-cure claim, sacred figures or unseen depiction. Original lesson content unchanged.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "PASS",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y12-NN-T2-L03",
+    "title": "Teacher presentation · Prohibited Sales (Al-Buyu' Al-Muharramah) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No automatic halal/haram transaction tree. Qualifications and real trading cases are assessed; existing text carries the legal conditions.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T2-L04",
+    "title": "Teacher presentation · National Service Is a Shari'ah Duty and a National Requirement · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No generic flag/soldier panel or invented military scene. National-service dimensions and civic conduct are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T2-L05",
+    "title": "Teacher presentation · Marriage Is the Path to Chastity: Surat An-Nur (32–34) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No marriage process or financial promises. Wedding cost solutions are assessed; no sacred person depiction.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T2-L06",
+    "title": "Teacher presentation · Creative Thinking in Islam · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No battle reconstruction or sacred persons. Innovation/innovation-in-religion comparison is the task, not supplied completed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T2-L07",
+    "title": "Teacher presentation · Fiqh of Prioritising Actions Based on Their Purposes · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No universal ranked priority chart that ignores context. Ranking the student cases is assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T2-L08",
+    "title": "Teacher presentation · Globalization · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No globe as proxy for globalisation. Evaluating cultural exchange and identity is assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L01",
+    "title": "Teacher presentation · Allah Is the Light of the Heavens and the Earth: Surat An-Nur (35–45) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No divine light, unseen reality or faith-in-heart illustration. Light/darkness comparison is an explicit assessed metaphor.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L02",
+    "title": "Teacher presentation · Obedience and Compliance Is the Path to Faith: Surat An-Nur (46–57) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No labelled hypocrite/faithful person or reward outcome graphic. Attitudes and obedience are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L03",
+    "title": "Teacher presentation · Tolerance towards People of Different Faith · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No religious stereotypes or equivalence symbols. Rights, boundaries and response to neighbour kindness are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L04",
+    "title": "Teacher presentation · The Etiquette of Visions and Dreams in Islam · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No dream or unseen illustration. Dream interpretation is not made into a predictive flow; comparing conduct is assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L05",
+    "title": "Teacher presentation · The Islamic Economic System · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No caricature economic-system chart. Comparison is assessed and source wording needs qualification, handled separately.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L06",
+    "title": "Teacher presentation · Chaste Families, Pure Society: Surat An-Nur (58–61) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A finished three-private-times organiser would answer the explicit family guide challenge. No bedroom scene; preserve privacy.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L07",
+    "title": "Teacher presentation · Politeness with the Messenger ﷺ: Surat An-Nur (62–64) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Prophet or Companion depiction. Conduct comparisons and etiquette after his death are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L08",
+    "title": "Teacher presentation · Observance (Ittiba') and Imitation (Taqlid) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No false authority ladder or scholar portraits. Evaluating a circulating fatwa is assessed and needs source context.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L09",
+    "title": "Teacher presentation · Sheikh Zayed bin Sultan Al Nahyan · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No invented Sheikh Zayed portrait or decorative skyline. Decision-to-human-development analysis is assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L10",
+    "title": "Teacher presentation · Islam and the Knowledge Economy · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No laptop as knowledge-economy proxy. Project design, intellectual-property ethics and pillars are assessed.",
+    "reviewed_context": [
+      "all teaching sections",
+      "scene",
+      "learn",
+      "g1-g4 core task and full challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  }
+]

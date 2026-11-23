@@ -788,5 +788,158 @@
     "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "content_commit": "64c98943",
     "deployment": "https://github.com/abobakr789/Hira/actions/runs/45251185351"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L10",
+    "slide": "learn",
+    "exact_wording": "أَهَمُّ ما تَعَلَّمْناهُ نَبْني الْفَهْمَ 👑 1 وُلدت في المنطقة الغربية، ونشأت على القيم الأصيلة والدين، وتزوّجت الشيخ زايد، فكانت شريكته في بناء الوطن. 🏛️ 2 أسّست جمعية نهضة المرأة الظبيانية 1973، والاتحاد النسائي العام 1975، والمجلس الأعلى للأمومة والطفولة. 📚 3 دعمت تعليم المرأة وعملها، وحرصت على الحفاظ على الهوية الوطنية والتراث والقيم الإسلامية. 💚 4 عملها الإنساني: رعاية الأيتام والمسنين، ودعم المحتاجين داخل الدولة وخارجها، وأطلقت جوائز لتشجيع التميّز. الشيخة فاطمة بنت مبارك حفظها الله Summarise the key points.",
+    "issue": "Birthplace summary says Western Region, whereas the teaching section says Al Hayer, Al Ain. National Library and Archives confirms Al Hayer, Al Ain.",
+    "suggested_fix": "Align summary and derivatives to the verified birthplace, after approval.",
+    "verified_sources": [
+      "https://agda.ae/en/exhibitions/h.h.-sheikha-fatima-bint-mubarak"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "https://agda.ae/en/exhibitions/h.h.-sheikha-fatima-bint-mubarak",
+    "counterpart": "IE-Y12-N-T1-L10#part0"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L05",
+    "slide": "learn",
+    "exact_wording": "أَهَمُّ ما تَعَلَّمْناهُ نَبْني الْفَهْمَ 👨‍👩‍👧 1 مع أسرته: «كان في مهنة أهله»، ويُحسن إلى زوجاته وأبنائه، ويقول: «خيركم خيركم لأهله». 🏘️ 2 مع جيرانه: «ما زال جبريل يوصيني بالجار حتى ظننت أنه سيورّثه»، وزار جاره اليهودي حين مرض. 😊 3 مع أصحابه: يزور المرضى، ويشهد الجنائز، ويجيب الدعوة، ويمازحهم بالحق، ويشاركهم العمل. 📜 4 وثيقة المدينة: أول دستور ينظّم العلاقة بين المسلمين وغيرهم على أساس المواطنة والعدل والتعاون في الدفاع. رسول الله ﷺ والحياة الاجتماعية Summarise the key points.",
+    "issue": "Summary describes a sick Jewish neighbour. The Arabic teaching section and the cited Bukhari account describe a Jewish boy who served the Prophet, without establishing the neighbour relationship.",
+    "suggested_fix": "Use the attested sick Jewish boy account in non-quoted prose, after approval. Preserve hadith quotations.",
+    "verified_sources": [
+      "https://sunnah.com/bukhari:1356"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "https://sunnah.com/bukhari:1356",
+    "counterpart": "IE-Y12-N-T1-L05#part3"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L05",
+    "slide": "learn",
+    "exact_wording": "أَهَمُّ ما تَعَلَّمْناهُ نَبْني الْفَهْمَ ⚖️ 1 تميّزه: يقع وسطًا بين الرأسمالية (الملكية المطلقة) والاشتراكية (إلغاء الملكية الفردية)، فيُقرّ الملكية مع ضوابط. 🧱 2 أسسه العقدية: المال مال الله ﴿وَآتُوهُم مِّن مَّالِ اللَّهِ الَّذِي آتَاكُمْ﴾ ، والإنسان مستخلف ومسؤول عنه. 🤝 3 أسسه الأخلاقية: الصدق والأمانة والسماحة، و«التاجر الصدوق الأمين مع النبيين والصديقين والشهداء». 🎯 4 أهدافه: تحقيق الرفاه، والتوزيع العادل للثروة، ومحاربة الفقر بالزكاة والصدقات، ومنع الربا والاحتكار والإسراف. النظام الاقتصادي في الإسلام Summarise the key points.",
+    "issue": "The comparison defines capitalism as unlimited ownership and socialism as abolishing private ownership. These are overbroad labels for varied economic systems. IMF distinguishes mixed regulated capitalist economies; Britannica describes multiple socialist theories.",
+    "suggested_fix": "Qualify the comparison in teaching, summary and derivatives; distinguish private productive ownership, public/social ownership and existing mixed forms, without changing religious quotations.",
+    "verified_sources": [
+      "https://www.imf.org/external/pubs/ft/fandd/2015/06/basics.htm",
+      "https://www.britannica.com/money/socialism"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "https://www.imf.org/external/pubs/ft/fandd/2015/06/basics.htm"
+  },
+  {
+    "lesson": "IE-Y12-N-T1-L01",
+    "slide": "g3",
+    "exact_wording": "الْمَجْموعَةُ 3 مِعْيارُ النَّجاحِ 4 🗣️ أستنتج معنى اللعان والحكمة من تشريعه الْمُهِمَّةُ الْأَساسِيَّةُ · لِلْجَميعِ 1. ارْجِعوا إِلى «الآيات (4–5): حد القذف» وَاسْتَخْرِجوا ما يُحَقِّقُ الْمِعْيارَ. 2. أستنتج معنى اللعان والحكمة من تشريعه، مَعَ دَليلٍ مِنَ النَّصِّ. 3. قَدِّموا مِثالًا واقِعِيًّا مِنْ حَياتِكُمْ. ★ التَّحَدّي الْأَكْبَرُ حَلِّلوا الْمَوْقِفَ: صورة مفبركة لشخص بريء تنتشر في دقائق، فتدمّر سمعته وأسرته. افتتحت سورة النور بأحكام صارمة لحماية الأعراض. لماذا كل هذه الصرامة؟ الْمُنْتَجُ: مَشْهَدٌ تَمْثيلِيٌّ قَصيرٌ دَعْمٌ: شَرائِحُ «نَفْهَمُ الدَّرْسَ». وقاية المجتمع من الجرائم الأخلاقية: سورة النور (1–10) Same task as the printed group card.",
+    "issue": "Group 3 asks for the meaning and wisdom of lian but directs pupils to verses 4-5 on qadhf, not the lesson section on verses 6-10.",
+    "suggested_fix": "Point group 3 and matching printed group task to the existing lian section, after approval.",
+    "verified_sources": [
+      "resources/ie/IE-Y12-N-T1-L01/teacher-deck.html#part3"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "resources/ie/IE-Y12-N-T1-L01/teacher-deck.html#part3"
+  },
+  {
+    "lesson": "IE-Y12-N-T2-L01",
+    "slide": "g3",
+    "exact_wording": "الْمَجْموعَةُ 3 مِعْيارُ النَّجاحِ 4 🧕 أبيّن ضوابط دخول بيوت الآخرين الْمُهِمَّةُ الْأَساسِيَّةُ · لِلْجَميعِ 1. ارْجِعوا إِلى «الآية (31): آداب المرأة المؤمنة» وَاسْتَخْرِجوا ما يُحَقِّقُ الْمِعْيارَ. 2. أبيّن ضوابط دخول بيوت الآخرين، مَعَ دَليلٍ مِنَ النَّصِّ. 3. قَدِّموا مِثالًا واقِعِيًّا مِنْ حَياتِكُمْ. ★ التَّحَدّي الْأَكْبَرُ حَلِّلوا الْمَوْقِفَ: دخل أخوك غرفتك دون أن يطرق الباب، أو فتح أحدهم هاتفك دون إذنك. كيف شعرت؟ لماذا جعل القرآن الاستئذان أدبًا واجبًا؟ الْمُنْتَجُ: مَشْهَدٌ تَمْثيلِيٌّ قَصيرٌ دَعْمٌ: شَرائِحُ «نَفْهَمُ الدَّرْسَ». التواصل الاجتماعي سلوك وآداب: سورة النور (27–31) Same task as the printed group card.",
+    "issue": "Group 3 asks for entering other homes but directs pupils to verse 31 on believing women, not verses 27-29 on permission.",
+    "suggested_fix": "Point group 3 and matching printed group task to the existing permission section, after approval.",
+    "verified_sources": [
+      "resources/ie/IE-Y12-N-T2-L01/teacher-deck.html#part0"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "resources/ie/IE-Y12-N-T2-L01/teacher-deck.html#part0"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L10",
+    "slide": "learn",
+    "exact_wording": "Key learning points Building understanding 👑 1 Born in the Western Region and raised on authentic values and religion, she married Sheikh Zayed and was his partner in building the nation. 🏛️ 2 She founded the Abu Dhabi Women's Association in 1973, the General Women's Union in 1975 and the Supreme Council for Motherhood and Childhood. 📚 3 She supported women's education and work, and preserved national identity, heritage and Islamic values. 💚 4 Humanitarian work: caring for orphans and the elderly, supporting the needy at home and abroad, and awards to encourage excellence. Sheikha Fatima bint Mubarak Summarise the key points.",
+    "issue": "Birthplace summary says Western Region, whereas the teaching section says Al Hayer, Al Ain. National Library and Archives confirms Al Hayer, Al Ain.",
+    "suggested_fix": "Align summary and derivatives to the verified birthplace, after approval.",
+    "verified_sources": [
+      "https://agda.ae/en/exhibitions/h.h.-sheikha-fatima-bint-mubarak"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "https://agda.ae/en/exhibitions/h.h.-sheikha-fatima-bint-mubarak",
+    "counterpart": "IE-Y12-NN-T1-L10#part0"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L05",
+    "slide": "learn",
+    "exact_wording": "Key learning points Building understanding 👨‍👩‍👧 1 With family: «He used to serve his family», was good to his wives and children, and said: «The best of you are the best to their families.» 🏘️ 2 With neighbours: «Jibril kept advising me about the neighbour until I thought he would make him an heir», and he visited his sick Jewish neighbour. 😊 3 With Companions: he visited the sick, attended funerals, accepted invitations, joked truthfully and shared work. 📜 4 The Charter of Madinah: the first constitution organising relations between Muslims and others on citizenship, justice and shared defence. Allah's Messenger ﷺ and Social Life Summarise the key points.",
+    "issue": "Summary describes a sick Jewish neighbour. The Arabic teaching section and the cited Bukhari account describe a Jewish boy who served the Prophet, without establishing the neighbour relationship.",
+    "suggested_fix": "Use the attested sick Jewish boy account in non-quoted prose, after approval. Preserve hadith quotations.",
+    "verified_sources": [
+      "https://sunnah.com/bukhari:1356"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "https://sunnah.com/bukhari:1356",
+    "counterpart": "IE-Y12-N-T1-L05#part3"
+  },
+  {
+    "lesson": "IE-Y12-NN-T3-L05",
+    "slide": "learn",
+    "exact_wording": "Key learning points Building understanding ⚖️ 1 Distinctiveness: between capitalism (unlimited ownership) and socialism (abolishing private ownership), Islam allows ownership with rules. 🧱 2 Belief foundations: wealth is Allah's («Give them from the wealth of Allah He has given you»); people are trustees answerable for it. 🤝 3 Moral foundations: honesty, trustworthiness and generosity: «The honest, trustworthy merchant is with the prophets, the truthful and the martyrs.» 🎯 4 Aims: prosperity, fair distribution of wealth, fighting poverty through zakah and charity, and banning usury, hoarding and waste. The Islamic Economic System Summarise the key points.",
+    "issue": "The comparison defines capitalism as unlimited ownership and socialism as abolishing private ownership. These are overbroad labels for varied economic systems. IMF distinguishes mixed regulated capitalist economies; Britannica describes multiple socialist theories.",
+    "suggested_fix": "Qualify the comparison in teaching, summary and derivatives; distinguish private productive ownership, public/social ownership and existing mixed forms, without changing religious quotations.",
+    "verified_sources": [
+      "https://www.imf.org/external/pubs/ft/fandd/2015/06/basics.htm",
+      "https://www.britannica.com/money/socialism"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "https://www.imf.org/external/pubs/ft/fandd/2015/06/basics.htm"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L01",
+    "slide": "g3",
+    "exact_wording": "Group 3 Success criterion 4 🗣️ I can infer the meaning of li'an and the wisdom behind it Core task · everyone 1. Go back to “Verses 4–5” and extract what meets the criterion. 2. Infer the meaning of li'an and the wisdom behind it – with evidence from the text. 3. Give a real example from your life. ★ Bigger challenge Analyse the situation: A fake photo of an innocent person spreads in minutes, destroying his reputation and family. Surat An-Nur opens with strict rulings to protect honour. Why such strictness? Product: short role-play Support: “Understanding the lesson” slides. Protecting Society against Moral Crimes: Surat An-Nur (1–10) Same task as the printed group card.",
+    "issue": "Group 3 asks for the meaning and wisdom of lian but directs pupils to verses 4-5 on qadhf, not the lesson section on verses 6-10.",
+    "suggested_fix": "Point group 3 and matching printed group task to the existing lian section, after approval.",
+    "verified_sources": [
+      "resources/ie/IE-Y12-NN-T1-L01/teacher-deck.html#part3"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "resources/ie/IE-Y12-NN-T1-L01/teacher-deck.html#part3"
+  },
+  {
+    "lesson": "IE-Y12-NN-T2-L01",
+    "slide": "g3",
+    "exact_wording": "Group 3 Success criterion 4 🧕 I can explain the rules for entering other people's homes Core task · everyone 1. Go back to “Verse 31” and extract what meets the criterion. 2. Explain the rules for entering other people's homes – with evidence from the text. 3. Give a real example from your life. ★ Bigger challenge Analyse the situation: Your brother entered your room without knocking, or someone opened your phone without permission. How did you feel? Why did the Qur'an make asking permission a duty? Product: short role-play Support: “Understanding the lesson” slides. Social Interaction: Good Conduct and Manners: Surat An-Nur (27–31) Same task as the printed group card.",
+    "issue": "Group 3 asks for entering other homes but directs pupils to verse 31 on believing women, not verses 27-29 on permission.",
+    "suggested_fix": "Point group 3 and matching printed group task to the existing permission section, after approval.",
+    "verified_sources": [
+      "resources/ie/IE-Y12-NN-T2-L01/teacher-deck.html#part0"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "resources/ie/IE-Y12-NN-T2-L01/teacher-deck.html#part0"
+  },
+  {
+    "lesson": "IE-Y12-NN-T1-L01",
+    "slide": "part3",
+    "exact_wording": "Verses 6–10 Understanding the lesson Li'an: a husband with no witnesses swears four times, and the wife can defend herself with four oaths; then they are separated. Protecting Society against Moral Crimes: Surat An-Nur (1–10) Explain with questioning; highlight the evidence.",
+    "issue": "English lian explanation lists four oaths from each spouse but omits both fifth oaths. The Arabic explanation includes them.",
+    "suggested_fix": "Align English explanatory prose to Arabic and verses 7 and 9, after approval. Do not modify Quran text.",
+    "verified_sources": [
+      "https://quran.com/24/7",
+      "https://quran.com/24/9"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "https://quran.com/24/7",
+    "counterpart": "IE-Y12-N-T1-L01#part3"
+  },
+  {
+    "lesson": "IE-Y12-N-T3-L06",
+    "slide": "part3",
+    "exact_wording": "الآية (61): رفع الحرج في الأكل نَفْهَمُ الدَّرْسَ لا حرج على الأعمى والأعرج والمريض في التخلف عن الجهاد، ولا حرج على الناس أن يأكلوا من بيوت أقاربهم وأصدقائهم المذكورين في الآية، جميعًا أو أشتاتًا. ﴿فَإِذَا دَخَلْتُم بُيُوتًا فَسَلِّمُوا عَلَىٰ أَنفُسِكُمْ تَحِيَّةً مِّنْ عِندِ اللَّهِ مُبَارَكَةً طَيِّبَةً﴾ ، فالسلام عند دخول البيت ولو كان خاليًا. بيوت طاهرة مجتمع نقي: سورة النور (58–61) Explain with questioning; highlight the evidence.",
+    "issue": "Tabari reports the jihad interpretation from Ibn Zayd but rejects it in favour of the eating-context interpretation. This is a real difference of interpretation, not an invented claim. The current unqualified phrasing conceals that difference.",
+    "suggested_fix": "Qualify the explanatory prose as a reported interpretation while explaining that Tabari and Ibn Kathir read it in the eating context. Do not alter any Quran text.",
+    "verified_sources": [
+      "https://quran.com/an-nur/61/tafsirs/en-tafisr-ibn-kathir",
+      "https://quran.com/24:61/tafsirs/ar-tafsir-al-tabari"
+    ],
+    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "source": "https://quran.com/an-nur/61/tafsirs/en-tafisr-ibn-kathir"
   }
 ]

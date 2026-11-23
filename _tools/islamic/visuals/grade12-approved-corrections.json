@@ -1,0 +1,302 @@
+[
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L01/group-work.html",
+    "changed_views": [
+      1
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L01/teacher-deck.html",
+    "changed_views": [
+      "g3"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L05/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L05/pod-sheet.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L05/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L05/teacher-deck.html",
+    "changed_views": [
+      "learn",
+      "modelanswers",
+      "quiz"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L10/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L10/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L10/teacher-deck.html",
+    "changed_views": [
+      "learn",
+      "modelanswers"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T1-L10/worksheets-A4.html",
+    "changed_views": [
+      1
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T2-L01/group-work.html",
+    "changed_views": [
+      1
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T2-L01/teacher-deck.html",
+    "changed_views": [
+      "g3"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T2-L02/teacher-deck.html",
+    "changed_views": [
+      "ie-visual"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T3-L05/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T3-L05/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T3-L05/teacher-deck.html",
+    "changed_views": [
+      "part1",
+      "vocab",
+      "learn",
+      "modelanswers",
+      "quiz"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T3-L05/worksheets-A4.html",
+    "changed_views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-N-T3-L06/teacher-deck.html",
+    "changed_views": [
+      "part3"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L01/group-work.html",
+    "changed_views": [
+      1
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L01/teacher-deck.html",
+    "changed_views": [
+      "part3",
+      "g3"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L05/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L05/pod-sheet.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L05/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L05/teacher-deck.html",
+    "changed_views": [
+      "learn",
+      "modelanswers",
+      "quiz"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L10/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L10/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L10/teacher-deck.html",
+    "changed_views": [
+      "learn",
+      "modelanswers"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T1-L10/worksheets-A4.html",
+    "changed_views": [
+      1
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T2-L01/group-work.html",
+    "changed_views": [
+      1
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T2-L01/teacher-deck.html",
+    "changed_views": [
+      "g3"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T2-L02/teacher-deck.html",
+    "changed_views": [
+      "ie-visual"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T3-L05/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T3-L05/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T3-L05/teacher-deck.html",
+    "changed_views": [
+      "part1",
+      "vocab",
+      "learn",
+      "modelanswers"
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  },
+  {
+    "file": "resources/ie/IE-Y12-NN-T3-L05/worksheets-A4.html",
+    "changed_views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "qa": "Local pixels PASS. Live pending.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+  }
+]
