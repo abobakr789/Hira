@@ -1,0 +1,28 @@
+# Grade 2 Arabic-track accuracy propagation
+
+Reviewed 24 November 2026, Asia/Dubai. This batch carries previously checked corrections into related retrieval, assessment, model-answer and print views. It covers 22 lessons, 35 HTML resources, 47 slides and 18 print pages. Source book passages are preserved, with visible qualification where their wording is narrower than the evidence. No original image, audio or video reference is removed.
+
+## Evidence and decisions
+
+- NASA educational explanation, https://cdaweb.gsfc.nasa.gov/pub/documents/archived_websites/pwg.gsfc.nasa.gov/stargaze/Sseason.htm . Seasons follow the tilted axis during the Earth's orbit, not the orbit alone. Day and night lengths vary by place and season.
+- British Antarctic Survey, https://www.bas.ac.uk/about/education-and-schools/antarctic-factsheet/ . Antarctica has no permanent resident population, but does have temporary research personnel. The quiz no longer suggests that no one lives there at all.
+- UAE Government, https://u.ae/en/information-and-services/environment-and-energy/Nature-and-wildlife/topography-and-ecosystems . UAE landforms include gravel plains and sand dunes. The generated definition of desert is not restricted to yellow dunes, nor plains to the coast. Original textbook wording remains with a scope note. Misleading cactus-desert and beach-umbrella symbols are replaced by simple literal dunes and flat-land diagrams in this lesson's touched resources. These are diagrams, not asserted photographs of a particular place.
+- UAE Government, https://u.ae/en/about-the-uae/the-seven-emirates/abu-dhabi . Abu Dhabi city is the federal capital, whereas Abu Dhabi emirate is the largest emirate. The answer explanation distinguishes them.
+- WAM, https://www.wam.ae/en/article/140t1kp-celebration-historic-signing-declaration-the-union . The July 1971 signing, December 1971 federation and 2024 establishment of Union Pledge Day are separate dates.
+- Masdar City, https://masdarcity.ae/sustainable-urban-development/Sustainability-at-masdar-city . The lesson describes a sustainability goal, not a claim that all current energy and waste goals are already completely achieved.
+- American Heart Association, https://www.heart.org/en/healthy-living/healthy-eating/add-color/eat-more-color . Eating varied fruit and vegetables is part of a heart-healthy diet. No single color is asserted to guarantee a specific health effect.
+- NOAA Fisheries, https://www.fisheries.noaa.gov/west-coast/sustainable-fisheries/salmon-life-cycle-and-seasonal-fishery-planning . Ocean-to-freshwater spawning migration is attributed to kinds of salmon, not all fish.
+- UAE Government education access, https://u.ae/en/information-and-services/education/school-education-k-12/admission-to-uae-government-schools , and health coverage, https://u.ae/en/information-and-services/health-and-fitness/Healthcare-access-and-insurance/getting-a-health-insurance . Service eligibility depends on the applicable categories and rules, rather than unconditional free access for everyone.
+- UAE Ministry of Culture, https://moc.gov.ae/en/%D8%A7%D9%84%D8%B3%D8%AC%D9%84-%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A/al-bannay-traditional-builder/ . Stone building was not introduced only after the federation. The recap retains traditional construction context.
+- Abu Dhabi Department of Municipalities and Transport, https://www.dmt.gov.ae/en/Media-Centre/News/Department-of-Municipalities-and-Transport-Announces-Amendments-to-Private-Villas-Regulations . Villa designs and permitted configurations vary. Generated definitions no longer define every villa as exactly two floors with a garden. The book passage has a visible scope note. A missing correct-answer reveal was repaired in the exit quiz.
+- Ras Al Khaimah heritage authority, https://rakheritage.rak.ae/chapters/the-qawassim/ , and independent heritage reporting, https://www.thenationalnews.com/uae/heritage/how-ras-al-khaimah-got-its-name-1.861834 . The tent-and-light naming story is presented as a popular account, not settled etymology.
+- AramcoWorld historical feature, https://archive.aramcoworld.com/issue/200504/the.navigator.ahmad.ibn.majid.htm . Ibn Majid's documented navigation writing is used for objectives and assessment instead of an unqualified claim that he invented or added the magnetic needle. Original book wording remains with its prior visible historical note.
+- Glaire Anderson's medieval-flight source review, https://glairedanderson.com/medievalflight/the-sources/ . Ibn Firnas's flight is attributed to historical accounts. Exact duration, primacy and the tail explanation are not asserted as established. Aircraft types are compared rather than forced into a single invention sequence. No child is directed to attempt flight or jumping.
+
+## Other bounded corrections
+
+The water recap does not describe water as the only material with three states. A pearl-diving answer reveal was repaired and expanded to include farming as another historical occupation. Unsupported global wheat ranking, universal bird-speed and generic aircraft-capacity claims were removed rather than replaced with another unsupported number. Reading content, religious quotations, media files, brand, layout and colors remain.
+
+## QA
+
+Every changed slide and print page was captured locally. The original first-pass inspection identified crowded story notes and an objective that still repeated the compass claim. These were corrected and re-rendered. Final live inspection and exact HTML comparison are recorded in grade2-propagation-changes.json after deployment. Grade 2 as a whole is not yet closed; remaining group activities and per-lesson rationales are still under review.

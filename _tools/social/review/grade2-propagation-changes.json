@@ -1,0 +1,347 @@
+[
+  {
+    "file": "resources/ssd/SS-Y2-T1-L02/teacher-deck.html",
+    "views": [
+      "mirror"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L03/teacher-deck.html",
+    "views": [
+      "truefalse",
+      "exit",
+      "mirror"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L05/teacher-deck.html",
+    "views": [
+      "quick"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L08/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L08/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L08/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L08/teacher-deck.html",
+    "views": [
+      "vocab",
+      "story",
+      "groups",
+      "g2",
+      "models",
+      "exit"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L08/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L09/teacher-deck.html",
+    "views": [
+      "check"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L11/teacher-deck.html",
+    "views": [
+      "home"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L12/teacher-deck.html",
+    "views": [
+      "exit"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L13/teacher-deck.html",
+    "views": [
+      "mirror"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L01/teacher-deck.html",
+    "views": [
+      "mirror"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L06/teacher-deck.html",
+    "views": [
+      "hook"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L07/teacher-deck.html",
+    "views": [
+      "retrieve",
+      "watani"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L09/teacher-deck.html",
+    "views": [
+      "watani"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
+    "views": [
+      "check",
+      "exit",
+      "mirror"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L03/teacher-deck.html",
+    "views": [
+      "mirror"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L07/teacher-deck.html",
+    "views": [
+      "watani"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L11/teacher-deck.html",
+    "views": [
+      "mirror"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L12/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L12/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L12/teacher-deck.html",
+    "views": [
+      "vocab",
+      "story",
+      "together",
+      "check",
+      "truefalse",
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L12/worksheets-A4.html",
+    "views": [
+      0,
+      2
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L14/teacher-deck.html",
+    "views": [
+      "hook",
+      "home"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/group-work.html",
+    "views": [
+      1
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
+    "views": [
+      "cover",
+      "hook",
+      "goal",
+      "check",
+      "truefalse",
+      "quick"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/worksheets-A4.html",
+    "views": [
+      0,
+      3
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L16/teacher-deck.html",
+    "views": [
+      "retrieve",
+      "watani"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L17/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L17/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L17/teacher-deck.html",
+    "views": [
+      "watani",
+      "quick",
+      "home"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L18/teacher-deck.html",
+    "views": [
+      "retrieve"
+    ],
+    "local_qa": "PASS: changed views visually inspected; final scope-note and answer-reveal repairs re-rendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original img/audio/video/source refs unchanged"
+  }
+]
