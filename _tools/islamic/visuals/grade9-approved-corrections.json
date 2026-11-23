@@ -10,7 +10,7 @@
     "sources": [
       "https://sunnah.com/bukhari:5885"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -26,7 +26,7 @@
     "sources": [
       "https://sunnah.com/bukhari:6069"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -40,7 +40,7 @@
     "sources": [
       "https://shamela.ws/book/21581/53"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -52,7 +52,7 @@
     "sources": [
       "https://read.shamela.ws/book/27107/21755"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -66,7 +66,7 @@
       "https://sunnah.com/tirmidhi:3428",
       "https://islamqa.info/ar/answers/223533"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -80,7 +80,7 @@
     "sources": [
       "https://sunnah.com/bukhari:5885"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -94,7 +94,7 @@
     "sources": [
       "https://sunnah.com/bukhari:6069"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -108,7 +108,7 @@
     "sources": [
       "https://shamela.ws/book/21581/53"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -121,7 +121,7 @@
     "sources": [
       "https://read.shamela.ws/book/27107/21755"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -135,7 +135,7 @@
       "https://sunnah.com/tirmidhi:3428",
       "https://islamqa.info/ar/answers/223533"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -147,7 +147,7 @@
     "sources": [
       "https://www.al-qaradawi.net/node/2199"
     ],
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides.",
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected.",
     "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
   },
   {
@@ -160,7 +160,7 @@
       "https://read.shamela.ws/book/27107/21755"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-N-T3-L06/group-work.pdf",
@@ -173,7 +173,7 @@
       "https://read.shamela.ws/book/27107/21755"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-NN-T3-L06/worksheets-A4.pdf",
@@ -185,7 +185,7 @@
       "https://read.shamela.ws/book/27107/21755"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-NN-T3-L06/group-work.pdf",
@@ -198,7 +198,7 @@
       "https://read.shamela.ws/book/27107/21755"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-N-T3-L09/worksheets-A4.pdf",
@@ -210,7 +210,7 @@
       "https://sunnah.com/tirmidhi:3428"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-N-T3-L09/answer-key.pdf",
@@ -222,7 +222,7 @@
       "https://sunnah.com/tirmidhi:3428"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-N-T3-L09/sources-concept-card.pdf",
@@ -234,7 +234,7 @@
       "https://sunnah.com/tirmidhi:3428"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-NN-T3-L09/worksheets-A4.pdf",
@@ -246,7 +246,7 @@
       "https://sunnah.com/tirmidhi:3428"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-NN-T3-L09/answer-key.pdf",
@@ -258,7 +258,7 @@
       "https://sunnah.com/tirmidhi:3428"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-NN-T3-L09/sources-concept-card.pdf",
@@ -270,7 +270,7 @@
       "https://sunnah.com/tirmidhi:3428"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-N-T3-L10/answer-key.pdf",
@@ -282,7 +282,7 @@
       "https://shamela.ws/book/21581/53"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-N-T3-L10/sources-concept-card.pdf",
@@ -294,7 +294,7 @@
       "https://shamela.ws/book/21581/53"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-NN-T3-L10/answer-key.pdf",
@@ -306,7 +306,7 @@
       "https://shamela.ws/book/21581/53"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   },
   {
     "file": "resources/ie/IE-Y9-NN-T3-L10/sources-concept-card.pdf",
@@ -318,6 +318,6 @@
       "https://shamela.ws/book/21581/53"
     ],
     "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
-    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final learn-note flow adjustment locally inspected, pending redeploy of2slides."
+    "qa": "PASS: 25 live resources byte-exact; 28 live slide views and 16 live print pages inspected. Final two learn-note flow adjustments also byte-exact and live pixels inspected."
   }
 ]

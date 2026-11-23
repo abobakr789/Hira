@@ -86,3 +86,6 @@ Grade8 liveQA:6/6published HTML exact; all6 final live slide pixels individually
 Grade9:64regular lessons32N32NN,4newslides,60unchanged. All teaching, scene, summary, full group tasks/challenges and assessment contexts reviewed individually; custom T1L08 authored layouts retained. Central diagrams independently checked: cash zakah2.5percent1/40 after lunarhawl and conditions at https://www.zakatfund.gov.ae/zfp/web/Page_moneyzakat.aspx ; ifrad/qiran/tamattu ihram comparison at https://haj.gov.sa/-/media/Project/HAJJ/PDF-and-FILES/Awareness-Guides/General-Hajj-Guide/en-hajj-guid.pdf . All4final localpixels inspected;40sharesfullycontainedandArabicreadingdirectioncorrected. Entireoriginalbytes preserved afterremovinginsertedsection,reproduction/idempotencePASS. LiveQApending. Heldsourceissuesinsource-text-issues.json, nooriginaltextchanges.
 
 Grade9liveQAcomplete23Nov2026:all4liveHTMLexactandall4livepixelsinspectedPASS,sourceoriginalbytespreserved.Cumulativegrades1-9:584reviewed66visual518unchanged.
+
+## Grade 11 root-family visual
+QFI, When Words Connect (11 December 2025): https://www.qfi.org/blog/when-words-connect/ . Checked full article. Supports k-t-b root relationship for katib, maktub, maktabah. Diagram is parallel word family, not chronology. All original teaching, media, quotations and assessments retained.

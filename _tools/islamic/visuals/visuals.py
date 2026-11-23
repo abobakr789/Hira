@@ -534,3 +534,18 @@ def waqf_asset(en):
 for track in ['N','NN']:
  for suffix,fn,after in [('T1-L02',hijrah_boundary,'part0'),('T1-L09',waqf_asset,'part0')]:
   GRADE5_SPECS[f'IE-Y10-{track}-{suffix}']=(after,fn)
+
+def arabic_root_family(en):
+ s=txt(800,50,'One root, related words' if en else 'جَذْرٌ واحِدٌ وَكَلِماتٌ مُتَرابِطَةٌ',45)
+ s+=card(555,105,490,160,GREEN)
+ s+=txt(800,185,'ك ت ب',70,GREEN)
+ s+=txt(800,240,'Root: writing' if en else 'جَذْرٌ يَدُلُّ عَلى الكِتابَةِ',28,GREEN)
+ s+=line(800,270,800,310,GOLD)+line(300,310,1300,310,GOLD)
+ for x in [300,800,1300]:s+=line(x,310,x,355,GOLD)
+ for x,word,meaning in [(300,'كاتِب','writer' if en else 'مَنْ يَكْتُبُ'),(800,'مَكْتوب','written' if en else 'ما وَقَعَتْ عَلَيْهِ الكِتابَةُ'),(1300,'مَكْتَبَة','library' if en else 'مَكانٌ لِلْكُتُبِ')]:
+  s+=card(x-220,360,440,230,BLUE)+txt(x,455,word,62,BLUE)+txt(x,535,meaning,29)
+ s+=txt(800,665,'Shared root letters, different patterns and meanings' if en else 'حُروفُ الجَذْرِ مُشْتَرَكَةٌ، وَتَخْتَلِفُ الأَوْزانُ وَالمَعاني',32)
+ s+=txt(800,720,'A word family, not a sequence of events' if en else 'عائِلَةُ كَلِماتٍ، وَلَيْسَتْ تَسَلْسُلًا زَمَنِيًّا',26)
+ return s,'See the shared root' if en else 'أُلاحِظُ حُروفَ الجَذْرِ'
+for track in ['N','NN']:
+ GRADE5_SPECS[f'IE-Y11-{track}-T1-L05']=('part1',arabic_root_family)

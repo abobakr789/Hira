@@ -31,7 +31,7 @@
       "hpl"
     ],
     "local_qa": "PASS: final actual pixels inspected; original bytes retained; reproducible and idempotent",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed resource byte-exact; final actual live pixels inspected"
   },
   {
     "lesson": "IE-Y10-N-T1-L03",
@@ -150,7 +150,7 @@
       "hpl"
     ],
     "local_qa": "PASS: final actual pixels inspected; original bytes retained; reproducible and idempotent",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed resource byte-exact; final actual live pixels inspected"
   },
   {
     "lesson": "IE-Y10-N-T1-L10",
@@ -524,7 +524,7 @@
       "hpl"
     ],
     "local_qa": "PASS: final actual pixels inspected; original bytes retained; reproducible and idempotent",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed resource byte-exact; final actual live pixels inspected"
   },
   {
     "lesson": "IE-Y10-NN-T1-L03",
@@ -643,7 +643,7 @@
       "hpl"
     ],
     "local_qa": "PASS: final actual pixels inspected; original bytes retained; reproducible and idempotent",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed resource byte-exact; final actual live pixels inspected"
   },
   {
     "lesson": "IE-Y10-NN-T1-L10",
