@@ -194,7 +194,8 @@
     "issue": "Literal class attribute fragment appears as visible text before the Quran excerpt in discussion scene. Formatting artifact, not a claim of incorrect Quran wording.",
     "suggested_fix": "Remove only the visible markup fragment after approval; keep Quran text unchanged.",
     "source": "resources/ie/IE-Y5-N-T2-L02/teacher-deck.html",
-    "status": "Held unchanged and unillustrated; report with grade5 milestone."
+    "status": "Approved by user2026-11-23 21:49Dubai, exact original WhatsApp message wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM4NUQ3MTE3NTU1QUVFNDI1RjNFNTI0NDFFOTY1RjEA. Removed only leaked class-attribute text. Local/live pixelQA pending.",
+    "preservation": "All quotation character sequences and every byte outside the removed attribute fragment preserved."
   },
   {
     "lesson": "IE-Y5-NN-T2-L02",
@@ -203,7 +204,8 @@
     "issue": "Literal class attribute fragment appears as visible text before the Quran excerpt in discussion scene. Formatting artifact, not a claim of incorrect Quran wording.",
     "suggested_fix": "Remove only the visible markup fragment after approval; keep Quran text unchanged.",
     "source": "resources/ie/IE-Y5-NN-T2-L02/teacher-deck.html",
-    "status": "Held unchanged and unillustrated; report with grade5 milestone."
+    "status": "Approved by user2026-11-23 21:49Dubai, exact original WhatsApp message wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM4NUQ3MTE3NTU1QUVFNDI1RjNFNTI0NDFFOTY1RjEA. Removed only leaked class-attribute text. Local/live pixelQA pending.",
+    "preservation": "All quotation character sequences and every byte outside the removed attribute fragment preserved."
   },
   {
     "lesson": "IE-Y6-N-T1-L08",
