@@ -14,3 +14,6 @@ Text-family panels (23Nov2026): Fluent Emoji (MIT, art/emoji) icons with Arabic 
 Y7-N-T1-L21: hand-drawn SVG diagram (original work, no external asset)
 Y8-N-T2-L05: Wooden_Dhow_Boat.jpg, Gaurav Dhwaj Khadka, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Wooden_Dhow_Boat.jpg (resized, EXIF stripped)
 Y10-N-T3-L08 and Y12-N-T3-L06: hand-drawn SVG diagrams (original work, no external asset)
+
+Y10-N-T3-L14 / T2-L05 / T3-L05: original explanatory SVG diagrams using existing model examples; no external assets.
+Y12-N-T3-L06: carbon atoms in a hexagonal one-atom layer verified at https://www.nobelprize.org/prizes/physics/2010/popular-information/ .

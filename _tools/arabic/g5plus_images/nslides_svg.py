@@ -46,7 +46,25 @@ def pronouns():
         for y,txt,size,col in [(310,word,62,c),(405,name,33,'#334155'),(475,role,32,'#334155')]:
             out+=f'<text x="{x+210}" y="{y}" text-anchor="middle" font-size="{size}" fill="{col}" {F}>{txt}</text>'
     return out,'تفكيك الكلمة','كلمة واحدة: فعل وضميران','ابدؤوا بالكلمة كاملة، ثم تتبّعوا الفروع. من كتب؟ وما الشيء الذي كُتب؟ اربطوا المعنى بالمحلّ الإعرابي لكل ضمير.','1700 620'
-SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns}
+def flashback():
+    out=box(1120,50,500,160,'#2563EB','الحاضر','رائحة الزعتر')
+    out+=box(100,50,500,160,'#2563EB','الحاضر','تستمرّ لحظة السرد')
+    out+=box(610,365,500,160,'#7C3AED','الماضي','ذكرى الجدّة')
+    out+='<path d="M1350 225 C1350 330 1210 430 1135 440" fill="none" stroke="#7C3AED" stroke-width="8"/><path d="M1143 421L1121 443L1153 452Z" fill="#7C3AED"/>'
+    out+='<path d="M585 440 C420 400 340 320 340 235" fill="none" stroke="#2563EB" stroke-width="8"/><path d="M323 249L340 224L357 249Z" fill="#2563EB"/>'
+    out+=f'<text x="1530" y="375" text-anchor="middle" font-size="36" fill="#7C3AED" {F}>استرجاع</text>'
+    out+=f'<text x="200" y="370" text-anchor="middle" font-size="36" fill="#2563EB" {F}>عودة إلى الحاضر</text>'
+    return out,'الاسترجاع','الزمن في زعتر وزنجبيل','الرسم يوضح تقنية الاسترجاع المذكورة في الدرس: مثير حسي في الحاضر يستدعي ذكرى. العودة إلى الحاضر جزء من نموذج التقنية، وليست تلخيصًا لتفاصيل القصة.','1700 620'
+def iceberg():
+    out='<rect x="80" y="220" width="730" height="350" rx="20" fill="#E0F2FE"/>'
+    out+='<path d="M220 220L445 50L650 220L720 360L600 520L360 550L170 395Z" fill="#fff" stroke="#2563EB" stroke-width="5"/>'
+    out+='<path d="M80 220H810" stroke="#0284C7" stroke-width="6"/>'
+    out+=box(930,40,680,140,'#2563EB','الظاهر في الكلمات','حوار قصير عن الحيوانات')
+    out+=box(930,330,680,180,'#7C3AED','ما يستنتجه القارئ','وحدة العجوز وقسوة الحرب')
+    out+='<path d="M650 130H900 M710 420H900" stroke="#64748B" stroke-width="5" stroke-dasharray="12 8"/>'
+    out+=f'<text x="850" y="610" text-anchor="middle" font-size="28" fill="#64748B" {F}>رسم مجازي، لا يمثّل نسبًا مقاسة</text>'
+    return out,'نظرية جبل الجليد','قليل يقال، وكثير يفهم','ميّزوا بين الكلمات الظاهرة والمعنى الذي يستنتجه القارئ. الرسم نموذج لأسلوب همنغواي، وليس وصفًا لحدث في القصة أو قياسًا علميًّا لجبل جليدي.','1700 640'
+SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg}
 def apply_html(code,t):
  fn=SPECS.get(code)
  if not fn or 'id="s6d"' in t: return t
