@@ -11880,6 +11880,18 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         const err = (m) => { d.querySelector("#vcxE").textContent = m; sbtn.disabled = false; };
         const made = { a: null, q: [] };
         let qs; try { qs = JSON.parse(d.querySelector("#vcxJ").value); } catch (e) { err("JSON غير صالح"); return; }
+        if (qs && !Array.isArray(qs) && Array.isArray(qs.seeks)) {
+          try {
+            const vr = vids.find((r) => r.id === d.querySelector("#vcxV").value);
+            const { data: om } = await sb.from("lesson_resources").select("meta").eq("id", vr.id).maybeSingle();
+            if (!om || !om.meta || !om.meta.challenge) { err("لا يوجد تحدٍّ لتعديل توقيتاته"); return; }
+            const { data: aq } = await sb.from("assessment_questions").select("question_id, sort_order").eq("assessment_id", om.meta.challenge).order("sort_order");
+            if (!aq || aq.length !== qs.seeks.length || qs.seeks.some((p) => !Array.isArray(p) || p.length !== 2 || !(+p[0] >= 0) || !(+p[1] > +p[0]))) { err("عدد التوقيتات لا يطابق الأسئلة"); return; }
+            const seeks2 = {}; aq.forEach((x, i) => { seeks2[x.question_id] = [Number(qs.seeks[i][0]), Number(qs.seeks[i][1])]; });
+            const up2 = await sb.from("lesson_resources").update({ meta: Object.assign({}, om.meta, { seeks: seeks2 }) }).eq("id", vr.id); if (up2.error) throw up2.error;
+            toast("حُدّثت التوقيتات"); d.close(); pageAdmin(params); return;
+          } catch (e) { err("تعذّر التحديث: " + e.message); return; }
+        }
         if (!Array.isArray(qs) || qs.length < 1 || qs.some((q) => !q.stem || !Array.isArray(q.options) || q.options.length < 2 || !Number.isInteger(q.correct) || !q.options[q.correct] || !Array.isArray(q.seek) || q.seek.length !== 2)) { err("تحقق من صيغة الأسئلة"); return; }
         const vid = vids.find((r) => r.id === d.querySelector("#vcxV").value);
         const { data: old } = await sb.from("lesson_resources").select("meta").eq("id", vid.id).maybeSingle();
