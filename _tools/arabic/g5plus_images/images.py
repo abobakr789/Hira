@@ -23,6 +23,7 @@ CSS='''<style id="hira-g5p-images">
 .hpics.photo{left:0;top:30px;width:590px;height:570px;border-radius:30px;gap:12px;padding:18px}
 .hpics.photo img{width:550px;height:210px;object-fit:contain;border-radius:10px}
 .hpics.photo.n1 img{height:350px}.hpics.photo figcaption{font-size:29px;max-width:550px}
+.hpics.flow{gap:12px;padding:24px 14px;border-radius:35px}.hpics.flow .node{width:290px;box-sizing:border-box;padding:17px 12px;background:#f2f5f2;border:2px solid var(--a,#1E7A5A);border-radius:18px;font:700 28px/1.4 "Thmanyah Display",Tahoma,sans-serif;text-align:center;color:#163d3f}.hpics.flow .down{font:700 34px/1 Tahoma,sans-serif;color:var(--a,#1E7A5A)}
 .hpics.photo small{font:14px/1.4 Arial,sans-serif;color:#667;text-align:center}.hpics.photo a{color:inherit}
 </style>'''
 def pic(n):
@@ -40,7 +41,7 @@ def apply_html(code,text):
   if 'left:17px;top:' not in sec or 'width:1666px;' not in sec:raise ValueError(code+' rows geometry differs')
   sec=sec.replace('left:17px;top:','left:397px;top:').replace('width:1666px;','width:1286px;')
   sec=sec.replace('left:48px;top:','left:428px;top:').replace('width:1468px;','width:1088px;')
- elif fam=='text': # plain sentence rows, 0/1700
+ elif fam in ('text','flow'): # plain sentence rows, 0/1700
   if 'left:0px;top:' not in sec or 'width:1700px;' not in sec:raise ValueError(code+' text geometry differs')
   sec=sec.replace('left:0px;top:','left:390px;top:').replace('width:1700px;','width:1310px;')
   if e.get('fs'):sec=sec.replace('font-size:53px;','font-size:%dpx;'%e['fs'])
@@ -53,6 +54,8 @@ def apply_html(code,text):
  else:raise ValueError('family '+fam)
  if fam!='strip':
   p=panel(items)
+  if fam=='flow':
+   p='<div class="hpics flow" data-added="g5plus-literal-pictures">'+('<span class="down">+</span>' if e.get('parallel') else '<span class="down">↓</span>').join('<div class="node">'+html.escape(c)+'</div>' for _,c in items)+'</div>'
   if fam=='photo':
    cr=' · '.join('<a href="%s">%s</a>'%(html.escape(c['url'],quote=True),html.escape(c['text'])) for c in e['credits'])
    p=p.replace('hpics n','hpics photo n').replace('</div>','<small dir="ltr">'+cr+'</small></div>')

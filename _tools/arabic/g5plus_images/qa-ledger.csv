@@ -54,3 +54,22 @@ AR-Y7-NN-T3-L02,s5,PASS,"Individual 1920x1080 render inspected: readable text an
 AR-Y7-NN-T3-L03,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
 AR-Y7-NN-T3-L04,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
 AR-Y7-NN-T3-L06,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y6-NN-T3-L03,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y6-NN-T3-L06,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y7-NN-T1-L03,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y7-NN-T2-L06,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y8-NN-T1-L01,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y8-NN-T1-L08,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y8-NN-T1-L09,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y8-NN-T1-L10,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y8-NN-T2-L01,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y8-NN-T2-L03,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y9-NN-T1-L02,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y9-NN-T1-L05,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y9-NN-T1-L08,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y9-NN-T2-L04,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y10-NN-T1-L08,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y10-NN-T1-L09,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y10-NN-T2-L02,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y10-NN-T2-L05,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical
+AR-Y10-NN-T3-L06,s5,PASS,Individual full-size render inspected; sequence/causal diagram matches reading; non-target markup/media byte-identical

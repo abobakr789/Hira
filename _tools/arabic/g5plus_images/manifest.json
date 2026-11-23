@@ -1,773 +1,1156 @@
 {
- "AR-Y5-N-T1-L01": {
-  "slide": "s3",
-  "items": [
-   [
-    "astronaut",
-    "رَائِدُ فَضَاءٍ"
-   ],
-   [
-    "satellite",
-    "قَمَرٌ صِنَاعِيٌّ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-N-T1-L09": {
-  "slide": "s3",
-  "items": [
-   [
-    "whale",
-    "حُوتٌ"
-   ],
-   [
-    "ring_buoy",
-    "طَوْقُ نَجَاةٍ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-N-T1-L10": {
-  "slide": "s3",
-  "items": [
-   [
-    "whale",
-    "حُوتٌ"
-   ],
-   [
-    "beach_with_umbrella",
-    "شَاطِئٌ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-N-T1-L12": {
-  "slide": "s3",
-  "items": [
-   [
-    "arid_mountains",
-    "جَبَلٌ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-N-T1-L17": {
-  "slide": "s3",
-  "items": [
-   [
-    "bell",
-    "جَرَسٌ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-N-T2-L09": {
-  "slide": "s3",
-  "items": [
-   [
-    "tent",
-    "خَيْمَةٌ"
-   ],
-   [
-    "sand_dunes",
-    "صَحْرَاءُ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-N-T2-L10": {
-  "slide": "s3",
-  "items": [
-   [
-    "sand_dunes",
-    "صَحْرَاءُ"
-   ],
-   [
-    "scorpion",
-    "عَقْرَبٌ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-N-T2-L11": {
-  "slide": "s3",
-  "items": [
-   [
-    "horse",
-    "فَرَسٌ"
-   ],
-   [
-    "horse_racing",
-    "فَارِسٌ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-N-T3-L01": {
-  "slide": "s3",
-  "items": [
-   [
-    "derelict_house",
-    "بَيْتٌ مَهْجُورٌ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-N-T3-L13": {
-  "slide": "s3",
-  "items": [
-   [
-    "notebook_decorative",
-    "يَوْمِيَّاتٌ"
-   ]
-  ],
-  "family": "strip"
- },
- "AR-Y5-NN-T1-L01": {
-  "slide": "s4",
-  "items": [
-   [
-    "soccer_ball",
-    "كُرَةُ الْقَدَمِ"
-   ],
-   [
-    "basketball",
-    "كُرَةُ السَّلَّةِ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T1-L02": {
-  "slide": "s4",
-  "items": [
-   [
-    "horse_racing",
-    "فَارِسٌ"
-   ],
-   [
-    "horse",
-    "حِصَانٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T1-L03": {
-  "slide": "s4",
-  "items": [
-   [
-    "person_running",
-    "عَدَّاءٌ"
-   ],
-   [
-    "chequered_flag",
-    "سِبَاقٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T1-L04": {
-  "slide": "s4",
-  "items": [
-   [
-    "artist_palette",
-    "رَسْمٌ"
-   ],
-   [
-    "framed_picture",
-    "لَوْحَةٌ"
-   ],
-   [
-    "musical_notes",
-    "مُوسِيقَى"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T1-L05": {
-  "slide": "s4",
-  "items": [
-   [
-    "books",
-    "كُتُبٌ"
-   ],
-   [
-    "open_book",
-    "كِتَابٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T1-L08": {
-  "slide": "s4",
-  "items": [
-   [
-    "green_salad",
-    "سَلَطَةٌ"
-   ],
-   [
-    "tangerine",
-    "بُرْتُقَالٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T1-L09": {
-  "slide": "s4",
-  "items": [
-   [
-    "clothing",
-    "مَلَابِسُ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T1-L10": {
-  "slide": "s4",
-  "items": [
-   [
-    "ferris_wheel",
-    "دُولَابُ الْمَلَاهِي"
-   ],
-   [
-    "roller_coaster",
-    "قِطَارُ الْمَلَاهِي"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T2-L01": {
-  "slide": "s4",
-  "items": [
-   [
-    "cityscape",
-    "مَدِينَةٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T2-L03": {
-  "slide": "s4",
-  "items": [
-   [
-    "cityscape",
-    "نَاطِحَاتُ سَحَابٍ"
-   ],
-   [
-    "ship",
-    "سَفِينَةٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T2-L05": {
-  "slide": "s4",
-  "items": [
-   [
-    "sun",
-    "شَمْسٌ"
-   ],
-   [
-    "full_moon",
-    "قَمَرٌ"
-   ],
-   [
-    "water_wave",
-    "مَوْجٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T2-L06": {
-  "slide": "s4",
-  "items": [
-   [
-    "octopus",
-    "أُخْطُبُوطٌ"
-   ],
-   [
-    "giraffe",
-    "زَرَافَةٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T3-L01": {
-  "slide": "s4",
-  "items": [
-   [
-    "dove",
-    "حَمَامَةٌ"
-   ],
-   [
-    "envelope",
-    "رِسَالَةٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T3-L02": {
-  "slide": "s4",
-  "items": [
-   [
-    "television",
-    "تِلْفَازٌ"
-   ],
-   [
-    "newspaper",
-    "صَحِيفَةٌ"
-   ],
-   [
-    "radio",
-    "رَادْيُو"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T3-L03": {
-  "slide": "s4",
-  "items": [
-   [
-    "mobile_phone",
-    "هَاتِفٌ"
-   ],
-   [
-    "e_mail",
-    "بَرِيدٌ إِلِكْتُرُونِيٌّ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T3-L04": {
-  "slide": "s4",
-  "items": [
-   [
-    "dolphin",
-    "دُلْفِينٌ"
-   ],
-   [
-    "blackbird",
-    "غُرَابٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-NN-T3-L06": {
-  "slide": "s4",
-  "items": [
-   [
-    "robot",
-    "رُوبُوتٌ"
-   ],
-   [
-    "cityscape",
-    "مَدِينَةٌ"
-   ]
-  ],
-  "family": "text"
- },
- "AR-Y5-N-T1-L20": {
-  "slide": "s3",
-  "family": "strip",
-  "chain": true,
-  "items": [
-   [
-    "herb",
-    "نَبَاتٌ"
-   ],
-   [
-    "rabbit",
-    "آكِلُ عُشْبٍ"
-   ],
-   [
-    "fox",
-    "آكِلُ لُحُومٍ"
-   ]
-  ]
- },
- "AR-Y5-NN-T2-L02": {
-  "slide": "s4",
-  "family": "photo",
-  "items": [
-   [
-    "photo:london",
-    "نَهْرُ التَّايْمْزِ فِي لَنْدَنَ"
-   ]
-  ],
-  "credits": [
-   {
-    "url": "https://commons.wikimedia.org/wiki/File:Thames_Panorama,_London_-_June_2009.jpg",
-    "text": "David Iliff · CC BY-SA 3.0"
-   }
-  ]
- },
- "AR-Y5-NN-T2-L04": {
-  "slide": "s4",
-  "family": "photo",
-  "items": [
-   [
-    "photo:pyramid",
-    "الْهَرَمُ الْأَكْبَرُ فِي مِصْرَ"
-   ],
-   [
-    "photo:wall",
-    "سُورُ الصِّينِ الْعَظِيمُ"
-   ]
-  ],
-  "credits": [
-   {
-    "url": "https://commons.wikimedia.org/wiki/File:Great_Pyramid_of_Giza.jpg",
-    "text": "kallerna · CC BY-SA 3.0"
-   },
-   {
-    "url": "https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG",
-    "text": "Velatrix · CC0"
-   }
-  ]
- },
- "AR-Y6-NN-T1-L01": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "books",
-    "كُتُبٌ"
-   ],
-   [
-    "watch",
-    "سَاعَةٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T1-L03": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "coin",
-    "نُقُودٌ مَعْدِنِيَّةٌ"
-   ],
-   [
-    "mobile_phone",
-    "هَاتِفٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T1-L05": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "t_shirt",
-    "قَمِيصٌ"
-   ],
-   [
-    "package",
-    "طَلَبٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T1-L06": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "tomato",
-    "طَمَاطِمُ"
-   ],
-   [
-    "banana",
-    "مَوْزٌ"
-   ],
-   [
-    "red_apple",
-    "تُفَّاحٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T1-L07": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "credit_card",
-    "بِطَاقَةٌ بَنْكِيَّةٌ"
-   ],
-   [
-    "coin",
-    "نُقُودٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T1-L08": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "clothing",
-    "مَلَابِسُ"
-   ],
-   [
-    "gold_bars",
-    "ذَهَبٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T2-L02": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "luggage",
-    "حَقِيبَةُ سَفَرٍ"
-   ],
-   [
-    "airplane",
-    "طَائِرَةٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T2-L03": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "mobile_phone",
-    "هَاتِفٌ"
-   ],
-   [
-    "airplane",
-    "طَائِرَةٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T2-L05": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "arid_mountains",
-    "جَبَلٌ"
-   ],
-   [
-    "camel",
-    "جَمَلٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T2-L06": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "rocket",
-    "صَارُوخٌ"
-   ],
-   [
-    "globe_showing_europe_africa",
-    "الْأَرْضُ"
-   ]
-  ]
- },
- "AR-Y6-NN-T3-L01": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "egg",
-    "بَيْضٌ"
-   ],
-   [
-    "cooked_rice",
-    "أَرُزٌّ"
-   ],
-   [
-    "poultry_leg",
-    "دَجَاجٌ مَطْهُوٌّ"
-   ]
-  ]
- },
- "AR-Y6-NN-T3-L02": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "person_walking",
-    "مَشْيٌ"
-   ],
-   [
-    "person_swimming",
-    "سِبَاحَةٌ"
-   ]
-  ]
- },
- "AR-Y6-NN-T3-L05": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "camel",
-    "جَمَلٌ"
-   ],
-   [
-    "horse_racing",
-    "فُرُوسِيَّةٌ"
-   ],
-   [
-    "soccer_ball",
-    "كُرَةُ الْقَدَمِ"
-   ]
-  ]
- },
- "AR-Y7-NN-T1-L01": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "arid_mountains",
-    "جِبَالٌ"
-   ],
-   [
-    "boat",
-    "قَارِبٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T1-L02": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "broom",
-    "تَنْظِيفٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T1-L06": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "mobile_phone",
-    "هَاتِفٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T1-L07": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "mobile_phone",
-    "هَاتِفٌ"
-   ],
-   [
-    "alarm_clock",
-    "مُنَبِّهٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T1-L09": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "laptop",
-    "حَاسُوبٌ مَحْمُولٌ"
-   ],
-   [
-    "mobile_phone",
-    "هَاتِفٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T2-L01": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "tent",
-    "خَيْمَةٌ"
-   ],
-   [
-    "flashlight",
-    "مِصْبَاحٌ يَدَوِيٌّ"
-   ]
-  ]
- },
- "AR-Y7-NN-T2-L04": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "light_bulb",
-    "مِصْبَاحٌ كَهْرَبَائِيٌّ"
-   ],
-   [
-    "telephone",
-    "هَاتِفٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T2-L05": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "camel",
-    "جَمَلٌ"
-   ],
-   [
-    "airplane",
-    "طَائِرَةٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T3-L02": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "crescent_moon",
-    "هِلَالٌ"
-   ],
-   [
-    "full_moon",
-    "بَدْرٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T3-L03": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "sunrise",
-    "شُرُوقٌ"
-   ],
-   [
-    "sunset",
-    "غُرُوبٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T3-L04": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "volcano",
-    "بُرْكَانٌ"
-   ]
-  ]
- },
- "AR-Y7-NN-T3-L06": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "no_litter",
-    "لَا نُلْقِي النُّفَايَاتِ"
-   ]
-  ]
- }
+  "AR-Y5-N-T1-L01": {
+    "slide": "s3",
+    "items": [
+      [
+        "astronaut",
+        "رَائِدُ فَضَاءٍ"
+      ],
+      [
+        "satellite",
+        "قَمَرٌ صِنَاعِيٌّ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-N-T1-L09": {
+    "slide": "s3",
+    "items": [
+      [
+        "whale",
+        "حُوتٌ"
+      ],
+      [
+        "ring_buoy",
+        "طَوْقُ نَجَاةٍ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-N-T1-L10": {
+    "slide": "s3",
+    "items": [
+      [
+        "whale",
+        "حُوتٌ"
+      ],
+      [
+        "beach_with_umbrella",
+        "شَاطِئٌ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-N-T1-L12": {
+    "slide": "s3",
+    "items": [
+      [
+        "arid_mountains",
+        "جَبَلٌ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-N-T1-L17": {
+    "slide": "s3",
+    "items": [
+      [
+        "bell",
+        "جَرَسٌ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-N-T2-L09": {
+    "slide": "s3",
+    "items": [
+      [
+        "tent",
+        "خَيْمَةٌ"
+      ],
+      [
+        "sand_dunes",
+        "صَحْرَاءُ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-N-T2-L10": {
+    "slide": "s3",
+    "items": [
+      [
+        "sand_dunes",
+        "صَحْرَاءُ"
+      ],
+      [
+        "scorpion",
+        "عَقْرَبٌ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-N-T2-L11": {
+    "slide": "s3",
+    "items": [
+      [
+        "horse",
+        "فَرَسٌ"
+      ],
+      [
+        "horse_racing",
+        "فَارِسٌ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-N-T3-L01": {
+    "slide": "s3",
+    "items": [
+      [
+        "derelict_house",
+        "بَيْتٌ مَهْجُورٌ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-N-T3-L13": {
+    "slide": "s3",
+    "items": [
+      [
+        "notebook_decorative",
+        "يَوْمِيَّاتٌ"
+      ]
+    ],
+    "family": "strip"
+  },
+  "AR-Y5-NN-T1-L01": {
+    "slide": "s4",
+    "items": [
+      [
+        "soccer_ball",
+        "كُرَةُ الْقَدَمِ"
+      ],
+      [
+        "basketball",
+        "كُرَةُ السَّلَّةِ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T1-L02": {
+    "slide": "s4",
+    "items": [
+      [
+        "horse_racing",
+        "فَارِسٌ"
+      ],
+      [
+        "horse",
+        "حِصَانٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T1-L03": {
+    "slide": "s4",
+    "items": [
+      [
+        "person_running",
+        "عَدَّاءٌ"
+      ],
+      [
+        "chequered_flag",
+        "سِبَاقٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T1-L04": {
+    "slide": "s4",
+    "items": [
+      [
+        "artist_palette",
+        "رَسْمٌ"
+      ],
+      [
+        "framed_picture",
+        "لَوْحَةٌ"
+      ],
+      [
+        "musical_notes",
+        "مُوسِيقَى"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T1-L05": {
+    "slide": "s4",
+    "items": [
+      [
+        "books",
+        "كُتُبٌ"
+      ],
+      [
+        "open_book",
+        "كِتَابٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T1-L08": {
+    "slide": "s4",
+    "items": [
+      [
+        "green_salad",
+        "سَلَطَةٌ"
+      ],
+      [
+        "tangerine",
+        "بُرْتُقَالٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T1-L09": {
+    "slide": "s4",
+    "items": [
+      [
+        "clothing",
+        "مَلَابِسُ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T1-L10": {
+    "slide": "s4",
+    "items": [
+      [
+        "ferris_wheel",
+        "دُولَابُ الْمَلَاهِي"
+      ],
+      [
+        "roller_coaster",
+        "قِطَارُ الْمَلَاهِي"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T2-L01": {
+    "slide": "s4",
+    "items": [
+      [
+        "cityscape",
+        "مَدِينَةٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T2-L03": {
+    "slide": "s4",
+    "items": [
+      [
+        "cityscape",
+        "نَاطِحَاتُ سَحَابٍ"
+      ],
+      [
+        "ship",
+        "سَفِينَةٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T2-L05": {
+    "slide": "s4",
+    "items": [
+      [
+        "sun",
+        "شَمْسٌ"
+      ],
+      [
+        "full_moon",
+        "قَمَرٌ"
+      ],
+      [
+        "water_wave",
+        "مَوْجٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T2-L06": {
+    "slide": "s4",
+    "items": [
+      [
+        "octopus",
+        "أُخْطُبُوطٌ"
+      ],
+      [
+        "giraffe",
+        "زَرَافَةٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T3-L01": {
+    "slide": "s4",
+    "items": [
+      [
+        "dove",
+        "حَمَامَةٌ"
+      ],
+      [
+        "envelope",
+        "رِسَالَةٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T3-L02": {
+    "slide": "s4",
+    "items": [
+      [
+        "television",
+        "تِلْفَازٌ"
+      ],
+      [
+        "newspaper",
+        "صَحِيفَةٌ"
+      ],
+      [
+        "radio",
+        "رَادْيُو"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T3-L03": {
+    "slide": "s4",
+    "items": [
+      [
+        "mobile_phone",
+        "هَاتِفٌ"
+      ],
+      [
+        "e_mail",
+        "بَرِيدٌ إِلِكْتُرُونِيٌّ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T3-L04": {
+    "slide": "s4",
+    "items": [
+      [
+        "dolphin",
+        "دُلْفِينٌ"
+      ],
+      [
+        "blackbird",
+        "غُرَابٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-NN-T3-L06": {
+    "slide": "s4",
+    "items": [
+      [
+        "robot",
+        "رُوبُوتٌ"
+      ],
+      [
+        "cityscape",
+        "مَدِينَةٌ"
+      ]
+    ],
+    "family": "text"
+  },
+  "AR-Y5-N-T1-L20": {
+    "slide": "s3",
+    "family": "strip",
+    "chain": true,
+    "items": [
+      [
+        "herb",
+        "نَبَاتٌ"
+      ],
+      [
+        "rabbit",
+        "آكِلُ عُشْبٍ"
+      ],
+      [
+        "fox",
+        "آكِلُ لُحُومٍ"
+      ]
+    ]
+  },
+  "AR-Y5-NN-T2-L02": {
+    "slide": "s4",
+    "family": "photo",
+    "items": [
+      [
+        "photo:london",
+        "نَهْرُ التَّايْمْزِ فِي لَنْدَنَ"
+      ]
+    ],
+    "credits": [
+      {
+        "url": "https://commons.wikimedia.org/wiki/File:Thames_Panorama,_London_-_June_2009.jpg",
+        "text": "David Iliff · CC BY-SA 3.0"
+      }
+    ]
+  },
+  "AR-Y5-NN-T2-L04": {
+    "slide": "s4",
+    "family": "photo",
+    "items": [
+      [
+        "photo:pyramid",
+        "الْهَرَمُ الْأَكْبَرُ فِي مِصْرَ"
+      ],
+      [
+        "photo:wall",
+        "سُورُ الصِّينِ الْعَظِيمُ"
+      ]
+    ],
+    "credits": [
+      {
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Pyramid_of_Giza.jpg",
+        "text": "kallerna · CC BY-SA 3.0"
+      },
+      {
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG",
+        "text": "Velatrix · CC0"
+      }
+    ]
+  },
+  "AR-Y6-NN-T1-L01": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "books",
+        "كُتُبٌ"
+      ],
+      [
+        "watch",
+        "سَاعَةٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T1-L03": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "coin",
+        "نُقُودٌ مَعْدِنِيَّةٌ"
+      ],
+      [
+        "mobile_phone",
+        "هَاتِفٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T1-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "t_shirt",
+        "قَمِيصٌ"
+      ],
+      [
+        "package",
+        "طَلَبٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T1-L06": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "tomato",
+        "طَمَاطِمُ"
+      ],
+      [
+        "banana",
+        "مَوْزٌ"
+      ],
+      [
+        "red_apple",
+        "تُفَّاحٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T1-L07": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "credit_card",
+        "بِطَاقَةٌ بَنْكِيَّةٌ"
+      ],
+      [
+        "coin",
+        "نُقُودٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T1-L08": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "clothing",
+        "مَلَابِسُ"
+      ],
+      [
+        "gold_bars",
+        "ذَهَبٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T2-L02": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "luggage",
+        "حَقِيبَةُ سَفَرٍ"
+      ],
+      [
+        "airplane",
+        "طَائِرَةٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T2-L03": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "mobile_phone",
+        "هَاتِفٌ"
+      ],
+      [
+        "airplane",
+        "طَائِرَةٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T2-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "arid_mountains",
+        "جَبَلٌ"
+      ],
+      [
+        "camel",
+        "جَمَلٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T2-L06": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "rocket",
+        "صَارُوخٌ"
+      ],
+      [
+        "globe_showing_europe_africa",
+        "الْأَرْضُ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T3-L01": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "egg",
+        "بَيْضٌ"
+      ],
+      [
+        "cooked_rice",
+        "أَرُزٌّ"
+      ],
+      [
+        "poultry_leg",
+        "دَجَاجٌ مَطْهُوٌّ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T3-L02": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "person_walking",
+        "مَشْيٌ"
+      ],
+      [
+        "person_swimming",
+        "سِبَاحَةٌ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T3-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "camel",
+        "جَمَلٌ"
+      ],
+      [
+        "horse_racing",
+        "فُرُوسِيَّةٌ"
+      ],
+      [
+        "soccer_ball",
+        "كُرَةُ الْقَدَمِ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T1-L01": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "arid_mountains",
+        "جِبَالٌ"
+      ],
+      [
+        "boat",
+        "قَارِبٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T1-L02": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "broom",
+        "تَنْظِيفٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T1-L06": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "mobile_phone",
+        "هَاتِفٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T1-L07": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "mobile_phone",
+        "هَاتِفٌ"
+      ],
+      [
+        "alarm_clock",
+        "مُنَبِّهٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T1-L09": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "laptop",
+        "حَاسُوبٌ مَحْمُولٌ"
+      ],
+      [
+        "mobile_phone",
+        "هَاتِفٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T2-L01": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "tent",
+        "خَيْمَةٌ"
+      ],
+      [
+        "flashlight",
+        "مِصْبَاحٌ يَدَوِيٌّ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T2-L04": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "light_bulb",
+        "مِصْبَاحٌ كَهْرَبَائِيٌّ"
+      ],
+      [
+        "telephone",
+        "هَاتِفٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T2-L05": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "camel",
+        "جَمَلٌ"
+      ],
+      [
+        "airplane",
+        "طَائِرَةٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T3-L02": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "crescent_moon",
+        "هِلَالٌ"
+      ],
+      [
+        "full_moon",
+        "بَدْرٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T3-L03": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "sunrise",
+        "شُرُوقٌ"
+      ],
+      [
+        "sunset",
+        "غُرُوبٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T3-L04": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "volcano",
+        "بُرْكَانٌ"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T3-L06": {
+    "slide": "s5",
+    "family": "text",
+    "items": [
+      [
+        "no_litter",
+        "لَا نُلْقِي النُّفَايَاتِ"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T3-L03": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "قلق قبل الاختبار"
+      ],
+      [
+        "",
+        "تعبير عن المشاعر"
+      ],
+      [
+        "",
+        "تنفّس ببطء"
+      ],
+      [
+        "",
+        "هدوء وراحة"
+      ]
+    ]
+  },
+  "AR-Y6-NN-T3-L06": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "اسأل"
+      ],
+      [
+        "",
+        "ابحث وتعلّم"
+      ],
+      [
+        "",
+        "تطوّر مستمر"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T1-L03": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "فكرة المشروع"
+      ],
+      [
+        "",
+        "حساب التكلفة"
+      ],
+      [
+        "",
+        "الإعلان والبيع"
+      ],
+      [
+        "",
+        "حساب الربح"
+      ]
+    ]
+  },
+  "AR-Y7-NN-T2-L06": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "تربة جافّة"
+      ],
+      [
+        "",
+        "الحسّاس يكتشف"
+      ],
+      [
+        "",
+        "النظام يفتح الماء"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T1-L01": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "رسالة مؤذية"
+      ],
+      [
+        "",
+        "أبلغ المعلّم"
+      ],
+      [
+        "",
+        "تدخّل المدرسة"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T1-L08": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "تعثر في الاختبار"
+      ],
+      [
+        "",
+        "دراسة ومساعدة"
+      ],
+      [
+        "",
+        "محاولة جديدة"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T1-L09": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "طعام زائد"
+      ],
+      [
+        "",
+        "بنك الطعام"
+      ],
+      [
+        "",
+        "توزيع آمن"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T1-L10": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "غضب"
+      ],
+      [
+        "",
+        "تنفّس وعُدّ"
+      ],
+      [
+        "",
+        "اهدأ ثمّ تكلّم"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T2-L01": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "بذور"
+      ],
+      [
+        "",
+        "ريّ وسماد"
+      ],
+      [
+        "",
+        "نموّ"
+      ],
+      [
+        "",
+        "حصاد"
+      ]
+    ]
+  },
+  "AR-Y8-NN-T2-L03": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "فرز النفايات"
+      ],
+      [
+        "",
+        "ورق · بلاستيك · زجاج"
+      ],
+      [
+        "",
+        "إعادة التدوير"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T1-L02": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "دراسة ومؤهّل"
+      ],
+      [
+        "",
+        "تدريب وخبرة"
+      ],
+      [
+        "",
+        "سيرة ذاتية"
+      ],
+      [
+        "",
+        "مقابلة"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T1-L05": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "حلم وخطّة"
+      ],
+      [
+        "",
+        "عمل وتجارب"
+      ],
+      [
+        "",
+        "تعلّم من الخطأ"
+      ],
+      [
+        "",
+        "تحقّق الهدف"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T1-L08": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "قصص الطفولة"
+      ],
+      [
+        "",
+        "إلهام"
+      ],
+      [
+        "",
+        "مسوّدات ومراجعة"
+      ],
+      [
+        "",
+        "نشر الرواية"
+      ]
+    ]
+  },
+  "AR-Y9-NN-T2-L04": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "صامتة"
+      ],
+      [
+        "",
+        "ناطقة"
+      ],
+      [
+        "",
+        "ملوّنة"
+      ],
+      [
+        "",
+        "ثلاثية الأبعاد"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T1-L08": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "إعلان وظيفة"
+      ],
+      [
+        "",
+        "طلب وسيرة ذاتية"
+      ],
+      [
+        "",
+        "مقابلة"
+      ],
+      [
+        "",
+        "قبول"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T1-L09": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "هدف وخطّة"
+      ],
+      [
+        "",
+        "محاولة"
+      ],
+      [
+        "",
+        "تعلّم من الفشل"
+      ],
+      [
+        "",
+        "محاولة جديدة"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T2-L02": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "فقر"
+      ],
+      [
+        "",
+        "جوع"
+      ],
+      [
+        "",
+        "ضعف ومرض"
+      ]
+    ]
+  },
+  "AR-Y10-NN-T2-L05": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "قلّل الشراء"
+      ],
+      [
+        "",
+        "أعد الاستخدام"
+      ],
+      [
+        "",
+        "افرز ودوّر"
+      ]
+    ],
+    "parallel": true
+  },
+  "AR-Y10-NN-T3-L06": {
+    "slide": "s5",
+    "family": "flow",
+    "items": [
+      [
+        "",
+        "رسائل ورقية"
+      ],
+      [
+        "",
+        "هاتف"
+      ],
+      [
+        "",
+        "إنترنت"
+      ],
+      [
+        "",
+        "اتصال بالصورة"
+      ]
+    ]
+  }
 }
