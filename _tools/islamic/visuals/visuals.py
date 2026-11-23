@@ -95,7 +95,56 @@ def products(en):
  s+=txt(800,700,'Cow → milk · Hen → eggs' if en else 'البَقَرَةُ: الحَليبُ · الدَّجاجَةُ: البَيْضُ',32)
  return s,'Animals and what we use from them' if en else 'حَيَواناتٌ نَنْتَفِعُ بِما تُعْطينا'
 
+def prayerseats(en):
+ s=txt(800,55,'A unit-by-unit organizer from the lesson' if en else 'تَرْتيبُ الرَّكْعاتِ كَما في الدَّرْسِ',43)
+ for row,(name,ar,num) in enumerate([('Dhuhr','الظُّهْرُ',4),('Maghrib','المَغْرِبُ',3)]):
+  y=135+row*270;s+=txt(190,y+85,name if en else ar,43,BLUE)
+  for i in range(num):
+   x=410+(i if en else num-1-i)*265;s+=card(x,y,225,150,BLUE)+txt(x+112,y+65,('Unit ' if en else 'رَكْعَةٌ ')+str(i+1),32)
+   if i==1 and i!=num-1:s+=txt(x+112,y+117,'Tashahhud' if en else 'التَّشَهُّدُ',27,GREEN)
+   if i==num-1:s+=txt(x+112,y+105,'Tashahhud' if en else 'التَّشَهُّدُ',27,GREEN)+txt(x+112,y+137,'+ salam' if en else 'وَالتَّسْليمُ',27,GREEN)
+ s+=txt(800,710,'Key sitting/ending points, not the complete prayer procedure' if en else 'مَوْضِعُ الجُلوسِ وَالخِتامِ، وَلَيْسَ وَصْفًا كامِلًا لِلصَّلاةِ',28)
+ return s,'Dhuhr and Maghrib: where do I sit?' if en else 'الظُّهْرُ وَالمَغْرِبُ: مَتى أَجْلِسُ؟'
+def dhikrcount(en):
+ s=txt(800,60,'The three counts taught in the lesson' if en else 'الأَعْدادُ الثَّلاثَةُ في الدَّرْسِ',44)
+ for i,(label,n) in enumerate([('سُبْحانَ اللهِ',33),('الحَمْدُ لِلَّهِ',33),('اللهُ أَكْبَرُ',34)]):
+  x=50+(i if en else 2-i)*530;s+=card(x,130,450,450,[BLUE,GREEN,'#A37436'][i])+txt(x+225,205,label,43)+txt(x+225,305,str(n),72)
+  for j in range(n):s+=f'<circle cx="{x+65+(j%7)*53}" cy="{365+(j//7)*34}" r="9" fill="{GOLD}"/>'
+ s+=txt(800,680,'Each small dot represents one repetition' if en else 'كُلُّ نُقْطَةٍ صَغيرَةٍ تُمَثِّلُ تَكْرارًا واحِدًا',31)
+ return s,'Before sleep: 33, 33 and 34' if en else 'قَبْلَ النَّوْمِ: 33 وَ33 وَ34'
+def privacy(en):
+ s=txt(800,62,'Keep the third person included' if en else 'لا أَتْرُكُ الثّالِثَ خارِجَ الحَديثِ',44)
+ # Anonymous circles are membership markers, not portraits of Ibn Umar or companions.
+ for x in [240,650,1060]:s+=f'<circle cx="{x}" cy="335" r="65" fill="#D9E8E0" stroke="#3F6E5B" stroke-width="4"/>'
+ s+='<path d="M250 220Q650 80 1050 220" stroke="#3F6E5B" stroke-width="5" fill="none"/>'
+ s+=txt(650,135,'Shared conversation' if en else 'حَديثٌ يَشْمَلُ الجَميعَ',37,GREEN)
+ for x,n in [(240,1),(650,2),(1060,3)]:s+=txt(x,350,str(n),44,GREEN)
+ s+=card(110,475,1380,115,BLUE)+txt(800,548,'Do not have a private conversation that leaves one of three out' if en else 'لا يَتَناجى اثْنانِ دُونَ صاحِبِهِما إِذا كانُوا ثَلاثَةً',32,BLUE)
+ s+=txt(800,680,'Circles show group members, not named historical people' if en else 'الدَّوائِرُ أَعْضاءُ مَجْموعَةٍ، وَلَيْسَتْ شَخْصِيّاتٍ تاريخِيَّةً',28)
+ return s,'A conversation that includes everyone' if en else 'حَديثٌ يَشْمَلُ الجَميعَ'
+
+def trade2(en):
+ s,t=trade(en)
+ return (s.replace('Ash-Sham','Syria') if en else s),t
+
+def neighbors(en):
+ s=txt(800,60,'Share cooked food with neighbours' if en else 'أُشارِكُ جيراني الطَّعامَ',44)
+ s+=card(60,135,660,450,GREEN)+card(860,135,680,450,BLUE)
+ s+='<path d="M240 290h310v190H240z" fill="#8DAEAE"/><ellipse cx="395" cy="290" rx="155" ry="35" fill="#C69A5D"/><path d="M235 330h-50v75h50M555 330h50v75h-50" fill="none" stroke="#5F8586" stroke-width="16"/>'
+ s+=bowl(1090,290,'#C69A5D').replace('#A5DBF1','#C69A5D')+bowl(1360,350,'#83A3B7').replace('#A5DBF1','#C69A5D')
+ s+=txt(390,535,'Cook' if en else 'أَطْبُخُ',42,GREEN)+txt(1200,535,'Share' if en else 'أُشارِكُ',42,BLUE)
+ s+=txt(800,690,'Illustrative serving idea, not a historical scene or a set quantity' if en else 'فِكْرَةٌ تَوْضيحِيَّةٌ لِلتَّقْديمِ، لا مَشْهَدٌ تاريخِيٌّ وَلا كَمِّيَّةٌ مُحَدَّدَةٌ',27)
+ return s,'From my cooking to my neighbours' if en else 'مِنْ طَعامي إِلى جيراني'
+
 SPECS={
+
+
+'IE-Y2-N-T3-L10':('learn2',neighbors),'IE-Y2-NN-T3-L10':('learn2',neighbors),
+'IE-Y2-NN-T2-L04':('learn1',trade2),
+
+'IE-Y2-N-T2-L06':('learn2',prayerseats),'IE-Y2-NN-T2-L06':('learn2',prayerseats),
+'IE-Y2-N-T2-L09':('learn4',dhikrcount),'IE-Y2-NN-T2-L09':('learn4',dhikrcount),
+'IE-Y2-N-T3-L02':('learn2',privacy),'IE-Y2-NN-T3-L02':('learn2',privacy),
 'IE-Y1-N-T1-L03':('learn1',truthful),'IE-Y1-NN-T1-L03':('learn1',truthful),
 
 

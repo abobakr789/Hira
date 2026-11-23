@@ -71,5 +71,15 @@
     ],
     "deployment": "https://github.com/abobakr789/Hira/actions/runs/45222839830",
     "content_commit": "97c5e5dd"
+  },
+  {
+    "lesson": "IE-Y2-NN-T3-L01",
+    "slide": "learn2",
+    "exact_wording": "We learn 2 We learn ⏱ 4 minutes Success criterion 2 ✋ Allah made the thumb with two joints and the other fingers with three, so we can grip things. Allah, the Almighty Creator · Grade 2 Explain with the picture; ask one question to check understanding.",
+    "arabic_counterpart": "نَتَعَلَّمُ 2 نَتَعَلَّمُ ⏱ 4 دَقائِقَ مِعْيارُ النَّجاحِ 2 ✋ خلق الله الإبهام بسلاميتين وبقية الأصابع بثلاث، لنمسك بها الأشياء. الله الخالق القدير · الصَّفُّ الثّاني Explain with the picture; ask one question to check understanding.",
+    "issue": "Translation terminology differs: Arabic phalanges versus English joints. OpenStax confirms two thumb and three finger phalanges. Joint counts depend on inclusion of base joints, so this is not classified as a confirmed false count.",
+    "suggested_fix": "For precise alignment, consider replacing joints with phalanges (finger bones), subject to user review. No change made.",
+    "source": "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb",
+    "status": "Held for review, unchanged and not illustrated"
   }
 ]

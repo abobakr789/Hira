@@ -1,0 +1,1 @@
+Targeted additive edit. Grade2: nine new ie-visual sections, after learn2 except dhikr after learn4 and Quraysh after learn1. Original sections, quotation text, assessments, media, fonts, logo, backgrounds and controls preserved byte-for-byte. Editable SVG and text. Per-lesson rationale and QA: grade2-review.json. Source notes: source-notes.md. No unrelated deck rebuilding.
