@@ -6,7 +6,7 @@
       "vflip"
     ],
     "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS existing media references retained"
   },
   {
@@ -16,7 +16,7 @@
       "text2"
     ],
     "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS existing media references retained"
   },
   {
@@ -25,7 +25,7 @@
       1
     ],
     "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS existing media references retained"
   },
   {
@@ -34,7 +34,7 @@
       "text3"
     ],
     "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS existing media references retained"
   },
   {
@@ -43,7 +43,7 @@
       1
     ],
     "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS existing media references retained"
   },
   {
@@ -58,7 +58,7 @@
       "text2"
     ],
     "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS existing media references retained"
   },
   {
@@ -67,7 +67,7 @@
       0
     ],
     "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS existing media references retained"
   },
   {
@@ -77,7 +77,7 @@
       1
     ],
     "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS existing media references retained"
   },
   {
@@ -87,7 +87,7 @@
       1
     ],
     "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS existing media references retained"
   }
 ]

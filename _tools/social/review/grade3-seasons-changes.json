@@ -5,7 +5,7 @@
       0
     ],
     "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
-    "live_qa": "pending"
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L01/sources-concept-card.html",
@@ -13,7 +13,7 @@
       0
     ],
     "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
-    "live_qa": "pending"
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L01/teacher-deck.html",
@@ -27,7 +27,7 @@
       "mirror"
     ],
     "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
-    "live_qa": "pending"
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L01/worksheets-A4.html",
@@ -38,7 +38,7 @@
       3
     ],
     "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
-    "live_qa": "pending"
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L01/pod-sheet.html",
@@ -46,6 +46,6 @@
       0
     ],
     "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
-    "live_qa": "pending"
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
   }
 ]

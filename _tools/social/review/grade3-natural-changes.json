@@ -13,7 +13,7 @@
       "levels"
     ],
     "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS",
     "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
   },
@@ -24,7 +24,7 @@
       1
     ],
     "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS",
     "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
   },
@@ -35,7 +35,7 @@
       1
     ],
     "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS",
     "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
   },
@@ -45,7 +45,7 @@
       0
     ],
     "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS",
     "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
   },
@@ -63,7 +63,7 @@
       "see"
     ],
     "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS",
     "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
   },
@@ -73,7 +73,7 @@
       0
     ],
     "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS",
     "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
   },
@@ -83,7 +83,7 @@
       1
     ],
     "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS",
     "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
   },
@@ -94,7 +94,7 @@
       1
     ],
     "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS",
     "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
   }

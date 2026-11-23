@@ -6,7 +6,7 @@
       "uae"
     ],
     "local_qa": "PASS: 2 slides and 1 print page pixel-inspected; original reading and media retained.",
-    "live_qa": "pending"
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
   },
   {
     "file": "resources/ssd/SS-Y3-NN-T1-L01/sources-concept-card.html",
@@ -14,6 +14,6 @@
       1
     ],
     "local_qa": "PASS: 2 slides and 1 print page pixel-inspected; original reading and media retained.",
-    "live_qa": "pending"
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
   }
 ]

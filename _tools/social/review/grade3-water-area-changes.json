@@ -9,7 +9,7 @@
       "quiz"
     ],
     "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -18,7 +18,7 @@
       0
     ],
     "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -28,7 +28,7 @@
       1
     ],
     "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -37,7 +37,7 @@
       0
     ],
     "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -48,7 +48,7 @@
       "quiz"
     ],
     "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -57,7 +57,7 @@
       0
     ],
     "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -66,7 +66,7 @@
       1
     ],
     "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
-    "live_qa": "pending",
+    "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai",
     "media_reference_check": "PASS: original media refs unchanged"
   }
 ]
