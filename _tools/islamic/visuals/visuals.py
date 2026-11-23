@@ -340,3 +340,43 @@ def apply_grade5(code,h):
  s=re.sub(pat,'<div data-ie-visual="v1" style="position:absolute;left:130px;top:260px;width:1660px;height:690px"><svg role="img" aria-label="'+title+'" viewBox="0 0 1600 740" style="width:100%;height:100%">'+svg+'</svg></div>',s,count=1,flags=re.S)
  s=re.sub(r'<aside>.*?</aside>','<aside>Original editable teaching diagram. Example only; original lesson, quotation and assessment text retained.</aside>',s,flags=re.S)
  return h[:m.end()]+s+h[m.end():]
+
+def idgham_groups(en):
+ s=txt(800,55,'The six letters, in two groups' if en else 'سِتَّةُ حُروفٍ في مَجْموعَتَيْنِ',44)
+ for i,(letters,label) in enumerate([(['ي','ن','م','و'],'With ghunnah' if en else 'بِغُنَّةٍ'),(['ل','ر'],'Without ghunnah' if en else 'بِغَيْرِ غُنَّةٍ')]):
+  x=75+i*780;c=GREEN if i==0 else BLUE;s+=card(x,130,670,420,c)+txt(x+335,215,label,42,c)
+  for j,l in enumerate(letters):
+   cx=x+335+(j-(len(letters)-1)/2)*135;s+=f'<circle cx="{cx}" cy="350" r="54" fill="#EFF5F2" stroke="{c}" stroke-width="3"/>'+txt(cx,370,l,67,c)
+  s+=txt(x+335,495,str(len(letters))+(' letters' if en else ' حُروفٍ'),35,c)
+ s+=txt(800,635,'For nun sakinah or tanwin before a letter in the following word' if en else 'عِنْدَ مَجيءِ حَرْفٍ مِنْها بَعْدَ النّونِ السّاكِنَةِ أَوِ التَّنْوينِ في الكَلِمَةِ التّالِيَةِ',28)
+ s+=txt(800,695,'A letter organizer; practise the sound with your teacher' if en else 'تَنْظيمٌ لِلْحُروفِ؛ أُطَبِّقُ النُّطْقَ مَعَ مُعَلِّمي',28)
+ return s,'Two kinds of idgham' if en else 'نَوْعانِ مِنَ الإِدْغامِ'
+def voluntary_calendar(en):
+ s=txt(800,48,'Weekly and monthly examples' if en else 'أَمْثِلَةٌ أُسْبوعِيَّةٌ وَشَهْرِيَّةٌ',44)
+ s+=card(70,100,1460,220,BLUE)+txt(800,155,'In a week' if en else 'في الأُسْبوعِ',34,BLUE)
+ days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'] if en else ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت']
+ for i,d in enumerate(days):
+  x=170+(i if en else 6-i)*210;chosen=i in [1,4];s+=f'<rect x="{x-88}" y="190" width="176" height="90" rx="18" fill="{GREEN if chosen else "#EFF3F2"}"/>'+txt(x,248,d,29,'white' if chosen else INK)
+ s+=card(70,360,1460,230,GREEN)+txt(800,420,'The white days of a Hijri month' if en else 'أَيّامُ البيضِ مِنَ الشَّهْرِ الهِجْرِيِّ',36,GREEN)
+ for i,n in enumerate([13,14,15]):
+  x=545+i*255;s+=f'<rect x="{x-80}" y="455" width="160" height="100" rx="18" fill="#DCEBE4" stroke="#3F6E5B" stroke-width="3"/>'+txt(x,525,str(n),57,GREEN)
+ s+=txt(800,655,'Two separate patterns, not dates aligned to weekdays' if en else 'نَمَطانِ مُنْفَصِلانِ، لا مُطابَقَةٌ بَيْنَ أَيّامِ الأُسْبوعِ وَتَواريخِ الشَّهْرِ',27)
+ s+=txt(800,710,'Examples of voluntary fasting, not an obligation' if en else 'أَمْثِلَةٌ لِصِيامِ التَّطَوُّعِ، لا فَريضَةٌ',28)
+ return s,'Recognising voluntary fasting days' if en else 'أَتَعَرَّفُ أَيّامَ صِيامِ التَّطَوُّعِ'
+def parched_crops(en):
+ s=txt(800,50,'Water reaches parched land; crops grow' if en else 'يَصِلُ الماءُ إِلى الأَرْضِ الجُرُزِ فَيَخْرُجُ الزَّرْعُ',42)
+ for i,label in enumerate(['Parched land','Water reaches it','Crops grow'] if en else ['أَرْضٌ جُرُزٌ','يَصِلُ إِلَيْها الماءُ','يَخْرُجُ الزَّرْعُ']):
+  x=55+(i if en else 2-i)*520;s+=card(x,135,450,440,BLUE if i==1 else GREEN)
+  s+=f'<path d="M{x+30} 425h390v80h-390z" fill="#C9A573"/>'
+  if i==0:s+=f'<path d="M{x+80} 435l45 25-25 35m80-50 35 25 40-35m60 40 25 20" fill="none" stroke="#9D794F" stroke-width="5"/>'
+  if i==1:
+   s+=f'<path d="M{x+45} 350q90 15 170 50t200 20" fill="none" stroke="#6DAFC8" stroke-width="22"/>'
+  if i==2:
+   for dx in [90,180,270,360]:
+    s+=f'<path d="M{x+dx} 427V290" stroke="#528067" stroke-width="7"/><path d="M{x+dx} 370q-65-55-55-75 60 5 55 75m0-25q65-55 55-75-60 5-55 75" fill="#82AD77"/>'
+  s+=txt(x+225,550,label,34)
+ s+=txt(800,670,'A schematic of the visible scene in the verse, not the unseen Resurrection' if en else 'رَسْمٌ لِلْمَشْهَدِ المَحْسوسِ في الآيَةِ، لا تَصْويرٌ لِلْبَعْثِ',28)
+ return s,'From parched land to crops' if en else 'مِنَ الأَرْضِ الجُرُزِ إِلى الزَّرْعِ'
+for track in ['N','NN']:
+ for suffix,fn,after in [('T2-L01',parched_crops,'part1'),('T2-L02',idgham_groups,'part1'),('T3-L10',voluntary_calendar,'part0')]:
+  GRADE5_SPECS[f'IE-Y6-{track}-{suffix}']=(after,fn)

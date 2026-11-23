@@ -204,5 +204,113 @@
     "suggested_fix": "Remove only the visible markup fragment after approval; keep Quran text unchanged.",
     "source": "resources/ie/IE-Y5-NN-T2-L02/teacher-deck.html",
     "status": "Held unchanged and unillustrated; report with grade5 milestone."
+  },
+  {
+    "lesson": "IE-Y6-N-T1-L08",
+    "slide": "scene",
+    "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🔤 استمع إلى class=\"qf\">﴿مِنْ خَوْفٍ﴾ و class=\"qf\">﴿مِن رَّبِّهِمْ﴾ و class=\"qf\">﴿مِنۢ بَعْدِ﴾ . هل تُنطق النون بالطريقة نفسها في كل مرة؟ 🤔 ما حكم النون في «مَنْ آمَن»؟ أحكام النون الساكنة والتنوين: الإظهار الحلقي Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-N-T1-L08/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-N-T2-L02",
+    "slide": "scene",
+    "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🔗 استمع إلى class=\"qf\">﴿مَن يَقُولُ﴾ . أين ذهبت النون؟ هل اختفت أم دخلت في الحرف الذي بعدها؟ 🤔 هل في «مِن رَبّهم» غنّة؟ حكم الإدغام Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-N-T2-L02/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-N-T2-L07",
+    "slide": "scene",
+    "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🔄 في class=\"qf\">﴿أَنۢبِئْهُم﴾ تُنطق النون ميمًا! كيف يحدث ذلك؟ وما العلامة الصغيرة في المصحف التي تدلك عليه؟ 🤔 كيف تعرف مواضع الإقلاب في المصحف؟ الإقلاب Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-N-T2-L07/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-N-T3-L02",
+    "slide": "scene",
+    "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🤫 استمع إلى class=\"qf\">﴿مِن قَبْلِ﴾ و class=\"qf\">﴿أَنتُمْ﴾ . النون ليست واضحة ولا مدغمة تمامًا، بل «مخفاة». كيف تُنطق؟ 🤔 ما أحكام النون الساكنة والتنوين الأربعة؟ الإخفاء الحقيقي Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-N-T3-L02/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-N-T3-L04",
+    "slide": "scene",
+    "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🐝 النحلة تصنع العسل بنظام عجيب. قال الله: class=\"qf\">﴿وَأَوْحَىٰ رَبُّكَ إِلَى النَّحْلِ﴾ . كيف يعلّمنا القرآن أن نفكّر كالعلماء؟ 🤔 مَن هو العالم المسلم الذي تحب أن تكون مثله؟ التفكير العلمي Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-N-T3-L04/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-N-T2-L08",
+    "slide": "part0 versus learn",
+    "exact_wording": "الحديث نَفْهَمُ الدَّرْسَ قال النبي ﷺ: «اتق الله حيثما كنت، وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن» (رواه الترمذي). حديث: أخلاق حميدة Explain with questioning; highlight the evidence. || أَهَمُّ ما تَعَلَّمْناهُ نَبْني الْفَهْمَ 💬 1 قال ﷺ: «ما نقصت صدقة من مال، وما زاد الله عبدًا بعفو إلا عزًّا، وما تواضع أحد لله إلا رفعه الله». 💰 2 الصدقة تبارك المال وتطهّره، ولا تُنقصه. 🕊️ 3 العفو عن المسيء يزيد صاحبه عزًّا ومكانة. 🙇 4 التواضع يرفع صاحبه عند الله والناس، والكبر يضعه. حديث: أخلاق حميدة Summarise the key points.",
+    "issue": "Initial teaching presents one hadith, while summary and assessments target another. Both may be valid material, but lesson alignment differs. Not classified as a false hadith.",
+    "suggested_fix": "Ask which hadith is the intended target before changing wording; no correction made.",
+    "source": "resources/ie/IE-Y6-N-T2-L08/teacher-deck.html",
+    "status": "Held unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y6-NN-T1-L08",
+    "slide": "scene",
+    "exact_wording": "A situation to discuss What would you do in their place? 🔤 Listen to class=\"qf\">﴿min khawf﴾ , class=\"qf\">﴿mir rabbihim﴾ and class=\"qf\">﴿mim ba'di﴾ . Is the «n» pronounced the same way each time? 🤔 What is the rule for the «n» in «man amana»? Rules of Nun Sakinah and Tanwin: Izhar Halqi Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-NN-T1-L08/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-NN-T2-L02",
+    "slide": "scene",
+    "exact_wording": "A situation to discuss What would you do in their place? 🔗 Listen to class=\"qf\">﴿may-yaqul﴾ . Where did the «n» go — did it vanish or merge into the next letter? 🤔 Is there ghunnah in «min rabbihim»? The Rule of Idgham Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-NN-T2-L02/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-NN-T2-L07",
+    "slide": "scene",
+    "exact_wording": "A situation to discuss What would you do in their place? 🔄 In class=\"qf\">﴿anbi'hum﴾ the «n» is pronounced «m»! How, and what small sign in the Mushaf tells you? 🤔 How can you find the places of iqlab in the mushaf? Iqlab Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-NN-T2-L07/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-NN-T3-L02",
+    "slide": "scene",
+    "exact_wording": "A situation to discuss What would you do in their place? 🤫 Listen to class=\"qf\">﴿min qabl﴾ and class=\"qf\">﴿antum﴾ . The «n» is neither clear nor fully merged — it is «hidden». How is it said? 🤔 What are the four rules of nun sakinah and tanwin? Real Hiding (Ikhfa Haqiqi) Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-NN-T3-L02/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-NN-T3-L04",
+    "slide": "scene",
+    "exact_wording": "A situation to discuss What would you do in their place? 🐝 Bees make honey with amazing order. Allah said: class=\"qf\">﴿Your Lord inspired the bee﴾ . How does the Qur'an teach us to think like scientists? 🤔 Which Muslim scientist would you like to be like? Scientific Thinking Discuss in pairs, then share.",
+    "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
+    "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
+    "source": "resources/ie/IE-Y6-NN-T3-L04/teacher-deck.html#scene",
+    "status": "Held unchanged. New visual, if any, does not copy this extract."
+  },
+  {
+    "lesson": "IE-Y6-NN-T2-L08",
+    "slide": "part0 versus learn",
+    "exact_wording": "The hadith Understanding the lesson «Fear Allah wherever you are, follow a bad deed with a good one to erase it, and treat people with good character» (Tirmidhi). Good Morals Explain with questioning; highlight the evidence. || Key learning points Building understanding 💬 1 The Prophet ﷺ said: «Charity does not decrease wealth, Allah increases a servant who forgives only in honour, and no one humbles himself for Allah except that Allah raises him.» 💰 2 Charity blesses and purifies wealth; it does not decrease it. 🕊️ 3 Forgiving someone who wronged you increases your honour. 🙇 4 Humility raises a person before Allah and people; arrogance lowers him. Good Morals Summarise the key points.",
+    "issue": "Initial teaching presents one hadith, while summary and assessments target another. Both may be valid material, but lesson alignment differs. Not classified as a false hadith.",
+    "suggested_fix": "Ask which hadith is the intended target before changing wording; no correction made.",
+    "source": "resources/ie/IE-Y6-NN-T2-L08/teacher-deck.html",
+    "status": "Held unchanged and unillustrated."
   }
 ]
