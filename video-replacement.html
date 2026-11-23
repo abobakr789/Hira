@@ -1,0 +1,49 @@
+<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>حراء | استبدال فيديو الدرس</title><style>body{max-width:760px;margin:50px auto;padding:24px;background:#fbf7ee;color:#102a4c;font:20px/1.8 serif}button,select{padding:12px;margin:10px 0;font:inherit}dialog{border:1px solid #c4943a;border-radius:20px;padding:28px}label{display:block}pre{font:18px/1.6 serif}</style><h1>حراء | استبدال فيديو الذال</h1><p>للمشرف العام فقط. يحفظ معرّف الفيديو وأسئلته وصلاحياته والملف القديم، دون حذف.</p><button id="start">فحص مواد درس الذال</button><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script><script>window.HIRAA_CONFIG = { supabaseUrl: "https://vsbktjbwjykgtkkqfblj.supabase.co", supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzYmt0amJ3anlrZ3Rra3FmYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM1NDc2MTYsImV4cCI6MjEwOTEyMzYxNn0.ZR43uZNPdpnw8vhEf5Qr2ThHjRTZC2seCICDjiMfeW8" };
+/* Hira scoped video replacement. Keeps original id, challenge, access and both media objects. */
+(function () {
+  'use strict';
+  document.getElementById('start').onclick=()=>open('81b7ea7e-305b-47bf-81ec-abf7c4977e5e');
+  async function open(lesson) {
+    const cfg=window.HIRAA_CONFIG;if(!cfg)return;
+    const sb=window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseKey);
+    const {data:auth}=await sb.auth.getSession();const uid=auth?.session?.user?.id;if(!uid)return;
+    const {data:profile,error:pe}=await sb.from('profiles').select('role').eq('id',uid).single();if(pe||profile.role!=='super_admin')return;
+    const {data:rows,error}=await sb.from('lesson_resources').select('*').eq('lesson_id',lesson).eq('kind','video');if(error||rows.length<2){alert('يلزم الفيديو الحالي والفيديو الجديد المرفوع.');return;}
+    const d=document.createElement('dialog');d.style.maxWidth='720px';d.style.width='90%';
+    const title=document.createElement('h2');title.textContent='استبدال الفيديو مع حفظ التحدّي';d.append(title);
+    const hint=document.createElement('p');hint.textContent='يبقى معرّف الفيديو الحالي وأسئلته وصلاحياته كما هي. تصبح المادة الجديدة نسخة احتياطية للمعلم من الملف القديم. لا يحذف أي ملف.';d.append(hint);
+    const selects=[];
+    for(const label of ['الفيديو الحالي ذو التحدّي','الفيديو الجديد الذي تمت مراجعته']){
+      const l=document.createElement('label');l.textContent=label;const s=document.createElement('select');s.style.width='100%';
+      rows.forEach(r=>{const o=document.createElement('option');o.value=r.id;o.textContent=r.id.slice(0,8)+' | '+r.title_ar+' | '+r.storage_path?.split('/').pop();s.append(o);});l.append(s);d.append(l);selects.push(s);
+    }
+    selects[1].selectedIndex=1;
+    const status=document.createElement('pre');status.style.whiteSpace='pre-wrap';d.append(status);
+    const go=document.createElement('button');go.type='button';go.className='btn btn-primary';go.textContent='تحقق واستبدل';d.append(go);
+    const close=document.createElement('button');close.type='button';close.className='btn';close.textContent='إغلاق';close.onclick=()=>d.remove();d.append(close);document.body.append(d);d.showModal();
+    go.onclick=async()=>{
+      go.disabled=true;let original,newer,switched=false;
+      try{
+        if(selects[0].value===selects[1].value)throw Error('اختر مادتين مختلفتين');
+        const fresh=await sb.from('lesson_resources').select('*').in('id',selects.map(s=>s.value)).eq('lesson_id',lesson);if(fresh.error)throw fresh.error;
+        original=fresh.data.find(r=>r.id===selects[0].value);newer=fresh.data.find(r=>r.id===selects[1].value);
+        if(!original?.meta?.challenge||newer?.meta?.challenge||original.kind!=='video'||newer.kind!=='video'||!original.storage_path||!newer.storage_path||original.url||newer.url||original.storage_path===newer.storage_path)throw Error('حالة المواد لا تطابق الاستبدال الآمن');
+        for(const r of [original,newer]){const parts=r.storage_path.split('/');const name=parts.pop();const check=await sb.storage.from('lesson-files').list(parts.join('/'),{search:name});if(check.error||!check.data.some(x=>x.name===name))throw Error('تعذّر التحقق من الملف: '+name);}
+        if(!confirm('الفيديو الحالي: '+original.storage_path+'\nالفيديو البديل: '+newer.storage_path+'\nسيحفظ القديم في مادة ملف للمعلم، دون حذف. هل تم التحقق من تشغيل البديل؟')){go.disabled=false;return;}
+        const stamp=new Date().toISOString();
+        const meta=Object.assign({},original.meta,{replacement_backup:{storage_path:original.storage_path,replacement_resource_id:newer.id,at:stamp}});
+        const u=await sb.from('lesson_resources').update({storage_path:newer.storage_path,meta}).eq('id',original.id).eq('storage_path',original.storage_path).select('*').single();if(u.error)throw u.error;switched=true;
+        const archive=await sb.from('lesson_resources').update({kind:'file',title_ar:'نسخة احتياطية قبل استبدال الفيديو',storage_path:original.storage_path,audience:'teacher',is_public:false,meta:{video_backup_for:original.id,replaced_at:stamp}}).eq('id',newer.id).eq('storage_path',newer.storage_path).select('*').single();if(archive.error)throw archive.error;
+        const verify=await sb.from('lesson_resources').select('*').in('id',[original.id,newer.id]);if(verify.error)throw verify.error;
+        const current=verify.data.find(r=>r.id===original.id),backup=verify.data.find(r=>r.id===newer.id);
+        if(current.storage_path!==newer.storage_path||current.meta.challenge!==original.meta.challenge||current.audience!==original.audience||current.is_public!==original.is_public||backup.kind!=='file'||backup.storage_path!==original.storage_path||backup.audience!=='teacher'||backup.is_public)throw Error('تحقق من الحالة قبل المتابعة');
+        status.textContent='تم الاستبدال وحفظ الأسئلة والصلاحيات والنسخة الاحتياطية. حدّث الصفحة ثم اختبر الفيديو والتحدّي والشرائح.';go.textContent='تم';
+      }catch(e){
+        if(switched&&original){const restoreNew=await sb.from('lesson_resources').update({kind:newer.kind,title_ar:newer.title_ar,storage_path:newer.storage_path,audience:newer.audience,is_public:newer.is_public,meta:newer.meta}).eq('id',newer.id);const rollback=await sb.from('lesson_resources').update({storage_path:original.storage_path,meta:original.meta}).eq('id',original.id);status.textContent=(rollback.error||restoreNew.error?'يلزم فحص يدوي: ':'أعيد الفيديو الأصلي: ')+(e.message||String(e));}
+        else status.textContent=e.message||String(e);
+        go.disabled=false;
+      }
+    };
+  }
+})();
+</script></html>
