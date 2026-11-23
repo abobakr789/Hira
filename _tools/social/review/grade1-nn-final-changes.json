@@ -1,0 +1,114 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L01/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L01/lesson-recap.html",
+    "views": [
+      "scene2"
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L06/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L03/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "see"
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L15/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L15/worksheets-A4.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L07/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L07/worksheets-A4.html",
+    "views": [
+      1
+    ],
+    "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
+    "live_qa": "pending",
+    "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
+  }
+]
