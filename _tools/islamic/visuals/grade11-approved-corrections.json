@@ -1,0 +1,742 @@
+[
+  {
+    "file": "resources/ie/IE-Y11-N-T1-L07/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T1-L07/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T1-L07/worksheets-A4.html",
+    "changed_views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": 1,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": 2,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": 3,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T1-L07/teacher-deck.html",
+    "changed_views": [
+      "scene",
+      "part2",
+      "part3",
+      "vocab",
+      "learn",
+      "g1",
+      "g2",
+      "modelanswers",
+      "critique",
+      "quiz"
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": "scene",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "part2",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "part3",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "vocab",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "learn",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "g1",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "g2",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "critique",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "quiz",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T1-L07/group-work.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L02/teacher-deck.html",
+    "changed_views": [
+      "g1"
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "resources/ie/IE-Y11-N-T3-L02/teacher-deck.html#part2",
+      "resources/ie/IE-Y11-NN-T3-L02/teacher-deck.html#g1"
+    ],
+    "views_qa": [
+      {
+        "view": "g1",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L02/group-work.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "resources/ie/IE-Y11-N-T3-L02/teacher-deck.html#part2",
+      "resources/ie/IE-Y11-NN-T3-L02/teacher-deck.html#g1"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L04/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L04/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L04/worksheets-A4.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L04/teacher-deck.html",
+    "changed_views": [
+      "part3",
+      "learn",
+      "modelanswers",
+      "quiz"
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk"
+    ],
+    "views_qa": [
+      {
+        "view": "part3",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "learn",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "quiz",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L05/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://sunnah.com/bukhari:3231",
+      "https://www.islamweb.net/ar/article/208513/لمحات-من-رحمة-سيد-المرسلين"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L05/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://sunnah.com/bukhari:3231",
+      "https://www.islamweb.net/ar/article/208513/لمحات-من-رحمة-سيد-المرسلين"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L05/worksheets-A4.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://sunnah.com/bukhari:3231",
+      "https://www.islamweb.net/ar/article/208513/لمحات-من-رحمة-سيد-المرسلين"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-N-T3-L05/teacher-deck.html",
+    "changed_views": [
+      "learn",
+      "modelanswers",
+      "quiz"
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://sunnah.com/bukhari:3231",
+      "https://www.islamweb.net/ar/article/208513/لمحات-من-رحمة-سيد-المرسلين"
+    ],
+    "views_qa": [
+      {
+        "view": "learn",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "quiz",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T1-L07/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T1-L07/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T1-L07/worksheets-A4.html",
+    "changed_views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": 1,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": 2,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": 3,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T1-L07/teacher-deck.html",
+    "changed_views": [
+      "scene",
+      "part2",
+      "vocab",
+      "learn",
+      "g1",
+      "g2",
+      "modelanswers",
+      "critique",
+      "quiz"
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": "scene",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "part2",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "vocab",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "learn",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "g1",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "g2",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "critique",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "quiz",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T1-L07/group-work.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.nationalacademies.org/read/5787/chapter/11"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T3-L04/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T3-L04/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T3-L04/worksheets-A4.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T3-L04/teacher-deck.html",
+    "changed_views": [
+      "part3",
+      "learn",
+      "modelanswers",
+      "quiz"
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk"
+    ],
+    "views_qa": [
+      {
+        "view": "part3",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "learn",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "quiz",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T3-L05/answer-key.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://sunnah.com/bukhari:3231",
+      "https://www.islamweb.net/ar/article/208513/لمحات-من-رحمة-سيد-المرسلين"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T3-L05/sources-concept-card.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://sunnah.com/bukhari:3231",
+      "https://www.islamweb.net/ar/article/208513/لمحات-من-رحمة-سيد-المرسلين"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T3-L05/worksheets-A4.html",
+    "changed_views": [
+      0
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://sunnah.com/bukhari:3231",
+      "https://www.islamweb.net/ar/article/208513/لمحات-من-رحمة-سيد-المرسلين"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  },
+  {
+    "file": "resources/ie/IE-Y11-NN-T3-L05/teacher-deck.html",
+    "changed_views": [
+      "learn",
+      "modelanswers",
+      "quiz"
+    ],
+    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
+    "sources": [
+      "https://sunnah.com/bukhari:3231",
+      "https://www.islamweb.net/ar/article/208513/لمحات-من-رحمة-سيد-المرسلين"
+    ],
+    "views_qa": [
+      {
+        "view": "learn",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      },
+      {
+        "view": "quiz",
+        "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
+        "live": "pending"
+      }
+    ]
+  }
+]

@@ -724,7 +724,8 @@
     "issue": "Scientific theory is defined as an unproven hypothesis. Scientific usage distinguishes a tested explanatory theory from a conjecture.",
     "suggested_fix": "Revise terminology without changing religious text or the lesson’s caution about unsupported claims.",
     "source": "https://www.nationalacademies.org/read/5787/chapter/11",
-    "status": "Held unchanged and not illustrated."
+    "status": "Approved corrections implemented; local visual QA complete, live QA pending. Religious quotations and media unchanged.",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA"
   },
   {
     "lesson": "IE-Y11-N-T3-L02",
@@ -733,7 +734,8 @@
     "issue": "Group1 refers visiting-manners criterion to divorce-before-consummation section in Arabic; English counterpart points directly to visiting manners.",
     "suggested_fix": "Align group source pointer with the actual visiting-manners section, leaving task and Quran wording intact.",
     "source": "IE-Y11-NN-T3-L02 g1; IE-Y11-N-T3-L02 part2",
-    "status": "Held unchanged and not illustrated."
+    "status": "Approved corrections implemented; local visual QA complete, live QA pending. Religious quotations and media unchanged.",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA"
   },
   {
     "lesson": "IE-Y11-N-T3-L04",
@@ -742,7 +744,8 @@
     "issue": "Summary states five feeds as unqualified rule while teaching part3 explicitly notes school differences.",
     "suggested_fix": "Match summary and assessment to qualified teaching, attributing five feeds to the named view.",
     "source": "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk",
-    "status": "Held unchanged and not illustrated."
+    "status": "Approved corrections implemented; local visual QA complete, live QA pending. Religious quotations and media unchanged.",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA"
   },
   {
     "lesson": "IE-Y11-N-T3-L05",
@@ -751,7 +754,8 @@
     "issue": "Taif attribution of the guidance supplication is not established by the checked Bukhari report; part3 uses the independently verified wording about future descendants instead. Do not alter any quotation.",
     "suggested_fix": "Hold for specialist source review or align nonquote summary with existing part3 account after approval.",
     "source": "https://sunnah.com/bukhari:3231",
-    "status": "Held unchanged and not illustrated."
+    "status": "Approved corrections implemented; local visual QA complete, live QA pending. Religious quotations and media unchanged.",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA"
   },
   {
     "lesson": "IE-Y11-NN-T3-L04",
@@ -760,7 +764,8 @@
     "issue": "Summary states five feeds as unqualified rule while teaching part3 explicitly notes school differences.",
     "suggested_fix": "Match summary and assessment to qualified teaching, attributing five feeds to the named view.",
     "source": "https://www.dar-alifta.org/en/fatwa/details/7443/what-is-your-opinion-on-the-number-of-breastfeeding-sessions-that-establish-milk",
-    "status": "Held unchanged and not illustrated."
+    "status": "Approved corrections implemented; local visual QA complete, live QA pending. Religious quotations and media unchanged.",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA"
   },
   {
     "lesson": "IE-Y11-NN-T3-L05",
@@ -769,6 +774,7 @@
     "issue": "Taif attribution of the guidance supplication is not established by the checked Bukhari report; part3 uses the independently verified wording about future descendants instead. Do not alter any quotation.",
     "suggested_fix": "Hold for specialist source review or align nonquote summary with existing part3 account after approval.",
     "source": "https://sunnah.com/bukhari:3231",
-    "status": "Held unchanged and not illustrated."
+    "status": "Approved corrections implemented; local visual QA complete, live QA pending. Religious quotations and media unchanged.",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA"
   }
 ]
