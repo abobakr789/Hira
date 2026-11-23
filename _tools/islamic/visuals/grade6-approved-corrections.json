@@ -1,0 +1,248 @@
+[
+  {
+    "file": "resources/ie/IE-Y6-N-T1-L08/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T2-L02/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T2-L07/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T3-L02/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T3-L04/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T1-L09/teacher-deck.html",
+    "changes": [
+      {
+        "old": "كم سؤالًا ذكر الحديث؟",
+        "new": "كم مجالًا للمساءلة ذكر هذا النص من الحديث؟",
+        "count": 1
+      },
+      {
+        "old": "الحديث يسأل الإنسان عن عمره وشبابه وماله وعلمه.",
+        "new": "الحديث يسأل الإنسان عن عمره وعلمه وماله وجسمه.",
+        "count": 1
+      }
+    ],
+    "source": "https://sunnah.com/tirmidhi:2417",
+    "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T1-L09/worksheets-A4.html",
+    "changes": [
+      {
+        "old": "كم سؤالًا ذكر الحديث؟",
+        "new": "كم مجالًا للمساءلة ذكر هذا النص من الحديث؟",
+        "count": 1
+      }
+    ],
+    "source": "https://sunnah.com/tirmidhi:2417",
+    "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T1-L09/pod-sheet.html",
+    "changes": [
+      {
+        "old": "الحديث يسأل الإنسان عن عمره وشبابه وماله وعلمه.",
+        "new": "الحديث يسأل الإنسان عن عمره وعلمه وماله وجسمه.",
+        "count": 1
+      }
+    ],
+    "source": "https://sunnah.com/tirmidhi:2417",
+    "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T1-L08/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T2-L02/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T2-L07/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T3-L02/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T3-L04/teacher-deck.html",
+    "change": "Only visible class-attribute fragments removed from scene",
+    "preservation": "Every other byte exact, Quran character sequences exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T1-L09/teacher-deck.html",
+    "changes": [
+      {
+        "old": "How many questions does the hadith mention?",
+        "new": "How many areas of accountability does this hadith text mention?",
+        "count": 1
+      },
+      {
+        "old": "The hadith asks about life, youth, wealth and knowledge.",
+        "new": "The hadith asks about life, knowledge, wealth and body.",
+        "count": 1
+      }
+    ],
+    "source": "https://sunnah.com/tirmidhi:2417",
+    "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T1-L09/worksheets-A4.html",
+    "changes": [
+      {
+        "old": "How many questions does the hadith mention?",
+        "new": "How many areas of accountability does this hadith text mention?",
+        "count": 1
+      }
+    ],
+    "source": "https://sunnah.com/tirmidhi:2417",
+    "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T1-L09/pod-sheet.html",
+    "changes": [
+      {
+        "old": "The hadith asks about life, youth, wealth and knowledge.",
+        "new": "The hadith asks about life, knowledge, wealth and body.",
+        "count": 1
+      }
+    ],
+    "source": "https://sunnah.com/tirmidhi:2417",
+    "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T2-L08/teacher-deck.html",
+    "changes": [
+      "Primary teaching quotation replaced intact with the exact quotation already present in summary, source Muslim2588.",
+      "Meaning aligned to charity/forgiveness/humility."
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
+    "source": "https://sunnah.com/muslim:2588",
+    "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T2-L08/sources-concept-card.html",
+    "changes": [
+      "1misplaced signs-of-hypocrisy quotation blocks replaced with exact original summary quotation. Source corrected to Muslim2588; all other quotations unchanged."
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
+    "source": "https://sunnah.com/muslim:2588",
+    "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T2-L08/worksheets-A4.html",
+    "changes": [
+      "4misplaced signs-of-hypocrisy quotation blocks replaced with exact original summary quotation. Source corrected to Muslim2588; all other quotations unchanged."
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
+    "source": "https://sunnah.com/muslim:2588",
+    "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-N-T2-L08/answer-key.html",
+    "changes": [
+      "Gold4modelanswer aligned to new teaching meaning; other key entries unchanged."
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
+    "source": "https://sunnah.com/muslim:2588",
+    "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T2-L08/teacher-deck.html",
+    "changes": [
+      "Primary teaching quotation replaced intact with the exact quotation already present in summary, source Muslim2588.",
+      "Meaning aligned to charity/forgiveness/humility."
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
+    "source": "https://sunnah.com/muslim:2588",
+    "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T2-L08/sources-concept-card.html",
+    "changes": [
+      "1misplaced signs-of-hypocrisy quotation blocks replaced with exact original summary quotation. Source corrected to Muslim2588; all other quotations unchanged."
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
+    "source": "https://sunnah.com/muslim:2588",
+    "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T2-L08/worksheets-A4.html",
+    "changes": [
+      "4misplaced signs-of-hypocrisy quotation blocks replaced with exact original summary quotation. Source corrected to Muslim2588; all other quotations unchanged."
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
+    "source": "https://sunnah.com/muslim:2588",
+    "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y6-NN-T2-L08/answer-key.html",
+    "changes": [
+      "Gold4modelanswer aligned to new teaching meaning; other key entries unchanged."
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
+    "source": "https://sunnah.com/muslim:2588",
+    "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
+    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+  }
+]
