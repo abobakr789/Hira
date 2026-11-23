@@ -18,6 +18,7 @@ CSS='''<style id="hira-g5p-images">
 .hstrip{position:absolute;left:260px;top:640px;width:1400px;height:300px;display:flex;justify-content:center;align-items:center;gap:90px;background:#fff;border-radius:40px;box-shadow:0 18px 40px rgba(31,42,60,.10)}
 .hstrip figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px}
 .hstrip img{width:170px;height:170px;object-fit:contain}
+.hstrip .arw{font:700 90px/1 Tahoma,sans-serif;color:#9aa5b1}
 .hstrip figcaption{font:700 34px/1.4 "Thmanyah Display",Tahoma,sans-serif;color:var(--a,#1E7A5A);text-align:center}
 </style>'''
 def panel(items):
@@ -38,7 +39,7 @@ def apply_html(code,text):
   sec=sec.replace('left:0px;top:','left:390px;top:').replace('width:1700px;','width:1310px;')
   if e.get('fs'):sec=sec.replace('font-size:53px;','font-size:%dpx;'%e['fs'])
  elif fam=='strip': # sparse book slide: picture strip in the empty lower area
-  sec=sec.replace('<aside>','<div class="hstrip n%d" data-added="g5plus-literal-pictures">%s</div><aside>'%(len(items),''.join('<figure><img src="../../../art/emoji/%s.svg" alt=""><figcaption>%s</figcaption></figure>'%(n,html.escape(c)) for n,c in items)),1)
+  sec=sec.replace('<aside>','<div class="hstrip n%d" data-added="g5plus-literal-pictures">%s</div><aside>'%(len(items),('<span class="arw">\u2190</span>' if e.get('chain') else '').join('<figure><img src="../../../art/emoji/%s.svg" alt=""><figcaption>%s</figcaption></figure>'%(n,html.escape(c)) for n,c in items)),1)
   if 'hstrip' not in sec:raise ValueError(code+' no aside')
  else:raise ValueError('family '+fam)
  if fam!='strip':sec=sec.replace('<div class="bd cvb2">','<div class="bd cvb2">'+panel(items),1)

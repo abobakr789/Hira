@@ -364,5 +364,24 @@
    ]
   ],
   "family": "text"
+ },
+ "AR-Y5-N-T1-L20": {
+  "slide": "s3",
+  "family": "strip",
+  "chain": true,
+  "items": [
+   [
+    "herb",
+    "نَبَاتٌ"
+   ],
+   [
+    "rabbit",
+    "آكِلُ عُشْبٍ"
+   ],
+   [
+    "fox",
+    "آكِلُ لُحُومٍ"
+   ]
+  ]
  }
 }
