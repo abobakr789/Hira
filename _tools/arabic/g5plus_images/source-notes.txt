@@ -1,0 +1,6 @@
+Grades 5-12 native (N) and non-native (NN) Arabic imagery. Batch 1: grade 5.
+N decks: picture strip on the sparse "افتح كتابي" slide (s3). NN decks: picture panel on the plain-text reading slide (s4). Only that slide and one scoped style block change. Videos, audio, assessment slides and other markup are byte-identical.
+Assets: Microsoft Fluent UI Emoji (MIT, art/emoji/LICENSE-fluentui-emoji-MIT.txt), flat Color SVGs from https://github.com/microsoft/fluentui-emoji, plus existing local arid_mountains, sand_dunes, falcon (unused), clothing, framed_picture.
+Rejected after review: Fluent desert (cactus), Fluent bridge (Golden Gate used for London), custom falcon (poor likeness), snow-capped mountain for UAE mountains.
+Rebuild: after regenerating any deck run python3 _tools/arabic/g5plus_images/images.py as the final step. Idempotent.
+Lessons left unchanged in grade 5: skill/grammar/presentation/listening lessons with no literal subject, and lessons whose existing icons already carry the concept.
