@@ -19,12 +19,16 @@ def panel(items):
 def apply_html(code,text):
  if code not in MAN:return text
  if 'id="hira-g4-images"' in text:return text
+ applied=False
  for sid,items in MAN[code].items():
   if sid.startswith('d-'):
    pat=re.compile(r'(<section class="sl" id="'+re.escape(sid)+r'"[^>]*>.*?<div class="vlp">)(.*?)(</div><div class="vlc">)',re.S)
    m=pat.search(text)
-   if not m:raise ValueError(code+' '+sid+' picture not found')
+   # Rich slides are added by the enrichment stage, not the generic builder.
+   # Leave that earlier stage unchanged; run this helper after enrichment.
+   if not m:continue
    text=text[:m.start(2)]+panel(items)+text[m.end(2):]
+   applied=True
   else:
    pat=re.compile(r'<section class="sl" id="s4"[^>]*>.*?</section>',re.S);m=pat.search(text)
    if not m:raise ValueError(code+' teaching slide not found')
@@ -34,7 +38,8 @@ def apply_html(code,text):
    sec=sec.replace('left:48px;top:','left:428px;top:').replace('width:1468px;','width:1088px;')
    sec=sec.replace('<div class="bd cvb2">','<div class="bd cvb2">'+panel(items),1)
    text=text[:m.start()]+sec+text[m.end():]
- return text.replace('</head>',CSS+'</head>',1)
+   applied=True
+ return text.replace('</head>',CSS+'</head>',1) if applied else text
 if __name__=='__main__':
  root=HERE.parents[2]
  for c in sys.argv[1:] or sorted(MAN):
