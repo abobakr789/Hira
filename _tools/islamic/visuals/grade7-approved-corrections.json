@@ -3,25 +3,33 @@
     "file": "resources/ie/IE-Y7-N-T2-L02/teacher-deck.html",
     "change": "Visible class fragment only removed; every other byte exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-N-T3-L06/teacher-deck.html",
     "change": "Visible class fragment only removed; every other byte exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-NN-T2-L02/teacher-deck.html",
     "change": "Visible class fragment only removed; every other byte exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-NN-T3-L06/teacher-deck.html",
     "change": "Visible class fragment only removed; every other byte exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-N-T2-L11/teacher-deck.html",
@@ -31,7 +39,9 @@
       "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
     ],
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-N-T2-L11/sources-concept-card.html",
@@ -41,7 +51,9 @@
       "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
     ],
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-N-T2-L11/answer-key.html",
@@ -51,7 +63,9 @@
       "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
     ],
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-NN-T2-L11/teacher-deck.html",
@@ -61,7 +75,9 @@
       "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
     ],
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-NN-T2-L11/sources-concept-card.html",
@@ -71,7 +87,9 @@
       "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
     ],
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-NN-T2-L11/answer-key.html",
@@ -81,13 +99,17 @@
       "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
     ],
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   },
   {
     "file": "resources/ie/IE-Y7-N-T3-L10/teacher-deck.html",
     "change": "Replaced only outdated threshold phrase with current World Bank 3 international dollars per person per day at 2021 PPP and June2025 update date.",
     "source": "https://www.worldbank.org/en/news/factsheet/2025/06/05/june-2025-update-to-global-poverty-lines",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
-    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 10 changed slides and 4 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45235292634",
+    "content_commit": "b9a4a863"
   }
 ]

@@ -214,7 +214,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-N-T1-L08/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-N-T2-L02",
@@ -223,7 +223,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-N-T2-L02/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-N-T2-L07",
@@ -232,7 +232,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-N-T2-L07/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-N-T3-L02",
@@ -241,7 +241,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-N-T3-L02/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-N-T3-L04",
@@ -250,7 +250,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-N-T3-L04/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-N-T2-L08",
@@ -259,7 +259,7 @@
     "issue": "Initial teaching presents one hadith, while summary and assessments target another. Both may be valid material, but lesson alignment differs. Not classified as a false hadith.",
     "suggested_fix": "Ask which hadith is the intended target before changing wording; no correction made.",
     "source": "resources/ie/IE-Y6-N-T2-L08/teacher-deck.html",
-    "status": "Held unchanged and unillustrated."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-NN-T1-L08",
@@ -268,7 +268,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-NN-T1-L08/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-NN-T2-L02",
@@ -277,7 +277,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-NN-T2-L02/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-NN-T2-L07",
@@ -286,7 +286,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-NN-T2-L07/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-NN-T3-L02",
@@ -295,7 +295,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-NN-T3-L02/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-NN-T3-L04",
@@ -304,7 +304,7 @@
     "issue": "Class-attribute fragment leaks visibly before quotation. Existing markup artifact.",
     "suggested_fix": "After approval, remove only the visible markup debris, retaining original quotation and all other text.",
     "source": "resources/ie/IE-Y6-NN-T3-L04/teacher-deck.html#scene",
-    "status": "Held unchanged. New visual, if any, does not copy this extract."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-NN-T2-L08",
@@ -313,7 +313,7 @@
     "issue": "Initial teaching presents one hadith, while summary and assessments target another. Both may be valid material, but lesson alignment differs. Not classified as a false hadith.",
     "suggested_fix": "Ask which hadith is the intended target before changing wording; no correction made.",
     "source": "resources/ie/IE-Y6-NN-T2-L08/teacher-deck.html",
-    "status": "Held unchanged and unillustrated."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-N-T1-L09",
@@ -321,7 +321,7 @@
     "exact_wording": "أَهَمُّ ما تَعَلَّمْناهُ نَبْني الْفَهْمَ 💬 1 قال ﷺ: «لا تزول قدما عبد يوم القيامة حتى يُسأل عن عمره فيمَ أفناه، وعن علمه فيمَ فعل، وعن ماله من أين اكتسبه وفيمَ أنفقه، وعن جسمه فيمَ أبلاه». ⏰ 2 العمر: أستثمر وقتي في الطاعة والعلم النافع. 💰 3 المال: أكسبه من حلال وأنفقه في الخير. 💪 4 الجسم: أستعمله في طاعة الله وأحافظ على صحته. حديث: حاسبوا أنفسكم Summarise the key points. || تَحَدّي حِراءَ السَّريعُ 5 أَسْئِلَةٍ 1 «لا تزول قدما عبد يوم القيامة حتى يُسأل عن عمره...» أ - فيمَ أفناه   ·   ب - كم عمره   ·   ج - أين وُلد   ·   د - من أصدقاؤه الْإِجابَةُ: أ 2 كم سؤالًا ذكر الحديث؟ أ - أربعة   ·   ب - اثنان   ·   ج - ستة   ·   د - عشرة الْإِجابَةُ: أ 3 ماذا يعني «حاسبوا أنفسكم»؟ أ - أراجع أعمالي وأصلح أخطائي قبل يوم الحساب   ·   ب - أحسب مالي فقط   ·   ج - ألوم غيري   ·   د - لا معنى الْإِجابَةُ: أ 4 الحديث يسأل الإنسان عن عمره وشبابه وماله وعلمه. أيّ سؤال يخص المال؟ أ - من أين اكتسبه وفيمَ أنفقه   ·   ب - كم عدده   ·   ج - أين خبّأه   ·   د - لا سؤال الْإِجابَةُ: أ حديث: حاسبوا أنفسكم Mini whiteboards or Hiraa live challenge.",
     "issue": "Summary includes body; question4 substitutes youth, while the title concerns questions on Judgement Day. Alignment concern, no replacement authorised.",
     "suggested_fix": "Choose intended enumeration against source hadith before changing the assessment.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y6-NN-T1-L09",
@@ -329,7 +329,7 @@
     "exact_wording": "Key learning points Building understanding 💬 1 The Prophet ﷺ said: «A servant's feet will not move on the Day of Judgement until he is asked about his life and how he spent it, his knowledge and what he did with it, his wealth, how he earned and spent it, and his body and how he used it.» ⏰ 2 Life: I invest my time in obedience and useful knowledge. 💰 3 Wealth: I earn it lawfully and spend it on good. 💪 4 Body: I use it to obey Allah and look after my health. Bring Yourselves to Account Summarise the key points. || Hiraa quick challenge 5 questions 1 «A servant's feet will not move until he is asked about his life...» a) how he spent it   ·   b) how old he was   ·   c) where he was born   ·   d) who his friends were Answer: a 2 How many questions does the hadith mention? a) four   ·   b) two   ·   c) six   ·   d) ten Answer: a 3 What does «hold yourselves to account» mean? a) Review my deeds and fix mistakes before Judgement Day   ·   b) Only count my money   ·   c) Blame others   ·   d) Nothing Answer: a 4 The hadith asks about life, youth, wealth and knowledge. What is asked about wealth? a) Where it was earned and how it was spent   ·   b) How much   ·   c) Where hidden   ·   d) Nothing Answer: a Bring Yourselves to Account Mini whiteboards or Hiraa live challenge.",
     "issue": "Summary includes body; question4 substitutes youth, while the title concerns questions on Judgement Day. Alignment concern, no replacement authorised.",
     "suggested_fix": "Choose intended enumeration against source hadith before changing the assessment.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y7-N-T2-L02",
@@ -337,7 +337,7 @@
     "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🔤 استمع إلى قارئين يقرآن class=\"qf\">﴿أَم مَّنْ﴾ : أحدهما يغنّ بوضوح والآخر يقرأ بسرعة. أيهما أجمل؟ ولماذا؟ 🤔 لماذا يجب الحرص على إظهار الميم عند الواو والفاء؟ أحكام الميم الساكنة Discuss in pairs, then share.",
     "issue": "Visible class-attribute debris before quotation. Grade5approval does not cover this lesson.",
     "suggested_fix": "Remove only leaked attribute text after scoped approval; keep quotation exact.",
-    "status": "Held unchanged."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y7-N-T3-L06",
@@ -345,7 +345,7 @@
     "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🛋️ ساعدت جارًا كبير السن دون أن يطلب، فدعا لك دعاءً جميلًا. class=\"qf\">﴿هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ﴾ : ما جزاء إحسانك؟ 🤔 ما معنى ﴿هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ﴾ في حياتك؟ جزاء الإحسان: سورة الرحمن (54–78) Discuss in pairs, then share.",
     "issue": "Visible class-attribute debris before quotation. Grade5approval does not cover this lesson.",
     "suggested_fix": "Remove only leaked attribute text after scoped approval; keep quotation exact.",
-    "status": "Held unchanged."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y7-NN-T2-L02",
@@ -353,7 +353,7 @@
     "exact_wording": "A situation to discuss What would you do in their place? 🔤 Listen to two reciters read class=\"qf\">﴿am man﴾ : one with clear nasalisation, one rushing. Which sounds better, and why? 🤔 Why must we be careful to pronounce «m» clearly before و and ف? Rules of the Silent Mim (Mim Sakinah) Discuss in pairs, then share.",
     "issue": "Visible class-attribute debris before quotation. Grade5approval does not cover this lesson.",
     "suggested_fix": "Remove only leaked attribute text after scoped approval; keep quotation exact.",
-    "status": "Held unchanged."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y7-NN-T3-L06",
@@ -361,7 +361,7 @@
     "exact_wording": "A situation to discuss What would you do in their place? 🛋️ You helped an elderly neighbour without being asked, and he made a beautiful du'a for you. class=\"qf\">﴿Is the reward of goodness anything but goodness?﴾ What is yours? 🤔 What does «Is the reward for good anything but good?» mean in your life? The Reward of Good Deeds: Surat Ar-Rahman (54–78) Discuss in pairs, then share.",
     "issue": "Visible class-attribute debris before quotation. Grade5approval does not cover this lesson.",
     "suggested_fix": "Remove only leaked attribute text after scoped approval; keep quotation exact.",
-    "status": "Held unchanged."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   },
   {
     "lesson": "IE-Y7-N-T2-L11",
@@ -369,7 +369,8 @@
     "exact_wording": "قصر الصلاة للمسافر نَفْهَمُ الدَّرْسَ القصر أن يصلي المسافر الرباعية (الظهر والعصر والعشاء) ركعتين، أما المغرب والفجر فلا تُقصران. ودليله: ﴿وَإِذَا ضَرَبْتُمْ فِي الْأَرْضِ فَلَيْسَ عَلَيْكُمْ جُنَاحٌ أَن تَقْصُرُوا مِنَ الصَّلَاةِ﴾ . وشرطه سفر مباح لمسافة نحو ثمانين كيلومترًا فأكثر، ويبدأ القصر بمغادرة عمران البلد، ويستمر ما لم ينوِ الإقامة مدة طويلة. وعند المالكية إذا نوى إقامة أربعة أيام فأكثر أتمّ. صلاة المسافر والمريض Explain with questioning; highlight the evidence. || أَهَمُّ ما تَعَلَّمْناهُ نَبْني الْفَهْمَ ✂️ 1 القصر: صلاة الرباعية (الظهر والعصر والعشاء) ركعتين في السفر، ﴿فَلَيْسَ عَلَيْكُمْ جُنَاحٌ أَن تَقْصُرُوا مِنَ الصَّلَاةِ﴾ . 📏 2 مسافة القصر عند جمهور العلماء نحو 83 كم فأكثر، ولا يقصر مَن نوى الإقامة أكثر من أربعة أيام. 🔗 3 الجمع: الظهر مع العصر، والمغرب مع العشاء، تقديمًا أو تأخيرًا، ولا تُجمع الفجر. 🤒 4 المريض: «صلِّ قائمًا، فإن لم تستطع فقاعدًا، فإن لم تستطع فعلى جنب». صلاة المسافر والمريض Summarise the key points.",
     "issue": "Four-or-more days versus more-than-four days and differing approximate distance thresholds. School-specific statement needs consistent scope.",
     "suggested_fix": "Check intended curriculum school and counting convention, then align only after approval. Added count-only diagram avoids these thresholds.",
-    "status": "Held unchanged."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger.",
+    "resolution_note": "Stay-duration aligned to existing Maliki school teaching: four full days excluding arrival/departure covering twenty prayers. Existing approximate distance variants not changed."
   },
   {
     "lesson": "IE-Y7-N-T3-L10",
@@ -378,6 +379,6 @@
     "issue": "Extreme-poverty threshold about2.5USD is not the current WorldBank international line, and omits PPP basis.",
     "source": "https://www.worldbank.org/en/news/factsheet/2025/06/05/june-2025-update-to-global-poverty-lines",
     "suggested_fix": "If current WorldBank measure intended, say3international dollars perperson perday at2021PPP, with date. Do not change without approval.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Resolved within scoped user approval 2026-11-23; local and live slide/print pixel QA passed. See grade-specific approved-corrections ledger."
   }
 ]

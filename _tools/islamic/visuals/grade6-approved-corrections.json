@@ -4,35 +4,45 @@
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T2-L02/teacher-deck.html",
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T2-L07/teacher-deck.html",
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T3-L02/teacher-deck.html",
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T3-L04/teacher-deck.html",
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T1-L09/teacher-deck.html",
@@ -51,7 +61,9 @@
     "source": "https://sunnah.com/tirmidhi:2417",
     "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T1-L09/worksheets-A4.html",
@@ -65,7 +77,9 @@
     "source": "https://sunnah.com/tirmidhi:2417",
     "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T1-L09/pod-sheet.html",
@@ -79,42 +93,54 @@
     "source": "https://sunnah.com/tirmidhi:2417",
     "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T1-L08/teacher-deck.html",
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T2-L02/teacher-deck.html",
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T2-L07/teacher-deck.html",
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T3-L02/teacher-deck.html",
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T3-L04/teacher-deck.html",
     "change": "Only visible class-attribute fragments removed from scene",
     "preservation": "Every other byte exact, Quran character sequences exact",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T1-L09/teacher-deck.html",
@@ -133,7 +159,9 @@
     "source": "https://sunnah.com/tirmidhi:2417",
     "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T1-L09/worksheets-A4.html",
@@ -147,7 +175,9 @@
     "source": "https://sunnah.com/tirmidhi:2417",
     "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T1-L09/pod-sheet.html",
@@ -161,7 +191,9 @@
     "source": "https://sunnah.com/tirmidhi:2417",
     "reason": "Align explanatory enumeration to unchanged quotation:life,knowledge,wealth,body. Wealth has two subquestions, so count domains not questions. Answer remains four. No answer-key content change needed.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM1RTU1RTQzQjVENDQwN0FDNDg1OUZDREVFMUUwNTMA",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T2-L08/teacher-deck.html",
@@ -172,7 +204,9 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
     "source": "https://sunnah.com/muslim:2588",
     "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T2-L08/sources-concept-card.html",
@@ -182,7 +216,9 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
     "source": "https://sunnah.com/muslim:2588",
     "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T2-L08/worksheets-A4.html",
@@ -192,7 +228,9 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
     "source": "https://sunnah.com/muslim:2588",
     "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-N-T2-L08/answer-key.html",
@@ -202,7 +240,9 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
     "source": "https://sunnah.com/muslim:2588",
     "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T2-L08/teacher-deck.html",
@@ -213,7 +253,9 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
     "source": "https://sunnah.com/muslim:2588",
     "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T2-L08/sources-concept-card.html",
@@ -223,7 +265,9 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
     "source": "https://sunnah.com/muslim:2588",
     "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T2-L08/worksheets-A4.html",
@@ -233,7 +277,9 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
     "source": "https://sunnah.com/muslim:2588",
     "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   },
   {
     "file": "resources/ie/IE-Y6-NN-T2-L08/answer-key.html",
@@ -243,6 +289,8 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMyNTU2RkNBQTQyM0ZCRDc4MTgzRkNDQTBFM0UxQjIA",
     "source": "https://sunnah.com/muslim:2588",
     "quotation_preservation": "Replacement quotation extracted byte-exact from original deck, all existing same-topic quotations unchanged. Only misplaced complete quotation blocks replaced as approved.",
-    "qa": "All affected local slide/print pixels inspected clean; live QA pending"
+    "qa": "PASS 2026-11-23: all 16 changed slides and 16 affected print pages individually inspected locally and live, no clipping; every deployed HTML exact to source",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45234559042",
+    "content_commit": "4acf79ad"
   }
 ]
