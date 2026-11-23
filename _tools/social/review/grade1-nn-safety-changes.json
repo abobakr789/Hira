@@ -1,0 +1,60 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L02/teacher-deck.html",
+    "views": [
+      "guide"
+    ],
+    "local_qa": "PASS all six changed slides and one print page visually inspected; note overlap corrected and rechecked",
+    "live_qa": "pending",
+    "sources": [
+      "https://www.cdc.gov/school-health-conditions/media/pdfs/20_316712-D_FA_nutrition_508tagged.pdf"
+    ],
+    "note": "Story and media preserved; contextual safety, literal icon correction or complete answer bank"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L05/teacher-deck.html",
+    "views": [
+      "guide"
+    ],
+    "local_qa": "PASS all six changed slides and one print page visually inspected; note overlap corrected and rechecked",
+    "live_qa": "pending",
+    "sources": [
+      "https://www.cdc.gov/school-health-conditions/media/pdfs/20_316712-D_FA_nutrition_508tagged.pdf"
+    ],
+    "note": "Story and media preserved; contextual safety, literal icon correction or complete answer bank"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L09/teacher-deck.html",
+    "views": [
+      "guide"
+    ],
+    "local_qa": "PASS all six changed slides and one print page visually inspected; note overlap corrected and rechecked",
+    "live_qa": "pending",
+    "sources": [
+      "https://www.cdc.gov/school-health-conditions/media/pdfs/20_316712-D_FA_nutrition_508tagged.pdf"
+    ],
+    "note": "Story and media preserved; contextual safety, literal icon correction or complete answer bank"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L16/worksheets-A4.html",
+    "views": [
+      1
+    ],
+    "local_qa": "PASS all six changed slides and one print page visually inspected; note overlap corrected and rechecked",
+    "live_qa": "pending",
+    "sources": [],
+    "note": "Story and media preserved; contextual safety, literal icon correction or complete answer bank"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "guide",
+      "text2",
+      "vocab"
+    ],
+    "local_qa": "PASS all six changed slides and one print page visually inspected; note overlap corrected and rechecked",
+    "live_qa": "pending",
+    "sources": [],
+    "note": "Story and media preserved; contextual safety, literal icon correction or complete answer bank"
+  }
+]
