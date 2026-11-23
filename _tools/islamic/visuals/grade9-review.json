@@ -1,0 +1,1090 @@
+[
+  {
+    "lesson": "IE-Y9-N-T1-L01",
+    "title": "عرض المعلم · مع الله ورسوله وولي الأمر: سورة الحجرات (1–10) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "News-checking workflow would fill the assessed rumour scenario. No depiction of Prophet, Companions or sacred audience; a phone icon only labels the subject.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T1-L02",
+    "title": "عرض المعلم · حديث: السبع الموبقات · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Seven destructive sins are moral categories, not seven object icons. No harmful-magic depiction, battle scene or victim imagery; ordering panels would not explain why they destroy.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T1-L03",
+    "title": "عرض المعلم · الغفور العدل سبحانه · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No divine attributes depicted as a balance, face or forgiveness gauge. Human courtroom metaphor could falsely reduce divine justice to a human procedure.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T1-L04",
+    "title": "عرض المعلم · التناصح في الإسلام · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Advice role-play is already assessed. Completed public/private correction comic would supply the answer; generic speech bubbles add no lesson relationship.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T1-L05",
+    "title": "عرض المعلم · الزكاة في الإسلام · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added forty equal money shares, one gold share. Explains 2.5 percent as one-fortieth, conditional on cash zakah conditions and lunar year, not every asset rate.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "PASS: final pixels inspected,40equalsharescontained,Arabic ihram comparison RTL corrected",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y9-N-T1-L06",
+    "title": "عرض المعلم · سلامة المجتمع ووحدة أبنائه: سورة الحجرات (11–13) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No backbiting as literal eating or protected-person scene. Reputation-repair workflow would solve assessed behaviour; multicolour people icons would only label diversity.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T1-L07",
+    "title": "عرض المعلم · حديث: الحلال بيّن · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No fence map presenting all uncertain matters as forbidden. Traffic-light categories would imply a ruling on new cases without evidence and repeat assessed classification.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T1-L08",
+    "title": "عرض المعلم · حديث: الدين النصيحة · حراء",
+    "decision": "unchanged",
+    "rationale": "Existing custom bilingual teaching has authored visual structure and detailed group tasks. No duplicate generic advice diagram or replacement of original images/layout.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T1-L09",
+    "title": "عرض المعلم · الحج · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added comparison of ifrad, qiran and tamattu, specifically continuity/release of ihram, not full hajj timing or route. No sacred figures or invented geography.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "PASS: final pixels inspected,40equalsharescontained,Arabic ihram comparison RTL corrected",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y9-N-T1-L10",
+    "title": "عرض المعلم · حجة الوداع ووفاة النبي ﷺ · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Prophet, Companions or death scene. Farewell timeline would require corroborating combined dates and assessment is already chronological; no generic camel procession.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L01",
+    "title": "عرض المعلم · الإيمان فضل من الله تعالى: سورة الحجرات (14–18) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No literal heart as iman or ranked believer silhouettes. Islam/iman distinction needs words and context; checkbox diagram could wrongly measure another person's faith.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L02",
+    "title": "عرض المعلم · حديث: للمجتمع رجاله ونساؤه · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Hadith teaching and assessment target different passages. Held source issue; no binary costume proxy for men/women or diagram choosing a target.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L03",
+    "title": "عرض المعلم · العدل في الإسلام · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Justice scales alone label justice. Completed queue/judgement scenario would pre-answer assessed choices; no claim that equal box sizes always mean justice.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L04",
+    "title": "عرض المعلم · ما يحل وما يحرم من الطعام والشراب · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No slaughter procedure diagram or unverified ingredient rulings. Generic food basket does not explain necessity or legal conditions, and sample classification is assessed.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L05",
+    "title": "عرض المعلم · الإمام مسلم رحمه الله · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No invented portrait of Imam Muslim, modern route boundaries or manuscript as original. Book-number diagram would imply a single counting convention without verification.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L06",
+    "title": "عرض المعلم · الأمن والأمان · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No surveillance icon as safety or faith-to-guaranteed-safety arrow. An incident response workflow would solve the assessed initiative and could overstate security guarantees.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L07",
+    "title": "عرض المعلم · سورة الواقعة (1–26) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Day of Judgement shaking, people categories or Paradise. Numbered unseen rankings would literalise revelation rather than teach a worldly relation.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L08",
+    "title": "عرض المعلم · سورة الواقعة (27–56) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No unseen gardens, fire, bodies or reward-size graphics. A two-team comparison would fill assessment and imply visual equivalence of unseen states.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L09",
+    "title": "عرض المعلم · حديث: تبشير وتحذير · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Glad-tidings teaching differs from public-sin summary and quiz. Held source issue; no public-shaming scene or illustration choosing one narration.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L10",
+    "title": "عرض المعلم · حديث: لا… للانتحار · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No means, locations or depictions of suicide. Support-network drawing would need grounded local contacts and could replace the existing appropriate help-seeking guidance with unsupported advice.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T2-L11",
+    "title": "عرض المعلم · المنهج النبوي في تربية الجيل · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Prophet or Companions; an invented acted historic scene is not appropriate. General modern teacher cartoon would label kindness and pre-answer teaching-method task.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L01",
+    "title": "عرض المعلم · سورة الواقعة (57–74) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No first creation or divine power depicted. Farm-water-fire flow could falsely imply causal sequence; original independent arguments and reflection task retained.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L02",
+    "title": "عرض المعلم · أحكام الراء · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A heavy/light sound chart cannot show tongue action reliably. A complete rule tree needs exceptions and would answer recitation task; original listening and oral practice retained.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L03",
+    "title": "عرض المعلم · حديث: لا ضرر ولا ضرار · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A harm/no-harm traffic light would decide jurisprudential cases without nuance. Completed neighbour dispute flow pre-answers assessment; no generic prohibition signs.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L04",
+    "title": "عرض المعلم · السنن الاجتماعية في القرآن الكريم · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No deterministic progress/decline graph implying automatic material success from belief. Social-law examples require historical context; simple arrows would overstate causation.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L05",
+    "title": "عرض المعلم · التسامح الفكري · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No equal-sized beliefs implying equivalence of truth claims. Completed respectful dialogue pre-answers role-play; speech-bubble decoration adds no explanation.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L06",
+    "title": "عرض المعلم · الحكم الشرعي · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Five-ruling ladder would imply equal spacing or move disputed acts into fixed categories. Existing classification exercise sufficient; left-hand example qualification logged, not illustrated.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L07",
+    "title": "عرض المعلم · سورة الواقعة (75–96) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No deathbed, souls, unseen destiny or divine book. Astronomy backdrop would label stars but not establish the cited argument; keep Quran and discussion intact.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L08",
+    "title": "عرض المعلم · حديث: حق المسلم على المسلم · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No funeral body or protected religious figure. Checklist of six rights would duplicate hadith and fill assessment rather than explain a new relation.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L09",
+    "title": "عرض المعلم · آداب السوق والمرافق العامة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No reward counter for unseen million deeds or careless sharp-object demonstration. Market etiquette comic would answer the scenario; grading caveat logged separately.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L10",
+    "title": "عرض المعلم · الإمام أحمد بن حنبل رحمه الله · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No invented portrait or manuscripts claimed original. Book counts disagree internally, so no size/count diagram. Travel map would need historical-route verification.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-N-T3-L11",
+    "title": "عرض المعلم · التقليد الأعمى · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A positive/negative trend tree would answer assessed imitation examples. No celebrity portrait or stereotype; original critical judgement role-play retained.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L01",
+    "title": "Teacher presentation · In the Presence of Allah, His Messenger and the Ruler: Surat Al-Hujurat (1–10) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "News-checking workflow would fill the assessed rumour scenario. No depiction of Prophet, Companions or sacred audience; a phone icon only labels the subject.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L02",
+    "title": "Teacher presentation · The Seven Destructive Sins · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Seven destructive sins are moral categories, not seven object icons. No harmful-magic depiction, battle scene or victim imagery; ordering panels would not explain why they destroy.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L03",
+    "title": "Teacher presentation · The Forgiving (Al-Ghafur) and the Just (Al-Adl) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No divine attributes depicted as a balance, face or forgiveness gauge. Human courtroom metaphor could falsely reduce divine justice to a human procedure.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L04",
+    "title": "Teacher presentation · Exchanging Advice in Islam (Tanasuh) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Advice role-play is already assessed. Completed public/private correction comic would supply the answer; generic speech bubbles add no lesson relationship.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L05",
+    "title": "Teacher presentation · Alms-Giving (Zakat) in Islam · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added forty equal money shares, one gold share. Explains 2.5 percent as one-fortieth, conditional on cash zakah conditions and lunar year, not every asset rate.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "PASS: final pixels inspected,40equalsharescontained,Arabic ihram comparison RTL corrected",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L06",
+    "title": "Teacher presentation · The Safety of Society and the Unity of Its Members: Surat Al-Hujurat (11–13) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No backbiting as literal eating or protected-person scene. Reputation-repair workflow would solve assessed behaviour; multicolour people icons would only label diversity.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L07",
+    "title": "Teacher presentation · The Permissible (Halal) Is Self-Evident · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No fence map presenting all uncertain matters as forbidden. Traffic-light categories would imply a ruling on new cases without evidence and repeat assessed classification.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L08",
+    "title": "Teacher presentation · The Essence of Religion Is Sincere Advice · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Existing custom bilingual teaching has authored visual structure and detailed group tasks. No duplicate generic advice diagram or replacement of original images/layout.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L09",
+    "title": "Teacher presentation · The Pilgrimage (Al-Hajj) · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added comparison of ifrad, qiran and tamattu, specifically continuity/release of ihram, not full hajj timing or route. No sacred figures or invented geography.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "PASS: final pixels inspected,40equalsharescontained,Arabic ihram comparison RTL corrected",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y9-NN-T1-L10",
+    "title": "Teacher presentation · The Farewell Pilgrimage and the Death of the Prophet ﷺ · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Prophet, Companions or death scene. Farewell timeline would require corroborating combined dates and assessment is already chronological; no generic camel procession.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L01",
+    "title": "Teacher presentation · Faith Is a Blessing from Allah: Surat Al-Hujurat (14–18) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No literal heart as iman or ranked believer silhouettes. Islam/iman distinction needs words and context; checkbox diagram could wrongly measure another person's faith.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L02",
+    "title": "Teacher presentation · Society Consists of Both Men and Women · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Hadith teaching and assessment target different passages. Held source issue; no binary costume proxy for men/women or diagram choosing a target.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L03",
+    "title": "Teacher presentation · Justice in Islam · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Justice scales alone label justice. Completed queue/judgement scenario would pre-answer assessed choices; no claim that equal box sizes always mean justice.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L04",
+    "title": "Teacher presentation · Permissible and Forbidden Foods and Drinks · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No slaughter procedure diagram or unverified ingredient rulings. Generic food basket does not explain necessity or legal conditions, and sample classification is assessed.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L05",
+    "title": "Teacher presentation · Imam Muslim · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No invented portrait of Imam Muslim, modern route boundaries or manuscript as original. Book-number diagram would imply a single counting convention without verification.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L06",
+    "title": "Teacher presentation · Safety and Security · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No surveillance icon as safety or faith-to-guaranteed-safety arrow. An incident response workflow would solve the assessed initiative and could overstate security guarantees.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L07",
+    "title": "Teacher presentation · Surat Al-Waqi'ah (1–26) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Day of Judgement shaking, people categories or Paradise. Numbered unseen rankings would literalise revelation rather than teach a worldly relation.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L08",
+    "title": "Teacher presentation · Surat Al-Waqi'ah (27–56) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No unseen gardens, fire, bodies or reward-size graphics. A two-team comparison would fill assessment and imply visual equivalence of unseen states.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L09",
+    "title": "Teacher presentation · Bearing Good News and Warning · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Glad-tidings teaching differs from public-sin summary and quiz. Held source issue; no public-shaming scene or illustration choosing one narration.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L10",
+    "title": "Teacher presentation · No to Suicide · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No means, locations or depictions of suicide. Support-network drawing would need grounded local contacts and could replace the existing appropriate help-seeking guidance with unsupported advice.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T2-L11",
+    "title": "Teacher presentation · The Prophet's Method of Educating a Generation · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No Prophet or Companions; an invented acted historic scene is not appropriate. General modern teacher cartoon would label kindness and pre-answer teaching-method task.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L01",
+    "title": "Teacher presentation · Surat Al-Waqi'ah (57–74) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No first creation or divine power depicted. Farm-water-fire flow could falsely imply causal sequence; original independent arguments and reflection task retained.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L02",
+    "title": "Teacher presentation · Rules of Ra' · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A heavy/light sound chart cannot show tongue action reliably. A complete rule tree needs exceptions and would answer recitation task; original listening and oral practice retained.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L03",
+    "title": "Teacher presentation · There Should Be Neither Harming nor Reciprocating Harm · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A harm/no-harm traffic light would decide jurisprudential cases without nuance. Completed neighbour dispute flow pre-answers assessment; no generic prohibition signs.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L04",
+    "title": "Teacher presentation · Social Laws in the Holy Qur'an · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No deterministic progress/decline graph implying automatic material success from belief. Social-law examples require historical context; simple arrows would overstate causation.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L05",
+    "title": "Teacher presentation · Intellectual Tolerance · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No equal-sized beliefs implying equivalence of truth claims. Completed respectful dialogue pre-answers role-play; speech-bubble decoration adds no explanation.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L06",
+    "title": "Teacher presentation · Sharia Rule · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Five-ruling ladder would imply equal spacing or move disputed acts into fixed categories. Existing classification exercise sufficient; left-hand example qualification logged, not illustrated.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L07",
+    "title": "Teacher presentation · Surat Al-Waqi'ah (75–96) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No deathbed, souls, unseen destiny or divine book. Astronomy backdrop would label stars but not establish the cited argument; keep Quran and discussion intact.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L08",
+    "title": "Teacher presentation · A Muslim's Right on His Brother · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No funeral body or protected religious figure. Checklist of six rights would duplicate hadith and fill assessment rather than explain a new relation.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L09",
+    "title": "Teacher presentation · Etiquette in the Market and Public Utilities · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No reward counter for unseen million deeds or careless sharp-object demonstration. Market etiquette comic would answer the scenario; grading caveat logged separately.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L10",
+    "title": "Teacher presentation · Imam Ahmed ibn Hanbal · Hiraa",
+    "decision": "unchanged",
+    "rationale": "No invented portrait or manuscripts claimed original. Book counts disagree internally, so no size/count diagram. Travel map would need historical-route verification.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y9-NN-T3-L11",
+    "title": "Teacher presentation · Blind Imitation · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A positive/negative trend tree would answer assessed imitation examples. No celebrity portrait or stereotype; original critical judgement role-play retained.",
+    "reviewed_context": [
+      "all teaching sections including custom T1L08",
+      "scene",
+      "learn",
+      "g1-g4 core task and challenge",
+      "critique",
+      "quiz",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  }
+]

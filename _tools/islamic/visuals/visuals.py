@@ -471,3 +471,33 @@ for track in ['N','NN']:
   GRADE5_SPECS[f'IE-Y8-{track}-{suffix}']=(after,fn)
 
 GRADE5_SPECS["IE-Y8-NN-T2-L05"]=("part1",sai_count)
+
+def zakat_share(en):
+ s=txt(800,50,'One fortieth = 2.5%' if en else 'رُبْعُ العُشْرِ = ٢٫٥٪ = ١ مِنْ ٤٠',46)
+ s+=txt(800,110,'Money: when the zakah conditions are met, after a lunar year' if en else 'في النُّقودِ: بَعْدَ تَحَقُّقِ شُروطِ الزَّكاةِ وَمُرورِ حَوْلٍ قَمَرِيٍّ',28)
+ s+=card(140,160,1320,410,BLUE)
+ for i in range(40):
+  row,col=divmod(i,10);x=215+col*120;y=225+row*85;c=GOLD if i==39 else '#DCE9E3'
+  s+=f'<rect x="{x}" y="{y}" width="90" height="56" rx="12" fill="{c}" stroke="{GREEN}" stroke-width="2"/>'
+ s+=txt(800,640,'40 equal shares of the zakatable money' if en else 'أُقَسِّمُ المالَ الزَّكَوِيَّ إِلى ٤٠ جُزْءًا مُتَساوِيًا',34)
+ s+=txt(800,700,'The gold share is the zakah: one share, not 2.5 shares' if en else 'الجُزْءُ الذَّهَبِيُّ هُوَ الزَّكاةُ: جُزْءٌ واحِدٌ مِنْ أَرْبَعينَ',29)
+ return s,'Seeing the zakah share' if en else 'أَرى مِقْدارَ الزَّكاةِ'
+def hajj_types(en):
+ s=txt(800,40,'Compare the rituals and the state of ihram' if en else 'أُقارِنُ النُّسُكَ وَحالَةَ الإِحْرامِ',40)
+ labels=[('Ifrad','الإِفْرادُ'),('Qiran','القِرانُ'),("Tamattu'",'التَّمَتُّعُ')]
+ for i,(a,b) in enumerate(labels):
+  y=105+i*170;c=[BLUE,GREEN,'#9D733D'][i];s+=card(70,y,1460,145,c)+txt(270 if en else 1350,y+83,a if en else b,37,c)
+  x=475 if en else 160
+  if i==0:
+   s+=f'<rect x="{x}" y="{y+32}" width="990" height="82" rx="24" fill="#E3EEF6"/>'+txt(x+495,y+85,'Hajj only' if en else 'الحَجُّ فَقَطْ',36,c)
+  elif i==1:
+   s+=f'<rect x="{x}" y="{y+32}" width="990" height="82" rx="24" fill="#E0EDE7"/>'+txt(x+495,y+85,"'Umrah + Hajj: one ihram" if en else 'عُمْرَةٌ وَحَجٌّ بِإِحْرامٍ واحِدٍ',34,c)
+  else:
+   for xx,ww,fill in [(x,330,'#F3E8D7'),(x+345,300,'#F7F7F2'),(x+660,330,'#F3E8D7')]:s+=f'<rect x="{xx}" y="{y+32}" width="{ww}" height="82" rx="24" fill="{fill}" stroke="{c}" stroke-width="2"/>'
+   s+=txt(x+165,y+84,"'Umrah" if en else 'حَجٌّ',32,c)+txt(x+495,y+82,'Exit ihram' if en else 'تَحَلُّلٌ',29,c)+txt(x+825,y+84,'Hajj' if en else 'عُمْرَةٌ',32,c)
+ s+=txt(800,650,"Tamattu': 'Umrah, release, then a new ihram for Hajj" if en else 'التَّمَتُّعُ: عُمْرَةٌ، ثُمَّ تَحَلُّلٌ، ثُمَّ إِحْرامٌ جَديدٌ لِلْحَجِّ',31)
+ s+=txt(800,715,'A comparison of ihram, not the full sequence or duration of the rites' if en else 'مُقارَنَةٌ لِلْإِحْرامِ، لا لِكُلِّ المَناسِكِ وَلا لِمُدَدِها',25)
+ return s,'Three types of Hajj' if en else 'أَنْواعُ الحَجِّ الثَّلاثَةُ'
+for track in ['N','NN']:
+ for suffix,fn,after in [('T1-L05',zakat_share,'part1'),('T1-L09',hajj_types,'part2')]:
+  GRADE5_SPECS[f'IE-Y9-{track}-{suffix}']=(after,fn)
