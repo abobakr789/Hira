@@ -1,0 +1,3076 @@
+[
+  {
+    "code": "SS-Y2-T1-L01",
+    "title": "عرض المعلم · كَوْكَبُ الْأَرْضِ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Earth shape and components. Existing globe imagery and matching tasks already make land, water and air concrete; no extra generic globe added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T1-L02",
+    "title": "عرض المعلم · كَوْكَبُ الْأَرْضِ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Daily rotation and day/night. Corrected misleading moon visibility claims and aligned checks; preserve the existing rotation illustration.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L02/teacher-deck.html",
+        "views": [
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L02/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L02/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L02/worksheets-A4.html",
+        "views": [
+          0,
+          1
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L02/teacher-deck.html",
+        "views": [
+          "check",
+          "exit",
+          "model",
+          "models",
+          "quick",
+          "story",
+          "together",
+          "vocab"
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L02/pod-sheet.html",
+        "views": [
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L03",
+    "title": "عرض المعلم · كَوْكَبُ الْأَرْضِ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Seasons. Qualified the orbit explanation with axial tilt throughout instructional and assessment wording; existing seasons imagery retained.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-closure-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L03/teacher-deck.html",
+        "views": [
+          "cover",
+          "goal"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L03/teacher-deck.html",
+        "views": [
+          "truefalse",
+          "exit",
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L03/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L03/teacher-deck.html",
+        "views": [
+          "model",
+          "models"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L04",
+    "title": "عرض المعلم · الْقارّاتُ وَالْمُحيطاتُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Oceans, seas, gulfs and straits. Corrected strait definition and ocean-count assessment consistency, including copied handwriting line; existing water photos retained.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L04/teacher-deck.html",
+        "views": [
+          "vocab",
+          "g4",
+          "models"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L04/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L04/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L04/worksheets-A4.html",
+        "views": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L04/pod-sheet.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L04/group-work.html",
+        "views": [
+          1
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L04/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L04/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L04/teacher-deck.html",
+        "views": [
+          "model",
+          "models",
+          "story"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L05",
+    "title": "عرض المعلم · الْقارّاتُ وَالْمُحيطاتُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Continents. Existing labelled map and continent comparison tasks carry the spatial concept; a second abstract map would duplicate them.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L05/teacher-deck.html",
+        "views": [
+          "quick"
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L05/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L05/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L05/teacher-deck.html",
+        "views": [
+          "exit",
+          "g1",
+          "models",
+          "story"
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L05/group-work.html",
+        "views": [
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L06",
+    "title": "عرض المعلم · الْقارّاتُ وَالْمُحيطاتُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Ocean coverage and conservation. Existing Earth/water evidence supports the question; preserve discussion and avoid decorative waves.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L06/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L06/worksheets-A4.html",
+        "views": [
+          2
+        ]
+      },
+      {
+        "manifest": "grade2-science-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L06/teacher-deck.html",
+        "views": [
+          "check",
+          "exit",
+          "story",
+          "vocab"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L07",
+    "title": "عرض المعلم · مَوْقِعُ بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "UAE geographic location. Corrected borders and region descriptions where needed; existing location maps are the useful visual.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L07/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L07/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L07/teacher-deck.html",
+        "views": [
+          "story",
+          "model",
+          "models",
+          "mirror"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L08",
+    "title": "عرض المعلم · مَوْقِعُ بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "UAE landforms. Preserve mountain, plain and desert comparisons; qualify natural-feature wording rather than add unrelated scenery.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L08/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L08/pod-sheet.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L08/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L08/teacher-deck.html",
+        "views": [
+          "vocab",
+          "story",
+          "groups",
+          "g2",
+          "models",
+          "exit"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L08/worksheets-A4.html",
+        "views": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L09",
+    "title": "عرض المعلم · مَوْقِعُ بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "UAE emirates and map dialogue. Existing map identification and named places teach location; retain rather than replace the map.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L09/teacher-deck.html",
+        "views": [
+          "check"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L10",
+    "title": "عرض المعلم · بِلادي قَبْلَ الِاتِّحادِ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Life before Union. Existing family dialogue and historical photographs support comparison; no invented reconstruction added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T1-L11",
+    "title": "عرض المعلم · بِلادي قَبْلَ الِاتِّحادِ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Kuttab education and Quran completion. Corrected the difference between completing the Quran and a classroom celebration for one surah; keep source wording and photos.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L11/teacher-deck.html",
+        "views": [
+          "home"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L11/teacher-deck.html",
+        "views": [
+          "vocab",
+          "g3",
+          "levels",
+          "quick"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L11/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L11/group-work.html",
+        "views": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L12",
+    "title": "عرض المعلم · بِلادي قَبْلَ الِاتِّحادِ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Traditional occupations. Existing occupational images support matching work and products; no generic profession symbols added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L12/teacher-deck.html",
+        "views": [
+          "exit"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L13",
+    "title": "عرض المعلم · اتِّحادُ بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Union chronology. Distinguish the 18 July 1971 signing from 2 December state formation and the observance introduced in 2024; align vocabulary and activities.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L13/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L13/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L13/worksheets-A4.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L13/teacher-deck.html",
+        "views": [
+          "story",
+          "model",
+          "models",
+          "watani"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L13/teacher-deck.html",
+        "views": [
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L13/teacher-deck.html",
+        "views": [
+          "vocab",
+          "groups"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L13/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L14",
+    "title": "عرض المعلم · اتِّحادُ بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Union leaders dialogue. Preserve the original dialogue and leaders photographs; no fictional scene reconstruction.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T1-L15",
+    "title": "عرض المعلم · اتِّحادُ بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "UAE federation. Existing emirate comparison and flag materials support the goal; preserve source material.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T1-L16",
+    "title": "عرض المعلم · بُطولَةٌ وَفِداءٌ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "National service and geography. Existing aerial and national photographs support the reading; avoid turning figurative heroism into invented history.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L16/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T1-L16/teacher-deck.html",
+        "views": [
+          "story"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T1-L17",
+    "title": "عرض المعلم · بُطولَةٌ وَفِداءٌ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Commemoration story. Preserve the narrative and memorial context; no violence depiction or extra historical claim added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T1-L18",
+    "title": "عرض المعلم · بُطولَةٌ وَفِداءٌ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Flag story. Existing flag image and design task are directly relevant; preserve source and avoid a second decorative flag.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T2-L01",
+    "title": "عرض المعلم · الْمِياهُ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Wadis and desalination. Distinguish evaporation observation from collecting desalinated water; align group challenge and level tasks.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L01/teacher-deck.html",
+        "views": [
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L01/teacher-deck.html",
+        "views": [
+          "g3",
+          "levels"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L01/group-work.html",
+        "views": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T2-L02",
+    "title": "عرض المعلم · الْمِياهُ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Groundwater and aflaj. Qualify falaj classification and water-source generalisations; existing irrigation evidence retained.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L02/teacher-deck.html",
+        "views": [
+          "model",
+          "watani"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T2-L03",
+    "title": "عرض المعلم · الْمِياهُ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Water challenges and conservation. Existing scarcity examples and household choices support the causal relationship; no generic water icon added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T2-L04",
+    "title": "عرض المعلم · الطّاقَةُ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Energy sources. Existing source comparisons and everyday examples support the renewable and non-renewable distinction; no extra generic energy panel added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T2-L05",
+    "title": "عرض المعلم · الطّاقَةُ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Golf-cart energy story. Align the question with the described vehicle and keep examples within the source; no generic self-driving car visual.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L05/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L05/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L05/teacher-deck.html",
+        "views": [
+          "story",
+          "model",
+          "models",
+          "watani",
+          "quick",
+          "exit",
+          "mirror"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T2-L06",
+    "title": "عرض المعلم · الطّاقَةُ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Masdar. Qualify sustainable-city claims and keep descriptions tied to verified features; original city material retained.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L06/teacher-deck.html",
+        "views": [
+          "hook"
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L06/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L06/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L06/worksheets-A4.html",
+        "views": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L06/teacher-deck.html",
+        "views": [
+          "vocab",
+          "story",
+          "model",
+          "check",
+          "models",
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L06/pod-sheet.html",
+        "views": [
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T2-L07",
+    "title": "عرض المعلم · ثَرَواتُ بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Agriculture and crops. Preserve the dialogue and crop evidence; avoid unsupported claims of universal local production.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L07/teacher-deck.html",
+        "views": [
+          "retrieve",
+          "watani"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T2-L08",
+    "title": "عرض المعلم · ثَرَواتُ بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Animal resources. Existing livestock and resource comparisons make the classification clear; preserve photos.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T2-L09",
+    "title": "عرض المعلم · ثَرَواتُ بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Fishing and marine resources. Preserve the grandfather dialogue and fishing imagery; no decorative boat added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L09/teacher-deck.html",
+        "views": [
+          "watani"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T2-L10",
+    "title": "عرض المعلم · الْباني الْمُؤَسِّسُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Sheikh Zayed upbringing. Retain the original reading, visibly disclose conflicting official birthplace accounts on dependent slides and all print pages, and replace cactus-bearing desert symbols with dunes.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-closure-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L10/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-closure-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L10/group-work.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-closure-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L10/pod-sheet.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-closure-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L10/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-closure-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L10/teacher-deck.html",
+        "views": [
+          "cover",
+          "goal",
+          "progress",
+          "vocab",
+          "story",
+          "model",
+          "together",
+          "check",
+          "groups",
+          "g1",
+          "models",
+          "levels",
+          "quick",
+          "progress2",
+          "mirror",
+          "home",
+          "g2"
+        ]
+      },
+      {
+        "manifest": "grade2-closure-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L10/worksheets-A4.html",
+        "views": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T2-L11",
+    "title": "عرض المعلم · الْباني الْمُؤَسِّسُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Sheikh Zayed achievements dialogue. Correct role and date wording without inventing new biographical scenes; source photographs retained.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L11/teacher-deck.html",
+        "views": [
+          "model",
+          "watani"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T2-L12",
+    "title": "عرض المعلم · الْباني الْمُؤَسِّسُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Sheikh Zayed national development. Reviewed existing achievement comparisons and reading; no additional illustration or correction selected.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T2-L13",
+    "title": "عرض المعلم · هُوِيَّتي الْوَطَنِيَّةُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "National identity and heritage news. Preserve attributed dialogue and cultural evidence; no abstract identity symbol added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L13/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T2-L13/teacher-deck.html",
+        "views": [
+          "story"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T2-L14",
+    "title": "عرض المعلم · هُوِيَّتي الْوَطَنِيَّةُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Customs and traditions. Existing concrete practices and discussion prompts support the goal; preserve rather than add generic hospitality symbols.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T2-L15",
+    "title": "عرض المعلم · هُوِيَّتي الْوَطَنِيَّةُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Popular games. Existing game activities and photos are directly useful; avoid a generic sport substitute.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T2-L16",
+    "title": "عرض المعلم · وَطَني مَسْؤولِيَّتي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Responsibility at school. Preserve story choices and behavioral discussion rather than illustrate an answer before discussion.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T2-L17",
+    "title": "عرض المعلم · وَطَني مَسْؤولِيَّتي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Community responsibility outdoors. Existing story scenario supports conservation choices; no unrelated outdoor image added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T2-L18",
+    "title": "عرض المعلم · وَطَني مَسْؤولِيَّتي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Desert responsibility. Preserve the narrative and sand-dune context; no cactus or invented wildlife added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T3-L01",
+    "title": "عرض المعلم · السِّلَعُ وَالْخَدَماتُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Goods. Existing tangible objects support the definition and classification; no extra symbolic shopping graphic added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T3-L02",
+    "title": "عرض المعلم · السِّلَعُ وَالْخَدَماتُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Services. Qualify free government education by eligible categories and admission rules; align the group card.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
+        "views": [
+          "model"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
+        "views": [
+          "check",
+          "exit",
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L02/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L02/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L02/worksheets-A4.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
+        "views": [
+          "story",
+          "truefalse",
+          "models",
+          "vocab"
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L02/pod-sheet.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
+        "views": [
+          "g3"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L02/group-work.html",
+        "views": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L03",
+    "title": "عرض المعلم · السِّلَعُ وَالْخَدَماتُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Public services dialogue. Remove unconditional free-healthcare assumptions and align cover and objective with eligibility and insurance rules.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-closure-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L03/teacher-deck.html",
+        "views": [
+          "cover",
+          "goal"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L03/teacher-deck.html",
+        "views": [
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L03/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L03/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L03/teacher-deck.html",
+        "views": [
+          "story",
+          "models",
+          "model"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L04",
+    "title": "عرض المعلم · الْإِنْتاجُ وَالِاسْتِهْلاكُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Production. Existing producer/output examples are more useful than a generic factory symbol; preserve them.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L04/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L04/teacher-deck.html",
+        "views": [
+          "model",
+          "models",
+          "quick"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L05",
+    "title": "عرض المعلم · الْإِنْتاجُ وَالِاسْتِهْلاكُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Consumption. Existing consumption examples and choices support the definition; no decorative retail image added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L05/teacher-deck.html",
+        "views": [
+          "model"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L06",
+    "title": "عرض المعلم · الْإِنْتاجُ وَالِاسْتِهْلاكُ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Responsible consumption dialogue. Preserve story-based decisions about avoiding waste; do not reveal the behavioral answer with a new illustration.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L06/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L06/teacher-deck.html",
+        "views": [
+          "story",
+          "model",
+          "models"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L07",
+    "title": "عرض المعلم · صُنِعَ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Shipbuilding. Existing carpenter and boat material supports production and heritage; no unrelated modern ship added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L07/teacher-deck.html",
+        "views": [
+          "watani"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L08",
+    "title": "عرض المعلم · صُنِعَ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Traditional crafts. Existing tools and craft outputs support matching; preserve original craft images.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T3-L09",
+    "title": "عرض المعلم · صُنِعَ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Local products. Preserve the shopping dialogue and product evidence; no unsupported origin labels added.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T3-L10",
+    "title": "عرض المعلم · الْمَسْكَنُ الْإِماراتِيُّ بَيْنَ الْماضي وَالْحاضِرِ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Traditional homes. Reviewed existing material descriptions and comparison photos; no additional illustration or correction selected.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T3-L11",
+    "title": "عرض المعلم · الْمَسْكَنُ الْإِماراتِيُّ بَيْنَ الْماضي وَالْحاضِرِ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Housing development. Remove the implication that stone houses began only after Union, including the learning objective; preserve traditional building evidence.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-closure-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L11/teacher-deck.html",
+        "views": [
+          "goal"
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L11/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L11/teacher-deck.html",
+        "views": [
+          "story",
+          "model"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L11/teacher-deck.html",
+        "views": [
+          "mirror"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L12",
+    "title": "عرض المعلم · الْمَسْكَنُ الْإِماراتِيُّ بَيْنَ الْماضي وَالْحاضِرِ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Modern homes. Existing comparison tasks teach change and continuity without imposing a single linear housing sequence.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L12/pod-sheet.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L12/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L12/teacher-deck.html",
+        "views": [
+          "vocab",
+          "story",
+          "together",
+          "check",
+          "truefalse",
+          "quick",
+          "exit"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L12/worksheets-A4.html",
+        "views": [
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L13",
+    "title": "عرض المعلم · شِهابُ الدّينِ أَحْمَدُ بْنُ ماجِدٍ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Ibn Majid family dialogue. Preserve attributed historical reading and distinguish what the passage says from independently established fact.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y2-T3-L14",
+    "title": "عرض المعلم · شِهابُ الدّينِ أَحْمَدُ بْنُ ماجِدٍ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Julfar and Ras Al Khaimah. Label the naming tale as a story rather than a verified origin and align the group challenge.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L14/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L14/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L14/teacher-deck.html",
+        "views": [
+          "goal",
+          "progress",
+          "story",
+          "model",
+          "groups",
+          "models",
+          "watani",
+          "quick",
+          "progress2"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L14/teacher-deck.html",
+        "views": [
+          "hook",
+          "home"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L14/teacher-deck.html",
+        "views": [
+          "g3"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L14/group-work.html",
+        "views": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L15",
+    "title": "عرض المعلم · شِهابُ الدّينِ أَحْمَدُ بْنُ ماجِدٍ · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Ibn Majid navigation. Keep maritime knowledge and writings grounded, replace an unrelated aircraft question in the reflection and group task.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
+        "views": [
+          "model",
+          "models"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/group-work.html",
+        "views": [
+          1
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/pod-sheet.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
+        "views": [
+          "cover",
+          "hook",
+          "goal",
+          "check",
+          "truefalse",
+          "quick"
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/worksheets-A4.html",
+        "views": [
+          0,
+          3
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
+        "views": [
+          "story",
+          "models",
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
+        "views": [
+          "g4",
+          "mirror"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L16",
+    "title": "عرض المعلم · الطَّيَرانُ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Air travel dialogue. Attribute the historical flight account rather than assert an unqualified first-flight claim; align group and reflection prompts.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L16/teacher-deck.html",
+        "views": [
+          "retrieve",
+          "watani"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L16/teacher-deck.html",
+        "views": [
+          "g4",
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-final-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L16/group-work.html",
+        "views": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L17",
+    "title": "عرض المعلم · الطَّيَرانُ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "History of flight. Qualify the Ibn Firnas account and avoid presenting disputed flight details as established fact.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L17/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L17/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L17/teacher-deck.html",
+        "views": [
+          "watani",
+          "quick",
+          "home"
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L17/answer-key.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L17/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L17/worksheets-A4.html",
+        "views": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L17/teacher-deck.html",
+        "views": [
+          "cover",
+          "goal",
+          "progress",
+          "vocab",
+          "story",
+          "model",
+          "check",
+          "groups",
+          "models",
+          "exit",
+          "progress2",
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L17/pod-sheet.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-followup-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L17/group-work.html",
+        "views": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y2-T3-L18",
+    "title": "عرض المعلم · الطَّيَرانُ في بِلادي · Hiraa",
+    "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
+    "rationale": "Emirati aviation. Existing aviation images and travel comparisons support the lesson; avoid an unrelated aircraft or unsupported airline superlative.",
+    "sections_inspected": [
+      "cover",
+      "retrieve",
+      "hook",
+      "goal",
+      "journey",
+      "progress",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "models",
+      "feedback",
+      "levels",
+      "value",
+      "watani",
+      "quick",
+      "exit",
+      "progress2",
+      "mirror",
+      "home"
+    ],
+    "changes": [
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L18/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L18/worksheets-A4.html",
+        "views": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L18/teacher-deck.html",
+        "views": [
+          "story",
+          "model",
+          "models",
+          "mirror"
+        ]
+      },
+      {
+        "manifest": "grade2-accuracy-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L18/pod-sheet.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade2-propagation-changes.json",
+        "file": "resources/ssd/SS-Y2-T3-L18/teacher-deck.html",
+        "views": [
+          "retrieve"
+        ]
+      }
+    ]
+  }
+]

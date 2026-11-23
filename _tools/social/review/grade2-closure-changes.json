@@ -6,7 +6,7 @@
       "goal"
     ],
     "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
-    "live_qa": "pending",
+    "live_qa": "PASS: all 22 changed slides and 8 print pages inspected live; 9/9 HTML byte-exact. Four print resources receive final dune-symbol consistency follow-up.",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -15,7 +15,7 @@
       0
     ],
     "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
-    "live_qa": "pending",
+    "live_qa": "PASS: all 22 changed slides and 8 print pages inspected live; 9/9 HTML byte-exact. Four print resources receive final dune-symbol consistency follow-up.",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -24,7 +24,7 @@
       0
     ],
     "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
-    "live_qa": "pending",
+    "live_qa": "PASS: all 22 changed slides and 8 print pages inspected live; 9/9 HTML byte-exact. Four print resources receive final dune-symbol consistency follow-up.",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -33,7 +33,7 @@
       0
     ],
     "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
-    "live_qa": "pending",
+    "live_qa": "PASS: all 22 changed slides and 8 print pages inspected live; 9/9 HTML byte-exact. Four print resources receive final dune-symbol consistency follow-up.",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -42,7 +42,7 @@
       0
     ],
     "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
-    "live_qa": "pending",
+    "live_qa": "PASS: all 22 changed slides and 8 print pages inspected live; 9/9 HTML byte-exact. Four print resources receive final dune-symbol consistency follow-up.",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -67,7 +67,7 @@
       "g2"
     ],
     "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
-    "live_qa": "pending",
+    "live_qa": "PASS: all 22 changed slides and 8 print pages inspected live; 9/9 HTML byte-exact. Four print resources receive final dune-symbol consistency follow-up.",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -79,7 +79,7 @@
       3
     ],
     "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
-    "live_qa": "pending",
+    "live_qa": "PASS: all 22 changed slides and 8 print pages inspected live; 9/9 HTML byte-exact. Four print resources receive final dune-symbol consistency follow-up.",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -89,7 +89,7 @@
       "goal"
     ],
     "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
-    "live_qa": "pending",
+    "live_qa": "PASS: all 22 changed slides and 8 print pages inspected live; 9/9 HTML byte-exact. Four print resources receive final dune-symbol consistency follow-up.",
     "media_reference_check": "PASS: original media refs unchanged"
   },
   {
@@ -98,7 +98,7 @@
       "goal"
     ],
     "local_qa": "PASS: every changed view pixel-inspected, including dune replacement, note placement and fully revealed story",
-    "live_qa": "pending",
+    "live_qa": "PASS: all 22 changed slides and 8 print pages inspected live; 9/9 HTML byte-exact. Four print resources receive final dune-symbol consistency follow-up.",
     "media_reference_check": "PASS: original media refs unchanged"
   }
 ]
