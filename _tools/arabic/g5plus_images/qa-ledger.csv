@@ -42,3 +42,15 @@ AR-Y6-NN-T2-L06,s5,PASS,Individually inspected render; no overlap; literal capti
 AR-Y6-NN-T3-L01,s5,PASS,Individually inspected render; no overlap; literal captions; non-target markup/media byte-identical
 AR-Y6-NN-T3-L02,s5,PASS,Individually inspected render; no overlap; literal captions; non-target markup/media byte-identical
 AR-Y6-NN-T3-L05,s5,PASS,Individually inspected render; no overlap; literal captions; non-target markup/media byte-identical
+AR-Y7-NN-T1-L01,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T1-L02,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T1-L06,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T1-L07,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T1-L09,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T2-L01,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T2-L04,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T2-L05,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T3-L02,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T3-L03,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T3-L04,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"
+AR-Y7-NN-T3-L06,s5,PASS,"Individual 1920x1080 render inspected: readable text and captions, no overlap; literal vocabulary, assessments retained"

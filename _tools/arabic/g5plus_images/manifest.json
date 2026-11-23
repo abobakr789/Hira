@@ -617,5 +617,157 @@
     "كُرَةُ الْقَدَمِ"
    ]
   ]
+ },
+ "AR-Y7-NN-T1-L01": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "arid_mountains",
+    "جِبَالٌ"
+   ],
+   [
+    "boat",
+    "قَارِبٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T1-L02": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "broom",
+    "تَنْظِيفٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T1-L06": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "mobile_phone",
+    "هَاتِفٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T1-L07": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "mobile_phone",
+    "هَاتِفٌ"
+   ],
+   [
+    "alarm_clock",
+    "مُنَبِّهٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T1-L09": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "laptop",
+    "حَاسُوبٌ مَحْمُولٌ"
+   ],
+   [
+    "mobile_phone",
+    "هَاتِفٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T2-L01": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "tent",
+    "خَيْمَةٌ"
+   ],
+   [
+    "flashlight",
+    "مِصْبَاحٌ يَدَوِيٌّ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T2-L04": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "light_bulb",
+    "مِصْبَاحٌ كَهْرَبَائِيٌّ"
+   ],
+   [
+    "telephone",
+    "هَاتِفٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T2-L05": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "camel",
+    "جَمَلٌ"
+   ],
+   [
+    "airplane",
+    "طَائِرَةٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T3-L02": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "crescent_moon",
+    "هِلَالٌ"
+   ],
+   [
+    "full_moon",
+    "بَدْرٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T3-L03": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "sunrise",
+    "شُرُوقٌ"
+   ],
+   [
+    "sunset",
+    "غُرُوبٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T3-L04": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "volcano",
+    "بُرْكَانٌ"
+   ]
+  ]
+ },
+ "AR-Y7-NN-T3-L06": {
+  "slide": "s5",
+  "family": "text",
+  "items": [
+   [
+    "no_litter",
+    "لَا نُلْقِي النُّفَايَاتِ"
+   ]
+  ]
  }
 }
