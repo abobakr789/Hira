@@ -2,6 +2,13 @@
 # called from g1html/shell.py after images.py so regeneration restores it. Photo credits: art/photos/credits.json.
 import re
 SPECS={
+ 'AR-Y10-N-T1-L09':dict(
+  title='حفظ البذور: مثال من سفالبارد',time='⏱ 2 دقيقتان',
+  img='seed-vault.jpg',alt='عامل أمام رفوف من صناديق عينات البذور داخل قبو سفالبارد',
+  cap='صناديق عينات البذور على رفوف قبو سفالبارد',
+  credit='الصورة: <bdi>Dag Endresen / NordGen</bdi> · ملكية عامة · ويكيميديا كومنز',
+  aside='مثال بصري إضافي، لا نفترض أنه الموقع المذكور في النص. ماذا تكشف الصناديق والملصقات والرفوف عن حفظ العينات وتنظيمها؟ وما الذي لا يمكن معرفته من الصورة وحدها؟'),
+
  'AR-Y8-N-T2-L05':dict(
   title='هكذا تبدو السفينة الخشبية',time='⏱ 2 دقيقتان',
   img='dhow.jpg',alt='سفينة خشبية تقليدية الشكل راسية عند رصيف على خور دبي',

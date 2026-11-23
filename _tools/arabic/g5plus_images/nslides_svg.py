@@ -47,14 +47,12 @@ def pronouns():
             out+=f'<text x="{x+210}" y="{y}" text-anchor="middle" font-size="{size}" fill="{col}" {F}>{txt}</text>'
     return out,'تفكيك الكلمة','كلمة واحدة: فعل وضميران','ابدؤوا بالكلمة كاملة، ثم تتبّعوا الفروع. من كتب؟ وما الشيء الذي كُتب؟ اربطوا المعنى بالمحلّ الإعرابي لكل ضمير.','1700 620'
 def flashback():
-    out=box(1120,50,500,160,'#2563EB','الحاضر','رائحة الزعتر')
-    out+=box(100,50,500,160,'#2563EB','الحاضر','تستمرّ لحظة السرد')
-    out+=box(610,365,500,160,'#7C3AED','الماضي','ذكرى الجدّة')
-    out+='<path d="M1350 225 C1350 330 1210 430 1135 440" fill="none" stroke="#7C3AED" stroke-width="8"/><path d="M1143 421L1121 443L1153 452Z" fill="#7C3AED"/>'
-    out+='<path d="M585 440 C420 400 340 320 340 235" fill="none" stroke="#2563EB" stroke-width="8"/><path d="M323 249L340 224L357 249Z" fill="#2563EB"/>'
-    out+=f'<text x="1530" y="375" text-anchor="middle" font-size="36" fill="#7C3AED" {F}>استرجاع</text>'
-    out+=f'<text x="200" y="370" text-anchor="middle" font-size="36" fill="#2563EB" {F}>عودة إلى الحاضر</text>'
-    return out,'الاسترجاع','الزمن في زعتر وزنجبيل','الرسم يوضح تقنية الاسترجاع المذكورة في الدرس: مثير حسي في الحاضر يستدعي ذكرى. العودة إلى الحاضر جزء من نموذج التقنية، وليست تلخيصًا لتفاصيل القصة.','1700 620'
+    out=box(1040,150,570,240,'#2563EB','الحاضر','رائحة الزعتر')
+    out+=box(90,150,570,240,'#7C3AED','الماضي','ذكرى الجدّة')
+    out+='<path d="M1010 270H700" fill="none" stroke="#7C3AED" stroke-width="8"/><path d="M720 250L686 270L720 290Z" fill="#7C3AED"/>'
+    out+=f'<text x="850" y="220" text-anchor="middle" font-size="36" fill="#7C3AED" {F}>استرجاع</text>'
+    out+=f'<text x="850" y="520" text-anchor="middle" font-size="34" fill="#334155" {F}>مثير حسي في الحاضر يستدعي ذكرى في الماضي</text>'
+    return out,'الاسترجاع','الاسترجاع في زعتر وزنجبيل','هذا هو المثال المذكور في الشريحة السابقة: رائحة الزعتر في الحاضر تستدعي ذكرى الجدّة في الماضي. ما أثر هذه العودة في فهم الشخصية؟','1700 620'
 def iceberg():
     out='<rect x="80" y="220" width="730" height="350" rx="20" fill="#E0F2FE"/>'
     out+='<path d="M220 220L445 50L650 220L720 360L600 520L360 550L170 395Z" fill="#fff" stroke="#2563EB" stroke-width="5"/>'
@@ -64,7 +62,34 @@ def iceberg():
     out+='<path d="M650 130H900 M710 420H900" stroke="#64748B" stroke-width="5" stroke-dasharray="12 8"/>'
     out+=f'<text x="850" y="610" text-anchor="middle" font-size="28" fill="#64748B" {F}>رسم مجازي، لا يمثّل نسبًا مقاسة</text>'
     return out,'نظرية جبل الجليد','قليل يقال، وكثير يفهم','ميّزوا بين الكلمات الظاهرة والمعنى الذي يستنتجه القارئ. الرسم نموذج لأسلوب همنغواي، وليس وصفًا لحدث في القصة أو قياسًا علميًّا لجبل جليدي.','1700 640'
-SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg}
+def holography():
+    out='<rect x="80" y="240" width="170" height="80" rx="14" fill="#DC2626"/>'
+    out+=f'<text x="165" y="220" text-anchor="middle" font-size="34" fill="#334155" {F}>ليزر</text>'
+    out+='<path d="M250 280H420 M420 280H1130" stroke="#DC2626" stroke-width="9" fill="none"/>'
+    out+='<path d="M385 245L455 315" stroke="#2563EB" stroke-width="15"/>'
+    out+=f'<text x="425" y="180" text-anchor="middle" font-size="32" fill="#2563EB" {F}>مقسّم الحزمة</text>'
+    out+='<circle cx="1210" cy="280" r="75" fill="#FDE68A" stroke="#D97706" stroke-width="5"/>'
+    out+=f'<text x="1210" y="292" text-anchor="middle" font-size="36" fill="#334155" {F}>الجسم</text>'
+    out+='<rect x="610" y="530" width="570" height="22" rx="8" fill="#102A4C"/>'
+    out+='<path d="M420 290L740 530L1000 530Z" fill="#DC2626" opacity=".12"/><path d="M1190 355L740 530L1000 530Z" fill="#16A34A" opacity=".12"/>'
+    out+='<path d="M420 290L870 522" fill="none" stroke="#DC2626" stroke-width="7"/>'
+    out+='<path d="M1190 355L870 522" fill="none" stroke="#16A34A" stroke-width="7"/>'
+    out+=f'<text x="460" y="430" text-anchor="middle" font-size="32" fill="#DC2626" {F}>ضوء مرجعي</text>'
+    out+=f'<text x="1310" y="440" text-anchor="middle" font-size="32" fill="#16A34A" {F}>ضوء منعكس عن الجسم</text>'
+    out+=f'<text x="900" y="600" text-anchor="middle" font-size="34" fill="#102A4C" {F}>لوح التسجيل: يسجّل نمط تداخل الضوءين</text>'
+    out+=f'<text x="850" y="70" text-anchor="middle" font-size="32" fill="#64748B" {F}>مخطط مبسّط للتسجيل الهولوغرافي، حُذفت منه العدسات</text>'
+    return out,'تسجيل الهولوجرام','كيف يسجّل الهولوجرام؟','تلتقي الإضاءة المرجعية والضوء المنعكس عن الجسم على مادة التسجيل، فيُسجّل نمط التداخل. هذا مخطط مبدأ مبسّط، لا صورة لعرض عائم. المصدر العلمي: HyperPhysics، جامعة ولاية جورجيا.','1700 640'
+def opposites():
+    out=f'<text x="850" y="75" text-anchor="middle" font-size="40" fill="#102A4C" {F}>معنيان يقابلهما ضدّان بالترتيب</text>'
+    out+=box(1030,150,530,150,'#2563EB','فليضحكوا','')
+    out+=box(140,150,530,150,'#2563EB','وليبكوا','')
+    out+=box(1030,390,530,150,'#7C3AED','قليلًا','')
+    out+=box(140,390,530,150,'#7C3AED','كثيرًا','')
+    out+='<path d="M1000 225H700 M1000 465H700" fill="none" stroke="#64748B" stroke-width="5"/>'
+    out+=f'<text x="850" y="210" text-anchor="middle" font-size="32" fill="#2563EB" {F}>ضحك / بكاء</text>'
+    out+=f'<text x="850" y="450" text-anchor="middle" font-size="32" fill="#7C3AED" {F}>قلّة / كثرة</text>'
+    return out,'المقابلة','المقابلة: زوجان من المعاني المتضادّة','هذه كلمات المثال القرآني المذكور في الشريحة السابقة، موزّعة للتحليل وليست نصّ الآية كاملًا. نصل كل معنى بضدّه، ثم نميّز المقابلة من طباق يقوم على زوج واحد.','1700 620'
+SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites}
 def apply_html(code,t):
  fn=SPECS.get(code)
  if not fn or 'id="s6d"' in t: return t

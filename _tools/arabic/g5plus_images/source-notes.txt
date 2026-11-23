@@ -17,3 +17,7 @@ Y10-N-T3-L08 and Y12-N-T3-L06: hand-drawn SVG diagrams (original work, no extern
 
 Y10-N-T3-L14 / T2-L05 / T3-L05: original explanatory SVG diagrams using existing model examples; no external assets.
 Y12-N-T3-L06: carbon atoms in a hexagonal one-atom layer verified at https://www.nobelprize.org/prizes/physics/2010/popular-information/ .
+
+Y10-N-T1-L08: original simplified optical recording diagram. Reference and object light interfere at film: http://hyperphysics.phy-astr.gsu.edu/hbase/Optalb.html ; consulted public-domain optical schematic https://commons.wikimedia.org/wiki/File:Hologramm_aufnahme.svg . No source image copied.
+Y10-N-T1-L09: public-domain storage photo, Dag Endresen / NordGen, https://commons.wikimedia.org/wiki/File:Storage_containers_in_Svalbard_Global_Seed_Vault_01.jpg ; resized, no crop, EXIF removed.
+Y10-N-T2-L21: original aligned word-pair diagram using source-deck example.

@@ -30,5 +30,12 @@
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "modification": "Resized to 1400 px wide, no crop."
+  },
+  {
+    "asset": "seed-vault.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Storage_containers_in_Svalbard_Global_Seed_Vault_01.jpg",
+    "author": "Dag Endresen / NordGen",
+    "license": "Public domain",
+    "modification": "Resized; no crop; EXIF removed."
   }
 ]
