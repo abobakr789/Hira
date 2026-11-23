@@ -1,0 +1,93 @@
+[
+  {
+    "file": "resources/ie/IE-Y7-N-T2-L02/teacher-deck.html",
+    "change": "Visible class fragment only removed; every other byte exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-N-T3-L06/teacher-deck.html",
+    "change": "Visible class fragment only removed; every other byte exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-NN-T2-L02/teacher-deck.html",
+    "change": "Visible class fragment only removed; every other byte exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-NN-T3-L06/teacher-deck.html",
+    "change": "Visible class fragment only removed; every other byte exact",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-N-T2-L11/teacher-deck.html",
+    "change": "Stay-duration prose scoped consistently to the existing Maliki-school teaching, four complete days excluding arrival/departure and twenty prayers. Other text including all quotations exact. Approximate distance text left unchanged.",
+    "source": [
+      "https://shamela.ws/new.php/book/384/1318",
+      "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-N-T2-L11/sources-concept-card.html",
+    "change": "Stay-duration prose scoped consistently to the existing Maliki-school teaching, four complete days excluding arrival/departure and twenty prayers. Other text including all quotations exact. Approximate distance text left unchanged.",
+    "source": [
+      "https://shamela.ws/new.php/book/384/1318",
+      "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-N-T2-L11/answer-key.html",
+    "change": "Stay-duration prose scoped consistently to the existing Maliki-school teaching, four complete days excluding arrival/departure and twenty prayers. Other text including all quotations exact. Approximate distance text left unchanged.",
+    "source": [
+      "https://shamela.ws/new.php/book/384/1318",
+      "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-NN-T2-L11/teacher-deck.html",
+    "change": "Stay-duration prose scoped consistently to the existing Maliki-school teaching, four complete days excluding arrival/departure and twenty prayers. Other text including all quotations exact. Approximate distance text left unchanged.",
+    "source": [
+      "https://shamela.ws/new.php/book/384/1318",
+      "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-NN-T2-L11/sources-concept-card.html",
+    "change": "Stay-duration prose scoped consistently to the existing Maliki-school teaching, four complete days excluding arrival/departure and twenty prayers. Other text including all quotations exact. Approximate distance text left unchanged.",
+    "source": [
+      "https://shamela.ws/new.php/book/384/1318",
+      "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-NN-T2-L11/answer-key.html",
+    "change": "Stay-duration prose scoped consistently to the existing Maliki-school teaching, four complete days excluding arrival/departure and twenty prayers. Other text including all quotations exact. Approximate distance text left unchanged.",
+    "source": [
+      "https://shamela.ws/new.php/book/384/1318",
+      "https://www.aliftaa.jo/ResearchPrint.aspx?ResearchId=99"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y7-N-T3-L10/teacher-deck.html",
+    "change": "Replaced only outdated threshold phrase with current World Bank 3 international dollars per person per day at 2021 PPP and June2025 update date.",
+    "source": "https://www.worldbank.org/en/news/factsheet/2025/06/05/june-2025-update-to-global-poverty-lines",
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFRDE1MDBFOUUzNUY0RkRFNTNCNzAxMjQ2QjkwRDIA",
+    "qa": "10 changed slides and4 printpages individually inspected locally clean; live QA pending"
+  }
+]
