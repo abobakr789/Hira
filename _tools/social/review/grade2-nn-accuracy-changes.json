@@ -5,7 +5,10 @@
       "check"
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L01/teacher-deck.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L01/worksheets-A4.html",
@@ -13,7 +16,10 @@
       1
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L01/worksheets-A4.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L08/group-work.html",
@@ -21,7 +27,10 @@
       3
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L08/group-work.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L08/teacher-deck.html",
@@ -30,7 +39,10 @@
       "g4"
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L08/teacher-deck.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L09/teacher-deck.html",
@@ -38,7 +50,10 @@
       "model"
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L09/teacher-deck.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L12/group-work.html",
@@ -46,7 +61,10 @@
       2
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L12/group-work.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L12/pod-sheet.html",
@@ -54,7 +72,10 @@
       0
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L12/pod-sheet.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L12/sources-concept-card.html",
@@ -62,7 +83,10 @@
       1
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L12/sources-concept-card.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L12/teacher-deck.html",
@@ -74,7 +98,10 @@
       "g3"
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L12/teacher-deck.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L13/answer-key.html",
@@ -82,7 +109,10 @@
       0
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L13/answer-key.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L13/sources-concept-card.html",
@@ -90,7 +120,10 @@
       1
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L13/sources-concept-card.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L13/teacher-deck.html",
@@ -99,7 +132,10 @@
       "talk"
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L13/teacher-deck.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L15/sources-concept-card.html",
@@ -107,7 +143,10 @@
       1
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L15/sources-concept-card.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L15/teacher-deck.html",
@@ -118,7 +157,10 @@
       "learn"
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L15/teacher-deck.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L16/sources-concept-card.html",
@@ -126,7 +168,10 @@
       1
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L16/sources-concept-card.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L16/teacher-deck.html",
@@ -136,7 +181,10 @@
       "text4"
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L16/teacher-deck.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L17/answer-key.html",
@@ -144,7 +192,10 @@
       0
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L17/answer-key.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L17/parent-note.html",
@@ -152,7 +203,10 @@
       0
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L17/parent-note.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L17/sources-concept-card.html",
@@ -161,7 +215,10 @@
       1
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L17/sources-concept-card.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L17/teacher-deck.html",
@@ -173,7 +230,10 @@
       "quiz"
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L17/teacher-deck.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   },
   {
     "file": "resources/ssd/SS-Y2-NN-T1-L18/teacher-deck.html",
@@ -182,6 +242,9 @@
       "guide"
     ],
     "local_qa": "pixel-pass including revealed answers and changed flip-card backs where applicable",
-    "live_qa": "pending"
+    "live_qa": "pixel-pass, 2026-11-24; including revealed model answers and changed flip-card backs where applicable",
+    "live_url": "https://abobakr789.github.io/Hira/resources/ssd/SS-Y2-NN-T1-L18/teacher-deck.html",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45279737174",
+    "live_byte_check": "exact match to content commit 397495ed"
   }
 ]
