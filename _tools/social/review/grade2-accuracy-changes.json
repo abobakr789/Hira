@@ -1,0 +1,295 @@
+[
+  {
+    "file": "resources/ssd/SS-Y2-T1-L07/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح جغرافي: تشترك الإمارات في حدود برية مع السعودية وعمان. قطر دولة قريبة عبر الخليج وليست جارة بحدود برية.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L07/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح جغرافي: تشترك الإمارات في حدود برية مع السعودية وعمان. قطر دولة قريبة عبر الخليج وليست جارة بحدود برية.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L07/teacher-deck.html",
+    "views": [
+      "story",
+      "model",
+      "models",
+      "mirror"
+    ],
+    "reason": "توضيح جغرافي: تشترك الإمارات في حدود برية مع السعودية وعمان. قطر دولة قريبة عبر الخليج وليست جارة بحدود برية.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L13/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح زمني: في 18 يوليو 1971 وُقّع إعلان الاتحاد والدستور، وأُعلنت الدولة في 2 ديسمبر 1971. أُقرّت مناسبة يوم عهد الاتحاد عام 2024.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L13/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح زمني: في 18 يوليو 1971 وُقّع إعلان الاتحاد والدستور، وأُعلنت الدولة في 2 ديسمبر 1971. أُقرّت مناسبة يوم عهد الاتحاد عام 2024.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L13/worksheets-A4.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح زمني: في 18 يوليو 1971 وُقّع إعلان الاتحاد والدستور، وأُعلنت الدولة في 2 ديسمبر 1971. أُقرّت مناسبة يوم عهد الاتحاد عام 2024.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L13/teacher-deck.html",
+    "views": [
+      "story",
+      "model",
+      "models",
+      "watani"
+    ],
+    "reason": "توضيح زمني: في 18 يوليو 1971 وُقّع إعلان الاتحاد والدستور، وأُعلنت الدولة في 2 ديسمبر 1971. أُقرّت مناسبة يوم عهد الاتحاد عام 2024.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L05/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح علمي: تتجدد الشمس والرياح طبيعيا، لكن إنتاج الكهرباء يتغير بحسب الطقس والوقت. انبعاثاتهما أقل من الوقود الأحفوري، وليست آثارهما البيئية معدومة.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L05/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح علمي: تتجدد الشمس والرياح طبيعيا، لكن إنتاج الكهرباء يتغير بحسب الطقس والوقت. انبعاثاتهما أقل من الوقود الأحفوري، وليست آثارهما البيئية معدومة.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L05/teacher-deck.html",
+    "views": [
+      "story",
+      "model",
+      "models",
+      "watani",
+      "quick",
+      "exit",
+      "mirror"
+    ],
+    "reason": "توضيح علمي: تتجدد الشمس والرياح طبيعيا، لكن إنتاج الكهرباء يتغير بحسب الطقس والوقت. انبعاثاتهما أقل من الوقود الأحفوري، وليست آثارهما البيئية معدومة.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L13/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح: بطاقة الهوية الإماراتية للمواطنين والمقيمين، وتثبت هوية حاملها، ولا تعني وحدها أنه مواطن.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L13/teacher-deck.html",
+    "views": [
+      "story"
+    ],
+    "reason": "توضيح: بطاقة الهوية الإماراتية للمواطنين والمقيمين، وتثبت هوية حاملها، ولا تعني وحدها أنه مواطن.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L11/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح تاريخي: عُرفت بيوت الحجر والطين قبل الاتحاد أيضا. وبعد الاتحاد توسعت مشروعات المساكن الحديثة وتوفير الكهرباء والماء.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L11/teacher-deck.html",
+    "views": [
+      "story",
+      "model"
+    ],
+    "reason": "توضيح تاريخي: عُرفت بيوت الحجر والطين قبل الاتحاد أيضا. وبعد الاتحاد توسعت مشروعات المساكن الحديثة وتوفير الكهرباء والماء.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L14/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح تاريخي: حكاية الخيمة والمصباح رواية متداولة عن التسمية وليست واقعة تاريخية مؤكدة. تختلف تفسيرات أصل الاسم.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L14/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح تاريخي: حكاية الخيمة والمصباح رواية متداولة عن التسمية وليست واقعة تاريخية مؤكدة. تختلف تفسيرات أصل الاسم.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L14/teacher-deck.html",
+    "views": [
+      "goal",
+      "progress",
+      "story",
+      "model",
+      "groups",
+      "models",
+      "watani",
+      "quick",
+      "progress2"
+    ],
+    "reason": "توضيح تاريخي: حكاية الخيمة والمصباح رواية متداولة عن التسمية وليست واقعة تاريخية مؤكدة. تختلف تفسيرات أصل الاسم.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L18/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح زمني: بدأ العمل في إنشاء مطار البطين بأبوظبي في سبتمبر 1966، واكتمل المدرج عام 1967. لا يعني ذلك أن الطيران في أبوظبي بدأ لأول مرة عام 1966.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L18/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reason": "توضيح زمني: بدأ العمل في إنشاء مطار البطين بأبوظبي في سبتمبر 1966، واكتمل المدرج عام 1967. لا يعني ذلك أن الطيران في أبوظبي بدأ لأول مرة عام 1966.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L18/teacher-deck.html",
+    "views": [
+      "story",
+      "model",
+      "models",
+      "mirror"
+    ],
+    "reason": "توضيح زمني: بدأ العمل في إنشاء مطار البطين بأبوظبي في سبتمبر 1966، واكتمل المدرج عام 1967. لا يعني ذلك أن الطيران في أبوظبي بدأ لأول مرة عام 1966.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L18/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "reason": "توضيح زمني: بدأ العمل في إنشاء مطار البطين بأبوظبي في سبتمبر 1966، واكتمل المدرج عام 1967. لا يعني ذلك أن الطيران في أبوظبي بدأ لأول مرة عام 1966.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L02/teacher-deck.html",
+    "views": [
+      "model",
+      "watani"
+    ],
+    "reason": "تصحيح تعميم أو ترتيب أو نسبة غير موثقة في المحتوى التعليمي المولد. النص الأصلي والوسائط محفوظان.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L11/teacher-deck.html",
+    "views": [
+      "model",
+      "watani"
+    ],
+    "reason": "تصحيح تعميم أو ترتيب أو نسبة غير موثقة في المحتوى التعليمي المولد. النص الأصلي والوسائط محفوظان.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
+    "views": [
+      "model"
+    ],
+    "reason": "تصحيح تعميم أو ترتيب أو نسبة غير موثقة في المحتوى التعليمي المولد. النص الأصلي والوسائط محفوظان.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L04/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "تصحيح تعميم أو ترتيب أو نسبة غير موثقة في المحتوى التعليمي المولد. النص الأصلي والوسائط محفوظان.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L04/teacher-deck.html",
+    "views": [
+      "model",
+      "models",
+      "quick"
+    ],
+    "reason": "تصحيح تعميم أو ترتيب أو نسبة غير موثقة في المحتوى التعليمي المولد. النص الأصلي والوسائط محفوظان.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L05/teacher-deck.html",
+    "views": [
+      "model"
+    ],
+    "reason": "تصحيح تعميم أو ترتيب أو نسبة غير موثقة في المحتوى التعليمي المولد. النص الأصلي والوسائط محفوظان.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "تصحيح تعميم أو ترتيب أو نسبة غير موثقة في المحتوى التعليمي المولد. النص الأصلي والوسائط محفوظان.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "reason": "تصحيح تعميم أو ترتيب أو نسبة غير موثقة في المحتوى التعليمي المولد. النص الأصلي والوسائط محفوظان.",
+    "local_qa": "PASS: pixel inspection of all listed views, with corrected views rendered and inspected again",
+    "live_qa": "pending"
+  }
+]
