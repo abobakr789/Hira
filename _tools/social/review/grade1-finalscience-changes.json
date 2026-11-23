@@ -9,7 +9,7 @@
       "https://www.zayedprize.org.ae/statute"
     ],
     "local_qa": "PASS all changed slide and print pixels inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS byte-exact deployment and every changed slide/print page visually inspected 2026-11-24 00:53 Asia/Dubai"
   },
   {
     "file": "resources/ssd/SS-Y1-T3-L06/teacher-deck.html",
@@ -23,7 +23,7 @@
       "https://www.zayedprize.org.ae/statute"
     ],
     "local_qa": "PASS all changed slide and print pixels inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS byte-exact deployment and every changed slide/print page visually inspected 2026-11-24 00:53 Asia/Dubai"
   },
   {
     "file": "resources/ssd/SS-Y1-T3-L18/teacher-deck.html",
@@ -36,6 +36,6 @@
       "https://www.fda.gov/consumers/consumer-updates/fda-101-dietary-supplements"
     ],
     "local_qa": "PASS all changed slide and print pixels inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS byte-exact deployment and every changed slide/print page visually inspected 2026-11-24 00:53 Asia/Dubai"
   }
 ]
