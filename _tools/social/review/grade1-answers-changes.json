@@ -1,0 +1,38 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-T1-L03/teacher-deck.html",
+    "views": [
+      "models"
+    ],
+    "sources": [
+      "existing lesson passage and group task"
+    ],
+    "local_qa": "PASS all changed slide pixels",
+    "live_qa": "pending",
+    "changes": "Complete model answer against assigned task"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T1-L09/teacher-deck.html",
+    "views": [
+      "models"
+    ],
+    "sources": [
+      "existing lesson passage and group task"
+    ],
+    "local_qa": "PASS all changed slide pixels",
+    "live_qa": "pending",
+    "changes": "Complete model answer against assigned task"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T1-L10/teacher-deck.html",
+    "views": [
+      "watani"
+    ],
+    "sources": [
+      "https://www.wam.ae/en/article/140t1kp-celebration-historic-signing-declaration-the-union"
+    ],
+    "local_qa": "PASS all changed slide pixels",
+    "live_qa": "pending",
+    "changes": "Distinguish 2024 Union Pledge Day declaration from 1971 commemorated meeting"
+  }
+]

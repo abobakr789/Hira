@@ -9,7 +9,7 @@
       "deck textbook passage: money used alongside trade"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Avoid old barter versus modern cash false binary"
   },
   {
@@ -21,7 +21,7 @@
       "https://masdarcity.ae/sustainable-urban-development/Sustainability-at-masdar-city"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Qualify absolute pollution-free first-city claim as sustainability and pollution reduction"
   },
   {
@@ -35,7 +35,7 @@
       "https://masdarcity.ae/sustainable-urban-development/Sustainability-at-masdar-city"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Qualify absolute pollution-free first-city claim as sustainability and pollution reduction"
   }
 ]

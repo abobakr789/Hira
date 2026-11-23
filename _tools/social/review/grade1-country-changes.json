@@ -9,7 +9,7 @@
       "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
   },
   {
@@ -22,7 +22,7 @@
       "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
   },
   {
@@ -37,7 +37,7 @@
       "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
   },
   {
@@ -53,7 +53,7 @@
       "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
   },
   {
@@ -66,7 +66,7 @@
       "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
   }
 ]

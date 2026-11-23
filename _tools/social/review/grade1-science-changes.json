@@ -8,7 +8,7 @@
       "https://www.ead.gov.ae/en/Media-Centre/News/Tree-Tagging-Programme-2024"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Remove cactus proxy for Samar tree"
   },
   {
@@ -20,7 +20,7 @@
       "https://kids.britannica.com/kids/article/fungus/353159"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "pending final removal of red mushroom proxy; prior view inspected",
     "changes": "Separate fungus from annual plant category in goal, explanation, model, picture task, summary and print resources; preserve source media"
   },
   {
@@ -35,7 +35,7 @@
       "https://kids.britannica.com/kids/article/fungus/353159"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Separate fungus from annual plant category in goal, explanation, model, picture task, summary and print resources; preserve source media"
   },
   {
@@ -51,7 +51,7 @@
       "https://kids.britannica.com/kids/article/fungus/353159"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Separate fungus from annual plant category in goal, explanation, model, picture task, summary and print resources; preserve source media"
   }
 ]

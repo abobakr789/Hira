@@ -8,7 +8,7 @@
       "https://abudhabiculture.ae/en/cultural-heritage/intangible/heritage-register/traditional-handicraft/pearl-diving"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Distinguish main and smaller pearling seasons; preserve textbook maximum with explicit attribution rather than fixed six months"
   },
   {
@@ -20,7 +20,7 @@
       "https://abudhabiculture.ae/en/cultural-heritage/intangible/heritage-register/traditional-handicraft/pearl-diving"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Distinguish main and smaller pearling seasons; preserve textbook maximum with explicit attribution rather than fixed six months"
   },
   {
@@ -32,7 +32,7 @@
       "https://abudhabiculture.ae/en/cultural-heritage/intangible/heritage-register/traditional-handicraft/pearl-diving"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Distinguish main and smaller pearling seasons; preserve textbook maximum with explicit attribution rather than fixed six months"
   },
   {
@@ -46,7 +46,7 @@
       "https://abudhabiculture.ae/en/cultural-heritage/intangible/heritage-register/traditional-handicraft/pearl-diving"
     ],
     "local_qa": "PASS all changed slide and print pixels",
-    "live_qa": "pending",
+    "live_qa": "PASS all changed slide and print pixels; byte exact 24 Nov 00:34",
     "changes": "Distinguish main and smaller pearling seasons; preserve textbook maximum with explicit attribution rather than fixed six months"
   }
 ]
