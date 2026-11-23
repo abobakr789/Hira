@@ -1,0 +1,51 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-T1-L01/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L01/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L01/teacher-deck.html",
+    "views": [
+      "goal",
+      "story",
+      "model",
+      "models",
+      "quick",
+      "exit",
+      "mirror"
+    ],
+    "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L01/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L01/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+    "live_qa": "pending"
+  }
+]
