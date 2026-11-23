@@ -283,7 +283,7 @@
       "hpl"
     ],
     "local_qa": "PASS individually inspected1920x1080; original-byte restoration exact",
-    "live_qa": "pending"
+    "live_qa": "PASS2026-11-23 21:55Dubai, individually inspected actual live1920x1080pixels; liveHTML exact."
   },
   {
     "lesson": "IE-Y6-N-T2-L02",
@@ -305,7 +305,7 @@
       "hpl"
     ],
     "local_qa": "PASS individually inspected1920x1080; original-byte restoration exact",
-    "live_qa": "pending"
+    "live_qa": "PASS2026-11-23 21:55Dubai, individually inspected actual live1920x1080pixels; liveHTML exact."
   },
   {
     "lesson": "IE-Y6-N-T2-L03",
@@ -701,7 +701,7 @@
       "hpl"
     ],
     "local_qa": "PASS individually inspected1920x1080; original-byte restoration exact",
-    "live_qa": "pending"
+    "live_qa": "PASS2026-11-23 21:55Dubai, individually inspected actual live1920x1080pixels; liveHTML exact."
   },
   {
     "lesson": "IE-Y6-N-T3-L11",
@@ -1009,7 +1009,7 @@
       "hpl"
     ],
     "local_qa": "PASS individually inspected1920x1080; original-byte restoration exact",
-    "live_qa": "pending"
+    "live_qa": "PASS2026-11-23 21:55Dubai, individually inspected actual live1920x1080pixels; liveHTML exact."
   },
   {
     "lesson": "IE-Y6-NN-T2-L02",
@@ -1031,7 +1031,7 @@
       "hpl"
     ],
     "local_qa": "PASS individually inspected1920x1080; original-byte restoration exact",
-    "live_qa": "pending"
+    "live_qa": "PASS2026-11-23 21:55Dubai, individually inspected actual live1920x1080pixels; liveHTML exact."
   },
   {
     "lesson": "IE-Y6-NN-T2-L03",
@@ -1427,7 +1427,7 @@
       "hpl"
     ],
     "local_qa": "PASS individually inspected1920x1080; original-byte restoration exact",
-    "live_qa": "pending"
+    "live_qa": "PASS2026-11-23 21:55Dubai, individually inspected actual live1920x1080pixels; liveHTML exact."
   },
   {
     "lesson": "IE-Y6-NN-T3-L11",

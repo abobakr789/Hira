@@ -194,7 +194,7 @@
     "issue": "Literal class attribute fragment appears as visible text before the Quran excerpt in discussion scene. Formatting artifact, not a claim of incorrect Quran wording.",
     "suggested_fix": "Remove only the visible markup fragment after approval; keep Quran text unchanged.",
     "source": "resources/ie/IE-Y5-N-T2-L02/teacher-deck.html",
-    "status": "Approved by user2026-11-23 21:49Dubai, exact original WhatsApp message wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM4NUQ3MTE3NTU1QUVFNDI1RjNFNTI0NDFFOTY1RjEA. Removed only leaked class-attribute text. Local/live pixelQA pending.",
+    "status": "Approved by user2026-11-23 21:49Dubai, exact original WhatsApp message wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM4NUQ3MTE3NTU1QUVFNDI1RjNFNTI0NDFFOTY1RjEA. Removed only leaked class-attribute text. Local/live pixelQA pending. Local and live full-reveal pixelQA PASS21:55Dubai. Live HTML exact. Completed in8f1d41e6, deployment45231917965.",
     "preservation": "All quotation character sequences and every byte outside the removed attribute fragment preserved."
   },
   {
@@ -204,7 +204,7 @@
     "issue": "Literal class attribute fragment appears as visible text before the Quran excerpt in discussion scene. Formatting artifact, not a claim of incorrect Quran wording.",
     "suggested_fix": "Remove only the visible markup fragment after approval; keep Quran text unchanged.",
     "source": "resources/ie/IE-Y5-NN-T2-L02/teacher-deck.html",
-    "status": "Approved by user2026-11-23 21:49Dubai, exact original WhatsApp message wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM4NUQ3MTE3NTU1QUVFNDI1RjNFNTI0NDFFOTY1RjEA. Removed only leaked class-attribute text. Local/live pixelQA pending.",
+    "status": "Approved by user2026-11-23 21:49Dubai, exact original WhatsApp message wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM4NUQ3MTE3NTU1QUVFNDI1RjNFNTI0NDFFOTY1RjEA. Removed only leaked class-attribute text. Local/live pixelQA pending. Local and live full-reveal pixelQA PASS21:55Dubai. Live HTML exact. Completed in8f1d41e6, deployment45231917965.",
     "preservation": "All quotation character sequences and every byte outside the removed attribute fragment preserved."
   },
   {
@@ -313,6 +313,22 @@
     "issue": "Initial teaching presents one hadith, while summary and assessments target another. Both may be valid material, but lesson alignment differs. Not classified as a false hadith.",
     "suggested_fix": "Ask which hadith is the intended target before changing wording; no correction made.",
     "source": "resources/ie/IE-Y6-NN-T2-L08/teacher-deck.html",
+    "status": "Held unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y6-N-T1-L09",
+    "slide": "learn versus quiz",
+    "exact_wording": "أَهَمُّ ما تَعَلَّمْناهُ نَبْني الْفَهْمَ 💬 1 قال ﷺ: «لا تزول قدما عبد يوم القيامة حتى يُسأل عن عمره فيمَ أفناه، وعن علمه فيمَ فعل، وعن ماله من أين اكتسبه وفيمَ أنفقه، وعن جسمه فيمَ أبلاه». ⏰ 2 العمر: أستثمر وقتي في الطاعة والعلم النافع. 💰 3 المال: أكسبه من حلال وأنفقه في الخير. 💪 4 الجسم: أستعمله في طاعة الله وأحافظ على صحته. حديث: حاسبوا أنفسكم Summarise the key points. || تَحَدّي حِراءَ السَّريعُ 5 أَسْئِلَةٍ 1 «لا تزول قدما عبد يوم القيامة حتى يُسأل عن عمره...» أ - فيمَ أفناه   ·   ب - كم عمره   ·   ج - أين وُلد   ·   د - من أصدقاؤه الْإِجابَةُ: أ 2 كم سؤالًا ذكر الحديث؟ أ - أربعة   ·   ب - اثنان   ·   ج - ستة   ·   د - عشرة الْإِجابَةُ: أ 3 ماذا يعني «حاسبوا أنفسكم»؟ أ - أراجع أعمالي وأصلح أخطائي قبل يوم الحساب   ·   ب - أحسب مالي فقط   ·   ج - ألوم غيري   ·   د - لا معنى الْإِجابَةُ: أ 4 الحديث يسأل الإنسان عن عمره وشبابه وماله وعلمه. أيّ سؤال يخص المال؟ أ - من أين اكتسبه وفيمَ أنفقه   ·   ب - كم عدده   ·   ج - أين خبّأه   ·   د - لا سؤال الْإِجابَةُ: أ حديث: حاسبوا أنفسكم Mini whiteboards or Hiraa live challenge.",
+    "issue": "Summary includes body; question4 substitutes youth, while the title concerns questions on Judgement Day. Alignment concern, no replacement authorised.",
+    "suggested_fix": "Choose intended enumeration against source hadith before changing the assessment.",
+    "status": "Held unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y6-NN-T1-L09",
+    "slide": "learn versus quiz",
+    "exact_wording": "Key learning points Building understanding 💬 1 The Prophet ﷺ said: «A servant's feet will not move on the Day of Judgement until he is asked about his life and how he spent it, his knowledge and what he did with it, his wealth, how he earned and spent it, and his body and how he used it.» ⏰ 2 Life: I invest my time in obedience and useful knowledge. 💰 3 Wealth: I earn it lawfully and spend it on good. 💪 4 Body: I use it to obey Allah and look after my health. Bring Yourselves to Account Summarise the key points. || Hiraa quick challenge 5 questions 1 «A servant's feet will not move until he is asked about his life...» a) how he spent it   ·   b) how old he was   ·   c) where he was born   ·   d) who his friends were Answer: a 2 How many questions does the hadith mention? a) four   ·   b) two   ·   c) six   ·   d) ten Answer: a 3 What does «hold yourselves to account» mean? a) Review my deeds and fix mistakes before Judgement Day   ·   b) Only count my money   ·   c) Blame others   ·   d) Nothing Answer: a 4 The hadith asks about life, youth, wealth and knowledge. What is asked about wealth? a) Where it was earned and how it was spent   ·   b) How much   ·   c) Where hidden   ·   d) Nothing Answer: a Bring Yourselves to Account Mini whiteboards or Hiraa live challenge.",
+    "issue": "Summary includes body; question4 substitutes youth, while the title concerns questions on Judgement Day. Alignment concern, no replacement authorised.",
+    "suggested_fix": "Choose intended enumeration against source hadith before changing the assessment.",
     "status": "Held unchanged and unillustrated."
   }
 ]
