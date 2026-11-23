@@ -45,5 +45,13 @@
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "modification": "Orientation corrected, resized, no crop, EXIF removed."
+  },
+  {
+    "asset": "indonesia-map.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Indonesia_in_its_region.svg",
+    "author": "TUBS",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "modification": "Wikimedia PNG rendering of original SVG, no crop."
   }
 ]

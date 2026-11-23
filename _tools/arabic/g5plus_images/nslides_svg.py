@@ -179,7 +179,25 @@ def falaj():
     out+='<path d="M1100 310H970 m20 -12 -20 12 20 12" fill="none" stroke="#0891B2" stroke-width="7"/>'
     out+=f'<text x="850" y="630" text-anchor="middle" font-size="29" fill="#64748B" {F}>مخطط مبسّط للتوزيع، لا مقادير حصص ولا تصوير للموقف الروائي</text>'
     return out,'الأفلاج','من قناة الماء إلى شبكة توزيع','تعريف عام بنظام الأفلاج، وفق وصف اليونسكو للقنوات السطحية وتوزيع الماء على المزارع. لا تمثل سماكة الخطوط حصصًا متساوية؛ يستدل الطلاب من النص على العدل والحكمة في الموقف الروائي.','1700 680'
-SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
+def morphology():
+    out=f'<text x="850" y="70" text-anchor="middle" font-size="36" fill="#334155" {F}>نحاذي الأصول مع فاء الميزان وعينه ولامه</text>'
+    for row,(y,letters) in enumerate([(155,['ا','س','ت','خ','ر','ج']),(365,['ا','س','ت','ف','ع','ل'])]):
+        for i,ch in enumerate(letters):
+            x=1470-i*245;c='#2563EB' if i<3 else '#7C3AED'
+            out+=f'<rect x="{x-90}" y="{y}" width="180" height="125" rx="18" fill="white" stroke="{c}" stroke-width="5"/><text x="{x}" y="{y+84}" text-anchor="middle" font-size="64" fill="{c}" {F}>{ch}</text>'
+            if row==0:out+=f'<path d="M{x} 290V345" stroke="{c}" stroke-width="4"/>'
+    out+=f'<text x="1220" y="580" text-anchor="middle" font-size="34" fill="#2563EB" {F}>الزوائد تبقى كما هي</text>'
+    out+=f'<text x="480" y="580" text-anchor="middle" font-size="34" fill="#7C3AED" {F}>الأصول: خ ر ج ← ف ع ل</text>'
+    return out,'الميزان الصرفي','استخرج: الأصول والزوائد في مكانها','الحروف مفصولة للمحاذاة، لا لتمثيل طريقة كتابة الكلمة. أعيدوا وصلها واقرؤوا: استخرج على وزن استفعل، مع ضبطهما كما في المثال السابق.','1700 650'
+def participles():
+    out=f'<text x="850" y="70" text-anchor="middle" font-size="36" fill="#334155" {F}>الحروف واحدة، وحركة السين تغيّر الدلالة</text>'
+    out+=box(950,160,620,180,'#2563EB','مُرْسِل','اسم فاعل: من يُرسل')
+    out+=box(130,160,620,180,'#7C3AED','مُرْسَل','اسم مفعول: من يقع عليه الإرسال')
+    out+=box(950,410,620,120,'#2563EB','سِ: كسرة','')
+    out+=box(130,410,620,120,'#7C3AED','سَ: فتحة','')
+    out+='<path d="M1260 355V395 M440 355V395" stroke="#64748B" stroke-width="5"/>'
+    return out,'اسم الفاعل واسم المفعول','مُرْسِل ومُرْسَل: حركة واحدة','قارنوا حركة ما قبل الآخر في المثال نفسه: الكسر لاسم الفاعل والفتح لاسم المفعول، ثم كوّنوا جملتين توضحان المعنى.','1700 620'
+SPECS={'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
 def apply_html(code,t):
  fn=SPECS.get(code)
  if not fn or 'id="s6d"' in t: return t

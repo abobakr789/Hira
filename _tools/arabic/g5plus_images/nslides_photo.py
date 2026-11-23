@@ -2,6 +2,13 @@
 # called from g1html/shell.py after images.py so regeneration restores it. Photo credits: art/photos/credits.json.
 import re
 SPECS={
+ 'AR-Y9-N-T3-L02':dict(
+  title='أين تقع إندونيسيا؟',time='⏱ 2 دقيقتان',
+  img='indonesia-map.png',alt='خريطة تلوّن جزر إندونيسيا بالأحمر وتوضح موقعها في جنوب شرق آسيا',
+  cap='إندونيسيا بالأحمر؛ مفتاح الموقع في الخريطة الصغيرة',
+  credit='الخريطة: <bdi>TUBS</bdi> · <bdi>CC BY-SA 3.0</bdi> · ويكيميديا كومنز',
+  aside='هذه خريطة موقع فقط، لا رسم لعدد السكان. ادمجوا معلومة الموقع مع النص والرسم السكاني في الدرس، واذكروا مصدر كل معلومة.'),
+
  'AR-Y12-N-T2-L06':dict(
   title='السماور: صورة لأداة يذكرها النص',time='⏱ 2 دقيقتان',
   img='samovar.jpg',alt='سماور معدني بصنبور وإبريق شاي فوقه',
