@@ -476,5 +476,77 @@
     "issue": "Scene calls four steps essential for validity while teaching and critique name three pillars then shaving/shortening. School-specific pillar versus wajib distinction blurred.",
     "suggested_fix": "If approved, distinguish overall sequence from validity/pillar count in scene. Added visual limits itself to seven sa-y traversals.",
     "status": "Held unchanged; added visual avoids this distinction."
+  },
+  {
+    "lesson": "IE-Y8-N-T1-L08",
+    "slide": "scene",
+    "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 💬 هل جرّبت أن تخطو خطوة نحو صديق فأقبل عليك يجري؟ يقول الحديث القدسي إن الله يقابل خطوتك بما هو أعظم. كيف؟ 🤔 ما الفرق بين فرض العين وفرض الكفاية؟ حديث: التقرب إلى الله تعالى Discuss in pairs, then share.",
+    "counterpart": "IE-Y8-NN-T1-L08",
+    "issue": "Scene introduces approach-by-step wording from another hadith while teaching and quiz centre the wali/obligations hadith. A contextual alignment question, not a verdict that either narration is wrong.",
+    "suggested_fix": "Consider an approved scene aligned to obligations and voluntary deeds, without changing quotation.",
+    "status": "Review note only, unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y8-N-T2-L07",
+    "slide": "part1",
+    "exact_wording": "المد اللازم الحرفي نَفْهَمُ الدَّرْسَ يكون في الحروف المقطعة في أوائل السور، إذا كان الحرف ثلاثي الهجاء وسطه حرف مد وبعده ساكن، مثل ﴿لَام﴾ و ﴿مِيم﴾ في ﴿الم﴾ ، و ﴿صَاد﴾ في ﴿ص﴾ ، و ﴿كَاف﴾ و ﴿صَاد﴾ في ﴿كهيعص﴾ . ويُمد ست حركات. وتُجمع حروفه في «نقص عسلكم». أما الحروف الثنائية كـ ﴿طَه﴾ و ﴿يَس﴾ فمدها طبيعي حركتان. المد الفرعي Explain with questioning; highlight the evidence.",
+    "counterpart": "IE-Y8-NN-T2-L07",
+    "issue": "Letter grouping includes ayn without its special lengthening exception; Arabic example groups Ya-Sin as two-count letters although Sin differs. Needs qualified recital-source check before correction.",
+    "suggested_fix": "Verify each opening letter and ayn exception with an authoritative tajwid source; avoid blanket two-count Ya-Sin example.",
+    "status": "Review note only, unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y8-N-T1-L11",
+    "slide": "part3",
+    "exact_wording": "الحسبة على السوق نَفْهَمُ الدَّرْسَ ذكر بعض المؤرخين أن عمر بن الخطاب لثقته بعلمها وعقلها ولّاها شيئًا من أمر السوق في المدينة، تراقب المكاييل والموازين وتمنع الغش، وكان يقدّمها في الرأي ويستشيرها. فكانت من أوائل النساء اللاتي شاركن في الشأن العام في الدولة الإسلامية. الشفاء بنت عبد الله العدوية رضي الله عنها Explain with questioning; highlight the evidence.",
+    "counterpart": "IE-Y8-NN-T1-L11",
+    "issue": "Market role is explicitly qualified as some historians reporting it. Do not remove that qualification or upgrade it to established fact in imagery. First-teacher heading is stronger than body first-teachers wording.",
+    "suggested_fix": "Retain historical qualification; verify any proposed ordinal or role claim before change.",
+    "status": "Review note only, unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y8-NN-T1-L08",
+    "slide": "scene",
+    "exact_wording": "A situation to discuss What would you do in their place? 💬 Have you stepped towards a friend and he came running? The hadith qudsi says Allah meets your step with far more. How? 🤔 What is the difference between an individual duty and a communal duty? Getting Closer to Allah Discuss in pairs, then share.",
+    "counterpart": "IE-Y8-N-T1-L08",
+    "issue": "Scene introduces approach-by-step wording from another hadith while teaching and quiz centre the wali/obligations hadith. A contextual alignment question, not a verdict that either narration is wrong.",
+    "suggested_fix": "Consider an approved scene aligned to obligations and voluntary deeds, without changing quotation.",
+    "status": "Review note only, unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y8-NN-T2-L07",
+    "slide": "part1",
+    "exact_wording": "In the opening letters Understanding the lesson Three-letter names with a long vowel in the middle are lengthened six counts, like «lam» and «mim» in «Alif Lam Mim». Two-letter ones like «Ta-Ha» are two counts. Secondary Madd Explain with questioning; highlight the evidence.",
+    "counterpart": "IE-Y8-N-T2-L07",
+    "issue": "Letter grouping includes ayn without its special lengthening exception; Arabic example groups Ya-Sin as two-count letters although Sin differs. Needs qualified recital-source check before correction.",
+    "suggested_fix": "Verify each opening letter and ayn exception with an authoritative tajwid source; avoid blanket two-count Ya-Sin example.",
+    "status": "Review note only, unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y8-NN-T1-L11",
+    "slide": "part2",
+    "exact_wording": "Market supervisor Understanding the lesson Some historians report that 'Umar, trusting her wisdom, gave her a role in supervising the Madinah market — checking scales and stopping cheating. Al-Shifa' bint Abdillah al-Adawiyyah Explain with questioning; highlight the evidence.",
+    "counterpart": "IE-Y8-N-T1-L11",
+    "issue": "Market role is explicitly qualified as some historians reporting it. Do not remove that qualification or upgrade it to established fact in imagery. First-teacher heading is stronger than body first-teachers wording.",
+    "suggested_fix": "Retain historical qualification; verify any proposed ordinal or role claim before change.",
+    "status": "Review note only, unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y8-N-T3-L01",
+    "slide": "part2",
+    "exact_wording": "الآيات (63–65): شهادة الجوارح نَفْهَمُ الدَّرْسَ ﴿هَٰذِهِ جَهَنَّمُ الَّتِي كُنتُمْ تُوعَدُونَ ۝ اصْلَوْهَا الْيَوْمَ بِمَا كُنتُمْ تَكْفُرُونَ﴾ . ثم مشهد عجيب: يختم الله على أفواههم فلا يستطيعون الإنكار، وتتكلم أيديهم وتشهد أرجلهم بما كانوا يكسبون. فكل عضو شاهد على صاحبه، وهو ما يُسمى اليوم بالبصمات والآثار الحيوية التي تكشف الجريمة. الطريق إلى الجنة: سورة يس (55–68) Explain with questioning; highlight the evidence.",
+    "counterpart": "IE-Y8-NN-T3-L01",
+    "issue": "Text identifies bodily testimony on JudgementDay with modern biometrics. Analogy presented as equivalence, not sourced explanation.",
+    "suggested_fix": "If approved, distinguish miraculous bodily testimony from modern forensic evidence; do not change Quran quotation.",
+    "status": "Held unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y8-N-T2-L06",
+    "slide": "part0",
+    "exact_wording": "الآيات (33–36): آية الأرض الميتة نَفْهَمُ الدَّرْسَ يذكر الله آية للمكذبين بالبعث: الأرض الميتة يحييها بالمطر فيخرج منها الحب والنخيل والأعناب وتتفجر فيها العيون، ليأكلوا من ثمره وما عملته أيديهم من زراعة وصناعة، ﴿أَفَلَا يَشْكُرُونَ﴾ . ثم ينزّه نفسه: ﴿سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا﴾ من النبات والإنسان ﴿وَمِمَّا لَا يَعْلَمُونَ﴾ ، وقد كشف العلم أن الزوجية في الذرات والكهرباء وأكثر الكائنات. قدرة الله تعالى: سورة يس (33–54) Explain with questioning; highlight the evidence.",
+    "counterpart": "IE-Y8-NN-T2-L06",
+    "issue": "Atoms/electricity pair claim is stated as modern science verifying the verse. Scientific and interpretive qualification needed.",
+    "suggested_fix": "If approved, remove unsupported scientific generalisation while preserving Quran quotation and surrounding lesson.",
+    "status": "Held unchanged and unillustrated."
   }
 ]

@@ -197,7 +197,7 @@
       "hpl"
     ],
     "local_qa": "PASS final pixels individually inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS deployed HTML exact; final live pixels individually inspected 2026-11-23 22:25 Asia/Dubai"
   },
   {
     "lesson": "IE-Y8-N-T1-L11",
@@ -317,7 +317,7 @@
       "hpl"
     ],
     "local_qa": "PASS final pixels individually inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS deployed HTML exact; final live pixels individually inspected 2026-11-23 22:25 Asia/Dubai"
   },
   {
     "lesson": "IE-Y8-N-T2-L06",
@@ -497,7 +497,7 @@
       "hpl"
     ],
     "local_qa": "PASS final pixels individually inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS deployed HTML exact; final live pixels individually inspected 2026-11-23 22:25 Asia/Dubai"
   },
   {
     "lesson": "IE-Y8-N-T3-L04",
@@ -837,7 +837,7 @@
       "hpl"
     ],
     "local_qa": "PASS final pixels individually inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS deployed HTML exact; final live pixels individually inspected 2026-11-23 22:25 Asia/Dubai"
   },
   {
     "lesson": "IE-Y8-NN-T1-L11",
@@ -957,7 +957,7 @@
       "hpl"
     ],
     "local_qa": "PASS final pixels individually inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS deployed HTML exact; final live pixels individually inspected 2026-11-23 22:25 Asia/Dubai"
   },
   {
     "lesson": "IE-Y8-NN-T2-L06",
@@ -1137,7 +1137,7 @@
       "hpl"
     ],
     "local_qa": "PASS final pixels individually inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS deployed HTML exact; final live pixels individually inspected 2026-11-23 22:25 Asia/Dubai"
   },
   {
     "lesson": "IE-Y8-NN-T3-L04",
