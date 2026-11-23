@@ -1,0 +1,52 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-T2-L04/answer-key.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://abudhabiculture.ae/en/cultural-heritage/intangible/heritage-register/traditional-handicraft/pearl-diving"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Distinguish main and smaller pearling seasons; preserve textbook maximum with explicit attribution rather than fixed six months"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T2-L04/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://abudhabiculture.ae/en/cultural-heritage/intangible/heritage-register/traditional-handicraft/pearl-diving"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Distinguish main and smaller pearling seasons; preserve textbook maximum with explicit attribution rather than fixed six months"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T2-L04/worksheets-A4.html",
+    "views": [
+      1
+    ],
+    "sources": [
+      "https://abudhabiculture.ae/en/cultural-heritage/intangible/heritage-register/traditional-handicraft/pearl-diving"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Distinguish main and smaller pearling seasons; preserve textbook maximum with explicit attribution rather than fixed six months"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T2-L04/teacher-deck.html",
+    "views": [
+      "model",
+      "models",
+      "watani"
+    ],
+    "sources": [
+      "https://abudhabiculture.ae/en/cultural-heritage/intangible/heritage-register/traditional-handicraft/pearl-diving"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Distinguish main and smaller pearling seasons; preserve textbook maximum with explicit attribution rather than fixed six months"
+  }
+]
