@@ -221,7 +221,60 @@ def river():
     out+=f'<text x="1260" y="535" text-anchor="middle" font-size="40" fill="#2563EB" {F}>نهر جارٍ</text><text x="440" y="535" text-anchor="middle" font-size="40" fill="#64748B" {F}>سطح متجمّد</text>'
     out+=f'<text x="850" y="625" text-anchor="middle" font-size="29" fill="#64748B" {F}>رسم توضيحي للحالتين، لا صورة لمكان أو فصل محدّد</text>'
     return out,'النهر المتجمد','الصورة الطبيعية قبل تفسير رمزها','قارنوا ما في الرسم بما في أبيات الأمس واليوم والربيع. لا نجعل الرسم دليلًا على قلب الشاعر؛ نستدل على التشخيص والحالة النفسية من ألفاظ القصيدة.','1700 680'
-SPECS={'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
+def glazing():
+    out='<rect x="500" y="110" width="700" height="400" rx="15" fill="#F1F5F9" stroke="#64748B" stroke-width="6"/><rect x="600" y="110" width="35" height="400" fill="#7DD3FC"/><rect x="1065" y="110" width="35" height="400" fill="#7DD3FC"/>'
+    for x,txt in [(610,'لوح زجاج'),(1090,'لوح زجاج')]:
+        out+=f'<text x="{x}" y="65" text-anchor="middle" font-size="36" fill="#0369A1" {F}>{txt}</text>'
+    out+=f'<text x="850" y="275" text-anchor="middle" font-size="42" fill="#334155" {F}>فجوة محكمة</text><text x="850" y="335" text-anchor="middle" font-size="32" fill="#334155" {F}>هواء أو غاز عازل</text>'
+    out+=f'<text x="850" y="590" text-anchor="middle" font-size="36" fill="#2563EB" {F}>تقلّل انتقال الحرارة، ولا توقفه تمامًا</text>'
+    return out,'الزجاج المزدوج','كيف تبدو النافذة المزدوجة من الداخل؟','مقطع تعليمي مبسّط، لا أبعاد تنفيذية ولا نسبة ثابتة للتوفير. وفق energy.gov.au: لوحان تفصل بينهما فجوة محكمة مملوءة بالهواء أو غاز عازل. نربطه بمثال الفكرة والتفصيل في النص.','1700 660'
+def sandgrouse():
+    out=box(1110,130,490,240,'#2563EB','عند الماء','يبتلّ ريش البطن')
+    out+=box(605,130,490,240,'#7C3AED','في الطيران','يحتفظ الريش بالماء')
+    out+=box(100,130,490,240,'#16A34A','عند الصغار','تشرب من الريش')
+    out+='<path d="M1095 400H620 m20 -15 -20 15 20 15 M595 400H120 m20 -15 -20 15 20 15" stroke="#64748B" stroke-width="6" fill="none"/>'
+    out+=f'<text x="850" y="490" text-anchor="middle" font-size="38" fill="#334155" {F}>ذكر القطا ينقل الماء في ريش بطنه المتكيّف</text>'
+    out+=f'<text x="850" y="580" text-anchor="middle" font-size="28" fill="#64748B" {F}>مخطط للآلية، لا رسم لشكل الريش المجهري أو لمسافة الرحلة</text>'
+    return out,'القطا','رحلة الماء: من ريش البطن إلى الصغار','الآلية موثقة في بحث Johns Hopkins وMIT المنشور2023: ريش بطن الذكر يحتفظ بالماء وينقله للصغار. لا نفترض أن المنقار وعاء للنقل، ولا نضيف زمنًا أو مسافة لم يذكرهما الدرس.','1700 660'
+def ropeanalogy():
+    out=''
+    for y,pr,cr in [(120,95,38),(390,38,95)]:
+        for x,r,txt in [(1200,pr,'سفينة والديك'),(480,cr,'سفينتك')]:
+            out+=f'<path d="M{x-250} {y+50}H{x+250}L{x+190} {y+125}H{x-190}Z" fill="#CBD5E1" stroke="#64748B" stroke-width="4"/><ellipse cx="{x}" cy="{y}" rx="{r}" ry="{r*.4}" fill="none" stroke="#C4943A" stroke-width="18"/>'
+            out+=f'<text x="{x}" y="{y+178}" text-anchor="middle" font-size="32" fill="#334155" {F}>{txt}</text>'
+        out+=f'<path d="M{1200-pr} {y}Q850 {y-80} {480+cr} {y}" fill="none" stroke="#C4943A" stroke-width="10"/>'
+    out+=f'<text x="850" y="70" text-anchor="middle" font-size="32" fill="#2563EB" {F}>١: مسؤولية أكبر عند الوالدين</text><text x="850" y="340" text-anchor="middle" font-size="32" fill="#7C3AED" {F}>٢: انتقال تدريجي للمسؤولية</text>'
+    out+=f'<text x="850" y="650" text-anchor="middle" font-size="27" fill="#64748B" {F}>تمثيل لاستعارة النص، لا تعليمات ملاحة ولا مقادير للمسؤولية</text>'
+    return out,'مع والدي','لفّة تكبر ولفّة تصغر','حجما اللفتين تمثيل بصري لتدرّج انتقال المسؤولية كما يشرحه النص، لا قياس للعلاقة الأسرية. لا نضيف حادثة بحرية أو نتيجة نفسية لا يثبتها المثال.','1700 700'
+def textlayouts():
+    out=''
+    for x,y,c,txt in [(900,60,'#2563EB','ممتدّ'),(90,60,'#7C3AED','غير ممتدّ'),(900,365,'#16A34A','مركّب'),(90,365,'#D97706','متعدّد المصادر')]:
+        out+=f'<rect x="{x}" y="{y}" width="710" height="250" rx="24" fill="white" stroke="{c}" stroke-width="5"/><text x="{x+355}" y="{y+52}" text-anchor="middle" font-size="36" fill="{c}" {F}>{txt}</text>'
+    for y in range(155,275,26):out+=f'<rect x="970" y="{y}" width="570" height="10" rx="4" fill="#93C5FD"/>'
+    for y in range(155,275,35):out+=f'<path d="M160 {y}H730 M160 {y}V{y+30} M430 {y}V{y+30} M730 {y}V{y+30}" stroke="#C4B5FD" stroke-width="6"/>'
+    out+='<rect x="970" y="465" width="200" height="100" rx="12" fill="#BBF7D0"/>'
+    for y in range(465,575,25):out+=f'<rect x="1210" y="{y}" width="330" height="10" rx="4" fill="#86EFAC"/>'
+    for x,txt in [(160,'مصدر ١'),(360,'مصدر ٢'),(560,'مصدر ٣')]:
+        out+=f'<rect x="{x}" y="465" width="150" height="110" rx="10" fill="#FEF3C7"/><text x="{x+75}" y="530" text-anchor="middle" font-size="25" fill="#92400E" {F}>{txt}</text>'
+    out+=f'<text x="850" y="680" text-anchor="middle" font-size="28" fill="#64748B" {F}>عينات تنسيق فقط؛ الشرطات ليست نصوصًا، والمربّع يمثّل موضع رسم</text>'
+    return out,'تنسيق النص','نرى الفارق في تنظيم الصفحة','هذه عينات شكلية للمقارنة وليست نصوصًا حقيقية. يتطلب تصنيف نص بعينه فحص محتواه وروابطه ومصادره، لا الحكم من لون البطاقة أو عدد المربعات.','1700 720'
+def nestforms():
+    out='<path d="M1120 260Q1320 560 1520 260Z" fill="#D6B588" stroke="#92400E" stroke-width="9"/><ellipse cx="1320" cy="260" rx="200" ry="55" fill="#FEF3C7" stroke="#92400E" stroke-width="9"/>'
+    out+='<circle cx="850" cy="310" r="150" fill="#D6B588" stroke="#92400E" stroke-width="9"/><circle cx="900" cy="300" r="55" fill="#78350F"/>'
+    out+='<path d="M110 160H550V460H110Z" fill="#E7D3AE"/><path d="M110 300H330Q430 300 440 360Q450 420 370 420H300" fill="none" stroke="#78350F" stroke-width="65"/>'
+    for x,txt in [(1320,'كوب: مفتوح من أعلى'),(850,'كرة: مدخل جانبي'),(330,'نفق: في الأرض')]:out+=f'<text x="{x}" y="545" text-anchor="middle" font-size="30" fill="#334155" {F}>{txt}</text>'
+    out+=f'<text x="850" y="640" text-anchor="middle" font-size="27" fill="#64748B" {F}>أشكال مبسّطة، لا أحجام حقيقية ولا أعشاش لأنواع محدّدة</text>'
+    return out,'أشكال الأعشاش','فتحة من أعلى، أو من الجانب، أو عبر نفق','أمثلة شكلية، وفق Cornell Bird Academy: كوب مفتوح، كرة مغلقة بمدخل، وعش في جحر أو نفق. تختلف المواد والمكان والحجم باختلاف النوع؛ لا ننسب شكلًا إلى نوع لم يذكره النص.','1700 700'
+def ostrich():
+    out='<path d="M230 525H1500" stroke="#C4943A" stroke-width="12"/><ellipse cx="610" cy="250" rx="220" ry="135" fill="#334155"/><path d="M525 320V510 M675 320V510" stroke="#64748B" stroke-width="22"/><path d="M525 510h-65 M675 510h65" stroke="#64748B" stroke-width="15"/>'
+    out+='<path d="M785 220C900 220 940 340 1070 450" fill="none" stroke="#BFAE98" stroke-width="42" stroke-linecap="round"/><ellipse cx="1080" cy="450" rx="55" ry="32" fill="#BFAE98"/><circle cx="1085" cy="442" r="5" fill="#102A4C"/><path d="M1120 450l60 22-60 9Z" fill="#C4943A"/>'
+    out+='<path d="M1070 520Q1230 555 1390 520" fill="none" stroke="#92400E" stroke-width="8"/>'
+    for x in [1195,1260,1325]:out+=f'<ellipse cx="{x}" cy="495" rx="27" ry="35" fill="#FEF3C7" stroke="#C4943A" stroke-width="3"/>'
+    out+=f'<text x="1200" y="190" text-anchor="middle" font-size="36" fill="#2563EB" {F}>تخفض رأسها عند تقليب البيض</text><path d="M1200 220V370" stroke="#2563EB" stroke-width="4"/>'
+    out+=f'<text x="850" y="615" text-anchor="middle" font-size="32" fill="#334155" {F}>الرأس عند العش، وليس مدفونًا في الرمل</text>'
+    out+=f'<text x="850" y="675" text-anchor="middle" font-size="26" fill="#64748B" {F}>رسم سلوكي مبسّط، لا نسب تشريحية دقيقة ولا مشهد من الرواية</text>'
+    return out,'النعام','خفض الرأس ليس دفنه','وفق Smithsonian National Zoo تخفض النعامة رأسها عند تقليب البيض، وقد يسهم ذلك في نشأة الاعتقاد الشائع. الرسم لا يزعم أن هذا هو سبب كل وضع منخفض للرأس.','1700 720'
+SPECS={'AR-Y7-N-T3-L03':ostrich,'AR-Y7-N-T1-L04':glazing,'AR-Y7-N-T2-L06':sandgrouse,'AR-Y7-N-T2-L21':ropeanalogy,'AR-Y7-N-T3-L01':textlayouts,'AR-Y7-N-T2-L14':nestforms,'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
 def apply_html(code,t):
  fn=SPECS.get(code)
  if not fn or 'id="s6d"' in t: return t

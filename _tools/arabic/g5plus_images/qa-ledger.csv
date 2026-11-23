@@ -129,7 +129,14 @@ AR-Y9-N-T1-L18,s6d,PASS,Individual full-size local inspection and converter exac
 AR-Y9-N-T1-L20,s6d,PASS,Individual full-size local inspection and converter exact adjacent-section test. Live verification separately tracked.
 AR-Y9-N-T2-L04,s6d,PASS,Individual full-size local inspection and converter exact adjacent-section test. Live verification separately tracked.
 AR-Y9-N-T3-L02,s6p,PASS,Individual full-size local inspection and converter exact adjacent-section test. Live verification separately tracked.
-AR-Y8-N-T1-L14,s6d,PASS,Individual local pixels inspected; source-grounded schematic or licensed map with visible legend; actual converter exact; all original markup byte-identical. Live QA pending.
-AR-Y8-N-T2-L01,s6d,PASS,Individual local pixels inspected; source-grounded schematic or licensed map with visible legend; actual converter exact; all original markup byte-identical. Live QA pending.
-AR-Y8-N-T2-L09,s6d,PASS,Individual local pixels inspected; source-grounded schematic or licensed map with visible legend; actual converter exact; all original markup byte-identical. Live QA pending.
-AR-Y8-N-T2-L12,s6p,PASS,Individual local pixels inspected; source-grounded schematic or licensed map with visible legend; actual converter exact; all original markup byte-identical. Live QA pending.
+AR-Y8-N-T1-L14,s6d,PASS,Individual local pixels inspected; source-grounded schematic or licensed map with visible legend; actual converter exact; all original markup byte-identical. Live1920x1080 pixels individually inspected2026-11-23 19:19, passed.
+AR-Y8-N-T2-L01,s6d,PASS,Individual local pixels inspected; source-grounded schematic or licensed map with visible legend; actual converter exact; all original markup byte-identical. Live1920x1080 pixels individually inspected2026-11-23 19:19, passed.
+AR-Y8-N-T2-L09,s6d,PASS,Individual local pixels inspected; source-grounded schematic or licensed map with visible legend; actual converter exact; all original markup byte-identical. Live1920x1080 pixels individually inspected2026-11-23 19:19, passed.
+AR-Y8-N-T2-L12,s6p,PASS,Individual local pixels inspected; source-grounded schematic or licensed map with visible legend; actual converter exact; all original markup byte-identical. Live1920x1080 pixels individually inspected2026-11-23 19:19, passed.
+AR-Y7-N-T1-L04,s6d,PASS,Individual local pixels inspected; visible limitations and accurate source relation; originals byte-identical and actual converter exact; live QA pending.
+AR-Y7-N-T2-L06,s6d,PASS,Individual local pixels inspected; visible limitations and accurate source relation; originals byte-identical and actual converter exact; live QA pending.
+AR-Y7-N-T2-L10,s6p,PASS,Individual local pixels inspected; visible limitations and accurate source relation; originals byte-identical and actual converter exact; live QA pending.
+AR-Y7-N-T2-L14,s6d,PASS,Individual local pixels inspected; visible limitations and accurate source relation; originals byte-identical and actual converter exact; live QA pending.
+AR-Y7-N-T2-L21,s6d,PASS,Individual local pixels inspected; visible limitations and accurate source relation; originals byte-identical and actual converter exact; live QA pending.
+AR-Y7-N-T3-L01,s6d,PASS,Individual local pixels inspected; visible limitations and accurate source relation; originals byte-identical and actual converter exact; live QA pending.
+AR-Y7-N-T3-L03,s6d,PASS,Individual local pixels inspected; visible limitations and accurate source relation; originals byte-identical and actual converter exact; live QA pending.

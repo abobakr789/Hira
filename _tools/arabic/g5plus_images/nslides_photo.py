@@ -2,6 +2,13 @@
 # called from g1html/shell.py after images.py so regeneration restores it. Photo credits: art/photos/credits.json.
 import re
 SPECS={
+ 'AR-Y7-N-T2-L10':dict(
+  title='الناي: الآلة قبل قراءة الرمز',time='⏱ 2 دقيقتان',
+  img='ney.jpg',alt='ناي قصبي محفوظ في متحف المتروبوليتان، تظهر ثقوب الأصابع وجسمه الأنبوبي',
+  cap='<span style="font-size:34px">مثال إيراني من أواخر القرن التاسع عشر<br>ليس آلة الشاعر بعينها</span>',
+  credit='الصورة: <bdi>The Metropolitan Museum of Art</bdi> · ملكية عامة · <bdi>89.4.2452</bdi>',
+  aside='مثال متحفي للتعرّف إلى هيئة الناي، لا تمثيل لكل أنواعه. وفق المتحف هو آلة نفخ طرفية من القصب. لا نستدل من الصورة وحدها على رمز الروح أو الفن؛ نرجع إلى ألفاظ القصيدة واللحن.'),
+
  'AR-Y8-N-T2-L12':dict(
   title='أين تقع الهند؟',time='⏱ 2 دقيقتان',
   img='india-map.png',alt='خريطة كروية تبين موقع الهند في جنوب آسيا بلونين أخضرين',
