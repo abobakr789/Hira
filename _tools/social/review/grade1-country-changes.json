@@ -1,0 +1,72 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-T3-L14/answer-key.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://kids.britannica.com/kids/article/country/391002",
+      "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L14/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://kids.britannica.com/kids/article/country/391002",
+      "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L14/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2
+    ],
+    "sources": [
+      "https://kids.britannica.com/kids/article/country/391002",
+      "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L14/teacher-deck.html",
+    "views": [
+      "vocab",
+      "story",
+      "model",
+      "models"
+    ],
+    "sources": [
+      "https://kids.britannica.com/kids/article/country/391002",
+      "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L14/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://kids.britannica.com/kids/article/country/391002",
+      "https://orias.berkeley.edu/resources-teachers/travels-ibn-battuta"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Define country by land, people and government; label place list as examples rather than fabricated consecutive route; synchronize assessment and key"
+  }
+]
