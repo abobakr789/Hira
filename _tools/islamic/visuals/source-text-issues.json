@@ -1,0 +1,29 @@
+[
+  {
+    "lesson": "IE-Y1-N-T1-L07",
+    "slide": "learn3",
+    "exact_wording": "نَتَعَلَّمُ 3 نَتَعَلَّمُ ⏱ 4 دَقائِقَ مِعْيارُ النَّجاحِ 3 🐪 خلق الله للجمل سنامًا يخزن فيه الماء، وأقدامًا عريضة يمشي بها على الرمال، ورموشًا طويلة تحمي عينيه. الله الرحمن · الصَّفُّ الْأَوَّلُ Explain with the picture; ask one question to check understanding.",
+    "issue": "Camel hump storage contradicts Library of Congress zoology answer.",
+    "suggested_fix": "Replace water with fat, preserving other adaptations, only after approval.",
+    "source": "https://www.loc.gov/everyday-mysteries/categories/zoology/item/how-much-water-does-a-camels-hump-hold/",
+    "status": "Do not edit or illustrate; user review needed"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L07",
+    "slide": "learn3",
+    "exact_wording": "We learn 3 We learn ⏱ 4 minutes Success criterion 3 🐪 Allah gave the camel a hump to store water, wide feet for the sand, and long eyelashes to protect its eyes. Allah, the All-Compassionate · Grade 1 Explain with the picture; ask one question to check understanding.",
+    "issue": "Camel hump storage contradicts Library of Congress zoology answer.",
+    "suggested_fix": "Replace water with fat, only after approval.",
+    "source": "https://www.loc.gov/everyday-mysteries/categories/zoology/item/how-much-water-does-a-camels-hump-hold/",
+    "status": "Do not edit or illustrate; user review needed"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L07",
+    "slide": "learn1",
+    "exact_wording": "We learn 1 We learn ⏱ 4 minutes Success criterion 1 🌍 Allah created the earth and made it flat for people to live on. Allah: the Great Creator · Grade 1 Explain with the picture; ask one question to check understanding.",
+    "issue": "English adds a flat-earth assertion absent from the Arabic counterpart.",
+    "suggested_fix": "Use: Allah created the earth and prepared it for people to live on. Only after approval.",
+    "source": "resources/ie/IE-Y1-N-T2-L07/teacher-deck.html#learn1",
+    "status": "Do not edit or illustrate; user review needed"
+  }
+]

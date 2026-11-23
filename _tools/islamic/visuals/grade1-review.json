@@ -1,0 +1,794 @@
+[
+  {
+    "lesson": "IE-Y1-N-T1-L01",
+    "title": "اللهُ رَبّي",
+    "decision": "unchanged",
+    "rationale": "The rain-to-green-land relationship is already drawn with an explicit sequence in learn3. A second sun or rain picture would repeat that existing visual, while divine control is not a subject to portray.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L02",
+    "title": "سورة الفاتحة",
+    "decision": "unchanged",
+    "rationale": "The target meanings are worship, help and guidance. A literal road would misrepresent the straight-path meaning; Judgement and Paradise must not be depicted. Existing recitation and text remain the teaching focus.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L03",
+    "title": "الصدق طريق الجنة",
+    "decision": "changed",
+    "rationale": "Added the broken-vase event and honest admission as two story elements. No invented human appearance and no promise of universal forgiveness.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L04",
+    "title": "أركان الإسلام",
+    "decision": "unchanged",
+    "rationale": "The supplied learn1-4 cover Shahadah, prayer, Zakah and fasting, while the title names all pillars. A new complete-looking pillar graphic would risk validating an incomplete summary or adding wording outside imagery scope.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L05",
+    "title": "سورة الإخلاص",
+    "decision": "unchanged",
+    "rationale": "The four explanations concern divine uniqueness and incomparability. Numbers, family portraits or a likeness would be misleading proxies rather than an explanation. No new visual inserted.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L06",
+    "title": "مولد الرسول محمد ﷺ",
+    "decision": "unchanged",
+    "rationale": "A family-name chart was considered, but would simply repeat the already explicit father/mother statement. An invented birth scene or portrait is inappropriate, and no new source-grounded spatial relationship is present.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L07",
+    "title": "الله الرحمن",
+    "decision": "unchanged",
+    "rationale": "The camel-adaptation text contains a water-storage claim recorded in the separate issue ledger. No illustration should reinforce it. Other rain and cat-care ideas are already represented in the lesson and nearby dedicated animal-care visual.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L08",
+    "title": "سورة الفيل",
+    "decision": "unchanged",
+    "rationale": "The explanation is a specific sacred historical event. Inventing positions, appearances or a battle scene would add unrecorded details; a generic elephant photograph would merely identify a familiar noun, not explain the event.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L09",
+    "title": "دعاء النوم",
+    "decision": "unchanged",
+    "rationale": "The lesson already gives four separate bedtime reminders and the original supplication. A text-only checklist would duplicate them; a posture illustration risks overspecifying the practice while an unverified ritual sequence should not be implied.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L10",
+    "title": "أبو هريرة رضي الله عنه",
+    "decision": "unchanged",
+    "rationale": "The kitten-care account would require an invented historical scene or companion depiction. A second bowl-and-cat graphic would repeat the dedicated kindness-to-animals addition without explaining the naming relationship more clearly.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L11",
+    "title": "الوضوء",
+    "decision": "unchanged",
+    "rationale": "The four teaching slides stop at wiping the head and ears. A completed-looking procedure graphic could falsely imply that this is the full ablution routine. Missing actions cannot be supplied under an imagery-only grant.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T1-L12",
+    "title": "الرحمة بالحيوان",
+    "decision": "changed",
+    "rationale": "Added literal cat, water and suitable-food bowls, directly matching learn3. No historical person shown.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L01",
+    "title": "سورة الفلق",
+    "decision": "unchanged",
+    "rationale": "Morning light is a useful literal referent, but a dawn photograph would not teach seeking protection or the other explained meanings. Avoid visualizing occult harm or giving a face to envy.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L02",
+    "title": "أركان الإيمان",
+    "decision": "unchanged",
+    "rationale": "The teaching summary names belief in Allah, angels, books and messengers. A complete-looking organizer would risk suggesting only four articles, and angels or messengers must not be illustrated.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L03",
+    "title": "آداب النظافة في الإسلام",
+    "decision": "changed",
+    "rationale": "Added recognizable toothbrush, soap dispenser and bin, each paired with its lesson action. Parallel actions, no false chronology.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L04",
+    "title": "المسلم عون لأخيه",
+    "decision": "unchanged",
+    "rationale": "The lesson gives several alternative ways to help, not one chronology. Generic handshake/gift pictures would repeat its emoji rather than teach the hadith. No invented rescue procedure or aid ranking added.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L05",
+    "title": "أحب أسرتي",
+    "decision": "unchanged",
+    "rationale": "The tasks are personal obedience, cooperation, visiting and supplication. An invented family tree would add relations not supplied, while a housework icon alone would narrow the several practices to one.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L06",
+    "title": "رسولنا محمد ﷺ في رعاية جده وعمه",
+    "decision": "unchanged",
+    "rationale": "The grandfather-to-uncle account already states ages and names explicitly. A second name-card chronology would add no imagery value; no invented portraits, home scene or travel route added.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L07",
+    "title": "الله الخالق العظيم",
+    "decision": "unchanged",
+    "rationale": "The English counterpart has a translation concern recorded separately. A globe would contradict that unapproved source wording instead of fixing it, while generic nature pictures would not explain the learning relation. Arabic also left unchanged in this paired review.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L08",
+    "title": "سورة الناس",
+    "decision": "unchanged",
+    "rationale": "The explanations center on refuge and unseen whispering. A devil, shield or hiding figure would literalize unseen matters or symbolize protection without teaching the wording. Recitation and text retained.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L09",
+    "title": "صلاتي نور حياتي",
+    "decision": "changed",
+    "rationale": "Added one-dot-per-rakah count comparison for the five named obligatory prayers. Equal-size cards avoid a false time scale; Arabic reading order is right-to-left.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L10",
+    "title": "البرّ حسن الخلق",
+    "decision": "unchanged",
+    "rationale": "Rashid apologizes and helps with memorization, but an invented face/handshake scene would not explain character better than the stated actions. A filled moral-outcome flow risks presenting one anecdote as a guaranteed response.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T2-L11",
+    "title": "سورة قريش",
+    "decision": "changed",
+    "rationale": "Added winter-to-Yemen and summer-to-Ash-Sham matching panels. Not a geographic route or a day/night sequence.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-N-T3-L01",
+    "title": "أحب مخلوقات ربي",
+    "decision": "changed",
+    "rationale": "Added literal cow-to-milk and hen-to-eggs pairings directly from learn2, using original vector shapes rather than generic emoji.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-N-T3-L02",
+    "title": "سورة الكوثر",
+    "decision": "unchanged",
+    "rationale": "Al-Kawthar includes a river in Paradise. A real river would be a false stand-in for the unseen, while prayer/sacrifice pictures would identify acts without explaining the surah relation.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T3-L03",
+    "title": "أسماء بنت أبي بكر الصديق رضي الله عنهما",
+    "decision": "unchanged",
+    "rationale": "The belt-splitting and cave account was considered for an object-only diagram, but specific tying details and object appearance are not established here. No companion portrait, invented cave scene or unverified mechanical tying sequence added.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T3-L04",
+    "title": "من آداب الطعام",
+    "decision": "changed",
+    "rationale": "Added selected before/during/after eating reminders. Soap, plate-near-edge marker and toothbrush are literal objects. Visible note says these are examples, not a complete list.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-N-T3-L05",
+    "title": "حديث الرحمة",
+    "decision": "unchanged",
+    "rationale": "The Umamah example cannot be pictured without portraying the Prophet ﷺ. The thirsty-dog account could be illustrated only with invented historical details; the new dedicated animal-care slide already teaches food and water without those additions.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T3-L06",
+    "title": "التسامح",
+    "decision": "unchanged",
+    "rationale": "The Noura/Hind anecdote already states apology and sharing. A heart or handshake would be a generic moral label, and an invented toy scene would add objects and appearances. No new visual relation beyond the explicit text.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T3-L07",
+    "title": "أحب الزراعة",
+    "decision": "changed",
+    "rationale": "Added tree-to-people/birds/animals beneficiary branches, reflecting the teaching explanation rather than depicting unseen reward.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-N-T3-L08",
+    "title": "خيركم من تعلم القرآن وعلمه",
+    "decision": "unchanged",
+    "rationale": "The teaching meanings concern memorization, conduct and unseen reward. A crown picture would misrepresent the Day of Judgement account; book/brain icons would be labels rather than an explanation.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-N-T3-L09",
+    "title": "سورة النصر",
+    "decision": "unchanged",
+    "rationale": "A conquest scene or crowd would invent historical details and risk depicting protected figures. A generic Kaabah photo would not explain humility, praise and forgiveness, which are the learning focus.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L01",
+    "title": "Allah Is My Lord",
+    "decision": "unchanged",
+    "rationale": "The rain-to-green-land relationship is already drawn with an explicit sequence in learn3. A second sun or rain picture would repeat that existing visual, while divine control is not a subject to portray.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L02",
+    "title": "Surat Al-Fatihah",
+    "decision": "unchanged",
+    "rationale": "The target meanings are worship, help and guidance. A literal road would misrepresent the straight-path meaning; Judgement and Paradise must not be depicted. Existing recitation and text remain the teaching focus.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L03",
+    "title": "Truthfulness Is the Way to Paradise",
+    "decision": "changed",
+    "rationale": "Added the broken-vase event and honest admission as two story elements. No invented human appearance and no promise of universal forgiveness.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L04",
+    "title": "The Pillars of Islam",
+    "decision": "unchanged",
+    "rationale": "The supplied learn1-4 cover Shahadah, prayer, Zakah and fasting, while the title names all pillars. A new complete-looking pillar graphic would risk validating an incomplete summary or adding wording outside imagery scope.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L05",
+    "title": "Surat Al-Fil",
+    "decision": "unchanged",
+    "rationale": "The explanation is a specific sacred historical event. Inventing positions, appearances or a battle scene would add unrecorded details; a generic elephant photograph would merely identify a familiar noun, not explain the event.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L06",
+    "title": "The Birth of Prophet Muhammad ﷺ",
+    "decision": "unchanged",
+    "rationale": "A family-name chart was considered, but would simply repeat the already explicit father/mother statement. An invented birth scene or portrait is inappropriate, and no new source-grounded spatial relationship is present.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L07",
+    "title": "Allah, the All-Compassionate",
+    "decision": "unchanged",
+    "rationale": "The camel-adaptation text contains a water-storage claim recorded in the separate issue ledger. No illustration should reinforce it. Other rain and cat-care ideas are already represented in the lesson and nearby dedicated animal-care visual.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L08",
+    "title": "Surat Al-Falaq",
+    "decision": "unchanged",
+    "rationale": "Morning light is a useful literal referent, but a dawn photograph would not teach seeking protection or the other explained meanings. Avoid visualizing occult harm or giving a face to envy.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L09",
+    "title": "Bedtime Supplication (Du'a al-Nawm)",
+    "decision": "unchanged",
+    "rationale": "The lesson already gives four separate bedtime reminders and the original supplication. A text-only checklist would duplicate them; a posture illustration risks overspecifying the practice while an unverified ritual sequence should not be implied.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L10",
+    "title": "Abu Hurayrah (may Allah be pleased with him)",
+    "decision": "unchanged",
+    "rationale": "The kitten-care account would require an invented historical scene or companion depiction. A second bowl-and-cat graphic would repeat the dedicated kindness-to-animals addition without explaining the naming relationship more clearly.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L11",
+    "title": "Wudu (Ablution)",
+    "decision": "unchanged",
+    "rationale": "The four teaching slides stop at wiping the head and ears. A completed-looking procedure graphic could falsely imply that this is the full ablution routine. Missing actions cannot be supplied under an imagery-only grant.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T1-L12",
+    "title": "Kindness to Animals",
+    "decision": "changed",
+    "rationale": "Added literal cat, water and suitable-food bowls, directly matching learn3. No historical person shown.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L01",
+    "title": "Surat Al-Ikhlas",
+    "decision": "unchanged",
+    "rationale": "The four explanations concern divine uniqueness and incomparability. Numbers, family portraits or a likeness would be misleading proxies rather than an explanation. No new visual inserted.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L02",
+    "title": "Pillars of Islamic Belief",
+    "decision": "unchanged",
+    "rationale": "The teaching summary names belief in Allah, angels, books and messengers. A complete-looking organizer would risk suggesting only four articles, and angels or messengers must not be illustrated.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L03",
+    "title": "Islamic Etiquette of Cleanliness",
+    "decision": "changed",
+    "rationale": "Added recognizable toothbrush, soap dispenser and bin, each paired with its lesson action. Parallel actions, no false chronology.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L04",
+    "title": "A Muslim Helps His Brother",
+    "decision": "unchanged",
+    "rationale": "The lesson gives several alternative ways to help, not one chronology. Generic handshake/gift pictures would repeat its emoji rather than teach the hadith. No invented rescue procedure or aid ranking added.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L05",
+    "title": "I Love My Family",
+    "decision": "unchanged",
+    "rationale": "The tasks are personal obedience, cooperation, visiting and supplication. An invented family tree would add relations not supplied, while a housework icon alone would narrow the several practices to one.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L06",
+    "title": "Prophet Muhammad ﷺ in the Care of His Grandfather and Uncle",
+    "decision": "unchanged",
+    "rationale": "The grandfather-to-uncle account already states ages and names explicitly. A second name-card chronology would add no imagery value; no invented portraits, home scene or travel route added.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L07",
+    "title": "Allah: the Great Creator",
+    "decision": "unchanged",
+    "rationale": "The English counterpart has a translation concern recorded separately. A globe would contradict that unapproved source wording instead of fixing it, while generic nature pictures would not explain the learning relation. Arabic also left unchanged in this paired review.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L08",
+    "title": "Surat An-Nas",
+    "decision": "unchanged",
+    "rationale": "The explanations center on refuge and unseen whispering. A devil, shield or hiding figure would literalize unseen matters or symbolize protection without teaching the wording. Recitation and text retained.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L09",
+    "title": "Be Beneficial",
+    "decision": "unchanged",
+    "rationale": "The examples span helping a child, an elder, a mother and future professions. A profession montage would select appearances and merely name roles, not explain benefit. No invented safety procedure for helping a lost child added.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L10",
+    "title": "My Prayer Is the Light of My Life",
+    "decision": "changed",
+    "rationale": "Added one-dot-per-rakah count comparison for the five named obligatory prayers. Equal-size cards avoid a false time scale; Arabic reading order is right-to-left.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L11",
+    "title": "Righteousness Is Good Character",
+    "decision": "unchanged",
+    "rationale": "Rashid apologizes and helps with memorization, but an invented face/handshake scene would not explain character better than the stated actions. A filled moral-outcome flow risks presenting one anecdote as a guaranteed response.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T2-L12",
+    "title": "Surat Al-Ma'un",
+    "decision": "unchanged",
+    "rationale": "The lesson contrasts cruelty, refusing food, careless prayer and withholding small loans. A salt-shaker or kitchen-tool image would show only a noun and not the social duty; a staged orphan scene risks stereotyping the learner-facing example.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L01",
+    "title": "I Love the Creatures of My Lord",
+    "decision": "changed",
+    "rationale": "Added literal cow-to-milk and hen-to-eggs pairings directly from learn2, using original vector shapes rather than generic emoji.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L02",
+    "title": "Surat Al-Masad",
+    "decision": "unchanged",
+    "rationale": "The explanation includes named historical opponents and punishment in the Fire. No invented portraits, hostile scene or depiction of unseen punishment is appropriate; wealth icons would only repeat the supplied label.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L03",
+    "title": "Asma' bint Abi Bakr (may Allah be pleased with them)",
+    "decision": "unchanged",
+    "rationale": "The belt-splitting and cave account was considered for an object-only diagram, but specific tying details and object appearance are not established here. No companion portrait, invented cave scene or unverified mechanical tying sequence added.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L04",
+    "title": "Some of the Manners of Eating",
+    "decision": "changed",
+    "rationale": "Added selected before/during/after eating reminders. Soap, plate-near-edge marker and toothbrush are literal objects. Visible note says these are examples, not a complete list.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L05",
+    "title": "Mercy",
+    "decision": "unchanged",
+    "rationale": "The Umamah example cannot be pictured without portraying the Prophet ﷺ. The thirsty-dog account could be illustrated only with invented historical details; the new dedicated animal-care slide already teaches food and water without those additions.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L06",
+    "title": "Surat Al-Kawthar",
+    "decision": "unchanged",
+    "rationale": "Al-Kawthar includes a river in Paradise. A real river would be a false stand-in for the unseen, while prayer/sacrifice pictures would identify acts without explaining the surah relation.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L07",
+    "title": "Tolerance",
+    "decision": "unchanged",
+    "rationale": "The Noura/Hind anecdote already states apology and sharing. A heart or handshake would be a generic moral label, and an invented toy scene would add objects and appearances. No new visual relation beyond the explicit text.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L08",
+    "title": "I Love Agriculture",
+    "decision": "changed",
+    "rationale": "Added tree-to-people/birds/animals beneficiary branches, reflecting the teaching explanation rather than depicting unseen reward.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "PASS individual full-size pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L09",
+    "title": "\"The best amongst you is the one who learns the Qur'an and teaches it\"",
+    "decision": "unchanged",
+    "rationale": "The teaching meanings concern memorization, conduct and unseen reward. A crown picture would misrepresent the Day of Judgement account; book/brain icons would be labels rather than an explanation.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y1-NN-T3-L10",
+    "title": "Surat An-Nasr",
+    "decision": "unchanged",
+    "rationale": "A conquest scene or crowd would invent historical details and risk depicting protected figures. A generic Kaabah photo would not explain humility, praise and forgiveness, which are the learning focus.",
+    "assessment_context": [
+      "quick",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  }
+]
