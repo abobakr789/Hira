@@ -34,8 +34,8 @@ def panel(items):
     return '<div class="hx n%d" data-added="img">%s</div>' % (len(items), figs)
 
 def apply_html(code, html):
-    m = MAN.get(code)
-    if not m:
+    m = MAN.get(code) or {}
+    if not m and code != 'AR-Y1-N-T1-L01':
         return html
     for sid, items in m.items():
         if not items:
@@ -47,6 +47,12 @@ def apply_html(code, html):
         html = html[:mm.start(2)] + panel(items) + html[mm.end(2):]
     if 'id="hira-g1-images"' not in html:
         html = html.replace('</head>', CSS + '</head>', 1)
+    if code == 'AR-Y1-N-T1-L01':
+        try:
+            from l01_extras import apply_l01
+        except ImportError:
+            from .l01_extras import apply_l01
+        html = apply_l01(html)
     return html
 
 def main(argv):
