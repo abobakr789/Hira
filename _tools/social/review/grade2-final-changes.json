@@ -1,0 +1,194 @@
+[
+  {
+    "file": "resources/ssd/SS-Y2-T1-L04/teacher-deck.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      "vocab",
+      "g4",
+      "models"
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L04/sources-concept-card.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      0
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L04/answer-key.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      0
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L04/worksheets-A4.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L04/pod-sheet.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      0
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L04/group-work.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      1
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L11/teacher-deck.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      "vocab",
+      "g3",
+      "levels",
+      "quick"
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L11/sources-concept-card.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      0
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L11/group-work.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      1
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L13/teacher-deck.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      "vocab",
+      "groups"
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L13/sources-concept-card.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      0
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L01/teacher-deck.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      "g3",
+      "levels"
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T2-L01/group-work.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      1
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L02/teacher-deck.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      "g3"
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L14/teacher-deck.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      "g3"
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L15/teacher-deck.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      "g4",
+      "mirror"
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L16/teacher-deck.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      "g4",
+      "mirror"
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L16/group-work.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "views": [
+      1
+    ],
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L02/group-work.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged",
+    "views": [
+      1
+    ]
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T3-L14/group-work.html",
+    "local_qa": "PASS: every changed view pixel-inspected, including repaired views",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged",
+    "views": [
+      1
+    ]
+  }
+]
