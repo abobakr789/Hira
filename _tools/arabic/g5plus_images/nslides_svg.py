@@ -314,14 +314,35 @@ def mirage():
     out+=f'<text x="1000" y="570" text-anchor="middle" font-size="29" fill="#64748B" {F}>المتقطّع: امتداد ظاهري لاتجاه الرؤية، لا مسار الضوء</text>'
     out+=f'<text x="850" y="650" text-anchor="middle" font-size="29" fill="#334155" {F}>الضوء ينحني عبر طبقات الهواء؛ لا ماء حقيقيًّا على الطريق</text>'
     return out,'السراب السفلي','لماذا تبدو السماء كأنها ماء عند السطح؟','وفق WMO تنحني الأشعة مع اختلاف معامل الانكسار بسبب تغير الحرارة والكثافة. الخط الأزرق مسار توضيحي من السماء إلى العين؛ المتقطع امتداد ظاهري فقط. الرسم ليس مقياسًا للزاوية أو الحرارة.','1700 720'
-SPECS={'AR-Y6-N-T1-L22':clocks,'AR-Y6-N-T2-L17':mirage,'AR-Y6-N-T2-L21':simileparts,'AR-Y6-N-T2-L24':vennplay,'AR-Y6-N-T2-L07':echolocation,'AR-Y6-N-T1-L19':offshoot,'AR-Y7-N-T3-L03':ostrich,'AR-Y7-N-T1-L04':glazing,'AR-Y7-N-T2-L06':sandgrouse,'AR-Y7-N-T2-L21':ropeanalogy,'AR-Y7-N-T3-L01':textlayouts,'AR-Y7-N-T2-L14':nestforms,'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
+def barter():
+    out='<rect x="160" y="120" width="520" height="310" rx="30" fill="#FEF3C7"/><rect x="1020" y="120" width="520" height="310" rx="30" fill="#DBEAFE"/>'
+    for x,y in [(290,250),(380,210),(490,260),(390,320)]:out+=f'<ellipse cx="{x}" cy="{y}" rx="46" ry="27" fill="#92400E" transform="rotate(-25 {x} {y})"/><path d="M{x-20} {y+8}l40-16" stroke="#B7794F" stroke-width="3"/>'
+    out+='<path d="M1130 210Q1210 170 1280 210T1430 210V350Q1350 310 1280 350T1130 350Z" fill="#60A5FA" stroke="#2563EB" stroke-width="7"/><path d="M720 230H980l-25-20m25 20-25 20M980 330H720l25-20m-25 20 25 20" fill="none" stroke="#64748B" stroke-width="9"/>'
+    out+=f'<text x="420" y="490" text-anchor="middle" font-size="44" {F}>تمر</text><text x="1280" y="490" text-anchor="middle" font-size="44" {F}>قماش</text><text x="850" y="610" text-anchor="middle" font-size="32" {F}>سلعة مقابل سلعة، لا سعر أو كمية ثابتة</text>'
+    return out,'المقايضة','المقايضة: تبادل السلع','رسم أصلي يوضح المثال المذكور في النص، لا صورة تاريخية ولا معدل تبادل معلوم.','1700 680'
+def toylabel():
+    out='<rect x="380" y="80" width="940" height="460" rx="35" fill="white" stroke="#64748B" stroke-width="6"/>'
+    for y,t in [(160,'مثال تعليمي من النص، لا سياسة متجر'),(280,'العمر المناسب: ٥ سنوات فأكثر'),(380,'الضمان: سنة'),(480,'الإرجاع: خلال أسبوع')]:out+=f'<text x="850" y="{y}" text-anchor="middle" font-size="{32 if y==160 else 46}" {F}>{t}</text>'
+    return out,'بيانات المنتج','كيف نقرأ بيانات اللعبة؟','بطاقة تمثيلية تُجمّع معلومات النص فقط. ليست شروط شراء أو توصية بمنتج فعلي.','1700 650'
+def resident():
+    out=''
+    for x,hd,body in [(170,'أحمد: مقيم','يعمل ويعيش هنا'),(960,'توم: سائح','يزور المعالم أسبوعًا')]:
+        out+=f'<rect x="{x}" y="90" width="570" height="300" rx="35" fill="white" stroke="#B07A12" stroke-width="6"/><text x="{x+285}" y="205" text-anchor="middle" font-size="48" {F}>{hd}</text><text x="{x+285}" y="305" text-anchor="middle" font-size="38" {F}>{body}</text>'
+    out+=f'<path d="M455 390V450H1245V390M850 450V480" fill="none" stroke="#64748B" stroke-width="5"/><text x="850" y="560" text-anchor="middle" font-size="40" {F}>كلاهما يحترم القوانين والعادات</text>'
+    return out,'مقيم وسائح','شخصان في النص: اختلاف ومشترك','المقارنة تخص أحمد وتوم كما يصفهما النص. ليست تعريفًا قانونيًا للإقامة أو التأشيرة.','1700 680'
+def futurephone():
+    out='<path d="M220 180L490 110L700 180V480L490 410L220 480Z" fill="#DBEAFE" stroke="#334155" stroke-width="9"/><circle cx="255" cy="207" r="9" fill="#334155"/><path d="M575 157l55 20" stroke="#334155" stroke-width="7"/><path d="M490 110V410" stroke="#64748B" stroke-width="6" stroke-dasharray="12 9"/><rect x="1180" y="80" width="130" height="500" rx="40" fill="#CBD5E1"/><rect x="1110" y="220" width="270" height="230" rx="50" fill="#334155"/><rect x="1140" y="250" width="210" height="170" rx="25" fill="#93C5FD"/>'
+    out+=f'<text x="460" y="570" text-anchor="middle" font-size="40" {F}>هاتف قابل للطيّ</text><text x="1245" y="650" text-anchor="middle" font-size="40" {F}>ساعة ذكية في اليد</text><text x="850" y="55" text-anchor="middle" font-size="31" {F}>تصوّران وردا في النص، لا وعد بشكل المستقبل</text>'
+    return out,'أشكال الأجهزة','تصوّرات النص لهاتف المستقبل','رسوم أصلية لأشكال الأجهزة المذكورة، وليست منتجًا بعينه ولا تنبؤًا مؤكدًا ولا تمثيلًا للذكاء الاصطناعي.','1700 720'
+SPECS={'AR-Y6-NN-T1-L04':barter,'AR-Y6-NN-T1-L10':toylabel,'AR-Y6-NN-T2-L04':resident,'AR-Y7-NN-T1-L08':futurephone,'AR-Y6-N-T1-L22':clocks,'AR-Y6-N-T2-L17':mirage,'AR-Y6-N-T2-L21':simileparts,'AR-Y6-N-T2-L24':vennplay,'AR-Y6-N-T2-L07':echolocation,'AR-Y6-N-T1-L19':offshoot,'AR-Y7-N-T3-L03':ostrich,'AR-Y7-N-T1-L04':glazing,'AR-Y7-N-T2-L06':sandgrouse,'AR-Y7-N-T2-L21':ropeanalogy,'AR-Y7-N-T3-L01':textlayouts,'AR-Y7-N-T2-L14':nestforms,'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
 def apply_html(code,t):
  fn=SPECS.get(code)
- if not fn or 'id="s6d"' in t: return t
+ sid='s5' if '-NN-' in code else 's6'
+ if not fn or ('id="'+sid+'d"') in t: return t
  body,label,title,aside,vb=fn()
- m=re.search(r'<section class="sl" id="s6"[^>]*>.*?</section>',t,re.S).group()
+ m=re.search(r'<section class="sl" id="'+sid+r'"[^>]*>.*?</section>',t,re.S).group()
  a=m.find('<div class="bd cvb2">'); f=m.find('<div class="ft">')
- head=m[:a].replace('id="s6"','id="s6d"')
+ head=m[:a].replace('id="'+sid+'"','id="'+sid+'d"')
  head=re.sub(r'(<h2 class="ht[^"]*">).*?(</h2>)',lambda x:x.group(1)+title+x.group(2),head,flags=re.S)
  head=re.sub(r'(<span class="pill">).*?(</span>)',lambda x:x.group(1)+'شاهدني'+x.group(2),head,count=1)
  head=re.sub(r'(<span class="pill tm">).*?(</span>)',lambda x:x.group(1)+'⏱ 2 دقيقتان'+x.group(2),head,count=1)

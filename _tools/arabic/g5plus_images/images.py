@@ -56,6 +56,7 @@ def apply_html(code,text):
   p=panel(items)
   if fam=='flow':
    p='<div class="hpics flow" data-added="g5plus-literal-pictures">'+('<span class="down">+</span>' if e.get('parallel') else '<span class="down">↓</span>').join('<div class="node">'+html.escape(c)+'</div>' for _,c in items)+'</div>'
+  if fam=='flow' and e.get('note'):p=p.replace('hpics flow"','hpics flow" style="height:610px;top:10px"')[:-6]+'<small style="font:700 22px/1.45 Tahoma;text-align:center;color:#64748B">'+html.escape(e['note'])+'</small></div>'
   if fam=='photo':
    cr=' · '.join('<a href="%s">%s</a>'%(html.escape(c['url'],quote=True),html.escape(c['text'])) for c in e['credits'])
    p=p.replace('hpics n','hpics photo n').replace('</div>','<small dir="ltr">'+cr+'</small></div>')
