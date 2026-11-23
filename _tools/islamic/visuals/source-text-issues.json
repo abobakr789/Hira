@@ -555,7 +555,8 @@
     "exact_wording": "تعريف الزكاة ومكانتها نَفْهَمُ الدَّرْسَ الزكاة لغة النماء والطهارة، وشرعًا حق واجب في مال مخصوص لطائفة مخصوصة في وقت مخصوص. وهي الركن الثالث من أركان الإسلام، وقُرنت بالصلاة في أكثر من ثمانين موضعًا. قال تعالى: ﴿خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا﴾ . الزكاة في الإسلام Explain with questioning; highlight the evidence.",
     "issue": "Prayer/zakah paired in more than80 places claim needs a verified counting method. New visual does not use it.",
     "suggested_fix": "Verify against Quran text concordance; no change without approval.",
-    "status": "Held unchanged."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-N-T2-L02",
@@ -564,7 +565,8 @@
     "counterpart": "IE-Y9-NN-T2-L02",
     "issue": "Women-as-twin-halves teaching differs from gender-imitation hadith summary and assessment.",
     "suggested_fix": "Verify intended target or counting convention before any authorised alignment; do not edit quotation.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-N-T2-L09",
@@ -573,7 +575,8 @@
     "counterpart": "IE-Y9-NN-T2-L09",
     "issue": "Glad-tidings narration teaching differs from public-sin narration summary and assessment.",
     "suggested_fix": "Verify intended target or counting convention before any authorised alignment; do not edit quotation.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-N-T3-L06",
@@ -581,7 +584,8 @@
     "exact_wording": "الحكم التكليفي: الأقسام الخمسة نَفْهَمُ الدَّرْسَ الواجب: ما طلب الشارع فعله طلبًا جازمًا، يُثاب فاعله ويُعاقب تاركه، كالصلوات الخمس. المندوب أو السنة: ما طلب فعله طلبًا غير جازم، يُثاب فاعله ولا يُعاقب تاركه، كالسواك وصلاة الضحى. الحرام: ما طلب تركه طلبًا جازمًا، يُعاقب فاعله ويُثاب تاركه امتثالًا، كالكذب والسرقة. المكروه: ما طلب تركه طلبًا غير جازم، يُثاب تاركه ولا يُعاقب فاعله، كالأكل بالشمال عند بعض الفقهاء. المباح: ما خُيّر فيه المكلف، كالأكل والشرب والنوم. الحكم الشرعي Explain with questioning; highlight the evidence. || أَتَأَمَّلُ وَأَنْقُدُ صَحِّحْ وَعَلِّلْ «المباح يتساوى فعله وتركه.» ✓ صَحيحٌ «المكروه يُعاقب فاعله كالحرام.» ✗ خَطَأٌ «كيف يصير الأكل والنوم عبادة؟ بالنية الصالحة كالتقوّي على الطاعة» ✓ صَحيحٌ «أيّ العبارات صنّفت الأحكام تصنيفًا صحيحًا؟ الضحى واجبة» ✗ خَطَأٌ الحكم الشرعي Students vote, justify, then reveal; ask them to correct the false statements.",
     "issue": "Arabic teaching qualifies left-hand eating as disliked according to some jurists; assessment may omit school qualification. Needs source and all print repetitions check, not a definitive error verdict.",
     "suggested_fix": "Preserve school qualification if an alignment is approved.",
-    "status": "Held unchanged."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-N-T3-L09",
@@ -589,7 +593,8 @@
     "exact_wording": "أَهَمُّ ما تَعَلَّمْناهُ نَبْني الْفَهْمَ 🤲 1 ذكر الله عند دخول السوق: «لا إله إلا الله وحده لا شريك له، له الملك وله الحمد…» كتب الله له ألف ألف حسنة. 🤝 2 السماحة في البيع والشراء: «رحم الله رجلًا سمحًا إذا باع وإذا اشترى وإذا اقتضى»، والصدق وعدم الغش. 🚶 3 عدم الأذى: «إذا مرّ أحدكم في مسجدنا أو في سوقنا ومعه نبل فليمسك على نصالها»، وغضّ البصر. 🏞️ 4 المرافق العامة: الحدائق والطرق والشواطئ والمدارس أمانة، نحافظ عليها ولا نعبث بها، ﴿وَلَا تَعْثَوْا فِي الْأَرْضِ مُفْسِدِينَ﴾ . آداب السوق والمرافق العامة Summarise the key points.",
     "issue": "Million-good-deeds market supplication narration requires grading context before visualising numerical reward.",
     "suggested_fix": "Check narration grading with authoritative sources; hold quote itself.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-N-T3-L10",
@@ -598,7 +603,8 @@
     "counterpart": "IE-Y9-NN-T3-L10",
     "issue": "Musnad count about30k in teaching versus40k in summary; counting conventions may differ.",
     "suggested_fix": "Verify intended target or counting convention before any authorised alignment; do not edit quotation.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-NN-T2-L02",
@@ -607,7 +613,8 @@
     "counterpart": "IE-Y9-N-T2-L02",
     "issue": "Women-as-twin-halves teaching differs from gender-imitation hadith summary and assessment.",
     "suggested_fix": "Verify intended target or counting convention before any authorised alignment; do not edit quotation.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-NN-T2-L09",
@@ -616,7 +623,8 @@
     "counterpart": "IE-Y9-N-T2-L09",
     "issue": "Glad-tidings narration teaching differs from public-sin narration summary and assessment.",
     "suggested_fix": "Verify intended target or counting convention before any authorised alignment; do not edit quotation.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-NN-T3-L06",
@@ -624,7 +632,8 @@
     "exact_wording": "The five rulings Understanding the lesson Obligatory (wajib), recommended (mandub), forbidden (haram), disliked (makruh) and permissible (mubah). Sharia Rule Explain with questioning; highlight the evidence. || Reflect & critique Correct and justify «There are five categories of ruling.» ✓ True «Doing something disliked is punished like doing something forbidden.» ✗ False «How can eating and sleeping become worship? With a good intention like gaining strength for obedience» ✓ True «Which statement classifies rulings correctly? Duha obligatory» ✗ False Sharia Rule Students vote, justify, then reveal; ask them to correct the false statements.",
     "issue": "Arabic teaching qualifies left-hand eating as disliked according to some jurists; assessment may omit school qualification. Needs source and all print repetitions check, not a definitive error verdict.",
     "suggested_fix": "Preserve school qualification if an alignment is approved.",
-    "status": "Held unchanged."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-NN-T3-L09",
@@ -632,7 +641,8 @@
     "exact_wording": "Key learning points Building understanding 🤲 1 Remembering Allah when entering the market: «Whoever enters the market and says: There is no god but Allah alone, without partner… Allah writes for him a million good deeds.» 😊 2 Generosity in trade: «May Allah have mercy on a person who is easy-going when he sells, buys and asks for repayment», with honesty and no cheating. 🙈 3 Lowering the gaze and not harming: no pushing people, and no carrying sharp things carelessly. 🏛️ 4 Public facilities such as parks, mosques, schools and roads are a trust; Muslims never damage them. «Beware of those who relieve themselves in people's paths or shade.» Etiquette in the Market and Public Utilities Summarise the key points.",
     "issue": "Million-good-deeds market supplication narration requires grading context before visualising numerical reward.",
     "suggested_fix": "Check narration grading with authoritative sources; hold quote itself.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   },
   {
     "lesson": "IE-Y9-NN-T3-L10",
@@ -641,6 +651,7 @@
     "counterpart": "IE-Y9-N-T3-L10",
     "issue": "Musnad count about30k in teaching versus40k in summary; counting conventions may differ.",
     "suggested_fix": "Verify intended target or counting convention before any authorised alignment; do not edit quotation.",
-    "status": "Held unchanged and unillustrated."
+    "status": "Approved corrections implemented, local QA complete, live QA pending",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA"
   }
 ]

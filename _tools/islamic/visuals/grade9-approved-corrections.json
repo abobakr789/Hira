@@ -1,0 +1,323 @@
+[
+  {
+    "file": "resources/ie/IE-Y9-N-T2-L02/teacher-deck.html",
+    "slides": [
+      "part0",
+      "part3",
+      "g4"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/bukhari:5885"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T2-L09/teacher-deck.html",
+    "slides": [
+      "part0",
+      "part1",
+      "part3",
+      "g2",
+      "g4"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/bukhari:6069"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L10/teacher-deck.html",
+    "slides": [
+      "part1",
+      "learn",
+      "modelanswers"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://shamela.ws/book/21581/53"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L06/teacher-deck.html",
+    "slides": [
+      "g2"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://read.shamela.ws/book/27107/21755"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L09/teacher-deck.html",
+    "slides": [
+      "learn",
+      "modelanswers"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/tirmidhi:3428",
+      "https://islamqa.info/ar/answers/223533"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T2-L02/teacher-deck.html",
+    "slides": [
+      "part0",
+      "part2",
+      "g3"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/bukhari:5885"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T2-L09/teacher-deck.html",
+    "slides": [
+      "part0",
+      "part2",
+      "g3"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/bukhari:6069"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L10/teacher-deck.html",
+    "slides": [
+      "part1",
+      "learn",
+      "modelanswers"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://shamela.ws/book/21581/53"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L06/teacher-deck.html",
+    "slides": [
+      "g2",
+      "g3"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://read.shamela.ws/book/27107/21755"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L09/teacher-deck.html",
+    "slides": [
+      "learn",
+      "modelanswers"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/tirmidhi:3428",
+      "https://islamqa.info/ar/answers/223533"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T1-L05/teacher-deck.html",
+    "slides": [
+      "part0"
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://www.al-qaradawi.net/node/2199"
+    ],
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending",
+    "quotation_rule": "Existing target excerpt copied intact; Quran and media exact."
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L06/worksheets-A4.pdf",
+    "pages": [
+      3
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://read.shamela.ws/book/27107/21755"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L06/group-work.pdf",
+    "pages": [
+      0,
+      1
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://read.shamela.ws/book/27107/21755"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L06/worksheets-A4.pdf",
+    "pages": [
+      3
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://read.shamela.ws/book/27107/21755"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L06/group-work.pdf",
+    "pages": [
+      0,
+      1
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://read.shamela.ws/book/27107/21755"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L09/worksheets-A4.pdf",
+    "pages": [
+      1
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/tirmidhi:3428"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L09/answer-key.pdf",
+    "pages": [
+      0
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/tirmidhi:3428"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L09/sources-concept-card.pdf",
+    "pages": [
+      0
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/tirmidhi:3428"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L09/worksheets-A4.pdf",
+    "pages": [
+      1
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/tirmidhi:3428"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L09/answer-key.pdf",
+    "pages": [
+      0
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/tirmidhi:3428"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L09/sources-concept-card.pdf",
+    "pages": [
+      0
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://sunnah.com/tirmidhi:3428"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L10/answer-key.pdf",
+    "pages": [
+      0
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://shamela.ws/book/21581/53"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-N-T3-L10/sources-concept-card.pdf",
+    "pages": [
+      0
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://shamela.ws/book/21581/53"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L10/answer-key.pdf",
+    "pages": [
+      0
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://shamela.ws/book/21581/53"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  },
+  {
+    "file": "resources/ie/IE-Y9-NN-T3-L10/sources-concept-card.pdf",
+    "pages": [
+      0
+    ],
+    "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNEQjFDMDgxMjVDNDFCMUIyNDQ4RUUwMzJDMEJDOEIA",
+    "sources": [
+      "https://shamela.ws/book/21581/53"
+    ],
+    "change": "Original page objects preserved as vector content, scaled to reserve a visible bottom clarification. No original religious quotation rewritten.",
+    "qa": "All changed slides and changed print pages inspected locally; live QA pending"
+  }
+]
