@@ -1,0 +1,57 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-T3-L16/teacher-deck.html",
+    "views": [
+      "model"
+    ],
+    "sources": [
+      "https://www.ead.gov.ae/en/Media-Centre/News/Tree-Tagging-Programme-2024"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Remove cactus proxy for Samar tree"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L17/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "sources": [
+      "https://kids.britannica.com/kids/article/fungus/353159"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Separate fungus from annual plant category in goal, explanation, model, picture task, summary and print resources; preserve source media"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L17/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "sources": [
+      "https://kids.britannica.com/kids/article/fungus/353159"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Separate fungus from annual plant category in goal, explanation, model, picture task, summary and print resources; preserve source media"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-T3-L17/teacher-deck.html",
+    "views": [
+      "goal",
+      "story",
+      "model",
+      "together",
+      "mirror"
+    ],
+    "sources": [
+      "https://kids.britannica.com/kids/article/fungus/353159"
+    ],
+    "local_qa": "PASS all changed slide and print pixels",
+    "live_qa": "pending",
+    "changes": "Separate fungus from annual plant category in goal, explanation, model, picture task, summary and print resources; preserve source media"
+  }
+]
