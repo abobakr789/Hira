@@ -1,0 +1,19 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "text4",
+      "uae"
+    ],
+    "local_qa": "PASS: 2 slides and 1 print page pixel-inspected; original reading and media retained.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L01/sources-concept-card.html",
+    "views": [
+      1
+    ],
+    "local_qa": "PASS: 2 slides and 1 print page pixel-inspected; original reading and media retained.",
+    "live_qa": "pending"
+  }
+]
