@@ -252,8 +252,9 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending",
-    "preservation": "PASS original bytes after removing additive section"
+    "live_qa": "PASS individual full-size pixels, deployed HTML exact match",
+    "preservation": "PASS original bytes after removing additive section",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45224310823"
   },
   {
     "lesson": "IE-Y2-N-T2-L07",
@@ -300,8 +301,9 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending",
-    "preservation": "PASS original bytes after removing additive section"
+    "live_qa": "PASS individual full-size pixels, deployed HTML exact match",
+    "preservation": "PASS original bytes after removing additive section",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45224310823"
   },
   {
     "lesson": "IE-Y2-N-T2-L10",
@@ -380,8 +382,9 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending",
-    "preservation": "PASS original bytes after removing additive section"
+    "live_qa": "PASS individual full-size pixels, deployed HTML exact match",
+    "preservation": "PASS original bytes after removing additive section",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45224310823"
   },
   {
     "lesson": "IE-Y2-N-T3-L03",
@@ -508,8 +511,9 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending",
-    "preservation": "PASS original bytes after removing additive section"
+    "live_qa": "PASS individual full-size pixels, deployed HTML exact match",
+    "preservation": "PASS original bytes after removing additive section",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45224310823"
   },
   {
     "lesson": "IE-Y2-NN-T1-L01",
@@ -732,8 +736,9 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending",
-    "preservation": "PASS original bytes after removing additive section"
+    "live_qa": "PASS individual full-size pixels, deployed HTML exact match",
+    "preservation": "PASS original bytes after removing additive section",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45224310823"
   },
   {
     "lesson": "IE-Y2-NN-T2-L05",
@@ -764,8 +769,9 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending",
-    "preservation": "PASS original bytes after removing additive section"
+    "live_qa": "PASS individual full-size pixels, deployed HTML exact match",
+    "preservation": "PASS original bytes after removing additive section",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45224310823"
   },
   {
     "lesson": "IE-Y2-NN-T2-L07",
@@ -812,8 +818,9 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending",
-    "preservation": "PASS original bytes after removing additive section"
+    "live_qa": "PASS individual full-size pixels, deployed HTML exact match",
+    "preservation": "PASS original bytes after removing additive section",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45224310823"
   },
   {
     "lesson": "IE-Y2-NN-T2-L10",
@@ -892,8 +899,9 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending",
-    "preservation": "PASS original bytes after removing additive section"
+    "live_qa": "PASS individual full-size pixels, deployed HTML exact match",
+    "preservation": "PASS original bytes after removing additive section",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45224310823"
   },
   {
     "lesson": "IE-Y2-NN-T3-L03",
@@ -1020,8 +1028,9 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending",
-    "preservation": "PASS original bytes after removing additive section"
+    "live_qa": "PASS individual full-size pixels, deployed HTML exact match",
+    "preservation": "PASS original bytes after removing additive section",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45224310823"
   },
   {
     "lesson": "IE-Y2-NN-T3-L11",
