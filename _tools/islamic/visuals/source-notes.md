@@ -37,3 +37,14 @@ Scope:65 regular lessons,32 Arabic N and33 English NN, all three terms. Nine les
 All new marks are authored vector shapes and editable text. No stock imagery or licensing dependencies. Original deck palette, typography, slide shell and media remain intact. Removed candidate book/plant/purity panels that only repeated labels or prefilled assessment examples. Every original byte reproduces after removal of the one additive section per changed deck. All9 final additions individually inspected locally at1920x1080; live QA required before milestone.
 
 One new translation terminology question about phalanges/joints is recorded and held, not changed. OpenStax supports the Arabic bone counts, but English joint counting varies with inclusion of base joints: https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb
+
+
+# Grade 3 Islamic Education visual additions
+
+69 regular lessons reviewed separately,34N/35NN. Six additions across fasting, kinship and water conservation in both languages.63 unchanged with specific reasons in grade3-review.json. All teaching sections and quick/group3/exit context read. No original teaching text, religious quotation, assessment or media changed.
+
+- T2L02 fasting band: dawn to sunset, not sunrise. Schematic horizon panels have no visible sun; no clock-time or duration scale. Quran2:187 checked23November2026: https://quran.com/en/al-baqarah/187 . Sunset endpoint and pre-dawn suhur checked: https://www.islamic-relief.org.uk/giving/islamic-giving/ramadan/iftar/ . The separate Ramadan-rules page mixes sunrise and dawn terminology, so it was not relied on for the boundary.
+- T3L06 kinship: two separate father/uncle/child and mother/uncle/child relationship examples; connectors are not chronology and do not imply uncles are parents. No real or historical family assumed. Arabic paternal/maternal terms checked at Almaany23November2026: https://www.almaany.com/en/dict/ar-en/uncle/
+- T3L07 water: running-unused versus closed tap directly matches original home-action text and avoiding-waste teaching. No invented saving quantities or procedural wudu details.
+
+Vector shapes and text authored for this project, editable in source. Original house slide shell retained. Individual local full-size pixel QA passed for all6 final additions after simplifying kinship connectors and removing an unhelpful hidden sun. Exact original-byte preservation and module reproduction tested. Live QA remains required before milestone.

@@ -136,7 +136,54 @@ def neighbors(en):
  s+=txt(800,690,'Illustrative serving idea, not a historical scene or a set quantity' if en else 'فِكْرَةٌ تَوْضيحِيَّةٌ لِلتَّقْديمِ، لا مَشْهَدٌ تاريخِيٌّ وَلا كَمِّيَّةٌ مُحَدَّدَةٌ',27)
  return s,'From my cooking to my neighbours' if en else 'مِنْ طَعامي إِلى جيراني'
 
+def fastingday(en):
+ s=txt(800,50,'Two boundaries, not sunrise to sunset' if en else 'حَدّانِ لِلصِّيامِ: الفَجْرُ وَغُروبُ الشَّمْسِ',43)
+ # Dawn has a light horizon without a visible sun; sunset sun is below the horizon.
+ for x,dawn in [(80,True),(1050,False)]:
+  s+=card(x,130,470,360,BLUE)
+  s+=f'<rect x="{x+30}" y="165" width="410" height="205" rx="22" fill="{("#243E63" if dawn else "#E6AD6D")}"/>'
+  s+=f'<path d="M{x+30} 335h410v35h-410z" fill="{("#C1DAD6" if dawn else "#B98258")}"/>'
+  s+=f'<path d="M{x+30} 370h410v50h-410z" fill="#69897B"/>'
+  s+=txt(x+235,462,('Dawn (Fajr)' if dawn else 'Sunset') if en else ('الفَجْرُ' if dawn else 'غُروبُ الشَّمْسِ'),37,BLUE)
+ s+='<path d="M560 315h480" stroke="#A37436" stroke-width="12"/><circle cx="565" cy="315" r="13" fill="#A37436"/><circle cx="1035" cy="315" r="13" fill="#A37436"/>'
+ s+=txt(800,265,'FASTING' if en else 'الصِّيامُ',41,GREEN)
+ s+=card(390,535,820,85,GREEN)+txt(800,590,'No food or drink during the fast' if en else 'أَمْتَنِعُ عَنِ الأَكْلِ وَالشُّرْبِ أَثْناءَ الصِّيامِ',34,GREEN)
+ s+=txt(800,695,'Schematic boundaries, not a clock or a guide to local prayer times' if en else 'رَسْمٌ تَوْضيحيٌّ لِلْحُدودِ، لا ساعَةٌ وَلا تَوْقيتٌ مَحَلّيٌّ',26)
+ return s,'From dawn until sunset' if en else 'مِنَ الفَجْرِ إِلى غُروبِ الشَّمْسِ'
+def kinship(en):
+ s=txt(800,50,"A father's brother and a mother's brother" if en else 'أَخو الأَبِ وَأَخو الأُمِّ',43)
+ for i in range(2):
+  x=45+i*800;col=BLUE if i==0 else GREEN
+  s+=card(x,120,710,490,col)
+  s+=f'<path d="M{x+210} 300h280M{x+210} 330v155" stroke="#8AAB9D" stroke-width="6" fill="none"/>'
+  s+=card(x+65,230,290,120,col)+txt(x+210,305,('Father' if i==0 else 'Mother') if en else ('الأَبُ' if i==0 else 'الأُمُّ'),39,col)
+  s+=card(x+400,230,260,120,col)+txt(x+530,305,('His brother' if i==0 else 'Her brother') if en else ('أَخوهُ' if i==0 else 'أَخوها'),33,col)
+  s+=txt(x+530,405,('My uncle' if en else ('عَمّي' if i==0 else 'خالي')),36,col)
+  s+=card(x+75,480,270,90,col)+txt(x+210,540,'Child' if en else 'طِفْلٌ',36,col)
+ s+=txt(800,690,'Two examples of kinship, not a complete family tree' if en else 'مِثالانِ لِلْقَرابَةِ، وَلَيْسا شَجَرَةَ أُسْرَةٍ كامِلَةً',27)
+ return s,'Two sides of my family' if en else 'أَقارِبي مِنْ جِهَتَيْنِ'
+def tapwater(en):
+ s=txt(800,50,'Do not leave water running when it is not needed' if en else 'لا أَتْرُكُ الماءَ يَجْري بِلا حاجَةٍ',40)
+ for i,on in enumerate([True,False]):
+  x=90+i*770;s+=card(x,130,650,470,BLUE if on else GREEN)
+  s+=f'<path d="M{x+160} 225h185v70h100v80h-80v-35H{x+160}z" fill="#93AFB5" stroke="#547D86" stroke-width="7"/>'
+  s+=f'<path d="M{x+235} 220v-45m-45 0h90" stroke="#547D86" stroke-width="16" stroke-linecap="round"/>'
+  if on:
+   for y in [405,450,495]:s+=f'<path d="M{x+408} {y-16}q-25 32 0 34q25-2 0-34z" fill="#75ABC4"/>'
+   s+=f'<path d="M{x+520} 185l55 55m0-55l-55 55" stroke="#B66C52" stroke-width="10" stroke-linecap="round"/>'
+  else:s+=f'<path d="M{x+515} 215l22 24 45-52" stroke="#3F6E5B" stroke-width="10" fill="none" stroke-linecap="round"/>'
+  s+=txt(x+325,555,('Running unused' if on else 'Closed when not needed') if en else ('يَجْري بِلا حاجَةٍ' if on else 'مُغْلَقٌ عِنْدَ عَدَمِ الحاجَةِ'),32,BLUE if on else GREEN)
+ s+=txt(800,690,'A practical example of avoiding waste' if en else 'مِثالٌ عَمَليٌّ لِتَجَنُّبِ الإِسْرافِ',30)
+ return s,'A small action to save water' if en else 'خُطْوَةٌ صَغيرَةٌ لِحِفْظِ الماءِ'
+
 SPECS={
+'IE-Y3-N-T2-L02':('learn2',fastingday),
+'IE-Y3-N-T3-L06':('learn2',kinship),
+'IE-Y3-N-T3-L07':('learn3',tapwater),
+'IE-Y3-NN-T2-L02':('learn2',fastingday),
+'IE-Y3-NN-T3-L06':('learn2',kinship),
+'IE-Y3-NN-T3-L07':('learn3',tapwater),
+
 
 
 'IE-Y2-N-T3-L10':('learn2',neighbors),'IE-Y2-NN-T3-L10':('learn2',neighbors),
