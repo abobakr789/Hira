@@ -197,7 +197,31 @@ def participles():
     out+=box(130,410,620,120,'#7C3AED','سَ: فتحة','')
     out+='<path d="M1260 355V395 M440 355V395" stroke="#64748B" stroke-width="5"/>'
     return out,'اسم الفاعل واسم المفعول','مُرْسِل ومُرْسَل: حركة واحدة','قارنوا حركة ما قبل الآخر في المثال نفسه: الكسر لاسم الفاعل والفتح لاسم المفعول، ثم كوّنوا جملتين توضحان المعنى.','1700 620'
-SPECS={'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
+def dam():
+    out='<rect x="120" y="140" width="620" height="340" rx="20" fill="#DBEAFE"/>'
+    for row in range(4):
+        for col in range(5):
+            x=740+col*150;y=140+row*85
+            out+=f'<rect x="{x}" y="{y}" width="145" height="80" rx="9" fill="'+('#FBBF24' if row==2 and col==2 else '#CBD5E1')+'" stroke="#64748B" stroke-width="3"/>'
+    out+=f'<text x="430" y="330" text-anchor="middle" font-size="46" fill="#2563EB" {F}>الماء</text>'
+    out+=f'<text x="1120" y="540" text-anchor="middle" font-size="38" fill="#334155" {F}>حجر مميّز داخل كلّ مترابط</text>'
+    out+=f'<text x="850" y="630" text-anchor="middle" font-size="28" fill="#64748B" {F}>رسم لتقريب الرمز الأدبي، لا مخطط هندسي ولا تصوير لنهاية القصيدة</text>'
+    return out,'الحجر والسدّ','جزء صغير في بناء أكبر','اطلبوا ربط الحجر بالفرد والسد بالمجتمع كما يشرح النص. لا نستنتج من هذا الرسم مقدار الضرر الإنشائي لإزالة حجر، ولا نعرض نهاية الحكاية.','1700 680'
+def letterform():
+    out='<rect x="370" y="45" width="960" height="560" rx="15" fill="white" stroke="#CBD5E1" stroke-width="5"/>'
+    for y,c,a,b in [(80,'#2563EB','الرأس','الجهة والتاريخ'),(210,'#7C3AED','المدخل','التحية والموضوع'),(340,'#16A34A','المتن','الطلب والمبرّرات'),(470,'#D97706','الذيل','الختام والتوقيع')]:
+        out+=box(430,y,840,110,c,a,b)
+    out+=f'<text x="850" y="660" text-anchor="middle" font-size="29" fill="#64748B" {F}>هيكل تعليمي لوثيقة، لا خطاب مكتمل ولا طلب مُرسل</text>'
+    return out,'الوثيقة الرسمية','أجزاء الوثيقة في مواضعها','اربطوا الهيكل بمثال طلب إنشاء نادي المناظرات السابق، ثم يختار الطلاب مبرراتهم ويكتبون طلبهم. الألوان تميز الأجزاء، وليست ترتيبًا لإرسال خطاب.','1700 700'
+def river():
+    out='<rect x="920" y="100" width="680" height="360" rx="25" fill="#DCFCE7"/><rect x="100" y="100" width="680" height="360" rx="25" fill="#F1F5F9"/>'
+    for x,c in [(1130,'#38BDF8'),(310,'#DBEAFE')]:
+        out+=f'<path d="M{x} 105C{x+250} 240 {x-100} 320 {x+230} 455H{x+100}C{x-220} 300 {x+80} 240 {x-120} 105Z" fill="{c}" stroke="#0891B2" stroke-width="4"/>'
+    out+='<defs><clipPath id="ice-river"><path d="M310 105C560 240 210 320 540 455H410C90 300 390 240 190 105Z"/></clipPath></defs><path d="M310 160l80 80-110 70 130 80 M440 245l-100 80" clip-path="url(#ice-river)" fill="none" stroke="#94A3B8" stroke-width="5"/>'
+    out+=f'<text x="1260" y="535" text-anchor="middle" font-size="40" fill="#2563EB" {F}>نهر جارٍ</text><text x="440" y="535" text-anchor="middle" font-size="40" fill="#64748B" {F}>سطح متجمّد</text>'
+    out+=f'<text x="850" y="625" text-anchor="middle" font-size="29" fill="#64748B" {F}>رسم توضيحي للحالتين، لا صورة لمكان أو فصل محدّد</text>'
+    return out,'النهر المتجمد','الصورة الطبيعية قبل تفسير رمزها','قارنوا ما في الرسم بما في أبيات الأمس واليوم والربيع. لا نجعل الرسم دليلًا على قلب الشاعر؛ نستدل على التشخيص والحالة النفسية من ألفاظ القصيدة.','1700 680'
+SPECS={'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
 def apply_html(code,t):
  fn=SPECS.get(code)
  if not fn or 'id="s6d"' in t: return t

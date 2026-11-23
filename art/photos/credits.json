@@ -53,5 +53,13 @@
     "license": "CC BY-SA 3.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "modification": "Wikimedia PNG rendering of original SVG, no crop."
+  },
+  {
+    "asset": "india-map.png",
+    "source": "https://commons.wikimedia.org/wiki/File:India_(orthographic_projection).svg",
+    "author": "Ssolbergj",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "modification": "Wikimedia PNG rendering; no crop. Original two-shade territorial legend preserved in Arabic caption."
   }
 ]

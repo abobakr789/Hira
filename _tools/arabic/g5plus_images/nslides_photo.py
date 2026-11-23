@@ -2,6 +2,13 @@
 # called from g1html/shell.py after images.py so regeneration restores it. Photo credits: art/photos/credits.json.
 import re
 SPECS={
+ 'AR-Y8-N-T2-L12':dict(
+  title='أين تقع الهند؟',time='⏱ 2 دقيقتان',
+  img='india-map.png',alt='خريطة كروية تبين موقع الهند في جنوب آسيا بلونين أخضرين',
+  cap='<span style="font-size:32px">مفتاح المصدر: أخضر داكن = مناطق تسيطر عليها الهند<br>أخضر فاتح = مناطق تطالب بها ولا تسيطر عليها</span>',
+  credit='الخريطة: <bdi>Ssolbergj</bdi> · <bdi>CC BY-SA 3.0</bdi> · ويكيميديا كومنز',
+  aside='خريطة موقع في جنوب آسيا، لا رسم لعدد السكان ولا حكم على النزاعات الحدودية. نستخدم الخريطة لتحديد المكان، والرسم البياني لمقارنة الأرقام، والنص لشرح الثقافة.'),
+
  'AR-Y9-N-T3-L02':dict(
   title='أين تقع إندونيسيا؟',time='⏱ 2 دقيقتان',
   img='indonesia-map.png',alt='خريطة تلوّن جزر إندونيسيا بالأحمر وتوضح موقعها في جنوب شرق آسيا',
