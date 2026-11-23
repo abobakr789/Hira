@@ -1413,34 +1413,6 @@
    ]
   ]
  },
- "AR-Y9-NN-T3-L02": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "soccer_ball",
-    "كرة القدم"
-   ],
-   [
-    "handshake",
-    "الروح الرياضية"
-   ]
-  ]
- },
- "AR-Y9-NN-T3-L03": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "soccer_ball",
-    "كرة القدم"
-   ],
-   [
-    "globe_showing_europe_africa",
-    "بطولة عالمية"
-   ]
-  ]
- },
  "AR-Y9-NN-T3-L04": {
   "slide": "s5",
   "family": "text",
@@ -1504,20 +1476,6 @@
    [
     "health_worker",
     "طبيب"
-   ]
-  ]
- },
- "AR-Y10-NN-T3-L03": {
-  "slide": "s5",
-  "family": "text",
-  "items": [
-   [
-    "globe_showing_europe_africa",
-    "أكثر من ١٩٠ دولة"
-   ],
-   [
-    "light_bulb",
-    "ابتكار"
    ]
   ]
  },
