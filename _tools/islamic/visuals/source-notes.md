@@ -66,3 +66,5 @@ All8 final local screenshots individually inspected,1920x1080. Labels fit, dots 
 Grade4 liveQA complete2026-11-23 21:31 Dubai: all8final slides individually inspected at1920x1080, deployed HTML exactmatch. Successful1fa5fc76 build45227421762. Grade2approved terminology correction all4live slides inspected and exactHTML confirmed in same deployment.
 
 2026-11-23 21:36 Dubai: Y3 N/NN T2L04 approved assessment alignment closed. Content c92c60f5, successful deployment https://github.com/abobakr789/Hira/actions/runs/45228465935 . All8HTML exact live match. All6changedslides and8affected A4pages individually visually inspected live with assets loaded; no clipping. Religious teaching and media unchanged.
+
+Grade5: all60teaching texts and scene/group1-4/quiz/critique/exit contexts reviewed.6new slides individually inspected locally. Grade5uses part0/part1 schema, not learn1-4. Friday sermon-before-prayer verified at https://islamqa.info/en/answers/115854 ; Eid prayer-before-sermon at https://daralhadith.net/hadiths/bukhari/957 . Daily page is the existing lesson example, visibly qualified as non-obligatory. Queue derives from waiting turn in original transport lesson.

@@ -186,5 +186,23 @@
     ],
     "content_commit": "c92c60f5",
     "deployment": "https://github.com/abobakr789/Hira/actions/runs/45228465935"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L02",
+    "slide": "scene",
+    "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🔤 استمع إلى قارئ يقرأ class=\"qf\">﴿قُلْ هُوَ اللَّهُ أَحَدٌ﴾ . هل تسمع الدال «ترتدّ» في آخرها؟ ما سرّ هذا الصوت؟ 🤔 هل القلقلة في «الفلق» صغرى أم كبرى؟ القلقلة Discuss in pairs, then share.",
+    "issue": "Literal class attribute fragment appears as visible text before the Quran excerpt in discussion scene. Formatting artifact, not a claim of incorrect Quran wording.",
+    "suggested_fix": "Remove only the visible markup fragment after approval; keep Quran text unchanged.",
+    "source": "resources/ie/IE-Y5-N-T2-L02/teacher-deck.html",
+    "status": "Held unchanged and unillustrated; report with grade5 milestone."
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L02",
+    "slide": "scene",
+    "exact_wording": "A situation to discuss What would you do in their place? 🔤 Listen to a reciter read class=\"qf\">﴿Qul huwa Allahu ahad﴾ . Do you hear the «d» bounce at the end? What is this sound? 🤔 Is the qalqalah in «al-Falaq» minor or major? Echo Letters (Qalqalah) Discuss in pairs, then share.",
+    "issue": "Literal class attribute fragment appears as visible text before the Quran excerpt in discussion scene. Formatting artifact, not a claim of incorrect Quran wording.",
+    "suggested_fix": "Remove only the visible markup fragment after approval; keep Quran text unchanged.",
+    "source": "resources/ie/IE-Y5-NN-T2-L02/teacher-deck.html",
+    "status": "Held unchanged and unillustrated; report with grade5 milestone."
   }
 ]

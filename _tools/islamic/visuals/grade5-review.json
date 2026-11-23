@@ -1,0 +1,1088 @@
+[
+  {
+    "lesson": "IE-Y5-N-T1-L01",
+    "title": "عرض المعلم · سورة الانفطار · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The lesson concerns the sky and graves on the Last Day, noble recording angels and unseen reward. No invented cataclysm, angel or afterlife scene. A notebook would label recording without explaining the surah.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T1-L02",
+    "title": "عرض المعلم · حديث: المفلس الحقيقي · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The central transfer is of deeds on Judgement Day. Coins, a bank balance or a literal scale would misrepresent the hadith. The everyday wronging scenario is already the assessment, so no illustrated answer cue.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T1-L03",
+    "title": "عرض المعلم · حديث: أحب العمل إلى الله · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added a seven-day one-page organizer, directly using the adjacent teaching example. Explicitly an example, not an obligatory daily amount. No reward quantities or unseen outcome depicted.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "PASS individually inspected1920x1080; original-byte restoration PASS",
+    "live_qa": "pending",
+    "reproduction": "PASS full original byte preservation; generated HTML exact, idempotent"
+  },
+  {
+    "lesson": "IE-Y5-N-T1-L04",
+    "title": "عرض المعلم · محبة الله تعالى · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The relationship is love shown through worship and following the Prophet. Hearts, a generic mosque and labelled icons would decorate rather than explain. No divine representation or invented depiction of following the Prophet.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T1-L05",
+    "title": "عرض المعلم · دعوة أهل الطائف · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The particular Taif account includes the Prophet, Zayd, Addas and an angel. No protected figures, violent stone-throwing reconstruction or unverified historical garden. Grapes alone would label one event, not teach its moral.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T1-L06",
+    "title": "عرض المعلم · سورة التكوير · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The surah describes Last Day events, Jibril and revelation. No darkened-sun scientific analogy, angel or unseen cosmic reconstruction. Original Arabic text and recitation remain the appropriate teaching medium.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T1-L07",
+    "title": "عرض المعلم · حديث: الإحسان إلى الناس · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The historical Abu Dharr account and contemporary treatment of workers should not be reduced to stereotyped servant portraits or two skin colours. A tray/clothes montage would only label the quotation. Assessment asks learners to supply actions.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T1-L08",
+    "title": "عرض المعلم · الإيمان باليوم الآخر · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Death, resurrection, weighing deeds, the bridge and Paradise are unseen. No invented mechanism or visual geography. An ordinary test metaphor is already the discussion prompt, not a factual picture of the Last Day.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T1-L09",
+    "title": "عرض المعلم · صلاة الجماعة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A spatial row organizer was considered, but actual rulings depend on number and placement of followers. A generic line could teach an incomplete rule. Latecomer movement is also the core assessment; original demonstration and exact text retained.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T1-L10",
+    "title": "عرض المعلم · الإسراء والمعراج · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The Night Journey and Ascension include protected figures, Buraq and unseen heavens. No invented route upward, sky ladder or present-day mosque used as a false historical reconstruction.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L01",
+    "title": "عرض المعلم · سورة عبس · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The account includes the Prophet and Ibn Umm Maktum. A generic blind-man portrait would imply a protected Companion. Grain/fruit images alone would label an incidental list; no unseen Last Day depiction.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L02",
+    "title": "عرض المعلم · القلقلة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Considered glyph-level annotation of sukun and stopping, rather than excluding recitation. Exact Arabic typesetting and audible release are essential; sound-wave decoration would not demonstrate qalqalah. Keep original examples and audio. Existing visible markup issue ledgered without editing.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L03",
+    "title": "عرض المعلم · حديث: القرآن شفيعي · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Intercession and rising in Paradise are unseen. No anthropomorphic book, shield or literal stairway. A reading icon would not explain intercession and a completed practice plan would prefill the group task.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L04",
+    "title": "عرض المعلم · آداب ركوب وسائل النقل · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added literal ordered queue at a generic bus door. Numbers show arrival order, not a privileged person. It teaches waiting a turn without supplying the elderly-seat role-play answer or changing the supplication.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "PASS individually inspected1920x1080; original-byte restoration PASS",
+    "live_qa": "pending",
+    "reproduction": "PASS full original byte preservation; generated HTML exact, idempotent"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L05",
+    "title": "عرض المعلم · فاطمة بنت عبد الملك رحمها الله · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A biography of Fatimah, not a generic jewellery lesson. No invented likeness, palace or specific historical jewellery. A necklace-to-treasury arrow would oversimplify and directly answer the group scenario.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L06",
+    "title": "عرض المعلم · سورة النازعات · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Angels, Musa and resurrection dominate the surah. No protected figures or unseen scenes. A snake alone would label an unstated appearance of the great sign; original verses retained.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L07",
+    "title": "عرض المعلم · حديث: القلب الرحيم · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The cat-and-feeding choice is already both scenario and quiz answer. No illustrated correct child added as a cue. Mercy is wider than animal care; no icon montage substituting for the concept.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L08",
+    "title": "عرض المعلم · الرفق خير · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Gentle speech, family relations and historical examples need dialogue rather than a generic smile. Broken-toy imagery would prefill the role-play. No Prophet, Companion, Musa or Harun depiction.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L09",
+    "title": "عرض المعلم · حديث: يسّروا ولا تعسّروا · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The sick-person sitting example is the central assessment. A chair would merely label the allowance and could omit its conditions; no expanded fiqh chart or invented hardship thresholds. Exact teaching retained.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T2-L10",
+    "title": "عرض المعلم · الهجرة إلى المدينة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The Hijrah account concerns the Prophet, Abu Bakr and Ali. No figures, web miracle reconstruction or unverified cave route. Bed/cave/mosque icons alone would not explain planning and trust.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L01",
+    "title": "عرض المعلم · الله القادر: سورة النبأ (1–16) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Considered ordinary rain/plant imagery, but no invented meteorology or physical claim that mountains mechanically pin Earth. No unseen seven-heavens cross-section. Exact verse and original wording left intact.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L02",
+    "title": "عرض المعلم · حديث: الطريق إلى الجنة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A literal house diagram would falsely picture Paradise. The no-argument dialogue is already the assessment, so no prefabricated comic answer. Original text presents the three moral conditions clearly.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L03",
+    "title": "عرض المعلم · نعمة العقل · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A brain silhouette does not depict reasoning or distinguish the moral concept. No simplistic hemispheres diagram or substance imagery; the refusal scene is an assessment and must not be pre-answered.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L04",
+    "title": "عرض المعلم · آداب الطريق · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Broken-glass removal is the role-play assessment, and unsafe barehanded removal must not be implied. A generic traffic light only labels one rule. No invented street crossing directions or removal procedure.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L05",
+    "title": "عرض المعلم · صلاة الجمعة وصلاة العيدين · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added parallel ordered comparison of sermon/prayer in Friday versus Eid. Order checked independently; arrows encode real sequence, not time of day. No religious figures depicted or added takbir counts.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "PASS individually inspected1920x1080; original-byte restoration PASS",
+    "live_qa": "pending",
+    "reproduction": "PASS full original byte preservation; generated HTML exact, idempotent"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L06",
+    "title": "عرض المعلم · الله الحكم العدل: سورة النبأ (17–40) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The entire passage concerns Judgement, the trumpet, Hell and Paradise. No unseen reward garden, fire scene or anthropomorphic divine judge. Preserve verse text and recitation.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L07",
+    "title": "عرض المعلم · حديث: مع رسولي ﷺ في الجنة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Rabiah and the Prophet cannot be depicted, nor their company in Paradise. A prayer-mat icon only labels prostration. A filled goal plan would answer the learner task rather than explain the account.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L08",
+    "title": "عرض المعلم · الشجاعة · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The lesson contrasts courage with recklessness and includes historical figures and a named rescue. No unverified portrait or dangerous water-rescue reconstruction. Bullying-response illustration would prefill the assessment.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L09",
+    "title": "عرض المعلم · عمر بن الخطاب رضي الله عنه · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Umar is a protected Companion; no likeness, silhouette, food-carrying reconstruction or invented night scene. A crown or scales would be generic labels rather than explain this biography.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-N-T3-L10",
+    "title": "عرض المعلم · الإنسان والكون · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Nature resources list considered, but a sun-water-leaf icon wheel would label blessings without explaining stewardship. No overstated trees-clean-air mechanism. Learners supply conservation actions in the existing task.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L01",
+    "title": "Teacher presentation · Surat Al-Infitar · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The lesson concerns the sky and graves on the Last Day, noble recording angels and unseen reward. No invented cataclysm, angel or afterlife scene. A notebook would label recording without explaining the surah.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L02",
+    "title": "Teacher presentation · The Real Bankrupt · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The central transfer is of deeds on Judgement Day. Coins, a bank balance or a literal scale would misrepresent the hadith. The everyday wronging scenario is already the assessment, so no illustrated answer cue.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L03",
+    "title": "Teacher presentation · The Most Beloved of Deeds to Allah · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added a seven-day one-page organizer, directly using the adjacent teaching example. Explicitly an example, not an obligatory daily amount. No reward quantities or unseen outcome depicted.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "PASS individually inspected1920x1080; original-byte restoration PASS",
+    "live_qa": "pending",
+    "reproduction": "PASS full original byte preservation; generated HTML exact, idempotent"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L04",
+    "title": "Teacher presentation · Loving Allah, Glory Be to Him · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The relationship is love shown through worship and following the Prophet. Hearts, a generic mosque and labelled icons would decorate rather than explain. No divine representation or invented depiction of following the Prophet.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L05",
+    "title": "Teacher presentation · Calling the People of Ta'if to Islam · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The particular Taif account includes the Prophet, Zayd, Addas and an angel. No protected figures, violent stone-throwing reconstruction or unverified historical garden. Grapes alone would label one event, not teach its moral.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L06",
+    "title": "Teacher presentation · Surat At-Takwir · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The surah describes Last Day events, Jibril and revelation. No darkened-sun scientific analogy, angel or unseen cosmic reconstruction. Original Arabic text and recitation remain the appropriate teaching medium.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L07",
+    "title": "Teacher presentation · Doing Good to Other People · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The historical Abu Dharr account and contemporary treatment of workers should not be reduced to stereotyped servant portraits or two skin colours. A tray/clothes montage would only label the quotation. Assessment asks learners to supply actions.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L08",
+    "title": "Teacher presentation · Belief in the Day of Judgment · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Death, resurrection, weighing deeds, the bridge and Paradise are unseen. No invented mechanism or visual geography. An ordinary test metaphor is already the discussion prompt, not a factual picture of the Last Day.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L09",
+    "title": "Teacher presentation · Congregational Prayer · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A spatial row organizer was considered, but actual rulings depend on number and placement of followers. A generic line could teach an incomplete rule. Latecomer movement is also the core assessment; original demonstration and exact text retained.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T1-L10",
+    "title": "Teacher presentation · The Night Journey and Ascension · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The Night Journey and Ascension include protected figures, Buraq and unseen heavens. No invented route upward, sky ladder or present-day mosque used as a false historical reconstruction.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L01",
+    "title": "Teacher presentation · Surat Abasa · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The account includes the Prophet and Ibn Umm Maktum. A generic blind-man portrait would imply a protected Companion. Grain/fruit images alone would label an incidental list; no unseen Last Day depiction.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L02",
+    "title": "Teacher presentation · Echo Letters (Qalqalah) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Considered glyph-level annotation of sukun and stopping, rather than excluding recitation. Exact Arabic typesetting and audible release are essential; sound-wave decoration would not demonstrate qalqalah. Keep original examples and audio. Existing visible markup issue ledgered without editing.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L03",
+    "title": "Teacher presentation · The Holy Qur'an Is My Intercessor · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Intercession and rising in Paradise are unseen. No anthropomorphic book, shield or literal stairway. A reading icon would not explain intercession and a completed practice plan would prefill the group task.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L04",
+    "title": "Teacher presentation · The Etiquette of Using Means of Transportation · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added literal ordered queue at a generic bus door. Numbers show arrival order, not a privileged person. It teaches waiting a turn without supplying the elderly-seat role-play answer or changing the supplication.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "PASS individually inspected1920x1080; original-byte restoration PASS",
+    "live_qa": "pending",
+    "reproduction": "PASS full original byte preservation; generated HTML exact, idempotent"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L05",
+    "title": "Teacher presentation · Fatimah bint Abd al-Malik · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A biography of Fatimah, not a generic jewellery lesson. No invented likeness, palace or specific historical jewellery. A necklace-to-treasury arrow would oversimplify and directly answer the group scenario.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L06",
+    "title": "Teacher presentation · Surat An-Nazi'at · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Angels, Musa and resurrection dominate the surah. No protected figures or unseen scenes. A snake alone would label an unstated appearance of the great sign; original verses retained.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L07",
+    "title": "Teacher presentation · The Merciful Heart · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The cat-and-feeding choice is already both scenario and quiz answer. No illustrated correct child added as a cue. Mercy is wider than animal care; no icon montage substituting for the concept.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L08",
+    "title": "Teacher presentation · Kindness Is Good · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Gentle speech, family relations and historical examples need dialogue rather than a generic smile. Broken-toy imagery would prefill the role-play. No Prophet, Companion, Musa or Harun depiction.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L09",
+    "title": "Teacher presentation · Make Things Easy and Do Not Make Them Difficult · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The sick-person sitting example is the central assessment. A chair would merely label the allowance and could omit its conditions; no expanded fiqh chart or invented hardship thresholds. Exact teaching retained.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T2-L10",
+    "title": "Teacher presentation · The Migration to Al-Madinah · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The Hijrah account concerns the Prophet, Abu Bakr and Ali. No figures, web miracle reconstruction or unverified cave route. Bed/cave/mosque icons alone would not explain planning and trust.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L01",
+    "title": "Teacher presentation · Allah, the Powerful: Surat An-Naba' (1–16) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Considered ordinary rain/plant imagery, but no invented meteorology or physical claim that mountains mechanically pin Earth. No unseen seven-heavens cross-section. Exact verse and original wording left intact.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L02",
+    "title": "Teacher presentation · The Way to Paradise · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A literal house diagram would falsely picture Paradise. The no-argument dialogue is already the assessment, so no prefabricated comic answer. Original text presents the three moral conditions clearly.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L03",
+    "title": "Teacher presentation · The Blessing of the Human Mind · Hiraa",
+    "decision": "unchanged",
+    "rationale": "A brain silhouette does not depict reasoning or distinguish the moral concept. No simplistic hemispheres diagram or substance imagery; the refusal scene is an assessment and must not be pre-answered.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L04",
+    "title": "Teacher presentation · Etiquette on Streets · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Broken-glass removal is the role-play assessment, and unsafe barehanded removal must not be implied. A generic traffic light only labels one rule. No invented street crossing directions or removal procedure.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L05",
+    "title": "Teacher presentation · Friday Prayer and the Prayer of the Two Feasts · Hiraa",
+    "decision": "added one visual slide",
+    "rationale": "Added parallel ordered comparison of sermon/prayer in Friday versus Eid. Order checked independently; arrows encode real sequence, not time of day. No religious figures depicted or added takbir counts.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "PASS individually inspected1920x1080; original-byte restoration PASS",
+    "live_qa": "pending",
+    "reproduction": "PASS full original byte preservation; generated HTML exact, idempotent"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L06",
+    "title": "Teacher presentation · Allah, the Just Judge: Surat An-Naba' (17–40) · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The entire passage concerns Judgement, the trumpet, Hell and Paradise. No unseen reward garden, fire scene or anthropomorphic divine judge. Preserve verse text and recitation.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L07",
+    "title": "Teacher presentation · With My Prophet ﷺ in Paradise · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Rabiah and the Prophet cannot be depicted, nor their company in Paradise. A prayer-mat icon only labels prostration. A filled goal plan would answer the learner task rather than explain the account.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L08",
+    "title": "Teacher presentation · Courage · Hiraa",
+    "decision": "unchanged",
+    "rationale": "The lesson contrasts courage with recklessness and includes historical figures and a named rescue. No unverified portrait or dangerous water-rescue reconstruction. Bullying-response illustration would prefill the assessment.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L09",
+    "title": "Teacher presentation · Omar bin Al-Khattab · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Umar is a protected Companion; no likeness, silhouette, food-carrying reconstruction or invented night scene. A crown or scales would be generic labels rather than explain this biography.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y5-NN-T3-L10",
+    "title": "Teacher presentation · Man and the Universe · Hiraa",
+    "decision": "unchanged",
+    "rationale": "Nature resources list considered, but a sun-water-leaf icon wheel would label blessings without explaining stewardship. No overstated trees-clean-air mechanism. Learners supply conservation actions in the existing task.",
+    "assessment_context": [
+      "scene",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "quiz",
+      "critique",
+      "hpl"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  }
+]

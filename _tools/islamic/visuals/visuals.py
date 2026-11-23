@@ -277,6 +277,66 @@ def section(code,h):
  return s,after
 
 def apply_html(code,h):
+ if code in GRADE5_SPECS:return apply_grade5(code,h)
  if code not in SPECS or 'id="ie-visual"' in h:return h
  s,after=section(code,h);m=re.search(r'<section class="sl" id="'+after+r'"[^>]*>.*?</section>',h,re.S)
+ return h[:m.end()]+s+h[m.end():]
+
+def steady_week(en):
+ s=txt(800,65,'An example: one page each day' if en else 'مِثالٌ: صَفْحَةٌ كُلَّ يَوْمٍ',44)
+ days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'] if en else ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت']
+ for i,day in enumerate(days):
+  x=65+i*213;s+=card(x,155,190,335,GREEN)+txt(x+95,220,day,30)
+  s+=f'<rect x="{x+45}" y="270" width="100" height="140" rx="7" fill="#F3F7F5" stroke="#3F6E5B" stroke-width="4"/>'
+  for y in [302,326,350,374]:s+=line(x+65,y,x+125,y,'#9BB6A9')
+  s+=txt(x+95,455,'1 page' if en else 'صفحة',27,GREEN)
+ s+=txt(800,605,'A small action repeated, rather than a single large effort' if en else 'عَمَلٌ قَليلٌ يَتَكَرَّرُ بَدَلَ الكَثيرِ المُنْقَطِعِ',34)
+ s+=txt(800,680,'Example only, not a required daily amount' if en else 'مِثالٌ تَوْضيحيٌّ، لا تَحْديدٌ لِمِقْدارٍ واجِبٍ',28)
+ return s,'Small and regular' if en else 'قَليلٌ وَمُسْتَمِرٌّ'
+def transport_queue(en):
+ s=txt(800,65,'Wait in order before boarding' if en else 'أَنْتَظِرُ دَوْري قَبْلَ الرُّكوبِ',43)
+ s+=card(90,130,1420,450,BLUE)
+ s+='<rect x="1050" y="210" width="340" height="280" rx="40" fill="#6FA3B7"/><rect x="1110" y="240" width="130" height="205" rx="12" fill="#EFF7F6"/><rect x="1260" y="250" width="95" height="90" rx="8" fill="#D3E7EE"/><circle cx="1130" cy="500" r="36" fill="#304A56"/><circle cx="1320" cy="500" r="36" fill="#304A56"/>'
+ for x,n in [(890,1),(640,2),(390,3)]:
+  s+=f'<circle cx="{x}" cy="285" r="35" fill="#D5B694"/><path d="M{x-45} 340h90v90h-90z" fill="#3F6E5B"/><path d="M{x-25} 430v65m50-65v65" stroke="#42616D" stroke-width="17" stroke-linecap="round"/>'
+  s+=txt(x,555,str(n),30,BLUE)
+ s+=txt(800,665,'Everyone keeps their turn; no pushing' if en else 'لِكُلِّ واحِدٍ دَوْرُهُ، بِلا تَدافُعٍ',34)
+ return s,'My turn to board' if en else 'دَوْري في الرُّكوبِ'
+def sermon_order(en):
+ s=txt(800,55,'The order is different' if en else 'يَخْتَلِفُ التَّرْتيبُ',44)
+ for i,label in enumerate(['Friday' if en else 'الجُمُعَةُ','Eid' if en else 'العيدُ']):
+  y=115+i*270;s+=card(85,y,1430,245,BLUE if i==0 else GREEN)
+  s+=txt(245 if en else 1355,y+130,label,42)
+  centers=[690,1230] if en else [910,370]
+  for step,x in enumerate(centers):
+   sermon=(i==0 and step==0) or (i==1 and step==1)
+   s+=f'<circle cx="{x-155}" cy="{y+55}" r="25" fill="#E8D7AF"/>'+txt(x-155,y+64,str(step+1),27)
+   if sermon:
+    s+=f'<path d="M{x-65} {y+60}h130l-22 22h-86z" fill="#B48B5E" stroke="#826443" stroke-width="3"/><path d="M{x-37} {y+83}h74v65h-74z" fill="#CDA87A"/><path d="M{x-63} {y+148}h126v14h-126z" fill="#826443"/><path d="M{x+30} {y+59}v-24q0-18 18-18h12" fill="none" stroke="#4F6674" stroke-width="6"/><circle cx="{x+63}" cy="{y+17}" r="7" fill="#4F6674"/>'
+    caption=('Two sermons' if i==0 else 'Sermon') if en else ('خُطْبَتانِ' if i==0 else 'خُطْبَةٌ')
+   else:
+    s+=f'<rect x="{x-57}" y="{y+22}" width="114" height="142" rx="6" fill="#DCECE5" stroke="#3F6E5B" stroke-width="5"/><path d="M{x-42} {y+145}v-63l42-35 42 35v63z" fill="#8BB7A4"/><path d="M{x-65} {y+28}h-10m10 20h-10m10 20h-10m132-40h10m-10 20h10m-10 20h10" stroke="#BA9860" stroke-width="4"/>'
+    caption="Two rak'ahs" if en else 'رَكْعَتانِ'
+   s+=txt(x,y+215,caption,35)
+  if en:s+=f'<path d="M900 {y+112}h110l-25-20m25 20-25 20" fill="none" stroke="#3F6E5B" stroke-width="6"/>'
+  else:s+=f'<path d="M700 {y+112}h-110l25-20m-25 20 25 20" fill="none" stroke="#3F6E5B" stroke-width="6"/>'
+ s+=txt(800,695,'Arrows show sequence; objects are symbols, not counts of people' if en else 'الأَسْهُمُ لِلتَّرْتيبِ، وَالرُّموزُ لا تُمَثِّلُ عَدَدَ المُصَلِّينَ',27)
+ return s,'Sermon and prayer: which comes first?' if en else 'الخُطْبَةُ وَالصَّلاةُ: أَيُّهُما أَوَّلًا؟'
+
+GRADE5_SPECS={}
+for track in ['N','NN']:
+ for suffix,fn,after in [('T1-L03',steady_week,'part1'),('T2-L04',transport_queue,'part0'),('T3-L05',sermon_order,'part1')]:
+  GRADE5_SPECS[f'IE-Y5-{track}-{suffix}']=(after,fn)
+def apply_grade5(code,h):
+ if 'id="ie-visual"' in h:return h
+ after,fn=GRADE5_SPECS[code]
+ m=re.search(r'<section class="sl" id="'+after+r'".*?</section>',h,re.S)
+ assert m
+ s=m.group().replace('id="'+after+'"','id="ie-visual"',1)
+ svg,title=fn('-NN-' in code)
+ s=re.sub(r'(<h2[^>]*>).*?(</h2>)',lambda z:z[1]+title+z[2],s,count=1,flags=re.S)
+ pat=r'<div style="background:#fff;border-(?:left|right):10px.*?</p></div>'
+ assert re.search(pat,s,re.S)
+ s=re.sub(pat,'<div data-ie-visual="v1" style="position:absolute;left:130px;top:260px;width:1660px;height:690px"><svg role="img" aria-label="'+title+'" viewBox="0 0 1600 740" style="width:100%;height:100%">'+svg+'</svg></div>',s,count=1,flags=re.S)
+ s=re.sub(r'<aside>.*?</aside>','<aside>Original editable teaching diagram. Example only; original lesson, quotation and assessment text retained.</aside>',s,flags=re.S)
  return h[:m.end()]+s+h[m.end():]
