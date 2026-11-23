@@ -422,3 +422,52 @@ def qasr_counts(en):
 for track in ['N','NN']:
  for suffix,fn,after in [('T2-L02',mim_cases,'part1'),('T2-L11',qasr_counts,'part1'),('T3-L07',shared_ship,'part1')]:
   GRADE5_SPECS[f'IE-Y7-{track}-{suffix}']=(after,fn)
+
+def sai_count(en):
+ s=txt(800,45,'Seven crossings, not seven return trips' if en else 'سَبْعَةُ أَشْواطٍ، لا سَبْعُ رِحْلاتِ ذَهابٍ وَعَوْدَةٍ',40)
+ s+=card(95,90,1410,550,BLUE)
+ s+=txt(420,160,'Safa' if en else 'الصَّفا',43,GREEN)+txt(1190,160,'Marwah' if en else 'المَرْوَةُ',43,BLUE)
+ for i in range(7):
+  y=210+i*55;c=GREEN if i%2==0 else BLUE
+  s+=txt(240,y+10,str(i+1),30,c)+line(440,y,1160,y,c)
+  if i%2==0:s+=f'<path d="M1138 {y-13}l22 13-22 13" fill="none" stroke="{c}" stroke-width="5"/>'
+  else:s+=f'<path d="M462 {y-13}l-22 13 22 13" fill="none" stroke="{c}" stroke-width="5"/>'
+ s+=txt(800,685,'Start at Safa. Finish the seventh at Marwah.' if en else 'أَبْدَأُ بِالصَّفا، وَأُنْهي الشَّوْطَ السّابِعَ بِالمَرْوَةِ.',32)
+ s+=txt(800,730,'Counting diagram only, not a map or distance scale' if en else 'رَسْمٌ لِلْعَدِّ فَقَطْ، لا خَريطَةٌ وَلا مِقْياسُ مَسافَةٍ',24)
+ return s,"Counting the laps of sa'y" if en else 'أَعُدُّ أَشْواطَ السَّعْيِ'
+def eclipse_counts(en):
+ s=txt(800,55,"Two rak'ahs, with repeated standing and bowing" if en else 'رَكْعَتانِ، وَفي كُلٍّ مِنْهُما قِيامانِ وَرُكوعانِ',40)
+ for i in range(2):
+  x=75+i*780;c=[GREEN,BLUE][i];s+=card(x,120,670,480,c)
+  s+=txt(x+335,195,("Rak'ah "+str(i+1)) if en else ('الرَّكْعَةُ الأُولى' if i==0 else 'الرَّكْعَةُ الثّانِيَةُ'),41,c)
+  for j,(a,b) in enumerate([('Standing / recitation','قِيامٌ وَقِراءَةٌ'),('Bowing','رُكوعٌ'),('Prostration','سُجودٌ')]):
+   y=285+j*115;s+=txt(x+250,y,a if en else b,32)
+   for dx in [465,540]:s+=f'<circle cx="{x+dx}" cy="{y-12}" r="22" fill="{c}"/>'
+ s+=txt(800,675,'Each dot is one occurrence of the named action' if en else 'كُلُّ نُقْطَةٍ مَرَّةٌ واحِدَةٌ مِنَ الفِعْلِ المَذْكورِ',29)
+ s+=txt(800,730,'Action counts only, not the full order of the prayer' if en else 'العَدَدُ فَقَطْ، لا التَّرْتيبُ الكامِلُ لِأَفْعالِ الصَّلاةِ',25)
+ return s,'The eclipse prayer: count the actions' if en else 'صَلاةُ الكُسوفِ: أَعُدُّ الأَفْعالَ'
+def oath_choices(en):
+ s=txt(800,45,'Choose ONE of these three options' if en else 'أَخْتارُ واحِدًا مِنْ هذِهِ الأُمورِ الثَّلاثَةِ',41)
+ for i in range(3):
+  x=60+i*520;c=[GREEN,BLUE,'#9D733D'][i];s+=card(x,105,440,340,c)
+  if i<2:
+   for j in range(10):
+    xx=x+95+(j%5)*62;yy=230+(j//5)*70
+    if i==0:s+=f'<path d="M{xx-22} {yy}h44l-9 22h-26z" fill="{c}"/><ellipse cx="{xx}" cy="{yy}" rx="22" ry="5" fill="#D8B777"/>'
+    else:s+=f'<path d="M{xx-10} {yy-10}l-16 9 7 13 9-5v32h28v-32l9 5 7-13-16-9q-14 12-28 0z" fill="{c}"/>'
+  else:
+   s+=f'<path d="M{x+185} 210l-30 30q-25 25 0 50t50 0l25-25m25-10 30-30q25-25 0-50t-50 0l-25 25" fill="none" stroke="{c}" stroke-width="14" stroke-linecap="round"/>'
+   s+=txt(x+220,345,'Set free' if en else 'تَحْريرٌ',33,c)
+  labels=[('Feed ten people in need','إِطْعامُ عَشَرَةِ مَساكينَ'),('Clothe ten people in need','كِسْوَةُ عَشَرَةِ مَساكينَ'),('Free a bondsperson','تَحْريرُ رَقَبَةٍ')]
+  s+=txt(x+220,400,labels[i][0 if en else 1],27,c)
+ s+=txt(800,500,'If unable to do any of the three' if en else 'فَإِنْ عَجَزْتُ عَنِ الأُمورِ الثَّلاثَةِ',34)
+ s+=line(800,520,800,555,GREEN)+f'<path d="M785 540l15 15 15-15" fill="none" stroke="{GREEN}" stroke-width="5"/>'
+ for i in range(3):
+  x=575+i*170;s+=card(x,575,140,80,GREEN)+txt(x+70,628,str(i+1),38,GREEN)
+ s+=txt(800,710,'Then fast three days. Fasting is not a fourth equal choice.' if en else 'أَصومُ ثَلاثَةَ أَيّامٍ. الصِّيامُ لَيْسَ خِيارًا رابِعًا مُساوِيًا.',28)
+ return s,'Expiation for a broken oath' if en else 'كَفّارَةُ اليَمينِ'
+for track in ['N','NN']:
+ for suffix,fn,after in [('T1-L10',eclipse_counts,'part1'),('T2-L05',sai_count,'part3'),('T3-L03',oath_choices,'part1')]:
+  GRADE5_SPECS[f'IE-Y8-{track}-{suffix}']=(after,fn)
+
+GRADE5_SPECS["IE-Y8-NN-T2-L05"]=("part1",sai_count)
