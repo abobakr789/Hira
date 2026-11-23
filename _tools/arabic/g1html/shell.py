@@ -35,9 +35,15 @@ const _show=show;show=function(n,end){_show(n,end);if(!S[i].dataset.fit){const h
 show((parseInt(location.hash.slice(1))||1)-1);
 '''
     dp=(f'<script>window.HIRAA_CODE="{code}";</script><script src="../deepen.js"></script>' if deep else "")
-    return f'''<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>عرض المعلم · {title} · حراء</title>
+    result = f'''<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>عرض المعلم · {title} · حراء</title>
 <style>{CSS}</style></head><body>{TB}<div id="wrap"><div id="stage">{slides}
 </div><button class="nav" id="nP" title="السابق">›</button><button class="nav" id="nN" title="التالي">‹</button></div>
 <div id="notes"></div><div id="timer"></div><div id="att">👀 انْتَبِهوا</div><div id="toast"></div>
 {dp}<script>window.__boot=function(){{{JS}
 Object.assign(window,{{show,next,prev,snd,cnt,rst,redraw,boom,fb}});window.S=S;}};if(!window.HIRAA_DEEP||window.__bootWanted){{window.__booted=1;window.__boot();}}</script></body></html>'''
+
+    # Keep narrowly scoped grade 2/3 imagery when rebuilding these teacher decks.
+    import sys as _sys, os as _os
+    _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), "..", "g23images"))
+    from images import apply_html as _pictures23
+    return _pictures23(code, result)

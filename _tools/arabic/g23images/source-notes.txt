@@ -1,0 +1,7 @@
+Arabic native-speaker grade 2 imagery, 23 November 2026
+Targeted edit: preserve Hira colors, typography, layout, lesson text, textbook art, assessment prompts and all video/recording markup. Replace only the generic d-real/d-apply picture panels, plus a scoped style block.
+56 lessons across three terms, 112 changed panels, individually inspected at 1920 x 1080. Visual QA ledger: visual-qa-grade2.txt.
+Licensed assets: Microsoft Fluent UI Emoji official repository, https://github.com/microsoft/fluentui-emoji. MIT license retained at art/emoji/LICENSE-fluentui-emoji-MIT.txt. Vector SVG files are local, not hotlinked.
+Original SVG drawings and composites: harees, machboos, turtle eggs, cat under table, classmates, no flowers, no litter, recycle paper, tap, triangle, circle, under tree, wall magazine, paragraph page, blue sky with sun, multicolored flowers, arid mountains, closed tap, sharing fruit, illustrated book. Composites reuse licensed Fluent pictograms with original simple geometry.
+Semantic corrections after individual inspection: paragraph instead of notebook; blue sky/sun; multicolored flowers; arid mountains instead of snow; closed/no-flow tap; children sharing fruit; flowers for mother caption; illustrated book pages.
+Text, videos, recordings and all markup outside target panels/style verified byte-identical to current source before publishing. Existing textbook and vocabulary images retained; recall/assessment slides not given answer cues.
