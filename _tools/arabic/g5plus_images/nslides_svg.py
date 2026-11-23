@@ -136,7 +136,50 @@ def composite():
     out+=f'<text x="440" y="560" text-anchor="middle" font-size="34" fill="#334155" {F}>ليل ونجوم تتهاوى</text>'
     out+=f'<text x="850" y="635" text-anchor="middle" font-size="32" fill="#7C3AED" {F}>الهيئة المشتركة: ظلام تتخلّله أجسام لامعة متحرّكة</text>'
     return out,'التشبيه التمثيلي','تشبيه هيئة كاملة بهيئة كاملة','الرسم تخطيطي للمثال المذكور في الدرس، لا تصوير لموقعة تاريخية. نقارن ترتيب العناصر والحركة واللمعان في الصورتين، لا سيفًا واحدًا بنجمة واحدة.','1700 680'
-SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite}
+def temporal():
+    out=box(650,200,400,170,'#102A4C','الحاضر','لحظة السرد')
+    out+=box(1200,200,400,170,'#7C3AED','الماضي','ذكريات')
+    out+=box(100,200,400,170,'#16A34A','المستقبل','أمانٍ')
+    out+='<path d="M1080 285H1160" stroke="#7C3AED" stroke-width="7"/><path d="M1145 270L1170 285L1145 300Z" fill="#7C3AED"/>'
+    out+='<path d="M620 285H540" stroke="#16A34A" stroke-width="7"/><path d="M555 270L530 285L555 300Z" fill="#16A34A"/>'
+    out+=f'<text x="850" y="100" text-anchor="middle" font-size="38" fill="#334155" {F}>من لحظة السرد: أتذكّر ما مضى، وأتمنّى ما سيأتي</text>'
+    out+=f'<text x="850" y="505" text-anchor="middle" font-size="34" fill="#64748B" {F}>خريطة للاتجاهين، لا ترتيب لأحداث النص</text>'
+    return out,'الزمن','الذكرى والأمنية حول لحظة السرد','نموذج للمفاهيم الزمنية الواردة في الدرس، وليس خطًا زمنيًا لأحداث القصة. اطلبوا دليلًا من النص لكل انتقال، ثم ناقشوا تغير الشعور.','1700 620'
+def doublemeaning():
+    out=box(550,60,600,130,'#102A4C','القصور','لفظ المثال في الدرس')
+    out+='<path d="M850 205V265 M450 265H1250 M450 265V315 M1250 265V315" stroke="#64748B" stroke-width="6" fill="none"/>'
+    out+=box(950,335,640,200,'#2563EB','المعنى القريب الظاهر','المباني الفخمة')
+    out+=box(110,335,640,200,'#7C3AED','المعنى البعيد المراد','العجز والنقص')
+    return out,'التورية','التورية: قريب ظاهر وبعيد مراد','هذه دلالتا اللفظ في المثال الذي تشرحه الشريحة السابقة. لا نختار المعنى المراد من القاموس وحده؛ نرجع إلى سياق البيت ودليله.','1700 620'
+def poeticform():
+    out=f'<text x="1260" y="80" text-anchor="middle" font-size="42" fill="#2563EB" {F}>الشعر العمودي</text>'
+    out+=f'<text x="440" y="80" text-anchor="middle" font-size="42" fill="#7C3AED" {F}>شعر التفعيلة</text>'
+    for y in [150,240,330,420]:
+        out+=f'<rect x="940" y="{y}" width="280" height="30" rx="8" fill="#93C5FD"/><rect x="1280" y="{y}" width="280" height="30" rx="8" fill="#93C5FD"/>'
+    for y,w in [(150,540),(240,350),(330,460),(420,270)]:
+        out+=f'<rect x="{710-w}" y="{y}" width="{w}" height="30" rx="8" fill="#C4B5FD"/>'
+    out+=f'<text x="1250" y="540" text-anchor="middle" font-size="34" fill="#334155" {F}>بيت ذو شطرين</text>'
+    out+=f'<text x="440" y="540" text-anchor="middle" font-size="34" fill="#334155" {F}>أسطر تختلف في الطول</text>'
+    out+=f'<text x="850" y="620" text-anchor="middle" font-size="28" fill="#64748B" {F}>المستطيلات تمثّل شكل الكتابة فقط، لا كلمات ولا تفعيلات موزونة</text>'
+    return out,'الشكل الشعري','مقارنة الشكل: بيت وسطر','مخطط لشكل الكتابة، لا نموذج لوزن أو قصيدة. اعرضوا بعده مثالين حقيقيين كما يطلب الدرس، ثم قارنوا الإيقاع واللغة والفكرة أيضًا.','1700 670'
+def muwashshah():
+    out=f'<text x="850" y="50" text-anchor="middle" font-size="34" fill="#334155" {F}>تتابع بنية المثال: نقرأ من أعلى إلى أسفل</text>'
+    for n,(y,c,txt) in enumerate([(90,'#2563EB','المطلع'),(195,'#7C3AED','دور: قافية تتغيّر'),(300,'#2563EB','قفل: يعود إلى قافية المطلع'),(405,'#D97706','دور آخر: قافية أخرى'),(510,'#2563EB','قفل: تتكرّر القافية')],1):
+        out+=box(360,y,980,80,c,txt,'')
+        out+=f'<text x="1430" y="{y+52}" text-anchor="middle" font-size="38" fill="{c}" {F}>{n}</text>'
+        if n<5: out+=f'<path d="M850 {y+84}v12 m-9 -5 9 10 9 -10" fill="none" stroke="#64748B" stroke-width="4"/>'
+    out+=f'<text x="850" y="650" text-anchor="middle" font-size="28" fill="#64748B" {F}>الأزرق للقافية المتكرّرة؛ الرسم ليس تقطيعًا عروضيًّا</text>'
+    return out,'الموشح','الموشّح: قافية تعود وقوافٍ تتغيّر','نموذج للبناء كما يشرحه الدرس. ارجعوا إلى النص للتحقق من المطلع والأدوار والأقفال وقوافيها.','1700 690'
+def falaj():
+    out=box(1110,230,500,160,'#2563EB','قناة الفلج','تنقل الماء')
+    out=out+box(560,230,390,160,'#0891B2','حوض توزيع','')
+    for y,txt in [(80,'مزرعة'),(270,'مزرعة'),(460,'مزرعة')]:
+        out+=box(90,y,330,120,'#16A34A',txt,'')
+        out+=f'<path d="M550 310H490V{y+60}H435" fill="none" stroke="#0891B2" stroke-width="7"/>'
+    out+='<path d="M1100 310H970 m20 -12 -20 12 20 12" fill="none" stroke="#0891B2" stroke-width="7"/>'
+    out+=f'<text x="850" y="630" text-anchor="middle" font-size="29" fill="#64748B" {F}>مخطط مبسّط للتوزيع، لا مقادير حصص ولا تصوير للموقف الروائي</text>'
+    return out,'الأفلاج','من قناة الماء إلى شبكة توزيع','تعريف عام بنظام الأفلاج، وفق وصف اليونسكو للقنوات السطحية وتوزيع الماء على المزارع. لا تمثل سماكة الخطوط حصصًا متساوية؛ يستدل الطلاب من النص على العدل والحكمة في الموقف الروائي.','1700 680'
+SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
 def apply_html(code,t):
  fn=SPECS.get(code)
  if not fn or 'id="s6d"' in t: return t

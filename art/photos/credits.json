@@ -37,5 +37,13 @@
     "author": "Dag Endresen / NordGen",
     "license": "Public domain",
     "modification": "Resized; no crop; EXIF removed."
+  },
+  {
+    "asset": "samovar.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Samovar_with_teapot.jpg",
+    "author": "Sinikka Halme",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "modification": "Orientation corrected, resized, no crop, EXIF removed."
   }
 ]

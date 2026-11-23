@@ -2,6 +2,13 @@
 # called from g1html/shell.py after images.py so regeneration restores it. Photo credits: art/photos/credits.json.
 import re
 SPECS={
+ 'AR-Y12-N-T2-L06':dict(
+  title='السماور: صورة لأداة يذكرها النص',time='⏱ 2 دقيقتان',
+  img='samovar.jpg',alt='سماور معدني بصنبور وإبريق شاي فوقه',
+  cap='مثال لسماور، وليس أداة القصة بعينها',
+  credit='الصورة: <bdi>Sinikka Halme</bdi> · <bdi>CC BY-SA 4.0</bdi> · ويكيميديا كومنز',
+  aside='هذه صورة مثال للسماور في متحف، وليست صورة الأداة الموصوفة في القصة. ما الذي تضيفه معرفة شكل الأداة إلى فهم الوصف؟ وما الدليل النصي على رمزيتها؟'),
+
  'AR-Y10-N-T1-L09':dict(
   title='حفظ البذور: مثال من سفالبارد',time='⏱ 2 دقيقتان',
   img='seed-vault.jpg',alt='عامل أمام رفوف من صناديق عينات البذور داخل قبو سفالبارد',
