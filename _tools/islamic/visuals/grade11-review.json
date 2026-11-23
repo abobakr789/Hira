@@ -82,7 +82,7 @@
       "hpl"
     ],
     "local_qa": "PASS: actual final pixels inspected; all original bytes preserved; reproducible and idempotent",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed file byte-identical; live diagram pixels inspected 2026-11-23."
   },
   {
     "lesson": "IE-Y11-N-T1-L06",
@@ -575,7 +575,7 @@
       "hpl"
     ],
     "local_qa": "PASS: actual final pixels inspected; all original bytes preserved; reproducible and idempotent",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed file byte-identical; live diagram pixels inspected 2026-11-23."
   },
   {
     "lesson": "IE-Y11-NN-T1-L06",
