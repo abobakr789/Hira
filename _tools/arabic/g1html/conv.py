@@ -1,5 +1,6 @@
 # Convert existing Hiraa free-slide decks (resources/slides/<code>.json) into the standalone HTML teacher-deck design.
 import re, json, os, sys, html as H
+import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "..", "g1images")); import g1images  # slide pictures (grade 1 native Arabic), see ../g1images
 import art
 from shell import A, logo, page, MODE, ROOT
 from deck import BGS, TH, DK, deco, bare, bidify
@@ -92,4 +93,5 @@ if __name__=="__main__":
     for c in sys.argv[2:]:
         h,n=conv(c,mode)
         o=f"{ROOT}resources/ar/{c}/teacher-deck.html" if mode=="site" else f"/mnt/user-data/outputs/preview/{c}.html"
+        h=g1images.apply_html(c,h) if mode=="site" else h
         os.makedirs(os.path.dirname(o),exist_ok=True); open(o,"w").write(h); print(c,n,len(h))

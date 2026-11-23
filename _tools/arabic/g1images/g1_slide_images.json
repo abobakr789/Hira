@@ -1,0 +1,1672 @@
+{
+ "AR-Y1-N-T1-L01": {
+  "d-real": [
+   [
+    "cooked_rice",
+    "أَرُزٌّ"
+   ],
+   [
+    "boy",
+    "أَخي"
+   ],
+   [
+    "busts_in_silhouette",
+    "أُسْرَتُهُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "couch_and_lamp",
+    "أَريكَةٌ"
+   ],
+   [
+    "cooked_rice",
+    "أَرُزٌّ"
+   ],
+   [
+    "man",
+    "أَبي"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L02": {
+  "d-real": [
+   [
+    "water_wave",
+    "الْبَحْرُ"
+   ],
+   [
+    "beach_with_umbrella",
+    "الرَّمْلُ"
+   ],
+   [
+    "house",
+    "بَيْتٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "door",
+    "بابٌ"
+   ],
+   [
+    "closed_book",
+    "كِتابٌ"
+   ],
+   [
+    "graduation_cap",
+    "صَفٌّ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L03": {
+  "d-real": [
+   [
+    "shopping_cart",
+    "السّوقُ"
+   ],
+   [
+    "old_woman",
+    "جَدَّتي"
+   ],
+   [
+    "strawberry",
+    "توتٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "red_apple",
+    "تُفّاحٌ"
+   ],
+   [
+    "strawberry",
+    "توتٌ"
+   ],
+   [
+    "palm_tree",
+    "نَخْلَةٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L04": {
+  "d-real": [
+   [
+    "cheese_wedge",
+    "جُبْنٌ"
+   ],
+   [
+    "keycap_3",
+    "ثَلاثٌ"
+   ],
+   [
+    "snowflake",
+    "ثَلْجٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "dress",
+    "ثَوْبٌ"
+   ],
+   [
+    "fox",
+    "ثَعْلَبٌ"
+   ],
+   [
+    "snowflake",
+    "ثَلْجٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L05": {
+  "d-real": [
+   [
+    "graduation_cap",
+    "الطُّلّابُ"
+   ],
+   [
+    "musical_note",
+    "يُنْشِدونَ"
+   ],
+   [
+    "school",
+    "الْمَدْرَسَةُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "handshake",
+    "أَصْحابي"
+   ],
+   [
+    "teacher",
+    "مُعَلِّمي"
+   ],
+   [
+    "school",
+    "مَدْرَسَتي"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L06": {
+  "d-real": [
+   [
+    "man",
+    "أَبي"
+   ],
+   [
+    "money_bag",
+    "تاجِرٌ"
+   ],
+   [
+    "dress",
+    "ثِيابٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "woman",
+    "أُمّي"
+   ],
+   [
+    "door",
+    "بابٌ"
+   ],
+   [
+    "strawberry",
+    "توتٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L07": {
+  "d-real": [
+   [
+    "desert",
+    "الصَّحْراءُ"
+   ],
+   [
+    "camel",
+    "جَمَلٌ"
+   ],
+   [
+    "old_man",
+    "جَدّي"
+   ]
+  ],
+  "d-apply": [
+   [
+    "camel",
+    "جَمَلٌ"
+   ],
+   [
+    "chicken",
+    "دَجاجَةٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L08": {
+  "d-real": [
+   [
+    "deciduous_tree",
+    "الْحَديقَةُ"
+   ],
+   [
+    "snail",
+    "حَلَزونٌ"
+   ],
+   [
+    "herb",
+    "الْحَشائِشُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "glass_of_milk",
+    "حَليبٌ"
+   ],
+   [
+    "salt",
+    "مِلْحٌ"
+   ],
+   [
+    "cooking",
+    "مَطْبَخٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L09": {
+  "d-real": [
+   [
+    "bread",
+    "خُبْزٌ"
+   ],
+   [
+    "cucumber",
+    "خِيارٌ"
+   ],
+   [
+    "leafy_green",
+    "خَسٌّ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "cucumber",
+    "خِيارٌ"
+   ],
+   [
+    "leafy_green",
+    "خَسٌّ"
+   ],
+   [
+    "peach",
+    "خَوْخٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L10": {
+  "d-real": [
+   [
+    "old_man",
+    "جَدّي"
+   ],
+   [
+    "camel",
+    "النّاقَةُ"
+   ],
+   [
+    "bread",
+    "خُبْزٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "camel",
+    "جَمَلٌ"
+   ],
+   [
+    "whale",
+    "حوتٌ"
+   ],
+   [
+    "ewe",
+    "خَروفٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L11": {
+  "d-real": [
+   [
+    "school",
+    "الْمَدْرَسَةُ"
+   ],
+   [
+    "notebook",
+    "دَفْتَرٌ"
+   ],
+   [
+    "open_book",
+    "دَرْسٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "backpack",
+    "حَقيبَةٌ"
+   ],
+   [
+    "notebook",
+    "دَفْتَرٌ"
+   ],
+   [
+    "pushpin",
+    "دَبّوسٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L12": {
+  "d-real": [
+   [
+    "coin",
+    "الذَّهَبُ"
+   ],
+   [
+    "shopping_cart",
+    "السّوقُ"
+   ],
+   [
+    "money_bag",
+    "نَشْتَري"
+   ]
+  ],
+  "d-apply": [
+   [
+    "coin",
+    "ذَهَبٌ"
+   ],
+   [
+    "ear",
+    "أُذُنٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L13": {
+  "d-real": [
+   [
+    "speaking_head",
+    "اللُّغَةُ"
+   ],
+   [
+    "party_popper",
+    "نَحْتَفِلُ"
+   ],
+   [
+    "open_book",
+    "الْقُرْآنُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "folded_hands",
+    "شُكْرًا"
+   ],
+   [
+    "speaking_head",
+    "كَلِمَةٌ"
+   ],
+   [
+    "red_heart",
+    "أُحِبُّ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L14": {
+  "d-real": [
+   [
+    "cloud_with_rain",
+    "الْمَطَرُ"
+   ],
+   [
+    "boy",
+    "الْأَطْفالُ"
+   ],
+   [
+    "house",
+    "الْبَيْتُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "cloud_with_rain",
+    "مَطَرٌ"
+   ],
+   [
+    "deciduous_tree",
+    "شَجَرَةٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L15": {
+  "d-real": [
+   [
+    "blossom",
+    "زَهْرَةٌ"
+   ],
+   [
+    "deciduous_tree",
+    "الْحَديقَةُ"
+   ],
+   [
+    "girl",
+    "زَيْنَبُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "banana",
+    "مَوْزٌ"
+   ],
+   [
+    "olive",
+    "زَيْتونٌ"
+   ],
+   [
+    "blossom",
+    "زَهْرَةٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L16": {
+  "d-real": [
+   [
+    "olive",
+    "زَيْتٌ"
+   ],
+   [
+    "shopping_cart",
+    "الدُّكّانُ"
+   ],
+   [
+    "girl",
+    "رَزانُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "ear_of_corn",
+    "ذُرَةٌ"
+   ],
+   [
+    "house",
+    "دارٌ"
+   ],
+   [
+    "olive",
+    "زَيْتٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L17": {
+  "d-real": [
+   [
+    "fish",
+    "سَمَكٌ"
+   ],
+   [
+    "basket",
+    "سَلَّةٌ"
+   ],
+   [
+    "shopping_cart",
+    "السّوقُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "fish",
+    "سَمَكَةٌ"
+   ],
+   [
+    "automobile",
+    "سَيّارَةٌ"
+   ],
+   [
+    "chair",
+    "كُرْسِيٌّ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L18": {
+  "d-real": [
+   [
+    "sun",
+    "الشَّمْسُ"
+   ],
+   [
+    "deciduous_tree",
+    "الشَّجَرَةُ"
+   ],
+   [
+    "sunrise",
+    "أَشْرَقَتْ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "sun",
+    "شَمْسٌ"
+   ],
+   [
+    "hot_beverage",
+    "شاي"
+   ],
+   [
+    "window",
+    "شُبّاكٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T1-L19": {
+  "d-real": [
+   [
+    "person_walking",
+    "مُشاةٌ"
+   ],
+   [
+    "police_officer",
+    "شُرْطِيٌّ"
+   ],
+   [
+    "vertical_traffic_light",
+    "إِشارَةٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "eyes",
+    "أَنْظُرُ"
+   ],
+   [
+    "raised_hand",
+    "يَدٌ"
+   ],
+   [
+    "man",
+    "أَبي"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L01": {
+  "d-real": [
+   [
+    "handshake",
+    "صَديقي"
+   ],
+   [
+    "graduation_cap",
+    "الصَّفُّ"
+   ],
+   [
+    "sunrise",
+    "الصَّباحُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "framed_picture",
+    "صورَةٌ"
+   ],
+   [
+    "scissors",
+    "مِقَصٌّ"
+   ],
+   [
+    "package",
+    "صُنْدوقٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L02": {
+  "d-real": [
+   [
+    "deciduous_tree",
+    "الْحَديقَةُ"
+   ],
+   [
+    "sun",
+    "الضُّحى"
+   ]
+  ],
+  "d-apply": [
+   [
+    "egg",
+    "بَيْضٌ"
+   ],
+   [
+    "globe_showing_europe_africa",
+    "أَرْضٌ"
+   ],
+   [
+    "light_bulb",
+    "ضَوْءٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L03": {
+  "d-real": [
+   [
+    "airplane",
+    "طائِرَةٌ"
+   ],
+   [
+    "baggage_claim",
+    "الْمَطارُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "cat_face",
+    "قِطٌّ"
+   ],
+   [
+    "potato",
+    "بَطاطا"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L04": {
+  "d-real": [
+   [
+    "broom",
+    "نَظَّفْنا"
+   ],
+   [
+    "deciduous_tree",
+    "الْحَديقَةُ"
+   ],
+   [
+    "sparkles",
+    "نَظيفَةٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "envelope",
+    "ظَرْفٌ"
+   ],
+   [
+    "glasses",
+    "نَظّارَةٌ"
+   ],
+   [
+    "beach_with_umbrella",
+    "ظِلٌّ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L05": {
+  "d-real": [
+   [
+    "handshake",
+    "الْأَصْدِقاءُ"
+   ],
+   [
+    "soccer_ball",
+    "يَلْعَبونَ"
+   ],
+   [
+    "fork_and_knife_with_plate",
+    "الطَّعامُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "handshake",
+    "أُساعِدُ"
+   ],
+   [
+    "palms_up_together",
+    "أُشارِكُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L06": {
+  "d-real": [
+   [
+    "sunrise",
+    "الصَّباحُ"
+   ],
+   [
+    "deciduous_tree",
+    "شَجَرَةٌ"
+   ],
+   [
+    "potato",
+    "بَطاطا"
+   ]
+  ],
+  "d-apply": [
+   [
+    "eagle",
+    "صَقْرٌ"
+   ],
+   [
+    "light_bulb",
+    "ضَوْءٌ"
+   ],
+   [
+    "envelope",
+    "ظَرْفٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L07": {
+  "d-real": [
+   [
+    "castle",
+    "قَلْعَةٌ"
+   ],
+   [
+    "palm_tree",
+    "نَخْلٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "tropical_drink",
+    "عَصيرٌ"
+   ],
+   [
+    "spoon",
+    "مِلْعَقَةٌ"
+   ],
+   [
+    "candle",
+    "شَمْعَةٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L08": {
+  "d-real": [
+   [
+    "bed",
+    "الْغُرْفَةُ"
+   ],
+   [
+    "window",
+    "الشُّبّاكُ"
+   ],
+   [
+    "dashing_away",
+    "الْغُبارُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "cloud",
+    "غَيْمَةٌ"
+   ],
+   [
+    "deer",
+    "غَزالٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L09": {
+  "d-real": [
+   [
+    "sunrise",
+    "الْفَجْرُ"
+   ],
+   [
+    "man",
+    "أَبي"
+   ],
+   [
+    "window",
+    "النّافِذَةُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "elephant",
+    "فيلٌ"
+   ],
+   [
+    "red_apple",
+    "تُفّاحٌ"
+   ],
+   [
+    "hot_beverage",
+    "فِنْجانٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L10": {
+  "d-real": [
+   [
+    "open_book",
+    "قِصَّةٌ"
+   ],
+   [
+    "eyes",
+    "قَرَأْتُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "pencil",
+    "قَلَمٌ"
+   ],
+   [
+    "page_facing_up",
+    "وَرَقَةٌ"
+   ],
+   [
+    "full_moon",
+    "قَمَرٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L11": {
+  "d-real": [
+   [
+    "bed",
+    "الْغُرْفَةُ"
+   ],
+   [
+    "package",
+    "عُلْبَةٌ"
+   ],
+   [
+    "pencil",
+    "قَلَمٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "eye",
+    "عَيْنٌ"
+   ],
+   [
+    "cloud",
+    "غَيْمَةٌ"
+   ],
+   [
+    "mouth",
+    "فَمٌ"
+   ],
+   [
+    "full_moon",
+    "قَمَرٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L12": {
+  "d-real": [
+   [
+    "soccer_ball",
+    "الْكُرَةُ"
+   ],
+   [
+    "closed_book",
+    "كِتابٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "soccer_ball",
+    "كُرَةٌ"
+   ],
+   [
+    "chair",
+    "كُرْسِيٌّ"
+   ],
+   [
+    "shortcake",
+    "كَعْكَةٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L13": {
+  "d-real": [
+   [
+    "crescent_moon",
+    "اللَّيْلُ"
+   ],
+   [
+    "house",
+    "بَيْتُنا"
+   ],
+   [
+    "night_with_stars",
+    "جَميلٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "lemon",
+    "لَيْمونٌ"
+   ],
+   [
+    "pencil",
+    "قَلَمٌ"
+   ],
+   [
+    "glass_of_milk",
+    "لَبَنٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L14": {
+  "d-real": [
+   [
+    "desert",
+    "الصَّحْراءُ"
+   ],
+   [
+    "glowing_star",
+    "النُّجومُ"
+   ],
+   [
+    "night_with_stars",
+    "لَيْلًا"
+   ]
+  ],
+  "d-apply": [
+   [
+    "glowing_star",
+    "نُجومٌ"
+   ],
+   [
+    "folded_hands",
+    "سُبْحانَ اللهِ"
+   ],
+   [
+    "night_with_stars",
+    "ما أَجْمَلَ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L15": {
+  "d-real": [
+   [
+    "mosque",
+    "الْمَسْجِدُ"
+   ],
+   [
+    "woman",
+    "أُمّي"
+   ],
+   [
+    "cityscape_at_dusk",
+    "الْمَساءُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "droplet",
+    "ماءٌ"
+   ],
+   [
+    "banana",
+    "مَوْزٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L16": {
+  "d-real": [
+   [
+    "house",
+    "الْبَيْتُ"
+   ],
+   [
+    "broom",
+    "نُنَظِّفُ"
+   ],
+   [
+    "calendar",
+    "السَّبْتُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "ant",
+    "نَمْلَةٌ"
+   ],
+   [
+    "hot_beverage",
+    "فِنْجانٌ"
+   ],
+   [
+    "grapes",
+    "عِنَبٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L17": {
+  "d-real": [
+   [
+    "pencil",
+    "كَتَبَ"
+   ],
+   [
+    "clipboard",
+    "لَوْحٌ"
+   ],
+   [
+    "boy",
+    "مَنْصورٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "dog_face",
+    "كَلْبٌ"
+   ],
+   [
+    "crescent_moon",
+    "لَيْلٌ"
+   ],
+   [
+    "cloud_with_rain",
+    "مَطَرٌ"
+   ],
+   [
+    "water_wave",
+    "نَهْرٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L18": {
+  "d-real": [
+   [
+    "goal_net",
+    "هَدَفٌ"
+   ],
+   [
+    "soccer_ball",
+    "اللّاعِبُ"
+   ],
+   [
+    "clapping_hands",
+    "هَتَفَ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "wrapped_gift",
+    "هَدِيَّةٌ"
+   ],
+   [
+    "face_with_open_mouth",
+    "وَجْهٌ"
+   ],
+   [
+    "crescent_moon",
+    "هِلالٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L19": {
+  "d-real": [
+   [
+    "rose",
+    "وَرْدَةٌ"
+   ],
+   [
+    "goose",
+    "وَزَّةٌ"
+   ],
+   [
+    "droplet",
+    "الْماءُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "banana",
+    "مَوْزٌ"
+   ],
+   [
+    "boy",
+    "وَلَدٌ"
+   ],
+   [
+    "page_facing_up",
+    "وَرَقَةٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L20": {
+  "d-real": [
+   [
+    "boy",
+    "يوسُفُ"
+   ],
+   [
+    "soccer_ball",
+    "يَلْعَبُ"
+   ],
+   [
+    "deciduous_tree",
+    "الْحَديقَةُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "raised_hand",
+    "يَدٌ"
+   ],
+   [
+    "house",
+    "بَيْتٌ"
+   ],
+   [
+    "chair",
+    "كُرْسِيٌّ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L21": {
+  "d-real": [
+   [
+    "birthday_cake",
+    "عيدُ الْميلادِ"
+   ],
+   [
+    "busts_in_silhouette",
+    "الْأُسْرَةُ"
+   ],
+   [
+    "party_popper",
+    "كُلَّ عامٍ وَأَنْتَ بِخَيْرٍ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "open_book",
+    "قِصَّةٌ"
+   ],
+   [
+    "wrapped_gift",
+    "هَدِيَّةٌ"
+   ],
+   [
+    "handshake",
+    "صَديقي"
+   ]
+  ]
+ },
+ "AR-Y1-N-T2-L22": {
+  "d-real": [
+   [
+    "house",
+    "بَيْتُها"
+   ],
+   [
+    "girl",
+    "هِنْدُ"
+   ],
+   [
+    "calendar",
+    "الْخَميسُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "crescent_moon",
+    "هِلالٌ"
+   ],
+   [
+    "rose",
+    "وَرْدَةٌ"
+   ],
+   [
+    "dove",
+    "يَمامَةٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L01": {
+  "d-real": [
+   [
+    "droplet",
+    "ماءٌ"
+   ],
+   [
+    "cat_face",
+    "الْقِطَطُ"
+   ],
+   [
+    "bird",
+    "الطُّيورُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "fork_and_knife_with_plate",
+    "أُطْعِمُهُ"
+   ],
+   [
+    "droplet",
+    "أَسْقيهِ"
+   ],
+   [
+    "red_heart",
+    "أَرْفُقُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L02": {
+  "d-real": [
+   [
+    "farmer",
+    "الْمَزْرَعَةُ"
+   ],
+   [
+    "old_man",
+    "الْجَدُّ"
+   ],
+   [
+    "palm_tree",
+    "النَّخْلُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "bed",
+    "غُرْفَتي"
+   ],
+   [
+    "droplet",
+    "أَسْقي"
+   ],
+   [
+    "seedling",
+    "النَّباتاتُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L03": {
+  "d-real": [
+   [
+    "cloud_with_lightning_and_rain",
+    "الرَّعْدُ"
+   ],
+   [
+    "cloud_with_rain",
+    "الْمَطَرُ"
+   ],
+   [
+    "ear",
+    "نَسْمَعُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "mosque",
+    "الْأَذانُ"
+   ],
+   [
+    "ear",
+    "أَسْمَعُ"
+   ],
+   [
+    "boy",
+    "أَخي"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L04": {
+  "d-real": [
+   [
+    "deciduous_tree",
+    "الْحَديقَةُ"
+   ],
+   [
+    "wastebasket",
+    "سَلَّةُ النُّفاياتِ"
+   ],
+   [
+    "soccer_ball",
+    "يَلْعَبونَ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "soccer_ball",
+    "أَلْعَبُ"
+   ],
+   [
+    "handshake",
+    "أَصْدِقائي"
+   ],
+   [
+    "blossom",
+    "الزُّهورُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L05": {
+  "d-real": [
+   [
+    "books",
+    "مَعْرِضُ الْكِتابِ"
+   ],
+   [
+    "open_book",
+    "قِصَصٌ"
+   ],
+   [
+    "shopping_cart",
+    "يَشْتَري"
+   ]
+  ],
+  "d-apply": [
+   [
+    "closed_book",
+    "كِتابي"
+   ],
+   [
+    "label",
+    "أُغَلِّفُهُ"
+   ],
+   [
+    "bookmark",
+    "أُرَتِّبُهُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L06": {
+  "d-real": [
+   [
+    "palm_tree",
+    "النَّخْلُ"
+   ],
+   [
+    "droplet",
+    "الْماءُ"
+   ],
+   [
+    "sun",
+    "الشَّمْسُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "potted_plant",
+    "نَبْتَةٌ"
+   ],
+   [
+    "droplet",
+    "أَسْقيها"
+   ],
+   [
+    "sun",
+    "الشَّمْسُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L07": {
+  "d-real": [
+   [
+    "diya_lamp",
+    "الْفَوانيسُ"
+   ],
+   [
+    "mosque",
+    "الْمَسْجِدُ"
+   ],
+   [
+    "crescent_moon",
+    "الْهِلالُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "woman",
+    "أُمّي"
+   ],
+   [
+    "pot_of_food",
+    "الْإِفْطارُ"
+   ],
+   [
+    "heart_hands",
+    "أَتَصَدَّقُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L08": {
+  "d-real": [
+   [
+    "fork_and_knife_with_plate",
+    "وَجَباتٌ"
+   ],
+   [
+    "pot_of_food",
+    "الْإِفْطارُ"
+   ],
+   [
+    "heart_hands",
+    "الْخَيْرُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "fork_and_knife_with_plate",
+    "طَعامٌ"
+   ],
+   [
+    "houses",
+    "جيراني"
+   ],
+   [
+    "old_woman",
+    "جَدَّتي"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L09": {
+  "d-real": [
+   [
+    "houses",
+    "الْجيرانُ"
+   ],
+   [
+    "pot_of_food",
+    "الْإِفْطارُ"
+   ],
+   [
+    "handshake",
+    "يَتَبادَلونَ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "woman",
+    "ساعَدْتُ أُمّي"
+   ],
+   [
+    "fork_and_knife_with_plate",
+    "الطَّعامُ"
+   ],
+   [
+    "house_with_garden",
+    "جارُنا"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L10": {
+  "d-real": [
+   [
+    "party_popper",
+    "الْعيدُ"
+   ],
+   [
+    "envelope",
+    "بِطاقَةٌ"
+   ],
+   [
+    "busts_in_silhouette",
+    "أَقارِبُ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "old_man",
+    "جَدّي"
+   ],
+   [
+    "envelope",
+    "بِطاقَةٌ"
+   ],
+   [
+    "black_nib",
+    "أَكْتُبُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L11": {
+  "d-real": [
+   [
+    "crescent_moon",
+    "هِلالُ رَمَضانَ"
+   ],
+   [
+    "smiling_face_with_smiling_eyes",
+    "يَفْرَحُ"
+   ],
+   [
+    "folded_hands",
+    "رَمَضانُ كَريمٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "open_book",
+    "أَقْرَأُ الْقُرْآنَ"
+   ],
+   [
+    "handshake",
+    "أُساعِدُ"
+   ],
+   [
+    "busts_in_silhouette",
+    "أُسْرَتي"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L12": {
+  "d-real": [
+   [
+    "boy",
+    "الْأَطْفالُ"
+   ],
+   [
+    "woman",
+    "الْأُمُّ"
+   ],
+   [
+    "bouquet",
+    "وَرْدٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "red_heart",
+    "أُحِبُّكِ"
+   ],
+   [
+    "folded_hands",
+    "شُكْرًا"
+   ],
+   [
+    "woman",
+    "يا أُمّي"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L13": {
+  "d-real": [
+   [
+    "health_worker",
+    "طَبيبَةٌ"
+   ],
+   [
+    "teacher",
+    "مُعَلِّمَةٌ"
+   ],
+   [
+    "construction_worker",
+    "مُهَنْدِسَةٌ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "woman",
+    "أُمّي"
+   ],
+   [
+    "teacher",
+    "مُعَلِّمَةٌ"
+   ],
+   [
+    "construction_worker",
+    "مُهَنْدِسٌ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L14": {
+  "d-real": [
+   [
+    "broom",
+    "عامِلُ النَّظافَةِ"
+   ],
+   [
+    "cityscape",
+    "الشّارِعُ"
+   ],
+   [
+    "folded_hands",
+    "شُكْرًا"
+   ]
+  ],
+  "d-apply": [
+   [
+    "health_worker",
+    "الطَّبيبُ"
+   ],
+   [
+    "police_officer",
+    "الشُّرْطِيُّ"
+   ],
+   [
+    "stethoscope",
+    "يُعالِجُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L15": {
+  "d-real": [
+   [
+    "boy",
+    "الْأَطْفالُ"
+   ],
+   [
+    "house",
+    "الْبَيْتُ"
+   ],
+   [
+    "smiling_face_with_hearts",
+    "فَرِحَتْ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "bed",
+    "سَريري"
+   ],
+   [
+    "woman",
+    "أُمّي"
+   ],
+   [
+    "handshake",
+    "أُطيعُ"
+   ]
+  ]
+ },
+ "AR-Y1-N-T3-L16": {
+  "d-real": [
+   [
+    "busts_in_silhouette",
+    "الْأُسْرَةُ"
+   ],
+   [
+    "fork_and_knife_with_plate",
+    "الْغَداءُ"
+   ],
+   [
+    "house",
+    "بَيْتُ الْجَدِّ"
+   ]
+  ],
+  "d-apply": [
+   [
+    "busts_in_silhouette",
+    "أُسْرَتي"
+   ],
+   [
+    "red_heart",
+    "أُحِبُّ"
+   ],
+   [
+    "handshake",
+    "تُساعِدُني"
+   ]
+  ]
+ }
+}
