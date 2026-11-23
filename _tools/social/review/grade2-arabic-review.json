@@ -302,7 +302,7 @@
     "code": "SS-Y2-T1-L05",
     "title": "عرض المعلم · الْقارّاتُ وَالْمُحيطاتُ · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Continents. Existing labelled map and continent comparison tasks carry the spatial concept; a second abstract map would duplicate them.",
+    "rationale": "Continents. Clarified the absence of permanent residents in Antarctica while retaining temporary researchers and the existing map.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -377,7 +377,7 @@
     "code": "SS-Y2-T1-L06",
     "title": "عرض المعلم · الْقارّاتُ وَالْمُحيطاتُ · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Ocean coverage and conservation. Existing Earth/water evidence supports the question; preserve discussion and avoid decorative waves.",
+    "rationale": "Ocean coverage and conservation. Corrected freshwater wording to low dissolved salts, not salt-free or automatically drinkable.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -499,7 +499,7 @@
     "code": "SS-Y2-T1-L08",
     "title": "عرض المعلم · مَوْقِعُ بِلادي · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "UAE landforms. Preserve mountain, plain and desert comparisons; qualify natural-feature wording rather than add unrelated scenery.",
+    "rationale": "UAE landforms. Broadened plain and desert definitions and removed misleading generic imagery; retained source comparisons with a visible qualification.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -579,7 +579,7 @@
     "code": "SS-Y2-T1-L09",
     "title": "عرض المعلم · مَوْقِعُ بِلادي · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "UAE emirates and map dialogue. Existing map identification and named places teach location; retain rather than replace the map.",
+    "rationale": "UAE emirates. Distinguished Abu Dhabi city as capital from Abu Dhabi emirate as the largest emirate.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -727,7 +727,7 @@
     "code": "SS-Y2-T1-L12",
     "title": "عرض المعلم · بِلادي قَبْلَ الِاتِّحادِ · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Traditional occupations. Existing occupational images support matching work and products; no generic profession symbols added.",
+    "rationale": "Traditional occupations. Aligned answer choices with the occupations described, including pearl diving and agriculture.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -933,7 +933,7 @@
     "code": "SS-Y2-T1-L16",
     "title": "عرض المعلم · بُطولَةٌ وَفِداءٌ · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "National service and geography. Existing aerial and national photographs support the reading; avoid turning figurative heroism into invented history.",
+    "rationale": "National service reading. Added a visible geographic correction that Hormuz is a strait, not a headland.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -1232,7 +1232,7 @@
     "code": "SS-Y2-T2-L05",
     "title": "عرض المعلم · الطّاقَةُ في بِلادي · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Golf-cart energy story. Align the question with the described vehicle and keep examples within the source; no generic self-driving car visual.",
+    "rationale": "Energy story. Qualified renewable-energy intermittency and environmental impacts; removed unsupported 100 percent energy claims and aligned dependent tasks.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -1383,7 +1383,7 @@
     "code": "SS-Y2-T2-L07",
     "title": "عرض المعلم · ثَرَواتُ بِلادي · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Agriculture and crops. Preserve the dialogue and crop evidence; avoid unsupported claims of universal local production.",
+    "rationale": "Agriculture and crops. Replaced the universal red-fruit heart-health claim with a varied healthy-food statement and qualified zero-emissions city wording.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -1464,7 +1464,7 @@
     "code": "SS-Y2-T2-L09",
     "title": "عرض المعلم · ثَرَواتُ بِلادي · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Fishing and marine resources. Preserve the grandfather dialogue and fishing imagery; no decorative boat added.",
+    "rationale": "Fishing. Limited the sea-to-freshwater migration claim to salmon examples rather than all fish.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -1687,7 +1687,7 @@
     "code": "SS-Y2-T2-L13",
     "title": "عرض المعلم · هُوِيَّتي الْوَطَنِيَّةُ · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "National identity and heritage news. Preserve attributed dialogue and cultural evidence; no abstract identity symbol added.",
+    "rationale": "National identity. Clarified that Emirates ID is held by both citizens and residents and does not alone establish citizenship.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -2134,7 +2134,7 @@
     "code": "SS-Y2-T3-L04",
     "title": "عرض المعلم · الْإِنْتاجُ وَالِاسْتِهْلاكُ · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Production. Existing producer/output examples are more useful than a generic factory symbol; preserve them.",
+    "rationale": "Production. Removed an undated 100 percent food-self-sufficiency claim; explained that rates vary by product and year.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -2187,7 +2187,7 @@
     "code": "SS-Y2-T3-L05",
     "title": "عرض المعلم · الْإِنْتاجُ وَالِاسْتِهْلاكُ · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Consumption. Existing consumption examples and choices support the definition; no decorative retail image added.",
+    "rationale": "Consumption. Removed an unsupported world consumption ranking and focused on food needs and avoiding waste.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -2231,7 +2231,7 @@
     "code": "SS-Y2-T3-L06",
     "title": "عرض المعلم · الْإِنْتاجُ وَالِاسْتِهْلاكُ · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Responsible consumption dialogue. Preserve story-based decisions about avoiding waste; do not reveal the behavioral answer with a new illustration.",
+    "rationale": "Responsible consumption. Marked the hunger figure as historical rather than current and replaced misleading causal arrows with parallel choices.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -2284,7 +2284,7 @@
     "code": "SS-Y2-T3-L07",
     "title": "عرض المعلم · صُنِعَ في بِلادي · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Shipbuilding. Existing carpenter and boat material supports production and heritage; no unrelated modern ship added.",
+    "rationale": "Shipbuilding and production. Replaced an unsupported top-crop ranking with the supported example of wheat being used to make bread.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -2502,7 +2502,7 @@
     "code": "SS-Y2-T3-L12",
     "title": "عرض المعلم · الْمَسْكَنُ الْإِماراتِيُّ بَيْنَ الْماضي وَالْحاضِرِ · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Modern homes. Existing comparison tasks teach change and continuity without imposing a single linear housing sequence.",
+    "rationale": "Modern homes. Removed a rigid two-storey villa definition and aligned comparison and answer material.",
     "sections_inspected": [
       "cover",
       "retrieve",
@@ -2999,7 +2999,7 @@
     "code": "SS-Y2-T3-L18",
     "title": "عرض المعلم · الطَّيَرانُ في بِلادي · Hiraa",
     "review": "Content review complete; changed-view local and live pixel QA recorded in linked manifests. Original source passages and media retained.",
-    "rationale": "Emirati aviation. Existing aviation images and travel comparisons support the lesson; avoid an unrelated aircraft or unsupported airline superlative.",
+    "rationale": "Emirati aviation. Distinguished 1966 airport construction from 1967 runway completion and avoided implying no earlier aviation.",
     "sections_inspected": [
       "cover",
       "retrieve",
