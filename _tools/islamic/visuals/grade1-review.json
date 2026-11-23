@@ -33,7 +33,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-N-T1-L04",
@@ -141,7 +141,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-N-T2-L01",
@@ -177,7 +177,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-N-T2-L04",
@@ -249,7 +249,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-N-T2-L10",
@@ -273,7 +273,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-N-T3-L01",
@@ -285,7 +285,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-N-T3-L02",
@@ -321,7 +321,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-N-T3-L05",
@@ -357,7 +357,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-N-T3-L08",
@@ -417,7 +417,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-NN-T1-L04",
@@ -525,7 +525,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-NN-T2-L01",
@@ -561,7 +561,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-NN-T2-L04",
@@ -645,7 +645,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-NN-T2-L11",
@@ -681,7 +681,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-NN-T3-L02",
@@ -717,7 +717,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-NN-T3-L05",
@@ -765,7 +765,7 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individual full-size live pixels; deployed HTML exact match; original sections preserved"
   },
   {
     "lesson": "IE-Y1-NN-T3-L09",
