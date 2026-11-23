@@ -1,0 +1,172 @@
+[
+  {
+    "file": "resources/ssd/SS-Y2-T1-L02/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L02/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L02/worksheets-A4.html",
+    "views": [
+      0,
+      1
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L02/teacher-deck.html",
+    "views": [
+      "check",
+      "exit",
+      "model",
+      "models",
+      "quick",
+      "story",
+      "together",
+      "vocab"
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L02/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L03/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L03/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L04/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L04/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L04/teacher-deck.html",
+    "views": [
+      "model",
+      "models",
+      "story"
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L05/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L05/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L05/teacher-deck.html",
+    "views": [
+      "exit",
+      "g1",
+      "models",
+      "story"
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L05/group-work.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L06/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L06/worksheets-A4.html",
+    "views": [
+      2
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  },
+  {
+    "file": "resources/ssd/SS-Y2-T1-L06/teacher-deck.html",
+    "views": [
+      "check",
+      "exit",
+      "story",
+      "vocab"
+    ],
+    "local_qa": "PASS: all 21 changed slides and 13 changed print pages inspected at full resolution on 24 November 2026",
+    "live_qa": "pending",
+    "reason": "Verified science corrections, with original source passages retained and visibly annotated"
+  }
+]
