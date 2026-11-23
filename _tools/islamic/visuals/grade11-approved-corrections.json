@@ -4,7 +4,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -14,7 +14,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -23,7 +23,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -33,7 +33,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -45,7 +45,7 @@
       2,
       3
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -55,22 +55,22 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": 1,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": 2,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": 3,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -88,7 +88,7 @@
       "critique",
       "quiz"
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -98,52 +98,52 @@
       {
         "view": "scene",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "part2",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "part3",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "vocab",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "learn",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "g1",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "g2",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "modelanswers",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "critique",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "quiz",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -152,7 +152,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -162,7 +162,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -171,7 +171,7 @@
     "changed_views": [
       "g1"
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -182,7 +182,7 @@
       {
         "view": "g1",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -191,7 +191,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -202,7 +202,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -211,7 +211,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -221,7 +221,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -230,7 +230,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -240,7 +240,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -249,7 +249,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -259,7 +259,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -271,7 +271,7 @@
       "modelanswers",
       "quiz"
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -281,22 +281,22 @@
       {
         "view": "part3",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "learn",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "modelanswers",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "quiz",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -305,7 +305,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -316,7 +316,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -325,7 +325,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -336,7 +336,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -345,7 +345,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -356,7 +356,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -367,7 +367,7 @@
       "modelanswers",
       "quiz"
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -378,17 +378,17 @@
       {
         "view": "learn",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "modelanswers",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "quiz",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -397,7 +397,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -407,7 +407,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -416,7 +416,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -426,7 +426,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -438,7 +438,7 @@
       2,
       3
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -448,22 +448,22 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": 1,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": 2,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": 3,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -480,7 +480,7 @@
       "critique",
       "quiz"
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -490,47 +490,47 @@
       {
         "view": "scene",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "part2",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "vocab",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "learn",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "g1",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "g2",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "modelanswers",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "critique",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "quiz",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -539,7 +539,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -549,7 +549,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -558,7 +558,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -568,7 +568,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -577,7 +577,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -587,7 +587,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -596,7 +596,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -606,7 +606,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -618,7 +618,7 @@
       "modelanswers",
       "quiz"
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -628,22 +628,22 @@
       {
         "view": "part3",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "learn",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "modelanswers",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "quiz",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -652,7 +652,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -663,7 +663,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -672,7 +672,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -683,7 +683,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -692,7 +692,7 @@
     "changed_views": [
       0
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -703,7 +703,7 @@
       {
         "view": 0,
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   },
@@ -714,7 +714,7 @@
       "modelanswers",
       "quiz"
     ],
-    "qa": "PASS local: all 34 changed slide views and 27 changed print pages inspected full-size. Live QA pending.",
+    "qa": "PASS local and live: all 34 changed slide views and 27 changed print pages inspected full-size; all 28 deployed HTML resources byte-exact.",
     "religious_text": "All Quran/hadith elements and religious quotations unchanged; media unchanged.",
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNCRjM2Qzc3QjExRkU3RjNGNURENEJCN0NBMThENjAA",
     "sources": [
@@ -725,17 +725,17 @@
       {
         "view": "learn",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "modelanswers",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       },
       {
         "view": "quiz",
         "local": "PASS: readable text, complete cards/tables, no clipping or collision.",
-        "live": "pending"
+        "live": "PASS: readable text, complete cards/tables, no clipping or collision; live print pages also pixel-identical to local."
       }
     ]
   }
