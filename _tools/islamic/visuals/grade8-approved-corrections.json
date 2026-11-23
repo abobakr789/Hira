@@ -7,11 +7,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "bf9fa953d5fe25dc9f92e827eea98f55bf274da8017145f1f8a3986c83548a44",
     "source_verification": [
       "https://awkafonline.gov.eg/content-sections/116/5024/%D8%A7%D9%84%D9%85%D8%AF-%D9%88%D8%A7%D9%84%D9%82%D8%B5%D8%B1"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T1-L02/teacher-deck.html",
@@ -22,11 +23,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "8d008220c705efe84e7179899af5c4ba49999bcdc082ac07b5cc56b67852b70c",
     "source_verification": [
       "https://awkafonline.gov.eg/content-sections/116/5024/%D8%A7%D9%84%D9%85%D8%AF-%D9%88%D8%A7%D9%84%D9%82%D8%B5%D8%B1"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T1-L08/group-work.html",
@@ -36,11 +38,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "dcc0c5d70f3738aae1dded2fd7e8090c8792d95e84aee3f9e73b398a102e2f08",
     "source_verification": [
       "https://sunnah.com/bukhari:6502"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T1-L08/teacher-deck.html",
@@ -51,11 +54,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "7f08b6376e3bfc0a9b714f6af13507ab598bc3df593671c462e58be0c3da7d62",
     "source_verification": [
       "https://sunnah.com/bukhari:6502"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T1-L08/worksheets-A4.html",
@@ -65,11 +69,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "fde6ab00b903d34ce9265e8eb297fea8dddeb2c9eda383a70740c75e5bc9a015",
     "source_verification": [
       "https://sunnah.com/bukhari:6502"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L05/group-work.html",
@@ -79,11 +84,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "5025b35135031672175325ff581259c36ca3416b029329eef900a66e346148dc",
     "source_verification": [
       "https://www.dar-alifta.org/ar/Fatwa/Details/20047/%D8%A3%D8%B1%D9%83%D8%A7%D9%86-%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9-%D9%88%D9%88%D8%A7%D8%AC%D8%A8%D8%A7%D8%AA%D9%87%D8%A7"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L05/teacher-deck.html",
@@ -94,11 +100,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "7a69301e068a4e2028348c3f16c73c557b78a0494b73fac663bb75480570039a",
     "source_verification": [
       "https://www.dar-alifta.org/ar/Fatwa/Details/20047/%D8%A3%D8%B1%D9%83%D8%A7%D9%86-%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9-%D9%88%D9%88%D8%A7%D8%AC%D8%A8%D8%A7%D8%AA%D9%87%D8%A7"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L05/worksheets-A4.html",
@@ -108,11 +115,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "127bca9874310404b249dee30d69209286651b16451853617294ec406fb90421",
     "source_verification": [
       "https://www.dar-alifta.org/ar/Fatwa/Details/20047/%D8%A3%D8%B1%D9%83%D8%A7%D9%86-%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9-%D9%88%D9%88%D8%A7%D8%AC%D8%A8%D8%A7%D8%AA%D9%87%D8%A7"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L06/teacher-deck.html",
@@ -122,11 +130,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "f519d5f391b8cd7cb9ec66dc9d188a3ec904d27d5b6295cf5e3b7fe618816e9e",
     "source_verification": [
       "https://quran.com/36/36"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L07/teacher-deck.html",
@@ -137,11 +146,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "33806c6868fd0f94f60948799b08bf8f0f46643f961160f728728df00d67cf9a",
     "source_verification": [
       "https://awkafonline.gov.eg/content-sections/116/5024/%D8%A7%D9%84%D9%85%D8%AF-%D9%88%D8%A7%D9%84%D9%82%D8%B5%D8%B1"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L08/answer-key.html",
@@ -151,12 +161,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "425559338f2a5afc0a75f52d04b1629c5c07a548f45def159455dc30070ce3a2",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L08/group-work.html",
@@ -167,12 +178,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "96f99944b09fb9136a2cc0dc494212643c2c6f588bfc6a8836d93dc7d1331a35",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L08/pod-sheet.html",
@@ -182,12 +194,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "04ce8aab3d804f75c3fddc9a686f9dcdd011f87e63d65850d8f98cefd5b868d1",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L08/sources-concept-card.html",
@@ -197,12 +210,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "7566f42a6048252ebc33471659bd61b792aabcb5b2438931b0c67f8d1d0e4819",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L08/teacher-deck.html",
@@ -222,12 +236,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "b864de5e810624da3f315b5d096bebb049e60548b653063a5c81d1aba2334ae7",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T2-L08/worksheets-A4.html",
@@ -239,12 +254,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "e2b8b6546ebb95f1b939e010f94f8f2e02638c088d3c27f750c4ab627011644b",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T3-L01/teacher-deck.html",
@@ -254,11 +270,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "6f4293886c4b2aa795c26a5bc5b7e8ece78525783c0ec07b9f40c2623b8a61bb",
     "source_verification": [
       "https://quran.com/36/65"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T3-L02/answer-key.html",
@@ -268,12 +285,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "74cb4ed63f8278a4ed6dff0bef50edbc1ec0153b86e547a1e54479003c0bc676",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T3-L02/group-work.html",
@@ -284,12 +302,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "a040a47f1defec8ed3a869d4a2db17ff2ea24add44c080315ead9b4c7c073507",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T3-L02/sources-concept-card.html",
@@ -299,12 +318,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "fe220c7e3190318104d1476fe1aa8b4120f012597e4af80feecd70669edd8d2a",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T3-L02/teacher-deck.html",
@@ -323,12 +343,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "414f31549bb8112ae045f64f3bb66154b8fa1033e50cad8c06fd9cdf4344c80e",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-N-T3-L02/worksheets-A4.html",
@@ -339,12 +360,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "3be6d1c5cc94718e26cddadd70c7b103b8ad70875094d4b9707f91bc20a170bf",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T1-L02/answer-key.html",
@@ -354,11 +376,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "31771dbe37de94381e5ef68159d1e4e69d55fd4aa4ad9b915d2a9207b2dda118",
     "source_verification": [
       "https://awkafonline.gov.eg/content-sections/116/5024/%D8%A7%D9%84%D9%85%D8%AF-%D9%88%D8%A7%D9%84%D9%82%D8%B5%D8%B1"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T1-L02/teacher-deck.html",
@@ -369,11 +392,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "005c7ec756a3a7d1884da4e25917182066cf9780f6770b7c8fff50194f3be80a",
     "source_verification": [
       "https://awkafonline.gov.eg/content-sections/116/5024/%D8%A7%D9%84%D9%85%D8%AF-%D9%88%D8%A7%D9%84%D9%82%D8%B5%D8%B1"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T1-L08/group-work.html",
@@ -383,11 +407,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "e749eefc904806a86b626cb421950a438ba720eec1b47bbef681f3890b7041cd",
     "source_verification": [
       "https://sunnah.com/bukhari:6502"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T1-L08/teacher-deck.html",
@@ -398,11 +423,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "0ba40e28757fb285083897da5654c45199ee174c6a5a3ec583b47b53b4acee20",
     "source_verification": [
       "https://sunnah.com/bukhari:6502"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T1-L08/worksheets-A4.html",
@@ -412,11 +438,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "b57928d11c62bffcb91e5f52d99cb26eb63e1f69befec44cdc744289e487842c",
     "source_verification": [
       "https://sunnah.com/bukhari:6502"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L05/group-work.html",
@@ -426,11 +453,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "98546ad73a867b83733aa2f5ec729e924a245f42882f17b5188ae6c9e794f17c",
     "source_verification": [
       "https://www.dar-alifta.org/ar/Fatwa/Details/20047/%D8%A3%D8%B1%D9%83%D8%A7%D9%86-%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9-%D9%88%D9%88%D8%A7%D8%AC%D8%A8%D8%A7%D8%AA%D9%87%D8%A7"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L05/teacher-deck.html",
@@ -441,11 +469,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "4baffdcc83210de98f3e13aab8caaad24e0819e25af63df014666f547e1ae6f2",
     "source_verification": [
       "https://www.dar-alifta.org/ar/Fatwa/Details/20047/%D8%A3%D8%B1%D9%83%D8%A7%D9%86-%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9-%D9%88%D9%88%D8%A7%D8%AC%D8%A8%D8%A7%D8%AA%D9%87%D8%A7"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L05/worksheets-A4.html",
@@ -455,11 +484,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "a5928d255424ee6fc96ecb4d3621a4158270a8fdb0c29a04fc1d752ac39fb2b2",
     "source_verification": [
       "https://www.dar-alifta.org/ar/Fatwa/Details/20047/%D8%A3%D8%B1%D9%83%D8%A7%D9%86-%D8%A7%D9%84%D8%B9%D9%85%D8%B1%D8%A9-%D9%88%D9%88%D8%A7%D8%AC%D8%A8%D8%A7%D8%AA%D9%87%D8%A7"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L07/answer-key.html",
@@ -469,11 +499,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "c9e9dae7f88c7454b48508feb36da987f1aa22a692e74882321bda7e0a2c7edc",
     "source_verification": [
       "https://awkafonline.gov.eg/content-sections/116/5024/%D8%A7%D9%84%D9%85%D8%AF-%D9%88%D8%A7%D9%84%D9%82%D8%B5%D8%B1"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L07/teacher-deck.html",
@@ -484,11 +515,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "d379c7e0f7ce82f54b7a13842e05ab068156bd175b715c6e627c8e1424e03240",
     "source_verification": [
       "https://awkafonline.gov.eg/content-sections/116/5024/%D8%A7%D9%84%D9%85%D8%AF-%D9%88%D8%A7%D9%84%D9%82%D8%B5%D8%B1"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L08/answer-key.html",
@@ -498,12 +530,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "1f9deb9ac9d5c31e0f0c733fc77f98bda617a7c30c29c3f4f35ab020bc5a875a",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L08/group-work.html",
@@ -514,12 +547,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "c6e0ca6e7476e08c125fec51b16769a879d695d0c7fffc9aec734099fa084de1",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L08/sources-concept-card.html",
@@ -529,12 +563,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "35099a19f058747871d5c129aef9d1a81888bd717b553549224fbda0274b7872",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L08/teacher-deck.html",
@@ -551,12 +586,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "66783a09fa327a47b936f7033425d08e0f646a50d3bfa44d0c292bff8ea5354d",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T2-L08/worksheets-A4.html",
@@ -567,12 +603,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "99978d3eb9ec515ba7c03b72fc2a308b9f25df390be0a12eb675d51841b36a3b",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T3-L02/answer-key.html",
@@ -582,12 +619,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "a17dd06791d35f5db5cda595a4a8d33c3e17058f6081020a1a14250b095808d7",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T3-L02/group-work.html",
@@ -598,12 +636,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "a7055ecffc8df678cce6e2baef5ae0589fb8ff924e1051a33b27d8079b3c8d06",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T3-L02/sources-concept-card.html",
@@ -613,12 +652,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "98b96040a1cce3cd921322a401310840555843431002d750bcd04f920848b783",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T3-L02/teacher-deck.html",
@@ -635,12 +675,13 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "79c817e0174528f81395302640a5ec7be709e1f53c134686e3095f41deedc6b6",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   },
   {
     "file": "resources/ie/IE-Y8-NN-T3-L02/worksheets-A4.html",
@@ -651,11 +692,12 @@
     "approval": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUM3NEQ4ODlEOUFGOEJDQTE3NTY1MjkxREU4RDk4OTQA",
     "media": "all original media tags exact",
     "Quran": "every Quran-bracketed token exact and in original order",
-    "qa": "Local slide and print-page pixel inspection PASS; live check pending",
+    "qa": "PASS: all55changed slides and37changed print pages inspected locally/live;42/42liveHTMLexact",
     "sha256": "6ebb6992698f5bdc53233178c12935598251ce42e8b8dbf5076ddce90ad06525",
     "source_verification": [
       "https://sunnah.com/muslim:2699a",
       "https://sunnah.com/tirmidhi:2007"
-    ]
+    ],
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45240614851"
   }
 ]
