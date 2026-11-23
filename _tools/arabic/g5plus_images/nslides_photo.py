@@ -2,6 +2,13 @@
 # called from g1html/shell.py after images.py so regeneration restores it. Photo credits: art/photos/credits.json.
 import re
 SPECS={
+ 'AR-Y6-N-T3-L02':dict(
+  title='ألمانيا في أوروبا',time='⏱ 2 دقيقتان',
+  img='germany-map.png',alt='خريطة موقع ألمانيا بالأحمر في أوروبا، مع خريطة عالم مصغّرة',
+  cap='ألمانيا بالأحمر؛ الخريطة الصغيرة توضّح موقع المنطقة',
+  credit='الخريطة: <bdi>TUBS</bdi> · <bdi>CC BY-SA 3.0</bdi> · ويكيميديا كومنز',
+  aside='خريطة للموقع فقط، وليست خريطة مفاهيم أو مقارنة ثقافية. يضيف الطلاب معلومات موثقة عن المدن والثقافة والإنجازات، ثم يقارنونها بالإمارات.'),
+
  'AR-Y7-N-T2-L10':dict(
   title='الناي: الآلة قبل قراءة الرمز',time='⏱ 2 دقيقتان',
   img='ney.jpg',alt='ناي قصبي محفوظ في متحف المتروبوليتان، تظهر ثقوب الأصابع وجسمه الأنبوبي',

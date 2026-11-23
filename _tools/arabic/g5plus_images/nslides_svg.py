@@ -274,7 +274,47 @@ def ostrich():
     out+=f'<text x="850" y="615" text-anchor="middle" font-size="32" fill="#334155" {F}>الرأس عند العش، وليس مدفونًا في الرمل</text>'
     out+=f'<text x="850" y="675" text-anchor="middle" font-size="26" fill="#64748B" {F}>رسم سلوكي مبسّط، لا نسب تشريحية دقيقة ولا مشهد من الرواية</text>'
     return out,'النعام','خفض الرأس ليس دفنه','وفق Smithsonian National Zoo تخفض النعامة رأسها عند تقليب البيض، وقد يسهم ذلك في نشأة الاعتقاد الشائع. الرسم لا يزعم أن هذا هو سبب كل وضع منخفض للرأس.','1700 720'
-SPECS={'AR-Y7-N-T3-L03':ostrich,'AR-Y7-N-T1-L04':glazing,'AR-Y7-N-T2-L06':sandgrouse,'AR-Y7-N-T2-L21':ropeanalogy,'AR-Y7-N-T3-L01':textlayouts,'AR-Y7-N-T2-L14':nestforms,'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
+def simileparts():
+    out=f'<text x="850" y="120" text-anchor="middle" font-size="58" fill="#102A4C" {F}>الابتسامة كالشمس في إشراقها</text>'
+    for x,c,a,b in [(1300,'#2563EB','المشبّه','الابتسامة'),(925,'#7C3AED','الأداة','الكاف'),(550,'#16A34A','المشبّه به','الشمس'),(175,'#D97706','وجه الشبه','الإشراق')]:
+        out+=box(x-145,250,290,200,c,a,b)
+    out+=f'<text x="850" y="570" text-anchor="middle" font-size="32" fill="#64748B" {F}>نفكّك مثال الشريحة السابقة، ثم ننشئ تشبيهًا جديدًا</text>'
+    return out,'أركان التشبيه','أربعة أجزاء في مثال واحد','تحليل المثال نفسه الوارد في الدرس، لا إجابة عن صورة الطالب الخاصة. رتّبت البطاقات وفق العبارة من اليمين إلى اليسار؛ الكاف أداة متصلة بكلمة الشمس وليست كلمة منفصلة في الكتابة.','1700 650'
+def vennplay():
+    out='<circle cx="1050" cy="310" r="290" fill="#DBEAFE" stroke="#2563EB" stroke-width="5"/><circle cx="650" cy="310" r="290" fill="#EDE9FE" fill-opacity=".75" stroke="#7C3AED" stroke-width="5"/>'
+    out+=f'<text x="1200" y="285" text-anchor="middle" font-size="38" fill="#2563EB" {F}>ألعاب شعبية</text><text x="500" y="285" text-anchor="middle" font-size="38" fill="#7C3AED" {F}>ألعاب رقمية</text>'
+    out+=f'<text x="850" y="315" text-anchor="middle" font-size="32" fill="#334155" {F}>المتعة</text>'
+    out+=f'<text x="850" y="650" text-anchor="middle" font-size="29" fill="#64748B" {F}>نموذج محدود للتشابه؛ نحدّد الفروق من الألعاب والأدلة التي نختارها</text>'
+    return out,'مقارنة الألعاب','مخطط فن: ما الذي يشترك فيه النوعان؟','المشترك المذكور في النموذج هو المتعة. لا نعمّم أن كل لعبة شعبية حركية أو كل لعبة رقمية فردية؛ يضيف الطلاب أمثلة موثقة وفروقها إلى مخططهم.','1700 710'
+def echolocation():
+    out=box(1100,200,450,170,'#2563EB','الدلفين','يرسل نقرات صوتية')
+    out+=box(150,200,450,170,'#7C3AED','جسم في الماء','يرتدّ عنه الصوت')
+    out+='<path d="M1080 215H620 m20 -15 -20 15 20 15" stroke="#2563EB" stroke-width="7" fill="none"/><path d="M620 420H1080 m-20 -15 20 15 -20 15" stroke="#16A34A" stroke-width="7" fill="none"/>'
+    out+=f'<text x="850" y="165" text-anchor="middle" font-size="32" fill="#2563EB" {F}>الصوت الصادر</text><text x="850" y="490" text-anchor="middle" font-size="32" fill="#16A34A" {F}>الصدى العائد</text>'
+    out+=f'<text x="850" y="610" text-anchor="middle" font-size="28" fill="#64748B" {F}>مخطط لمسار الإشارة، لا صورة لموجة أو مسافة مقيسة</text>'
+    return out,'تحديد الموقع بالصدى','صوت يخرج وصدى يعود','العلاقة الأساسية وفق NOAA: نقرات تصدر من الدلفين وتنعكس عن الأجسام وتعود إليه. الصناديق بدائل تخطيطية، وليست مواضع الأعضاء الصوتية أو صورة تشريحية.','1700 680'
+def offshoot():
+    out='<path d="M1060 500l-20-300h80l20 300Z" fill="#A16207"/><path d="M1080 210Q850 50 730 200 M1080 210Q1260 20 1440 150 M1080 210Q1040 30 930 75 M1080 210Q1250 90 1460 280 M1080 210Q880 150 710 350" fill="none" stroke="#15803D" stroke-width="28"/>'
+    out+='<path d="M940 480L1070 470" stroke="#A16207" stroke-width="35"/><path d="M905 500l-5-150h35l20 150Z" fill="#A16207"/><path d="M915 350Q800 250 720 340 M915 350Q1000 250 1040 315 M915 350Q880 230 830 255" fill="none" stroke="#22C55E" stroke-width="17"/><path d="M650 510H1500" stroke="#C4943A" stroke-width="8"/>'
+    out+=f'<text x="400" y="360" text-anchor="middle" font-size="42" fill="#15803D" {F}>فسيلة</text><path d="M510 365H750" stroke="#15803D" stroke-width="5"/>'
+    out+=f'<text x="850" y="620" text-anchor="middle" font-size="29" fill="#64748B" {F}>نموّ صغير متصل بالنخلة الأمّ؛ رسم تعريفي لا تعليمات فصل أو غرس</text>'
+    return out,'الفسيلة','نتعرّف إلى الفسيلة','وفق FAO تنشأ الفسائل من براعم النخلة الأم. الرسم يعرّف الكلمة المادية، ولا يصور الحديث أو قيام الساعة أو شخصًا بعينه، ولا يشرح فصل الفسيلة أو شروط زراعتها.','1700 680'
+def clocks():
+    out=f'<text x="1250" y="65" text-anchor="middle" font-size="40" fill="#2563EB" {F}>المزولة: تغيّر موضع الظلّ</text><text x="450" y="65" text-anchor="middle" font-size="40" fill="#7C3AED" {F}>ساعة مائية: تغيّر مستوى الماء</text>'
+    out+='<ellipse cx="1250" cy="390" rx="260" ry="115" fill="#FEF3C7" stroke="#C4943A" stroke-width="5"/><path d="M1250 385V190L1300 385Z" fill="#64748B"/><path d="M1250 385L1460 410L1300 385Z" fill="#334155" opacity=".6"/>'
+    out+='<path d="M290 140V470H610V140" fill="#EDE9FE" stroke="#64748B" stroke-width="8"/><path d="M300 290H600V460H300Z" fill="#7DD3FC"/><path d="M450 475V535" stroke="#38BDF8" stroke-width="8" stroke-dasharray="9 12"/>'
+    for y in [200,260,320,380,440]:out+=f'<path d="M570 {y}h35" stroke="#64748B" stroke-width="5"/>'
+    out+=f'<text x="850" y="620" text-anchor="middle" font-size="28" fill="#64748B" {F}>آليتان مبسّطتان في توازٍ، لا خطّ زمني للاختراع ولا تدريج صالح للقياس</text>'
+    return out,'حساب الوقت','علامة الظلّ وعلامة الماء','تؤكد NIST استخدام الظل المتحرك، وتغير مستوى الماء المتدفق لقراءة الوقت. الرسم يوضح المبدأ ولا يعمم أن اختراعًا واحدًا سبّب الآخر، ولا يقدم أبعادًا أو ساعات مقيسة.','1700 690'
+def mirage():
+    out='<defs><linearGradient id="warm-air" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#E0F2FE"/><stop offset=".55" stop-color="#E0F2FE"/><stop offset="1" stop-color="#FED7AA"/></linearGradient></defs><rect x="100" y="100" width="1500" height="380" fill="url(#warm-air)"/><path d="M100 485H1600" stroke="#C4943A" stroke-width="10"/>'
+    out+='<path d="M260 140C530 260 800 500 1420 270" fill="none" stroke="#2563EB" stroke-width="7"/><path d="M1320 304l30-5-15 22" fill="none" stroke="#2563EB" stroke-width="5"/>'
+    out+='<path d="M1420 270L1070 485" stroke="#64748B" stroke-width="5" stroke-dasharray="12 10"/><ellipse cx="1435" cy="270" rx="26" ry="17" fill="white" stroke="#334155" stroke-width="4"/><circle cx="1435" cy="270" r="8" fill="#334155"/>'
+    out+=f'<text x="480" y="80" text-anchor="middle" font-size="32" fill="#2563EB" {F}>ضوء من السماء</text><text x="440" y="440" text-anchor="middle" font-size="30" fill="#9A3412" {F}>هواء أشدّ حرارة قرب السطح</text>'
+    out+=f'<text x="1000" y="570" text-anchor="middle" font-size="29" fill="#64748B" {F}>المتقطّع: امتداد ظاهري لاتجاه الرؤية، لا مسار الضوء</text>'
+    out+=f'<text x="850" y="650" text-anchor="middle" font-size="29" fill="#334155" {F}>الضوء ينحني عبر طبقات الهواء؛ لا ماء حقيقيًّا على الطريق</text>'
+    return out,'السراب السفلي','لماذا تبدو السماء كأنها ماء عند السطح؟','وفق WMO تنحني الأشعة مع اختلاف معامل الانكسار بسبب تغير الحرارة والكثافة. الخط الأزرق مسار توضيحي من السماء إلى العين؛ المتقطع امتداد ظاهري فقط. الرسم ليس مقياسًا للزاوية أو الحرارة.','1700 720'
+SPECS={'AR-Y6-N-T1-L22':clocks,'AR-Y6-N-T2-L17':mirage,'AR-Y6-N-T2-L21':simileparts,'AR-Y6-N-T2-L24':vennplay,'AR-Y6-N-T2-L07':echolocation,'AR-Y6-N-T1-L19':offshoot,'AR-Y7-N-T3-L03':ostrich,'AR-Y7-N-T1-L04':glazing,'AR-Y7-N-T2-L06':sandgrouse,'AR-Y7-N-T2-L21':ropeanalogy,'AR-Y7-N-T3-L01':textlayouts,'AR-Y7-N-T2-L14':nestforms,'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
 def apply_html(code,t):
  fn=SPECS.get(code)
  if not fn or 'id="s6d"' in t: return t

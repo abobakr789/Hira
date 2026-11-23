@@ -69,5 +69,13 @@
     "license": "Public domain, Open Access",
     "api_source": "https://collectionapi.metmuseum.org/public/collection/v1/objects/504821",
     "modification": "Resaved as JPEG, no crop. Caption identifies Iranian late-19th-century example."
+  },
+  {
+    "asset": "germany-map.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Germany_in_its_region.svg",
+    "author": "TUBS",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "modification": "Wikimedia browser-rendered thumbnail converted losslessly from WebP to PNG, no crop."
   }
 ]
