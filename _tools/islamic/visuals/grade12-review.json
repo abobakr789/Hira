@@ -201,7 +201,7 @@
       "hpl"
     ],
     "local_qa": "PASS",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed byte-exact, full diagram inspected"
   },
   {
     "lesson": "IE-Y12-N-T2-L03",
@@ -677,7 +677,7 @@
       "hpl"
     ],
     "local_qa": "PASS",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed byte-exact, full diagram inspected"
   },
   {
     "lesson": "IE-Y12-NN-T2-L03",

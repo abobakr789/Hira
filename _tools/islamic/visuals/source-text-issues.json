@@ -798,7 +798,7 @@
     "verified_sources": [
       "https://agda.ae/en/exhibitions/h.h.-sheikha-fatima-bint-mubarak"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "https://agda.ae/en/exhibitions/h.h.-sheikha-fatima-bint-mubarak",
     "counterpart": "IE-Y12-N-T1-L10#part0"
   },
@@ -811,7 +811,7 @@
     "verified_sources": [
       "https://sunnah.com/bukhari:1356"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "https://sunnah.com/bukhari:1356",
     "counterpart": "IE-Y12-N-T1-L05#part3"
   },
@@ -825,7 +825,7 @@
       "https://www.imf.org/external/pubs/ft/fandd/2015/06/basics.htm",
       "https://www.britannica.com/money/socialism"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "https://www.imf.org/external/pubs/ft/fandd/2015/06/basics.htm"
   },
   {
@@ -837,7 +837,7 @@
     "verified_sources": [
       "resources/ie/IE-Y12-N-T1-L01/teacher-deck.html#part3"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "resources/ie/IE-Y12-N-T1-L01/teacher-deck.html#part3"
   },
   {
@@ -849,7 +849,7 @@
     "verified_sources": [
       "resources/ie/IE-Y12-N-T2-L01/teacher-deck.html#part0"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "resources/ie/IE-Y12-N-T2-L01/teacher-deck.html#part0"
   },
   {
@@ -861,7 +861,7 @@
     "verified_sources": [
       "https://agda.ae/en/exhibitions/h.h.-sheikha-fatima-bint-mubarak"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "https://agda.ae/en/exhibitions/h.h.-sheikha-fatima-bint-mubarak",
     "counterpart": "IE-Y12-NN-T1-L10#part0"
   },
@@ -874,7 +874,7 @@
     "verified_sources": [
       "https://sunnah.com/bukhari:1356"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "https://sunnah.com/bukhari:1356",
     "counterpart": "IE-Y12-N-T1-L05#part3"
   },
@@ -888,7 +888,7 @@
       "https://www.imf.org/external/pubs/ft/fandd/2015/06/basics.htm",
       "https://www.britannica.com/money/socialism"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "https://www.imf.org/external/pubs/ft/fandd/2015/06/basics.htm"
   },
   {
@@ -900,7 +900,7 @@
     "verified_sources": [
       "resources/ie/IE-Y12-NN-T1-L01/teacher-deck.html#part3"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "resources/ie/IE-Y12-NN-T1-L01/teacher-deck.html#part3"
   },
   {
@@ -912,7 +912,7 @@
     "verified_sources": [
       "resources/ie/IE-Y12-NN-T2-L01/teacher-deck.html#part0"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "resources/ie/IE-Y12-NN-T2-L01/teacher-deck.html#part0"
   },
   {
@@ -925,7 +925,7 @@
       "https://quran.com/24/7",
       "https://quran.com/24/9"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "https://quran.com/24/7",
     "counterpart": "IE-Y12-N-T1-L01#part3"
   },
@@ -939,7 +939,7 @@
       "https://quran.com/an-nur/61/tafsirs/en-tafisr-ibn-kathir",
       "https://quran.com/24:61/tafsirs/ar-tafsir-al-tabari"
     ],
-    "status": "Corrected after source verification under user 23 Nov 23:56 and 23:57 instructions. Local pixels PASS; live pending. Religious quotations and original media unchanged.",
+    "status": "Verified corrections implemented under user 23 Nov 23:56 and 23:57 instructions. Local/live pixel QA PASS. All 35 HTML resources byte-exact. Religious quotations and original media unchanged.",
     "source": "https://quran.com/an-nur/61/tafsirs/en-tafisr-ibn-kathir"
   }
 ]

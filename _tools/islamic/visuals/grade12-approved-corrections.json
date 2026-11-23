@@ -4,40 +4,95 @@
     "changed_views": [
       1
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 1,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T1-L01/teacher-deck.html",
     "changed_views": [
       "g3"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "g3",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T1-L05/answer-key.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T1-L05/pod-sheet.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T1-L05/sources-concept-card.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T1-L05/teacher-deck.html",
@@ -46,24 +101,67 @@
       "modelanswers",
       "quiz"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "learn",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "quiz",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T1-L10/answer-key.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T1-L10/sources-concept-card.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T1-L10/teacher-deck.html",
@@ -71,56 +169,138 @@
       "learn",
       "modelanswers"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "learn",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T1-L10/worksheets-A4.html",
     "changed_views": [
       1
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 1,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T2-L01/group-work.html",
     "changed_views": [
       1
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 1,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T2-L01/teacher-deck.html",
     "changed_views": [
       "g3"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "g3",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T2-L02/teacher-deck.html",
     "changed_views": [
       "ie-visual"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "ie-visual",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T3-L05/answer-key.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T3-L05/sources-concept-card.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T3-L05/teacher-deck.html",
@@ -131,8 +311,39 @@
       "modelanswers",
       "quiz"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "part1",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "vocab",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "learn",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "quiz",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T3-L05/worksheets-A4.html",
@@ -142,24 +353,72 @@
       2,
       3
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": 1,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": 2,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": 3,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-N-T3-L06/teacher-deck.html",
     "changed_views": [
       "part3"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "part3",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L01/group-work.html",
     "changed_views": [
       1
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 1,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L01/teacher-deck.html",
@@ -167,32 +426,81 @@
       "part3",
       "g3"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "part3",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "g3",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L05/answer-key.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L05/pod-sheet.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L05/sources-concept-card.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L05/teacher-deck.html",
@@ -201,24 +509,67 @@
       "modelanswers",
       "quiz"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "learn",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "quiz",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L10/answer-key.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L10/sources-concept-card.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L10/teacher-deck.html",
@@ -226,56 +577,138 @@
       "learn",
       "modelanswers"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "learn",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T1-L10/worksheets-A4.html",
     "changed_views": [
       1
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 1,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T2-L01/group-work.html",
     "changed_views": [
       1
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 1,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T2-L01/teacher-deck.html",
     "changed_views": [
       "g3"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "g3",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T2-L02/teacher-deck.html",
     "changed_views": [
       "ie-visual"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "ie-visual",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T3-L05/answer-key.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T3-L05/sources-concept-card.html",
     "changed_views": [
       0
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T3-L05/teacher-deck.html",
@@ -285,8 +718,34 @@
       "learn",
       "modelanswers"
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": "part1",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "vocab",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "learn",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": "modelanswers",
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   },
   {
     "file": "resources/ie/IE-Y12-NN-T3-L05/worksheets-A4.html",
@@ -296,7 +755,33 @@
       2,
       3
     ],
-    "qa": "Local pixels PASS. Live pending.",
-    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo."
+    "qa": "PASS: all 27 changed slide views and 28 changed print pages inspected locally and live. All 35 resources deployed byte-exact.",
+    "religious_text": "All original Quran/hadith elements, religious quotations, media and links unchanged. New visual duplicates only the existing house shell/logo.",
+    "authority_message_ids": [
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNGMkM5NEFCMTQ4M0Q1QjNBRTI0NDYxN0IzMTc1QjAA",
+      "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNBQUYxRERDN0U1ODM0REIzNzhFNDVFODg3M0IyNDMA"
+    ],
+    "views_qa": [
+      {
+        "view": 0,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": 1,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": 2,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      },
+      {
+        "view": 3,
+        "local": "PASS",
+        "live": "PASS: complete readable layout, no clipping or collisions"
+      }
+    ]
   }
 ]
