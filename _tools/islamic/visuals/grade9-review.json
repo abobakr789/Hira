@@ -81,8 +81,8 @@
       "quiz",
       "hpl"
     ],
-    "local_qa": "PASS: final pixels inspected,40equalsharescontained,Arabic ihram comparison RTL corrected",
-    "live_qa": "pending"
+    "local_qa": "PASS: all final pixels inspected; all original bytes preserved; reproducible and idempotent",
+    "live_qa": "PASS: liveHTMLexact;finalslidepixelsinspected23Nov2026"
   },
   {
     "lesson": "IE-Y9-N-T1-L06",
@@ -149,8 +149,8 @@
       "quiz",
       "hpl"
     ],
-    "local_qa": "PASS: final pixels inspected,40equalsharescontained,Arabic ihram comparison RTL corrected",
-    "live_qa": "pending"
+    "local_qa": "PASS: all final pixels inspected; all original bytes preserved; reproducible and idempotent",
+    "live_qa": "PASS: liveHTMLexact;finalslidepixelsinspected23Nov2026"
   },
   {
     "lesson": "IE-Y9-N-T1-L10",
@@ -625,8 +625,8 @@
       "quiz",
       "hpl"
     ],
-    "local_qa": "PASS: final pixels inspected,40equalsharescontained,Arabic ihram comparison RTL corrected",
-    "live_qa": "pending"
+    "local_qa": "PASS: all final pixels inspected; all original bytes preserved; reproducible and idempotent",
+    "live_qa": "PASS: liveHTMLexact;finalslidepixelsinspected23Nov2026"
   },
   {
     "lesson": "IE-Y9-NN-T1-L06",
@@ -693,8 +693,8 @@
       "quiz",
       "hpl"
     ],
-    "local_qa": "PASS: final pixels inspected,40equalsharescontained,Arabic ihram comparison RTL corrected",
-    "live_qa": "pending"
+    "local_qa": "PASS: all final pixels inspected; all original bytes preserved; reproducible and idempotent",
+    "live_qa": "PASS: liveHTMLexact;finalslidepixelsinspected23Nov2026"
   },
   {
     "lesson": "IE-Y9-NN-T1-L10",
