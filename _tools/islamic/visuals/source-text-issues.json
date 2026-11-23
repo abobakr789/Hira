@@ -80,7 +80,20 @@
     "issue": "Translation terminology differs: Arabic phalanges versus English joints. OpenStax confirms two thumb and three finger phalanges. Joint counts depend on inclusion of base joints, so this is not classified as a confirmed false count.",
     "suggested_fix": "For precise alignment, consider replacing joints with phalanges (finger bones), subject to user review. No change made.",
     "source": "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb",
-    "status": "Held for review, unchanged and not illustrated"
+    "status": "Authorized precision correction made; all4 local slides individually inspected. Live QA pending.",
+    "replacement_from": "two joints",
+    "replacement_to": "two bones",
+    "occurrences": 4,
+    "affected_slides": [
+      "see",
+      "learn2",
+      "g2",
+      "models"
+    ],
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUMzNTZFRDgxQTc2OURGQTdEQTU5RjBCQzAxRDQyNkYA",
+    "verified_sources": [
+      "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb"
+    ]
   },
   {
     "lesson": "IE-Y3-N-T2-L04",

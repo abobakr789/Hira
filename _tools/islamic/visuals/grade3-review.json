@@ -207,7 +207,8 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individually inspected 1920x1080 live pixels; deployed HTML exact match",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45226101606"
   },
   {
     "lesson": "IE-Y3-N-T2-L03",
@@ -447,7 +448,8 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individually inspected 1920x1080 live pixels; deployed HTML exact match",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45226101606"
   },
   {
     "lesson": "IE-Y3-N-T3-L07",
@@ -462,7 +464,8 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individually inspected 1920x1080 live pixels; deployed HTML exact match",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45226101606"
   },
   {
     "lesson": "IE-Y3-N-T3-L08",
@@ -717,7 +720,8 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individually inspected 1920x1080 live pixels; deployed HTML exact match",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45226101606"
   },
   {
     "lesson": "IE-Y3-NN-T2-L03",
@@ -957,7 +961,8 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individually inspected 1920x1080 live pixels; deployed HTML exact match",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45226101606"
   },
   {
     "lesson": "IE-Y3-NN-T3-L07",
@@ -972,7 +977,8 @@
       "exit"
     ],
     "local_qa": "PASS individual full-size pixels",
-    "live_qa": "pending"
+    "live_qa": "PASS individually inspected 1920x1080 live pixels; deployed HTML exact match",
+    "deployment": "https://github.com/abobakr789/Hira/actions/runs/45226101606"
   },
   {
     "lesson": "IE-Y3-NN-T3-L08",
