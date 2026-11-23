@@ -1,0 +1,101 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "text1",
+      "text3",
+      "text4",
+      "guide",
+      "check",
+      "words",
+      "levels"
+    ],
+    "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+    "live_qa": "pending",
+    "media_reference_check": "PASS",
+    "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L14/sources-concept-card.html",
+    "views": [
+      0,
+      1
+    ],
+    "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+    "live_qa": "pending",
+    "media_reference_check": "PASS",
+    "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L14/worksheets-A4.html",
+    "views": [
+      0,
+      1
+    ],
+    "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+    "live_qa": "pending",
+    "media_reference_check": "PASS",
+    "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L14/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+    "live_qa": "pending",
+    "media_reference_check": "PASS",
+    "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "text2",
+      "text3",
+      "text4",
+      "check",
+      "words",
+      "levels",
+      "see"
+    ],
+    "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+    "live_qa": "pending",
+    "media_reference_check": "PASS",
+    "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L15/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+    "live_qa": "pending",
+    "media_reference_check": "PASS",
+    "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L15/worksheets-A4.html",
+    "views": [
+      1
+    ],
+    "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+    "live_qa": "pending",
+    "media_reference_check": "PASS",
+    "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L15/sources-concept-card.html",
+    "views": [
+      0,
+      1
+    ],
+    "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+    "live_qa": "pending",
+    "media_reference_check": "PASS",
+    "original_reading_check": "PASS full reading retained with clearly labelled qualifications"
+  }
+]
