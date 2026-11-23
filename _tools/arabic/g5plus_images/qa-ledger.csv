@@ -106,3 +106,5 @@ AR-Y10-NN-T1-L05,s5,PASS,Individual full-size render inspected (local and live w
 AR-Y10-NN-T2-L03,s5,PASS,Individual full-size render inspected (local and live where published); literal captioned icons match the reading; no overlap or text clipping; non-target markup/media byte-identical
 AR-Y7-N-T1-L21,s6d,PASS,Added diagram slide after s6 (wind tower cause and effect); original s6 untouched; inspected at full size
 AR-Y8-N-T2-L05,s6p,PASS,Added photo slide after s6 (wooden dhow on Dubai Creek); caption names only what is visible; original s6 untouched; inspected at full size
+AR-Y10-N-T3-L08,s6d,PASS,Added numbers-history diagram slide (chain and numeral forms from the deck text); inspected at full size
+AR-Y12-N-T3-L06,s6d,PASS,Added graphene diagram slide (carbon lattice and structure-properties-applications chain from the deck text); inspected at full size

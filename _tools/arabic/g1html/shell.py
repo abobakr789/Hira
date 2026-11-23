@@ -60,4 +60,7 @@ Object.assign(window,{{show,next,prev,snd,cnt,rst,redraw,boom,fb}});window.S=S;}
     _pp = _os.path.join(_os.path.dirname(__file__), "..", "g5plus_images", "nslides_photo.py")
     _ps = _ilu.spec_from_file_location("hira_g5plus_nslides_photo", _pp)
     _pm = _ilu.module_from_spec(_ps); _ps.loader.exec_module(_pm)
-    return _pm.apply_html(code, _nm.apply_html(code, _im.apply_html(code, _pictures4(code, _pictures23(code, result)))))
+    _vp = _os.path.join(_os.path.dirname(__file__), "..", "g5plus_images", "nslides_svg.py")
+    _vs = _ilu.spec_from_file_location("hira_g5plus_nslides_svg", _vp)
+    _vm = _ilu.module_from_spec(_vs); _vs.loader.exec_module(_vm)
+    return _vm.apply_html(code, _pm.apply_html(code, _nm.apply_html(code, _im.apply_html(code, _pictures4(code, _pictures23(code, result))))))
