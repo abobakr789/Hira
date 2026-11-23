@@ -1,0 +1,72 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "text2",
+      "guide",
+      "quiz"
+    ],
+    "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L12/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L12/sources-concept-card.html",
+    "views": [
+      0,
+      1
+    ],
+    "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L12/worksheets-A4.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L17/teacher-deck.html",
+    "views": [
+      "text5",
+      "check",
+      "quiz"
+    ],
+    "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L17/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L17/sources-concept-card.html",
+    "views": [
+      1
+    ],
+    "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+    "live_qa": "pending",
+    "media_reference_check": "PASS: original media refs unchanged"
+  }
+]
