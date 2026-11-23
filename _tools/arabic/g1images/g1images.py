@@ -25,7 +25,7 @@ CSS = ('<style id="hira-g1-images">'
  '.vlp .hx figcaption{font:700 30px/1.2 "Thmanyah Display",Tahoma,sans-serif;color:var(--a,#1E7A5A);text-align:center}'
  '.vlp .hx.n4{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:18px 8px;padding:64px 14px 34px}'
  '.vlp .hx.n4 img{width:84px;height:84px}.vlp .hx.n4 figcaption{font-size:26px}'
- '.vlp .hx.n2 img{width:128px;height:128px}.vlp .hx.n2{gap:26px}'
+ '.vlp .hx.n2 img{width:128px;height:128px}.vlp .hx.n1 img{width:168px;height:168px}.vlp .hx.n1 figcaption{font-size:36px}.vlp .hx.n2{gap:26px}'
  '</style>')
 
 def panel(items):
