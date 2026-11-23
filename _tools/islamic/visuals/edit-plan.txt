@@ -1,3 +1,5 @@
 Targeted additive edit. Grade2: nine new ie-visual sections, after learn2 except dhikr after learn4 and Quraysh after learn1. Original sections, quotation text, assessments, media, fonts, logo, backgrounds and controls preserved byte-for-byte. Editable SVG and text. Per-lesson rationale and QA: grade2-review.json. Source notes: source-notes.md. No unrelated deck rebuilding.
 
 Grade3 targeted additive edit: six ie-visual sections in N/NN T2L02 after learn2, T3L06 after learn2, T3L07 after learn3.69 per-lesson decisions in grade3-review.json,6changed/63unchanged. Original bytes recovered exactly after removing additions. All group1/group2/quick/group3/exit assessment context reviewed. Two track instances of an assessment alignment question are held unchanged in source-text-issues.json. No media or original text changes.
+
+Grade4 targeted additive:8new ie-visual sections in N/NN T2L01 after learn3, T3L02 after learn3,T3L06 after learn1,T3L09 after learn3.64lessons reviewed,32N/32NN;8changed56unchanged. Original bytes retained. Decisions and local/live QA in grade4-review.json.

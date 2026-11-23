@@ -52,3 +52,13 @@ Vector shapes and text authored for this project, editable in source. Original h
 Grade3 final live QA: all6 individually inspected23November2026,1920x1080 captures. All6 deployed HTML byte-identical. Build86ecaa4e passed https://github.com/abobakr789/Hira/actions/runs/45226101606 .
 
 Authorized grade2 terminology precision: user21:19Dubai approved only Y2NN T3L01. Rechecked OpenStax Phalanx Bones section:2thumb/3other finger phalanges. Minimal joints-to-bones substitution in4occurrences; other text/quotations/media byte-identical. All4local slides individually inspected; live QA pending.
+
+
+# Grade4 visual additions
+64lessons reviewed individually,32N/32NN. Eight literal/organizational additions in rawatib,public facilities,Mutaffifin and environment.56unchanged with lesson-specific rationale. All teaching and group1/group2/quick/group3/exit text read. No original religious wording, assessments, media or shell changed.
+
+Rawatib:12additional rakahs,2before Fajr,4before/2after Dhuhr,2after Maghrib,2after Isha. Dashes mean not listed here, not a prohibition of other prayers. Checked23November2026 against https://sunnah.com/nasai:1794 (Hasan,Darussalam). No house in Paradise depicted.
+Mutaffifin full/short measure: https://quran.com/83/1-3 checked23November2026. Same containers/mark,visibly a classroom example,not a prescribed quantity or unseen reward scale.
+Park bench: qualified example of protecting shared places from markings, grounded in source learn3. Environment: bottle to proper bin,not sea/shore,from learn1/3. No claim about named venues, exact environmental effects or recycling rules.
+Tajwid candidate researched but not authored: https://simplyquran.com/qaida/sun-and-moon-letters/ confirms pronounced moon-lam/sun assimilation. Original audio/examples kept; no new Arabic religious-name typesetting.
+All8 final local screenshots individually inspected,1920x1080. Labels fit, dots counted correctly2+4+2+2+2, equal containers align,bench panels are parallel,disposal arrow has a true destination. Exact original-byte preservation and generator reproduction passed. Live QA pending.

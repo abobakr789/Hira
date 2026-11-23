@@ -204,6 +204,67 @@ SPECS={
 'IE-Y1-N-T3-L07':('learn3',tree),'IE-Y1-NN-T3-L08':('learn3',tree),
 'IE-Y1-N-T3-L04':('learn4',manners),'IE-Y1-NN-T3-L04':('learn4',manners),
 }
+
+def rawatib(en):
+ s=txt(800,58,'Twelve additional rak\'ahs in this lesson' if en else 'اثْنَتا عَشْرَةَ رَكْعَةً في هَذا الدَّرْسِ',43)
+ s+=txt(420,125,'Before' if en else 'قَبْلَ الفَريضَةِ',35,BLUE)+txt(820,125,'Obligatory prayer' if en else 'الفَريضَةُ',35)+txt(1220,125,'After' if en else 'بَعْدَ الفَريضَةِ',35,GREEN)
+ for i,(name,a,b) in enumerate(zip(['Fajr','Dhuhr','Asr','Maghrib','Isha'] if en else ['الفجر','الظهر','العصر','المغرب','العشاء'],[2,4,0,0,0],[0,2,0,2,2])):
+  y=155+i*86;s+=card(140,y,1320,74,'#9AB2B7')+txt(820,y+49,name,34)
+  for cx,n,c in [(420,a,BLUE),(1220,b,GREEN)]:
+   if n:
+    for j in range(n):s+=f'<circle cx="{cx+(j-(n-1)/2)*65}" cy="{y+36}" r="18" fill="{c}"/>'
+   else:s+=line(cx-25,y+36,cx+25,y+36,'#BCC9CD')
+ s+=txt(800,640,'One dot = one additional rak\'ah' if en else 'كُلُّ دائِرَةٍ = رَكْعَةٌ إِضافِيَّةٌ',32)
+ s+=txt(800,695,'A dash means none listed here, not a rule about all voluntary prayers' if en else 'الشَّرْطَةُ تَعْني غَيْرَ مَذْكورٍ هُنا، لا حُكْمًا عَلى كُلِّ النَّوافِلِ',26)
+ return s,'Before and after the obligatory prayers' if en else 'قَبْلَ الفَريضَةِ وَبَعْدَها'
+def measure(en):
+ s=txt(800,60,'A classroom example: the same marked measure' if en else 'مِثالٌ تَعْليميٌّ: المِكْيالُ نَفْسُهُ وَالعَلامَةُ نَفْسُها',42)
+ for i,(x,c,label) in enumerate([(80,BLUE,'Taking a full measure' if en else 'يَأْخُذُ المِكْيالَ كامِلًا'),(880,'#AF7051','Giving a short measure' if en else 'يُعْطي المِكْيالَ ناقِصًا')]):
+  s+=card(x,130,640,470,c)+txt(x+320,200,label,35,c)
+  y=280 if i==0 else 390
+  s+=f'<path d="M{x+170} 250v270h300V250" fill="#F2F6F5" stroke="#5B7F88" stroke-width="7"/>'
+  s+=f'<path d="M{x+180} {y}h280v230H{x+180}z" fill="#D4B075"/>' if i==0 else f'<path d="M{x+180} {y}h280v120H{x+180}z" fill="#D4B075"/>'
+  s+=f'<path d="M{x+130} 280h380" fill="none" stroke="#436D74" stroke-width="4" stroke-dasharray="12 10"/>'
+  s+=txt(x+320,565,'Full' if i==0 and en else ('Less' if en else ('كامِلٌ' if i==0 else 'ناقِصٌ')),36,c)
+ s+=txt(800,675,'The two containers are equal; what is given is not equal' if en else 'المِكْيالانِ مُتَساوِيانِ، وَالمِقْدارُ المُعْطى غَيْرُ مُتَساوٍ',32)
+ return s,'Full for me, less for others' if en else 'كامِلٌ لِنَفْسي وَناقِصٌ لِغَيْري'
+def bench(en):
+ s=txt(800,62,'An example of caring for a shared place' if en else 'مِثالٌ لِلْعِنايَةِ بِمَكانٍ مُشْتَرَكٍ',43)
+ for i,x in enumerate([80,880]):
+  s+=card(x,130,640,450,BLUE if i==0 else GREEN)
+  for y in [240,290]:s+=f'<rect x="{x+100}" y="{y}" width="440" height="35" rx="7" fill="#BA9168"/>'
+  s+=f'<path d="M{x+150} 320v160m340-160v160" stroke="#547B81" stroke-width="18"/>'
+  s+=f'<rect x="{x+90}" y="350" width="460" height="32" rx="7" fill="#BA9168"/>'
+  if i==0:s+=f'<path d="M{x+220} 249l35 20 20-22 26 24m25-25 25 25 23-26" stroke="#656A75" stroke-width="7" fill="none"/>'
+  s+=txt(x+320,535,'Writing damages shared property' if i==0 and en else ('Kept clean for everyone' if en else ('الكِتابَةُ تُتْلِفُ المِرْفَقَ' if i==0 else 'نَظيفٌ لِلْجَميعِ')),30,BLUE if i==0 else GREEN)
+ s+=txt(800,665,'A park bench is for everyone to use, not to mark or damage' if en else 'مِقْعَدُ الحَديقَةِ لِيَنْتَفِعَ بِهِ الجَميعُ، لا لِلْكِتابَةِ عَلَيْهِ وَإِتْلافِهِ',29)
+ return s,'A park bench belongs to everyone' if en else 'مِقْعَدٌ في الحَديقَةِ لِلْجَميعِ'
+def litter(en):
+ s=txt(800,58,'Keeping litter out of the sea' if en else 'أَمْنَعُ وُصولَ النُّفاياتِ إِلَى البَحْرِ',44)+card(90,115,1420,480,BLUE)
+ s+='<path d="M100 415q90-30 180 0t180 0t180 0v170H100z" fill="#A5D0DF"/><path d="M640 415q140-40 300-15v185H640z" fill="#E8D6AE"/>'
+ s+='<g transform="translate(450 335) rotate(20)"><rect width="85" height="25" rx="10" fill="#DDD6BA" stroke="#A09575" stroke-width="3"/><rect x="76" y="3" width="15" height="19" fill="#A09575"/></g>'
+ s+='<path d="M1030 270h200l-25 260h-150z" fill="#75A99C" stroke="#3F6E5B" stroke-width="5"/><rect x="1010" y="245" width="240" height="28" rx="7" fill="#3F6E5B"/><path d="M1090 245v-30h85v30" fill="none" stroke="#3F6E5B" stroke-width="8"/>'
+ s+=txt(425,545,'Not in the water' if en else 'لا في الماءِ',32,BLUE)+txt(1130,565,'In the bin' if en else 'في السَّلَّةِ',32,GREEN)
+ s+='<path d="M650 325Q820 180 1000 290m-30-45 30 45-55-4" fill="none" stroke="#3F6E5B" stroke-width="7"/>'
+ s+=txt(800,675,'Dispose of litter in its proper place, not on the shore' if en else 'أَضَعُ النُّفاياتِ في مَكانِها، لا عَلى الشّاطِئِ',32)
+ return s,'From litter to the bin, not the sea' if en else 'النُّفاياتُ إِلى السَّلَّةِ لا البَحْرِ'
+
+SPECS['IE-Y4-N-T2-L01']=('learn3',rawatib)
+
+SPECS['IE-Y4-N-T3-L02']=('learn3',bench)
+
+SPECS['IE-Y4-N-T3-L06']=('learn1',measure)
+
+SPECS['IE-Y4-N-T3-L09']=('learn3',litter)
+
+SPECS['IE-Y4-NN-T2-L01']=('learn3',rawatib)
+
+SPECS['IE-Y4-NN-T3-L02']=('learn3',bench)
+
+SPECS['IE-Y4-NN-T3-L06']=('learn1',measure)
+
+SPECS['IE-Y4-NN-T3-L09']=('learn3',litter)
+
 def section(code,h):
  after,fn=SPECS[code];en='-NN-' in code;svg,title=fn(en)
  src=re.search(r'<section class="sl" id="'+after+r'"[^>]*>.*?</section>',h,re.S).group()

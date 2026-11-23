@@ -1,0 +1,962 @@
+[
+  {
+    "lesson": "IE-Y4-N-T1-L01",
+    "title": "آداب دخول المنزل والخروج منه",
+    "decision": "unchanged",
+    "rationale": "The teaching explains permission, greetings and two different supplications. A generic door only labels entry; footstep directions risk obscuring the exact wording. An invented visitor scene would prefill the role-play, so original presentation and audio remain.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L02",
+    "title": "سورة البروج",
+    "decision": "unchanged",
+    "rationale": "The main account involves persecution by fire and unseen Paradise and Preserved Tablet. No violent reconstruction, afterlife garden or fabricated tablet. Constellation art alone would label the oath rather than explain the lesson.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L03",
+    "title": "من أحكام التجويد",
+    "decision": "unchanged",
+    "rationale": "A true sun/moon lam annotation was considered and externally checked, not blanket-excluded as grammar. It would need new fully vocalized Arabic exemplars and carefully placed glyph-level marks; the existing audio and original examples teach the contrast without a generic moon/sun noun montage. No religious-name typography altered.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L04",
+    "title": "حديث: المؤمن القوي",
+    "decision": "unchanged",
+    "rationale": "The lesson explicitly includes faith, knowledge, body, will and character. Muscles alone would misdefine strength, while a five-icon wheel would merely label abstractions. No before/after physique or invented student portrait added.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L05",
+    "title": "بدء الدعوة إلى الإسلام",
+    "decision": "unchanged",
+    "rationale": "The account concerns the Prophet, early Companions and a particular Safa call. No invented historical crowd, protected figure silhouette or unverified mountain panorama. A secret-to-open arrow with labels only is not a useful image.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L06",
+    "title": "أم المؤمنين السيدة زينب بنت خزيمة رضي الله عنها",
+    "decision": "unchanged",
+    "rationale": "All four statements concern Zaynab and the Prophet. No likeness, household or funeral reconstruction. A bowl would label charity without explaining this biography, and the task already asks learners to identify the named woman.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L07",
+    "title": "الإيمان بالكتب السماوية",
+    "decision": "unchanged",
+    "rationale": "A row of invented scroll/book covers would falsely suggest the appearance of revealed originals. No prophet portraits or unseen preservation mechanism. Exact named book-to-recipient wording and recitation retained.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L08",
+    "title": "سورة الطارق",
+    "decision": "unchanged",
+    "rationale": "The piercing star is not identified as a specific astronomical object. No pulsar assertion, comet substitute, guardian angel or unseen resurrection scene. A generic star would label the oath only.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L09",
+    "title": "حديث: التثبت من الأخبار",
+    "decision": "unchanged",
+    "rationale": "A rumor network was considered, but an invented school-closure message would directly duplicate the role-play and a phone/magnifier list would only repeat the stated verification steps. No simulated product screenshot or official notice added.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L10",
+    "title": "أهمية الصلاة المفروضة وآدابها",
+    "decision": "unchanged",
+    "rationale": "The prayer teaching is about importance, preparation and focus. A clock needs a location/time absent here, and detailed posture could add procedural assumptions. No unseen reckoning picture, generic mosque label collage or image of divine light.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T1-L11",
+    "title": "حديث: أحسنكم أخلاقًا",
+    "decision": "unchanged",
+    "rationale": "The lesson gives specific prophetic behavior and unseen reward. No protected figure serving at home or smiling portrait. Generic handshake/heart art would not explain the conduct, and classmate-choice scenes belong to assessment.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L01",
+    "title": "السنن الرواتب",
+    "decision": "changed",
+    "rationale": "Before/after organizer with12countable additional-rakah dots, visibly distinct from obligatory prayer counts. Dashes explicitly mean not listed in this lesson, not prohibition of other voluntary prayers. Checked Nasa'i1794; no unseen house depiction.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "PASS individually inspected 1920x1080 pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L02",
+    "title": "الهجرة إلى الحبشة",
+    "decision": "unchanged",
+    "rationale": "Abyssinia migration involves named Companions and a historical court. A map would require independently established boundaries and actual route, not modern Ethiopia alone. No portraits, invented vessel or court staging; number symbols alone do not teach the account.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L03",
+    "title": "حسن المعاملة",
+    "decision": "unchanged",
+    "rationale": "The Salim example concerns greeting, respect and helping, with a separate seller role-play. A smile/handshake montage would label manners and a seller comparison would answer the assessment. No unseen rank visualization.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L04",
+    "title": "سورة الأعلى",
+    "decision": "unchanged",
+    "rationale": "Pasture art would label one teaching noun without explaining praise or purification. No prophet memory mechanism, deity depiction or unseen hereafter scene. Original verses and recitation retained.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L05",
+    "title": "حديث: صلاة الجماعة",
+    "decision": "unchanged",
+    "rationale": "The27degree comparison is unseen reward, not27people, steps or a physical staircase. No angel depiction. Generic aligned human silhouettes alone would label congregation and introduce prayer-position details absent here.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L06",
+    "title": "سورة الغاشية",
+    "decision": "unchanged",
+    "rationale": "A camel/sky/mountain collection would only repeat named reflection subjects. No flat-earth plane, invented camel endurance quantity or afterlife scene. Specific camel-adaptation answers belong to the existing challenge.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L07",
+    "title": "البحث والتفكير العلمي",
+    "decision": "unchanged",
+    "rationale": "The modern plant test would directly solve the wilting-plant role-play, while an ungrounded star-to-moon-to-sun storyboard could distort the prophetic argument. No protected figures or generic microscope-as-science proxy.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L08",
+    "title": "حديث: حمد الله عز وجل على نعمه",
+    "decision": "unchanged",
+    "rationale": "A plate/cup montage would label blessings and a physical scale would misrepresent unseen reward. No invented extra supplication or numerical gratitude tally; original wording retained.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L09",
+    "title": "عام الحزن",
+    "decision": "unchanged",
+    "rationale": "The source concerns the Prophet, Khadijah, Abu Talib and the unseen Night Journey. No bereavement portrait, invented funeral, or causal diagram claiming a precise sequence/date beyond independent evidence.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L10",
+    "title": "حديث: أخلاق المتقين",
+    "decision": "unchanged",
+    "rationale": "Wiping a stain with a sponge would literalize moral forgiveness. No invisible sin erasure meter or numeric tradeoff. A scripted apology sequence would prefill the open wronged-friend task.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T2-L11",
+    "title": "صبر النبي ﷺ",
+    "decision": "unchanged",
+    "rationale": "The account centers on protected figures, persecution and deaths. No violent scene, imagined siege enclosure, or unseen Paradise image. An abstract patience heart/mountain panel would not explain conduct.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L01",
+    "title": "سورة الانشقاق",
+    "decision": "unchanged",
+    "rationale": "The surah describes unseen cosmic events and receiving records at Judgement. No disaster photo, book-hand scene or fabricated split sky. The recitation prostration note does not call for an invented ritual sequence.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L02",
+    "title": "المرافق العامة",
+    "decision": "changed",
+    "rationale": "Two actual park-bench examples compare marking/damage with clean shared use. Does not fill the broken-swing/wall role-play. No claim about a named UAE location or legal title.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "PASS individually inspected 1920x1080 pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L03",
+    "title": "حديث: الرفق",
+    "decision": "unchanged",
+    "rationale": "A literal animal-care illustration was considered, not blanket-excluded. The available new cat/bowl panel would repeat grade1 without explaining gentleness, while pulling-versus-stroking a cat would prefill the specific challenge. No mistreatment imagery or generic soft-heart labels.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L04",
+    "title": "صيامي لربي",
+    "decision": "unchanged",
+    "rationale": "A crescent calendar could falsely imply local Ramadan dates or a mandatory physical sighting rule beyond the source. Food-with-check/cross cannot show intentional versus forgetful eating. No illness stereotypes or added exemption conditions.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L05",
+    "title": "في ظل صدقتي",
+    "decision": "unchanged",
+    "rationale": "Shade at Judgement is unseen, not literal umbrella/tree coverage. A coin box only labels donations and an obstacle-removal scene would answer the nonmonetary-charity challenge. No invented payment mechanism or staged beneficiary stereotype.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L06",
+    "title": "سورة المطففين",
+    "decision": "changed",
+    "rationale": "Same-size measuring containers, identical reference line, full versus short amounts. A qualified classroom example of Quran83:1-3, not an unseen scale or arbitrary measured statistic. No finger-on-scale assessment solution.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "PASS individually inspected 1920x1080 pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L07",
+    "title": "الكرم",
+    "decision": "unchanged",
+    "rationale": "The lesson concerns named prophetic/Companion gifts and a historical sheep valley. No protected figure or invented valley count/scale. Half/all pie symbols alone would prefill assessment without adding a useful literal scene.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L08",
+    "title": "حديث: من كمال الإيمان",
+    "decision": "unchanged",
+    "rationale": "Speech, neighbor and guest are parallel responsibilities, not a three-step sequence. Generic speech/house/cup cards only repeat labels; a detailed script would answer the silence-versus-hurtful-talk task.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L09",
+    "title": "بيئتي مسؤوليتي",
+    "decision": "changed",
+    "rationale": "Literal bottle/shore/bin composition with disposal direction away from sea. Clarifies where litter goes without inventing recycling categories, species effects, or a real beach. Does not answer the light/tap role-play.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "PASS individually inspected 1920x1080 pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y4-N-T3-L10",
+    "title": "ذو النورين عثمان بن عفان رضي الله عنه",
+    "decision": "unchanged",
+    "rationale": "All statements concern Uthman, the Prophet and unseen angels. No portraits, two-light literalization, reconstructed Rumah well or fabricated historical manuscript cover. Exact biography retained.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L01",
+    "title": "Etiquette of Entering or Leaving a House",
+    "decision": "unchanged",
+    "rationale": "The teaching explains permission, greetings and two different supplications. A generic door only labels entry; footstep directions risk obscuring the exact wording. An invented visitor scene would prefill the role-play, so original presentation and audio remain.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L02",
+    "title": "Surat Al-Buruj",
+    "decision": "unchanged",
+    "rationale": "The main account involves persecution by fire and unseen Paradise and Preserved Tablet. No violent reconstruction, afterlife garden or fabricated tablet. Constellation art alone would label the oath rather than explain the lesson.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L03",
+    "title": "Some Rules of Tajwid",
+    "decision": "unchanged",
+    "rationale": "A true sun/moon lam annotation was considered and externally checked, not blanket-excluded as grammar. It would need new fully vocalized Arabic exemplars and carefully placed glyph-level marks; the existing audio and original examples teach the contrast without a generic moon/sun noun montage. No religious-name typography altered.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L04",
+    "title": "The Strong Believer",
+    "decision": "unchanged",
+    "rationale": "The lesson explicitly includes faith, knowledge, body, will and character. Muscles alone would misdefine strength, while a five-icon wheel would merely label abstractions. No before/after physique or invented student portrait added.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L05",
+    "title": "The Beginning of the Call to Islam",
+    "decision": "unchanged",
+    "rationale": "The account concerns the Prophet, early Companions and a particular Safa call. No invented historical crowd, protected figure silhouette or unverified mountain panorama. A secret-to-open arrow with labels only is not a useful image.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L06",
+    "title": "The Mother of the Believers, Zaynab bint Khuzaymah",
+    "decision": "unchanged",
+    "rationale": "All four statements concern Zaynab and the Prophet. No likeness, household or funeral reconstruction. A bowl would label charity without explaining this biography, and the task already asks learners to identify the named woman.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L07",
+    "title": "Belief in Divine Books",
+    "decision": "unchanged",
+    "rationale": "A row of invented scroll/book covers would falsely suggest the appearance of revealed originals. No prophet portraits or unseen preservation mechanism. Exact named book-to-recipient wording and recitation retained.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L08",
+    "title": "Surat At-Tariq",
+    "decision": "unchanged",
+    "rationale": "The piercing star is not identified as a specific astronomical object. No pulsar assertion, comet substitute, guardian angel or unseen resurrection scene. A generic star would label the oath only.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L09",
+    "title": "Making Sure of News",
+    "decision": "unchanged",
+    "rationale": "A rumor network was considered, but an invented school-closure message would directly duplicate the role-play and a phone/magnifier list would only repeat the stated verification steps. No simulated product screenshot or official notice added.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L10",
+    "title": "The Importance and Etiquette of Obligatory Prayers",
+    "decision": "unchanged",
+    "rationale": "The prayer teaching is about importance, preparation and focus. A clock needs a location/time absent here, and detailed posture could add procedural assumptions. No unseen reckoning picture, generic mosque label collage or image of divine light.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T1-L11",
+    "title": "Those Among You with the Best Manners",
+    "decision": "unchanged",
+    "rationale": "The lesson gives specific prophetic behavior and unseen reward. No protected figure serving at home or smiling portrait. Generic handshake/heart art would not explain the conduct, and classmate-choice scenes belong to assessment.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L01",
+    "title": "Sunan Rawatib",
+    "decision": "changed",
+    "rationale": "Before/after organizer with12countable additional-rakah dots, visibly distinct from obligatory prayer counts. Dashes explicitly mean not listed in this lesson, not prohibition of other voluntary prayers. Checked Nasa'i1794; no unseen house depiction.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "PASS individually inspected 1920x1080 pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L02",
+    "title": "Migration to Abyssinia",
+    "decision": "unchanged",
+    "rationale": "Abyssinia migration involves named Companions and a historical court. A map would require independently established boundaries and actual route, not modern Ethiopia alone. No portraits, invented vessel or court staging; number symbols alone do not teach the account.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L03",
+    "title": "Good Treatment",
+    "decision": "unchanged",
+    "rationale": "The Salim example concerns greeting, respect and helping, with a separate seller role-play. A smile/handshake montage would label manners and a seller comparison would answer the assessment. No unseen rank visualization.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L04",
+    "title": "Surat Al-A'la",
+    "decision": "unchanged",
+    "rationale": "Pasture art would label one teaching noun without explaining praise or purification. No prophet memory mechanism, deity depiction or unseen hereafter scene. Original verses and recitation retained.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L05",
+    "title": "Congregational Prayer",
+    "decision": "unchanged",
+    "rationale": "The27degree comparison is unseen reward, not27people, steps or a physical staircase. No angel depiction. Generic aligned human silhouettes alone would label congregation and introduce prayer-position details absent here.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L06",
+    "title": "Surat Al-Ghashiyah",
+    "decision": "unchanged",
+    "rationale": "A camel/sky/mountain collection would only repeat named reflection subjects. No flat-earth plane, invented camel endurance quantity or afterlife scene. Specific camel-adaptation answers belong to the existing challenge.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L07",
+    "title": "Research and Scientific Thinking",
+    "decision": "unchanged",
+    "rationale": "The modern plant test would directly solve the wilting-plant role-play, while an ungrounded star-to-moon-to-sun storyboard could distort the prophetic argument. No protected figures or generic microscope-as-science proxy.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L08",
+    "title": "Praising Allah for His Blessings",
+    "decision": "unchanged",
+    "rationale": "A plate/cup montage would label blessings and a physical scale would misrepresent unseen reward. No invented extra supplication or numerical gratitude tally; original wording retained.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L09",
+    "title": "The Year of Sorrow",
+    "decision": "unchanged",
+    "rationale": "The source concerns the Prophet, Khadijah, Abu Talib and the unseen Night Journey. No bereavement portrait, invented funeral, or causal diagram claiming a precise sequence/date beyond independent evidence.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L10",
+    "title": "The Morals of the Righteous",
+    "decision": "unchanged",
+    "rationale": "Wiping a stain with a sponge would literalize moral forgiveness. No invisible sin erasure meter or numeric tradeoff. A scripted apology sequence would prefill the open wronged-friend task.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T2-L11",
+    "title": "The Patience of the Prophet ﷺ",
+    "decision": "unchanged",
+    "rationale": "The account centers on protected figures, persecution and deaths. No violent scene, imagined siege enclosure, or unseen Paradise image. An abstract patience heart/mountain panel would not explain conduct.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L01",
+    "title": "Surat Al-Inshiqaq",
+    "decision": "unchanged",
+    "rationale": "The surah describes unseen cosmic events and receiving records at Judgement. No disaster photo, book-hand scene or fabricated split sky. The recitation prostration note does not call for an invented ritual sequence.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L02",
+    "title": "Public Utilities",
+    "decision": "changed",
+    "rationale": "Two actual park-bench examples compare marking/damage with clean shared use. Does not fill the broken-swing/wall role-play. No claim about a named UAE location or legal title.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "PASS individually inspected 1920x1080 pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L03",
+    "title": "Kindness",
+    "decision": "unchanged",
+    "rationale": "A literal animal-care illustration was considered, not blanket-excluded. The available new cat/bowl panel would repeat grade1 without explaining gentleness, while pulling-versus-stroking a cat would prefill the specific challenge. No mistreatment imagery or generic soft-heart labels.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L04",
+    "title": "My Fasting Is for the Sake of My Lord",
+    "decision": "unchanged",
+    "rationale": "A crescent calendar could falsely imply local Ramadan dates or a mandatory physical sighting rule beyond the source. Food-with-check/cross cannot show intentional versus forgetful eating. No illness stereotypes or added exemption conditions.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L05",
+    "title": "In the Shade of My Charity",
+    "decision": "unchanged",
+    "rationale": "Shade at Judgement is unseen, not literal umbrella/tree coverage. A coin box only labels donations and an obstacle-removal scene would answer the nonmonetary-charity challenge. No invented payment mechanism or staged beneficiary stereotype.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L06",
+    "title": "Surat Al-Mutaffifin",
+    "decision": "changed",
+    "rationale": "Same-size measuring containers, identical reference line, full versus short amounts. A qualified classroom example of Quran83:1-3, not an unseen scale or arbitrary measured statistic. No finger-on-scale assessment solution.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "PASS individually inspected 1920x1080 pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L07",
+    "title": "Generosity",
+    "decision": "unchanged",
+    "rationale": "The lesson concerns named prophetic/Companion gifts and a historical sheep valley. No protected figure or invented valley count/scale. Half/all pie symbols alone would prefill assessment without adding a useful literal scene.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L08",
+    "title": "Perfection of Faith",
+    "decision": "unchanged",
+    "rationale": "Speech, neighbor and guest are parallel responsibilities, not a three-step sequence. Generic speech/house/cup cards only repeat labels; a detailed script would answer the silence-versus-hurtful-talk task.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L09",
+    "title": "My Environment Is My Responsibility",
+    "decision": "changed",
+    "rationale": "Literal bottle/shore/bin composition with disposal direction away from sea. Clarifies where litter goes without inventing recycling categories, species effects, or a real beach. Does not answer the light/tap role-play.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "PASS individually inspected 1920x1080 pixels",
+    "live_qa": "pending"
+  },
+  {
+    "lesson": "IE-Y4-NN-T3-L10",
+    "title": "Dhu An-Nurayn, Uthman bin Affan",
+    "decision": "unchanged",
+    "rationale": "All statements concern Uthman, the Prophet and unseen angels. No portraits, two-light literalization, reconstructed Rumah well or fabricated historical manuscript cover. Exact biography retained.",
+    "assessment_context": [
+      "g1",
+      "g2",
+      "quick",
+      "g3",
+      "exit"
+    ],
+    "local_qa": "not modified",
+    "live_qa": "not modified"
+  }
+]
