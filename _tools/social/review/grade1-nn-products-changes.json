@@ -5,7 +5,7 @@
       "g1"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -14,7 +14,7 @@
       "g2"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -23,7 +23,7 @@
       "g3"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -33,7 +33,7 @@
       "g4"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -43,7 +43,7 @@
       "g4"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -53,7 +53,7 @@
       "g4"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -62,7 +62,7 @@
       "g4"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -71,7 +71,7 @@
       "g3"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -81,7 +81,7 @@
       "g4"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -93,7 +93,7 @@
       "vflip"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Align activity products; replace inaccurate generic cultural pictures with literal text prompts and word-guess cards"
   },
   {
@@ -103,7 +103,7 @@
       "g2"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
   },
   {
@@ -116,7 +116,7 @@
       "warm"
     ],
     "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Align activity products; replace inaccurate generic cultural pictures with literal text prompts and word-guess cards"
   }
 ]

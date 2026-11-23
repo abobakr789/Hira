@@ -5,7 +5,7 @@
       0
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -14,7 +14,7 @@
       "scene2"
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -24,7 +24,7 @@
       "vflip"
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -33,7 +33,7 @@
       0
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -43,7 +43,7 @@
       "vflip"
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -53,7 +53,7 @@
       "vflip"
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -62,7 +62,7 @@
       "see"
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -72,7 +72,7 @@
       "vflip"
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -81,7 +81,7 @@
       0
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -90,7 +90,7 @@
       0
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -99,7 +99,7 @@
       "levels"
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   },
   {
@@ -108,7 +108,7 @@
       1
     ],
     "local_qa": "PASS all 10 slides, 5 print pages and recap scene visually inspected; recap definition shortened to fit",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 01:15 Dubai: live source byte-exact to 0544f90d; all changed views visually inspected, including flipped definition faces",
     "reason": "Broaden family and Sadu definitions, use literal sameness marks, align people/things prompt, remove cultural proxies and correct extract citation"
   }
 ]

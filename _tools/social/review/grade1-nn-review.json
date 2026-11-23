@@ -1,0 +1,1091 @@
+[
+  {
+    "code": "SS-Y1-NN-T1-L01",
+    "title": "Teacher deck · Everyone Around Me · Hiraa",
+    "rationale": "Broadened family definition beyond cohabitation; source story preserved.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "learn",
+      "talk",
+      "think",
+      "model",
+      "guide",
+      "see",
+      "check",
+      "draw",
+      "words",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "uae",
+      "identity",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L01/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L01/lesson-recap.html",
+        "views": [
+          "scene2"
+        ]
+      },
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L01/teacher-deck.html",
+        "views": [
+          "vocab",
+          "vflip"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L02",
+    "title": "Teacher deck · Love · Hiraa",
+    "rationale": "Added school food-sharing safety boundary without changing story passages.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "learn",
+      "think",
+      "talk",
+      "guide",
+      "model",
+      "check",
+      "see",
+      "words",
+      "draw",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "identity",
+      "uae",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-safety-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L02/teacher-deck.html",
+        "views": [
+          "guide"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L03",
+    "title": "Teacher deck · What is Fair? · Hiraa",
+    "rationale": "Aligned paper-cake product label and replaced paw-print proxy for sameness with identical marks.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "learn",
+      "think",
+      "talk",
+      "guide",
+      "model",
+      "check",
+      "see",
+      "words",
+      "draw",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "identity",
+      "uae",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L03/teacher-deck.html",
+        "views": [
+          "vocab",
+          "vflip"
+        ]
+      },
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L03/teacher-deck.html",
+        "views": [
+          "g1"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L04",
+    "title": "Teacher deck · I’m Sorry · Hiraa",
+    "rationale": "Apology scenarios and kind responses are already concrete; retained without decorative addition.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "learn",
+      "model",
+      "guide",
+      "talk",
+      "think",
+      "draw",
+      "see",
+      "words",
+      "check",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "apply",
+      "quiz",
+      "uae",
+      "identity",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y1-NN-T1-L05",
+    "title": "Teacher deck · Let’s Share! · Hiraa",
+    "rationale": "Aligned role-play product and school food-sharing boundary.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "text6",
+      "learn",
+      "model",
+      "guide",
+      "talk",
+      "think",
+      "draw",
+      "see",
+      "words",
+      "check",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "apply",
+      "quiz",
+      "uae",
+      "identity",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "unit_check",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-safety-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L05/teacher-deck.html",
+        "views": [
+          "guide"
+        ]
+      },
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L05/teacher-deck.html",
+        "views": [
+          "g2"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L06",
+    "title": "Teacher deck · My Family · Hiraa",
+    "rationale": "Broadened family definition and aligned helpers-chart product.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "text6",
+      "learn",
+      "talk",
+      "think",
+      "model",
+      "guide",
+      "see",
+      "check",
+      "draw",
+      "words",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "uae",
+      "identity",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L06/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L06/teacher-deck.html",
+        "views": [
+          "vocab",
+          "vflip"
+        ]
+      },
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L06/teacher-deck.html",
+        "views": [
+          "g3"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L07",
+    "title": "Teacher deck · Sharing My Feelings · Hiraa",
+    "rationale": "Aligned feelings board/minibook products and replaced unsupported page-specific extract citation.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "learn",
+      "talk",
+      "think",
+      "model",
+      "guide",
+      "see",
+      "check",
+      "draw",
+      "words",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "uae",
+      "identity",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L07/teacher-deck.html",
+        "views": [
+          "levels"
+        ]
+      },
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L07/worksheets-A4.html",
+        "views": [
+          1
+        ]
+      },
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L07/teacher-deck.html",
+        "views": [
+          "g1",
+          "g4"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L08",
+    "title": "Teacher deck · Showing My Feelings · Hiraa",
+    "rationale": "Aligned feelings-game and short-talk products with actual activities.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "learn",
+      "talk",
+      "model",
+      "guide",
+      "think",
+      "see",
+      "draw",
+      "check",
+      "words",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "uae",
+      "identity",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L08/teacher-deck.html",
+        "views": [
+          "g1",
+          "g4"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L09",
+    "title": "Teacher deck · I Like It! I Don’t Like It! · Hiraa",
+    "rationale": "Added polite food refusal and allergy safety boundary.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "text6",
+      "learn",
+      "talk",
+      "model",
+      "guide",
+      "think",
+      "see",
+      "draw",
+      "check",
+      "words",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "uae",
+      "identity",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-safety-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L09/teacher-deck.html",
+        "views": [
+          "guide"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L10",
+    "title": "Teacher deck · What Am I Good At? · Hiraa",
+    "rationale": "Aligned talent-performance and minibook products.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "text6",
+      "learn",
+      "think",
+      "talk",
+      "guide",
+      "model",
+      "check",
+      "see",
+      "words",
+      "draw",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "identity",
+      "uae",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "unit_check",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L10/teacher-deck.html",
+        "views": [
+          "g1",
+          "g4"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L11",
+    "title": "Teacher deck · Living in Groups · Hiraa",
+    "rationale": "Aligned labelled-drawings product; animal/community prompts retained.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "text6",
+      "learn",
+      "think",
+      "talk",
+      "guide",
+      "model",
+      "check",
+      "see",
+      "words",
+      "draw",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "identity",
+      "uae",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L11/teacher-deck.html",
+        "views": [
+          "g4"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L12",
+    "title": "Teacher deck · My Family · Hiraa",
+    "rationale": "Aligned family-jobs chart product; Ali story preserved.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "text6",
+      "learn",
+      "model",
+      "guide",
+      "talk",
+      "think",
+      "draw",
+      "see",
+      "words",
+      "check",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "apply",
+      "quiz",
+      "uae",
+      "identity",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L12/teacher-deck.html",
+        "views": [
+          "g3"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L13",
+    "title": "Teacher deck · My School · Hiraa",
+    "rationale": "Aligned rules poster/interview products and people-versus-things prompt; whiteboard symbol made literal.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "learn",
+      "model",
+      "guide",
+      "talk",
+      "think",
+      "draw",
+      "see",
+      "words",
+      "check",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "apply",
+      "quiz",
+      "uae",
+      "identity",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L13/teacher-deck.html",
+        "views": [
+          "see"
+        ]
+      },
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L13/teacher-deck.html",
+        "views": [
+          "g1",
+          "g4"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L14",
+    "title": "Teacher deck · Living in a Community · Hiraa",
+    "rationale": "Community rules and consequences already use concrete scenarios; retained.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "text6",
+      "learn",
+      "talk",
+      "think",
+      "model",
+      "guide",
+      "see",
+      "check",
+      "draw",
+      "words",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "uae",
+      "identity",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": []
+  },
+  {
+    "code": "SS-Y1-NN-T1-L15",
+    "title": "Teacher deck · UAE Culture · Hiraa",
+    "rationale": "Removed inaccurate dance/animal/plant proxies; corrected Sadu materials; aligned line-dance product.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "text6",
+      "learn",
+      "talk",
+      "think",
+      "model",
+      "guide",
+      "see",
+      "check",
+      "draw",
+      "words",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "uae",
+      "identity",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-safety-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L15/teacher-deck.html",
+        "views": [
+          "guide",
+          "text2",
+          "vocab"
+        ]
+      },
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L15/teacher-deck.html",
+        "views": [
+          "vocab",
+          "vflip"
+        ]
+      },
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L15/sources-concept-card.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade1-nn-final-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L15/worksheets-A4.html",
+        "views": [
+          0
+        ]
+      },
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L15/teacher-deck.html",
+        "views": [
+          "g1",
+          "hook",
+          "see",
+          "vflip"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L16",
+    "title": "Teacher deck · UAE Heritage and Traditions · Hiraa",
+    "rationale": "Aligned heritage-village model/tradition book products and corrected camel word bank.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "text6",
+      "learn",
+      "talk",
+      "model",
+      "guide",
+      "think",
+      "see",
+      "draw",
+      "check",
+      "words",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "uae",
+      "identity",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-safety-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L16/worksheets-A4.html",
+        "views": [
+          1
+        ]
+      },
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L16/teacher-deck.html",
+        "views": [
+          "g1",
+          "g2"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SS-Y1-NN-T1-L17",
+    "title": "Teacher deck · Term Project · Hiraa",
+    "rationale": "Aligned class heritage village/stall/reflection products; removed misleading culture proxies.",
+    "review": "Major teaching content reviewed; cover, journey, progress before/after and feedback wrappers checked individually 2026-11-24",
+    "sections_inspected": [
+      "cover",
+      "warm",
+      "hook",
+      "objectives",
+      "journey",
+      "progress",
+      "know",
+      "vocab",
+      "vflip",
+      "text1",
+      "text2",
+      "text3",
+      "learn",
+      "talk",
+      "model",
+      "guide",
+      "think",
+      "see",
+      "draw",
+      "check",
+      "words",
+      "groups",
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "checkans",
+      "levels",
+      "uae",
+      "identity",
+      "apply",
+      "quiz",
+      "feedback",
+      "fb4",
+      "exit",
+      "progress_after",
+      "reflect",
+      "home",
+      "unit_check",
+      "closing"
+    ],
+    "changes": [
+      {
+        "manifest": "grade1-nn-products-changes.json",
+        "file": "resources/ssd/SS-Y1-NN-T1-L17/teacher-deck.html",
+        "views": [
+          "g1",
+          "g2",
+          "g4",
+          "see",
+          "warm"
+        ]
+      }
+    ]
+  }
+]
