@@ -1,0 +1,122 @@
+[
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L03/teacher-deck.html",
+    "views": [
+      "g1"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L05/teacher-deck.html",
+    "views": [
+      "g2"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "g3"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L07/teacher-deck.html",
+    "views": [
+      "g1",
+      "g4"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "g1",
+      "g4"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "g1",
+      "g4"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "g4"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "g3"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "g1",
+      "g4"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "g1",
+      "hook",
+      "see",
+      "vflip"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Align activity products; replace inaccurate generic cultural pictures with literal text prompts and word-guess cards"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L16/teacher-deck.html",
+    "views": [
+      "g1",
+      "g2"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Match product label to the actual activity and group-work pack; remove misleading dancer proxy"
+  },
+  {
+    "file": "resources/ssd/SS-Y1-NN-T1-L17/teacher-deck.html",
+    "views": [
+      "g1",
+      "g2",
+      "g4",
+      "see",
+      "warm"
+    ],
+    "local_qa": "PASS all 24 changed slides visually inspected, cultural word cards rechecked after removing inaccurate proxies",
+    "live_qa": "pending",
+    "reason": "Align activity products; replace inaccurate generic cultural pictures with literal text prompts and word-guess cards"
+  }
+]
