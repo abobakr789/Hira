@@ -380,3 +380,45 @@ def parched_crops(en):
 for track in ['N','NN']:
  for suffix,fn,after in [('T2-L01',parched_crops,'part1'),('T2-L02',idgham_groups,'part1'),('T3-L10',voluntary_calendar,'part0')]:
   GRADE5_SPECS[f'IE-Y6-{track}-{suffix}']=(after,fn)
+
+def shared_ship(en):
+ s=txt(800,48,'One hull, shared safety' if en else 'هَيْكَلٌ واحِدٌ وَسَلامَةٌ مُشْتَرَكَةٌ',44)
+ s+=card(65,100,1470,475,BLUE)
+ # Cross-section only. No historical people or reconstruction of an actual vessel.
+ s+='<path d="M145 405q130-32 260 0t260 0t260 0t260 0t150 0v155H145z" fill="#A5D0DF"/>'
+ s+='<path d="M255 210h1090l-100 290q-15 45-70 45H450q-55 0-75-45z" fill="#D5B485" stroke="#8F6A41" stroke-width="9"/>'
+ s+='<path d="M310 245h970l-35 90H350zM363 365h865l-47 135H414z" fill="#F8EBD5"/>'
+ s+=line(345,350,1250,350,'#8F6A41')
+ s+=txt(800,310,'Upper deck' if en else 'القِسْمُ الأَعْلى',40)+txt(800,445,'Lower deck' if en else 'القِسْمُ الأَسْفَلُ',40)
+ s+='<ellipse cx="1175" cy="482" rx="40" ry="35" fill="none" stroke="#AF6244" stroke-width="6" stroke-dasharray="10 7"/>'
+ s+=txt(1270,180,'Proposed hole' if en else 'خَرْقٌ مُقْتَرَحٌ',27,'#9D573D')+line(1250,195,1187,445,'#AF6244')
+ for x,label,c in [(430,'If left: danger to all' if en else 'إِنْ تُرِكَ الخَرْقُ: خَطَرٌ عَلى الجَميعِ','#9D573D'),(1170,'If stopped: safety for all' if en else 'إِنْ مُنِعَ: سَلامَةُ الجَميعِ',GREEN)]:s+=card(x-340,600,680,80,c)+txt(x,652,label,29,c)
+ s+=txt(800,725,'A schematic of the parable, not an actual historical ship' if en else 'رَسْمٌ لِلْمَثَلِ، لا إِعادَةُ بِنَاءِ سَفينَةٍ تاريَخِيَّةٍ',25)
+ return s,'The ship in the parable' if en else 'السَّفينَةُ في المَثَلِ'
+def mim_cases(en):
+ s=txt(800,50,'Look at the letter after mim sakinah' if en else 'أَنْظُرُ إِلى الحَرْفِ بَعْدَ الميمِ السّاكِنَةِ',42)
+ entries=[('ب',"Ikhfa shafawi",'إِخْفاءٌ شَفَوِيٌّ',BLUE),('م',"Idgham shafawi",'إِدْغامٌ شَفَوِيٌّ',GREEN),('Other letters',"Izhar shafawi",'إِظْهارٌ شَفَوِيٌّ','#9D733D')]
+ for i,(letter,eng,ar,c) in enumerate(entries):
+  x=55+(i if en else 2-i)*520;s+=card(x,135,450,420,c)
+  if i<2:s+=f'<circle cx="{x+225}" cy="265" r="78" fill="#EFF4F1" stroke="{c}" stroke-width="3"/>'+txt(x+225,294,letter,80,c)
+  else:s+=txt(x+225,260,'Other letters' if en else 'باقي الحُروفِ',36,c)+txt(x+225,322,'except ب and م' if en else 'عَدا الباءِ وَالميمِ',27,c)
+  s+=txt(x+225,435,eng if en else ar,33,c)
+  s+=txt(x+225,505,('With ghunnah' if i<2 else 'Mim is clear') if en else ('بِغُنَّةٍ' if i<2 else 'تُنْطَقُ الميمُ واضِحَةً'),30)
+ s+=txt(800,645,'Take extra care before و and ف: keep mim clear' if en else 'أَحْذَرُ عِنْدَ الواوِ وَالفاءِ: أُظْهِرُ الميمَ',31)
+ s+=txt(800,710,'A rule organizer, not a substitute for listening and teacher practice' if en else 'تَنْظيمٌ لِلْأَحْكامِ، لا بَديلٌ عَنِ الاسْتِماعِ وَالتَّدْريبِ مَعَ المُعَلِّمِ',26)
+ return s,'Three rules of mim sakinah' if en else 'ثَلاثَةُ أَحْكامٍ لِلْميمِ السّاكِنَةِ'
+def qasr_counts(en):
+ s=txt(800,45,"Compare the obligatory rak'ahs" if en else 'أُقارِنُ عَدَدَ رَكْعاتِ الفَرْضِ',43)
+ s+=txt(800,96,'When the conditions for shortening on a journey apply' if en else 'عِنْدَ تَحَقُّقِ شُروطِ القَصْرِ في السَّفَرِ',28)
+ names=['Fajr','Dhuhr','Asr','Maghrib','Isha'] if en else ['الفجر','الظهر','العصر','المغرب','العشاء']
+ for i,(n,a,b) in enumerate(zip(names,[2,4,4,3,4],[2,2,2,3,2])):
+  y=130+i*94;c=GREEN if a!=b else BLUE;s+=card(100,y,1400,80,c)+txt(300 if en else 1390,y+54,n,33,c)
+  for x,count in [(670,a),(1110,b)]:
+   for j in range(count):s+=f'<circle cx="{x+(j-(count-1)/2)*55}" cy="{y+40}" r="17" fill="{GOLD if x==670 else c}"/>'
+   s+=txt(x+135,y+52,str(count),31,c)
+ s+=txt(700,660,'Usual count' if en else 'العَدَدُ الأَصْلِيُّ',30)+txt(1140,660,'With qasr' if en else 'عِنْدَ القَصْرِ',30,GREEN)
+ s+=txt(800,720,"One dot = one rak'ah. Qasr changes count, not prayer times." if en else 'كُلُّ نُقْطَةٍ رَكْعَةٌ. القَصْرُ لِلْعَدَدِ، لا لِتَغْييرِ أَوْقاتِ الصَّلاةِ.',25)
+ return s,'Shortening is not combining' if en else 'القَصْرُ لَيْسَ هُوَ الجَمْعَ'
+for track in ['N','NN']:
+ for suffix,fn,after in [('T2-L02',mim_cases,'part1'),('T2-L11',qasr_counts,'part1'),('T3-L07',shared_ship,'part1')]:
+  GRADE5_SPECS[f'IE-Y7-{track}-{suffix}']=(after,fn)

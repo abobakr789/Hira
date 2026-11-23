@@ -330,5 +330,54 @@
     "issue": "Summary includes body; question4 substitutes youth, while the title concerns questions on Judgement Day. Alignment concern, no replacement authorised.",
     "suggested_fix": "Choose intended enumeration against source hadith before changing the assessment.",
     "status": "Held unchanged and unillustrated."
+  },
+  {
+    "lesson": "IE-Y7-N-T2-L02",
+    "slide": "scene",
+    "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🔤 استمع إلى قارئين يقرآن class=\"qf\">﴿أَم مَّنْ﴾ : أحدهما يغنّ بوضوح والآخر يقرأ بسرعة. أيهما أجمل؟ ولماذا؟ 🤔 لماذا يجب الحرص على إظهار الميم عند الواو والفاء؟ أحكام الميم الساكنة Discuss in pairs, then share.",
+    "issue": "Visible class-attribute debris before quotation. Grade5approval does not cover this lesson.",
+    "suggested_fix": "Remove only leaked attribute text after scoped approval; keep quotation exact.",
+    "status": "Held unchanged."
+  },
+  {
+    "lesson": "IE-Y7-N-T3-L06",
+    "slide": "scene",
+    "exact_wording": "مَوْقِفٌ لِلنِّقاشِ ماذا تَفْعَلُ لَوْ كُنْتَ مَكانَهُ؟ 🛋️ ساعدت جارًا كبير السن دون أن يطلب، فدعا لك دعاءً جميلًا. class=\"qf\">﴿هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ﴾ : ما جزاء إحسانك؟ 🤔 ما معنى ﴿هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ﴾ في حياتك؟ جزاء الإحسان: سورة الرحمن (54–78) Discuss in pairs, then share.",
+    "issue": "Visible class-attribute debris before quotation. Grade5approval does not cover this lesson.",
+    "suggested_fix": "Remove only leaked attribute text after scoped approval; keep quotation exact.",
+    "status": "Held unchanged."
+  },
+  {
+    "lesson": "IE-Y7-NN-T2-L02",
+    "slide": "scene",
+    "exact_wording": "A situation to discuss What would you do in their place? 🔤 Listen to two reciters read class=\"qf\">﴿am man﴾ : one with clear nasalisation, one rushing. Which sounds better, and why? 🤔 Why must we be careful to pronounce «m» clearly before و and ف? Rules of the Silent Mim (Mim Sakinah) Discuss in pairs, then share.",
+    "issue": "Visible class-attribute debris before quotation. Grade5approval does not cover this lesson.",
+    "suggested_fix": "Remove only leaked attribute text after scoped approval; keep quotation exact.",
+    "status": "Held unchanged."
+  },
+  {
+    "lesson": "IE-Y7-NN-T3-L06",
+    "slide": "scene",
+    "exact_wording": "A situation to discuss What would you do in their place? 🛋️ You helped an elderly neighbour without being asked, and he made a beautiful du'a for you. class=\"qf\">﴿Is the reward of goodness anything but goodness?﴾ What is yours? 🤔 What does «Is the reward for good anything but good?» mean in your life? The Reward of Good Deeds: Surat Ar-Rahman (54–78) Discuss in pairs, then share.",
+    "issue": "Visible class-attribute debris before quotation. Grade5approval does not cover this lesson.",
+    "suggested_fix": "Remove only leaked attribute text after scoped approval; keep quotation exact.",
+    "status": "Held unchanged."
+  },
+  {
+    "lesson": "IE-Y7-N-T2-L11",
+    "slide": "part1 versus learn",
+    "exact_wording": "قصر الصلاة للمسافر نَفْهَمُ الدَّرْسَ القصر أن يصلي المسافر الرباعية (الظهر والعصر والعشاء) ركعتين، أما المغرب والفجر فلا تُقصران. ودليله: ﴿وَإِذَا ضَرَبْتُمْ فِي الْأَرْضِ فَلَيْسَ عَلَيْكُمْ جُنَاحٌ أَن تَقْصُرُوا مِنَ الصَّلَاةِ﴾ . وشرطه سفر مباح لمسافة نحو ثمانين كيلومترًا فأكثر، ويبدأ القصر بمغادرة عمران البلد، ويستمر ما لم ينوِ الإقامة مدة طويلة. وعند المالكية إذا نوى إقامة أربعة أيام فأكثر أتمّ. صلاة المسافر والمريض Explain with questioning; highlight the evidence. || أَهَمُّ ما تَعَلَّمْناهُ نَبْني الْفَهْمَ ✂️ 1 القصر: صلاة الرباعية (الظهر والعصر والعشاء) ركعتين في السفر، ﴿فَلَيْسَ عَلَيْكُمْ جُنَاحٌ أَن تَقْصُرُوا مِنَ الصَّلَاةِ﴾ . 📏 2 مسافة القصر عند جمهور العلماء نحو 83 كم فأكثر، ولا يقصر مَن نوى الإقامة أكثر من أربعة أيام. 🔗 3 الجمع: الظهر مع العصر، والمغرب مع العشاء، تقديمًا أو تأخيرًا، ولا تُجمع الفجر. 🤒 4 المريض: «صلِّ قائمًا، فإن لم تستطع فقاعدًا، فإن لم تستطع فعلى جنب». صلاة المسافر والمريض Summarise the key points.",
+    "issue": "Four-or-more days versus more-than-four days and differing approximate distance thresholds. School-specific statement needs consistent scope.",
+    "suggested_fix": "Check intended curriculum school and counting convention, then align only after approval. Added count-only diagram avoids these thresholds.",
+    "status": "Held unchanged."
+  },
+  {
+    "lesson": "IE-Y7-N-T3-L10",
+    "slide": "part0",
+    "exact_wording": "واقع الفقر نَفْهَمُ الدَّرْسَ يعيش في العالم مئات الملايين تحت خط الفقر المدقع، أي بأقل من نحو دولارين ونصف في اليوم، ونسبة كبيرة منهم في بلدان إسلامية في أفريقيا وآسيا، رغم ما تملكه هذه البلدان من ثروات طبيعية وبشرية. مشكلة الفقر في العالم الإسلامي Explain with questioning; highlight the evidence.",
+    "issue": "Extreme-poverty threshold about2.5USD is not the current WorldBank international line, and omits PPP basis.",
+    "source": "https://www.worldbank.org/en/news/factsheet/2025/06/05/june-2025-update-to-global-poverty-lines",
+    "suggested_fix": "If current WorldBank measure intended, say3international dollars perperson perday at2021PPP, with date. Do not change without approval.",
+    "status": "Held unchanged and unillustrated."
   }
 ]
