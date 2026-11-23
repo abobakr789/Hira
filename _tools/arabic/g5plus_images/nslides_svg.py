@@ -89,7 +89,54 @@ def opposites():
     out+=f'<text x="850" y="210" text-anchor="middle" font-size="32" fill="#2563EB" {F}>ضحك / بكاء</text>'
     out+=f'<text x="850" y="450" text-anchor="middle" font-size="32" fill="#7C3AED" {F}>قلّة / كثرة</text>'
     return out,'المقابلة','المقابلة: زوجان من المعاني المتضادّة','هذه كلمات المثال القرآني المذكور في الشريحة السابقة، موزّعة للتحليل وليست نصّ الآية كاملًا. نصل كل معنى بضدّه، ثم نميّز المقابلة من طباق يقوم على زوج واحد.','1700 620'
-SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites}
+def instrument():
+    out=f'<text x="850" y="70" text-anchor="middle" font-size="36" fill="#334155" {F}>اسم الآلة يدلّ على الأداة، لا على الحدث</text>'
+    # Literal key: bow, shaft and two teeth.
+    out+='<circle cx="310" cy="230" r="65" fill="none" stroke="#D97706" stroke-width="20"/><path d="M375 230H660 M580 230V280 M640 230V280" stroke="#D97706" stroke-width="20" fill="none" stroke-linejoin="round"/>'
+    out+=box(130,380,620,160,'#D97706','مِفْتاح','على وزن مِفْعال')
+    # Literal washing machine, not a generic computer proxy.
+    out+='<rect x="1110" y="120" width="280" height="240" rx="18" fill="#fff" stroke="#2563EB" stroke-width="8"/><circle cx="1250" cy="255" r="70" fill="#DBEAFE" stroke="#2563EB" stroke-width="7"/><path d="M1110 172H1390" stroke="#2563EB" stroke-width="6"/><circle cx="1348" cy="147" r="9" fill="#2563EB"/>'
+    out+=box(950,380,620,160,'#2563EB','غَسّالة','على وزن فَعّالة')
+    return out,'اسم الآلة','أداتان، ووزنان لاسم الآلة','قارنوا الرسم بالاسم والوزن. المفتاح أداة للفتح، والغسالة آلة للغسل. كلا الاسمين ورد في الشريحة السابقة.','1700 620'
+def partwhole():
+    out=f'<text x="850" y="80" text-anchor="middle" font-size="54" fill="#102A4C" {F}>قرأتُ الكتابَ نصفَه</text>'
+    out+='<rect x="180" y="200" width="650" height="300" rx="16" fill="#E2E8F0" stroke="#64748B" stroke-width="6"/><rect x="505" y="200" width="325" height="300" fill="#86EFAC"/><path d="M505 200V500" stroke="#16A34A" stroke-width="6"/>'
+    out+=f'<text x="670" y="365" text-anchor="middle" font-size="44" fill="#14532D" {F}>نصفه</text>'
+    out+=f'<text x="505" y="555" text-anchor="middle" font-size="32" fill="#64748B" {F}>نموذج للكلّ والجزء، لا صورة لكتاب بعينه</text>'
+    out+=box(970,190,650,150,'#2563EB','الكتابَ','المبدل منه: الكلّ')
+    out+=box(970,380,650,150,'#16A34A','نصفَه','بدل بعض من كلّ، منصوب')
+    return out,'البدل','الكلّ والجزء في بدل بعض من كلّ','المساحة الملوّنة نصف المستطيل. اربطوا الجزء بكلمة نصفه، ثم انتبهوا إلى الهاء التي تعود على الكتاب، وإلى تبعية البدل في النصب.','1700 620'
+def homonym():
+    out=f'<text x="850" y="85" text-anchor="middle" font-size="50" fill="#102A4C" {F}>صلّيتُ المغربَ في المغرب</text>'
+    out+=box(550,150,600,110,'#7C3AED','لفظ واحد: المغرب','')
+    out+='<path d="M850 270V310 M440 310H1260 M440 310V350 M1260 310V350" stroke="#64748B" stroke-width="6" fill="none"/>'
+    out+=box(1000,365,590,170,'#2563EB','المعنى الأوّل','صلاة المغرب')
+    out+=box(110,365,590,170,'#16A34A','المعنى الثاني','بلد المغرب')
+    out+=f'<text x="850" y="605" text-anchor="middle" font-size="34" fill="#7C3AED" {F}>تشابه في اللفظ، واختلاف في المعنى</text>'
+    return out,'الجناس','الجناس التامّ: لفظ واحد ومعنيان','حلّلوا المثال المذكور في الشريحة السابقة: اللفظ متطابق، لكن السياق يجعل الأولى اسم صلاة والثانية اسم بلد.','1700 640'
+def categories():
+    out=f'<text x="850" y="55" text-anchor="middle" font-size="32" fill="#64748B" {F}>نقرأ الصفّ والعمود معًا لتحديد كلّ قسم</text>'
+    for x,txt in [(1090,'مع مال'),(430,'بلا مال')]:
+        out+=f'<text x="{x}" y="125" text-anchor="middle" font-size="40" fill="#102A4C" {F}>{txt}</text>'
+    out+=f'<text x="1580" y="280" text-anchor="middle" font-size="34" fill="#102A4C" {F}>مع علم</text>'
+    out+=f'<text x="1580" y="490" text-anchor="middle" font-size="34" fill="#102A4C" {F}>بلا علم</text>'
+    for x,y,c,a,b in [(810,170,'#2563EB','علم ومال','يعمل بعلمه'),(150,170,'#16A34A','علم بلا مال','نيّة صادقة'),(810,380,'#D97706','مال بلا علم','يخبط فيه'),(150,380,'#7C3AED','لا علم ولا مال','نيّة سيّئة')]:
+        out+=box(x,y,560,165,c,a,b)
+    return out,'أقسام الحديث','العلم والمال: قراءة التقسيم في جدول','هذا تصنيف للأقسام الواردة في الحديث كما يشرحها الدرس، لا حكم على كل شخص من العلم والمال وحدهما. ارجعوا إلى النص لتفسير أثر العمل والنية.','1700 620'
+def composite():
+    out='<rect x="910" y="100" width="700" height="400" rx="28" fill="#4B3F3A"/><rect x="90" y="100" width="700" height="400" rx="28" fill="#102A4C"/>'
+    # Dust in the first complete scene.
+    for x,y,r in [(1000,220,45),(1150,340,55),(1430,200,60),(1500,400,60),(1250,190,48)]:
+        out+=f'<circle cx="{x}" cy="{y}" r="{r}" fill="#BFAE98" opacity=".25"/>'
+    for x,y in [(1030,150),(1240,280),(1450,145)]:
+        out+=f'<path d="M{x} {y}L{x+90} {y+140}L{x+108} {y+132}L{x+15} {y-5}Z" fill="#F8FAFC"/><path d="M{x+64} {y+118}L{x+115} {y+88}" stroke="#C4943A" stroke-width="11"/>'
+    for x,y in [(190,180),(430,300),(630,175)]:
+        out+=f'<path d="M{x} {y}l8 20 22 2-17 14 5 22-18-12-19 12 6-22-17-14 22-2Z" fill="#FDE68A"/><path d="M{x-50} {y-60}L{x-10} {y-10}" stroke="#FDE68A" stroke-width="5" opacity=".6"/>'
+    out+=f'<text x="1260" y="560" text-anchor="middle" font-size="34" fill="#334155" {F}>غبار وسيوف لامعة متحرّكة</text>'
+    out+=f'<text x="440" y="560" text-anchor="middle" font-size="34" fill="#334155" {F}>ليل ونجوم تتهاوى</text>'
+    out+=f'<text x="850" y="635" text-anchor="middle" font-size="32" fill="#7C3AED" {F}>الهيئة المشتركة: ظلام تتخلّله أجسام لامعة متحرّكة</text>'
+    return out,'التشبيه التمثيلي','تشبيه هيئة كاملة بهيئة كاملة','الرسم تخطيطي للمثال المذكور في الدرس، لا تصوير لموقعة تاريخية. نقارن ترتيب العناصر والحركة واللمعان في الصورتين، لا سيفًا واحدًا بنجمة واحدة.','1700 680'
+SPECS={'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite}
 def apply_html(code,t):
  fn=SPECS.get(code)
  if not fn or 'id="s6d"' in t: return t

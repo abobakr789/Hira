@@ -21,3 +21,5 @@ Y12-N-T3-L06: carbon atoms in a hexagonal one-atom layer verified at https://www
 Y10-N-T1-L08: original simplified optical recording diagram. Reference and object light interfere at film: http://hyperphysics.phy-astr.gsu.edu/hbase/Optalb.html ; consulted public-domain optical schematic https://commons.wikimedia.org/wiki/File:Hologramm_aufnahme.svg . No source image copied.
 Y10-N-T1-L09: public-domain storage photo, Dag Endresen / NordGen, https://commons.wikimedia.org/wiki/File:Storage_containers_in_Svalbard_Global_Seed_Vault_01.jpg ; resized, no crop, EXIF removed.
 Y10-N-T2-L21: original aligned word-pair diagram using source-deck example.
+
+Y11-N-T1-L23/T1-L25/T2-L02/T2-L19/T3-L09: original SVG schematics using the existing modelling examples; no external assets.
