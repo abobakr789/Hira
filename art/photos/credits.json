@@ -77,5 +77,19 @@
     "license": "CC BY-SA 3.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "modification": "Wikimedia browser-rendered thumbnail converted losslessly from WebP to PNG, no crop."
+  },
+  {
+    "asset": "basketry-sandal.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Basketry_Sandal_LACMA_M.80.202.483.jpg",
+    "author": "Los Angeles County Museum of Art",
+    "license": "Public domain",
+    "modification": "Resized and JPEG re-encoded; material not asserted, Egyptian example explicitly qualified."
+  },
+  {
+    "asset": "falconry-tools-detail.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Falconing_equipment_-_Nat_Geo_Dec_1920.png",
+    "author": "Louis Agassiz Fuertes / National Geographic, 1920",
+    "license": "Public domain, US publication before 1930",
+    "modification": "Cropped hood no.2 and glove no.7; combined vertically, resized and JPEG re-encoded; historical not contemporary Emirati qualifier visible."
   }
 ]

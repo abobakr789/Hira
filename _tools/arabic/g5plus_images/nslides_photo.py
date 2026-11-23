@@ -2,6 +2,9 @@
 # called from g1html/shell.py after images.py so regeneration restores it. Photo credits: art/photos/credits.json.
 import re
 SPECS={
+ 'AR-Y5-N-T2-L04':dict(title='نعل منسوج: مثال متحفي',time='⏱ 2 دقيقتان',img='basketry-sandal.jpg',alt='نعل قديم مسطح تظهر فيه شرائط الألياف المتشابكة',cap='<span style="font-size:34px">مثال أثري من مصر، لا نعل إماراتي بعينه<br>تظهر بنية النسيج؛ مادة الألياف غير محسومة في سجل القطعة</span>',credit='الصورة: <bdi>LACMA · M.80.202.483</bdi> · ملكية عامة',aside='الصورة من مجموعة LACMA. لا نسمي الألياف سعف نخيل لأن سجل هذه القطعة لا يحسم المادة. تقارن هيئة النسيج بالنعل الحديث، ولا نمثل بها وحدها كل تاريخ الأحذية.'),
+ 'AR-Y5-N-T2-L13':dict(title='البرقع وقفاز الصقّار',time='⏱ 2 دقيقتان',img='falconry-tools-detail.jpg',alt='تفصيلان من رسم تاريخي: برقع صيد في الأعلى وقفاز الصقار في الأسفل',cap='<span style="font-size:32px">أعلى: مثال برقع · أسفل: قفاز الصقّار<br>تفصيلان من رسم منشور عام ١٩٢٠، لا طقم إماراتي معاصر</span>',credit='الرسم: <bdi>Louis A. Fuertes / National Geographic</bdi> · ملكية عامة · قصّ وتركيب',aside='الصورة مركبة من التفصيل رقم٢ للبرقع الهندي ورقم٧ للقفاز في لوحة1920. لا نعرض طائرًا على أنه نوع محدد ولا نزعم عرض كل الأدوات؛ الوكر لا يظهر هنا.'),
+
  'AR-Y6-N-T3-L02':dict(
   title='ألمانيا في أوروبا',time='⏱ 2 دقيقتان',
   img='germany-map.png',alt='خريطة موقع ألمانيا بالأحمر في أوروبا، مع خريطة عالم مصغّرة',
@@ -53,10 +56,11 @@ SPECS={
 }
 def apply_html(code,t):
  s=SPECS.get(code)
- if not s or 'id="s6p"' in t: return t
- m=re.search(r'<section class="sl" id="s6"[^>]*>.*?</section>',t,re.S).group()
+ sid='s4' if code.startswith('AR-Y5-') else 's6'
+ if not s or ('id="'+sid+'p"') in t: return t
+ m=re.search(r'<section class="sl" id="'+sid+r'"[^>]*>.*?</section>',t,re.S).group()
  a=m.find('<div class="bd cvb2">'); f=m.find('<div class="ft">')
- head=m[:a].replace('id="s6"','id="s6p"')
+ head=m[:a].replace('id="'+sid+'"','id="'+sid+'p"')
  head=re.sub(r'(<h2 class="ht[^"]*">).*?(</h2>)',lambda x:x.group(1)+s['title']+x.group(2),head,flags=re.S)
  head=re.sub(r'(<span class="pill">).*?(</span>)',lambda x:x.group(1)+'شاهدني'+x.group(2),head,count=1)
  head=re.sub(r'(<span class="pill tm">).*?(</span>)',lambda x:x.group(1)+s['time']+x.group(2),head,count=1)

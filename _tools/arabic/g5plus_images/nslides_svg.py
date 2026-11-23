@@ -334,10 +334,138 @@ def futurephone():
     out='<path d="M220 180L490 110L700 180V480L490 410L220 480Z" fill="#DBEAFE" stroke="#334155" stroke-width="9"/><circle cx="255" cy="207" r="9" fill="#334155"/><path d="M575 157l55 20" stroke="#334155" stroke-width="7"/><path d="M490 110V410" stroke="#64748B" stroke-width="6" stroke-dasharray="12 9"/><rect x="1180" y="80" width="130" height="500" rx="40" fill="#CBD5E1"/><rect x="1110" y="220" width="270" height="230" rx="50" fill="#334155"/><rect x="1140" y="250" width="210" height="170" rx="25" fill="#93C5FD"/>'
     out+=f'<text x="460" y="570" text-anchor="middle" font-size="40" {F}>هاتف قابل للطيّ</text><text x="1245" y="650" text-anchor="middle" font-size="40" {F}>ساعة ذكية في اليد</text><text x="850" y="55" text-anchor="middle" font-size="31" {F}>تصوّران وردا في النص، لا وعد بشكل المستقبل</text>'
     return out,'أشكال الأجهزة','تصوّرات النص لهاتف المستقبل','رسوم أصلية لأشكال الأجهزة المذكورة، وليست منتجًا بعينه ولا تنبؤًا مؤكدًا ولا تمثيلًا للذكاء الاصطناعي.','1700 720'
-SPECS={'AR-Y6-NN-T1-L04':barter,'AR-Y6-NN-T1-L10':toylabel,'AR-Y6-NN-T2-L04':resident,'AR-Y7-NN-T1-L08':futurephone,'AR-Y6-N-T1-L22':clocks,'AR-Y6-N-T2-L17':mirage,'AR-Y6-N-T2-L21':simileparts,'AR-Y6-N-T2-L24':vennplay,'AR-Y6-N-T2-L07':echolocation,'AR-Y6-N-T1-L19':offshoot,'AR-Y7-N-T3-L03':ostrich,'AR-Y7-N-T1-L04':glazing,'AR-Y7-N-T2-L06':sandgrouse,'AR-Y7-N-T2-L21':ropeanalogy,'AR-Y7-N-T3-L01':textlayouts,'AR-Y7-N-T2-L14':nestforms,'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
+
+def txt(x,y,s,size=36,c='#334155'):
+    return f'<text x="{x}" y="{y}" text-anchor="middle" font-size="{size}" fill="{c}" {F}>{s}</text>'
+def goalsteps():
+    out=txt(850,65,'هدف واضح، قابل للقياس، محدّد الوقت',42)
+    for x,y,n in [(1170,340,'١'),(690,250,'٢'),(210,160,'٣')]:
+        out+=box(x,y,330,150,'#2563EB','خطوة '+n)
+    out+=txt(850,600,'جدول المتابعة: الخطوة | الموعد | ما أُنجز',38)
+    return out,'تنظيم الهدف','من الهدف إلى خطوات صغيرة','سُلّم تنظيمي، لا قياس للنجاح. يكتب الطلاب خطواتهم ومواعيدهم وعقباتهم بأنفسهم.','1700 680'
+def sentenceparts():
+    out=txt(850,75,'نرى كيف تُبنى الجملة',44)
+    for y,right,left,rrole,lrole in [(150,'الفضاءُ','واسعٌ','مبتدأ','خبر'),(390,'حلّقَ','المسبارُ','فعل','فاعل')]:
+        out+=box(960,y,560,160,'#2563EB',right,rrole)+box(180,y,560,160,'#16A34A',left,lrole)
+        out+=txt(850,y+95,'+',55)
+    return out,'بناء الجملة','جملة اسمية وجملة فعلية','المثالان نفسهما في النموذج السابق، فُصلت مكوّناتهما لبيان البناء، لا لإعطاء إجابة عن تقييم لاحق.','1700 650'
+def infopage():
+    out='<rect x="400" y="30" width="900" height="580" rx="20" fill="white" stroke="#94A3B8" stroke-width="5"/>'
+    for y,h,s,c in [(70,80,'مقدّمة','#DBEAFE'),(180,100,'فقرة: فكرة وتفاصيل','#DCFCE7'),(310,100,'فقرة: فكرة وتفاصيل','#DCFCE7'),(440,80,'خاتمة','#FEF3C7')]:
+        out+=f'<rect x="450" y="{y}" width="800" height="{h}" rx="12" fill="{c}"/>'+txt(850,y+h/2+12,s)
+    out+=txt(850,575,'المصادر: الكاتب، العنوان، السنة',28)
+    return out,'تنظيم الصفحة','شكل النصّ المعلوماتي','قالب فارغ لتنظيم المعلومات، لا نص جاهز. تتصل الفقرات بأدوات ربط ويملأ الطلاب المصدر الحقيقي.','1700 650'
+def structures5():
+    out=txt(1250,70,'المقارنة',44)+txt(440,70,'السبب والنتيجة',44)
+    out+=box(910,150,320,210,'#2563EB','أ','بينما / أمّا')+box(1260,150,320,210,'#2563EB','ب','كذلك / على عكس')
+    out+=box(120,150,620,150,'#7C3AED','سبب','لأنّ')+box(120,430,620,150,'#7C3AED','نتيجة','لذلك')
+    out+='<path d="M430 310V410l-15-20m15 20 15-20" stroke="#64748B" stroke-width="6" fill="none"/>'
+    out+=txt(1250,500,'جانبان في علاقة مقارنة',32)
+    return out,'بنية النص','بنيتان مختلفتان لتنظيم المعلومات','الصناديق مواضع لبيانات الطلاب وليست أحداثًا. المقارنة لا تتطلب علاقة سببية.','1700 650'
+def storyarc5():
+    out='<path d="M160 480L1050 160L1500 460" fill="none" stroke="#2563EB" stroke-width="12"/>'
+    out+=txt(290,550,'بناء الأحداث',40)+txt(1050,100,'نقطة التأزّم',40)+txt(1460,550,'الحلّ',40)
+    out+=txt(850,640,'هيكل للكتابة، لا أحداث قصة جاهزة ولا قياس زمني',30)
+    return out,'قالب سردي','من بناء الأحداث إلى الحلّ','خط تخطيطي لتنظيم مراحل الكتابة المذكورة في النموذج. لا يفرض عدد أحداث أو مدة، ولا يكشف حبكة نص القراءة.','1700 710'
+def response5():
+    out=''
+    for x,y,w,h,s,c in [(500,20,700,100,'الرأي: ما الذي أثّر فيّ؟','#2563EB'),(500,155,700,130,'التحليل: التشبيه ومعناه وأثره','#16A34A'),(500,320,700,120,'«اقتباس من النص» (الصفحة: ...)','#D97706'),(500,485,700,100,'الخاتمة: المغزى وصلته بحياتي','#7C3AED')]:out+=box(x,y,w,h,c,s)
+    return out,'الاستجابة الأدبية','صفحة تربط الرأي بالدليل','المحتوى بين علامتي التنصيص موضع فارغ وليس اقتباسًا حقيقيًا. يُدخل الطالب ألفاظ النص ورقم صفحته، ثم يفسّر الدليل بدل الاكتفاء بنقله.','1700 650'
+def springcave():
+    out='<path d="M130 420L450 100L770 420Z" fill="#D6D3D1"/><path d="M330 420V350Q450 180 570 350V420Z" fill="#44403C"/><path d="M960 420Q1050 250 1130 390Q1250 480 1510 490" fill="none" stroke="#0EA5E9" stroke-width="28"/><path d="M900 400Q1030 150 1180 370" fill="none" stroke="#A8A29E" stroke-width="25"/>'
+    out+=txt(450,520,'كهف: تجويف في الجبل',38)+txt(1250,570,'نبع: مصدر ماء',38)+txt(850,660,'المعنى الحسي للكلمتين، لا تفسير لرمز القصة',30)
+    return out,'معنى حسي','نرى النبع والكهف','رسمان تعريفيان لا موقعان حقيقيان. لا يعني رسم الكهف أن مغزى الأسرة في نص آخر هو كهف مادي.','1700 720'
+def rights5():
+    out=box(950,150,620,260,'#2563EB','لي حقّ التعلّم','في المدرسة')+box(130,150,620,260,'#16A34A','عليّ احترام النظام','والمعلّمين والزملاء')
+    out+='<path d="M780 280H920" stroke="#64748B" stroke-width="7"/>'+txt(850,550,'الحقّ والواجب معًا',44)
+    return out,'حقوق وواجبات','علاقتان في المدرسة','خريطة للعبارتين الواردتين بالنص، وليست شرطًا يجعل حق التعلم متوقفًا على أداء واجب.','1700 650'
+def chores5():
+    out='<rect x="140" y="180" width="560" height="180" rx="20" fill="#DBEAFE" stroke="#2563EB" stroke-width="7"/><rect x="160" y="150" width="130" height="60" rx="15" fill="white"/><path d="M140 350V440M700 350V440" stroke="#2563EB" stroke-width="12"/><path d="M1020 250H1540M1070 250V440M1490 250V440" stroke="#92400E" stroke-width="15"/><ellipse cx="1290" cy="220" rx="100" ry="35" fill="white" stroke="#64748B" stroke-width="6"/>'
+    out+=txt(420,530,'أرتّب غرفتي',44)+txt(1280,530,'أرتّب المائدة',44)
+    return out,'المساعدة في البيت','مهمّتان من النص','رسمان تمثيليان لأشياء العمل المنزلي، لا صورة لبيت الشخصية أو توزيع حصري لأدوار الأسرة.','1700 650'
+def eclipse5():
+    out=''
+    for y,lunar in [(190,False),(470,True)]:
+        out+=txt(1450,y-100,'خسوف القمر' if lunar else 'كسوف الشمس',40)
+        out+='<circle cx="230" cy="%d" r="80" fill="#FBBF24"/>'%y
+        ex,mx=(830,1300) if lunar else (1300,830)
+        out+=f'<circle cx="{ex}" cy="{y}" r="65" fill="#60A5FA"/><circle cx="{mx}" cy="{y}" r="35" fill="#94A3B8"/>'
+        if lunar:out+=f'<path d="M875 {y-50}L1390 {y-20}V{y+20}L875 {y+50}Z" fill="#334155" opacity=".28"/>'
+        else:out+=f'<path d="M855 {y-28}L1345 {y-8}V{y+8}L855 {y+28}Z" fill="#334155" opacity=".28"/>'
+        out+=txt(230,y+115,'الشمس',30)+txt(ex,y+115,'الأرض',30)+txt(mx,y+115,'القمر',30)
+    out+=txt(850,680,'ترتيب الأجرام والظلّ فقط؛ الأحجام والمسافات غير متناسبة',29)
+    return out,'محاذاة الأجرام','الكسوف والخسوف: من في الوسط؟','المصدر NASA: في الكسوف يقع القمر بين الشمس والأرض، وفي الخسوف تقع الأرض بين الشمس والقمر. التظليل مخطط مبسط لا حدود دقيقة للظل. لا تنظر إلى الشمس مباشرة.','1700 740'
+def abilities5():
+    out=box(950,100,620,130,'#2563EB','سارة: تكتب القصص')+box(130,100,620,130,'#16A34A','عمر: يحلّ المسائل')
+    out+='<rect x="1040" y="280" width="440" height="260" rx="15" fill="white" stroke="#2563EB" stroke-width="5"/>'
+    for y,w in [(330,280),(380,330),(430,240),(480,310)]:out+=f'<path d="M1120 {y}h{w}" stroke="#93C5FD" stroke-width="15"/>'
+    out+=box(180,300,520,200,'#16A34A','٢ + ٣ = ٥','مثال مسألة')+txt(850,620,'مثالان من النص، لا اختبار لتصنيف الأشخاص',30)
+    return out,'مثالان من النص','قصة مكتوبة ومسألة رياضية','خطوط الصفحة تمثل كتابة قصة ولا تقتبس نصًا حقيقيًا. المثال العددي توضيحي لا سؤال تقييم. لا تدل الرسوم على أن لكل إنسان نوعًا ثابتًا أو حصريًا.','1700 690'
+def travel6():
+    out=box(600,30,500,120,'#102A4C','أسباب السفر')+'<path d="M850 160V205 M230 205H1470 M230 205V260 M640 205V260 M1060 205V260 M1470 205V260" stroke="#64748B" stroke-width="5" fill="none"/>'
+    for x,s in [(60,'السياحة'),(470,'الدراسة'),(890,'العلاج'),(1300,'زيارة الأقارب')]:out+=box(x,270,340,210,'#2563EB',s)
+    out+=txt(850,600,'أسباب بديلة أو مجتمعة، لا خطوات رحلة',32)
+    return out,'أغراض السفر','لماذا يسافر الناس؟','تنظيم لأسباب النص في فروع متساوية، لا تسلسل سببي بينها ولا افتراض أن كل رحلة لها سبب واحد فقط.','1700 680'
+def nobel6():
+    out=txt(850,65,'مثالان لجائزة نوبل من النص',42)
+    out+=box(950,160,620,290,'#2563EB','نجيب محفوظ','الأدب · ١٩٨٨')+box(130,160,620,290,'#16A34A','أحمد زويل','الكيمياء · ١٩٩٩')
+    out+=txt(850,585,'اسمان، مجالان، وسنتان؛ لا ميدالية أو صورة شخصية متخيّلة',29)
+    return out,'قراءة بيانات','من فاز، وفي أي مجال وسنة؟','جدول بصري لربط اسم الفائز بمجاله وسنته. طابقت الحقائق صفحتي NobelPrize.org الرسميتين، ولا نستخدم صورة غير موثقة للشخصين.','1700 680'
+def roleswap7():
+    out=txt(1250,70,'الابن / الابنة',42)+txt(440,70,'الأمّ',42)
+    out+=box(950,160,620,250,'#2563EB','طبخ الغداء','وترتيب البيت')+box(130,160,620,250,'#16A34A','الذهاب إلى المدرسة','وقراءة قصة للطلاب')
+    out+='<path d="M930 235H770l20-15m-20 15 20 15 M770 340H930l-20-15m20 15-20 15" fill="none" stroke="#64748B" stroke-width="7"/>'
+    out+=txt(850,565,'تبادل أدوار في هذا اليوم القصصي فقط',34)
+    return out,'تبادل الأدوار','من قام بأي عمل في النص؟','تنظيم للأعمال المصرّح بها في القراءة، لا صورة لأسرة حقيقية ولا حكم عام على أدوار أفرادها.','1700 660'
+def valley7():
+    out='<path d="M80 490L400 100L750 440L940 440L1320 110L1620 490Z" fill="#A8A29E" stroke="#78716C" stroke-width="7"/><path d="M420 300L750 440L940 440L1280 300Z" fill="#E2E8F0"/>'
+    for y in [330,370,410]:out+=f'<path d="M{500+(y-330)*2} {y}H{1200-(y-330)*2}" stroke="white" stroke-width="20" stroke-linecap="round"/>'
+    out+=txt(850,560,'ضباب يملأ الوادي بين الجبال',42)+txt(850,650,'رسم عام للفكرة، لا صورة لموقع إماراتي معيّن أو لقهوة',30)
+    return out,'ضباب الوادي','أين يتجمّع الضباب؟','التضاريس والضباب رسم تخطيطي لا موقع مصور. شرح عام وفق National Weather Service: الهواء البارد الرطب قد يتجمع في الوادي ويتشبع. لا نصور التشبيه بالقهوة كأنه مادة حقيقية.','1700 720'
+
+
+def work6():
+    out=txt(1250,70,'المبرمج',44)+txt(440,70,'المهندس',44)
+    out+='<rect x="960" y="150" width="600" height="300" rx="22" fill="#102A4C"/><path d="M1030 220l-35 30 35 30m440-60 35 30-35 30" fill="none" stroke="#86EFAC" stroke-width="9"/><path d="M1100 230h270m-250 60h180m-200 60h250" stroke="#93C5FD" stroke-width="14"/><rect x="140" y="150" width="600" height="300" rx="22" fill="#DBEAFE" stroke="#2563EB" stroke-width="6"/><path d="M230 380V250L400 180L640 280V380Z M400 180V380 M230 380H640" fill="none" stroke="#2563EB" stroke-width="6"/>'
+    out+=txt(1250,520,'كتابة برامج',36)+txt(440,520,'تصميم هندسي',36)+txt(850,630,'مثالان للعمل، لا تعريف شامل لكل مهنة أو صورة للذكاء الاصطناعي',28)
+    return out,'مجالا عمل','برامج وتصميمات','رسوم أصلية تمثل ناتج عملين مذكورين في النص، لا واجهات برامج حقيقية ولا قصر الهندسة على المباني.','1700 700'
+def village6():
+    out=box(550,25,600,115,'#102A4C','القرية العالمية: دبي')+box(550,230,600,115,'#2563EB','أجنحة دول مختلفة')
+    out+='<path d="M850 145V225 M850 350V390 M290 390H1410 M290 390V430 M850 390V430 M1410 390V430" stroke="#64748B" stroke-width="6" fill="none"/>'
+    for x,s in [(50,'بضائع'),(610,'طعام'),(1170,'عروض')]:out+=box(x,440,480,120,'#16A34A',s)
+    out+=txt(850,650,'خريطة لتنظيم وصف النص، لا مخطّط الموقع أو أشكال الأجنحة',30)
+    return out,'تنظيم الوصف','ماذا نجد في الأجنحة؟','هيكل وصفي من علاقات النص فقط. لا يدّعي شكل أي جناح ولا يعيد رسم معمار محمي، ولا يعرض أسعارًا أو مواعيد حالية.','1700 720'
+def volunteer7():
+    out=txt(1250,70,'تنظيف الشاطئ',44)+txt(440,70,'القراءة للمسنّين',44)
+    out+='<path d="M950 440Q1100 390 1270 440T1570 440" fill="none" stroke="#0EA5E9" stroke-width="20"/><path d="M1160 360l-30-150h220l-30 150Z" fill="#DCFCE7" stroke="#16A34A" stroke-width="6"/><path d="M1170 210Q1240 140 1310 210" fill="none" stroke="#16A34A" stroke-width="8"/><path d="M180 220Q300 170 440 220Q580 170 700 220V410Q580 360 440 410Q300 360 180 410Z" fill="white" stroke="#2563EB" stroke-width="7"/><path d="M440 220V410" stroke="#2563EB" stroke-width="5"/>'
+    out+=txt(1250,540,'جمع المخلفات',36)+txt(440,540,'قصص تُقرأ',36)+txt(850,650,'نشاطان مذكوران، لا صورة لأشخاص الحملة',30)
+    return out,'عملان تطوعيان','كيف نخدم المجتمع في النص؟','أشياء تدل على الفعلين المحددين: كيس جمع المخلفات وكتاب قصص. لا نخترع وجوه المتطوعين أو كبار السن.','1700 710'
+def occupations7():
+    out=''
+    for x,s,sub,c in [(1160,'الطبيب','رعاية المرضى','#2563EB'),(640,'المزارع','زراعة المحاصيل','#16A34A'),(120,'العامل','الإنتاج والعمل','#D97706')]:out+=box(x,170,420,300,c,s,sub)
+    out+=txt(850,90,'مهن مختلفة، وخدمة للمجتمع',44)+txt(850,600,'أمثلة النص، لا ترتيب لقيمة المهن',32)
+    return out,'مهن تخدم المجتمع','أعمال مختلفة نتكامل بها','منظم للمهن الواردة بالنص. لا تحدد الرسوم جنس العامل أو تختزل المهن في زي واحد.','1700 680'
+def family7():
+    out='<rect x="550" y="140" width="600" height="360" rx="20" fill="#DCFCE7" stroke="#16A34A" stroke-width="8"/>'
+    for x,y,c in [(640,230,'#2563EB'),(1040,230,'#D97706'),(640,410,'#7C3AED'),(1040,410,'#DC2626')]:out+=f'<circle cx="{x}" cy="{y}" r="32" fill="{c}"/>'
+    out+='<path d="M730 200H970V440H730Z" fill="none" stroke="#64748B" stroke-width="8" stroke-dasharray="20 14"/>'
+    out+=txt(850,70,'اللعب معًا بلا شاشة',44)+txt(850,590,'مثال لعبة جماعية، لا اللعبة المحدّدة في القصة',32)
+    return out,'نشاط عائلي','نرى معنى اللعب الجماعي','لوحة وأربع قطع مثال توضيحي لا ينسب لعبة مسماة إلى الأسرة. النص لا يحدد نوع اللعبة. ناقشوا كيف يشارك الجميع ويتحدثون.','1700 680'
+def grandhome7():
+    out='<rect x="200" y="200" width="750" height="230" rx="50" fill="#DBEAFE" stroke="#2563EB" stroke-width="7"/><path d="M250 210V360H900V210M260 430V480M890 430V480" fill="none" stroke="#2563EB" stroke-width="8"/><path d="M1110 240H1420V390Q1265 480 1110 390Z" fill="white" stroke="#92400E" stroke-width="7"/><path d="M1420 265Q1540 250 1520 330Q1500 390 1420 365" fill="none" stroke="#92400E" stroke-width="10"/>'
+    out+=txt(575,570,'غرفة الجلوس',44)+txt(1280,570,'القهوة مع الجيران',40)+txt(850,670,'أشياء يذكرها النص، لا صورة لبيت الجدّة أو وعاء بعينه',29)
+    return out,'مكان الاجتماع','أشياء من بيت الجدّة','رسم تمثيلي لأثاث الجلوس والقهوة، لا تصميم البيت الحقيقي ولا ملامح الشخصيات. الشعور بالأمان يحتاج دليلًا من الكلمات لا الأثاث وحده.','1700 730'
+def hurricane7():
+    out=txt(850,65,'متابعة التحذير، ثم اتّباع التعليمات',44)
+    for y,s,sub,c in [(120,'مركز الأرصاد','يتابع التوقّعات ويحذّر','#2563EB'),(340,'الناس','يتبعون تعليمات الجهات الرسمية','#16A34A')]:out+=box(400,y,900,155,c,s,sub)
+    out+='<path d="M850 285V330l-18-22m18 22 18-22" stroke="#64748B" stroke-width="7" fill="none"/>'
+    out+=txt(850,610,'نموذج لغوي من النص؛ ليس نشرة طوارئ أو تعليمات لمكانك الآن',29)
+    return out,'تحذير واستجابة','من يصدر التحذير؟ وكيف نستجيب؟','مخطط لطرفي علاقة التحذير والاستجابة في القراءة، لا توقع طقس حي. لا نعمم البقاء في البيت إذا أمرت الجهات بالإخلاء.','1700 690'
+
+SPECS={'AR-Y6-NN-T1-L02':work6,'AR-Y6-NN-T1-L09':village6,'AR-Y7-NN-T1-L04':volunteer7,'AR-Y7-NN-T1-L05':occupations7,'AR-Y7-NN-T1-L10':family7,'AR-Y7-NN-T2-L02':grandhome7,'AR-Y7-NN-T3-L05':hurricane7,'AR-Y5-N-T1-L04':goalsteps,'AR-Y5-N-T1-L05':sentenceparts,'AR-Y5-N-T1-L06':infopage,'AR-Y5-N-T1-L14':structures5,'AR-Y5-N-T2-L06':storyarc5,'AR-Y5-N-T3-L15':response5,'AR-Y5-N-T3-L09':springcave,'AR-Y5-NN-T1-L06':rights5,'AR-Y5-NN-T1-L07':chores5,'AR-Y5-NN-T2-L05':eclipse5,'AR-Y5-NN-T3-L05':abilities5,'AR-Y6-NN-T2-L01':travel6,'AR-Y6-NN-T3-L04':nobel6,'AR-Y7-NN-T2-L03':roleswap7,'AR-Y7-NN-T3-L01':valley7,'AR-Y6-NN-T1-L04':barter,'AR-Y6-NN-T1-L10':toylabel,'AR-Y6-NN-T2-L04':resident,'AR-Y7-NN-T1-L08':futurephone,'AR-Y6-N-T1-L22':clocks,'AR-Y6-N-T2-L17':mirage,'AR-Y6-N-T2-L21':simileparts,'AR-Y6-N-T2-L24':vennplay,'AR-Y6-N-T2-L07':echolocation,'AR-Y6-N-T1-L19':offshoot,'AR-Y7-N-T3-L03':ostrich,'AR-Y7-N-T1-L04':glazing,'AR-Y7-N-T2-L06':sandgrouse,'AR-Y7-N-T2-L21':ropeanalogy,'AR-Y7-N-T3-L01':textlayouts,'AR-Y7-N-T2-L14':nestforms,'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
 def apply_html(code,t):
  fn=SPECS.get(code)
- sid='s5' if '-NN-' in code else 's6'
+ sid='s4' if code.startswith('AR-Y5-') else ('s5' if '-NN-' in code else 's6')
  if not fn or ('id="'+sid+'d"') in t: return t
  body,label,title,aside,vb=fn()
  m=re.search(r'<section class="sl" id="'+sid+r'"[^>]*>.*?</section>',t,re.S).group()

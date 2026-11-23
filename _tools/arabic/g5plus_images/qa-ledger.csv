@@ -147,11 +147,36 @@ AR-Y6-N-T2-L17,s6d,PASS,Individual local pixels inspected; source-grounded spati
 AR-Y6-N-T2-L21,s6d,PASS,Individual local pixels inspected; source-grounded spatial relation; visible limitations; original markup byte-identical; actual converter exact. Live1920x1080 pixels individually inspected2026-11-23 19:36 passed.
 AR-Y6-N-T2-L24,s6d,PASS,Individual local pixels inspected; source-grounded spatial relation; visible limitations; original markup byte-identical; actual converter exact. Live1920x1080 pixels individually inspected2026-11-23 19:36 passed.
 AR-Y6-N-T3-L02,s6p,PASS,Individual local pixels inspected; source-grounded spatial relation; visible limitations; original markup byte-identical; actual converter exact. Live1920x1080 pixels individually inspected2026-11-23 19:36 passed.
-AR-Y9-NN-T2-L04,s5,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live QA pending.
-AR-Y10-NN-T2-L01,s5,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live QA pending.
-AR-Y10-NN-T3-L01,s5,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live QA pending.
-AR-Y10-NN-T2-L04,s5,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live QA pending.
-AR-Y6-NN-T1-L04,s5d,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live QA pending.
-AR-Y6-NN-T1-L10,s5d,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live QA pending.
-AR-Y6-NN-T2-L04,s5d,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live QA pending.
-AR-Y7-NN-T1-L08,s5d,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live QA pending.
+AR-Y9-NN-T2-L04,s5,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live1920x1080 pixels individually inspected2026-11-23 19:43 passed.
+AR-Y10-NN-T2-L01,s5,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live1920x1080 pixels individually inspected2026-11-23 19:43 passed.
+AR-Y10-NN-T3-L01,s5,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live1920x1080 pixels individually inspected2026-11-23 19:43 passed.
+AR-Y10-NN-T2-L04,s5,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live1920x1080 pixels individually inspected2026-11-23 19:43 passed.
+AR-Y6-NN-T1-L04,s5d,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live1920x1080 pixels individually inspected2026-11-23 19:43 passed.
+AR-Y6-NN-T1-L10,s5d,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live1920x1080 pixels individually inspected2026-11-23 19:43 passed.
+AR-Y6-NN-T2-L04,s5d,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live1920x1080 pixels individually inspected2026-11-23 19:43 passed.
+AR-Y7-NN-T1-L08,s5d,PASS,Local1920x1080 individually inspected; exact actual-converter reproduction; originals preserved outside scoped change. Live1920x1080 pixels individually inspected2026-11-23 19:43 passed.
+AR-Y5-N-T1-L04,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-N-T1-L05,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-N-T1-L06,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-N-T1-L14,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-N-T2-L06,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-N-T3-L15,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-N-T3-L09,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-NN-T1-L06,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-NN-T1-L07,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-NN-T2-L05,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-NN-T3-L05,s4d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y6-NN-T2-L01,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y6-NN-T3-L04,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y7-NN-T2-L03,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y7-NN-T3-L01,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y6-NN-T1-L02,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y6-NN-T1-L09,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y7-NN-T1-L04,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y7-NN-T1-L05,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y7-NN-T1-L10,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y7-NN-T2-L02,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y7-NN-T3-L05,s5d,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-N-T2-L04,s4p,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y5-N-T2-L13,s4p,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
+AR-Y9-NN-T2-L02,s5,LOCAL PASS; LIVE PENDING,"Individual full-slide pixels inspected; readable, no clipping; converter reproduces added section; original sections/media retained."
