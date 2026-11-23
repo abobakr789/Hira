@@ -11875,8 +11875,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div class="field"><label for="vcxJ">الأسئلة (JSON: [{"stem":"..","options":["..","..",".."],"correct":0,"seek":[بداية,نهاية]}])</label><textarea id="vcxJ" rows="9" dir="ltr" style="width:100%"></textarea></div>
         <p class="muted" id="vcxE"></p><div class="dlg-actions"><button class="btn btn-ghost" id="vcxC" type="button">إلغاء</button> <button class="btn btn-primary" id="vcxS" type="button">حفظ التحدّي</button></div>`;
       d.querySelector("#vcxC").onclick = () => d.close();
-      d.querySelector("#vcxS").onclick = async () => {
-        const err = (m) => { d.querySelector("#vcxE").textContent = m; };
+      d.querySelector("#vcxS").onclick = async (ev) => {
+        const sbtn = ev.currentTarget; if (sbtn.disabled) return; sbtn.disabled = true;
+        const err = (m) => { d.querySelector("#vcxE").textContent = m; sbtn.disabled = false; };
+        const made = { a: null, q: [] };
         let qs; try { qs = JSON.parse(d.querySelector("#vcxJ").value); } catch (e) { err("JSON غير صالح"); return; }
         if (!Array.isArray(qs) || qs.length < 1 || qs.some((q) => !q.stem || !Array.isArray(q.options) || q.options.length < 2 || !Number.isInteger(q.correct) || !q.options[q.correct] || !Array.isArray(q.seek) || q.seek.length !== 2)) { err("تحقق من صيغة الأسئلة"); return; }
         const vid = vids.find((r) => r.id === d.querySelector("#vcxV").value);
@@ -11887,11 +11889,13 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           const outcome = oc.data && oc.data[0] && oc.data[0].learning_outcomes ? oc.data[0].learning_outcomes.id : null;
           const a = await sb.from("assessments").insert({ kind: "video_check", subject_id: u.subject_id || SUBJECTS[subject].id, year_group: year, term: u.term, track, lesson_id: l.id, title_ar: "تحدّي الفيديو: " + l.title_ar, title_en: "Video challenge: " + (l.title_en || l.title_ar), is_published: true }).select("id").single();
           if (a.error) throw a.error;
+          made.a = a.data.id;
           const seeks = {};
           for (let i = 0; i < qs.length; i++) {
             const q = qs[i], ids = ["a", "b", "c", "d"];
             const ins = await sb.from("questions").insert({ subject_id: u.subject_id || SUBJECTS[subject].id, year_group: year, term: u.term, track, lesson_id: l.id, outcome_id: outcome, qtype: "mcq", stem_ar: q.stem, options: q.options.map((t, k) => ({ id: ids[k], text: t })), difficulty: 1 }).select("id").single();
             if (ins.error) throw ins.error;
+            made.q.push(ins.data.id);
             const k1 = await sb.from("question_keys").insert({ question_id: ins.data.id, correct: ids[q.correct] }); if (k1.error) throw k1.error;
             const k2 = await sb.from("assessment_questions").insert({ assessment_id: a.data.id, question_id: ins.data.id, sort_order: i + 1, points: 1 }); if (k2.error) throw k2.error;
             seeks[ins.data.id] = [Number(q.seek[0]), Number(q.seek[1])];
@@ -11899,7 +11903,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           const meta = { seeks, challenge: a.data.id }; const tr = d.querySelector("#vcxT").value.trim(); if (tr) meta.trace = tr;
           const up = await sb.from("lesson_resources").update({ meta }).eq("id", vid.id); if (up.error) throw up.error;
           toast("حُفظ تحدّي الفيديو"); d.close(); pageAdmin(params);
-        } catch (e) { err("تعذّر الحفظ: " + e.message); }
+        } catch (e) {
+          try { if (made.a) await sb.from("assessment_questions").delete().eq("assessment_id", made.a); if (made.q.length) { await sb.from("question_keys").delete().in("question_id", made.q); await sb.from("questions").delete().in("id", made.q); } if (made.a) await sb.from("assessments").delete().eq("id", made.a); } catch (e2) { /* best effort */ }
+          err("تعذّر الحفظ (تم التراجع): " + e.message);
+        }
       };
       d.showModal();
     }));
