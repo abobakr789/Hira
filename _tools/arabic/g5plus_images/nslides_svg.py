@@ -462,7 +462,58 @@ def hurricane7():
     out+=txt(850,610,'نموذج لغوي من النص؛ ليس نشرة طوارئ أو تعليمات لمكانك الآن',29)
     return out,'تحذير واستجابة','من يصدر التحذير؟ وكيف نستجيب؟','مخطط لطرفي علاقة التحذير والاستجابة في القراءة، لا توقع طقس حي. لا نعمم البقاء في البيت إذا أمرت الجهات بالإخلاء.','1700 690'
 
-SPECS={'AR-Y6-NN-T1-L02':work6,'AR-Y6-NN-T1-L09':village6,'AR-Y7-NN-T1-L04':volunteer7,'AR-Y7-NN-T1-L05':occupations7,'AR-Y7-NN-T1-L10':family7,'AR-Y7-NN-T2-L02':grandhome7,'AR-Y7-NN-T3-L05':hurricane7,'AR-Y5-N-T1-L04':goalsteps,'AR-Y5-N-T1-L05':sentenceparts,'AR-Y5-N-T1-L06':infopage,'AR-Y5-N-T1-L14':structures5,'AR-Y5-N-T2-L06':storyarc5,'AR-Y5-N-T3-L15':response5,'AR-Y5-N-T3-L09':springcave,'AR-Y5-NN-T1-L06':rights5,'AR-Y5-NN-T1-L07':chores5,'AR-Y5-NN-T2-L05':eclipse5,'AR-Y5-NN-T3-L05':abilities5,'AR-Y6-NN-T2-L01':travel6,'AR-Y6-NN-T3-L04':nobel6,'AR-Y7-NN-T2-L03':roleswap7,'AR-Y7-NN-T3-L01':valley7,'AR-Y6-NN-T1-L04':barter,'AR-Y6-NN-T1-L10':toylabel,'AR-Y6-NN-T2-L04':resident,'AR-Y7-NN-T1-L08':futurephone,'AR-Y6-N-T1-L22':clocks,'AR-Y6-N-T2-L17':mirage,'AR-Y6-N-T2-L21':simileparts,'AR-Y6-N-T2-L24':vennplay,'AR-Y6-N-T2-L07':echolocation,'AR-Y6-N-T1-L19':offshoot,'AR-Y7-N-T3-L03':ostrich,'AR-Y7-N-T1-L04':glazing,'AR-Y7-N-T2-L06':sandgrouse,'AR-Y7-N-T2-L21':ropeanalogy,'AR-Y7-N-T3-L01':textlayouts,'AR-Y7-N-T2-L14':nestforms,'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
+
+def youth8():
+    out=box(580,20,540,120,'#102A4C','نادي الشباب')+'<path d="M850 145V200M230 200H1470M230 200V245M640 200V245M1060 200V245M1470 200V245" fill="none" stroke="#64748B" stroke-width="5"/>'
+    for x,a,b in [(50,'التعليم','مساعدة الزملاء'),(460,'الثقافة','تعلّم التراث'),(880,'الطبيعة','زرع وتقليل نفايات'),(1290,'الصحة','مشي وماء وعناية')]:out+=box(x,255,350,260,'#2563EB',a,b)
+    out+=txt(850,625,'أربعة مجالات متوازية في هذا النادي، لا مراحل متتابعة',30)
+    return out,'تنظيم أفكار النص','أربعة مجالات للعمل','خريطة وصفية لأعمال النادي المذكورة. لا نربط تعليم التراث بصورة أثر بعينه، ولا نضيف نشاطًا غير مذكور.','1700 700'
+def sensor8():
+    out=box(1090,190,500,240,'#2563EB','شخص يقترب','من الروبوت')+box(110,190,650,240,'#16A34A','المستشعر يكتشف','اقتراب الشخص')
+    out+='<path d="M1060 310H800l28-22m-28 22 28 22" fill="none" stroke="#64748B" stroke-width="9"/>'+txt(850,90,'علاقة مذكورة في وصف روبوت المدرسة',42)+txt(850,600,'مخطط للفكرة، لا شكل الروبوت أو نوع مستشعره',32)
+    return out,'سبب واستجابة','ماذا يعرف المستشعر؟','النص يقول إن المستشعر يعرف اقتراب الشخص. لا نحدد نوعه أو مداه ولا نزعم أن كل روبوت يستخدم الذكاء الاصطناعي.','1700 690'
+def friend8():
+    out=''
+    for x,a,b in [(1160,'البداية','غربة وقلة كلام'),(640,'مساندة الزميل','تعريف وكلمات عربية'),(120,'اليوم','صداقة وتعلّم ثقافة')]:out+=box(x,180,420,280,'#2563EB',a,b)
+    out+='<path d="M1140 320H1080l22-18m-22 18 22 18 M620 320H560l22-18m-22 18 22 18" fill="none" stroke="#64748B" stroke-width="7"/>'+txt(850,90,'التغيّر في علاقة الراوي بكينجي',44)+txt(850,610,'ترتيب هذه القصة، لا مراحل إلزامية لكل صداقة',32)
+    return out,'تغيّر الشخصية','من الغربة إلى الصداقة','الأحداث من القراءة. لا نرسم وجه كينجي أو نعمم سلوكًا على اليابانيين.','1700 690'
+def dreamhouse9():
+    out='<rect x="270" y="150" width="1160" height="380" rx="16" fill="white" stroke="#102A4C" stroke-width="7"/><path d="M270 340H1430M850 150V530" stroke="#64748B" stroke-width="6"/>'
+    out+=txt(850,75,'توزيع الغرف في وصف الراوي',44)+txt(550,230,'الطابق الأول',36)+txt(1150,230,'غرفتي + مكتبة صغيرة',36)+txt(550,425,'الطابق الأرضي',36)+txt(1150,425,'مطبخ + غرفة جلوس',36)+txt(850,630,'منظم للطابقين، لا مخطط معماري أو صورة للمنزل الذكي',30)
+    return out,'تنظيم المكان','أين تقع الغرف؟','تقسيم وصفي لا أبعاد أو اتجاهات أو تصميم هندسي. لا نمثل توفير الطاقة بمجرد شكل البيت.','1700 700'
+def screen9():
+    out=box(960,170,620,280,'#2563EB','اختيار المحتوى','تصنيف عمري + برامج هادفة')+box(120,170,620,280,'#16A34A','تنظيم الوقت','لا يزيد على ساعتين عند الراوي')
+    out+=txt(850,80,'جانبان للمشاهدة في النص',44)+txt(850,600,'وصف عادة الراوي، لا حدّ صحي عام لكل عمر',32)
+    return out,'مقارنة جانبين','ماذا أختار؟ وكم أشاهد؟','الساعتان عادة الشخصية في القراءة وليستا توصية طبية. لا نخترع شارات تصنيف رسمية أو نحدد برنامجًا مناسبًا.','1700 690'
+def remote9():
+    out=box(960,170,620,260,'#2563EB','ميزة في التجربة','مرونة التعلّم')+box(120,170,620,260,'#D97706','تحدٍّ في التجربة','تفاعل أقلّ')
+    out+=txt(850,80,'جانبان من تجربة التعلّم عن بُعد',44)+txt(850,570,'احتاج الطلاب إلى إنترنت جيّد وتنظيم الوقت',34)+txt(850,640,'وصف تجربة النص، لا حكم على كل منصة أو مدرسة',29)
+    return out,'ميزة وتحدٍّ','مرونة أكثر، وتفاعل أقلّ في التجربة','المقارنة تخص تجربة القراءة فقط. لا نعرض حاسوبًا بوصفه صورة لمنصة بعينها.','1700 720'
+def responsibility10():
+    out=box(960,170,620,260,'#2563EB','قبل القرار','أفكّر في النتيجة')+box(120,170,620,260,'#16A34A','إذا أخطأت','أعترف وأصلح')
+    out+=txt(850,80,'موقفان من المسؤولية في النص',44)+txt(850,600,'موقفان مختلفان، لا سلسلة تجعل كل قرار خطأ',32)
+    return out,'قرار وتصحيح','كيف أتحمّل المسؤولية؟','رسم شرطي لا زمني بين الموقفين. لا يعني أن حق التعليم مشروط بالاجتهاد.','1700 690'
+def jobs10():
+    out=box(960,180,620,280,'#2563EB','مهارات رقمية','وتفكير ناقد')+box(120,180,620,280,'#16A34A','تدريب عملي','وفرص للتعلّم')
+    out+='<path d="M790 320H910M850 260V380" stroke="#64748B" stroke-width="7"/>'+txt(850,80,'متطلبات واستعداد كما يصفها النص',44)+txt(850,610,'عناصر متكاملة، لا ضمان توظيف أو ترتيب للمهن',32)
+    return out,'استعداد للعمل','مهارات وتدريب','لا نؤكد طلبًا حاليًا في سوق العمل ولا نختزل الذكاء الاصطناعي في روبوت. الخريطة تنظم أفكار النص.','1700 690'
+def profile10():
+    out=''
+    for x,a,b in [(1160,'نقاط القوة','تنظيم وتعاون'),(640,'مهارة أطورها','التحدّث أمام الناس'),(120,'حلم للمستقبل','هندسة مدن مستدامة')]:out+=box(x,180,420,300,'#2563EB',a,b)
+    out+=txt(850,80,'بطاقة يوسف كما يعرّف نفسه',44)+txt(850,610,'وصف الشخصية في القراءة، لا صورة حقيقية أو اختبار للقدرات',30)
+    return out,'تنظيم التعريف بالذات','قوة وتطوير وحلم','ثلاثة جوانب مذكورة وليست مراحل إلزامية. لا نخترع ملامح يوسف أو مدينة مستقبلية وننسبها إليه.','1700 690'
+def fair10():
+    out=''
+    for x,a,b in [(1160,'قدّمت نفسي','طالب يهتم بالتقنية'),(640,'سألت','عن التدريب الصيفي'),(120,'عدت','ببطاقات وعلاقات')]:out+=box(x,180,420,280,'#2563EB',a,b)
+    out+='<path d="M1140 320H1080l22-18m-22 18 22 18 M620 320H560l22-18m-22 18 22 18" fill="none" stroke="#64748B" stroke-width="7"/>'+txt(850,80,'أحداث زيارة الراوي إلى معرض الوظائف',44)+txt(850,610,'تسلسل الزيارة في النص، لا وعد بتدريب أو وظيفة',32)
+    return out,'تسلسل تجربة','تعريف، سؤال، ثم حصيلة الزيارة','لا ننشئ بطاقة اتصال حقيقية أو نفترض جهة عمل أو قبولًا في تدريب.','1700 690'
+def tech10():
+    out=txt(850,60,'نربط التقنية بوظيفتها في النص',44)
+    for y,a,b in [(120,'الذكاء الاصطناعي','الترجمة والبحث'),(270,'الطباعة ثلاثية الأبعاد','صنع قطع ومجسّمات'),(420,'طائرات بدون طيار','توصيل الطلبات')]:out+=box(970,y,610,115,'#2563EB',a)+box(120,y,610,115,'#16A34A',b)+'<path d="M760 %dH940" stroke="#64748B" stroke-width="6"/>'%(y+58)
+    out+=txt(850,635,'أمثلة النص، لا تعريف كامل أو تأكيد توافر خدمة في مكانك',30)
+    return out,'تقنية ووظيفة','ما العمل الذي تؤديه التقنية؟','علاقات لغوية من القراءة لا حالة خدمات حية. نتجنب صورة سيارة عادية بوصفها ذاتية القيادة وصورة روبوت بوصفه الذكاء الاصطناعي كله.','1700 710'
+
+SPECS={'AR-Y8-NN-T1-L03':friend8,'AR-Y8-NN-T1-L04':youth8,'AR-Y8-NN-T2-L05':sensor8,'AR-Y9-NN-T1-L01':dreamhouse9,'AR-Y9-NN-T2-L06':screen9,'AR-Y9-NN-T3-L06':remote9,'AR-Y10-NN-T1-L01':responsibility10,'AR-Y10-NN-T1-L07':jobs10,'AR-Y10-NN-T1-L10':profile10,'AR-Y10-NN-T3-L02':fair10,'AR-Y10-NN-T3-L05':tech10,'AR-Y6-NN-T1-L02':work6,'AR-Y6-NN-T1-L09':village6,'AR-Y7-NN-T1-L04':volunteer7,'AR-Y7-NN-T1-L05':occupations7,'AR-Y7-NN-T1-L10':family7,'AR-Y7-NN-T2-L02':grandhome7,'AR-Y7-NN-T3-L05':hurricane7,'AR-Y5-N-T1-L04':goalsteps,'AR-Y5-N-T1-L05':sentenceparts,'AR-Y5-N-T1-L06':infopage,'AR-Y5-N-T1-L14':structures5,'AR-Y5-N-T2-L06':storyarc5,'AR-Y5-N-T3-L15':response5,'AR-Y5-N-T3-L09':springcave,'AR-Y5-NN-T1-L06':rights5,'AR-Y5-NN-T1-L07':chores5,'AR-Y5-NN-T2-L05':eclipse5,'AR-Y5-NN-T3-L05':abilities5,'AR-Y6-NN-T2-L01':travel6,'AR-Y6-NN-T3-L04':nobel6,'AR-Y7-NN-T2-L03':roleswap7,'AR-Y7-NN-T3-L01':valley7,'AR-Y6-NN-T1-L04':barter,'AR-Y6-NN-T1-L10':toylabel,'AR-Y6-NN-T2-L04':resident,'AR-Y7-NN-T1-L08':futurephone,'AR-Y6-N-T1-L22':clocks,'AR-Y6-N-T2-L17':mirage,'AR-Y6-N-T2-L21':simileparts,'AR-Y6-N-T2-L24':vennplay,'AR-Y6-N-T2-L07':echolocation,'AR-Y6-N-T1-L19':offshoot,'AR-Y7-N-T3-L03':ostrich,'AR-Y7-N-T1-L04':glazing,'AR-Y7-N-T2-L06':sandgrouse,'AR-Y7-N-T2-L21':ropeanalogy,'AR-Y7-N-T3-L01':textlayouts,'AR-Y7-N-T2-L14':nestforms,'AR-Y8-N-T1-L14':dam,'AR-Y8-N-T2-L01':letterform,'AR-Y8-N-T2-L09':river,'AR-Y9-N-T1-L18':morphology,'AR-Y9-N-T1-L20':participles,'AR-Y9-N-T2-L04':poeticform,'AR-Y10-N-T3-L08':numbers,'AR-Y12-N-T3-L06':graphene,'AR-Y10-N-T3-L14':pronouns,'AR-Y10-N-T2-L05':flashback,'AR-Y10-N-T3-L05':iceberg,'AR-Y10-N-T1-L08':holography,'AR-Y10-N-T2-L21':opposites,'AR-Y11-N-T1-L23':instrument,'AR-Y11-N-T2-L19':partwhole,'AR-Y11-N-T3-L09':homonym,'AR-Y11-N-T2-L02':categories,'AR-Y11-N-T1-L25':composite,'AR-Y12-N-T1-L09':temporal,'AR-Y12-N-T1-L23':doublemeaning,'AR-Y12-N-T3-L02':poeticform,'AR-Y12-N-T2-L04':muwashshah,'AR-Y12-N-T3-L19':falaj}
 def apply_html(code,t):
  fn=SPECS.get(code)
  sid='s4' if code.startswith('AR-Y5-') else ('s5' if '-NN-' in code else 's6')
