@@ -106,7 +106,37 @@
     "issue": "Assessment alignment question, not a false-hadith finding. Core teaching addresses insults, curses and foul speech; quick question2 and group3 main scenario instead use loving for a brother what one loves for oneself. Both tracks have the same distinction.",
     "suggested_fix": "Check intended curriculum coverage; if the assessment is meant to test the taught hadith, propose an aligned question/scenario for approval. Preserve both authentic texts unless a specific change is approved.",
     "source": "resources/ie/IE-Y3-N-T2-L04/teacher-deck.html; Arabic counterpart IE-Y3-N-T2-L04",
-    "status": "Held unchanged and unillustrated. No user authority to correct this new issue."
+    "status": "User-approved Q2/scenario alignment applied to8files. All6changed teaching slides and8changed print pages individually inspected locally. Minimal quick-slide height adjustment keeps revealed answers inside options. Teaching quotations and media unchanged. Live QA pending.",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFNzAyOTI3RTkxNjIzMzg5QTk5MDAwRDNCQzdDODQA",
+    "applied_question": "عندما أغضب، ماذا أفعل؟",
+    "applied_scenario": "اختلفت مع زميلك أثناء اللعب وشعرت بالغضب. كيف تردّ عليه بكلام طيب دون سبّ أو لعن؟",
+    "affected_files": [
+      {
+        "file": "resources/ie/IE-Y3-N-T2-L04/teacher-deck.html",
+        "question_changed": true,
+        "scenario_occurrences": 2
+      },
+      {
+        "file": "resources/ie/IE-Y3-N-T2-L04/group-work.html",
+        "question_changed": false,
+        "scenario_occurrences": 1
+      },
+      {
+        "file": "resources/ie/IE-Y3-N-T2-L04/worksheets-A4.html",
+        "question_changed": true,
+        "scenario_occurrences": 1
+      },
+      {
+        "file": "resources/ie/IE-Y3-N-T2-L04/answer-key.html",
+        "question_changed": false,
+        "scenario_occurrences": 0
+      }
+    ],
+    "affected_slides": [
+      "think",
+      "g3",
+      "quick"
+    ]
   },
   {
     "lesson": "IE-Y3-NN-T2-L04",
@@ -119,6 +149,36 @@
     "issue": "Assessment alignment question, not a false-hadith finding. Core teaching addresses insults, curses and foul speech; quick question2 and group3 main scenario instead use loving for a brother what one loves for oneself. Both tracks have the same distinction.",
     "suggested_fix": "Check intended curriculum coverage; if the assessment is meant to test the taught hadith, propose an aligned question/scenario for approval. Preserve both authentic texts unless a specific change is approved.",
     "source": "resources/ie/IE-Y3-NN-T2-L04/teacher-deck.html; Arabic counterpart IE-Y3-N-T2-L04",
-    "status": "Held unchanged and unillustrated. No user authority to correct this new issue."
+    "status": "User-approved Q2/scenario alignment applied to8files. All6changed teaching slides and8changed print pages individually inspected locally. Minimal quick-slide height adjustment keeps revealed answers inside options. Teaching quotations and media unchanged. Live QA pending.",
+    "authority_message_id": "wamid.HBgMOTcxNTg4NDk5Mzk3FQIAEhggQUNFNzAyOTI3RTkxNjIzMzg5QTk5MDAwRDNCQzdDODQA",
+    "applied_question": "When I am angry, what should I do?",
+    "applied_scenario": "You disagree with a classmate during a game and feel angry. How can you reply kindly without insults or curses?",
+    "affected_files": [
+      {
+        "file": "resources/ie/IE-Y3-NN-T2-L04/teacher-deck.html",
+        "question_changed": true,
+        "scenario_occurrences": 2
+      },
+      {
+        "file": "resources/ie/IE-Y3-NN-T2-L04/group-work.html",
+        "question_changed": false,
+        "scenario_occurrences": 1
+      },
+      {
+        "file": "resources/ie/IE-Y3-NN-T2-L04/worksheets-A4.html",
+        "question_changed": true,
+        "scenario_occurrences": 1
+      },
+      {
+        "file": "resources/ie/IE-Y3-NN-T2-L04/answer-key.html",
+        "question_changed": false,
+        "scenario_occurrences": 0
+      }
+    ],
+    "affected_slides": [
+      "think",
+      "g3",
+      "quick"
+    ]
   }
 ]
