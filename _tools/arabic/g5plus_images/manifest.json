@@ -383,5 +383,45 @@
     "آكِلُ لُحُومٍ"
    ]
   ]
+ },
+ "AR-Y5-NN-T2-L02": {
+  "slide": "s4",
+  "family": "photo",
+  "items": [
+   [
+    "photo:london",
+    "نَهْرُ التَّايْمْزِ فِي لَنْدَنَ"
+   ]
+  ],
+  "credits": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/File:Thames_Panorama,_London_-_June_2009.jpg",
+    "text": "David Iliff · CC BY-SA 3.0"
+   }
+  ]
+ },
+ "AR-Y5-NN-T2-L04": {
+  "slide": "s4",
+  "family": "photo",
+  "items": [
+   [
+    "photo:pyramid",
+    "الْهَرَمُ الْأَكْبَرُ فِي مِصْرَ"
+   ],
+   [
+    "photo:wall",
+    "سُورُ الصِّينِ الْعَظِيمُ"
+   ]
+  ],
+  "credits": [
+   {
+    "url": "https://commons.wikimedia.org/wiki/File:Great_Pyramid_of_Giza.jpg",
+    "text": "kallerna · CC BY-SA 3.0"
+   },
+   {
+    "url": "https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG",
+    "text": "Velatrix · CC0"
+   }
+  ]
  }
 }

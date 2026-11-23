@@ -4,3 +4,6 @@ Assets: Microsoft Fluent UI Emoji (MIT, art/emoji/LICENSE-fluentui-emoji-MIT.txt
 Rejected after review: Fluent desert (cactus), Fluent bridge (Golden Gate used for London), custom falcon (poor likeness), snow-capped mountain for UAE mountains.
 Rebuild: after regenerating any deck run python3 _tools/arabic/g5plus_images/images.py as the final step. Idempotent.
 Lessons left unchanged in grade 5: skill/grammar/presentation/listening lessons with no literal subject, and lessons whose existing icons already carry the concept.
+
+Refinement: seven generic nasheed/music-note strips removed. T1-L20 N now has a food-chain diagram matching the teaching row. Two NN lessons have licensed photos from Wikimedia Commons (art/photos/credits.json; visible attribution links on slide). Grade 5 inventory is provisional with four specific follow-ups, not closed.
+Build integration: g1html/shell.py page() runs the grade5+ transform after existing grade2/3/4 transforms, loaded with a unique module name. Converter regeneration tested with Python3.12 for all 30 current manifest entries; actual HTML rebuild passes and includes selected imagery. Existing enriched deck content differs from generic converter output, so generic regeneration is not written over the published sources. The final helper remains necessary after enrichment.

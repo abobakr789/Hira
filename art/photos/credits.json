@@ -1,0 +1,26 @@
+[
+  {
+    "asset": "london.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Thames_Panorama,_London_-_June_2009.jpg",
+    "author": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "modification": "Resized to fit within 1400x1000, JPEG re-encoded; no crop."
+  },
+  {
+    "asset": "pyramid.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Great_Pyramid_of_Giza.jpg",
+    "author": "kallerna",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "modification": "Resized to fit within 1400x1000, JPEG re-encoded; no crop."
+  },
+  {
+    "asset": "wall.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG",
+    "author": "Velatrix",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "modification": "Resized to fit within 1400x1000, JPEG re-encoded; no crop."
+  }
+]

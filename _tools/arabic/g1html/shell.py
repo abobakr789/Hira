@@ -48,4 +48,9 @@ Object.assign(window,{{show,next,prev,snd,cnt,rst,redraw,boom,fb}});window.S=S;}
     from images import apply_html as _pictures23
     _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), "..", "g4images"))
     from g4images import apply_html as _pictures4
-    return _pictures4(code, _pictures23(code, result))
+    # Apply only manifest-selected grade 5+ reading-slide imagery.
+    import importlib.util as _ilu
+    _ip = _os.path.join(_os.path.dirname(__file__), "..", "g5plus_images", "images.py")
+    _sp = _ilu.spec_from_file_location("hira_g5plus_images", _ip)
+    _im = _ilu.module_from_spec(_sp); _sp.loader.exec_module(_im)
+    return _im.apply_html(code, _pictures4(code, _pictures23(code, result)))
