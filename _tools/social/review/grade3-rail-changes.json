@@ -1,0 +1,58 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-T3-L08/teacher-deck.html",
+    "views": [
+      "goal",
+      "vocab",
+      "story",
+      "model",
+      "together",
+      "check",
+      "truefalse",
+      "models",
+      "mirror"
+    ],
+    "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L08/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L08/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L08/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L08/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  }
+]
