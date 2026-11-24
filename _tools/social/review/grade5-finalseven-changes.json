@@ -1,0 +1,360 @@
+[
+  {
+    "file": "resources/ssd/SS-Y5-T1-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L01/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L01/teacher-deck.html",
+    "views": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "models"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L01/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L05/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L05/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L05/teacher-deck.html",
+    "views": [
+      "hook",
+      "vocab",
+      "match",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "models"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L05/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L07/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L07/teacher-deck.html",
+    "views": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "models"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L07/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L12/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L12/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L12/teacher-deck.html",
+    "views": [
+      "hook",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "models"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L12/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L13/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L13/teacher-deck.html",
+    "views": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "models",
+      "enrich"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L13/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L16/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L16/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L16/teacher-deck.html",
+    "views": [
+      "hook",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "think",
+      "critique",
+      "models"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L16/worksheets-A4.html",
+    "views": [
+      "1",
+      "2",
+      "3"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L18/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L18/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L18/teacher-deck.html",
+    "views": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "models"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L18/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]
