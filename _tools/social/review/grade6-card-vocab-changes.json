@@ -6,8 +6,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "Both complete print pages inspected as pixels 2026-11-24 13:04 Dubai"
+      "live": "pass",
+      "local_evidence": "Both complete print pages inspected as pixels 2026-11-24 13:04 Dubai",
+      "live_evidence": "2026-11-24 13:12 Dubai: 148/148 grade HTML byte-exact; both final complete concept-card pages visually inspected on the published site. Deployment 45362417362 successful."
     },
     "original_media": "unchanged"
   },
@@ -18,8 +19,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "Both complete print pages inspected as pixels 2026-11-24 13:04 Dubai"
+      "live": "pass",
+      "local_evidence": "Both complete print pages inspected as pixels 2026-11-24 13:04 Dubai",
+      "live_evidence": "2026-11-24 13:12 Dubai: 148/148 grade HTML byte-exact; both final complete concept-card pages visually inspected on the published site. Deployment 45362417362 successful."
     },
     "original_media": "unchanged"
   }

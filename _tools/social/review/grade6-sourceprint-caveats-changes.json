@@ -6,8 +6,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "Both full concept cards inspected; Japan card rechecked after vocabulary count update. Source extracts intact with explicit corrections."
+      "live": "pass",
+      "local_evidence": "Both full concept cards inspected; Japan card rechecked after vocabulary count update. Source extracts intact with explicit corrections.",
+      "live_evidence": "Both exact against b71ad8d0 in 110/112 grade-wide check 13:05; both full live print pages visually inspected"
     },
     "original_media": "unchanged"
   },
@@ -18,8 +19,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "Both full concept cards inspected; Japan card rechecked after vocabulary count update. Source extracts intact with explicit corrections."
+      "live": "pass",
+      "local_evidence": "Both full concept cards inspected; Japan card rechecked after vocabulary count update. Source extracts intact with explicit corrections.",
+      "live_evidence": "Both exact against b71ad8d0 in 110/112 grade-wide check 13:05; both full live print pages visually inspected"
     },
     "original_media": "unchanged"
   }

@@ -1,0 +1,3469 @@
+{
+  "grade": 6,
+  "reviewed_lessons": 38,
+  "changed_lessons": 38,
+  "retained_lessons": 0,
+  "unique_changed_html_files": 148,
+  "unique_changed_slide_views": 205,
+  "unique_changed_print_views": 136,
+  "count_method": "Unique current structural section/page differences against pre-grade-6 baseline, ignoring whitespace-only serialization. NN print pages use .pg; Arabic print pages use .page. A slide can contain several corrected elements.",
+  "baseline_commit": "1869c26c",
+  "closure": "CLOSED_LIVE",
+  "live_verified_at": "2026-11-24T13:12:00+04:00",
+  "content_commit": "12a35de2",
+  "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45362417362",
+  "original_media_audit": "No reference changes against baseline",
+  "lessons": [
+    {
+      "code": "SS-Y6-NN-T1-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L01/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L02/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L02/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L02/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L02/teacher-deck.html",
+          "views": [
+            "text5"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L03/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L04/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L04/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L04/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L04/teacher-deck.html",
+          "views": [
+            "text5"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L05/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L05/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L06/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L06/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L06/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L06/teacher-deck.html",
+          "views": [
+            "text2",
+            "text3",
+            "text5",
+            "levels"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L07/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L08",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L08/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L08/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L08/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L08/teacher-deck.html",
+          "views": [
+            "text5",
+            "g3"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L09",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L09/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L09/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L09/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L09/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L09/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text2",
+            "text3",
+            "text5",
+            "talk",
+            "guide",
+            "check",
+            "words",
+            "uae",
+            "quiz"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L09/worksheets-A4.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L10",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L10/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L10/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L10/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L10/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L10/teacher-deck.html",
+          "views": [
+            "hook",
+            "text1",
+            "guide"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L10/worksheets-A4.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L11",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L11/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L11/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L11/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L11/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L11/teacher-deck.html",
+          "views": [
+            "text3"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L12",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L12/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L12/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L12/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L12/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L12/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L12/teacher-deck.html",
+          "views": [
+            "text4",
+            "draw",
+            "levels"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L13",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L13/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L13/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L13/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L13/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L13/teacher-deck.html",
+          "views": [
+            "hook",
+            "text2",
+            "text3",
+            "text5",
+            "think",
+            "guide",
+            "quiz"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L13/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L14",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L14/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L14/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L14/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L14/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L14/teacher-deck.html",
+          "views": [
+            "hook",
+            "text3",
+            "text4",
+            "text5",
+            "check",
+            "quiz"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L14/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "passed, final actual-pixel inspection 2026-11-24",
+            "live": "passed 2026-11-24 12:03 Dubai; 14/14 HTML byte-exact; representative slide and print pixels checked; deployment 45352241193 success"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-NN-T1-L15",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L15/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L15/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+          "qa": {
+            "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+            "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
+          }
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L15/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-NN-T1-L15/teacher-deck.html",
+          "views": [
+            "text3"
+          ],
+          "qa": {
+            "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+            "live": "passed 2026-11-24: all 16 HTML exact against deployed content; representative health/history/think/print views inspected live"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T1-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L01/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L01/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L01/teacher-deck.html",
+          "views": [
+            "learn4",
+            "models"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L01/teacher-deck.html",
+          "views": [
+            "critique"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L01/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L01/worksheets-A4.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L01/teacher-deck.html",
+          "views": [
+            "enrich",
+            "watani"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T1-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L02/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L02/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L02/teacher-deck.html",
+          "views": [
+            "learn2",
+            "learn3",
+            "critique",
+            "models",
+            "enrich"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L02/teacher-deck.html",
+          "views": [
+            "g1",
+            "groupmap",
+            "watani"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L02/group-work.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T1-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L03/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L03/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L03/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L03/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "booktext",
+            "critique",
+            "g1",
+            "models",
+            "enrich",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L03/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T1-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L04/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L04/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L04/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "learn3"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L04/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "learn3",
+            "critique",
+            "models"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L04/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-card-vocab-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "Both complete print pages inspected as pixels 2026-11-24 13:04 Dubai",
+            "live_evidence": "2026-11-24 13:12 Dubai: 148/148 grade HTML byte-exact; both final complete concept-card pages visually inspected on the published site. Deployment 45362417362 successful."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T1-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L05/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L05/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T1-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L06/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L06/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L06/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T1-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L07/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L07/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L07/teacher-deck.html",
+          "views": [
+            "learn4",
+            "g4",
+            "models",
+            "enrich"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L07/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L07/group-work.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L07/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T1-L08",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L08/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L08/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L08/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L08/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T1-L09",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L09/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L09/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L09/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L09/teacher-deck.html",
+          "views": [
+            "critique"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T1-L09/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T2-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "learn3",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/teacher-deck.html",
+          "views": [
+            "learn2",
+            "booktext",
+            "critique",
+            "models",
+            "enrich"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L01/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T2-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L02/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L02/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L02/teacher-deck.html",
+          "views": [
+            "learn3",
+            "critique"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L02/teacher-deck.html",
+          "views": [
+            "enrich"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T2-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/teacher-deck.html",
+          "views": [
+            "predict",
+            "learn3",
+            "booktext",
+            "think",
+            "g1"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/teacher-deck.html",
+          "views": [
+            "learn4",
+            "critique",
+            "g3",
+            "models",
+            "enrich"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/teacher-deck.html",
+          "views": [
+            "g1",
+            "learn1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/group-work.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-sourceprint-caveats-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "Both full concept cards inspected; Japan card rechecked after vocabulary count update. Source extracts intact with explicit corrections.",
+            "live_evidence": "Both exact against b71ad8d0 in 110/112 grade-wide check 13:05; both full live print pages visually inspected"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T2-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L04/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L04/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T2-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L05/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L05/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L05/teacher-deck.html",
+          "views": [
+            "learn4",
+            "enrich",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T2-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L06/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L06/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L06/teacher-deck.html",
+          "views": [
+            "learn2"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L06/teacher-deck.html",
+          "views": [
+            "models"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L06/teacher-deck.html",
+          "views": [
+            "learn4",
+            "models",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L06/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T2-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L07/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L07/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T2-L07/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T3-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L01/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L01/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L01/teacher-deck.html",
+          "views": [
+            "learn3",
+            "models"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L01/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T3-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "learn1",
+            "learn2",
+            "booktext",
+            "critique",
+            "g2",
+            "models"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+          "views": [
+            "enrich"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+          "views": [
+            "enrich"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+          "views": [
+            "watani"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-sourceprint-caveats-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "Both full concept cards inspected; Japan card rechecked after vocabulary count update. Source extracts intact with explicit corrections.",
+            "live_evidence": "Both exact against b71ad8d0 in 110/112 grade-wide check 13:05; both full live print pages visually inspected"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T3-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L03/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L03/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T3-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L04/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L04/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L04/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "critique",
+            "enrich",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L04/worksheets-A4.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T3-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "learn1"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+          "views": [
+            "critique",
+            "models"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+          "views": [
+            "watani",
+            "enrich"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+          "views": [
+            "g1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/group-work.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-card-vocab-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "Both complete print pages inspected as pixels 2026-11-24 13:04 Dubai",
+            "live_evidence": "2026-11-24 13:12 Dubai: 148/148 grade HTML byte-exact; both final complete concept-card pages visually inspected on the published site. Deployment 45362417362 successful."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T3-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L06/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L06/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L06/teacher-deck.html",
+          "views": [
+            "enrich"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts3-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L06/teacher-deck.html",
+          "views": [
+            "models",
+            "watani"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked",
+            "live_evidence": "13/13 HTML byte-exact against 53945d89; representative live views checked"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L06/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y6-T3-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L07/teacher-deck.html",
+          "views": [
+            "hook",
+            "match",
+            "quick"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-exercises-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L07/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+            "live": "pass",
+            "live_evidence": "69/69 byte-exact against a792c423; five live representative views inspected 2026-11-24 12:34 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts1-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L07/teacher-deck.html",
+          "views": [
+            "learn4"
+          ],
+          "qa": {
+            "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+            "live": "pass",
+            "live_evidence": "21/21 byte-exact against 1ccb5c7e; three live slide views inspected 2026-11-24 12:43 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-facts2-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L07/teacher-deck.html",
+          "views": [
+            "critique"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels",
+            "live_evidence": "24/24 byte-exact against cb269535; three live slide views and complete source-card print inspected 2026-11-24 12:50 Dubai"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade6-ar-consistency4-changes.json",
+          "file": "resources/ssd/SS-Y6-T3-L07/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked",
+            "live_evidence": "33/33 exact against 13b60fe8; live China knowledge, agricultural group task and full source card inspected 2026-11-24 13:04 Dubai"
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    }
+  ]
+}
