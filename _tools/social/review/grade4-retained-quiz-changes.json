@@ -1,0 +1,35 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L06/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Printed quiz answers now use actual visible numeric option positions rather than obsolete all-a letters.",
+    "qa": {
+      "local": "PASS individual A4 pixel inspection Nov24 08:28 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L08/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Printed quiz answers now use actual visible numeric option positions rather than obsolete all-a letters.",
+    "qa": {
+      "local": "PASS individual A4 pixel inspection Nov24 08:28 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L16/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Printed quiz answers now use actual visible numeric option positions rather than obsolete all-a letters.",
+    "qa": {
+      "local": "PASS individual A4 pixel inspection Nov24 08:28 Dubai",
+      "live": "PENDING"
+    }
+  }
+]
