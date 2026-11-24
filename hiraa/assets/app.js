@@ -2406,7 +2406,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125g", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125h", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -10409,13 +10409,22 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     document.body.classList.add("rm-on");
     let S = null, seen = 0, t0 = Date.now(), fz = 17;
     h(`<section class="rm" id="rm"><div class="rm-top"><span class="rm-dot" id="rmDot"></span><b id="rmTitle">${CT("جارٍ الاتصال بالعرض…", "Connecting to the presentation…")}</b><span class="rm-clk" id="rmClk">00:00</span></div>
-      <div class="rm-now"><div class="rm-ct" id="rmCt">– / –</div><div class="rm-st" id="rmSt"></div><div class="rm-nx" id="rmNx"></div><div class="rm-live" id="rmLive" hidden></div></div>
+      <div class="rm-now"><div class="rm-ct" id="rmCt">– / –</div><div class="rm-st" id="rmSt"></div><div class="rm-nx" id="rmNx"></div><div class="rm-bl" id="rmBl" hidden><span id="rmBlT"></span><button id="rmSkip">${CT("تخطَّ إلى الشريحة التالية ⏭", "Skip to next slide ⏭")}</button></div><div class="rm-live" id="rmLive" hidden></div></div>
       <div class="rm-notes" id="rmNt"></div>
       <div class="rm-tools"><button id="rmFirst">⏮ ${CT("الأولى", "First")}</button><button id="rmBlack">🌑 ${CT("شاشة سوداء", "Black")}</button><button id="rmPick">🎲 ${CT("القرعة", "Pick")}</button><button id="rmA">A±</button></div>
       <div class="rm-pick" id="rmPk" hidden></div>
-      <div class="rm-nav"><button class="rm-prev" id="rmPrev">${CT("السابق", "Back")}</button><button class="rm-next" id="rmNext">${CT("التالي", "Next")}</button></div></section>`);
+      <div class="rm-nav"><button class="rm-prev" id="rmPrev">${CT("السابق", "Back")}</button><button class="rm-next" id="rmNext"><span>${CT("التالي", "Next")}</span><small id="rmNextS"></small></button></div><div class="rm-msg" id="rmMsg" hidden></div></section>`);
     const ch = sb.channel("hbr-" + key, { config: { broadcast: { self: false } } });
-    const cmd = (c, extra) => { ch.send({ type: "broadcast", event: "cmd", payload: Object.assign({ c }, extra || {}) }); if (c !== "hello") try { navigator.vibrate && navigator.vibrate(12); } catch (e) {} };
+    let cid = 0, pend = null;
+    const msg = (t) => { const m = document.getElementById("rmMsg"); if (!m) return; m.hidden = !t; m.textContent = t || ""; };
+    const cmd = (c, extra, retry) => {
+      const id = c === "hello" ? 0 : ++cid;
+      ch.send({ type: "broadcast", event: "cmd", payload: Object.assign({ c, id }, extra || {}) });
+      if (c === "hello") return;
+      try { navigator.vibrate && navigator.vibrate(12); } catch (e) {}
+      clearTimeout(pend && pend.t);
+      pend = { id, t: setTimeout(() => { if (!pend || pend.id !== id) return; if (!retry) { msg(CT("⏳ لم يصل الأمر… أعيد المحاولة", "⏳ Not delivered… retrying")); cmd("hello"); setTimeout(() => cmd(c, extra, 1), 400); } else msg(CT("⚠️ العرض لا يستجيب: تأكد أنه مفتوح على الحاسوب وأن الإنترنت متصل", "⚠️ The presentation isn't responding: check it's open and online")); }, 1800) };
+    };
     const $r = (id) => document.getElementById(id);
     const paint = () => {
       if (!S) return;
@@ -10424,17 +10433,23 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       $r("rmNt").textContent = S.nt || CT("لا ملاحظات لهذه الشريحة.", "No notes for this slide."); $r("rmNt").style.fontSize = fz + "px";
       $r("rmBlack").classList.toggle("on", !!S.black);
       const lv = $r("rmLive"); lv.hidden = !S.live; if (S.live) lv.textContent = "📲 " + S.live.p + " " + CT("طالبًا", "students") + (S.live.q ? " · " + CT("أجاب ", "answered ") + S.live.a : "");
-      $r("rmPrev").disabled = S.cur === 0; $r("rmNext").disabled = S.cur >= S.n - 1;
+      const bl = S.bl || 0, bt = S.bt || 0;
+      $r("rmBl").hidden = !bl; if (bl) $r("rmBlT").textContent = "✨ " + CT("ظهر ", "Shown ") + (bt - bl) + CT(" من ", " of ") + bt + CT(" عناصر على هذه الشريحة", " items on this slide");
+      $r("rmNextS").textContent = bl ? CT("يُظهر العنصر التالي", "reveals the next item") : (S.cur < S.n - 1 ? CT("الشريحة ", "slide ") + (S.cur + 2) : "");
+      $r("rmPrev").disabled = S.cur === 0 && bl === bt; $r("rmNext").disabled = S.cur >= S.n - 1 && !bl;
+      $r("rm").classList.toggle("rm-blk", !!S.black);
     };
-    ch.on("broadcast", { event: "state" }, (m) => { S = m.payload; seen = Date.now(); paint(); })
+    ch.on("broadcast", { event: "state" }, (m) => { S = m.payload; seen = Date.now(); if (pend && (!S.id || S.id >= pend.id)) { clearTimeout(pend.t); pend = null; msg(""); } paint(); })
       .on("broadcast", { event: "pick" }, (m) => { const p = $r("rmPk"); if (!p) return; p.hidden = false; p.textContent = "🎲 " + (m.payload.name || ""); setTimeout(() => { if ($r("rmPk")) $r("rmPk").hidden = true; }, 6000); })
       .subscribe((s) => { if (s === "SUBSCRIBED") cmd("hello"); });
     state._liveCh = ch;
-    $r("rmNext").onclick = () => cmd("next"); $r("rmPrev").onclick = () => cmd("prev"); $r("rmFirst").onclick = () => cmd("first");
+    $r("rmNext").onclick = () => cmd("next"); $r("rmPrev").onclick = () => cmd("prev"); $r("rmFirst").onclick = () => cmd("first"); $r("rmSkip").onclick = () => cmd("skip");
+    let wl = null; const wake = async () => { try { if (navigator.wakeLock && document.visibilityState === "visible") wl = await navigator.wakeLock.request("screen"); } catch (e) {} };
+    wake(); document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && location.hash.startsWith("#/remote")) { wake(); cmd("hello"); } });
     $r("rmBlack").onclick = () => cmd("black"); $r("rmPick").onclick = () => cmd("pick");
     $r("rmA").onclick = () => { fz = fz >= 26 ? 14 : fz + 3; paint(); };
     state._livePoll = setInterval(() => {
-      if (!location.hash.startsWith("#/remote")) { document.body.classList.remove("rm-on"); liveStop(); return; }
+      if (!location.hash.startsWith("#/remote")) { document.body.classList.remove("rm-on"); try { wl && wl.release(); } catch (e) {} liveStop(); return; }
       const s = Math.floor((Date.now() - t0) / 1000); $r("rmClk").textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
       const ok = Date.now() - seen < 12000; $r("rmDot").classList.toggle("ok", ok);
       if (!ok && S) $r("rmTitle").textContent = CT("انقطع الاتصال بالعرض… تأكد أنه ما زال مفتوحًا", "Lost the presentation… make sure it is still open");

@@ -1537,7 +1537,9 @@
     var sb = HX.sb, rch = null, rkey = null, lastSeen = 0, remPop = mk("div", "hbRemPop");
     remPop.className = "pop hb-pop"; remPop.dir = RTL ? "rtl" : "ltr"; stop(remPop);
     var rUrl = function () { return String(HX.joinUrl).replace(/#\/live$/, "") + "#/remote/" + rkey; };
-    var state = function () { var L = liveInfo(); return { cur: cur, n: N, title: title, st: stTitle(cur), nx: cur + 1 < N ? stTitle(cur + 1) : "", nt: notesOf(cur).slice(0, 2500), black: black.classList.contains("on"), live: L && L.on ? { p: L.players, a: L.answered, q: !!L.q } : null, rtl: RTL }; };
+    var state = function () { var L = liveInfo(); return { cur: cur, n: N, title: title, st: stTitle(cur), nx: cur + 1 < N ? stTitle(cur + 1) : "", nt: notesOf(cur).slice(0, 2500), black: black.classList.contains("on"), live: L && L.on ? { p: L.players, a: L.answered, q: !!L.q } : null, rtl: RTL, bt: SL[cur] ? SL[cur].querySelectorAll("[data-build-in]").length : 0, bl: SL[cur] ? SL[cur].querySelectorAll("[data-build-in].hid").length : 0, id: cmdId }; };
+    var cmdId = 0, pushT = 0, pushSoon = function () { clearTimeout(pushT); pushT = setTimeout(push, 120); };
+    new MutationObserver(function () { if (rch) pushSoon(); }).observe(stage, { subtree: true, attributes: true, attributeFilter: ["class"] });
     var push = function () { if (rch) rch.send({ type: "broadcast", event: "state", payload: state() }); };
     subs.push(function () { push(); });
     function connect() {
@@ -1549,12 +1551,15 @@
       if (rch) try { sb.removeChannel(rch); } catch (e) {}
       rch = sb.channel("hbr-" + rkey, { config: { broadcast: { self: false } } })
         .on("broadcast", { event: "cmd" }, function (m) {
-          var c = (m.payload || {}).c; lastSeen = Date.now(); paintRem();
+          var c = (m.payload || {}).c; lastSeen = Date.now(); paintRem(); if (m.payload.id) cmdId = m.payload.id;
+          if (black.classList.contains("on") && (c === "next" || c === "prev" || c === "skip")) toggleBlack();
           if (c === "next") nextB(); else if (c === "prev") prevB(); else if (c === "first") go(0);
+          else if (c === "skip") go(Math.min(N - 1, cur + 1));
           else if (c === "go") go(+m.payload.k || 0);
           else if (c === "black") { toggleBlack(); push(); }
           else if (c === "pick") { $("hbPick").click(); setTimeout(function () { var g = $("hbGo"); if (g) g.click(); setTimeout(function () { rch.send({ type: "broadcast", event: "pick", payload: { name: ($("hbPickOut") || {}).textContent || "" } }); }, 1900); }, 150); }
           else if (c === "hello") push();
+          pushSoon(); setTimeout(push, 500);
         }).subscribe(function (s) { if (s === "SUBSCRIBED") push(); });
     }
     function qrRem(el) { (W.QRCode ? Promise.resolve(W.QRCode) : new Promise(function (res, rej) { var sc = D.createElement("script"); sc.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"; sc.onload = function () { res(W.QRCode); }; sc.onerror = rej; D.head.appendChild(sc); }))

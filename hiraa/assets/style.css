@@ -2960,8 +2960,8 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 @media (max-width:520px){.dp-row{flex-direction:column;align-items:stretch}.dp-rf{justify-content:center}}
 
 /* ===== جهاز التحكم بالعرض من جوال المعلم (#/remote/…) ===== */
-body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on .pg-back{display:none!important}
-.rm{min-height:100vh;min-height:100dvh;box-sizing:border-box;background:#0B1628;color:#E9EEF5;display:flex;flex-direction:column;gap:12px;padding:14px 14px calc(14px + env(safe-area-inset-bottom))}
+body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #viewAsBar,body.rm-on .pg-back{display:none!important}
+.rm{height:100vh;height:100dvh;overflow:hidden;box-sizing:border-box;background:#0B1628;color:#E9EEF5;display:flex;flex-direction:column;gap:12px;padding:14px 14px calc(14px + env(safe-area-inset-bottom))}
 .rm-card{margin:auto;max-width:420px;text-align:center;background:#0F2340;border-radius:22px;padding:26px 20px;display:flex;flex-direction:column;gap:12px;align-items:center}
 .rm-big{font-size:3rem}
 .rm-top{display:flex;align-items:center;gap:10px}
@@ -2974,7 +2974,7 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on .p
 .rm-st{font-weight:700;font-size:1.15rem;text-align:center}
 .rm-nx{font-size:.9rem;opacity:.65;text-align:center}
 .rm-live{margin-top:6px;text-align:center;background:rgba(46,158,91,.18);border-radius:10px;padding:6px;font-weight:700;color:#9BE3B5}
-.rm-notes{flex:1;min-height:90px;overflow:auto;background:#FFFDF7;color:#1F2A3C;border-radius:16px;padding:14px 16px;line-height:1.85;white-space:pre-wrap}
+.rm-notes{flex:1;min-height:60px;overflow:auto;background:#FFFDF7;color:#1F2A3C;border-radius:16px;padding:14px 16px;line-height:1.85;white-space:pre-wrap}
 .rm-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .rm-tools button{font-family:inherit;font-weight:600;font-size:.9rem;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#E9EEF5;border-radius:12px;padding:10px 4px;cursor:pointer}
 .rm-tools button.on{background:#D4AA55;color:#1B1405}
@@ -2986,3 +2986,11 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on .p
 .rm-next{background:#D4AA55;color:#1B1405;box-shadow:0 6px 0 #9C7A2E}
 .rm-next:active{transform:translateY(4px);box-shadow:0 2px 0 #9C7A2E}
 .rm-nav button[disabled]{opacity:.35}
+
+.rm-bl{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin-top:6px;font-size:.9rem;color:#F0C977}
+.rm-bl[hidden],.rm-msg[hidden]{display:none}
+.rm-bl button{font-family:inherit;font-weight:700;font-size:.85rem;border:1px solid rgba(240,201,119,.5);background:transparent;color:#F0C977;border-radius:999px;padding:5px 12px;cursor:pointer}
+.rm-next{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.rm-next small{font-size:.75rem;font-weight:600;opacity:.75}
+.rm-msg{text-align:center;font-weight:700;font-size:.9rem;color:#FFD08A;background:rgba(240,150,46,.14);border-radius:12px;padding:8px}
+.rm.rm-blk .rm-now{background:#05080E}
