@@ -1,0 +1,93 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T3-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L02/teacher-deck.html",
+    "views": [
+      "models"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L03/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L03/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L03/teacher-deck.html",
+    "views": [
+      "learn3",
+      "booktext"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L06/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L06/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L06/teacher-deck.html",
+    "views": [
+      "learn2"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L06/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+    "live_qa": "pending"
+  }
+]

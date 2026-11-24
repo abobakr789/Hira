@@ -52,3 +52,8 @@ Qualified the life-bearing-planet statement as the only known planet with life, 
 
 ## AR T1 L20, Zayed the First, 2026-11-24 06:27 Dubai
 Removed internally conflicting birth/accession-age assertions rather than guessing a birth year. Retained the verified reign 1855–1909. Replaced the worksheet age blank with the end-of-reign year and synchronized the answer key, models, summaries and adapted passage. Five HTML resources; four fronts, one popup and seven print pages passed local pixel inspection. Original media unchanged. Official DMT source fetched and read 06:25: https://pages.dmt.gov.ae/en/founding-uae/founding-uae-listing-section/zayed-the-first . This source supports the reign dates, not an exact birth year or accession age.
+
+## Economy corrections, checked 2026-11-24 06:33 Dubai
+- T3 L02: two dirhams a day gives 60 over 30 days. Qualify the worked example, not every month. Arithmetic 2 × 30 = 60.
+- T3 L03: transport is not always discretionary. CFPB teacher guide lists reliable work transport as a need; retain travel for recreation as a want and add study/work qualifier. https://files.consumerfinance.gov/f/documents/cfpb_building_block_activities_reflecting-needs-versus-wants_guide.pdf (Summer 2022, official education guide, fetched full text).
+- T3 L06: replace malformed statement implying a ban on projects using suitable materials with environmental assessment and marine habitat protection. EAD official releases describe assessment, mitigation and artificial-island siting outside sensitive areas. https://www.ead.gov.ae/en/Media-Centre/News/ADNOC-MoU (2020-04-02) and https://www.ead.gov.ae/en/Media-Centre/News/Assessment-Programme (2023-04-17), fetched full text. No new legal or universal approval claim.
