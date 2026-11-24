@@ -1,0 +1,807 @@
+[
+  {
+    "file": "resources/ssd/SS-Y6-T1-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L01/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L01/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L02/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L02/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L03/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L03/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L04/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L04/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L05/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L05/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L06/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L06/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L07/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L07/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L08/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L08/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L08/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L09/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L09/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L09/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L02/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L02/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L04/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L04/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L05/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L05/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L06/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L06/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L07/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L07/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L01/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L01/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L03/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L03/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L04/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L04/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L06/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L06/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L07/teacher-deck.html",
+    "views": [
+      "hook",
+      "match",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L07/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all 69 changed slide views and 46 changed print pages inspected as rendered pixels",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]
