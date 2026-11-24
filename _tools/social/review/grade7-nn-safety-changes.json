@@ -1,0 +1,149 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L03/teacher-deck.html",
+    "views": [
+      "text4"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L07/teacher-deck.html",
+    "views": [
+      "text4"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "text3",
+      "text4",
+      "text5",
+      "guide",
+      "check",
+      "levels",
+      "quiz",
+      "cover"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L03/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L07/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/lesson-recap.html",
+    "views": [],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/group-work.html",
+    "views": [],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/parent-note.html",
+    "views": [],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/pod-sheet.html",
+    "views": [],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+    },
+    "original_media": "unchanged"
+  }
+]
