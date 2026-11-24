@@ -11,11 +11,13 @@
     "Unit progress checks and answer sheets"
   ],
   "method_note": "Targeted content review across lesson components and repeated copies. This is not a claim that every character in every duplicate HTML file was independently fact-checked or every slide visually inspected. Original textbook quotations and media are retained; dated statistics and uncertain historical event details are labeled.",
-  "static_qa": "478 HTML files checked for missing local src assets and inline JavaScript syntax; zero errors in that check. Final repeat after this batch and live byte/pixel QA pending.",
-  "visuals_added": 8,
+  "static_qa": "478 HTML files and 550 inline scripts checked after final content and learning-card edits: zero missing local src assets and zero inline JavaScript syntax errors.",
+  "visuals_added": 9,
   "nn_recap_grids": 17,
   "remaining_before_close": [
     "Final publication byte checks against committed HTML",
     "Live pixel samples of Arabic diagrams, NN recap/word cards, animated recap, accessible worksheet and corrected answer popups"
-  ]
+  ],
+  "visual_note": "Eight concept panels from grade10-diagrams.json plus the IRENA definition/comparison panel on T3-L3 learn3. Seventeen NN learning grids are a separate layout correction, not 17 concept illustrations.",
+  "live_qa_progress": "Eight original concept panels checked as rendered live. NN14 animated recap and accessible worksheet checked live. Latest teacher-deck revisions still await Pages deployment before final byte and pixel checks."
 }
