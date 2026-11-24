@@ -1,0 +1,36 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-T2-L13/worksheets-A4.html",
+    "views": [
+      "2"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 1 revealed slide and 3 print pages inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L14/worksheets-A4.html",
+    "views": [
+      "2",
+      "3"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 1 revealed slide and 3 print pages inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L14/teacher-deck.html",
+    "views": [
+      "think"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 1 revealed slide and 3 print pages inspected",
+      "live": "pending"
+    }
+  }
+]
