@@ -1,6 +1,6 @@
 # Grade 4 review, in progress
 
-76 teacher decks inventoried. Core extraction at /tmp/ssy4-core-review.txt. Read NN lessons 1–16 and AR term 1 lessons 1–23 vocabulary so far. No grade 4 edits published.
+76 teacher decks inventoried. Core extraction at /tmp/ssy4-core-review.txt. Read NN lessons 1–16 and AR term 1 lessons 1–23 vocabulary so far. First NN accuracy batch published and live-QA closed; AR science batch locally verified, publication pending.
 
 Verified issues to handle:
 - NN T1 L05 model: the sentence recognizing that girls differ is incorrectly called stereotyping. Reword the model to identify an all-girls generalization as a stereotype, then explicitly allow individual differences. Inspect guide/quiz/prints for consistency.
@@ -25,3 +25,9 @@ Additional sources fetched and read 05:34:
 - https://www.kew.org/read-and-watch/what-is-fungi supports truffles as fungi, separate from plants.
 
 Read remaining AR vocabulary through T3 L18 at 05:35. Still must read learn1–learn4, models, quizzes and original source passages. Additional possible transcription issues: T2 L05 irrigation term and definition, T2 L10 historical region name, T3 L10 teak wood spelling. Verify before editing.
+
+## 2026-11-24 05:59 Dubai checkpoint
+- All 76 core decks reviewed (16 NN, 60 AR), including AR learn1–learn4 and models. Full lesson closure remains in progress.
+- NN L05/L11/L14 accuracy: content 459c699c deployed successfully; all 12 changed fronts, 2 flip backs and 8 print pages inspected live PASS. Closure a18716d5.
+- AR T1 L13 climate and L14 plants: corrected climate to long-term average, usually 30 years; truffles are fungi; Samar spelling; synchronized summaries, worksheets, group work, answer keys and source cards. All 13 slides and 15 print pages inspected locally PASS at 05:59. Original media preserved, source passage adaptation labelled visibly.
+- Remaining review leads are in the ongoing research notes. No grade 4 completion claimed.
