@@ -4,9 +4,9 @@
   "lessons_reviewed": 55,
   "html_reviewed": 468,
   "slides_reviewed": 1890,
-  "changed_html": 287,
+  "changed_html": 289,
   "panels": 5,
-  "base": "18c293b79c67c245268a30f8fad56195ed2ae667",
+  "base": "18c293b7",
   "sources": [
     "https://u.ae/en/about-the-uae/fact-sheet",
     "https://u.ae/en/media/media-in-the-uae/media-regulation/",
@@ -542,5 +542,6 @@
       ],
       "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
     }
-  ]
+  ],
+  "port_review": null
 }

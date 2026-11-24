@@ -1,0 +1,547 @@
+{
+  "grade": 12,
+  "status": "published pending live verification",
+  "lessons_reviewed": 55,
+  "html_reviewed": 468,
+  "slides_reviewed": 1890,
+  "changed_html": 289,
+  "panels": 5,
+  "base": "18c293b7",
+  "sources": [
+    "https://u.ae/en/about-the-uae/fact-sheet",
+    "https://u.ae/en/media/media-in-the-uae/media-regulation/",
+    "https://cms.nmo.gov.ae/uploads/Advertiser_Guide_b13601042c.pdf",
+    "https://www.mofa.gov.ae/en/services/twajudi",
+    "https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708",
+    "https://www.dubaizaman.ae/content/dubaizaman/ar-ae/programs/159/37109.html"
+  ],
+  "corrections": [
+    "Inverted intellectual property responsibility restored as prohibited conduct.",
+    "Book extracts corrected by headings for women reception,patient visit,newborn,family visits.",
+    "Restored full split quotation and omitted lesson concepts, separated missing poetry reference from authentic original line.",
+    "Legal teaching/current answers synchronized to 2021cybercrime and 2023discrimination laws; permit scope qualified by official guide.",
+    "Population/current services/time-sensitive claims and overgeneralized social effects qualified.",
+    "Safety and privacy context copied onto print dependencies.",
+    "Complete success criteria and genuine opening dilemmas for all55lessons."
+  ],
+  "caveats": [
+    "Original newborn religious wording retained from source; not a jurisprudence adjudication.",
+    "Original poetry/media retained. No guessed missing poems.",
+    "Source book transcription preserved, with current legal note added separately."
+  ],
+  "qa": "468HTML633inline scripts valid, no missing local assets. Local panel/core/quiz/popup and corrected source-card/worksheet pixels inspected.",
+  "lessons": [
+    {
+      "lesson": "SN-Y12-T1-L01",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L02",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L03",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L04",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L05",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L06",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L07",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L08",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s21n",
+        "s22n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L09",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L10",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L11",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L12",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L13",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s14",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L14",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s14",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L15",
+      "sections_changed": [
+        "s3",
+        "s13",
+        "s14"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L16",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L17",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L18",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L19",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L20",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s22n",
+        "s23n",
+        "s28"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L21",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s20n",
+        "s21n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L22",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L23",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s21n",
+        "s22n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L24",
+      "sections_changed": [
+        "s3",
+        "s29n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T1-L25",
+      "sections_changed": [
+        "s3",
+        "s5",
+        "s10",
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s18",
+        "s22n",
+        "s23n",
+        "s26n",
+        "s29n",
+        "s31"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L01",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s14",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L02",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L03",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s20n",
+        "s21n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L04",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L05",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L06",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L07",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L08",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s23n",
+        "s24n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L09",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L10",
+      "sections_changed": [
+        "s3",
+        "s13"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L11",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L12",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L13",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L14",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L15",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s15",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L16",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s20n",
+        "s21n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L17",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s21n",
+        "s22n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L18",
+      "sections_changed": [
+        "s3",
+        "s4",
+        "s9",
+        "s10",
+        "s11",
+        "s12",
+        "s13",
+        "s20n",
+        "s21n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T2-L19",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L01",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L02",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L03",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L04",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L05",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s18",
+        "cr",
+        "s22n",
+        "s23n",
+        "s29n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L06",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s14",
+        "s15",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L07",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L08",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L09",
+      "sections_changed": [
+        "s3",
+        "s4",
+        "s9",
+        "s12",
+        "s21n",
+        "s22n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L10",
+      "sections_changed": [
+        "s3"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    },
+    {
+      "lesson": "SN-Y12-T3-L11",
+      "sections_changed": [
+        "s3",
+        "s12",
+        "s13",
+        "s22n",
+        "s23n"
+      ],
+      "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
+    }
+  ],
+  "port_review": "grades10-12-port-review.json"
+}
