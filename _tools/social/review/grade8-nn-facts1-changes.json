@@ -1,0 +1,439 @@
+[
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L02/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L03/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L04/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L05/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L05/teacher-deck.html",
+    "views": [
+      "cover",
+      "vocab",
+      "vflip",
+      "text3",
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L06/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "cover",
+      "text1",
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L07/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L07/teacher-deck.html",
+    "views": [
+      "text4",
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L08/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L09/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L09/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L10/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L11/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L11/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "cover",
+      "hook",
+      "text2",
+      "talk",
+      "guide",
+      "check",
+      "levels",
+      "uae",
+      "quiz"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L11/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L12/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L14/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L15/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Verified Sahara and Suez geography, historical population and minister context, refugee definition, scenario consistency, and synchronized word banks and answer wording.",
+    "qa": {
+      "local": "PASS: changed teaching fronts, all 15 answer popups, all 15 answer keys, all five concept-card pages and both worksheet pages inspected as actual pixels. Refugee glossary shortened and rechecked after initial crowding. Original media audit PASS.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]

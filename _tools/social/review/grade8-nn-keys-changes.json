@@ -7,7 +7,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -19,7 +19,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -31,7 +31,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -43,7 +43,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -55,7 +55,7 @@
     "reason": "Supply the actual missing cloze answer in the constrained word bank.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -67,7 +67,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -79,7 +79,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -91,7 +91,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -103,7 +103,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -115,7 +115,7 @@
     "reason": "Supply the actual missing cloze answer in the constrained word bank.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -127,7 +127,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -139,7 +139,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -151,7 +151,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -163,7 +163,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -175,7 +175,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -187,7 +187,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -199,7 +199,7 @@
     "reason": "Supply the actual missing cloze answer in the constrained word bank.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -211,7 +211,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -223,7 +223,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -235,7 +235,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -247,7 +247,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -259,7 +259,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -271,7 +271,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -283,7 +283,7 @@
     "reason": "Supply the actual missing cloze answer in the constrained word bank.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -295,7 +295,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -307,7 +307,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -319,7 +319,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -331,7 +331,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -343,7 +343,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -355,7 +355,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -367,7 +367,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -379,7 +379,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -391,7 +391,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -403,7 +403,7 @@
     "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   },
@@ -415,7 +415,7 @@
     "reason": "Supply the actual missing cloze answer in the constrained word bank.",
     "qa": {
       "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
-      "live": "pending"
+      "live": "PASS: all 35 batch HTML files byte-exact on published Pages at 15:29 Dubai, 24 November 2026. Content e72d5d46, successful deployment 45383965941."
     },
     "original_media": "unchanged"
   }
