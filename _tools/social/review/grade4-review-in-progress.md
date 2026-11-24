@@ -79,3 +79,7 @@ Zayed content 0e90cdbb live, all five HTML byte-exact 06:33. Four fronts, one po
 - Latest run observed https://github.com/abobakr789/Hira/actions/runs/45314067839 for add5e85d in progress at 06:42. Earlier economy run https://github.com/abobakr789/Hira/actions/runs/45313810886 was superseded/cancelled by this newer run; not a content failure. Avoid pushing documentation until this deploy closes to avoid canceling it again.
 
 - Economy and ancient batches CLOSED LIVE 06:45. All 12 HTML byte-exact live 06:43; six fronts and eight print pages individually inspected PASS. Capture directories /tmp/ssy4economy-live0643 and print, /tmp/ssy4ancient-live0643 and print. Content commits d7c830a2, add5e85d.
+
+## 2026-11-24 06:58 Dubai geography progress
+- Longitude a969176a CLOSED LIVE. Six HTML byte-exact 06:54; 15 fronts, four popups, nine print pages individually PASS from fresh 06:55 captures. Preserved concurrent upstream d51064f2 during rebase.
+- Latitude local QA PASS: six fronts, one popup, eight print pages. Six HTML content and associated source/manifest now ready for publication.

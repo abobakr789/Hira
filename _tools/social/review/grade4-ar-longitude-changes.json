@@ -6,7 +6,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L02/sources-concept-card.html",
@@ -15,7 +15,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L02/worksheets-A4.html",
@@ -27,7 +27,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L02/teacher-deck.html",
@@ -55,7 +55,7 @@
       "think"
     ],
     "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L02/group-work.html",
@@ -65,7 +65,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L02/pod-sheet.html",
@@ -74,6 +74,6 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
   }
 ]

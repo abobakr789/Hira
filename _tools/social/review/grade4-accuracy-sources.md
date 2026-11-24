@@ -65,3 +65,6 @@ Removed internally conflicting birth/accession-age assertions rather than guessi
 - NOAA, https://oceanservice.noaa.gov/facts/longitude.html : longitude measured 0–180 degrees east/west, 15 degrees per hour.
 - US Naval Observatory, https://aa.usno.navy.mil/faq/eqtime : solar time distinguished from legal civil time.
 - Replaced literal line-count convention with angular measure, synchronized quiz/worksheets/key/group tasks/objectives. Adapted passage visibly labelled. No media replaced. Local 15 fronts, 4 answer popups, 9 print pages individually inspected PASS.
+
+## Latitude correction, 2026-11-24
+- NOAA, https://oceanservice.noaa.gov/facts/latitude.html supports 0–90 degrees north/south. Replaced misleading circle-count convention with angular measure. Synchronized quiz, differentiated worksheets, key and group work. Adapted source passage labelled; original media preserved. Local QA: six fronts, one popup and eight print pages individually PASS.
