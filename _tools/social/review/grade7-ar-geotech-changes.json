@@ -1,0 +1,121 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-T2-L12/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L12/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L12/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L12/teacher-deck.html",
+    "views": [
+      "critique",
+      "enrich",
+      "g2",
+      "g4",
+      "learn3",
+      "learn4",
+      "models",
+      "quick",
+      "watani"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L13/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L13/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L13/teacher-deck.html",
+    "views": [
+      "booktext",
+      "critique",
+      "g1",
+      "learn1",
+      "learn2",
+      "match",
+      "models",
+      "quick",
+      "vocab"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L13/group-work.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+      "live": "pending"
+    }
+  }
+]
