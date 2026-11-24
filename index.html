@@ -2941,57 +2941,7 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .tc-foot{font-size:.8rem;text-align:center}.tc-mode{border-color:#9CC3E8!important;background:#F2F7FF!important}
 .tc-stem{font-size:1.1rem;line-height:1.9}.tc-inl{font-size:1.3em}
 .hz-fm{font-weight:600}.hz-fm-done{color:#0F7A55}.hz-fm-rev{color:#A8741F}.hz-fm-prac,.hz-fm-try{color:#3D6FB6}.hz-fm-none{color:#8A8F98}
-/* سالم — رفيق الدراسة: شخصية + تعابير + نافذة المحادثة */
-.salem{position:fixed;bottom:4px;inset-inline-start:12px;z-index:55;width:128px;height:194px;padding:0;border:none;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.salem:focus-visible{outline:3px solid #0f7a5c;outline-offset:4px;border-radius:14px}
-.salem-img{width:100%;height:100%;object-fit:contain;object-position:bottom;display:block;filter:drop-shadow(0 8px 10px rgba(0,0,0,.18));transform-origin:50% 100%;animation:sfBob 3.2s ease-in-out infinite;user-select:none;-webkit-user-drag:none}
-.salem:hover .salem-img{animation:sfSway .9s ease-in-out infinite alternate}
-.salem.hint .salem-img,.salem.wave .salem-img{animation:sfHop .7s ease-in-out 3}
-.salem.talk .salem-img{animation:sfBob .7s ease-in-out infinite}
-.salem-face{position:absolute;top:-30px;inset-inline-end:-26px;width:62px;height:62px;border-radius:50%;background:#fff;padding:3px;box-shadow:0 6px 16px rgba(0,0,0,.2);opacity:0;transform:scale(.4) translateY(10px);transition:.28s cubic-bezier(.3,1.5,.6,1);pointer-events:none}
-.salem-face img{width:100%;height:100%;border-radius:50%;display:block}
-.salem-face::after{content:"";position:absolute;bottom:-5px;inset-inline-start:10px;width:12px;height:12px;background:#fff;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.12)}
-.salem[data-face="think"] .salem-face,.salem[data-face="listen"] .salem-face,.salem[data-face="idea"] .salem-face,.salem[data-face="cheer"] .salem-face{opacity:1;transform:none}
-.salem-tip{position:absolute;bottom:200px;inset-inline-start:30px;white-space:nowrap;background:#fff;color:#0f5c46;font-weight:800;font-size:.9rem;padding:7px 12px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.16);opacity:0;transform:translateY(6px);transition:.3s;pointer-events:none}
-.salem-tip::after{content:"";position:absolute;bottom:-6px;inset-inline-start:18px;border:6px solid transparent;border-top-color:#fff;border-bottom:0}
-.salem.hint .salem-tip,.salem:hover:not(.open) .salem-tip{opacity:1;transform:none}
-.salem.open .salem-tip{display:none}
-.bd-dots i{width:6px;height:6px;border-radius:50%;background:#0f7a5c;animation:sfDot 1s infinite}
-.bd-dots i:nth-child(2){animation-delay:.15s}.bd-dots i:nth-child(3){animation-delay:.3s}
-.bd-dots{display:inline-flex;gap:4px;padding:4px 2px}
-@keyframes sfBob{50%{transform:translateY(-4px)}}
-@keyframes sfSway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
-@keyframes sfHop{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-10px) rotate(-3deg)}60%{transform:translateY(0) rotate(2deg)}}
-@keyframes sfDot{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
-.buddy-box{position:fixed;bottom:24px;inset-inline-start:150px;z-index:60;width:min(380px,calc(100vw - 164px));max-height:min(560px,calc(100vh - 48px));background:#fff;border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.25);display:flex;flex-direction:column;overflow:hidden;animation:bdIn .25s ease}
-.buddy-box[hidden]{display:none}
-@keyframes bdIn{from{opacity:0;transform:translateY(10px) scale(.98)}}
-.bd-head{display:flex;gap:10px;align-items:center;padding:10px 14px;background:linear-gradient(135deg,#0f7a5c,#139a73);color:#fff}
-.bd-head small{display:block;opacity:.85;font-weight:400}
-.bd-av{display:inline-flex;width:46px;height:46px;flex:none;border-radius:50%;overflow:hidden;background:#e7f4ee;box-shadow:0 0 0 2px rgba(255,255,255,.75)}.bd-av img{width:100%;height:100%;display:block}
-.bd-x{margin-inline-start:auto;background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer}
-.bd-log{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:#f6faf8;min-height:140px}
-.bd-msg{max-width:88%;padding:9px 12px;border-radius:14px;line-height:1.75;font-size:.96rem;position:relative}
-.bd-msg.bot{background:#fff;border:1px solid #d9ebe3;align-self:flex-start}
-.bd-msg.me{background:#0f7a5c;color:#fff;align-self:flex-end}
-.bd-say{display:block;margin-top:4px;background:#eef7f3;border:none;border-radius:8px;padding:2px 8px;cursor:pointer;font-size:.85rem}
-.bd-src{margin:8px 0 0;padding:8px 10px;list-style:none;background:#fff8e6;border-radius:10px;font-size:.9rem}
-.bd-src li+li{margin-top:6px}
-.bd-chips{display:flex;flex-wrap:wrap;gap:6px;padding:8px 10px 0;background:#f6faf8}
-.bd-chips[hidden]{display:none}
-.bd-chips button{border:1px solid #bfe0d2;background:#fff;color:#0f5c46;border-radius:999px;padding:5px 11px;font:inherit;font-size:.85rem;cursor:pointer}
-.bd-chips button:hover{background:#e7f4ee}
-.bd-form{display:flex;gap:6px;padding:10px;border-top:1px solid #e5efe9;align-items:center}
-.bd-form input{flex:1;min-width:0;padding:10px 12px;border:1px solid #cfe0d8;border-radius:12px;font:inherit}
-.bd-mic,.bd-send{flex:none;width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;font-size:1.05rem}
-.bd-mic{background:#eef7f3}.bd-mic.on{background:#e04848;color:#fff;animation:bdPulse 1s infinite}
-.bd-send{background:#0f7a5c;color:#fff}.bd-send:disabled{opacity:.5}
-[dir=rtl] .bd-send{transform:scaleX(-1)}
-@keyframes bdPulse{50%{box-shadow:0 0 0 8px rgba(224,72,72,.2)}}
-.bd-note{margin:0;padding:0 12px 10px;font-size:.78rem;color:#6b7c74}
-@media (max-width:640px){.salem{width:84px;height:128px}.salem-face{width:48px;height:48px;top:-24px;inset-inline-end:-16px}.salem-tip{bottom:134px;font-size:.8rem}.buddy-box{inset-inline-start:8px;bottom:136px;width:calc(100vw - 16px);max-height:calc(100vh - 156px)}}
-@media (prefers-reduced-motion:reduce){.salem-img,.salem-face{animation:none!important;transition:none!important}}
-@media print{.salem,.buddy-box{display:none}}
+
 
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
@@ -9239,7 +9189,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       sb.from("units")
         .select("id, term, sort_order, title_ar, title_en, lessons(id, code, sort_order, title_ar, title_en, axis_code, book_pages, lesson_resources(kind))")
         .eq("year_group", year).eq("track", track).eq("subject_id", sid).order("term").order("sort_order"),
-      sb.from("learning_outcomes").select("code, statement_ar, statement_en, sort_order, fw_standards(axis_code)").eq("year_group", year).eq("subject_id", sid).order("sort_order"),
+      sb.from("learning_outcomes").select("code, statement_ar, statement_en, sort_order, track, fw_standards(axis_code)").eq("year_group", year).eq("subject_id", sid).order("sort_order"),
       state.axes.length ? Promise.resolve({ data: state.axes }) : sb.from("fw_axes").select("code, name_ar, domain_id"),
       state.domains ? Promise.resolve({ data: state.domains }) : sb.from("fw_domains").select("id, name_ar, subject_id").order("id")
     ]);
@@ -9338,12 +9288,15 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       </div>`;
     const unitsBlock = mdrMode ? await mdrListHtml(year, term, units, { gradeClosed, isLockedL: (l) => isLocked(locks, l.id, year, sid) })
       : unitsHtml.trim() ? unitsHtml : `<div class="empty"><strong>لا توجد دروس في هذا المجال في ${TERMS[term]}</strong><a href="${href(term, track, 0)}">عرض كل الدروس</a></div>`;
-    const outcomes = outRes.data || [];
+    // each track shows its own outcomes when it has them (e.g. MSC); native never shows another track's outcomes
+    const outAll = outRes.data || [];
+    const outOwn = outAll.filter((o) => o.track === track);
+    const outcomes = track === "native" ? outAll.filter((o) => !o.track || o.track === "native") : (outOwn.length ? outOwn : outAll.filter((o) => !o.track || o.track === "native"));
     const byAxis = {};
     outcomes.forEach((o) => { const a = o.fw_standards ? o.fw_standards.axis_code : "-"; (byAxis[a] = byAxis[a] || []).push(o); });
     const outcomesHtml = outcomes.length ? Object.keys(byAxis).map((a) => `
       <div class="outcome-group"><h4>${esc(axisName(a))}</h4>
-      ${byAxis[a].map((o) => `<p class="outcome">${esc(OT(o))} <code>${esc(o.code)}</code></p>`).join("")}</div>`).join("")
+      ${byAxis[a].map((o) => (o.track === "non_native" && subject !== "arabic" && o.statement_en) ? `<p class="outcome" dir="ltr" style="text-align:left">${esc(o.statement_en)} <code>${esc(o.code)}</code></p>` : `<p class="outcome">${esc(OT(o))} <code>${esc(o.code)}</code></p>`).join("")}</div>`).join("")
       : '<p class="muted">لم تُدخل نواتج هذا الصف بعد.</p>';
 
     h(`
@@ -13009,7 +12962,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         }
       }
     }
-    const nnR = (a && a.track === "non_native") || LANG === "en";
+    // non-native Arabic results stay Arabic-first, like the test page
+    const nnR = (a && a.track === "non_native" && a.subject_id !== 2) || LANG === "en";
     const pct = att.max_score ? Math.round((att.score / att.max_score) * 100) : 0;
     h(`<section class="page-head"><div class="wrap" style="padding-bottom:30px">
         <div class="crumbs"><a href="#/my">صفحتي</a></div>
@@ -13031,7 +12985,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           const ls = (lessonsFor[x.o.id] || []).filter((v, k, arr) => arr.findIndex((y) => y.code === v.code) === k);
           const pb = pre && pre.byOut[x.o.id]; const plv = pb ? levelOf(pb.ok / pb.n) : null;
           return `<div class="m-item ${lv}"><div class="m-head"><span>${lv === "mastered" ? '<span class="badge-star" aria-hidden="true">⭐</span>' : ""}${plv && plv !== lv ? `<span class="lv ${plv}">${LEVEL_AR[plv]}</span> ← ` : ""}<span class="lv ${lv}">${LEVEL_AR[lv]}</span></span><code>${esc(x.o.code)}</code></div>
-            <p>${esc(OT(x.o))}</p>
+            <p>${esc(nnR && x.o.statement_en ? x.o.statement_en : OT(x.o))}</p>
             ${lv !== "mastered" && ls.length ? `<div class="m-fix">راجع: ${ls.map((l) => `<a href="#/lesson/${esc(l.code)}">${esc(l.title_ar)}</a>`).join(" · ")}</div>` : ""}</div>`; }).join("")}</div>
       </div></section>`);
     const rc = document.getElementById("resCert"); if (rc) rc.onclick = () => printAppreciation({ title: tTitle(a), score: att.score, max: att.max_score, en: nnR, kind: "test" });
@@ -14817,11 +14771,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const att = (atts || [])[0];
     if (!a || !att || !a.benchmark_windows) { h(`<div class="wrap loading">${CT("لا يوجد تقرير لهذا الاختبار بعد.", "No report yet.")}</div>`); return; }
     benchSubjId = a.subject_id || 1;
-    const [{ data: ans }, qDom, { data: norm }, { data: who }, { data: sibs }] = await Promise.all([
+    const [{ data: ans }, qDom, { data: norm }, { data: who }, { data: sibs }, { data: qOut }] = await Promise.all([
       sb.from("attempt_answers").select("question_id, is_correct").eq("attempt_id", att.id),
       benchDomains(id), sb.rpc("benchmark_norms", { p_assessment: id }),
       sb.from("profiles").select("full_name_ar").eq("id", sid).maybeSingle(),
-      sb.from("assessments").select("id, benchmark_windows(code, name_ar, name_en, opens_at)").eq("kind", "benchmark").eq("subject_id", benchSubjId).eq("year_group", a.year_group).eq("track", a.track)
+      sb.from("assessments").select("id, benchmark_windows(code, name_ar, name_en, opens_at)").eq("kind", "benchmark").eq("subject_id", benchSubjId).eq("year_group", a.year_group).eq("track", a.track),
+      sb.from("assessment_questions").select("question_id, questions(lessons(code, title_ar, title_en), learning_outcomes(id, code, statement_ar, statement_en, sort_order))").eq("assessment_id", id)
     ]);
     const pct = Math.round((att.score / att.max_score) * 100), band = bandOf(pct);
     const mine = domPct(ans, qDom), N = (norm || [])[0] || {};
@@ -14838,6 +14793,22 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       (ls || []).forEach((l) => { const d = Number(String(l.axis_code || "").split(".")[1]); if (weak.includes(d)) (lessons[d] = lessons[d] || []).push(l); });
     }
     const strong = Object.keys(mine).filter((d) => mine[d] >= 75).map(Number);
+    // outcome layer: how the student did on each learning outcome, and the lesson that teaches it
+    const okQ = {}; (ans || []).forEach((x) => { okQ[x.question_id] = !!x.is_correct; });
+    const enOut = LANG === "en" || (a.track === "non_native" && benchSubjId !== 2);
+    const byO = {};
+    (qOut || []).forEach((r) => { const q = r.questions || {}, o = q.learning_outcomes; if (!o) return;
+      const e = (byO[o.id] = byO[o.id] || { o, n: 0, ok: 0, les: [] }); e.n++; if (okQ[r.question_id]) e.ok++;
+      if (q.lessons && !e.les.some((l) => l.code === q.lessons.code)) e.les.push(q.lessons);
+      if (q.lessons) { const d = qDom[r.question_id]; if (d && weak.includes(d) && !okQ[r.question_id]) { const arr = (lessons[d] = lessons[d] || []); if (!arr.some((l) => l.code === q.lessons.code)) arr.unshift(q.lessons); } } });
+    const outRows = Object.values(byO).sort((x, y) => (x.ok / x.n) - (y.ok / y.n) || x.o.code.localeCompare(y.o.code));
+    const outWeak = outRows.filter((e) => e.ok / e.n < 0.6);
+    const outTxt = (o) => (enOut && o.statement_en ? o.statement_en : o.statement_ar);
+    const outsHtml = !outRows.length ? "" : `<h2>${CT("المستوى في نواتج التعلّم", "By learning outcome")}</h2>
+        ${outWeak.length ? `<p class="muted">${CT("النواتج التي لم يبلغ فيها الطالب 60%، مع الدرس الذي يعالجها:", "Outcomes below 60%, with the lesson that teaches each:")}</p>
+        <div class="table-wrap"><table class="admin-table"><thead><tr><th>${CT("الناتج", "Outcome")}</th><th>${CT("الصحيح", "Correct")}</th><th>${CT("الدرس", "Lesson")}</th></tr></thead><tbody>${outWeak.map((e) => `<tr><td${enOut ? ' dir="ltr" style="text-align:left"' : ""}>${esc(outTxt(e.o))}${enOut && LANG !== "en" ? `<br><small class="muted" dir="rtl">${esc(e.o.statement_ar)}</small>` : ""}</td><td>${e.ok}/${e.n}</td><td>${e.les.slice(0, 2).map((l) => `<a href="#/lesson/${esc(l.code)}">${esc(LANG === "en" || enOut ? l.title_en || l.title_ar : l.title_ar)}</a>`).join(" · ") || "—"}</td></tr>`).join("")}</tbody></table></div>`
+        : `<p class="muted">${CT("بلغ الطالب 60% أو أكثر في كل نواتج التعلّم التي قاسها الاختبار.", "60% or more on every outcome this test measured.")}</p>`}
+        <p class="muted">${CT("النواتج المتقنة", "Outcomes secured")}: ${outRows.length - outWeak.length}/${outRows.length}</p>`;
     h(`<section class="bench-hero slim"><div class="wrap">
         <div class="crumbs"><a href="#/benchmarks">${CT("الاختبارات المعيارية", "Benchmarks")}</a></div>
         <div class="bh-badge">${fpIcon}<span>${esc(CT(a.benchmark_windows.name_ar, a.benchmark_windows.name_en))} · ${a.benchmark_windows.academic_year}</span></div>
@@ -14855,6 +14826,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div class="dom-bars">${[1, 2, 3, 4, 5, 6].filter((d) => mine[d] != null).map((d) => `<div class="db"><span>${esc(domName(d))}</span><span class="db-bar"><i style="width:${mine[d]}%;background:${bandOf(mine[d]).c}"></i>${normD[d] != null && N.n > 4 ? `<b class="db-norm" style="inset-inline-start:${normD[d]}%" title="${CT("متوسط المنصة", "Platform")}"></b>` : ""}</span><strong>${mine[d]}%</strong></div>`).join("")}</div>
         <h2>${CT("النمو عبر العام", "Growth through the year")}</h2>
         <div class="growth-row">${growth.map((g) => `<div class="gr ${g.cur ? "cur" : ""}"><span>${esc(g.name)}</span><b>${g.pct != null ? g.pct + "%" : "—"}</b>${g.pct != null ? bandChip(g.pct) : ""}</div>`).join('<span class="gr-arrow">←</span>')}</div>
+        ${outsHtml}
         <div class="br-cols">
           <div><h2>${CT("نقاط القوة", "Strengths")}</h2>${strong.length ? `<ul>${strong.map((d) => `<li>${esc(domName(d))} (${mine[d]}%)</li>`).join("")}</ul>` : `<p class="muted">${CT("تظهر عند بلوغ 75% في مجال.", "Shown at 75%+ in a domain.")}</p>`}</div>
           <div><h2>${CT("خطة الدعم المقترحة", "Suggested support plan")}</h2>${weak.length ? weak.map((d) => `<p><b>${esc(domName(d))}</b> (${mine[d]}%): ${(lessons[d] || []).slice(0, 4).map((l) => `<a href="#/lesson/${esc(l.code)}">${esc(LANG === "en" && l.title_en ? l.title_en : l.title_ar)}</a>`).join(" · ") || CT("مراجعة دروس المجال", "Review this domain")}</p>`).join("") : `<p class="muted">${CT("لا مجالات دون المتوقع. أحسنت!", "No domains below expectation. Well done!")}</p>`}</div>
@@ -16269,7 +16241,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div class="sec m"><h2>${en ? "Ministry & ADEK requirements" : "متطلبات الوزارة ودائرة التعليم والمعرفة"}</h2><div class="cols">
           <div class="pane g"><b>${en ? "Lesson objective" : "هدف الدرس"}</b><div>${X(os.obj)}</div>
             <b style="display:block;margin-top:2mm">${en ? "Success criteria (SOLO, measurable)" : "معايير النجاح (مرتّبة حسب سولو، قابلة للقياس)"}</b>${os.list.map((x, i) => `<div>${soloIcon(x.lv, en, 12)} ${i + 1}. ${X(x.can)}</div>`).join("")}
-            ${outs.length ? `<b style="display:block;margin-top:2mm">${en ? "National framework outcomes" : "نواتج التعلم في الإطار الوطني"}</b>${outs.map((o) => `<div><code>${X(o.code)}</code> ${X(en && o.statement_en ? o.statement_en : o.statement_ar)}</div>`).join("")}` : ""}</div>
+            ${outs.length ? `<b style="display:block;margin-top:2mm">${outs.every((o) => /^SS-NN-/.test(o.code)) ? (en ? "Lesson learning outcome" : "ناتج تعلّم الدرس") : outs.some((o) => /^SS-NN-/.test(o.code)) ? (en ? "Learning outcomes" : "نواتج التعلم") : (en ? "National framework outcomes" : "نواتج التعلم في الإطار الوطني")}</b>${outs.map((o) => `<div><code>${X(o.code)}</code> ${X(en && o.statement_en ? o.statement_en : o.statement_ar)}</div>`).join("")}` : ""}</div>
           <div class="pane"><b>${en ? "Must appear in the lesson" : "ما يجب أن يظهر في الحصة"}</b>
             ${(en ? ["Recitation with tajweed at the start of the lesson.", "Qur'an & Hadith evidence used by the students themselves.", "National identity link (values, laws, initiatives).", "Arabic language: key terms said and written correctly.", "Differentiation: core task (A) and stretch task (★B), with support for POD and EAL students.", "Real-life situations and Islamic values in behaviour.", "Formative assessment: questioning, mini-whiteboards, WWW/EBI.", "Exit ticket on Hira (10 questions) and reflection against the success criteria.", `Official Fatwa Centre: 8002422.`]
               : ["التلاوة بأحكام التجويد في بداية الحصة.", "توظيف الأدلة من القرآن والسنة من الطلاب أنفسهم.", "الربط بالهوية الوطنية: القيم والقوانين والمبادرات.", "اللغة العربية: نطق المصطلحات وكتابتها صحيحة.", "التمايز: مهمة أساسية (أ) ومهمة تحدٍّ (★ب)، مع دعم أصحاب الهمم ومتعلّمي العربية.", "مواقف من الحياة وظهور القيم الإسلامية في السلوك.", "التقويم التكويني: الأسئلة والسبورات الصغيرة وWWW/EBI.", "بطاقة الخروج على حراء (10 أسئلة) والتأمّل في معايير النجاح.", "المركز الرسمي للإفتاء: ‎8002422."]).map((x) => `<div>✓ ${x}</div>`).join("")}</div></div></div>` : ""}
