@@ -1,0 +1,106 @@
+[
+  {
+    "path": "resources/ssd/SS-Y8-T1-L7/teacher-deck.html",
+    "sha256": "481572628e74891c8dfe2cf9cd7d35f80a0d4b229f3eb317f331809704f94911",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L8/sources-concept-card.html",
+    "sha256": "a268330afb5068ceb8d736bc322f6708ba10e6d9fe2c8a05efeb50532e45f913",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L8/worksheets-A4.html",
+    "sha256": "bbeefae2d864053f23580524a19ecfabded9ea4b021a1322636537aa262d95eb",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L8/teacher-deck.html",
+    "sha256": "0ee124733987839969a422385ca3b995c134bf3bcceafef4d5824407f28c606e",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L1/teacher-deck.html",
+    "sha256": "dca7ae403707bb05ca3d8bca7519dba3a45345baf7bff8edac3d2a45997bfb5c",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L3/teacher-deck.html",
+    "sha256": "acf990bddf2cef64b9b313289e9b1b5adf6f9205b5749e5447c291c69b88abd5",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L5/sources-concept-card.html",
+    "sha256": "5f2d9934d6540add34bc30bf12ff838a48dcdd1d29b2a9ca96ff492b22da57cc",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L5/worksheets-A4.html",
+    "sha256": "dc354a487f2296ab12e1bfd2816ae7116a6f95eaee951faaf3f6110184de7f16",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L5/teacher-deck.html",
+    "sha256": "cf48ad8b774d941d4809204e7edf4004d596b7bf7da70051c023cee54709288b",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L1/teacher-deck.html",
+    "sha256": "5035ab0f9c1d80e677afa851439eff28adeb7f487ad1f753d8efc4631b0702ea",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L5/sources-concept-card.html",
+    "sha256": "0bd3bcfc44355884b3f324ace91b8a2956787c9cca42b753b468c058dcf021ad",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L5/worksheets-A4.html",
+    "sha256": "9df2c5cf665a97ba18c06969e461b6735cbe389372110a811c0a8974c8999541",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L5/teacher-deck.html",
+    "sha256": "2c6a78280182364264537573f1d96c3931166fc7a258d86cb7af01aa20bfeeda",
+    "qa": {
+      "local": "PASS: nine slide views and three print pages inspected; source-analysis questions aligned",
+      "live": "pending"
+    }
+  }
+]
