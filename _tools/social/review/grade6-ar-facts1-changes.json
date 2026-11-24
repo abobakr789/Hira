@@ -1,0 +1,269 @@
+[
+  {
+    "file": "resources/ssd/SS-Y6-T1-L01/teacher-deck.html",
+    "views": [
+      "learn4",
+      "models"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L04/teacher-deck.html",
+    "views": [
+      "vocab",
+      "match",
+      "learn3"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L07/teacher-deck.html",
+    "views": [
+      "learn4",
+      "g4",
+      "models",
+      "enrich"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/teacher-deck.html",
+    "views": [
+      "vocab",
+      "match",
+      "learn3",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L02/teacher-deck.html",
+    "views": [
+      "learn3",
+      "critique"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/teacher-deck.html",
+    "views": [
+      "predict",
+      "learn3",
+      "booktext",
+      "think",
+      "g1"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L05/teacher-deck.html",
+    "views": [
+      "learn4",
+      "enrich",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L06/teacher-deck.html",
+    "views": [
+      "learn2"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L01/teacher-deck.html",
+    "views": [
+      "learn3",
+      "models"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+    "views": [
+      "vocab",
+      "match",
+      "learn1",
+      "learn2",
+      "booktext",
+      "critique",
+      "g2",
+      "models"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+    "views": [
+      "vocab",
+      "match",
+      "learn1"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L07/teacher-deck.html",
+    "views": [
+      "learn4"
+    ],
+    "qa": {
+      "local": "pass: 38 changed slide views and 19 print pages inspected as rendered pixels; corrected layouts rechecked; flipped vocab and matching/critique popups checked",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]
