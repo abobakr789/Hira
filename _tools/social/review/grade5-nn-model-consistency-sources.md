@@ -11,4 +11,4 @@ Sources:
 - https://www.cambodianchildrensfund.org/assets/uploads/2014_AnnualReport_Digital.pdf
 - https://www.cambodianchildrensfund.org/our-mission/scotts-story
 
-Original image, iframe, audio and video references compared against the baseline and unchanged. Local text, vocabulary and both source-card pages inspected. Live check pending publication.
+Original image, iframe, audio and video references compared against the baseline and unchanged. Local text, vocabulary and both source-card pages inspected. Live:16/16 changed HTML byte-exact 24 November2026 at11:20Dubai; three model popups, historical-statistics slide and source print visually inspected. Deployment45346760149 succeeded.
