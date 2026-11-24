@@ -1,0 +1,31 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-T3-L14/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:49 Asia/Dubai; 6 changed slides and 2 print pages inspected, including final rerender",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L14/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:49 Asia/Dubai; 6 changed slides and 2 print pages inspected, including final rerender",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L14/teacher-deck.html",
+    "views": [
+      "goal",
+      "story",
+      "model",
+      "together",
+      "models",
+      "mirror"
+    ],
+    "local_qa": "PASS 2026-11-24 04:49 Asia/Dubai; 6 changed slides and 2 print pages inspected, including final rerender",
+    "live_qa": "pending"
+  }
+]
