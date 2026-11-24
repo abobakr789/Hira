@@ -1,0 +1,155 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L01/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "text4",
+      "uae"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L06/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "text3"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L11/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "hook",
+      "text1",
+      "text3",
+      "text4"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L12/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "text1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L13/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L13/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "cover",
+      "text1",
+      "text3",
+      "talk",
+      "check",
+      "quiz"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked."
+    },
+    "original_media": "unchanged"
+  }
+]
