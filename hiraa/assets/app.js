@@ -2400,7 +2400,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     o = document.createElement("div"); o.id = "ieDeckOv"; o.style.cssText = "position:fixed;inset:0;z-index:2147483000;background:#0E1621";
     o.innerHTML = `<iframe src="${esc(src)}" title="عرض المعلم" allow="fullscreen; autoplay" allowfullscreen style="border:0;width:100%;height:100%;display:block"></iframe>`;
     document.body.appendChild(o); document.body.style.overflow = "hidden";
-    setTimeout(() => { try { o.querySelector("iframe").focus(); } catch (e) {} }, 300);
+    // شريط العرض الجديد (hbar.js): يُحقن في العرض نفسه فيستبدل شريطه القديم بشريطين على نمط قارئ الكتب
+    const fr = o.querySelector("iframe");
+    fr.addEventListener("load", () => { try { const d = fr.contentDocument; if (!d || d.getElementById("hb-css") || !d.getElementById("tb")) return;
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261124a", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+    setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src); });
   window.addEventListener("message", (e) => { if (e.data && e.data.hiraa === "deck-close") { const o = document.getElementById("ieDeckOv"); if (o) { if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); o.remove(); document.body.style.overflow = ""; } } });
