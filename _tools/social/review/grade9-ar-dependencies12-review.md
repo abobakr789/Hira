@@ -1,0 +1,1 @@
+Propagated facts10 corrections into revealed model answers, group prompts, teacher notes and printed group packs. Four lessons: Gulf names, knowledge economy, resources, India trade. Sources remain in facts10 ledger. All four representative changed slides inspected as pixels. No original media changed.
