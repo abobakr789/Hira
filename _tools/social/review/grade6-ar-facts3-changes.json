@@ -1,0 +1,170 @@
+[
+  {
+    "file": "resources/ssd/SS-Y6-T1-L09/teacher-deck.html",
+    "views": [
+      "critique"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/teacher-deck.html",
+    "views": [
+      "learn4",
+      "critique",
+      "g3",
+      "models",
+      "enrich"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L06/teacher-deck.html",
+    "views": [
+      "learn4",
+      "models",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+    "views": [
+      "enrich"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L04/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L04/teacher-deck.html",
+    "views": [
+      "vocab",
+      "match",
+      "critique",
+      "enrich",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L04/worksheets-A4.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+    "views": [
+      "watani",
+      "enrich"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L06/teacher-deck.html",
+    "views": [
+      "models",
+      "watani"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "19 slide fronts, 6 print pages, critique explanations, matching popup and flipped vocabulary inspected; final China model and heritage key rechecked"
+    },
+    "original_media": "unchanged"
+  }
+]
