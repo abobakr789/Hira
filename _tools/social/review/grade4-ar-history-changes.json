@@ -1,0 +1,91 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L16/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L16/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L16/teacher-deck.html",
+    "views": [
+      "learn3"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L22/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L22/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L22/teacher-deck.html",
+    "views": [
+      "learn3"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L13/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L13/teacher-deck.html",
+    "views": [
+      "learn4",
+      "think"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L17/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L17/teacher-deck.html",
+    "views": [
+      "learn4"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+    "live_qa": "pending"
+  }
+]
