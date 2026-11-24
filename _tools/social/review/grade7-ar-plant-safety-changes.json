@@ -1,0 +1,35 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-T3-L22/teacher-deck.html",
+    "views": [
+      "learn4"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L22/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L22/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass",
+      "live": "pending"
+    }
+  }
+]
