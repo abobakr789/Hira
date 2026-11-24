@@ -1,0 +1,70 @@
+{
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y10-T1-L15/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L15/pod-sheet.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L15/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L15/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L15/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L2/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L2/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L2/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L3/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L3/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L3/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L7/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L7/group-work.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L7/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L7/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L7/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L9/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L9/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L9/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L9/worksheets-A4.html"
+    }
+  ],
+  "sources": [
+    "https://www.iranicaonline.org/articles/nader-shah/",
+    "https://www.mofa.gov.ae/en/the-uae/the-founder",
+    "https://u.ae/en/about-the-uae/history"
+  ],
+  "qa": "Actual-pixel local checks passed on core readings, quick/TF questions and three worksheets. Long core reading resized after first inspection. Cloze gap counts retained. Original media unchanged. Live pending."
+}
