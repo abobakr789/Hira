@@ -1,0 +1,422 @@
+[
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L02/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L02/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Supply the actual missing cloze answer in the constrained word bank.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L03/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L04/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L04/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Supply the actual missing cloze answer in the constrained word bank.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L05/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L07/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L07/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Supply the actual missing cloze answer in the constrained word bank.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L08/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L09/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L09/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L10/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L10/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Supply the actual missing cloze answer in the constrained word bank.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L11/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L12/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L14/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L15/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Reconcile worksheet matching rows and glossary meanings with actual prompts, and replace stale quiz letters with visible numbered choice positions.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L15/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Supply the actual missing cloze answer in the constrained word bank.",
+    "qa": {
+      "local": "PASS: independently reconciled all 60 beginner matching rows, 45 glossary matches, 45 cloze answers and 75 visible numbered quiz positions; 15 model popups and 20 changed print pages inspected as rendered pixels.",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]
