@@ -18,3 +18,5 @@ Verified 24 November 2026. Four lessons, seventeen HTML resources. Grade review 
 - Original image, audio, video and source references retained. Navigation and interaction handlers retained.
 - Inspected thirteen initial slide fronts, seven revised fronts, vocabulary backs, six explanation panels and all 24 available print pages in changed lesson resources. Four final concept cards and the unambiguous trade-direction panel inspected again.
 - Live verification pending publication.
+
+- Final live QA: all 43 resources across the ancient and civic batches matched the repository exactly. Inspected the repaired Dilmun learning panel, final Al Hosn panel, national-service conditions, Marib 1984 date, Union Pledge worksheet, national-service key and Marib concept card. Deployment: https://github.com/abobakr789/Hira/actions/runs/45339936939

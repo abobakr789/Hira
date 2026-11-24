@@ -19,4 +19,6 @@ Verified 24 November 2026. Six lessons, 26 HTML resources. This batch is part of
 - Rebuilt all six silver word-bank tasks with real blanks, and aligned silver/gold/diamond keys to their lesson's questions.
 - Moved concept source-analysis panels inside print auto-fit; removed unrelated decorative icons.
 - Local: 24 learning slides, modified reading/enrichment and final festival panel;36 print pages plus6 revised concept cards inspected. Original media references asserted unchanged across26HTML resources.
-- Live checks pending publication.
+- Live: exact deployed HTML confirmed for every changed resource at 10:31 Asia/Dubai, 24 November 2026. Revised learning slides and print pages visually inspected after deployment.
+
+- Final live QA: all 43 resources across the ancient and civic batches matched the repository exactly. Inspected the repaired Dilmun learning panel, final Al Hosn panel, national-service conditions, Marib 1984 date, Union Pledge worksheet, national-service key and Marib concept card. Deployment: https://github.com/abobakr789/Hira/actions/runs/45339936939
