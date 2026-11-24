@@ -971,6 +971,10 @@
       "#hbResP .hb-bar{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr) 40px;align-items:center;gap:10px;padding:6px 8px;border-radius:12px;border:2px solid transparent}",
       "#hbResP .hb-bar:hover{background:#F7F4EC}",
       "#hbResP .hb-bar.ok{border-color:#2E9E5B;background:#EAF7EF}",
+      "#hbAskPop{max-height:calc(100vh - var(--hb-h) - 24px);overflow:auto}",
+      ".hb-sq{margin-top:10px;border:1px solid #E7D9B8;background:#FFFBF2;border-radius:14px;padding:10px 12px}.hb-sqh{font-weight:800;color:#102A4C;margin-bottom:6px}.hb-sqh small{font-weight:500;color:#7A8698;margin-inline-start:6px}",
+      ".hb-sqi{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 0;border-top:1px dashed #E7D9B8}.hb-sqi:first-of-type{border-top:0}.hb-sqt{flex:1 1 220px;cursor:text;font-weight:600;line-height:1.6}.hb-sqt small{display:block;font-weight:500;color:#6B7280;font-size:12.5px}",
+      ".hb-sqb{display:flex;gap:6px;flex-wrap:wrap}.hb-sqb .hb-btn{padding:6px 10px;font-size:13px}.hb-sqi.sent .hb-sqt{color:#1B6B3A}",
       "#hbResP .hb-bar .lab{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;min-width:0}",
       "#hbResP .hb-bar .lab i{font-style:normal;flex:none;width:28px;height:28px;border-radius:8px;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px}",
       "#hbResP .hb-bar .lab span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
@@ -1096,13 +1100,60 @@
     var ABC = RTL ? ["أ", "ب", "ج", "د", "هـ", "و"] : ["A", "B", "C", "D", "E", "F"];
     function prNow() { var k = -1; PR.forEach(function (x, j) { if (x.i === cur) k = j; }); return k; }
     function phaseGuess() { var k = prNow(); if (k >= 0) return k === 0 ? "before" : "after"; var first = PR.length ? PR[0].i : -1; return cur <= first ? "before" : "after"; }
+    /* أسئلة الشريحة الحالية: تُقرأ من الشريحة نفسها مع خياراتها وإجابتها إن وُجدت */
+    var sentQ = {};
+    var clean = function (t) { return String(t || "").replace(/\s+/g, " ").replace(/^[\s\d٠-٩.)\-–•]+/, "").replace(/[\u{1F300}-\u{1FAFF}\u2600-\u27BF\uFE0F]/gu, "").trim(); };
+    var num = function (t) { var m = String(t || "").replace(/[٠-٩]/g, function (d) { return "٠١٢٣٤٥٦٧٨٩".indexOf(d); }).match(/\d+/); return m ? +m[0] : 0; };
+    var YN = /^(هل|أ(?=[^ل]))|^(is|are|do|does|did|can|could|will|would|should|was|were|have|has)\b/i;
+    function slideQs(k) {
+      var sl = SL[k]; if (!sl) return [];
+      var out = [], seen = {};
+      var push = function (q) { q.text = clean(q.text); if (q.text.length < 6 || seen[q.text]) return; seen[q.text] = 1; out.push(q); };
+      sl.querySelectorAll(".qr").forEach(function (r) {
+        var qt = r.querySelector(".q"), os = [].map.call(r.querySelectorAll(".qo"), function (o) { var b = o.querySelector("bdi"); return clean((b || o).textContent); }).filter(Boolean);
+        if (!qt) return; var a = num((r.querySelector(".qa") || {}).textContent) - 1;
+        push(os.length >= 2 ? { kind: "mc", text: qt.textContent, opts: os.slice(0, 6), ans: a >= 0 && a < os.length ? a : null } : { kind: "open", text: qt.textContent });
+      });
+      sl.querySelectorAll(".tfr").forEach(function (r) {
+        var qt = r.querySelector(".tfq p") || r.querySelector(".tfq"); if (!qt) return; var a = r.querySelector(".tfa");
+        push({ kind: "tf", text: qt.textContent, opts: [T("صح", "True"), T("خطأ", "False")], ans: a ? (a.classList.contains("y") ? 0 : a.classList.contains("x") ? 1 : null) : null });
+      });
+      if (out.length) return out.slice(0, 8);
+      var hasQ = function (e) { return /[؟?]/.test(e.textContent); };
+      sl.querySelectorAll("p,li,h1,h2,h3,h4,h5,td,div,span,b").forEach(function (e) {
+        if (e.closest("aside,.qr,.tfr,.ans,.qa,.tip,.inst,.ft,.hrow,script,style")) return;
+        if (!hasQ(e) || [].some.call(e.children, hasQ)) return;
+        (e.textContent.replace(/\s+/g, " ").match(/[^؟?.!:]*[؟?]/g) || []).forEach(function (x) { var t = clean(x); if (t.length >= 6) push({ kind: YN.test(t) ? "yn" : "open", text: t }); });
+      });
+      return out.slice(0, 8);
+    }
+    function sendSlideQ(q, as) {
+      sentQ[q.text] = 1;
+      if (as === "mc" || as === "tf") ask({ t: as, text: q.text, opts: q.opts }, q.ans);
+      else if (as === "yn") ask({ t: "tf", text: q.text, opts: [T("نعم", "Yes"), T("لا", "No")] });
+      else ask({ t: "word", text: q.text });
+    }
+    function slideQsHtml() {
+      var L = slideQs(cur); if (!L.length) return "";
+      var KN = { mc: "🔤 " + TYPES.mc, tf: "✓✗ " + TYPES.tf, yn: "👍 " + T("نعم أم لا", "Yes / No"), open: "☁️ " + T("إجابة قصيرة", "Short answer") };
+      return '<div class="hb-sq"><div class="hb-sqh">📌 ' + T("أسئلة هذه الشريحة", "Questions on this slide") + " <small>" + T("أرسل أيًّا منها بنقرة", "Send any of them in one tap") + "</small></div>" +
+        L.map(function (q, i) {
+          var btns = q.kind === "mc" ? [["mc", KN.mc]] : q.kind === "tf" ? [["tf", KN.tf]] : q.kind === "yn" ? [["yn", KN.yn], ["word", KN.open]] : [["word", KN.open], ["yn", KN.yn]];
+          return '<div class="hb-sqi' + (sentQ[q.text] ? " sent" : "") + '"><div class="hb-sqt" data-qi="' + i + '" title="' + T("انقر لتعديل النص قبل الإرسال", "Click to edit before sending") + '">' + (sentQ[q.text] ? "✓ " : "") + esc(q.text) +
+            (q.opts && q.kind === "mc" ? '<small>' + q.opts.map(function (o, j) { return ABC[j] + ") " + esc(o); }).join(" · ") + (q.ans != null ? " · " + T("الإجابة: ", "Answer: ") + ABC[q.ans] : "") + "</small>" : q.kind === "tf" && q.ans != null ? "<small>" + T("الإجابة: ", "Answer: ") + q.opts[q.ans] + "</small>" : "") +
+            '</div><div class="hb-sqb">' + btns.map(function (b, j) { return '<button type="button" class="hb-btn' + (j ? "" : " pri") + '" data-qs="' + i + '" data-as="' + b[0] + '">📲 ' + b[1] + "</button>"; }).join("") + "</div></div>";
+        }).join("") + "</div>";
+    }
     function paintAsk() {
-      var k = prNow();
-      askPop.innerHTML = '<div class="hb-h">❓ ' + T("اسأل الصف", "Ask the class") + '</div><input type="text" id="hbQt" maxlength="200" placeholder="' + T("نص السؤال (اختياري: إن كان السؤال على الشريحة فاتركه فارغًا)", "Question text (optional if it is on the slide)") + '">' +
+      var k = prNow(), SQ = slideQs(cur);
+      askPop.innerHTML = '<div class="hb-h">❓ ' + T("اسأل الصف", "Ask the class") + '</div><input type="text" id="hbQt" maxlength="200" placeholder="' + T("نص السؤال (اختياري: إن كان السؤال على الشريحة فاتركه فارغًا)", "Question text (optional if it is on the slide)") + '">' + slideQsHtml() +
+        (SQ.length ? '<div class="hb-sqh" style="margin-top:12px">✏️ ' + T("أو سؤال من عندك", "Or your own question") + "</div>" : "") +
         '<div class="hb-tiles">' +
         (PR.length ? '<button type="button" class="wide" data-t="rate">📈 ' + TYPES.rate + "<small>" + T("يقيّم كل طالب نفسه في معايير النجاح", "Each student rates the success criteria") + " (" + PR[0].rows.length + ") · " + (phaseGuess() === "before" ? T("قبل الدرس", "before the lesson") : T("بعد الدرس", "after the lesson")) + "</small></button>" : "") +
         '<button type="button" data-t="mc">🔤 ' + TYPES.mc + "<small>" + T("خيارات بالألوان، وتكشف الصحيحة", "Coloured options, reveal the answer") + '</small></button><button type="button" data-t="tf">✓✗ ' + TYPES.tf + "<small>" + T("أسرع سؤال تشخيصي", "The quickest check") + "</small></button>" +
         '<button type="button" data-t="word">☁️ ' + TYPES.word + "<small>" + T("سحابة كلمات من إجاباتهم", "A word cloud of answers") + '</small></button><button type="button" data-t="scale">😊 ' + TYPES.scale + "<small>" + T("هل فهمتم؟ بثلاثة وجوه", "Did you get it? Three faces") + "</small></button></div><div id=\"hbAskX\"></div>";
+      askPop.querySelectorAll("[data-qs]").forEach(function (b) { b.onclick = function () { var q = SQ[+b.dataset.qs], tx = $("hbQt"), v = tx.value.trim(); if (v && tx.dataset.qi === b.dataset.qs) q = Object.assign({}, q, { text: v }); tx.value = ""; sendSlideQ(q, b.dataset.as); }; });
+      askPop.querySelectorAll("[data-qi]").forEach(function (b) { b.onclick = function () { var tx = $("hbQt"); tx.value = SQ[+b.dataset.qi].text; tx.dataset.qi = b.dataset.qi; tx.focus(); }; });
       askPop.querySelectorAll("[data-t]").forEach(function (b) { b.onclick = function () { var t = b.dataset.t; if (t === "mc") return mcEditor(); if (t === "rate") return rateEditor(); ask({ t: t, opts: t === "tf" ? [T("صح", "True"), T("خطأ", "False")] : undefined }); }; });
     }
     function mcEditor() {
@@ -1131,10 +1182,10 @@
       var k = prNow(), src = k >= 0 ? PR[k] : (ph === "after" && PR[1] ? PR[1] : PR[0]);
       ask({ t: "rate", phase: ph, rows: src.rows, slide: src.i, text: ph === "before" ? T("قبل الدرس: أين أنا من معايير النجاح؟", "Before the lesson: where am I?") : T("بعد الدرس: أين أصبحت من معايير النجاح؟", "After the lesson: where am I now?") });
     }
-    function ask(q) {
+    function ask(q, known) {
       var tx = $("hbQt"); if (tx && tx.value.trim() && !q.text) q.text = tx.value.trim();
       q.slide = q.slide != null ? q.slide : cur; q.at = Date.now();
-      step("ask", q).then(function () { S.q = q; answers = []; pick = null; closePops(); minimized = false; resP.classList.remove("mini"); resP.classList.add("on"); paintRes(); chip.classList.remove("on"); say(T("وصل السؤال إلى أجهزة الطلاب", "Question sent to students")); });
+      step("ask", q).then(function () { S.q = q; answers = []; pick = known != null ? known : null; closePops(); minimized = false; resP.classList.remove("mini"); resP.classList.add("on"); paintRes(); chip.classList.remove("on"); say(T("وصل السؤال إلى أجهزة الطلاب", "Question sent to students")); });
     }
 
     /* ---------- لوحة النتائج ---------- */
@@ -1190,6 +1241,11 @@
       var j = -1; PR.forEach(function (x, i) { if (x.i === k) j = i; });
       var ph = j === 0 ? "before" : "after";
       if (S && S.state !== "done" && j >= 0 && !askedPhase[ph]) { chip.innerHTML = "📲 " + (ph === "before" ? T("اطلب من الطلاب تقييم أنفسهم قبل الدرس على أجهزتهم", "Ask students to self-rate before the lesson") : T("اطلب من الطلاب تقييم أنفسهم بعد الدرس على أجهزتهم", "Ask students to self-rate after the lesson")); chip.classList.add("on"); chip.onclick = function (e) { e.stopPropagation(); askedPhase[ph] = 1; chip.classList.remove("on"); sendRate(ph); }; }
+      else if (S && S.state !== "done" && S.state !== "open" && slideQs(k).some(function (q) { return !sentQ[q.text]; })) {
+        var nq = slideQs(k).length;
+        chip.innerHTML = "📲 " + T("اسأل الصف أسئلة هذه الشريحة على أجهزتهم", "Ask the class this slide's questions on their devices") + " (" + nq + ")"; chip.classList.add("on");
+        chip.onclick = function (e) { e.stopPropagation(); chip.classList.remove("on"); paintAsk(); closePops(); askPop.style.display = "block"; anchor(askPop, btnAsk); };
+      }
       else chip.classList.remove("on");
     };
 
