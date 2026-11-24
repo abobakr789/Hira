@@ -1,0 +1,319 @@
+[
+  {
+    "file": "resources/ssd/SS-Y6-T1-L01/teacher-deck.html",
+    "views": [
+      "critique"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L02/teacher-deck.html",
+    "views": [
+      "learn2",
+      "learn3",
+      "critique",
+      "models",
+      "enrich"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L03/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L03/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L03/teacher-deck.html",
+    "views": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "booktext",
+      "critique",
+      "g1",
+      "models",
+      "enrich",
+      "quick"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L03/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L04/teacher-deck.html",
+    "views": [
+      "vocab",
+      "match",
+      "learn3",
+      "critique",
+      "models"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L04/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L07/teacher-deck.html",
+    "views": [
+      "quick"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/teacher-deck.html",
+    "views": [
+      "learn2",
+      "booktext",
+      "critique",
+      "models",
+      "enrich"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L02/teacher-deck.html",
+    "views": [
+      "enrich"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L06/teacher-deck.html",
+    "views": [
+      "models"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+    "views": [
+      "enrich"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+    "views": [
+      "critique",
+      "models"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L06/teacher-deck.html",
+    "views": [
+      "enrich"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L07/teacher-deck.html",
+    "views": [
+      "critique"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "34 changed slide fronts, 19 print pages, critique explanations, full matching popup and flipped vocabulary; final source cards rechecked after fitting source-analysis panels"
+    },
+    "original_media": "unchanged"
+  }
+]
