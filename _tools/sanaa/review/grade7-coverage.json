@@ -1,0 +1,14 @@
+{
+  "status": "targeted review locally verified; deployment pending",
+  "inventory": {
+    "lessons": 21,
+    "html": 201,
+    "slides": 757
+  },
+  "changed_html": 112,
+  "changed_lessons": 21,
+  "explanatory_panels": 4,
+  "method": "Baseline comparison: 610 whole sections identical to reviewed grade5, 126 grade-specific variants per grade. Only identical sections ported whole. Shared text corrections and visible safety notes applied separately into preserved grade-specific reading, group and project scaffolds. Checked affected goals, tasks, retrieval, keys and printables.",
+  "qa": "603HTML792scripts clean across grades6-8. Local panels, safety notes, grade-specific projects and print samples visually checked. Follow-up repaired patient-visit matching distractor/context and school-exit answer notes.",
+  "limits": "Targeted review, not every original slide independently fact checked or pixel inspected. Same source caveats as grade5."
+}

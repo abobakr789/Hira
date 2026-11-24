@@ -1,5 +1,5 @@
 {
-  "status": "targeted review ready for deployment",
+  "status": "closed: targeted review published and verified",
   "baseline": "0a140d70",
   "inventory": {
     "lessons": 21,
@@ -35,5 +35,7 @@
     "https://dct.gov.ae/en/what.we.do/culture.aspx"
   ],
   "qa": "201HTML264scripts: no missing src assets or JS syntax errors. Local four panels, exact hooks, success criteria, safety notes, printable tasks and answer-key samples visually checked.",
-  "limits": "Targeted review, not every slide independently fact checked or visually inspected."
+  "limits": "Targeted review, not every slide independently fact checked or visually inspected.",
+  "content_commit": "5ab86f83a9bfb13dbc20a4cf02e6f19915d750ac",
+  "live_qa": "115/115 changed HTML exact at 22:15 Dubai; published dallah functions, institution roles, constituent categories and teacher-arrival/safety pixels inspected at 22:16."
 }
