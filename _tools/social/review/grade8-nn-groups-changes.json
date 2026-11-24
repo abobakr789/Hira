@@ -8,7 +8,7 @@
     "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
     "qa": {
       "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
-      "live": "pending"
+      "live": "PASS:6/6 HTML byte-exact to eed2d094, actual live reading and recap scenes 2/3 inspected 2026-11-24 15:58 Asia/Dubai"
     }
   },
   {
@@ -20,7 +20,7 @@
     "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
     "qa": {
       "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
-      "live": "pending"
+      "live": "PASS:6/6 HTML byte-exact to eed2d094, actual live reading and recap scenes 2/3 inspected 2026-11-24 15:58 Asia/Dubai"
     }
   },
   {
@@ -41,7 +41,7 @@
     "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
     "qa": {
       "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
-      "live": "pending"
+      "live": "PASS:6/6 HTML byte-exact to eed2d094, actual live reading and recap scenes 2/3 inspected 2026-11-24 15:58 Asia/Dubai"
     }
   },
   {
@@ -54,7 +54,7 @@
     "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
     "qa": {
       "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
-      "live": "pending"
+      "live": "PASS:6/6 HTML byte-exact to eed2d094, actual live reading and recap scenes 2/3 inspected 2026-11-24 15:58 Asia/Dubai"
     }
   },
   {
@@ -77,7 +77,7 @@
     "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
     "qa": {
       "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
-      "live": "pending"
+      "live": "PASS:6/6 HTML byte-exact to eed2d094, actual live reading and recap scenes 2/3 inspected 2026-11-24 15:58 Asia/Dubai"
     }
   },
   {
@@ -90,7 +90,7 @@
     "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
     "qa": {
       "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
-      "live": "pending"
+      "live": "PASS:6/6 HTML byte-exact to eed2d094, actual live reading and recap scenes 2/3 inspected 2026-11-24 15:58 Asia/Dubai"
     }
   }
 ]
