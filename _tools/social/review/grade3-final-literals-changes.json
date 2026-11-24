@@ -6,7 +6,7 @@
       "see"
     ],
     "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
   },
   {
     "file": "resources/ssd/SS-Y3-T2-L07/teacher-deck.html",
@@ -14,7 +14,7 @@
       "vocab"
     ],
     "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
   },
   {
     "file": "resources/ssd/SS-Y3-T2-L18/teacher-deck.html",
@@ -23,7 +23,7 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L09/teacher-deck.html",
@@ -32,7 +32,7 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L06/teacher-deck.html",
@@ -40,7 +40,7 @@
       "vocab"
     ],
     "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
   },
   {
     "file": "resources/ssd/SS-Y3-T2-L06/teacher-deck.html",
@@ -48,6 +48,6 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
   }
 ]

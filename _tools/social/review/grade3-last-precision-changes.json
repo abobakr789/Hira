@@ -1,0 +1,36 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "guide"
+    ],
+    "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "vocab",
+      "see"
+    ],
+    "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L13/teacher-deck.html",
+    "views": [
+      "model"
+    ],
+    "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T2-L03/teacher-deck.html",
+    "views": [
+      "vocab",
+      "model"
+    ],
+    "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
+    "live_qa": "pending"
+  }
+]
