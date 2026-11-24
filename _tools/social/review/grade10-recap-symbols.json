@@ -1,0 +1,22 @@
+{
+  "reason": "Remove generic hearts, speech bubbles, stars and rotation badges from conceptual learning cards; retain numbered lesson-specific text, two-column layout and colors.",
+  "lessons": [
+    "SS-Y10-NN-T1-L01",
+    "SS-Y10-NN-T1-L02",
+    "SS-Y10-NN-T1-L03",
+    "SS-Y10-NN-T1-L04",
+    "SS-Y10-NN-T1-L05",
+    "SS-Y10-NN-T1-L06",
+    "SS-Y10-NN-T1-L07",
+    "SS-Y10-NN-T1-L08",
+    "SS-Y10-NN-T1-L09",
+    "SS-Y10-NN-T1-L10",
+    "SS-Y10-NN-T1-L11",
+    "SS-Y10-NN-T1-L12",
+    "SS-Y10-NN-T1-L13",
+    "SS-Y10-NN-T1-L14",
+    "SS-Y10-NN-T1-L15",
+    "SS-Y10-NN-T1-L16",
+    "SS-Y10-NN-T1-L17"
+  ]
+}
