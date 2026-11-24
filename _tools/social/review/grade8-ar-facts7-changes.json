@@ -4,7 +4,7 @@
     "sha256": "e326b404c608fdeb775cdf253518f0af7618ebc990e3e9df4d8eae67fe967617",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact to deployed 8a59152d; representative live pixels inspected 2026-11-24 16:54 Asia/Dubai"
     }
   },
   {
@@ -12,7 +12,7 @@
     "sha256": "c83f5044d22187791a9a097c17a76cffaec9d1bddbcb6251b794e2a9f2b8fef7",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact to deployed 8a59152d; representative live pixels inspected 2026-11-24 16:54 Asia/Dubai"
     }
   },
   {
@@ -20,7 +20,7 @@
     "sha256": "a8110cc530a0f61590fec86e179a5a31d45a45b1935ea086e8e9788836b124cc",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact to deployed 8a59152d; representative live pixels inspected 2026-11-24 16:54 Asia/Dubai"
     }
   },
   {
@@ -28,7 +28,7 @@
     "sha256": "1920531222c3ab69215572bfe41c6121a675950e43c473249bfe5c5e8963ade6",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact to deployed 8a59152d; representative live pixels inspected 2026-11-24 16:54 Asia/Dubai"
     }
   },
   {
@@ -36,7 +36,7 @@
     "sha256": "9f8a94ddc713f36d7b7109f0f0db0059236abdb5e3bbe7a1126809370cdca671",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact to deployed 8a59152d; representative live pixels inspected 2026-11-24 16:54 Asia/Dubai"
     }
   }
 ]

@@ -1,0 +1,22 @@
+[
+  {
+    "lesson": "SS-Y8-NN-T1-L11",
+    "slide": "text2",
+    "rationale": "The schematic teaches which seas the canal joins; it is not a geographic map or trade-direction claim.",
+    "qa": {
+      "local": "PASS: 1920x1080 actual pixels inspected, complete text and panel fit",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "lesson": "SS-Y8-NN-T1-L12",
+    "slide": "text2",
+    "rationale": "A side-by-side dated distinction prevents conflating Harar with ancient Aksum; no arrow suggesting direct succession.",
+    "qa": {
+      "local": "PASS: 1920x1080 actual pixels inspected, complete text and panel fit",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]
