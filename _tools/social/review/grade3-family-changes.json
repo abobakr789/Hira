@@ -6,7 +6,7 @@
       "models"
     ],
     "local_qa": "PASS 2026-11-24 04:31 Asia/Dubai; 2 slides and 1 print page inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 04:35 Asia/Dubai; 2/2 HTML byte-exact; both slides and answer key pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L17/answer-key.html",
@@ -14,6 +14,6 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:31 Asia/Dubai; 2 slides and 1 print page inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 04:35 Asia/Dubai; 2/2 HTML byte-exact; both slides and answer key pixels inspected"
   }
 ]
