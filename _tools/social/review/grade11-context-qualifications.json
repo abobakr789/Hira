@@ -1,0 +1,121 @@
+{
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y11-T3-L2/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L2/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L2/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L2/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L5/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L5/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L5/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L10/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L10/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L10/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L10/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L13/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L13/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L17/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L17/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L19/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L19/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L33/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L33/teacher-deck.html",
+      "nodes": 1
+    }
+  ],
+  "dated_sections": {
+    "SS-Y11-T3-L7": [
+      "learn2",
+      "learn3"
+    ],
+    "SS-Y11-T3-L8": [
+      "learn2",
+      "learn3"
+    ],
+    "SS-Y11-T3-L9": [
+      "learn3",
+      "learn4"
+    ],
+    "SS-Y11-T3-L10": [
+      "learn3"
+    ],
+    "SS-Y11-T3-L12": [
+      "learn3"
+    ],
+    "SS-Y11-T3-L14": [
+      "learn3",
+      "learn4"
+    ],
+    "SS-Y11-T3-L15": [
+      "learn1",
+      "learn4"
+    ],
+    "SS-Y11-T3-L19": [
+      "learn3",
+      "learn4"
+    ],
+    "SS-Y11-T2-L13": [
+      "learn2"
+    ]
+  },
+  "rationale": "Avoid undated rankings, deterministic scenarios, and treating old textbook targets as achieved current results. Retain figures as historical book-analysis data rather than invent replacements.",
+  "sources": [
+    "https://www.moccae.gov.ae/en/media-center/news/8/1/2025/plant-the-emirates-programme-strengthens-sustainable-national-food-security",
+    "https://www.worldbank.org/en/topic/water/publication/beyond-scarcity-water-security-in-the-middle-east-and-north-africa",
+    "https://www.ipcc.ch/report/ar6/wg2/chapter/chapter-4/"
+  ]
+}

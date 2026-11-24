@@ -1,0 +1,120 @@
+{
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y11-T1-L1/answer-key.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L1/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L1/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L1/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L2/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L2/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L2/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L2/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L4/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L4/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L4/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L5/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L5/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L8/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L8/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L11/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L11/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L12/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L12/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L12/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L12/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L8/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L8/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L8/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L13/sources-concept-card.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L13/worksheets-A4.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L13/teacher-deck.html",
+      "nodes": 4
+    }
+  ],
+  "sources": [
+    "https://u.ae/en/about-uae/founders-of-the-union",
+    "https://history.state.gov/historicaldocuments/frus1964-68v21/d21",
+    "https://news.un.org/ar/story/2011/09/148842",
+    "https://www.albayan.ae/across-the-uae/2006-03-07-1.897845",
+    "https://www.falconhospital.com/adfh/about-adfh"
+  ],
+  "note": "Egypt-Libya mediation in 1974 retained: independent account also mentions both 1974 and1977, so initial suspicion was not evidence of an error. Exact October boycott day omitted where sources disagreed."
+}

@@ -28,5 +28,41 @@
     "slide": "learn2",
     "purpose": "من التنوع إلى الحماية",
     "source": "https://www.aard.gov.ae/Media-Centre/News/26-09-2020-2"
+  },
+  {
+    "code": "SS-Y11-T3-L3",
+    "slide": "learn4",
+    "purpose": "السحابة داخل الغلاف الجوي",
+    "source": "https://cdc.gov/drinking-water/about/collecting-rainwater-and-your-health-an-overview.html"
+  },
+  {
+    "code": "SS-Y11-T3-L11",
+    "slide": "learn3",
+    "purpose": "نختار المقام أولا",
+    "source": "https://www.usgs.gov/special-topics/water-science-school/science/where-earths-water"
+  },
+  {
+    "code": "SS-Y11-T3-L15",
+    "slide": "learn2",
+    "purpose": "ماء مباشر وماء غير مباشر",
+    "source": "https://www.waterfootprint.org/water-footprint-2/what-is-a-water-footprint/"
+  },
+  {
+    "code": "SS-Y11-T3-L21",
+    "slide": "learn3",
+    "purpose": "نزيل حاجز الوصول",
+    "source": "https://www.w3.org/WAI/fundamentals/accessibility-intro/"
+  },
+  {
+    "code": "SS-Y11-T3-L31",
+    "slide": "learn4",
+    "purpose": "نختار حماية حديثة",
+    "source": "https://www.cisa.gov/audiences/high-risk-communities/projectupskill/module5"
+  },
+  {
+    "code": "SS-Y11-T3-L33",
+    "slide": "learn4",
+    "purpose": "قبل البيع أو التبرع",
+    "source": "https://csrc.nist.gov/pubs/sp/800/88/r2/final"
   }
 ]

@@ -1,0 +1,197 @@
+{
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y11-T3-L2/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L3/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L3/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L3/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L3/teacher-deck.html",
+      "nodes": 7
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L4/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L4/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L4/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L5/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L7/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L10/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L10/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L10/worksheets-A4.html",
+      "nodes": 5
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L10/teacher-deck.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L11/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L11/teacher-deck.html",
+      "nodes": 5
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L11/pod-sheet.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L14/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L14/pod-sheet.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L15/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L15/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L16/answer-key.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L16/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L16/teacher-deck.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L17/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L17/pod-sheet.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L19/answer-key.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L19/worksheets-A4.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L19/teacher-deck.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L20/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L20/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L20/teacher-deck.html",
+      "nodes": 7
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L20/pod-sheet.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L21/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L22/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L22/teacher-deck.html",
+      "nodes": 5
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L22/pod-sheet.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L24/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L28/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L30/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L30/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L30/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L31/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L31/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L31/teacher-deck.html",
+      "nodes": 9
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L32/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L32/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L33/teacher-deck.html",
+      "nodes": 6
+    }
+  ],
+  "note": "Targeted follow-through of content corrections into quiz options, prompts, model answers and print copies. Kept option positions and polarity unchanged. Old source data labeled as historical, not independently re-measured."
+}

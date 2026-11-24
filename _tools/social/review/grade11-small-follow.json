@@ -1,0 +1,66 @@
+{
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y11-T1-L1/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L1/group-work.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/teacher-deck.html",
+      "nodes": 7
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/group-work.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/pod-sheet.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L21/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L21/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L21/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L22/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L22/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L30/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L30/teacher-deck.html",
+      "nodes": 2
+    }
+  ],
+  "sources": [
+    "https://dct.gov.ae/en/what.we.do/culture/museums/qasr.al.muwaiji.aspx",
+    "https://www.ead.gov.ae/en/Experience-Green-Abu-Dhabi/Places-To-Go/Jabal-Hafit-National--Park",
+    "https://www.w3.org/WAI/fundamentals/accessibility-intro/",
+    "https://www.fisheries.noaa.gov/feature-story/follow-whales-how-tagging-supports-whale-research-and-rescue"
+  ]
+}

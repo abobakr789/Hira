@@ -1,0 +1,63 @@
+{
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y11-T2-L1/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L1/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L1/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L1/teacher-deck.html",
+      "nodes": 5
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L2/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L2/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L7/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L11/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L15/teacher-deck.html",
+      "nodes": 6
+    }
+  ],
+  "sources": [
+    "https://www.fao.org/4/y4360e/y4360e0c.htm",
+    "https://www.zakatfund.gov.ae/zfp/web/fatawa/fatwadetails.aspx?qid=160",
+    "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home",
+    "https://library.dctabudhabi.ae/sites/default/files/2025-04/world_heritage_sites_of_al_ain-_english_0.pdf",
+    "https://whc.unesco.org/en/conventiontext/"
+  ]
+}

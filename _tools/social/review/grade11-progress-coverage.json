@@ -1,0 +1,16 @@
+{
+  "status": "targeted review in progress; not closed",
+  "lessons": 64,
+  "html_inventory": 384,
+  "slides": 2048,
+  "changed_html": 187,
+  "changed_lessons": 64,
+  "review": "Read all64 core lesson texts and targeted activities (guess,predict,critique,enrich,quick,think,values,citizenship); dependency review of affected support copies. Preserve originals where not corrected. Retrieval boilerplate replaced with lesson concept in64 decks.",
+  "limits": "Not every slide independently fact checked or pixel inspected. Historical statistics are labeled rather than replaced with invented new figures. Legal arguments are textbook viewpoints, not court judgments.",
+  "qa": {
+    "html": 384,
+    "scripts": 512,
+    "missing_assets": [],
+    "script_errors": []
+  }
+}
