@@ -14,10 +14,7 @@
   "static_qa": "478 HTML files and 550 inline scripts checked after final content and learning-card edits: zero missing local src assets and zero inline JavaScript syntax errors.",
   "visuals_added": 9,
   "nn_recap_grids": 17,
-  "remaining_before_close": [
-    "Final publication byte checks against committed HTML",
-    "Live pixel samples of Arabic diagrams, NN recap/word cards, animated recap, accessible worksheet and corrected answer popups"
-  ],
+  "remaining_before_close": [],
   "visual_note": "Eight concept panels from grade10-diagrams.json plus the IRENA definition/comparison panel on T3-L3 learn3. Seventeen NN learning grids are a separate layout correction, not 17 concept illustrations.",
-  "live_qa_progress": "Eight original concept panels checked as rendered live. NN14 animated recap and accessible worksheet checked live. Latest teacher-deck revisions still await Pages deployment before final byte and pixel checks."
+  "live_qa_progress": "388 of 388 changed HTML files byte-identical to committed source at public URLs on 24 November 2026, 21:11 Asia/Dubai. Live pixel samples passed all nine concept panels, NN learning grids, matching and vocabulary definitions, answer popups, NN quiz/check and revealed talk answers, animated recap and accessible worksheet."
 }
