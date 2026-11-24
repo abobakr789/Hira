@@ -5,7 +5,7 @@
       "0"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L16/worksheets-A4.html",
@@ -13,7 +13,7 @@
       "1"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L16/teacher-deck.html",
@@ -21,7 +21,7 @@
       "learn3"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L22/sources-concept-card.html",
@@ -29,7 +29,7 @@
       "0"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L22/worksheets-A4.html",
@@ -37,7 +37,7 @@
       "1"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L22/teacher-deck.html",
@@ -45,7 +45,7 @@
       "learn3"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L13/answer-key.html",
@@ -53,7 +53,7 @@
       "0"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L13/sources-concept-card.html",
@@ -61,7 +61,7 @@
       "0"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L13/teacher-deck.html",
@@ -70,7 +70,7 @@
       "think"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L17/sources-concept-card.html",
@@ -78,7 +78,7 @@
       "0"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L17/teacher-deck.html",
@@ -86,6 +86,6 @@
       "learn4"
     ],
     "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
   }
 ]
