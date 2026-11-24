@@ -34,3 +34,6 @@
 - Local pixel checks: all 28 learning panels, changed enrichment/fronts, seven hook answer popups, vocabulary backs, critique explanations and model-answer panels, all seven quick questions, and all 42 print pages inspected.
 - Final revised enrichment headings checked separately.
 - Live QA: 28/28 HTML files byte-exact on 24 November 2026 at 10:50 Dubai after successful deployment https://github.com/abobakr789/Hira/actions/runs/45342980235 . Representative hook answer, learning panel, enrichment, quick quiz and answer key visually inspected. Supporting group-work/accessibility sheets remain under separate review. This batch does not close grade 5.
+
+## Supporting-file follow-up
+Replaced unrelated coffee/chair picture choices in seven accessible worksheets with two lesson-specific word choices and synchronized their answer keys. Removed the unsupported three-month signing/declaration premise from GCC group challenge, and aligned wetland group classification with inland/coastal/sea-island environments. Two group slides, their printed cards, all accessible sheets and all revised keys visually inspected locally. Original media unchanged. Live follow-up pending.
