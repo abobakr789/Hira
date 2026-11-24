@@ -1,0 +1,13 @@
+{
+  "status": "targeted review ready for deployment",
+  "inventory": {
+    "lessons": 29,
+    "html": 214,
+    "slides": 863
+  },
+  "changed_html": 80,
+  "changed_lessons": 27,
+  "method": "Compared baseline grade1 sections and all shared printables; reused verified identical material. Inspected grade-specific retrieval distractors, goals, group tasks and differentiated challenge instructions. Preserved grade-specific writing scaffolds. Reviewed safety and answer dependencies; fixed visible class practice instructions and printable text-choice layout.",
+  "qa": "642 HTML and 903 inline scripts across grades2-4: no script syntax errors or missing src assets. Local slide, key-popup and print samples inspected.",
+  "limitations": "Targeted review, not individual factual and pixel inspection of every original slide."
+}

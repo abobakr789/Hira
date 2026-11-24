@@ -1,0 +1,739 @@
+{
+  "changed": [
+    "resources/ssd/SN-Y2-T1-L01/teacher-deck.html",
+    "resources/ssd/SN-Y2-T1-L02/teacher-deck.html",
+    "resources/ssd/SN-Y2-T1-L03/answer-key.html",
+    "resources/ssd/SN-Y2-T1-L03/pod-sheet.html",
+    "resources/ssd/SN-Y2-T1-L03/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T1-L03/teacher-deck.html",
+    "resources/ssd/SN-Y2-T1-L04/parent-note.html",
+    "resources/ssd/SN-Y2-T1-L04/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T1-L04/teacher-deck.html",
+    "resources/ssd/SN-Y2-T1-L05/answer-key.html",
+    "resources/ssd/SN-Y2-T1-L05/pod-sheet.html",
+    "resources/ssd/SN-Y2-T1-L05/teacher-deck.html",
+    "resources/ssd/SN-Y2-T1-L08/answer-key.html",
+    "resources/ssd/SN-Y2-T1-L08/group-work.html",
+    "resources/ssd/SN-Y2-T1-L08/parent-note.html",
+    "resources/ssd/SN-Y2-T1-L08/pod-sheet.html",
+    "resources/ssd/SN-Y2-T1-L08/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T1-L08/teacher-deck.html",
+    "resources/ssd/SN-Y2-T1-L09/answer-key.html",
+    "resources/ssd/SN-Y2-T1-L09/pod-sheet.html",
+    "resources/ssd/SN-Y2-T1-L09/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T1-L09/teacher-deck.html",
+    "resources/ssd/SN-Y2-T1-L10/teacher-deck.html",
+    "resources/ssd/SN-Y2-T1-L10/worksheets-A4.html",
+    "resources/ssd/SN-Y2-T1-L11/answer-key.html",
+    "resources/ssd/SN-Y2-T1-L11/pod-sheet.html",
+    "resources/ssd/SN-Y2-T2-L01/answer-key.html",
+    "resources/ssd/SN-Y2-T2-L01/group-work.html",
+    "resources/ssd/SN-Y2-T2-L01/parent-note.html",
+    "resources/ssd/SN-Y2-T2-L01/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T2-L01/teacher-deck.html",
+    "resources/ssd/SN-Y2-T2-L01/worksheets-A4.html",
+    "resources/ssd/SN-Y2-T2-L02/answer-key.html",
+    "resources/ssd/SN-Y2-T2-L02/group-work.html",
+    "resources/ssd/SN-Y2-T2-L02/pod-sheet.html",
+    "resources/ssd/SN-Y2-T2-L02/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T2-L02/teacher-deck.html",
+    "resources/ssd/SN-Y2-T2-L02/worksheets-A4.html",
+    "resources/ssd/SN-Y2-T2-L03/answer-key.html",
+    "resources/ssd/SN-Y2-T2-L03/group-work.html",
+    "resources/ssd/SN-Y2-T2-L03/parent-note.html",
+    "resources/ssd/SN-Y2-T2-L03/pod-sheet.html",
+    "resources/ssd/SN-Y2-T2-L03/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T2-L03/teacher-deck.html",
+    "resources/ssd/SN-Y2-T2-L03/worksheets-A4.html",
+    "resources/ssd/SN-Y2-T2-L04/answer-key.html",
+    "resources/ssd/SN-Y2-T2-L04/pod-sheet.html",
+    "resources/ssd/SN-Y2-T2-L04/teacher-deck.html",
+    "resources/ssd/SN-Y2-T2-L05/answer-key.html",
+    "resources/ssd/SN-Y2-T2-L05/group-work.html",
+    "resources/ssd/SN-Y2-T2-L05/pod-sheet.html",
+    "resources/ssd/SN-Y2-T2-L05/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T2-L05/teacher-deck.html",
+    "resources/ssd/SN-Y2-T2-L05/worksheets-A4.html",
+    "resources/ssd/SN-Y2-T2-L06/teacher-deck.html",
+    "resources/ssd/SN-Y2-T2-L07/teacher-deck.html",
+    "resources/ssd/SN-Y2-T2-L08/teacher-deck.html",
+    "resources/ssd/SN-Y2-T2-L09/teacher-deck.html",
+    "resources/ssd/SN-Y2-T3-L01/teacher-deck.html",
+    "resources/ssd/SN-Y2-T3-L02/answer-key.html",
+    "resources/ssd/SN-Y2-T3-L02/group-work.html",
+    "resources/ssd/SN-Y2-T3-L02/parent-note.html",
+    "resources/ssd/SN-Y2-T3-L02/pod-sheet.html",
+    "resources/ssd/SN-Y2-T3-L02/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T3-L02/teacher-deck.html",
+    "resources/ssd/SN-Y2-T3-L02/worksheets-A4.html",
+    "resources/ssd/SN-Y2-T3-L03/answer-key.html",
+    "resources/ssd/SN-Y2-T3-L03/pod-sheet.html",
+    "resources/ssd/SN-Y2-T3-L03/teacher-deck.html",
+    "resources/ssd/SN-Y2-T3-L04/teacher-deck.html",
+    "resources/ssd/SN-Y2-T3-L05/teacher-deck.html",
+    "resources/ssd/SN-Y2-T3-L06/answer-key.html",
+    "resources/ssd/SN-Y2-T3-L06/pod-sheet.html",
+    "resources/ssd/SN-Y2-T3-L06/teacher-deck.html",
+    "resources/ssd/SN-Y2-T3-L07/parent-note.html",
+    "resources/ssd/SN-Y2-T3-L07/sources-concept-card.html",
+    "resources/ssd/SN-Y2-T3-L07/teacher-deck.html",
+    "resources/ssd/SN-Y2-T3-L08/answer-key.html",
+    "resources/ssd/SN-Y2-T3-L08/group-work.html",
+    "resources/ssd/SN-Y2-T3-L08/teacher-deck.html",
+    "resources/ssd/SN-Y2-T3-L08/worksheets-A4.html",
+    "resources/ssd/SN-Y2-T3-L09/answer-key.html",
+    "resources/ssd/SN-Y2-T3-L09/pod-sheet.html",
+    "resources/ssd/SN-Y2-T3-L09/teacher-deck.html",
+    "resources/ssd/SN-Y3-T1-L01/teacher-deck.html",
+    "resources/ssd/SN-Y3-T1-L02/teacher-deck.html",
+    "resources/ssd/SN-Y3-T1-L03/answer-key.html",
+    "resources/ssd/SN-Y3-T1-L03/pod-sheet.html",
+    "resources/ssd/SN-Y3-T1-L03/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T1-L03/teacher-deck.html",
+    "resources/ssd/SN-Y3-T1-L04/parent-note.html",
+    "resources/ssd/SN-Y3-T1-L04/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T1-L04/teacher-deck.html",
+    "resources/ssd/SN-Y3-T1-L05/answer-key.html",
+    "resources/ssd/SN-Y3-T1-L05/pod-sheet.html",
+    "resources/ssd/SN-Y3-T1-L05/teacher-deck.html",
+    "resources/ssd/SN-Y3-T1-L08/answer-key.html",
+    "resources/ssd/SN-Y3-T1-L08/group-work.html",
+    "resources/ssd/SN-Y3-T1-L08/parent-note.html",
+    "resources/ssd/SN-Y3-T1-L08/pod-sheet.html",
+    "resources/ssd/SN-Y3-T1-L08/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T1-L08/teacher-deck.html",
+    "resources/ssd/SN-Y3-T1-L09/answer-key.html",
+    "resources/ssd/SN-Y3-T1-L09/pod-sheet.html",
+    "resources/ssd/SN-Y3-T1-L09/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T1-L09/teacher-deck.html",
+    "resources/ssd/SN-Y3-T1-L11/answer-key.html",
+    "resources/ssd/SN-Y3-T1-L11/pod-sheet.html",
+    "resources/ssd/SN-Y3-T2-L01/answer-key.html",
+    "resources/ssd/SN-Y3-T2-L01/group-work.html",
+    "resources/ssd/SN-Y3-T2-L01/parent-note.html",
+    "resources/ssd/SN-Y3-T2-L01/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T2-L01/teacher-deck.html",
+    "resources/ssd/SN-Y3-T2-L02/answer-key.html",
+    "resources/ssd/SN-Y3-T2-L02/group-work.html",
+    "resources/ssd/SN-Y3-T2-L02/pod-sheet.html",
+    "resources/ssd/SN-Y3-T2-L02/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T2-L02/teacher-deck.html",
+    "resources/ssd/SN-Y3-T2-L03/answer-key.html",
+    "resources/ssd/SN-Y3-T2-L03/group-work.html",
+    "resources/ssd/SN-Y3-T2-L03/parent-note.html",
+    "resources/ssd/SN-Y3-T2-L03/pod-sheet.html",
+    "resources/ssd/SN-Y3-T2-L03/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T2-L03/teacher-deck.html",
+    "resources/ssd/SN-Y3-T2-L03/worksheets-A4.html",
+    "resources/ssd/SN-Y3-T2-L04/answer-key.html",
+    "resources/ssd/SN-Y3-T2-L04/pod-sheet.html",
+    "resources/ssd/SN-Y3-T2-L04/teacher-deck.html",
+    "resources/ssd/SN-Y3-T2-L05/answer-key.html",
+    "resources/ssd/SN-Y3-T2-L05/group-work.html",
+    "resources/ssd/SN-Y3-T2-L05/pod-sheet.html",
+    "resources/ssd/SN-Y3-T2-L05/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T2-L05/teacher-deck.html",
+    "resources/ssd/SN-Y3-T2-L05/worksheets-A4.html",
+    "resources/ssd/SN-Y3-T2-L06/teacher-deck.html",
+    "resources/ssd/SN-Y3-T2-L07/teacher-deck.html",
+    "resources/ssd/SN-Y3-T2-L08/teacher-deck.html",
+    "resources/ssd/SN-Y3-T2-L09/teacher-deck.html",
+    "resources/ssd/SN-Y3-T3-L01/teacher-deck.html",
+    "resources/ssd/SN-Y3-T3-L02/answer-key.html",
+    "resources/ssd/SN-Y3-T3-L02/group-work.html",
+    "resources/ssd/SN-Y3-T3-L02/parent-note.html",
+    "resources/ssd/SN-Y3-T3-L02/pod-sheet.html",
+    "resources/ssd/SN-Y3-T3-L02/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T3-L02/teacher-deck.html",
+    "resources/ssd/SN-Y3-T3-L02/worksheets-A4.html",
+    "resources/ssd/SN-Y3-T3-L03/answer-key.html",
+    "resources/ssd/SN-Y3-T3-L03/pod-sheet.html",
+    "resources/ssd/SN-Y3-T3-L03/teacher-deck.html",
+    "resources/ssd/SN-Y3-T3-L04/teacher-deck.html",
+    "resources/ssd/SN-Y3-T3-L05/teacher-deck.html",
+    "resources/ssd/SN-Y3-T3-L06/answer-key.html",
+    "resources/ssd/SN-Y3-T3-L06/pod-sheet.html",
+    "resources/ssd/SN-Y3-T3-L06/teacher-deck.html",
+    "resources/ssd/SN-Y3-T3-L07/parent-note.html",
+    "resources/ssd/SN-Y3-T3-L07/sources-concept-card.html",
+    "resources/ssd/SN-Y3-T3-L07/teacher-deck.html",
+    "resources/ssd/SN-Y3-T3-L08/answer-key.html",
+    "resources/ssd/SN-Y3-T3-L08/group-work.html",
+    "resources/ssd/SN-Y3-T3-L08/teacher-deck.html",
+    "resources/ssd/SN-Y3-T3-L09/answer-key.html",
+    "resources/ssd/SN-Y3-T3-L09/pod-sheet.html",
+    "resources/ssd/SN-Y3-T3-L09/teacher-deck.html",
+    "resources/ssd/SN-Y4-T1-L01/teacher-deck.html",
+    "resources/ssd/SN-Y4-T1-L02/teacher-deck.html",
+    "resources/ssd/SN-Y4-T1-L03/answer-key.html",
+    "resources/ssd/SN-Y4-T1-L03/pod-sheet.html",
+    "resources/ssd/SN-Y4-T1-L03/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T1-L03/teacher-deck.html",
+    "resources/ssd/SN-Y4-T1-L04/parent-note.html",
+    "resources/ssd/SN-Y4-T1-L04/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T1-L04/teacher-deck.html",
+    "resources/ssd/SN-Y4-T1-L05/answer-key.html",
+    "resources/ssd/SN-Y4-T1-L05/pod-sheet.html",
+    "resources/ssd/SN-Y4-T1-L05/teacher-deck.html",
+    "resources/ssd/SN-Y4-T1-L08/answer-key.html",
+    "resources/ssd/SN-Y4-T1-L08/group-work.html",
+    "resources/ssd/SN-Y4-T1-L08/parent-note.html",
+    "resources/ssd/SN-Y4-T1-L08/pod-sheet.html",
+    "resources/ssd/SN-Y4-T1-L08/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T1-L08/teacher-deck.html",
+    "resources/ssd/SN-Y4-T1-L09/answer-key.html",
+    "resources/ssd/SN-Y4-T1-L09/pod-sheet.html",
+    "resources/ssd/SN-Y4-T1-L09/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T1-L09/teacher-deck.html",
+    "resources/ssd/SN-Y4-T1-L11/answer-key.html",
+    "resources/ssd/SN-Y4-T1-L11/pod-sheet.html",
+    "resources/ssd/SN-Y4-T2-L01/answer-key.html",
+    "resources/ssd/SN-Y4-T2-L01/group-work.html",
+    "resources/ssd/SN-Y4-T2-L01/parent-note.html",
+    "resources/ssd/SN-Y4-T2-L01/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T2-L01/teacher-deck.html",
+    "resources/ssd/SN-Y4-T2-L02/answer-key.html",
+    "resources/ssd/SN-Y4-T2-L02/group-work.html",
+    "resources/ssd/SN-Y4-T2-L02/pod-sheet.html",
+    "resources/ssd/SN-Y4-T2-L02/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T2-L02/teacher-deck.html",
+    "resources/ssd/SN-Y4-T2-L03/answer-key.html",
+    "resources/ssd/SN-Y4-T2-L03/group-work.html",
+    "resources/ssd/SN-Y4-T2-L03/parent-note.html",
+    "resources/ssd/SN-Y4-T2-L03/pod-sheet.html",
+    "resources/ssd/SN-Y4-T2-L03/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T2-L03/teacher-deck.html",
+    "resources/ssd/SN-Y4-T2-L03/worksheets-A4.html",
+    "resources/ssd/SN-Y4-T2-L04/answer-key.html",
+    "resources/ssd/SN-Y4-T2-L04/pod-sheet.html",
+    "resources/ssd/SN-Y4-T2-L04/teacher-deck.html",
+    "resources/ssd/SN-Y4-T2-L05/answer-key.html",
+    "resources/ssd/SN-Y4-T2-L05/group-work.html",
+    "resources/ssd/SN-Y4-T2-L05/pod-sheet.html",
+    "resources/ssd/SN-Y4-T2-L05/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T2-L05/teacher-deck.html",
+    "resources/ssd/SN-Y4-T2-L05/worksheets-A4.html",
+    "resources/ssd/SN-Y4-T2-L06/teacher-deck.html",
+    "resources/ssd/SN-Y4-T2-L07/teacher-deck.html",
+    "resources/ssd/SN-Y4-T2-L08/teacher-deck.html",
+    "resources/ssd/SN-Y4-T2-L09/teacher-deck.html",
+    "resources/ssd/SN-Y4-T3-L01/teacher-deck.html",
+    "resources/ssd/SN-Y4-T3-L02/answer-key.html",
+    "resources/ssd/SN-Y4-T3-L02/group-work.html",
+    "resources/ssd/SN-Y4-T3-L02/parent-note.html",
+    "resources/ssd/SN-Y4-T3-L02/pod-sheet.html",
+    "resources/ssd/SN-Y4-T3-L02/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T3-L02/teacher-deck.html",
+    "resources/ssd/SN-Y4-T3-L02/worksheets-A4.html",
+    "resources/ssd/SN-Y4-T3-L03/answer-key.html",
+    "resources/ssd/SN-Y4-T3-L03/pod-sheet.html",
+    "resources/ssd/SN-Y4-T3-L03/teacher-deck.html",
+    "resources/ssd/SN-Y4-T3-L04/teacher-deck.html",
+    "resources/ssd/SN-Y4-T3-L05/teacher-deck.html",
+    "resources/ssd/SN-Y4-T3-L06/answer-key.html",
+    "resources/ssd/SN-Y4-T3-L06/pod-sheet.html",
+    "resources/ssd/SN-Y4-T3-L06/teacher-deck.html",
+    "resources/ssd/SN-Y4-T3-L07/parent-note.html",
+    "resources/ssd/SN-Y4-T3-L07/sources-concept-card.html",
+    "resources/ssd/SN-Y4-T3-L07/teacher-deck.html",
+    "resources/ssd/SN-Y4-T3-L08/answer-key.html",
+    "resources/ssd/SN-Y4-T3-L08/group-work.html",
+    "resources/ssd/SN-Y4-T3-L08/teacher-deck.html",
+    "resources/ssd/SN-Y4-T3-L09/answer-key.html",
+    "resources/ssd/SN-Y4-T3-L09/pod-sheet.html",
+    "resources/ssd/SN-Y4-T3-L09/teacher-deck.html"
+  ],
+  "preserved_variant_sections": [
+    {
+      "grade": 2,
+      "file": "resources/ssd/SN-Y2-T1-L04/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 2,
+      "file": "resources/ssd/SN-Y2-T1-L08/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 2,
+      "file": "resources/ssd/SN-Y2-T2-L01/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 2,
+      "file": "resources/ssd/SN-Y2-T2-L03/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 2,
+      "file": "resources/ssd/SN-Y2-T3-L02/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 2,
+      "file": "resources/ssd/SN-Y2-T3-L07/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L03/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L04/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L05/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L08/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L08/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L08/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L08/teacher-deck.html",
+      "section": "g4n"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L09/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L09/teacher-deck.html",
+      "section": "quickn"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L10/teacher-deck.html",
+      "section": "levelsn"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L10/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T1-L11/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L01/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L01/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L01/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L01/teacher-deck.html",
+      "section": "g4n"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L01/teacher-deck.html",
+      "section": "levelsn"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L01/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L02/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L02/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L02/teacher-deck.html",
+      "section": "g3n"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L02/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L03/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L03/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L03/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L03/teacher-deck.html",
+      "section": "g4n"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L03/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L04/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L05/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L05/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L05/teacher-deck.html",
+      "section": "g3n"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L05/teacher-deck.html",
+      "section": "quickn"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T2-L05/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L02/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L02/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L02/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L02/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L03/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L06/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L07/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L08/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L08/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L08/teacher-deck.html",
+      "section": "g3n"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L08/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L09/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 3,
+      "file": "resources/ssd/SN-Y3-T3-L09/teacher-deck.html",
+      "section": "g3n"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L03/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L04/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L05/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L08/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L08/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L08/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L08/teacher-deck.html",
+      "section": "g4n"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L09/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L09/teacher-deck.html",
+      "section": "quickn"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L10/teacher-deck.html",
+      "section": "levelsn"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L10/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T1-L11/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L01/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L01/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L01/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L01/teacher-deck.html",
+      "section": "g4n"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L01/teacher-deck.html",
+      "section": "levelsn"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L01/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L02/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L02/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L02/teacher-deck.html",
+      "section": "g3n"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L02/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L03/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L03/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L03/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L03/teacher-deck.html",
+      "section": "g4n"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L03/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L04/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L05/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L05/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L05/teacher-deck.html",
+      "section": "g3n"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L05/teacher-deck.html",
+      "section": "quickn"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T2-L05/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L02/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L02/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L02/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L02/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L03/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L06/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L07/parent-note.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L08/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L08/group-work.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L08/teacher-deck.html",
+      "section": "g3n"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L08/worksheets-A4.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L09/answer-key.html",
+      "section": "support-specific"
+    },
+    {
+      "grade": 4,
+      "file": "resources/ssd/SN-Y4-T3-L09/teacher-deck.html",
+      "section": "g3n"
+    }
+  ],
+  "method": "Compared all baseline grade1 teacher sections and printable text to each grade. Reused only identical section content; preserved grade-specific quiz distractors, progress goals and writing scaffolds. Review variant dependencies separately."
+}
