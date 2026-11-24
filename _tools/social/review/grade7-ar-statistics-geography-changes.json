@@ -8,7 +8,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T1-L04/sources-concept-card.html",
@@ -19,7 +20,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T1-L04/worksheets-A4.html",
@@ -31,7 +33,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T1-L04/teacher-deck.html",
@@ -49,7 +52,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T1-L05/sources-concept-card.html",
@@ -60,7 +64,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T1-L05/worksheets-A4.html",
@@ -71,7 +76,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T1-L05/teacher-deck.html",
@@ -86,7 +92,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L15/sources-concept-card.html",
@@ -97,7 +104,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L15/worksheets-A4.html",
@@ -111,7 +119,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L15/teacher-deck.html",
@@ -126,7 +135,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L16/answer-key.html",
@@ -137,7 +147,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L16/sources-concept-card.html",
@@ -148,7 +159,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L16/worksheets-A4.html",
@@ -160,7 +172,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L16/teacher-deck.html",
@@ -176,7 +189,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L20/answer-key.html",
@@ -187,7 +201,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L20/sources-concept-card.html",
@@ -198,7 +213,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L20/worksheets-A4.html",
@@ -210,7 +226,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L20/teacher-deck.html",
@@ -224,7 +241,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L21/sources-concept-card.html",
@@ -235,7 +253,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L21/worksheets-A4.html",
@@ -246,7 +265,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T2-L21/teacher-deck.html",
@@ -259,7 +279,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T3-L27/sources-concept-card.html",
@@ -270,7 +291,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T3-L27/worksheets-A4.html",
@@ -282,7 +304,8 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y7-T3-L27/teacher-deck.html",
@@ -296,6 +319,7 @@
     "qa": {
       "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
       "live": "pending"
-    }
+    },
+    "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
   }
 ]

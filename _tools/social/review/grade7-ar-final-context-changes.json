@@ -1,0 +1,179 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-T1-L08/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L08/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L08/teacher-deck.html",
+    "views": [
+      "learn1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L19/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L19/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L19/teacher-deck.html",
+    "views": [
+      "learn2"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L24/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L24/teacher-deck.html",
+    "views": [
+      "learn3"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L26/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L26/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L26/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L26/teacher-deck.html",
+    "views": [
+      "critique",
+      "g2",
+      "learn2",
+      "learn3",
+      "match",
+      "models",
+      "quick",
+      "vocab"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L26/group-work.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L27/teacher-deck.html",
+    "views": [
+      "retrieve"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pending",
+      "live": "pending"
+    },
+    "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+  }
+]
