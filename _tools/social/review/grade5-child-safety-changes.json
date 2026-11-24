@@ -15,7 +15,7 @@
     "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
     "qa": {
       "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
-      "live": "PENDING"
+      "live": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
     }
   },
   {
@@ -28,7 +28,7 @@
     "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
     "qa": {
       "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
-      "live": "PENDING"
+      "live": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
     }
   },
   {
@@ -39,7 +39,7 @@
     "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
     "qa": {
       "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
-      "live": "PENDING"
+      "live": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
     }
   },
   {
@@ -50,7 +50,7 @@
     "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
     "qa": {
       "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
-      "live": "PENDING"
+      "live": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
     }
   },
   {
@@ -61,7 +61,7 @@
     "reason": "Add basic rights category so six rights from the source can be classified without forcing life/name into unrelated branches.",
     "qa": {
       "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
-      "live": "PENDING"
+      "live": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
     }
   }
 ]
