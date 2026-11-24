@@ -1,0 +1,44 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T2-L11/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:18 Dubai; four fronts, one popup, four print pages inspected; booktext refined and re-inspected separately /tmp/ssy4dibba-bookfix0718",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L11/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:18 Dubai; four fronts, one popup, four print pages inspected; booktext refined and re-inspected separately /tmp/ssy4dibba-bookfix0718",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L11/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:18 Dubai; four fronts, one popup, four print pages inspected; booktext refined and re-inspected separately /tmp/ssy4dibba-bookfix0718",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L11/teacher-deck.html",
+    "views": [
+      "booktext",
+      "learn3",
+      "match",
+      "vocab"
+    ],
+    "popups": [
+      "match"
+    ],
+    "local_qa": "PASS 2026-11-24 07:18 Dubai; four fronts, one popup, four print pages inspected; booktext refined and re-inspected separately /tmp/ssy4dibba-bookfix0718",
+    "live_qa": "pending"
+  }
+]

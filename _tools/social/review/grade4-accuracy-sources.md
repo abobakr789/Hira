@@ -75,3 +75,6 @@ L12: omitted disputed exact birth year and unsupported Qadisiyyah participation.
 
 ## AR T2 L10 Magan, 2026-11-24 07:12 Dubai
 Omitted unsupported regional name rather than guessing an OCR correction. Retained verified Magan with explicit Bronze Age and Oman Peninsula scope. Vocabulary, matching/popup, source passage, quiz, models, four worksheet summaries, cloze wordbank, POD and answer key synchronized. King Saud University Press journal article, fetched 07:09: https://direct.ksu.edu.sa/entities/journalarticle/1d03edef-4775-4e53-a822-ee1f629da605 . Adapted source text labelled. All media and religious passages retained. Six fronts, one popup, seven print pages individually inspected locally PASS.
+
+## Dibba coastal feature correction, 2026-11-24
+Official Fujairah tourism page https://tourism.fujairah.ae/ar/destinations/dibba describes Dibba coast, beaches and nearby mountains. Unsupported OCR-like term for mountain passes replaced with beaches and a literal definition, not a guessed source transcription. Adapted educational text labeled visibly. Vocabulary, popup, matching, source card, bronze and silver worksheets and answer key synchronized. Original media retained. Local four fronts, one popup and four print pages individually inspected PASS; booktext corrected then re-inspected 07:18. Publication and live QA pending.
