@@ -1,0 +1,19 @@
+{
+  "review": "Followthrough of duplicated enrichment/model answers: constitution, signature/ratification, coal2024, linepack safe limits, LNG proposal vs operation, OPEC AbuDhabi membership and market prices.",
+  "files": [
+    "resources/ssd/SS-Y10-T1-L19/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L14/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L10/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L14/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L13/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L16/answer-key.html",
+    "resources/ssd/SS-Y10-T3-L16/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L6/teacher-deck.html"
+  ],
+  "sources": [
+    "https://www.iea.org/reports/global-energy-review-2025/coal",
+    "https://www.nationalgas.com/our-businesses/nts-linepack",
+    "https://www.opec.org/member-countries.html"
+  ],
+  "qa": "Four local enrichment/national-context slides pixel-checked; text fits. Duplicated forecast and fixed-price claims also searched and replaced after review."
+}
