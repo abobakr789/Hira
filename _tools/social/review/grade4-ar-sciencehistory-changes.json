@@ -1,0 +1,61 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T3-L15/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L15/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L15/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L15/teacher-deck.html",
+    "views": [
+      "booktext",
+      "g2",
+      "learn2",
+      "models",
+      "quick"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L15/group-work.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L15/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+    "live_qa": "pending"
+  }
+]
