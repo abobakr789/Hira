@@ -1,0 +1,128 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L02/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L02/lesson-recap.html",
+    "views": [
+      "3"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L02/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L02/teacher-deck.html",
+    "views": [
+      "text2",
+      "text3",
+      "check",
+      "uae"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L04/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L04/lesson-recap.html",
+    "views": [
+      "3"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L04/teacher-deck.html",
+    "views": [
+      "text2",
+      "text3"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L14/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "text1",
+      "text2"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/lesson-recap.html",
+    "views": [
+      "3"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+    },
+    "original_media": "unchanged"
+  }
+]
