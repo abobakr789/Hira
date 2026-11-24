@@ -2398,7 +2398,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   const VALID_SP = new Set(); const signedIfAllowed = async (path) => { if (!path || !VALID_SP.has(path)) return null; try { const { data } = await sb.auth.getSession(); if (!data || !data.session) return null; } catch (e) { return null; } return fileUrl(path); }; new MutationObserver(() => document.querySelectorAll("video[data-sp]:not([data-sp-set])").forEach(async (v) => { v.setAttribute("data-sp-set", "1"); const u = await signedIfAllowed(v.dataset.sp); if (u) v.src = u; })).observe(document.documentElement, { childList: true, subtree: true }); let IE_DECK_VID = ""; window.addEventListener("message", async (e) => { if (!e.data || e.data.hiraa !== "deck-video-request" || !IE_DECK_VID) return; const fr = document.querySelector("#ieDeckOv iframe"); if (e.origin !== location.origin || !fr || e.source !== fr.contentWindow) return; const u = await signedIfAllowed(IE_DECK_VID); if (u) e.source.postMessage({ hiraa: "deck-video-url", url: u }, location.origin); }); function openIeDeck(src, vid) { IE_DECK_VID = vid || "";
     let o = document.getElementById("ieDeckOv"); if (o) o.remove();
     o = document.createElement("div"); o.id = "ieDeckOv"; o.style.cssText = "position:fixed;inset:0;z-index:2147483000;background:#0E1621";
-    o.innerHTML = `<iframe src="${esc(src)}" title="عرض المعلم" allow="fullscreen; autoplay" allowfullscreen style="border:0;width:100%;height:100%;display:block"></iframe>`;
+    o.innerHTML = `<iframe src="${esc(src)}" title="عرض المعلم" allow="fullscreen; autoplay; display-capture; microphone; camera" allowfullscreen style="border:0;width:100%;height:100%;display:block"></iframe>`;
     document.body.appendChild(o); document.body.style.overflow = "hidden";
     // شريط العرض الجديد (hbar.js): يُحقن في العرض نفسه فيستبدل شريطه القديم بشريطين على نمط قارئ الكتب
     const fr = o.querySelector("iframe");
@@ -2406,7 +2406,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125c", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125d", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });

@@ -53,6 +53,7 @@
     save: "M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2zM17 21v-8H7v8M7 3v5h8",
     keys: "M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10",
     users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8",
+    rec: "M12 19a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
     pdf: "M12 3v12M7 10l5 5 5-5M5 21h14",
     pv: "M2 4h13v10H2zM17 7h5v8h-5zM5 18h7M8.5 14v4",
     phone: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2",
@@ -137,7 +138,11 @@
     ".hb-pop .hb-btn.pri{background:#102A4C;border-color:#102A4C;color:#fff}",
     ".hb-pop .hb-muted{font-size:13px;color:#6B7280}",
     ".hb-pop .hb-ck{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:14.5px;cursor:pointer}.hb-pop .hb-ck input{width:17px;height:17px;accent-color:#102A4C}",
-    "#hbSavePop{width:340px}",
+    "#hbSavePop{width:340px}#hbRecPop{width:360px}",
+    "#tb.hb #hbRec.rec{background:#C62828;color:#fff;border-color:#C62828}#tb.hb #hbRec.rec svg{animation:hbPulse 1.2s infinite}#tb.hb #hbRec.paused{background:#8A5A00;color:#fff}",
+    "@keyframes hbPulse{50%{opacity:.35}}#tb.hb #hbRecL{font-variant-numeric:tabular-nums;direction:ltr}",
+    "#hbCam{position:fixed;inset-inline-start:24px;bottom:24px;width:190px;height:190px;border-radius:50%;overflow:hidden;z-index:9;border:4px solid #D4AA55;box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:grab;touch-action:none;background:#0B1628}#hbCam video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}#hbCam.sm{width:120px;height:120px}",
+    "#hbRecDone video{width:100%;border-radius:10px;background:#000;max-height:46vh}",
     ".hb-pop .hb-pick{margin-top:12px;min-height:96px;border-radius:18px;background:linear-gradient(135deg,#102A4C,#1E4E86);color:#FFF0C2;display:flex;align-items:center;justify-content:center;text-align:center;font:700 46px/1.2 'Thmanyah Display',Tahoma,sans-serif;padding:10px;transition:transform .25s}",
     ".hb-pop .hb-pick.done{transform:scale(1.05);background:linear-gradient(135deg,#D4AA55,#F0C977);color:#1B1405}",
     ".hb-pop .hb-keys{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px}",
@@ -212,6 +217,7 @@
     "</div>" +
     '<span class="hb-sep"></span>' +
     B("hbPV", "pv", T("شاشة المعلم: الملاحظات والشريحة التالية على حاسوبك", "Presenter view: notes and next slide on your laptop")) +
+    ((navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia && W.MediaRecorder) ? '<button type="button" class="hb-b" id="hbRec" data-tip="' + T("سجّل شرحك فيديو: الشرائح وكتابتك وصوتك", "Record your explanation: slides, ink and voice") + '" aria-label="' + T("تسجيل الشرح", "Record") + '">' + ic("rec") + '<span class="hb-lbl" id="hbRecL">' + T("تسجيل", "Record") + '</span></button><button type="button" class="hb-b" id="hbRecP" hidden data-tip="' + T("إيقاف مؤقت / متابعة", "Pause / resume") + '" aria-label="' + T("إيقاف مؤقت", "Pause") + '">⏸</button><button type="button" class="hb-b" id="hbRecS" hidden data-tip="' + T("إنهاء التسجيل", "Stop recording") + '" aria-label="' + T("إنهاء التسجيل", "Stop") + '">⏹</button>' : "") +
     (LIVE ? B("hbRemote", "phone", T("تحكّم بالعرض من جوالك", "Control from your phone")) : "") +
     B("hbF", "full", T("ملء الشاشة (F)", "Full screen (F)"), T("ملء الشاشة", "Full screen"), "gold") +
     B("hbX", "close", T("إغلاق العرض", "Close"), T("إغلاق", "Close"), "x");
@@ -608,6 +614,89 @@
     Promise.race([Promise.all(imgs.concat([pd.fonts ? pd.fonts.ready : 0])), new Promise(function (r) { setTimeout(r, 4000); })]).then(function () { setTimeout(pr, 300); });
   }
   on("hbSave", function (e, b) { paintSave(); togglePop(savePop, b); });
+
+  /* ---------- تسجيل الشرح فيديو ---------- */
+  (function () {
+    var rb = $("hbRec"); if (!rb) return;
+    var recPop = mk("div", "hbRecPop"); recPop.className = "pop hb-pop"; recPop.dir = RTL ? "rtl" : "ltr"; stop(recPop);
+    var donePop = mk("div", "hbRecDone"); donePop.className = "pop hb-pop"; donePop.dir = RTL ? "rtl" : "ltr"; donePop.style.width = "min(560px,92vw)"; stop(donePop);
+    var rec = null, streams = [], chunks = [], t0 = 0, acc = 0, tick = 0, cam = null, camS = null, url = null, mime = "";
+    var useMic = LS.get("hb-rec-mic", "1") === "1", useCam = LS.get("hb-rec-cam", "") === "1";
+    var mm = function (ms) { var s2 = Math.floor(ms / 1000); return String(Math.floor(s2 / 60)).padStart(2, "0") + ":" + String(s2 % 60).padStart(2, "0"); };
+    var running = false, elapsed = function () { return acc + (running ? Date.now() - t0 : 0); };
+    function paintPop() {
+      recPop.innerHTML = '<div class="hb-h">🎬 ' + T("سجّل شرحك فيديو", "Record your explanation") + '</div><p class="hb-muted" style="margin:0 0 8px">' + T("يُسجَّل العرض بما تكتبه عليه وصوتك، لتشاركه مع طلابك الغائبين أو للمراجعة.", "Records the slides, your ink and your voice, to share with absent students or for revision.") + "</p>" +
+        '<label class="hb-ck"><input type="checkbox" id="hbRecMic"' + (useMic ? " checked" : "") + "> 🎙️ " + T("صوتي من الميكروفون", "My voice (microphone)") + "</label>" +
+        '<label class="hb-ck"><input type="checkbox" id="hbRecCam"' + (useCam ? " checked" : "") + "> 🙂 " + T("أظهر وجهي في دائرة صغيرة", "Show my face in a small circle") + "</label>" +
+        '<p class="hb-muted" style="font-size:12.5px;margin:6px 0 10px">' + T("سيسألك المتصفح عمّا تشاركه: اختر «علامة التبويب هذه».", "Your browser will ask what to share: choose “This tab”.") + "</p>" +
+        '<button type="button" class="hb-btn pri" id="hbRecGo" style="width:100%">● ' + T("ابدأ التسجيل", "Start recording") + "</button>";
+      $("hbRecMic").onchange = function () { useMic = this.checked; LS.set("hb-rec-mic", useMic ? "1" : ""); };
+      $("hbRecCam").onchange = function () { useCam = this.checked; LS.set("hb-rec-cam", useCam ? "1" : ""); };
+      $("hbRecGo").onclick = start;
+    }
+    function camOn() {
+      if (cam) return Promise.resolve();
+      return navigator.mediaDevices.getUserMedia({ video: { width: 360, height: 360, facingMode: "user" }, audio: false }).then(function (s2) {
+        camS = s2; cam = mk("div", "hbCam"); var v = D.createElement("video"); v.muted = true; v.playsInline = true; v.autoplay = true; v.srcObject = s2; cam.appendChild(v); stop(cam);
+        var dr = null;
+        cam.addEventListener("pointerdown", function (e) { var r = cam.getBoundingClientRect(); dr = { dx: e.clientX - r.left, dy: e.clientY - r.top }; cam.setPointerCapture(e.pointerId); cam.style.cursor = "grabbing"; });
+        cam.addEventListener("pointermove", function (e) { if (!dr) return; cam.style.insetInlineStart = "auto"; cam.style.bottom = "auto"; cam.style.left = Math.max(0, Math.min(innerWidth - cam.offsetWidth, e.clientX - dr.dx)) + "px"; cam.style.top = Math.max(0, Math.min(innerHeight - cam.offsetHeight, e.clientY - dr.dy)) + "px"; });
+        cam.addEventListener("pointerup", function () { dr = null; cam.style.cursor = "grab"; });
+        cam.addEventListener("dblclick", function () { cam.classList.toggle("sm"); });
+      }).catch(function () { say(T("تعذّر تشغيل الكاميرا · سيستمر التسجيل بدونها", "Camera unavailable · recording without it")); });
+    }
+    function camOff() { if (camS) camS.getTracks().forEach(function (t) { t.stop(); }); camS = null; if (cam) cam.remove(); cam = null; }
+    function start() {
+      closePops();
+      var md = navigator.mediaDevices, disp;
+      (useCam ? camOn() : Promise.resolve()).then(function () {
+        return md.getDisplayMedia({ video: { frameRate: 30, displaySurface: "browser" }, audio: false, preferCurrentTab: true, selfBrowserSurface: "include", surfaceSwitching: "exclude" });
+      }).then(function (d) {
+        disp = d; streams.push(d);
+        var vt = d.getVideoTracks()[0];
+        var crop = (W.CropTarget && CropTarget.fromElement && vt.cropTo && $("wrap")) ? CropTarget.fromElement($("wrap")).then(function (ct) { return vt.cropTo(ct); }).catch(function () {}) : Promise.resolve();
+        var mic = useMic ? md.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } }).catch(function () { say(T("لم يُسمح بالميكروفون · سيُسجَّل بلا صوت", "No microphone · recording without sound")); return null; }) : Promise.resolve(null);
+        return Promise.all([crop, mic]);
+      }).then(function (r) {
+        var mic = r[1]; if (mic) streams.push(mic);
+        var tracks = disp.getVideoTracks().concat(mic ? mic.getAudioTracks() : []);
+        var ms = new MediaStream(tracks);
+        mime = ["video/mp4;codecs=avc1,mp4a.40.2", "video/mp4", "video/webm;codecs=vp9,opus", "video/webm"].filter(function (m) { return MediaRecorder.isTypeSupported(m); })[0] || "";
+        rec = new MediaRecorder(ms, mime ? { mimeType: mime, videoBitsPerSecond: 2500000 } : undefined);
+        chunks = []; acc = 0; t0 = Date.now();
+        rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+        rec.onstop = finish;
+        disp.getVideoTracks()[0].addEventListener("ended", function () { if (rec && rec.state !== "inactive") rec.stop(); });
+        rec.start(1000); running = true;
+        rb.classList.add("rec"); $("hbRecP").hidden = $("hbRecS").hidden = false;
+        tick = setInterval(function () { $("hbRecL").textContent = mm(elapsed()); }, 500); $("hbRecL").textContent = "00:00";
+        say(T("● بدأ التسجيل · اضغط ⏹ للإنهاء", "● Recording · press ⏹ to stop"));
+      }).catch(function (e) {
+        streams.forEach(function (s2) { s2.getTracks().forEach(function (t) { t.stop(); }); }); streams = []; camOff();
+        if (e && e.name !== "NotAllowedError" && e.name !== "AbortError") say(T("تعذّر بدء التسجيل في هذا المتصفح", "Could not start recording in this browser"));
+      });
+    }
+    function finish() {
+      clearInterval(tick); var dur = elapsed(); running = false;
+      streams.forEach(function (s2) { s2.getTracks().forEach(function (t) { t.stop(); }); }); streams = []; camOff();
+      rb.classList.remove("rec", "paused"); $("hbRecP").hidden = $("hbRecS").hidden = true; $("hbRecL").textContent = T("تسجيل", "Record");
+      var type = (mime || "video/webm").split(";")[0], blob = new Blob(chunks, { type: type }); rec = null;
+      if (url) URL.revokeObjectURL(url); url = URL.createObjectURL(blob);
+      var ext = type.indexOf("mp4") >= 0 ? "mp4" : "webm", d2 = new Date();
+      var fname = (title.replace(/[\\/:*?"<>|]+/g, " ").trim() || "hiraa") + " - " + d2.getFullYear() + "-" + String(d2.getMonth() + 1).padStart(2, "0") + "-" + String(d2.getDate()).padStart(2, "0") + "." + ext;
+      donePop.innerHTML = '<div class="hb-h">✅ ' + T("سُجّل شرحك", "Your explanation is recorded") + '</div><video controls playsinline src="' + url + '"></video>' +
+        '<p class="hb-muted" style="margin:8px 0">' + T("المدة ", "Length ") + "<bdi>" + mm(dur) + "</bdi> · <bdi>" + (blob.size / 1048576).toFixed(1) + " MB</bdi> · <bdi>" + ext.toUpperCase() + "</bdi></p>" +
+        '<div class="hb-row"><a class="hb-btn pri" id="hbRecDl" download="' + esc(fname) + '" href="' + url + '">⬇ ' + T("تنزيل الفيديو", "Download video") + '</a><button type="button" class="hb-btn" id="hbRecAgain">● ' + T("تسجيل جديد", "Record again") + '</button><button type="button" class="hb-btn" id="hbRecX">' + T("إغلاق", "Close") + "</button></div>" +
+        '<p class="hb-muted" style="font-size:12.5px;margin-top:8px">' + T("💡 ارفعه إلى Teams أو Classroom لطلابك. الفيديو على جهازك فقط ولا يُرفع إلى المنصة.", "💡 Upload it to Teams or Classroom for your students. The video stays on your device only.") + "</p>";
+      $("hbRecAgain").onclick = function () { closePops(); paintPop(); togglePop(recPop, rb); };
+      $("hbRecX").onclick = function () { closePops(); };
+      closePops(); donePop.style.display = "block"; anchor(donePop, rb);
+    }
+    on("hbRec", function (e, b) { if (rec) return; paintPop(); togglePop(recPop, b); });
+    on("hbRecP", function () { if (!rec) return; if (rec.state === "recording") { rec.pause(); acc += Date.now() - t0; running = false; rb.classList.add("paused"); say(T("⏸ التسجيل متوقف مؤقتًا", "⏸ Paused")); } else { rec.resume(); t0 = Date.now(); running = true; rb.classList.remove("paused"); say(T("● عاد التسجيل", "● Recording")); } });
+    on("hbRecS", function () { if (rec && rec.state !== "inactive") rec.stop(); });
+    W.addEventListener("pagehide", function () { if (rec && rec.state !== "inactive") try { rec.stop(); } catch (e) {} });
+  })();
 
   /* لوحة اللون والسُّمك */
   var colPop = mk("div", "hbColPop"); colPop.className = "pop hb-pop"; colPop.dir = RTL ? "rtl" : "ltr"; stop(colPop);
