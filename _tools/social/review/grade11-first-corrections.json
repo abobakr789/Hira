@@ -1,0 +1,95 @@
+{
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y11-T1-L2/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L2/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L2/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L3/answer-key.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L3/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L3/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L3/teacher-deck.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L7/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L7/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L7/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T1-L7/teacher-deck.html",
+      "nodes": 8
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L1/answer-key.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L1/sources-concept-card.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L1/worksheets-A4.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L1/teacher-deck.html",
+      "nodes": 9
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/answer-key.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/worksheets-A4.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/teacher-deck.html",
+      "nodes": 8
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L3/group-work.html",
+      "nodes": 1
+    }
+  ],
+  "sources": [
+    "https://www.diwan.gov.qa/about-qatar/history-of-qatar?sc_lang=ar-QA",
+    "https://www.gcc-sg.org/ar/AboutUs/Data/SupremeData/Pages/Thefinalstatementforthefirstse0.aspx",
+    "https://www.un.org/unispal/document/auto-insert-184540/",
+    "https://www.mofa.gov.ae/en/the-ministry/the-foreign-policy/women-rights",
+    "https://www.unesco.org/en/countries",
+    "https://www.unesco.org/en/fieldoffice/doha/about",
+    "https://whc.unesco.org/en/conventiontext/",
+    "https://www.ead.gov.ae/en/Experience-Green-Abu-Dhabi/Places-To-Go/Jabal-Hafit-National--Park",
+    "https://www.aard.gov.ae/Media-Centre/News/26-09-2020-2"
+  ]
+}
