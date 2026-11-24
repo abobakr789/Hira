@@ -5603,7 +5603,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     loading();
     const me = state.session.user.id, role = state.profile.role;
     const { data: allClasses, error } = await sb.from("classes")
-      .select("id, name, year_group, track, subject_id, lock_lessons, academic_year, school_id, schools(name_ar), class_teachers(teacher_id)")
+      .select("id, name, year_group, track, subject_id, lock_lessons, buddy_enabled, academic_year, school_id, schools(name_ar), class_teachers(teacher_id)")
       .order("year_group").order("name");
     if (error) { h(`<div class="wrap loading">${esc(error.message)}</div>`); return; }
     const classes = role === "teacher" ? (allClasses || []).filter((c) => (c.class_teachers || []).some((t) => t.teacher_id === me)) : (allClasses || []);
@@ -5730,6 +5730,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
           <div><strong>${cls.lock_lessons ? "القفل مفعّل: الطلاب يرون الدروس التي تفتحها فقط" : "القفل متوقف: كل الدروس مفتوحة للطلاب"}</strong>
           <p class="muted">${cls.lock_lessons ? "عناوين الدروس تبقى ظاهرة، لكن شرائح الطالب وأوراق العمل والفيديو والاختبار لا تُفتح إلا للدروس المفتوحة." : "فعّل القفل لتتحكم في الدروس التي يصل إليها طلاب هذا الفصل."}</p></div>
         </div>
+        <div class="lock-mode ${cls.buddy_enabled !== false ? "on" : ""}" style="margin-top:12px">
+          <label class="switch"><input type="checkbox" id="buddyMode" ${cls.buddy_enabled !== false ? "checked" : ""}><span></span></label>
+          <div><strong>${cls.buddy_enabled !== false ? "سالم مفعّل: يساعد طلاب هذا الفصل في الدروس" : "سالم متوقف لهذا الفصل"}</strong>
+          <p class="muted">يختفي سالم تلقائيًا عن الطالب ما دام عنده اختبار مفتوح. ويمكنك إيقافه يدويًا وقت التقييمات الصفية. <a href="#/buddy-report?class=${cls.id}">ماذا يسأل طلابي؟</a></p></div>
+        </div>
         <div class="controls" style="margin:22px 0 10px">
           <div class="term-tabs" role="tablist">${[1, 2, 3].map((t) => `<a class="term-tab" role="tab" style="text-decoration:none" href="#/teacher?class=${cls.id}&term=${t}" aria-selected="${t === term}">${TERMS[t]}</a>`).join("")}</div>
           <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-dawn btn-small" id="planTerm">تخطيط الفصل الدراسي تلقائيًا</button><button class="btn btn-ghost btn-small" id="openAll">فتح كل دروس الفصل الدراسي</button><button class="btn btn-ghost btn-small" id="lockAll">قفل الكل</button></div>
@@ -5842,6 +5847,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const { error: e1 } = await sb.from("classes").update({ lock_lessons: e.target.checked }).eq("id", cls.id);
       if (e1) { toast("تعذّر الحفظ: " + e1.message); e.target.checked = !e.target.checked; return; }
       toast(e.target.checked ? "فُعّل القفل" : "أُوقف القفل"); reload();
+    };
+    const bm = document.getElementById("buddyMode");
+    if (bm) bm.onchange = async (e) => {
+      const { error: e2 } = await sb.from("classes").update({ buddy_enabled: e.target.checked }).eq("id", cls.id);
+      if (e2) { toast("تعذّر الحفظ: " + e2.message); e.target.checked = !e.target.checked; return; }
+      toast(e.target.checked ? "شُغّل سالم لهذا الفصل" : "أُوقف سالم لهذا الفصل"); reload();
     };
     main.querySelectorAll("[data-toggle]").forEach((b) => b.addEventListener("click", async () => {
       b.disabled = true;
@@ -10411,95 +10422,13 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
      FRIEND CHALLENGE — async duel on 10 questions from a lesson
      ===================================================================== */
   /* =====================================================================
-     LESSON BUDDY — «سالم» رفيق الدراسة: شخصية إماراتية بتعابير متغيرة، أسئلة كتابية أو صوتية
+     LESSON BUDDY — «سالم» رفيق الدراسة: كوده في art/salem/salem.js و salem.css، ويُحمَّل عند الحاجة
      ===================================================================== */
-  const SALEM_ART = "art/salem/";
-  const SALEM_FACES = { head: 1, wink: 1, think: 1, listen: 1, idea: 1, cheer: 1, great: 1 };
-  async function buddyFab(l, nn) {
-    ["buddyFab", "buddyBox"].forEach((id) => { const x = document.getElementById(id); if (x) x.remove(); });
-    if (!location.hash.startsWith("#/lesson/")) return;
-    Object.keys(SALEM_FACES).forEach((k) => { const i = new Image(); i.src = SALEM_ART + k + ".webp"; });
-    const T2 = (a, e) => (nn ? e : a);
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const canSpeak = "speechSynthesis" in window;
-    const fig = document.createElement("button"); fig.id = "buddyFab"; fig.className = "salem"; fig.type = "button";
-    fig.setAttribute("aria-label", T2("افتح سالم، رفيق المذاكرة", "Open Salem, your study buddy"));
-    fig.innerHTML = `<img class="salem-img" src="${SALEM_ART}full.webp" alt="" draggable="false"><span class="salem-face" aria-hidden="true"><img alt="" src="${SALEM_ART}think.webp"></span><span class="salem-tip">${T2("اسألني عن الدرس!", "Ask me about the lesson!")}</span>`;
-    const box = document.createElement("div"); box.id = "buddyBox"; box.className = "buddy-box"; box.hidden = true; box.dir = nn ? "ltr" : "rtl";
-    box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "سالم");
-    box.innerHTML = `<div class="bd-head"><span class="bd-av"><img alt="" src="${SALEM_ART}head.webp"></span><div><b>سالم</b><small class="bd-state">${T2("زميلك في المذاكرة", "Your study buddy")}</small></div><button class="bd-x" type="button" aria-label="إغلاق">✕</button></div>
-      <div class="bd-log" aria-live="polite"></div>
-      <div class="bd-chips"></div>
-      <form class="bd-form">${SR ? `<button type="button" class="bd-mic" aria-label="${T2("اسأل بصوتك", "Ask by voice")}" title="${T2("اسأل بصوتك", "Ask by voice")}">🎙️</button>` : ""}<input maxlength="400" dir="auto" placeholder="${T2("اكتب سؤالك أو اضغط الميكروفون…", "Type or tap the mic… / اكتب سؤالك")}" aria-label="سؤالك"><button class="bd-send" aria-label="${T2("أرسل", "Send")}">➤</button></form>
-      <p class="bd-note">${T2("يجيب سالم من الدرس ومصادره المعتمدة فقط. للأحكام والمسائل الخلافية اسأل معلمك.", "Salem answers only from this lesson and approved sources. Ask your teacher about rulings.")}</p>`;
-    document.body.append(fig, box);
-    const log = box.querySelector(".bd-log"), form = box.querySelector("form"), inp = form.querySelector("input"), send = form.querySelector(".bd-send"), mic = form.querySelector(".bd-mic"), hist = [];
-    const av = box.querySelector(".bd-av img"), faceImg = fig.querySelector(".salem-face img"), stateTxt = box.querySelector(".bd-state");
-    const STATE = { think: T2("يفكّر…", "Thinking…"), listen: T2("يستمع إليك…", "Listening…") };
-    let faceTimer = 0;
-    const face = (k, ms) => {
-      clearTimeout(faceTimer); av.src = SALEM_ART + (k || "head") + ".webp";
-      fig.dataset.face = k || ""; if (k) faceImg.src = SALEM_ART + k + ".webp";
-      stateTxt.textContent = STATE[k] || T2("زميلك في المذاكرة", "Your study buddy");
-      if (ms) faceTimer = setTimeout(() => face(null), ms);
-    };
-    const mood = (m, ms) => { fig.classList.add(m); if (ms) setTimeout(() => fig.classList.remove(m), ms); };
-    const calm = (m) => fig.classList.remove(m);
-    const speak = (text) => {
-      if (!canSpeak || !text) return; speechSynthesis.cancel();
-      const ar = /[؀-ۿ]/.test(text); const u = new SpeechSynthesisUtterance(text.replace(/\*\*/g, "").replace(/[\u{1F300}-\u{1FAFF}☀-➿]/gu, ""));
-      u.lang = ar ? "ar-SA" : "en-US"; const v = speechSynthesis.getVoices().find((x) => x.lang && x.lang.toLowerCase().startsWith(ar ? "ar" : "en")); if (v) u.voice = v;
-      u.rate = ar ? 0.92 : 0.98; u.onstart = () => { fig.classList.add("talk"); face("idea"); }; u.onend = u.onerror = () => { calm("talk"); face(null); }; speechSynthesis.speak(u);
-    };
-    const say = (who, html, plain) => {
-      const d = document.createElement("div"); d.className = "bd-msg " + who; d.dir = "auto"; d.innerHTML = html;
-      if (who === "bot" && plain && canSpeak) { const s = document.createElement("button"); s.type = "button"; s.className = "bd-say"; s.textContent = "🔊"; s.title = T2("استمع", "Listen"); s.onclick = () => speak(plain); d.appendChild(s); }
-      log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
-    };
-    const hello = T2("أهلًا يا صديقي! أنا سالم 👋 اكتب سؤالك عن درس «" + l.title_ar + "» أو اسألني بصوتك.", "Hi! I'm Salem 👋 Type or say your question about this lesson, in English or Arabic.");
-    say("bot", esc(hello), hello);
-    const chips = nn ? ["Explain the main idea simply", "Quiz me with one question", "Give me an example from my life", "Any extra sources?"]
-      : ["اشرح لي الفكرة الرئيسة ببساطة", "اختبرني بسؤال واحد", "أعطني مثالًا من حياتي", "أريد مصادر إضافية"];
-    const chipBox = box.querySelector(".bd-chips");
-    chips.forEach((c) => { const x = document.createElement("button"); x.type = "button"; x.dir = "auto"; x.textContent = c; x.onclick = () => ask(c, false); chipBox.appendChild(x); });
-    const open = (v) => { box.hidden = !v; fig.classList.toggle("open", v); if (v) { mood("wave", 1400); face("wink", 2200); inp.focus(); } else if (canSpeak) speechSynthesis.cancel(); };
-    fig.onclick = () => open(box.hidden);
-    box.querySelector(".bd-x").onclick = () => open(false);
-    document.addEventListener("keydown", function esck(e) { if (!document.body.contains(box)) return document.removeEventListener("keydown", esck); if (e.key === "Escape" && !box.hidden) open(false); });
-    setTimeout(() => { if (document.body.contains(fig) && box.hidden) mood("hint", 5000); }, 1200);
-    const off = () => { if (!location.hash.startsWith("#/lesson/")) { if (canSpeak) speechSynthesis.cancel(); fig.remove(); box.remove(); window.removeEventListener("hashchange", off); } }; window.addEventListener("hashchange", off);
-    const ERR = { rate_limited: T2("بلغتَ الحدّ: 20 سؤالًا في الساعة. عُد بعد قليل 🙂", "Limit reached: 20 questions per hour."), no_access: T2("هذا الدرس غير مفتوح لك.", "This lesson isn't open for you."), not_configured: T2("سالم غير مفعّل بعد.", "Salem isn't set up yet.") };
-    let busy = false;
-    async function ask(q, byVoice) {
-      q = String(q || "").trim(); if (!q || busy) return; busy = true;
-      chipBox.hidden = true; inp.value = ""; say("me", esc(q)); const wait = say("bot", '<span class="bd-dots"><i></i><i></i><i></i></span>'); send.disabled = true; face("think");
-      try {
-        const tok = (await sb.auth.getSession()).data.session?.access_token;
-        const r = await fetch(cfg.supabaseUrl + "/functions/v1/lesson-buddy", { method: "POST", headers: { "Content-Type": "application/json", apikey: cfg.supabaseKey, Authorization: "Bearer " + tok }, body: JSON.stringify({ lesson_id: l.id, question: q, history: hist.slice(-6) }) });
-        const j = await r.json().catch(() => ({}));
-        if (!r.ok) { wait.textContent = ERR[j.error] || T2("حدث خطأ، حاول مرة أخرى.", "Something went wrong, try again."); face(null); return; }
-        const src = (j.sources || []).map((s) => `<li>📚 ${esc(s.citation_ar || s.title_ar)}</li>`).join("");
-        wait.remove(); say("bot", esc(j.answer).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\n/g, "<br>") + (src ? `<ul class="bd-src">${src}</ul>` : ""), j.answer);
-        hist.push({ role: "user", text: q }, { role: "assistant", text: j.answer || "" });
-        if (byVoice) speak(j.answer); else { face(/أحسنت|ممتاز|رائع|well done|great job|excellent/i.test(j.answer || "") ? "cheer" : "idea", 4000); mood("talk", 1500); }
-      } catch { wait.textContent = T2("تعذّر الاتصال.", "Connection failed."); face(null); }
-      finally { busy = false; send.disabled = false; inp.focus(); }
-    }
-    form.onsubmit = (e) => { e.preventDefault(); ask(inp.value, false); };
-    if (mic) {
-      let rec = null;
-      mic.onclick = () => {
-        if (rec) { rec.stop(); return; }
-        if (canSpeak) speechSynthesis.cancel();
-        rec = new SR(); rec.lang = nn ? "en-US" : "ar-AE"; rec.interimResults = true; rec.maxAlternatives = 1;
-        let finalText = ""; mic.classList.add("on"); face("listen"); inp.placeholder = T2("أستمع إليك…", "Listening…");
-        rec.onresult = (ev) => { let t = ""; for (const r of ev.results) { t += r[0].transcript; if (r.isFinal) finalText = t; } inp.value = t; };
-        rec.onerror = () => {};
-        rec.onend = () => { mic.classList.remove("on"); face(null); inp.placeholder = T2("اكتب سؤالك أو اضغط الميكروفون…", "Type or tap the mic… / اكتب سؤالك"); const q = (finalText || inp.value).trim(); rec = null; if (q) ask(q, true); };
-        try { rec.start(); } catch { rec = null; mic.classList.remove("on"); face(null); }
-      };
-    }
-  }
+  const loadSalem = () => window.HiraaSalem ? Promise.resolve(window.HiraaSalem) : (window.__salemP = window.__salemP || new Promise((res, rej) => {
+    const c = document.createElement("link"); c.rel = "stylesheet"; c.href = "art/salem/salem.css"; document.head.appendChild(c);
+    const s = document.createElement("script"); s.src = "art/salem/salem.js"; s.onload = () => res(window.HiraaSalem); s.onerror = () => { window.__salemP = null; rej(new Error("salem")); }; document.head.appendChild(s);
+  }));
+  function buddyFab(l, nn) { loadSalem().then((S) => S && S.mount(l, nn, { sb, cfg, esc })).catch(() => {}); }
   const duelLink = (c) => appUrl() + "#/duel/" + c;
   const fmtMs = (ms) => { const s = Math.round(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
   function duelFab(l, nn) {
@@ -15085,6 +15014,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "admin") return pageAdmin(params);
       if (p0 === "about") return pageAbout();
       if (p0 === "contact") return pageContact();
+      if (p0 === "buddy-report") { const S = await loadSalem(); await S.report(params, { sb, cfg, esc, h, loading, state }); return; }
       if (p0 === "teacher") { await pageTeacher(params); return injectNow(); }
       h('<div class="wrap loading">هذه الصفحة غير موجودة. <a href="#/">العودة إلى الرئيسية</a></div>');
     } catch (e) {
