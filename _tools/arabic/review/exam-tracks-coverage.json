@@ -1,5 +1,5 @@
 {
-  "status": "local content and pixel QA passed; deployment pending",
+  "status": "closed: local and live content/pixel QA passed",
   "base": "77bbd08751d538067ae1a378e8a288d0e1d444e1",
   "lessons_in_scope": 144,
   "lesson_changes": {
@@ -1458,5 +1458,552 @@
       "reason": "Existing spoken model, response-building sequence and practice prompts already teach this skill. No new decorative picture or answer-revealing panel added.",
       "existing_core_excerpt": "أنا أفعل: أرى ← أفهم ← أختار ← أبني نمذجة المعلّم: «أنا أفعل» ⏱ 5 دقائق أرى أنظر إلى الصورة/النص أفهم أحدّد المطلوب أختار أختار الكلمات أبني أصوغ الجملة 🧱 التراكيب المستهدفة في الصورة أرى …\nيبدو أنّ …\nفي رأيي … ؛ وفي الماضي … ؛ وفي المستقبل … 👩‍🏫 نموذج المعلّم أ: ماذا ترى في الصو"
     }
-  ]
+  ],
+  "content_commit": "9600852f2ea24c4b4a975882a365f7ae6c53cf41",
+  "live_verification": {
+    "checked_at": "2026-11-24T19:22:10.577521+00:00",
+    "total": 87,
+    "matched": 87,
+    "files": [
+      {
+        "path": "resources/ar/AR-Y10-GC-T1-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T1-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "7fe29dba9a3df1327b1da0c97788401fff6c3a614b46e78dc26bd1671cdc2afb"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T1-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T1-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "d49100bfcd9460cbc29d23bde11a8da35f808f131be48057be619171e89569b5"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T1-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T1-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "1e031848371eb0bea02b181c93463e6327826918cc62c9b41dd22a44830bdc68"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T1-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T1-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "8954e563721f291a5de7427068931637ef815b4e8a990e87019a9e63d0bb1e9f"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T1-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T1-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "44a0de5bdc810975c1c594296d17cef013796506d56510843984e549f61365a1"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T2-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T2-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "bf276fd7fc0119b12e1590b56bedef594e54c324d1bf339f08d4175baff5be7e"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T2-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T2-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "d097ed213901da9cf52d098b3280a7720b535ed636375f5f129e6604e8231f9d"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T2-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T2-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "d1b1ef7e564649456a49b1e007b9016de4ceb03a4818fa4fcd37030927844ae8"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T2-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T2-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "7b0267deb0404109e95b960ff846d51a4abd069b56d557f052dabaf529f64ae7"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T2-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T2-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "fc6495220d4852dae8d63f588546b71e1b2953d757b6d6312c165fe5fe86069f"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T3-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T3-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "954234ec7ca7d730d90a768c822de6afa22b06439998750e44c1b48c8cf6cda2"
+      },
+      {
+        "path": "resources/ar/AR-Y10-GC-T3-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-GC-T3-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "1ab298b92783bebf0f54d6beacf5d030906c21460751cea2b01a528c54a3bb69"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T1-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T1-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "763db3d388a42f8019587171817f761f96bcde13eb14428e8b37e4ff0de645a2"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T1-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T1-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "b7a3fc1e4636ca3ff89d2a94ecc73f486fe609554ecaca49c44c3274d0b58598"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T1-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T1-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "c569e68a4ca9960c2b204d0f5250ad8de1c158dc2b89b786fd27fa45f2e23111"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T1-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T1-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "b42ee0a3ddd459adcb3784748d7e11004d6d41f6bc0d354d9482ab6b7df34b4c"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T1-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T1-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "98e061e421e83fc35b7dc114d134eb76f9202b59ba6019927daea857b8640517"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T1-L06/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T1-L06/teacher-deck.html",
+        "match": true,
+        "sha256": "dfed7fa025a28cd3c997884c10866fa78320756103f9a1497764bd129ff18123"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T2-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T2-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "7378c0177d3168ac3d64144367f42815e75ef74f0cf8f43ce9272c022c02879f"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T2-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T2-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "5daea828ca0905bc95e29f5286f13b7a028d585f8c5f0f54264da84e9355d0c0"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T2-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T2-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "c4cbf9d72f400f99095549b3345fe81ff51faf178b469b450f4c7930687c5a48"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T2-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T2-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "04aa66192c9667f6fb40c229ea4db45f608276386beda09de96e646891cd2cc7"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T2-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T2-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "ddeb303f07b7df6175473403a59ba8160bae9f1f4db0a5658ecf5e05ed7acdf2"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T3-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T3-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "b982e2a98cc5d533a301de8289bb22e3e20480f590cd5851969836a5ea32840a"
+      },
+      {
+        "path": "resources/ar/AR-Y10-IG-T3-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y10-IG-T3-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "a37140f625f3314cd44a460d3f0cc948a15ed2baf14ba4df39e3f3e5a49060d8"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T1-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T1-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "a5c00663ffe038ab75bf5357e29ceace28a5e86ee83389bee4d7a37d2e3835a2"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T1-L08/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T1-L08/teacher-deck.html",
+        "match": true,
+        "sha256": "df4397c1864faf21a9a928bef55c38230956266dbf98bab24e00523540fc751a"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T1-L09/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T1-L09/teacher-deck.html",
+        "match": true,
+        "sha256": "b0df41935290bedd62936ed4de1fc0c37a0a37073e9c9c087fa60ae3f8d6111f"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T1-L10/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T1-L10/teacher-deck.html",
+        "match": true,
+        "sha256": "1bfe0cb3a90ac17674bcc5772924ae8e23dfd61987f80aba57edcc113c18fc60"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T2-L07/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T2-L07/teacher-deck.html",
+        "match": true,
+        "sha256": "a9f78378760056d85fad839b979d722eec857cd3c0b397c7b6219e2bc2e060a7"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T2-L08/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T2-L08/teacher-deck.html",
+        "match": true,
+        "sha256": "0c3091621f81909df29272ef646be48fde391e53d00c1b995c5dd97e64e0d057"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T2-L09/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T2-L09/teacher-deck.html",
+        "match": true,
+        "sha256": "f5e0ba2c411a4d929b8b8c8e1413d69216eeab6d0d9d659bca728090bc3071e6"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T3-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T3-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "33cb524e31bf42e74e664a6108430f7de4e556d590e7fccc50bd9d049d9fdbdf"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T3-L09/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T3-L09/teacher-deck.html",
+        "match": true,
+        "sha256": "bb6bbb1112dced2d24e0bcf167e9348cff133fc08e8787175c9246ab5d22270e"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T3-L14/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T3-L14/teacher-deck.html",
+        "match": true,
+        "sha256": "b5df56ee4f434f4420c67bec1e41dd09d575750836545b09df74187520e2cfa2"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T3-L18/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T3-L18/teacher-deck.html",
+        "match": true,
+        "sha256": "025203240030cfe9717459d864073f4797ba6b350b3352387cd6e97ca189c083"
+      },
+      {
+        "path": "resources/ar/AR-Y11-AL-T3-L19/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y11-AL-T3-L19/teacher-deck.html",
+        "match": true,
+        "sha256": "b2cfe07a8c45c3341583ba78b960b3b63f9589dac07a80b79334f11a8f108f33"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T1-L07/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T1-L07/teacher-deck.html",
+        "match": true,
+        "sha256": "014932fd65fe50531dc5bf3b98b4235f1756c281961378d24c6b603903b20444"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T1-L08/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T1-L08/teacher-deck.html",
+        "match": true,
+        "sha256": "8aad5f3d639412bdd82b1d0513ca483c2a3f2e9cd0cd0419c3006f51dc5b7ff0"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T1-L09/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T1-L09/teacher-deck.html",
+        "match": true,
+        "sha256": "b1d33f4214f58c003825ca51ea7acb26e7b06ac491d42d5b69df1c8a79064ce8"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T1-L12/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T1-L12/teacher-deck.html",
+        "match": true,
+        "sha256": "38e9ca1b60c817d4e46756de3c7893dd30cb026ef9b0d3d842bd2c606a9405cf"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T1-L13/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T1-L13/teacher-deck.html",
+        "match": true,
+        "sha256": "38f26dd2f6275da11e00d9b6d45919d66d37de483d9ba7df2f3f8aef043f2b5b"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T1-L18/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T1-L18/teacher-deck.html",
+        "match": true,
+        "sha256": "83a12e14bfef79b72a2737c304f852c794845ed96402976e27d4522dfca7e0eb"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T1-L23/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T1-L23/teacher-deck.html",
+        "match": true,
+        "sha256": "4af5b0dfec8192e6f8785f8f725d1427dd0ddc8f54e3654df02662947c7e6831"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T2-L06/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T2-L06/teacher-deck.html",
+        "match": true,
+        "sha256": "56e179d09cdeacde9122b29f4350ecdce688f92eb65af7639ce4b0e66b2f3987"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T2-L07/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T2-L07/teacher-deck.html",
+        "match": true,
+        "sha256": "975c6f78136c9258ac0a5dba8ae745b14f7d74282827a540eb6b13ea772232ce"
+      },
+      {
+        "path": "resources/ar/AR-Y12-AL-T3-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y12-AL-T3-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "5e3b82a1bd65a3b5f53b9b524f6d2e32bfc3a379cd306e72adaff9f992fa5c4b"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T1-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T1-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "e7f9547dc3bf3f18a2fe314b706bdfc9895926d223f0fa471eb0ad9bde334809"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T1-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T1-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "e479d7881e44b1c742f270449417c268fc67b4d54a8b61c7f2add207c5ddb90f"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T1-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T1-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "227e2128c5554e14b7d4d9c19d71203aa53c583bca3fa95263e954020e85861e"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T1-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T1-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "68c6b872a27f1ec8a7bc56c4c1ae50ae9d1e60618f3efc1a890c3bfc8e5df206"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T1-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T1-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "a4d29a73d500351e92313ce7b3481c6f23da67065bd730c9d73803552f649e40"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T1-L06/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T1-L06/teacher-deck.html",
+        "match": true,
+        "sha256": "c194bb770967903b3d880cc947ea806274db3eded4287acd65944045a35641c5"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T1-L07/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T1-L07/teacher-deck.html",
+        "match": true,
+        "sha256": "33a246efc66dfc9adc2a0da8ed9de7a156d11dcded690ad69ef450b004e39efc"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T2-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T2-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "e1b55ad65f8da396fe185726f4d706f77ce5d907d8bf01db4db018e2a0b1529d"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T2-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T2-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "0bd86d23b763a99b75793cf6efc834940796b3168f3b01b377457d1692d89f85"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T2-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T2-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "86c7ea3e6f08ec15bc87364f4a5aed215fba69902aa067b4f3560d3164027f93"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T2-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T2-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "35a1791f565e0c595e08fbace3bcf693f08f56b4640e429ae2cdcfa2f1c11682"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T2-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T2-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "656008f922f4e0c186332effe99c4e19f521879a424f819605b67ab16f554ee1"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T2-L06/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T2-L06/teacher-deck.html",
+        "match": true,
+        "sha256": "ef46fb0a62bdf69e7bcda478250d1475c348b647a998a766ad7796fee7477e83"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T2-L07/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T2-L07/teacher-deck.html",
+        "match": true,
+        "sha256": "7d0f926ac9546d266ed5cc93a6dca811ba919b6b7fce2644376330e49d3eb3c3"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T3-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T3-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "70ffe73608729a94a33563325659816cb867bd3debbfdfdc96abb5b82e1515ec"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T3-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T3-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "c69807c053d241c4bbf4b0094717f2be7ccf75288b918d54e1d2888303abd9e4"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T3-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T3-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "aedf73babb2ca36de71399fb7a49b5d48abd7c35f9f1e978be6a1ae90dd5f9aa"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T3-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T3-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "259cec7fd81bf5cbd67234269d7a0c6592aaa7c640e2e053c3c84738255cabcd"
+      },
+      {
+        "path": "resources/ar/AR-Y9-GC-T3-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-GC-T3-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "ea2f9f764016d9d72b22ba35b1e5ba736deda63ee6ecaf0f5c27a12b994114d4"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T1-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T1-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "dfc0efdad988a9bd59adea76a24647c817a819ec80eab9740c5a442cf6ec5590"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T1-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T1-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "7625b733deaf25b1dc67926e93725cc92dffaeb3073859ce675c549f750e3fd2"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T1-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T1-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "3d4cee0c1770bcb60ef99bb3ee648b2497f324aeceabb9888fe615100b496a77"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T1-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T1-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "5d2bb7a2412907700a65e9a725f812cdb3931da451db99a81715203ffc652c0a"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T1-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T1-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "0c6d1f31ce0adff6c1ee0edbfc8c960ec73f49208233a394d901b4886e395d5e"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T1-L06/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T1-L06/teacher-deck.html",
+        "match": true,
+        "sha256": "2f87f1787356963aed0e6cd9a731ff0696a4c011bb27b158ff4371aa73d4be3d"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T1-L07/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T1-L07/teacher-deck.html",
+        "match": true,
+        "sha256": "12ced85b6eba6daa584c1f752ef2f3b9d7a771db82f0e3b61360161cd7a2551d"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T1-L08/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T1-L08/teacher-deck.html",
+        "match": true,
+        "sha256": "b607f812e4ce8268c7ce45d54e3e40f5050328715db088954bb78749aa60cfff"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T2-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T2-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "4765a465265cf1ab93b39cbc1b1653a0473e025d98af6fd8c671198a333e9a98"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T2-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T2-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "3c8cdf6d3a5c4661f8e0d2f3a9d6000d40272421d3898fc716d5d43027f70e81"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T2-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T2-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "142a95915a795aacb18467d643f72bb388f4d2cab1c46dfe1ce83b1ed0a7aaa5"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T2-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T2-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "8b066712305f8d97397a5d97265d89474d1bbab23ae60bed7daf3e086fcc7a44"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T2-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T2-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "4ee0bfd0e36eccdedc35b95618723ec90d6b507fa56ff99f060d321e0f3f189f"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T2-L06/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T2-L06/teacher-deck.html",
+        "match": true,
+        "sha256": "56952492efe389a675555233c350fcf711ff7fa838f6292513bba7f0af53c8cf"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T2-L07/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T2-L07/teacher-deck.html",
+        "match": true,
+        "sha256": "bb95d5103171c9765d64c52d9bbd5b77668fd745a6b996ec041c8494ecbcbe86"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T3-L01/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T3-L01/teacher-deck.html",
+        "match": true,
+        "sha256": "93d0d71f2442bffe1f00a5564ddea2d6e753b0a7371e14a0caf3889317313b8f"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T3-L02/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T3-L02/teacher-deck.html",
+        "match": true,
+        "sha256": "e2120c432aee09d450ace0fb7f6fd1d82c532d56798918d4f50e79c7dc8c7b3d"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T3-L03/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T3-L03/teacher-deck.html",
+        "match": true,
+        "sha256": "73994805c3a028e20c3b645cf38b4ca72ca4019066b1f7f70d18bb2dfd2b7c36"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T3-L04/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T3-L04/teacher-deck.html",
+        "match": true,
+        "sha256": "9a4d6f40ba96bb342fb6f80030fab946a8218baa7ae1e666bdc7a9e01da13cb9"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T3-L05/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T3-L05/teacher-deck.html",
+        "match": true,
+        "sha256": "48fbe45fe19677b70fa6c4699c70f0ec95e05bb8659af79bbab64dd40a930b81"
+      },
+      {
+        "path": "resources/ar/AR-Y9-IG-T3-L06/teacher-deck.html",
+        "url": "https://abobakr789.github.io/Hira/resources/ar/AR-Y9-IG-T3-L06/teacher-deck.html",
+        "match": true,
+        "sha256": "4ded6525ff5f139a4be59214e3028f07c2752c3ce103bfd6b7bf1c77993d8ede"
+      }
+    ]
+  },
+  "live_pixel_qa": {
+    "result": "pass",
+    "inspected": [
+      "seven new verified-map diagrams",
+      "GC energy/source distinctions, s8",
+      "IG full-paper word-count map, s1",
+      "AL full-paper text/film choice map and heading fit, s1"
+    ],
+    "captures": [
+      "/tmp/ar-livepair-0.png",
+      "/tmp/ar-livepair-1.png",
+      "/tmp/ar-livepair-2.png",
+      "/tmp/ar-livepair-3.png",
+      "/tmp/ar-two-liveconfirmed.png"
+    ],
+    "site": "https://abobakr789.github.io/Hira/"
+  }
 }
