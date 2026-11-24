@@ -1,5 +1,5 @@
 {
-  "status": "local review, pending QA and deployment",
+  "status": "closed: deployed and verified",
   "base": "28f0ab9cd442fab5c3998e4a3d31b2fe082e7632",
   "lessons_reviewed": 27,
   "teacher_slides_reviewed": 655,
@@ -125,5 +125,10 @@
     "No religious adjudication or blanket certification of historical/source text. Reported text stays unchanged.",
     "Original examiner attributions not rewritten; current specification used for exam structure."
   ],
-  "qa": "189 HTML,243 scripts valid, no missing assets or duplicate IDs. Set-passage sections unchanged. Local five panels and boundaries inspected. Full-passages instruction clarified where worksheets display excerpts."
+  "qa": "189 HTML,243 scripts valid, no missing assets or duplicate IDs. Set-passage sections unchanged. Local five panels and boundaries inspected. Full-passages instruction clarified where worksheets display excerpts.",
+  "live_checked_at": "2026-11-24T22:52:00+04:00",
+  "live_html_exact": 101,
+  "live_html_changed": 101,
+  "original_teacher_sections": 650,
+  "explanatory_sections_added": 5
 }
