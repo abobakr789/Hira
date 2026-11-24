@@ -1,0 +1,91 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L15/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L15/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L15/teacher-deck.html",
+    "views": [
+      "vocab",
+      "match"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L15/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L13/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L13/teacher-deck.html",
+    "views": [
+      "learn4"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L07/teacher-deck.html",
+    "views": [
+      "models",
+      "quick"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L07/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+    "live_qa": "pending"
+  }
+]

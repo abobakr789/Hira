@@ -108,3 +108,8 @@ All pages fetched and read 08:01–08:02 Dubai. Corrections synchronized in read
 - UAE Government, water resources: https://u.ae/en/information-and-services/environment-and-energy/natural-resources/water- . Dams harvest rain/flood water and recharge groundwater. Corrected the reversed groundwater-to-dam causal claim, synchronized learning slide and concept card.
 - Visit Dubai, city history: https://www.visitdubai.com/ar/explore-dubai/about-dubai . Supports early fishing settlement; removed an incomplete unsupported BCE date, visibly labeled the edited reading as adapted.
 - Civilizational contact: removed an unrelated equator/Greenwich globe from the text-only explanation. No new historical claim or media replacement.
+
+## Grade 4 retained audit follow-up, 24 November 2026
+- National Wildlife Federation, reptiles: https://www.nwf.org/Educational-Resources/Wildlife-Guide/Reptiles . Replaced the belly-crawling definition with vertebrates having dry scaly skin, using lizard and snake examples. Synchronized vocabulary, matching, worksheet and answer key.
+- Stanford Encyclopedia of Philosophy, Arabic/Islamic influence on the Latin West: https://plato.stanford.edu/entries/arabic-islamic-influence/ . Changed an exclusive-sounding basis-of-European-scientific-renaissance claim to contribution, in the learning slide and concept card. The original book passage is unchanged.
+- Water journal study, 2016: https://www.mdpi.com/2073-4441/8/9/415 . The lesson dates the count of 130 dams/barriers to 2015; propagated that date into the derived model answer and quiz question, retained the historical count rather than suggesting a current statistic.
