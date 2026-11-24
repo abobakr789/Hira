@@ -1,0 +1,79 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L02/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L02/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L02/teacher-deck.html",
+    "views": [
+      "hook",
+      "guess",
+      "predict",
+      "goal",
+      "progress",
+      "learn2",
+      "learn4",
+      "booktext",
+      "think",
+      "truefalse",
+      "g1",
+      "g4",
+      "models",
+      "quick",
+      "progress2"
+    ],
+    "popups": [
+      "hook",
+      "guess",
+      "predict",
+      "think"
+    ],
+    "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L02/group-work.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L02/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+    "live_qa": "pending"
+  }
+]

@@ -60,3 +60,8 @@ Removed internally conflicting birth/accession-age assertions rather than guessi
 
 ## T1 L06 local ancient-civilization example, verified 2026-11-24
 - https://u.ae/ar/about-the-uae/History and https://abudhabiculture.ae/en/cultural-heritage/tangible/archaeology/umm-an-nar support Umm an-Nar as a local civilization/period. Keep this verified local example instead of the unsupported list including Meluhha. No claim that all regional names are interchangeable. Adapted passage visibly labeled; original media retained.
+
+## Longitude correction, 2026-11-24
+- NOAA, https://oceanservice.noaa.gov/facts/longitude.html : longitude measured 0–180 degrees east/west, 15 degrees per hour.
+- US Naval Observatory, https://aa.usno.navy.mil/faq/eqtime : solar time distinguished from legal civil time.
+- Replaced literal line-count convention with angular measure, synchronized quiz/worksheets/key/group tasks/objectives. Adapted passage visibly labelled. No media replaced. Local 15 fronts, 4 answer popups, 9 print pages individually inspected PASS.
