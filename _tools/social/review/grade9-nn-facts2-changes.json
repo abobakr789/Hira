@@ -1,0 +1,19 @@
+{
+  "files": [
+    "resources/ssd/SS-Y9-NN-T1-L05/answer-key.html",
+    "resources/ssd/SS-Y9-NN-T1-L05/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L05/teacher-deck.html",
+    "resources/ssd/SS-Y9-NN-T1-L06/answer-key.html",
+    "resources/ssd/SS-Y9-NN-T1-L06/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L06/teacher-deck.html",
+    "resources/ssd/SS-Y9-NN-T1-L06/worksheets-A4.html",
+    "resources/ssd/SS-Y9-NN-T1-L07/answer-key.html",
+    "resources/ssd/SS-Y9-NN-T1-L07/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L07/teacher-deck.html",
+    "resources/ssd/SS-Y9-NN-T1-L08/answer-key.html",
+    "resources/ssd/SS-Y9-NN-T1-L08/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L08/teacher-deck.html"
+  ],
+  "qa": "Local slide and print pixels PASS, live pending",
+  "original_media": "unchanged"
+}
