@@ -1,0 +1,1 @@
+Gratitude tree is an explanatory paper-tree diagram of the activity already transcribed from Student Book pp50-51: paper leaves carry thank-you messages. Generated SVG uses sample messages, not attributed quotations. Shield emoji removed where it was being used as a picture of an Emirati soldier. Original wording and media preserved.
