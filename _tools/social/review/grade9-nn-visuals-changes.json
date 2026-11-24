@@ -5,8 +5,8 @@
     "rationale": "Show both fish and wheat in a reciprocal barter exchange, not a fish alone labelled fish for wheat.",
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "passed, actual slide pixels inspected",
+      "live": "passed 2026-11-24; deployed slide pixels inspected"
     }
   },
   {
@@ -15,8 +15,8 @@
     "rationale": "Worked scenario distinguishes business profit from investor share and projected ROI. Arithmetic independently calculated; risk warning retained.",
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "passed, actual slide pixels inspected",
+      "live": "passed 2026-11-24; deployed slide pixels inspected"
     }
   }
 ]

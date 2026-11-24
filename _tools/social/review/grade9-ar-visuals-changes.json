@@ -5,8 +5,8 @@
     "rationale": "Population changes combine births, deaths and net international migration; internal moves redistribute rather than add national population.",
     "original_media": "unchanged",
     "qa": {
-      "local": "passed actual-pixel check, 24 November 2026",
-      "live": "pending"
+      "local": "passed, actual slide pixels inspected",
+      "live": "passed 2026-11-24; deployed slide pixels inspected"
     }
   },
   {
@@ -15,8 +15,8 @@
     "rationale": "Proportionate indexed bars distinguish a 21 percent reduction from reducing the total to 21 percent. Explicitly hypothetical baseline, not a claimed measured water volume.",
     "original_media": "unchanged",
     "qa": {
-      "local": "passed actual-pixel check, 24 November 2026",
-      "live": "pending"
+      "local": "passed, actual slide pixels inspected",
+      "live": "passed 2026-11-24; deployed slide pixels inspected"
     }
   },
   {
@@ -25,8 +25,8 @@
     "rationale": "FAO four dimensions are complementary requirements, not a causal sequence.",
     "original_media": "unchanged",
     "qa": {
-      "local": "passed actual-pixel check, 24 November 2026",
-      "live": "pending"
+      "local": "passed, actual slide pixels inspected",
+      "live": "passed 2026-11-24; deployed slide pixels inspected"
     }
   },
   {
@@ -35,8 +35,8 @@
     "rationale": "A labelled contrast distinguishes tax bases without implying UAE payroll income tax. OECD and UAE official sources verified.",
     "original_media": "unchanged",
     "qa": {
-      "local": "passed actual-pixel check, 24 November 2026",
-      "live": "pending"
+      "local": "passed, actual slide pixels inspected",
+      "live": "passed 2026-11-24; deployed slide pixels inspected"
     }
   }
 ]

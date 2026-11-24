@@ -5,8 +5,8 @@
     "rationale": "Four knowledge-economy pillars are complementary supports, not stages.",
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "passed, actual slide pixels inspected",
+      "live": "passed 2026-11-24; deployed slide pixels inspected"
     }
   },
   {
@@ -15,8 +15,8 @@
     "rationale": "Natural resources, work, productive capital and entrepreneurship are parallel factors of production.",
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "passed, actual slide pixels inspected",
+      "live": "passed 2026-11-24; deployed slide pixels inspected"
     }
   }
 ]

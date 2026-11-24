@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-24",
+  "reviewed_lessons": 42,
+  "reviewed_html": 288,
+  "changed_lessons": 40,
+  "changed_html": 172,
+  "changed_teacher_slides": 214,
+  "concept_panels": 8,
+  "panel_slides": 8,
+  "panel_lessons": 7,
+  "literal_picture_repair_slides": 4,
+  "recap_layout_repairs": 15,
+  "original_media_differences": 0,
+  "live_verification": {
+    "all_changed_html_byte_exact": 172,
+    "deployment": "e237b766",
+    "pixel_checks": "New panels, literal picture repairs, recap vocabulary and big-idea scenes, award quiz/worksheet, Comoros-inclusive quiz/worksheet, constitution quick challenge passed; first panel batch previously inspected live."
+  },
+  "scope_caveats": [
+    "This is a targeted lesson review and correction, not a certification of every textbook historical or religious claim.",
+    "Source-text concerns preserved without rewriting religious material: Medina dating, Zayd language-learning anecdote, battle dating."
+  ],
+  "sources": "Per-batch grade9 review ledgers include the research URLs."
+}
