@@ -1,0 +1,70 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L10/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L10/teacher-deck.html",
+    "views": [
+      "models"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L02/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L02/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L02/teacher-deck.html",
+    "views": [
+      "booktext",
+      "learn2",
+      "truefalse"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L02/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+    "live_qa": "pending"
+  }
+]
