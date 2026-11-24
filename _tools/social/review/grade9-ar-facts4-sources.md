@@ -1,0 +1,8 @@
+# Grade 9 strategy and event chronology
+24 November 2026. Four lessons, ten HTML. Local actual-pixel core/enrichment slides and dependent worksheet/key pages checked. Original media unchanged. Live pending.
+
+- Water Security Strategy 2036 reduces demand BY 21%, not TO 21%; treated-water reuse 95%, scarcity-index decrease of three degrees. Removed unsupported per-capita-halving target from current strategy account. Matched worksheet word-bank gaps and teacher model. https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/strategies-plans-and-visions/environment-and-energy/the-uae-water-security-strategy-2036
+- Energy Strategy 2050 was updated after 2017. Current source targets tripling renewables by 2030. Distinguished original targets from updated ones. https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/strategies-plans-and-visions/environment-and-energy/uae-energy-strategy-2050
+- Six National Agenda priorities belong to Vision 2021, not the four-pillar We the UAE 2031 plan. Corrected conflation and preserved a solvable worksheet gap. https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/strategies-plans-and-visions/strategies-plans-and-visions-untill-2021/national-agenda
+- UNFCCC final report: COP28 held Expo City Dubai 30 Nov–13 Dec 2023. Removed pre-event forecast and unscoped funding figure from retrospective account. https://unfccc.int/sites/default/files/resource/cp2023_11E.pdf
+- Final Expo figures 24,102,967 visits and 192 countries, not 25m actual visits. https://www.wam.ae/en/article/hszrehd2-dubai-delivers-promise-recording-over-million
