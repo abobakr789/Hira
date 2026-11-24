@@ -64,15 +64,28 @@
     let offData = null;
     const loadOff = async () => {
       if (offData) return offData;
-      const [s1, s2] = await Promise.all([
+      const [s1, s2, s3] = await Promise.all([
         sb.from("lesson_summaries").select("content").eq("lesson_id", l.id).maybeSingle(),
         sb.from("lesson_sources").select("title_ar,citation_ar").eq("lesson_id", l.id).order("sort_order"),
+        sb.rpc("buddy_prepared_get", { p_lesson: l.id }).then((r) => r, () => ({ data: null })),
       ]);
       let c = s1.data && s1.data.content; if (typeof c === "string") { try { c = JSON.parse(c); } catch (e) { c = null; } }
-      offData = { sum: c || {}, srcs: s2.data || [] }; return offData;
+      offData = { sum: c || {}, srcs: s2.data || [], prep: s3.data || null }; return offData;
     };
+    // الشرح الجاهز لهذا الدرس (يُجهَّز مسبقًا ويعمل بلا اتصال بالنموذج)
+    const P = (k) => { const p = offData && offData.prep; if (!p) return null; const en = nn && p[k + "_en"] && (k !== "faq" || p.faq_en.length); return p[k + (en ? "_en" : "_ar")] || null; };
+    const nrm = (t) => String(t || "").replace(/[\u064B-\u065F\u0670\u0640]/g, "").replace(/[إأآ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+    const faqMatch = (q) => {
+      const p = offData && offData.prep; if (!p) return null;
+      const list = [...(p.faq_ar || []), ...(p.faq_en || [])]; const qw = new Set(nrm(q).split(" ").filter((w) => w.length > 2));
+      if (qw.size < 2) return null; let best = null, sc = 0;
+      for (const f of list) { const fw = nrm(f.q).split(" ").filter((w) => w.length > 2); const hit = fw.filter((w) => qw.has(w)).length; const v = hit / Math.max(3, Math.min(fw.length, qw.size)); if (v > sc) { sc = v; best = f; } }
+      return sc >= 0.6 ? best : null;
+    };
+    loadOff().then(() => addFaqChips()).catch(() => {});
     const offline = async (k) => {
       const { sum, srcs } = await loadOff().catch(() => ({ sum: {}, srcs: [] }));
+      if ((k === "explain" || k === "example") && P(k)) return fmt(P(k));
       if (k === "explain" && (sum.idea || (sum.learn || []).length))
         return `${sum.idea ? `<b>${esc(sum.idea)}</b>` : ""}${(sum.learn || []).length ? `<ul class="bd-list">${sum.learn.map((x) => `<li>${esc(Array.isArray(x) ? x.join(" ") : x)}</li>`).join("")}</ul>` : ""}`;
       if (k === "example" && sum.scene) return esc(sum.scene);
@@ -87,6 +100,11 @@
       { k: "sources", t: T2("أريد مصادر إضافية", "Any extra sources?") },
     ];
     const chipBox = box.querySelector(".bd-chips");
+    function addFaqChips() {
+      const fq = P("faq"); if (!fq || !fq.length || chipBox.querySelector(".bd-faq")) return;
+      const lab = document.createElement("small"); lab.className = "bd-faq"; lab.textContent = T2("أسئلة يسألها الزملاء:", "Questions classmates ask:"); chipBox.appendChild(lab);
+      fq.slice(0, 3).forEach((f) => { const x = document.createElement("button"); x.type = "button"; x.dir = "auto"; x.className = "bd-faq-q"; x.textContent = f.q; x.onclick = () => ask(f.q, false, f); chipBox.appendChild(x); });
+    }
     chipDefs.forEach((c) => { const x = document.createElement("button"); x.type = "button"; x.dir = "auto"; x.textContent = c.t; x.onclick = () => (c.k === "quiz" ? quiz(c.t) : ask(c.t, false, c.k)); chipBox.appendChild(x); });
     const open = (v) => { box.hidden = !v; fig.classList.toggle("open", v); if (v) { mood("wave", 1400); face("wink", 2200); inp.focus(); } else if (canSpeak) speechSynthesis.cancel(); };
     fig.onclick = () => open(box.hidden);
@@ -107,6 +125,12 @@
     async function ask(q, byVoice, chipKey) {
       q = String(q || "").trim(); if (!q || busy) return; busy = true;
       chipBox.hidden = true; inp.value = ""; say("me", esc(q)); const wait = say("bot", '<span class="bd-dots"><i></i><i></i><i></i></span>'); send.disabled = true; face("think");
+      const local = (html, plain) => { wait.remove(); say("bot", html, plain); hist.push({ role: "user", text: q }, { role: "assistant", text: plain || "" }); if (byVoice) speak(plain); else { face("idea", 3000); mood("talk", 1200); } showChips(); };
+      // ما جُهّز مسبقًا يُعرض فورًا دون استهلاك الرصيد
+      if (chipKey && typeof chipKey === "object") { local(fmt(chipKey.a), chipKey.a); busy = false; send.disabled = false; return; }
+      if (chipKey === "sources" || ((chipKey === "explain" || chipKey === "example") && (await loadOff().catch(() => null), P(chipKey)))) {
+        const html = await offline(chipKey); if (html) { local(html, chipKey === "sources" ? "" : P(chipKey)); busy = false; send.disabled = false; return; }
+      }
       try {
         const tok = (await sb.auth.getSession()).data.session?.access_token;
         const r = await fetch(cfg.supabaseUrl + "/functions/v1/lesson-buddy", { method: "POST", headers: { "Content-Type": "application/json", apikey: cfg.supabaseKey, Authorization: "Bearer " + tok }, body: JSON.stringify({ lesson_id: l.id, question: q, history: hist.slice(-6) }) });
@@ -114,9 +138,11 @@
         if (!r.ok) {
           if (ERR[j.error]) { wait.textContent = ERR[j.error]; face(null); if (j.error === "rate_limited") showChips(); return; }
           // نفاد الرصيد أو تعذّر الخدمة: إجابة جاهزة من محتوى الدرس المعتمد إن وُجدت
-          const alt = chipKey ? await offline(chipKey) : null;
+          await loadOff().catch(() => null);
+          const fm = chipKey ? null : faqMatch(q);
+          const alt = chipKey ? await offline(chipKey) : fm ? fmt(fm.a) : null;
           wait.remove();
-          if (alt) say("bot", alt + `<p class="bd-off">${esc(T2("من ملخص الدرس في حراء", "From the lesson summary"))}</p>`);
+          if (alt) say("bot", alt + `<p class="bd-off">${esc(T2("من شرح الدرس الجاهز في حراء", "From Hiraa's lesson notes"))}</p>`, fm ? fm.a : "");
           else say("bot", esc(RESTING));
           face(null); showChips(); return;
         }

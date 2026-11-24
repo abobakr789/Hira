@@ -76,3 +76,5 @@
 .br-q{font-weight:600}.br-meta{font-size:.8rem}
 .br-list details summary{cursor:pointer;font-size:.85rem;color:#0f7a5c}
 @media (max-width:640px){.br-stats{grid-template-columns:repeat(2,1fr)}}
+.bd-chips .bd-faq{flex-basis:100%;color:#5b6f68;font-size:.78rem;margin-top:2px}
+.bd-chips .bd-faq-q{background:#fffbea;border-color:#ecd98a;color:#6b5410}
