@@ -138,3 +138,11 @@ T1 L21: removed the later Sheikh Zayed bin Sultan portrait from the section abou
 - T2L01 undated world-first coexistence claim replaced with multicultural coexistence. https://al-ain.com/article/international-day-cultural-uae-convergence-peoples fetched supports this. A historical2019media superlative without present metric should not be current classroom fact.
 - https://u.ae/ar/about-the-uae/the-constitution-of-the-uae fetched supports1971temporary/1996permanent in T1L23.
 - https://dct.gov.ae/en/what.we.do/culture/projects/wahat.al.karama.aspx fetched supports31leaningtablets for solidarity. T1L24children dialogue is figurative hands, not an official literal design explanation.
+
+## Final support review, Nov24 08:39 Dubai
+- Heritage quotation T2L16 restored using AlBayan, https://www.albayan.ae/across-the-uae/news-and-reports/2019-05-24-1.3568225 .
+- T2L08 complete traffic-word blank, no dangling suffix.
+- T2L04 planning/diversification quote corroborated by historical AlBayan https://www.albayan.ae/economy/1999-08-31-1.1046573 .
+- T3L14 citizenship/trust quote corroborated https://www.albayan.ae/opinions/2010-09-22-1.285660 .
+- Tanmia1999 founding law https://lexmena.net/law/ar_fed~1999-11-01_00027_2020-06-15/ .
+- T3L08 dam material: sourcebook mirror calls Bih concrete https://uae-school.com/archives/76282 ; independent engineering publication calls it earthfill https://www.waterpowermagazine.com/news/flash-of-inspiration/ . Removed concrete-material teaching claim in linked deck/support resources and marked adapted reading. Retained1982 construction, corroborated by engineering report and curriculum;1983 in AlBayan is WadiHam opening, while MDPI dates Bih1983. Do not silently substitute1983 for1982 or assess source dispute as a pupil error. Official ministry supports groundwater recharge: https://moccae.gov.ae/ar/knowledge/ecotourism/sad-al-bih-al-bih-dam .

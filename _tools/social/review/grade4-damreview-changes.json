@@ -1,0 +1,64 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T3-L08/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
+    "qa": {
+      "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L08/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
+    "qa": {
+      "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L08/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
+    "qa": {
+      "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L08/teacher-deck.html",
+    "views": [
+      "guess",
+      "vocab",
+      "match",
+      "learn1",
+      "booktext"
+    ],
+    "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
+    "qa": {
+      "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L08/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
+    "qa": {
+      "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+      "live": "PENDING"
+    }
+  }
+]
