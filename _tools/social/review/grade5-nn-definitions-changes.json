@@ -1,0 +1,96 @@
+[
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L04/sources-concept-card.html",
+    "views": [
+      1,
+      0
+    ],
+    "reason": "Source-qualified factual notes retain original textbook text; precise supporting definitions for famine, sustainable development, and historical ministry name.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L04/teacher-deck.html",
+    "views": [
+      "text6",
+      "text5",
+      "vocab",
+      "vflip"
+    ],
+    "reason": "Source-qualified factual notes retain original textbook text; precise supporting definitions for famine, sustainable development, and historical ministry name.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L06/sources-concept-card.html",
+    "views": [
+      1
+    ],
+    "reason": "Source-qualified factual notes retain original textbook text; precise supporting definitions for famine, sustainable development, and historical ministry name.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "text3"
+    ],
+    "reason": "Source-qualified factual notes retain original textbook text; precise supporting definitions for famine, sustainable development, and historical ministry name.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L08/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "Source-qualified factual notes retain original textbook text; precise supporting definitions for famine, sustainable development, and historical ministry name.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "reason": "Source-qualified factual notes retain original textbook text; precise supporting definitions for famine, sustainable development, and historical ministry name.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L09/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "Source-qualified factual notes retain original textbook text; precise supporting definitions for famine, sustainable development, and historical ministry name.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L09/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "reason": "Source-qualified factual notes retain original textbook text; precise supporting definitions for famine, sustainable development, and historical ministry name.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+      "live": "PENDING"
+    }
+  }
+]
