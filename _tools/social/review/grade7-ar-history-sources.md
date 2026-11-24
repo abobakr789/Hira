@@ -1,0 +1,14 @@
+# Grade 7 historical and terminology corrections, 24 November 2026
+
+- GIA pearl FAQ: cultured pearls are real pearls formed in molluscs with human intervention, not imitations made of another substance. Replaced artificial-pearl terminology with cultured pearls across the lesson and assessment. https://www.gia.edu/FAQ/gia-faq-about-gemstones-are-cultured-pearls-real-pearls
+- GIA pearl history: Japanese whole cultured pearls became commercially important in the 1920s. https://www.gia.edu/pearl-history-lore
+- Britannica vizier article: institutional office formed under Abbasids in the eighth century. Divan article: first register under Umar I. Distinguish these rather than placing both institutions in the Rashidun period. https://kids.britannica.com/scholars/article/vizier/75605 and https://kids.britannica.com/scholars/article/divan/30671
+- Britannica Saud dynasty: conquest of Hejaz completed by end of 1925; king proclaimed 8 January 1926. https://kids.britannica.com/scholars/article/Saud-dynasty/473247
+- Qatar Amiri Diwan: Muhammad bin Thani moved to Doha in 1848; treaty with British resident 12 September 1868. Corrected 1868 settlement confusion and synchronized model answers. https://www.diwan.gov.qa/about-qatar/qatars-rulers/sheikh-mohammed-bin-thani?sc_lang=ar-QA
+- Bahrain official NDC 3.0 submitted in 2025, national circumstances: approximately 33 natural plus artificial islands, shoals and small islets. Counts vary by definition/source; visible teaching statement now explicitly attributed to the 2025 submission, not an unqualified count of all islands. https://unfccc.int/sites/default/files/2025-12/30112025_Bahrain_2025NDC3.0_vSubmitted.pdf
+- UAE official portal cites resolution 15/2022 for 11-month / three-year durations. Added this legal date to teaching material. https://u.ae/en/information-and-services/justice-safety-and-the-law/Safety/armed-forces
+- UN distinguishes Bosnian conflict 1992–1995 from Yugoslav breakup wars starting in 1991. ICTY lists six republics and autonomous provinces within Serbia. https://www.un.org/en/observances/srebrenica-genocide-commemoration-day/about and https://www.icty.org/en/about/what-former-yugoslavia/conflicts
+- WAM with National Archives 30 November 2018 retrospective documents Zayed relief direction of 26 April 1993. Replaced unsupported 1991 aid claim with this sourced event, including its assessment question/options/key. https://www.wam.ae/ar/article/hszr7sju-47-%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE-%D9%85%D8%B3%D9%8A%D8%B1%D8%A9-%D8%B2%D8%A7%D9%8A%D8%AF-%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3
+- Al Bayan contemporary report 1 December 2000, attributed WAM: 43 proposed dams ON 15 wadis, first 28 in phase one. Corrected building wadis to building dams across wadis. https://www.albayan.ae/across-the-uae/2000-12-01-1.1235041
+
+Original media references unchanged. This is a partial factual batch, not grade closure.
