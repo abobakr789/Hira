@@ -6,7 +6,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L01/sources-concept-card.html",
@@ -15,7 +15,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L01/worksheets-A4.html",
@@ -27,7 +27,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L01/teacher-deck.html",
@@ -43,7 +43,7 @@
       "hook"
     ],
     "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L01/pod-sheet.html",
@@ -52,6 +52,6 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811."
   }
 ]
