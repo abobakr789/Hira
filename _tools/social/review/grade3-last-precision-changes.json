@@ -5,7 +5,7 @@
       "guide"
     ],
     "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:35 Asia/Dubai: six individual live slide pixels inspected; 4 HTML and plain SVG byteexact to c4c25cda. No clipping, broken images, or misleading symbol remains in edited items."
   },
   {
     "file": "resources/ssd/SS-Y3-NN-T1-L11/teacher-deck.html",
@@ -14,7 +14,7 @@
       "see"
     ],
     "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:35 Asia/Dubai: six individual live slide pixels inspected; 4 HTML and plain SVG byteexact to c4c25cda. No clipping, broken images, or misleading symbol remains in edited items."
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L13/teacher-deck.html",
@@ -22,7 +22,7 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:35 Asia/Dubai: six individual live slide pixels inspected; 4 HTML and plain SVG byteexact to c4c25cda. No clipping, broken images, or misleading symbol remains in edited items."
   },
   {
     "file": "resources/ssd/SS-Y3-T2-L03/teacher-deck.html",
@@ -31,6 +31,6 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:35 Asia/Dubai: six individual live slide pixels inspected; 4 HTML and plain SVG byteexact to c4c25cda. No clipping, broken images, or misleading symbol remains in edited items."
   }
 ]

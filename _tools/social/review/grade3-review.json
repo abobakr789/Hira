@@ -1,0 +1,1782 @@
+{
+  "grade": 3,
+  "reviewed_lessons": 71,
+  "changed_lessons": 51,
+  "retained_lessons": 20,
+  "unique_changed_slide_views": 175,
+  "unique_changed_print_views": 82,
+  "closure": "PASS 2026-11-24 05:35 Asia/Dubai: all 71 lessons reviewed, all changed views closed through individual local and live pixel checks recorded in linked manifests. 20 retained lessons have individual rationales.",
+  "lessons": [
+    {
+      "code": "SS-Y3-NN-T1-L01",
+      "title": "Teacher deck · Equality – I Am A Fair Person · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-games-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L01/teacher-deck.html",
+          "views": [
+            "text4",
+            "uae"
+          ],
+          "local_qa": "PASS: 2 slides and 1 print page pixel-inspected; original reading and media retained.",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-games-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L01/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS: 2 slides and 1 print page pixel-inspected; original reading and media retained.",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L02",
+      "title": "Teacher deck · Discrimination · Hiraa",
+      "status": "retained",
+      "rationale": "Discrimination: existing wheelchair, park and bird-story prompts support inclusion discussion; retain role-play and sentence frames rather than adding an invented discrimination scene.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-NN-T1-L03",
+      "title": "Teacher deck · Confronting Discrimination · Hiraa",
+      "status": "retained",
+      "rationale": "Confronting discrimination: story resolution and class action-plan tasks already support discussion; no extra image needed that might reveal the story outcome.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-NN-T1-L04",
+      "title": "Teacher deck · Equality or Justice · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-followup-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L04/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip"
+          ],
+          "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L05",
+      "title": "Teacher deck · Appreciation and Gratitude · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-gratitude-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L05/teacher-deck.html",
+          "views": [
+            "warm",
+            "vocab",
+            "vflip",
+            "guide",
+            "see",
+            "draw",
+            "g4"
+          ],
+          "local_qa": "PASS 2026-11-24 05:18 Asia/Dubai; all seven changed slides inspected, final guide widened and rows reflowed clear of footer",
+          "live_qa": "PASS 2026-11-24 05:24 Asia/Dubai: seven individual fresh live slides inspected; HTML and SVG byte-exact de20f6b7."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L06",
+      "title": "Teacher deck · My Place in the World · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-final-literals-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L06/teacher-deck.html",
+          "views": [
+            "guide",
+            "see"
+          ],
+          "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
+          "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L07",
+      "title": "Teacher deck · What I Know about… · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-followup-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L07/teacher-deck.html",
+          "views": [
+            "guide",
+            "text2"
+          ],
+          "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-followup-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L07/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L08",
+      "title": "Teacher deck · I Take Care of My World · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-last-precision-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L08/teacher-deck.html",
+          "views": [
+            "guide"
+          ],
+          "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
+          "live_qa": "PASS 2026-11-24 05:35 Asia/Dubai: six individual live slide pixels inspected; 4 HTML and plain SVG byteexact to c4c25cda. No clipping, broken images, or misleading symbol remains in edited items."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L09",
+      "title": "Teacher deck · Risks Threatening Our World · Hiraa",
+      "status": "retained",
+      "rationale": "Risks threatening our world: existing pollution and coral-reef reading activities lead to an environment poster; retain the learner-created visual task.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-NN-T1-L10",
+      "title": "Teacher deck · Environmental Protection Project · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-followup-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L10/teacher-deck.html",
+          "views": [
+            "text3"
+          ],
+          "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-followup-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L10/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L11",
+      "title": "Teacher deck · Landforms · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-last-precision-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L11/teacher-deck.html",
+          "views": [
+            "vocab",
+            "see"
+          ],
+          "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
+          "live_qa": "PASS 2026-11-24 05:35 Asia/Dubai: six individual live slide pixels inspected; 4 HTML and plain SVG byteexact to c4c25cda. No clipping, broken images, or misleading symbol remains in edited items."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L12",
+      "title": "Teacher deck · Bodies of Water · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-water-area-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L12/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text2",
+            "guide",
+            "quiz"
+          ],
+          "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-water-area-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L12/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-water-area-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L12/sources-concept-card.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-water-area-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L12/worksheets-A4.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L13",
+      "title": "Teacher deck · Natural Resources · Hiraa",
+      "status": "retained",
+      "rationale": "Natural resources: existing water, food and Gulf-use examples connect resources to basic needs; no extra symbolic panel adds explanatory value.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-NN-T1-L14",
+      "title": "Teacher deck · Other Natural Resources · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-natural-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L14/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text1",
+            "text3",
+            "text4",
+            "guide",
+            "check",
+            "words",
+            "levels"
+          ],
+          "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-natural-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L14/sources-concept-card.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-natural-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L14/worksheets-A4.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-natural-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L14/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L15",
+      "title": "Teacher deck · New Ideas for Natural Resources · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-natural-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L15/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text2",
+            "text3",
+            "text4",
+            "check",
+            "words",
+            "levels",
+            "see"
+          ],
+          "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-natural-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L15/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-natural-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L15/worksheets-A4.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-natural-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L15/sources-concept-card.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS inspected 18 slides and 9 print pages, including final word bank, source qualifications, and vocabulary layout",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L16",
+      "title": "Teacher deck · Reading a Map · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-followup-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L16/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "guide",
+            "words",
+            "check",
+            "quiz",
+            "text2"
+          ],
+          "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-followup-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L16/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-followup-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L16/worksheets-A4.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-followup-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L16/sources-concept-card.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS inspected 12 changed slides and 7 print pages, including final guide layout and concept card",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-NN-T1-L17",
+      "title": "Teacher deck · Different Kinds of Maps · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-water-area-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L17/teacher-deck.html",
+          "views": [
+            "text5",
+            "check",
+            "quiz"
+          ],
+          "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-water-area-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L17/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-water-area-changes.json",
+          "file": "resources/ssd/SS-Y3-NN-T1-L17/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS: 8 changed slides and 6 print pages pixel-inspected; overlap and option-label issues repaired and rechecked.",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L01",
+      "title": "عرض المعلم · النِّظامُ الْبيئِيُّ في كَوْكَبِ الْأَرْضِ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-seasons-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L01/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-seasons-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L01/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-seasons-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L01/teacher-deck.html",
+          "views": [
+            "goal",
+            "story",
+            "model",
+            "models",
+            "quick",
+            "exit",
+            "mirror"
+          ],
+          "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-seasons-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L01/worksheets-A4.html",
+          "views": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        },
+        {
+          "manifest": "grade3-seasons-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L01/pod-sheet.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS inspected 7 slides and 7 print pages; original source text and media retained with visible qualification",
+          "live_qa": "PASS all listed views inspected on deployed site; final HTML byte-exact checked 24 November 2026 03:56 Dubai"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L02",
+      "title": "عرض المعلم · النِّظامُ الْبيئِيُّ في كَوْكَبِ الْأَرْضِ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-environment-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L02/teacher-deck.html",
+          "views": [
+            "vocab",
+            "story",
+            "model"
+          ],
+          "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
+          "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified"
+        },
+        {
+          "manifest": "grade3-environment-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L02/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
+          "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L03",
+      "title": "عرض المعلم · النِّظامُ الْبيئِيُّ في كَوْكَبِ الْأَرْضِ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-environment-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L03/teacher-deck.html",
+          "views": [
+            "story",
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
+          "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified"
+        },
+        {
+          "manifest": "grade3-environment-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L03/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
+          "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified"
+        },
+        {
+          "manifest": "grade3-environment-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L03/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
+          "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L04",
+      "title": "عرض المعلم · بيئَتي مَسْؤولِيَّتي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L04/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        },
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L04/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        },
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L04/worksheets-A4.html",
+          "views": [
+            0,
+            2
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        },
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L04/teacher-deck.html",
+          "views": [
+            "check",
+            "mirror",
+            "model",
+            "models",
+            "quick",
+            "story",
+            "truefalse"
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        },
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L04/pod-sheet.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L05",
+      "title": "عرض المعلم · بيئَتي مَسْؤولِيَّتي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L05/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        },
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L05/teacher-deck.html",
+          "views": [
+            "story",
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L06",
+      "title": "عرض المعلم · بيئَتي مَسْؤولِيَّتي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L06/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        },
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L06/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L07",
+      "title": "عرض المعلم · فَخْرُ الْإِماراتِ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L07/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        },
+        {
+          "manifest": "grade3-ozone-civic-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L07/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:04 Asia/Dubai; inspected 13 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:12 Asia/Dubai; 11 HTML byte-exact; inspected 13 live slides and 8 live print pages"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L08",
+      "title": "عرض المعلم · فَخْرُ الْإِماراتِ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L08/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        },
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L08/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L09",
+      "title": "عرض المعلم · فَخْرُ الْإِماراتِ · Hiraa",
+      "status": "retained",
+      "rationale": "Pride of the Emirates: existing domestic/international leadership comparison and national dress discussion are clear; retain source quotations and avoid invented leader imagery.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T1-L10",
+      "title": "عرض المعلم · يَوْمٌ غَيَّرَ التّاريخَ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L10/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        },
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L10/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L11",
+      "title": "عرض المعلم · يَوْمٌ غَيَّرَ التّاريخَ · Hiraa",
+      "status": "retained",
+      "rationale": "A day that changed history: the four union decisions and oath explanation are already distinct; retain existing flag-raising history without a decorative timeline.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T1-L12",
+      "title": "عرض المعلم · يَوْمٌ غَيَّرَ التّاريخَ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L12/teacher-deck.html",
+          "views": [
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 05:12 Asia/Dubai; all seven changed slides inspected, falcon crop corrected and rechecked",
+          "live_qa": "PASS 2026-11-24 05:18 Asia/Dubai; seven final cache-busted live slides inspected individually; six HTML and falcon asset byte-exact to 13bf4646; deployment success"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L13",
+      "title": "عرض المعلم · حَدَثٌ وَذِكْرى · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-last-precision-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L13/teacher-deck.html",
+          "views": [
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
+          "live_qa": "PASS 2026-11-24 05:35 Asia/Dubai: six individual live slide pixels inspected; 4 HTML and plain SVG byteexact to c4c25cda. No clipping, broken images, or misleading symbol remains in edited items."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L14",
+      "title": "عرض المعلم · حَدَثٌ وَذِكْرى · Hiraa",
+      "status": "retained",
+      "rationale": "Event and memory: existing red, green, white and black swatches directly teach flag-color meanings; retain them and the Flag Day association.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T1-L15",
+      "title": "عرض المعلم · حَدَثٌ وَذِكْرى · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L15/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        },
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L15/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        },
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L15/teacher-deck.html",
+          "views": [
+            "exit",
+            "goal",
+            "mirror",
+            "model",
+            "models",
+            "quick",
+            "story",
+            "together",
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        },
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L15/worksheets-A4.html",
+          "views": [
+            0,
+            2
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L16",
+      "title": "عرض المعلم · الْباني الْمُؤَسِّسُ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L16/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        },
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L16/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        },
+        {
+          "manifest": "grade3-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L16/teacher-deck.html",
+          "views": [
+            "vocab",
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:12 Asia/Dubai; all seven changed slides inspected, falcon crop corrected and rechecked",
+          "live_qa": "PASS 2026-11-24 05:18 Asia/Dubai; seven final cache-busted live slides inspected individually; six HTML and falcon asset byte-exact to 13bf4646; deployment success"
+        },
+        {
+          "manifest": "grade3-mountain-symbol-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L16/teacher-deck.html",
+          "views": [
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:10 Asia/Dubai; 7ba850e4 live pixels inspected, byte exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T1-L17",
+      "title": "عرض المعلم · الْباني الْمُؤَسِّسُ · Hiraa",
+      "status": "retained",
+      "rationale": "The founding builder: existing 1946 Al Ain and 1966 Abu Dhabi comparison already separates leadership stages and development domains; no additional portrait or chronology needed.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T1-L18",
+      "title": "عرض المعلم · الْباني الْمُؤَسِّسُ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L18/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        },
+        {
+          "manifest": "grade3-history-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L18/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        },
+        {
+          "manifest": "grade3-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y3-T1-L18/teacher-deck.html",
+          "views": [
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 05:12 Asia/Dubai; all seven changed slides inspected, falcon crop corrected and rechecked",
+          "live_qa": "PASS 2026-11-24 05:18 Asia/Dubai; seven final cache-busted live slides inspected individually; six HTML and falcon asset byte-exact to 13bf4646; deployment success"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T2-L01",
+      "title": "عرض المعلم · الْجِهاتُ الْأَصْلِيَّةُ وَطَرائِقُ تَحْديدِها · Hiraa",
+      "status": "retained",
+      "rationale": "Cardinal directions: existing right-hand-east, left-hand-west, front-north, back-south body demonstration teaches the spatial relationship directly; retain practical activity.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L02",
+      "title": "عرض المعلم · الْجِهاتُ الْأَصْلِيَّةُ وَطَرائِقُ تَحْديدِها · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-map-changes.json",
+          "file": "resources/ssd/SS-Y3-T2-L02/teacher-deck.html",
+          "views": [
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 04:16 Asia/Dubai; both slides visually inspected after all animations settled",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T2-L03",
+      "title": "عرض المعلم · الْجِهاتُ الْأَصْلِيَّةُ وَطَرائِقُ تَحْديدِها · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-last-precision-changes.json",
+          "file": "resources/ssd/SS-Y3-T2-L03/teacher-deck.html",
+          "views": [
+            "vocab",
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:31 Asia/Dubai: six individual slide images inspected; guide reflowed; plain diagram checked against broad flat land definition; compass text fits.",
+          "live_qa": "PASS 2026-11-24 05:35 Asia/Dubai: six individual live slide pixels inspected; 4 HTML and plain SVG byteexact to c4c25cda. No clipping, broken images, or misleading symbol remains in edited items."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T2-L04",
+      "title": "عرض المعلم · خَريطَةُ بِلادي · Hiraa",
+      "status": "retained",
+      "rationale": "Map of my country: the existing photo/map contrast and overhead classroom-mapping steps already support the concept; preserve the student drawing task.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L05",
+      "title": "عرض المعلم · خَريطَةُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-map-changes.json",
+          "file": "resources/ssd/SS-Y3-T2-L05/teacher-deck.html",
+          "views": [
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 04:16 Asia/Dubai; both slides visually inspected after all animations settled",
+          "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T2-L06",
+      "title": "عرض المعلم · خَريطَةُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-final-literals-changes.json",
+          "file": "resources/ssd/SS-Y3-T2-L06/teacher-deck.html",
+          "views": [
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
+          "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T2-L07",
+      "title": "عرض المعلم · دَلالاتُ الْأَلْوانِ في الْخَريطَةِ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-final-literals-changes.json",
+          "file": "resources/ssd/SS-Y3-T2-L07/teacher-deck.html",
+          "views": [
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
+          "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T2-L08",
+      "title": "عرض المعلم · دَلالاتُ الْأَلْوانِ في الْخَريطَةِ · Hiraa",
+      "status": "retained",
+      "rationale": "Map colors, desert and mountains: retain existing landform contrast and darker-brown height reading because the instruction explicitly anchors it to the displayed map key, not every map.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L09",
+      "title": "عرض المعلم · دَلالاتُ الْأَلْوانِ في الْخَريطَةِ · Hiraa",
+      "status": "retained",
+      "rationale": "Map colors, coastal plains: existing yellow, brown, green and blue key is itself the explanatory visual and the task asks students to construct and apply it.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L10",
+      "title": "عرض المعلم · واجِباتي وَمَسْؤولِيّاتي تُجاهَ بِلادي · Hiraa",
+      "status": "retained",
+      "rationale": "Duties toward parents: bed, study and meal-help examples already make the responsibilities concrete; preserve family discussion rather than adding another abstract virtue panel.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L11",
+      "title": "عرض المعلم · واجِباتي وَمَسْؤولِيّاتي تُجاهَ بِلادي · Hiraa",
+      "status": "retained",
+      "rationale": "Duties toward siblings: the toy-disagreement dialogue and calm request give a specific behavioral model; an added scene would repeat the same information.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L12",
+      "title": "عرض المعلم · واجِباتي وَمَسْؤولِيّاتي تُجاهَ بِلادي · Hiraa",
+      "status": "retained",
+      "rationale": "Duties toward country: study, public facilities and law examples already connect personal actions to civic responsibility; no new factual diagram needed.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L13",
+      "title": "عرض المعلم · مُجْتَمَعي يَرْعاني · Hiraa",
+      "status": "retained",
+      "rationale": "Community mosque: timing, cleanliness, calm and neighbor contact are already separately represented; retain religious wording and avoid illustrating unseen concepts.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L14",
+      "title": "عرض المعلم · مُجْتَمَعي يَرْعاني · Hiraa",
+      "status": "retained",
+      "rationale": "Community park: existing play, exercise and conversation examples plus litter/broken-equipment consequences support the maintenance task; no extra stock park image needed.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L15",
+      "title": "عرض المعلم · مُجْتَمَعي يَرْعاني · Hiraa",
+      "status": "retained",
+      "rationale": "Community school: existing school/mosque role comparison and facilities-care task are sufficient; retain learners own comparison instead of adding decorative buildings.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T2-L16",
+      "title": "عرض المعلم · تُراثُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y3-T2-L16/teacher-deck.html",
+          "views": [
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:12 Asia/Dubai; all seven changed slides inspected, falcon crop corrected and rechecked",
+          "live_qa": "PASS 2026-11-24 05:18 Asia/Dubai; seven final cache-busted live slides inspected individually; six HTML and falcon asset byte-exact to 13bf4646; deployment success"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T2-L17",
+      "title": "عرض المعلم · تُراثُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y3-T2-L17/teacher-deck.html",
+          "views": [
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 05:12 Asia/Dubai; all seven changed slides inspected, falcon crop corrected and rechecked",
+          "live_qa": "PASS 2026-11-24 05:18 Asia/Dubai; seven final cache-busted live slides inspected individually; six HTML and falcon asset byte-exact to 13bf4646; deployment success"
+        },
+        {
+          "manifest": "grade3-mountain-symbol-changes.json",
+          "file": "resources/ssd/SS-Y3-T2-L17/teacher-deck.html",
+          "views": [
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:10 Asia/Dubai; 7ba850e4 live pixels inspected, byte exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T2-L18",
+      "title": "عرض المعلم · تُراثُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-final-literals-changes.json",
+          "file": "resources/ssd/SS-Y3-T2-L18/teacher-deck.html",
+          "views": [
+            "vocab",
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
+          "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L01",
+      "title": "عرض المعلم · مُناخُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-science2-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L01/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:17 Asia/Dubai; inspected all 3 slides and 1 print page",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        },
+        {
+          "manifest": "grade3-science2-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L01/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:17 Asia/Dubai; inspected all 3 slides and 1 print page",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L02",
+      "title": "عرض المعلم · مُناخُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-science2-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L02/teacher-deck.html",
+          "views": [
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 04:17 Asia/Dubai; inspected all 3 slides and 1 print page",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L03",
+      "title": "عرض المعلم · مُناخُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L03/teacher-deck.html",
+          "views": [
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:12 Asia/Dubai; all seven changed slides inspected, falcon crop corrected and rechecked",
+          "live_qa": "PASS 2026-11-24 05:18 Asia/Dubai; seven final cache-busted live slides inspected individually; six HTML and falcon asset byte-exact to 13bf4646; deployment success"
+        },
+        {
+          "manifest": "grade3-precision-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L03/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:19 Asia/Dubai; 6 slides and 2 print pages inspected; corrected quiz rerender passed",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        },
+        {
+          "manifest": "grade3-precision-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L03/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:19 Asia/Dubai; 6 slides and 2 print pages inspected; corrected quiz rerender passed",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L04",
+      "title": "عرض المعلم · التِّكْنولوجْيا في بِلادي · Hiraa",
+      "status": "retained",
+      "rationale": "Technology in my country: train, phone and internet examples already support transport, communication and trade; retain the source quotation and economic discussion.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y3-T3-L05",
+      "title": "عرض المعلم · التِّكْنولوجْيا في بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-precision-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L05/teacher-deck.html",
+          "views": [
+            "model",
+            "models",
+            "quick",
+            "mirror"
+          ],
+          "local_qa": "PASS 2026-11-24 04:19 Asia/Dubai; 6 slides and 2 print pages inspected; corrected quiz rerender passed",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        },
+        {
+          "manifest": "grade3-precision-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L05/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:19 Asia/Dubai; 6 slides and 2 print pages inspected; corrected quiz rerender passed",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L06",
+      "title": "عرض المعلم · التِّكْنولوجْيا في بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-final-literals-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L06/teacher-deck.html",
+          "views": [
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
+          "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L07",
+      "title": "عرض المعلم · خِدْماتُ الطُّرُقِ في بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L07/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        },
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L07/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L08",
+      "title": "عرض المعلم · خِدْماتُ الطُّرُقِ في بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-rail-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L08/teacher-deck.html",
+          "views": [
+            "goal",
+            "vocab",
+            "story",
+            "model",
+            "together",
+            "check",
+            "truefalse",
+            "models",
+            "mirror"
+          ],
+          "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        },
+        {
+          "manifest": "grade3-rail-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L08/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        },
+        {
+          "manifest": "grade3-rail-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L08/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        },
+        {
+          "manifest": "grade3-rail-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L08/worksheets-A4.html",
+          "views": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        },
+        {
+          "manifest": "grade3-rail-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L08/pod-sheet.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
+          "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L09",
+      "title": "عرض المعلم · خِدْماتُ الطُّرُقِ في بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-final-literals-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L09/teacher-deck.html",
+          "views": [
+            "vocab",
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:25 Asia/Dubai: individual slide pixels inspected; corrected photo crops, enlarged falcon, reflowed guide, removed misleading festival tent.",
+          "live_qa": "PASS 2026-11-24 05:30 Asia/Dubai: all 9 individual live slide images inspected, exact HTML and two cropped assets verified against published commit 6439429e."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L10",
+      "title": "عرض المعلم · أُحِبُّ أَنْ أَكونَ في وَطَني · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L10/teacher-deck.html",
+          "views": [
+            "vocab",
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L11",
+      "title": "عرض المعلم · أُحِبُّ أَنْ أَكونَ في وَطَني · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L11/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        },
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L11/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        },
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L11/teacher-deck.html",
+          "views": [
+            "story",
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L12",
+      "title": "عرض المعلم · أُحِبُّ أَنْ أَكونَ في وَطَني · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L12/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        },
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L12/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L13",
+      "title": "عرض المعلم · الْحَسَنُ بْنُ الْهَيْثَمِ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-biography-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L13/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-biography-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L13/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-biography-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L13/worksheets-A4.html",
+          "views": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-biography-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L13/teacher-deck.html",
+          "views": [
+            "cover",
+            "goal",
+            "progress",
+            "story",
+            "model",
+            "together",
+            "groups",
+            "g1",
+            "g2",
+            "models",
+            "levels",
+            "progress2",
+            "mirror",
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-biography-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L13/group-work.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-biography-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L13/pod-sheet.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L14",
+      "title": "عرض المعلم · الْحَسَنُ بْنُ الْهَيْثَمِ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L14/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        },
+        {
+          "manifest": "grade3-clarity-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L14/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+          "live_qa": "PASS 2026-11-24 04:46 Asia/Dubai; 10/10 HTML byte-exact; all 11 slides and 5 print pages inspected"
+        },
+        {
+          "manifest": "grade3-refraction-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L14/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-refraction-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L14/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-refraction-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L14/teacher-deck.html",
+          "views": [
+            "goal",
+            "story",
+            "model",
+            "together",
+            "models",
+            "mirror"
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L15",
+      "title": "عرض المعلم · الْحَسَنُ بْنُ الْهَيْثَمِ · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-optics-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L15/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-optics-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L15/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-optics-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L15/worksheets-A4.html",
+          "views": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-optics-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L15/teacher-deck.html",
+          "views": [
+            "hook",
+            "goal",
+            "vocab",
+            "story",
+            "model",
+            "check",
+            "truefalse",
+            "g2",
+            "models",
+            "quick",
+            "exit",
+            "mirror"
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-optics-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L15/group-work.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        },
+        {
+          "manifest": "grade3-optics-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L15/pod-sheet.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L16",
+      "title": "عرض المعلم · قِيادَةُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-school-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L16/teacher-deck.html",
+          "views": [
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+          "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L17",
+      "title": "عرض المعلم · قِيادَةُ بِلادي · Hiraa",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade3-family-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L17/teacher-deck.html",
+          "views": [
+            "model",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 04:31 Asia/Dubai; 2 slides and 1 print page inspected",
+          "live_qa": "PASS 2026-11-24 04:35 Asia/Dubai; 2/2 HTML byte-exact; both slides and answer key pixels inspected"
+        },
+        {
+          "manifest": "grade3-family-changes.json",
+          "file": "resources/ssd/SS-Y3-T3-L17/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 04:31 Asia/Dubai; 2 slides and 1 print page inspected",
+          "live_qa": "PASS 2026-11-24 04:35 Asia/Dubai; 2/2 HTML byte-exact; both slides and answer key pixels inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y3-T3-L18",
+      "title": "عرض المعلم · قِيادَةُ بِلادي · Hiraa",
+      "status": "retained",
+      "rationale": "Leadership of my country: existing Supreme Council/Cabinet comparison separates policy-setting and execution, with an explicitly labeled school analogy; retain this structure.",
+      "changes": []
+    }
+  ]
+}
