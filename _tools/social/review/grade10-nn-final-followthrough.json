@@ -1,0 +1,115 @@
+{
+  "scope": "Known factual corrections propagated to discussion models, word-match definitions, homework and source cards after reading remaining NN activity slides.",
+  "changes": [
+    {
+      "lesson": "SS-Y10-NN-T1-L03",
+      "file": "answer-key.html",
+      "patterns": [
+        "The average income per head of the population in a year."
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L03",
+      "file": "teacher-deck.html",
+      "patterns": [
+        "The average income per head of the population in a year."
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L07",
+      "file": "teacher-deck.html",
+      "patterns": [
+        "It says the UAE government has a Ministry of State for Happiness, with a goal of promoting a culture of happiness and positivity."
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L09",
+      "file": "worksheets-A4.html",
+      "patterns": [
+        "Chronic illnesses such as diabetes or heart disease"
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L09",
+      "file": "teacher-deck.html",
+      "patterns": [
+        "Chronic illnesses such as diabetes or heart disease"
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L10",
+      "file": "answer-key.html",
+      "patterns": [
+        "Unpleasant physical reactions when an addict stops."
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L10",
+      "file": "teacher-deck.html",
+      "patterns": [
+        "Unpleasant physical reactions when an addict stops."
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L12",
+      "file": "answer-key.html",
+      "patterns": [
+        "When the substance leaves the body."
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L12",
+      "file": "teacher-deck.html",
+      "patterns": [
+        "Admit the problem, then detox, then rehabilitation with counselling.",
+        "When the substance leaves the body."
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L14",
+      "file": "teacher-deck.html",
+      "patterns": [
+        "A body change that helped was ___",
+        "Activity 3: Oral history of a day",
+        "Write the oral history of a day (Activity 3) in a short paragraph."
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L15",
+      "file": "answer-key.html",
+      "patterns": [
+        "Land turning into desert."
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L15",
+      "file": "worksheets-A4.html",
+      "patterns": [
+        "Possibly the earliest sedentary society, in the Levant"
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L15",
+      "file": "teacher-deck.html",
+      "patterns": [
+        "Land turning into desert.",
+        "Possibly the earliest sedentary society, in the Levant"
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L17",
+      "file": "worksheets-A4.html",
+      "patterns": [
+        "Established the world’s first empire"
+      ]
+    },
+    {
+      "lesson": "SS-Y10-NN-T1-L17",
+      "file": "teacher-deck.html",
+      "patterns": [
+        "Mesopotamia includes areas of present-day Iraq, Syria, Jordan, Lebanon and southern Turkey",
+        "Established the world’s first empire"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "grade": 10,
+  "lessons": 73,
+  "html_files": 478,
+  "teacher_slides": 2509,
+  "review_scope": [
+    "All 73 core reading sequences and corresponding source-card text",
+    "Arabic keys, bronze matching and MCQ, silver cloze, gold and diamond tasks, group work and accessible sheets",
+    "Arabic enrichment, critique, quick questions, opening slides, book excerpts, vocabulary, values and exit prompts",
+    "NN summaries, vocabulary, quizzes, differentiated keys, parent notes, recaps, accessible sheets and remaining discussion/application activities",
+    "Unit progress checks and answer sheets"
+  ],
+  "method_note": "Targeted content review across lesson components and repeated copies. This is not a claim that every character in every duplicate HTML file was independently fact-checked or every slide visually inspected. Original textbook quotations and media are retained; dated statistics and uncertain historical event details are labeled.",
+  "static_qa": "478 HTML files checked for missing local src assets and inline JavaScript syntax; zero errors in that check. Final repeat after this batch and live byte/pixel QA pending.",
+  "visuals_added": 8,
+  "nn_recap_grids": 17,
+  "remaining_before_close": [
+    "Final publication byte checks against committed HTML",
+    "Live pixel samples of Arabic diagrams, NN recap/word cards, animated recap, accessible worksheet and corrected answer popups"
+  ]
+}
