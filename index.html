@@ -10164,6 +10164,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       return `<div class="sl-grid">${box("tch", "🧑‍🏫", "شرائح المعلم", "عرض الدرس في الصف · لا تظهر للطلاب", T, "لم يُرفع عرض المعلم بعد.")}${stu}</div>`;
     };
     const videos = res.filter((r) => r.kind === "video");
+    // فيديوهات مرفوعة إلى التخزين: نولّد لها رابطًا موقّعًا ليعمل المشغّل
+    if (!lockedForMe) await Promise.all(videos.filter((v) => !v.url && v.storage_path).map(async (v) => {
+      const { data } = await sb.storage.from(FILE_BUCKET).createSignedUrl(v.storage_path, 6 * 3600);
+      if (data && data.signedUrl) { v.url = data.signedUrl; v._signed = true; }
+    }));
     const videoHtml = lockedForMe ? lockedMsg : videos.length ? videos.map((v) => {
       const e = youtubeEmbed(v.url);
       const mp4 = /\.(mp4|webm|m4v)(\?|$)/i.test(String(v.url || ""));
