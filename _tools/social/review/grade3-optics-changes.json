@@ -4,7 +4,7 @@
     "views": [
       0
     ],
-    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
     "live_qa": "pending",
     "media_reference_check": "PASS"
   },
@@ -13,7 +13,7 @@
     "views": [
       0
     ],
-    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
     "live_qa": "pending",
     "media_reference_check": "PASS"
   },
@@ -25,7 +25,7 @@
       2,
       3
     ],
-    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
     "live_qa": "pending",
     "media_reference_check": "PASS"
   },
@@ -45,7 +45,7 @@
       "exit",
       "mirror"
     ],
-    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
     "live_qa": "pending",
     "media_reference_check": "PASS"
   },
@@ -54,7 +54,7 @@
     "views": [
       0
     ],
-    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
     "live_qa": "pending",
     "media_reference_check": "PASS"
   },
@@ -63,7 +63,7 @@
     "views": [
       0
     ],
-    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
     "live_qa": "pending",
     "media_reference_check": "PASS"
   }

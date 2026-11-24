@@ -5,7 +5,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:49 Asia/Dubai; 6 changed slides and 2 print pages inspected, including final rerender",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 04:56 Asia/Dubai; 3 HTML byte-exact, 6 slides and 2 print pages visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L14/sources-concept-card.html",
@@ -13,7 +13,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:49 Asia/Dubai; 6 changed slides and 2 print pages inspected, including final rerender",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 04:56 Asia/Dubai; 3 HTML byte-exact, 6 slides and 2 print pages visually inspected"
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L14/teacher-deck.html",
@@ -26,6 +26,6 @@
       "mirror"
     ],
     "local_qa": "PASS 2026-11-24 04:49 Asia/Dubai; 6 changed slides and 2 print pages inspected, including final rerender",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 04:56 Asia/Dubai; 3 HTML byte-exact, 6 slides and 2 print pages visually inspected"
   }
 ]
