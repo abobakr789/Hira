@@ -1,0 +1,26 @@
+{
+  "reviewed": "All17animated recap scenes and parent notes, and all6unit check/answer files. Removed metaphorical keyword icons, kept literal depictions, clarified adaptation, GDP per capita and Fertile Crescent. Fixed Year100 typo.",
+  "changes": [
+    "resources/ssd/SS-Y10-NN-T1-L01/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L02/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L03/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L04/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L05/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L06/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L07/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L08/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L09/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L10/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L11/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L13/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L14/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L15/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L16/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L17/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L14/parent-note.html",
+    "resources/ssd/SS-Y10-NN-T1-L06/unit-progress-answers.html",
+    "resources/ssd/SS-Y10-NN-T1-L06/unit-progress-check.html"
+  ],
+  "qa": "Local pixels verified for four gold/diamond pages, two core slides, four source cards and four recap scenes. First recap pass showed caption overlap; fixed all17recaps with2column keyword grid and separate caption space, then re-rendered and inspected."
+}

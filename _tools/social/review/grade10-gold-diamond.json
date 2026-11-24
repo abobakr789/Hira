@@ -1,0 +1,184 @@
+{
+  "reviewed": "Read gold and diamond task text for all56Arabic worksheets. Corrected remaining leading premises, historical statistics and a single-cause ancient-history comparison; propagated across lesson companions.",
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y10-T1-L21/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L1/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L1/worksheets-A4.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L1/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L4/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L4/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L6/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L6/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L9/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L9/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/worksheets-A4.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L7/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L7/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L15/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L15/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L16/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L16/teacher-deck.html",
+      "nodes": 1
+    }
+  ],
+  "sources": [
+    "https://macmillan.yale.edu/sites/default/files/first_genocide.pdf",
+    "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai"
+  ],
+  "qa": "Local pixels verified for four gold/diamond pages, two core slides, four source cards and four recap scenes. First recap pass showed caption overlap; fixed all17recaps with2column keyword grid and separate caption space, then re-rendered and inspected.",
+  "vocabulary_followthrough": [
+    {
+      "file": "resources/ssd/SS-Y10-T2-L10/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L10/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L10/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L5/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L5/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L5/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L7/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L7/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L7/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L9/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L9/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L9/teacher-deck.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L14/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L14/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L14/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L16/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L16/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L16/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L2/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L2/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L2/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/teacher-deck.html",
+      "nodes": 4
+    }
+  ]
+}
