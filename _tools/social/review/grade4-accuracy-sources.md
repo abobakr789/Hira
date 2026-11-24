@@ -27,3 +27,19 @@ L14 truffles are fungi, not plants. Kew, fetched 24 Nov 2026: https://www.kew.or
 Removed unverified mirrar replacement; annual examples now hamad and khubbayz, supported by fetched UAE teaching summary (secondary educational source, not relied on for fungal taxonomy): https://seraj-uae.com/file/4835/
 Corrected apparent fennel/samar transcription using WAM reporting of native samar, sidr and ghaf: https://www.wam.ae/ar/article/aq7s30k-%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AD%D9%84%D9%8A%D8%A9-%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA-%D9%83%D9%86%D9%88%D8%B2-%D8%B7%D8%A8%D9%8A%D8%B9%D9%8A%D8%A9-%D8%AA%D8%B9%D8%B2%D8%B2
 Source-passage adaptations visibly labelled. Source media preserved.
+
+
+## Further AR history, civics and vocabulary verification, 2026-11-24 06:00–06:01 Dubai
+These support later edits, not completed corrections.
+- DMT, Zayed the First, https://pages.dmt.gov.ae/en/founding-uae/founding-uae-listing-section/zayed-the-first : reign 1855–1909, 54 years. Does not settle the conflicting accession-age claim.
+- UAE Government history, https://u.ae/ar/about-the-uae/History : local archaeological periods including Umm an-Nar.
+- Abu Dhabi Culture, https://abudhabiculture.ae/en/cultural-heritage/tangible/archaeology/umm-an-nar : island near Abu Dhabi and archaeological period, not old name of all Abu Dhabi.
+- Abu Dhabi Culture shipbuilding, https://abudhabiculture.ae/en/Cultural-Heritage/InTangible/Heritage-Register/Social-Practices/Jallaf : planks, ropes and coconut fibre have distinct construction roles.
+- UAE Ministry of Culture, https://moc.gov.ae/en/archaeological_site/hsn-aajman/ : museum 1991; fort 1803–1838.
+- RSC, https://periodic-table.rsc.org/alchemy/what-is-alchemy : Egyptian and Greek antecedents to later alchemy, counters invention-from-nothing claims.
+- RSC primary resource, https://edu.rsc.org/primary-science/the-golden-age-of-islamic-science-science-ideas-webs/2189.article : supplementary teaching resource, not detailed support for individual historical priority claims.
+- UAE Government constitution, https://u.ae/ar/about-the-uae/the-constitution-of-the-uae : Article 45 separates five federal authorities, including Supreme Council and President/deputy.
+- Al Bayan, https://www.albayan.ae/ramadan/traditions/2024-03-20-1.4841778 : السنع etiquette term and respect for elders.
+- Ministry national register shipbuilding, https://moc.gov.ae/ar/national-register/%D8%A7%D9%84%D8%AC%D9%84%D8%A7%D9%81/ : teak الساج imported from India.
+- FAO AGROVOC, https://agrovoc.fao.org/skosmosAsfa/asfa/ar/page/c_12676 : mountain steep sides.
+- Arabic Language Academy mountain entry, https://www.arabicacademy.gov.eg/ar/%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB/%D8%A7%D9%84%D8%AC%D8%A8%D9%84 : mountain height and summit definition.

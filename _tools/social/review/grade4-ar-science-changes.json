@@ -5,7 +5,7 @@
       "0"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L13/sources-concept-card.html",
@@ -13,7 +13,7 @@
       "0"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L13/worksheets-A4.html",
@@ -24,7 +24,7 @@
       "3"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L13/teacher-deck.html",
@@ -37,7 +37,7 @@
       "models"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L13/pod-sheet.html",
@@ -45,7 +45,7 @@
       "0"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L14/answer-key.html",
@@ -53,7 +53,7 @@
       "0"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L14/sources-concept-card.html",
@@ -61,7 +61,7 @@
       "0"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L14/worksheets-A4.html",
@@ -72,7 +72,7 @@
       "3"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L14/teacher-deck.html",
@@ -86,7 +86,7 @@
       "models"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L14/group-work.html",
@@ -94,7 +94,7 @@
       "0"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L14/pod-sheet.html",
@@ -102,6 +102,6 @@
       "0"
     ],
     "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
-    "live_qa": "pending"
+    "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
   }
 ]

@@ -1,6 +1,6 @@
 # Grade 4 review, in progress
 
-76 teacher decks inventoried. Core extraction at /tmp/ssy4-core-review.txt. Read NN lessons 1–16 and AR term 1 lessons 1–23 vocabulary so far. First NN accuracy batch published and live-QA closed; AR science batch locally verified, publication pending.
+76 teacher decks inventoried. Core extraction at /tmp/ssy4-core-review.txt. Read NN lessons 1–16 and AR term 1 lessons 1–23 vocabulary so far. First NN accuracy batch published and live-QA closed; AR science batch deployed and live-QA closed.
 
 Verified issues to handle:
 - NN T1 L05 model: the sentence recognizing that girls differ is incorrectly called stereotyping. Reword the model to identify an all-girls generalization as a stereotype, then explicitly allow individual differences. Inspect guide/quiz/prints for consistency.
@@ -31,3 +31,19 @@ Read remaining AR vocabulary through T3 L18 at 05:35. Still must read learn1–l
 - NN L05/L11/L14 accuracy: content 459c699c deployed successfully; all 12 changed fronts, 2 flip backs and 8 print pages inspected live PASS. Closure a18716d5.
 - AR T1 L13 climate and L14 plants: corrected climate to long-term average, usually 30 years; truffles are fungi; Samar spelling; synchronized summaries, worksheets, group work, answer keys and source cards. All 13 slides and 15 print pages inspected locally PASS at 05:59. Original media preserved, source passage adaptation labelled visibly.
 - Remaining review leads are in the ongoing research notes. No grade 4 completion claimed.
+
+## 2026-11-24 06:06 Dubai checkpoint
+- AR science content d36b9a12 deployed successfully, action 45309060899. All 11 HTML files byte-identical live at 06:02. All 13 slide views and 15 print pages inspected live PASS by 06:05. No clipping, overlap or missing content. Climate definition and fungus classification synchronized throughout changed material.
+- This is a batch closure, not a grade closure. Grade 4 still needs complete lesson-specific review and later visual choices.
+
+Additional grounded correction leads, researched 06:00–06:01:
+- T1 L06: Meluhha must not be asserted as a local UAE civilization. Use verified local Umm an-Nar history if replacing.
+- T1 L07: mountain steepness definition contains a transcription error. Use steep sides or height, not the existing malformed word.
+- T1 L16: correct the etiquette term to السنع in learn3 and corresponding source/worksheet.
+- T1 L20: reign 1855–1909 confirmed. Remove unsupported age at accession rather than resolving birth-year uncertainty by guess.
+- T1 L22: learn3 conflates the Supreme Council with president and deputy. Article 45 lists them separately; prints already separate.
+- T2 L13: Umm an-Nar is an archaeological island/site, not a former name for all Abu Dhabi. Affected learn4, think model, answer-key diamond and source summary. Original book passage is not the error.
+- T2 L17: Ajman Museum opened 1991; fort dates to 1803–1838. Correct learn4 and source summary, not all fort history indiscriminately.
+- T3 L10/L12: teak spelling is الساج, not the malformed term. Separate wood hull from rope/fibre uses rather than implying every material forms the whole vessel. Check sequence arrows.
+- T3 L15: replace invention-from-nothing claims about chemistry/physics with development of earlier knowledge. Review learn2, booktext, g2, quick questions, worksheets, pod, answer key and source summary. Label adapted source material visibly.
+- Other unresolved leads: T1 L01 known life-bearing planet qualifier; longitude counts versus degrees T1 L02; latitude count convention T1 L03; T1 L10 island direction; T2 L02 undated statistic; T2 L05 irrigation term; T2 L10 historical region; T2 L11 terraces; T2 L12 biography chronology; T3 L02 30-day arithmetic qualifier; T3 L03 transport overgeneralization; T3 L06 artificial island wording; T3 L09 Etihad passenger service current status. Research before edits.
