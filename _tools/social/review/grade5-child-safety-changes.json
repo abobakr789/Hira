@@ -1,0 +1,51 @@
+[
+  {
+    "file": "resources/ssd/SS-Y5-T1-L15/teacher-deck.html",
+    "views": [
+      "retrieve",
+      "watani",
+      "enrich",
+      "quick"
+    ],
+    "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
+    "qa": {
+      "local": "PASS 2026-11-24 08:54 Dubai; four fronts and five A4 pages individually inspected, final quiz option layout recaptured.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L15/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2
+    ],
+    "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
+    "qa": {
+      "local": "PASS 2026-11-24 08:54 Dubai; four fronts and five A4 pages individually inspected, final quiz option layout recaptured.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L15/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
+    "qa": {
+      "local": "PASS 2026-11-24 08:54 Dubai; four fronts and five A4 pages individually inspected, final quiz option layout recaptured.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L15/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
+    "qa": {
+      "local": "PASS 2026-11-24 08:54 Dubai; four fronts and five A4 pages individually inspected, final quiz option layout recaptured.",
+      "live": "PENDING"
+    }
+  }
+]
