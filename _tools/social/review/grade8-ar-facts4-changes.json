@@ -1,0 +1,66 @@
+[
+  {
+    "path": "resources/ssd/SS-Y8-T1-L6/teacher-deck.html",
+    "sha256": "508664090cf0fdcb6228be21ecd1d4a42303d98354771b51fb2bde91aae19979",
+    "qa": {
+      "local": "PASS: changed slide and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L7/group-work.html",
+    "sha256": "f36485cdbe04dd3a61f3b9ad9739f8ad86283bcecef10482a3facabb6f1bfe9b",
+    "qa": {
+      "local": "PASS: changed slide and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L7/sources-concept-card.html",
+    "sha256": "932a67287f61da97e54b203420eeb2bf8c0b9e9fcc0c5ff94d693b757ab2c6b6",
+    "qa": {
+      "local": "PASS: changed slide and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L7/teacher-deck.html",
+    "sha256": "77f6738e308fa047046c7cf4f4a939cc2dea89d4b71a768504891ca2674a2b2c",
+    "qa": {
+      "local": "PASS: changed slide and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L7/worksheets-A4.html",
+    "sha256": "672433ef8be9eebabda4acdacd60ec9e12fd3c8aa1a70b952f60a243d6050bf9",
+    "qa": {
+      "local": "PASS: changed slide and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L7/sources-concept-card.html",
+    "sha256": "9ae149cb4cfb9b1d6ee121b4378b5c4d42c283bf34d76aa4e24074377a450f04",
+    "qa": {
+      "local": "PASS: changed slide and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L7/teacher-deck.html",
+    "sha256": "2cd56e4c89d1267f128c90093f94d1c3cae03a7881284fd1a867d96fde92e502",
+    "qa": {
+      "local": "PASS: changed slide and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L7/worksheets-A4.html",
+    "sha256": "f68c814700041c1f665d563ffb47daab0cae74cc93ecaddcbb211b3b282b5034",
+    "qa": {
+      "local": "PASS: changed slide and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  }
+]
