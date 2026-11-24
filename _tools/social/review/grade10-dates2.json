@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-24",
+  "scope": "SS10 precise dates: Solow prize and National Agenda target",
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y10-T2-L1/sources-concept-card.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L1/teacher-deck.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L17/answer-key.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L17/worksheets-A4.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L17/teacher-deck.html",
+      "text_nodes": 7
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L17/pod-sheet.html",
+      "text_nodes": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/1987/summary/",
+      "supports": "Solow received the 1987 economics prize, not1989."
+    },
+    {
+      "url": "https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/strategies-plans-and-visions/strategies-plans-and-visions-untill-2021/national-agenda",
+      "supports": "2014 seven-year National Agenda worked toward Vision2021, not2030."
+    }
+  ],
+  "qa": "Passed local actual-pixel checks of changed teacher readings/national card/group4, quick quiz and worksheet. Retained2030 as incorrect launch-year distractor; target-year statements2021. Other lesson issues remain under review."
+}
