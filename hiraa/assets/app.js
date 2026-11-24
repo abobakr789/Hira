@@ -6326,7 +6326,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       h(`<div class="wrap loading">${state.viewAs ? CT("أنت في وضع المعاينة كطالب، ولا يمكن أداء الاختبارات في هذا الوضع. سجّل الدخول بحساب طالب لتجربته.", "You are previewing as a student; tests cannot be taken in preview. Sign in with a student account to try it.") : CT("لا يمكن بدء الاختبار الآن.", "The test cannot start now.")}</div>`); return;
     }
     const [{ data: a }, { data: aq }] = await Promise.all([
-      sb.from("assessments").select("title_ar, title_en, year_group, track, kind").eq("id", id).single(),
+      sb.from("assessments").select("title_ar, title_en, year_group, track, kind, subject_id").eq("id", id).single(),
       sb.from("assessment_questions").select("sort_order, points, questions(id, stem_ar, stem_en, options, audio_url, qtype, stimulus_id)").eq("assessment_id", id).order("sort_order")
     ]);
     // reading passages / listening stimuli shared by several benchmark questions
@@ -6351,7 +6351,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const key = "hira-att-" + att;
     let answers = {}; try { answers = JSON.parse(localStorage.getItem(key) || "{}"); } catch (e) { answers = {}; }
     let i = 0;
-    const nn = (a && a.track === "non_native") || LANG === "en";
+    // non-native Arabic stays Arabic-first (right to left); only other non-native subjects (e.g. MSC) switch to English
+    const nn = (a && a.track === "non_native" && a.subject_id !== 2) || LANG === "en";
     const draw = () => {
       const q = qs[i];
       const answered = Object.keys(answers).length;
@@ -8367,7 +8368,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       <section class="section" style="padding-top:26px"><div class="wrap prose bench-guide">
         <h2>ما هو معيار حراء للدراسات الاجتماعية؟</h2>
         <p>اختبار معياري موحّد يقيس فهم الطالب لنواتج صفّه في الإطار الوطني للدراسات الاجتماعية، ومعه <b>السنع الإماراتي</b> مجالًا مستقلًّا له درجته. يُطبَّق بالمواصفات نفسها على كل طلاب الصف، ويتتبّع النمو ثلاث مرات في العام. وكل سؤال مأخوذ من دروس حراء المبنية على كتب الوزارة، لا من خارجها.</p>
-        <p class="br-judge">الجاهز الآن: مسار الناطقين بالعربية للصفوف 1–12 في النوافذ الثلاث (الصف 12: نافذة بداية العام فقط، لأن منهج الصف 12 لم يُرفع بعد إلى المنصة). ويليه مسار غير الناطقين (MSC) بالإنجليزية.</p>
+        <p class="br-judge">الجاهز الآن: مسار الناطقين بالعربية للصفوف 1–12 في النوافذ الثلاث (الصف 12: نافذة بداية العام فقط، لأن منهج الصف 12 لم يُرفع بعد إلى المنصة). ومسار غير الناطقين (MSC) بالإنجليزية للصفوف 1–10 في نافذتي بداية العام ومنتصفه (نافذة نهاية العام تُفتح حين يُرفع الفصلان الثاني والثالث).</p>
         <h2>المجالات الستة</h2>
         <div class="table-wrap"><table class="admin-table"><thead><tr><th>المجال</th><th>ما يقيسه</th><th>نصيبه</th></tr></thead><tbody>
           <tr><td><b>التاريخ والتراث</b></td><td>الأحداث والشخصيات وقيام الاتحاد والحضارات والتراث</td><td rowspan="4">نحو 60% موزعة بحسب دروس الصف</td></tr>
