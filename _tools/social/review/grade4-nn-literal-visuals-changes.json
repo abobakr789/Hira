@@ -1,0 +1,149 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L03/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "guide"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L03/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L03/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L07/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L09/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "guide",
+      "see"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L12/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "warm",
+      "guide",
+      "see",
+      "g1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/lesson-recap.html",
+    "views": [],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/group-work.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  }
+]

@@ -93,3 +93,13 @@ Nine HTML resources across T2 L05 and L12 ready to publish. Nine fronts, three p
 2026-11-24 07:14 Dubai: irrigation/biography live closure PASS, commit dbe54fee. Nine HTML byte-exact; nine fronts, three popups, ten print pages individually inspected. Grade 4 remains in progress.
 
 2026-11-24 07:17 Dubai: Magan live closure PASS, content 0f81e842, five HTML byte-exact, six fronts, one popup, seven print pages individually inspected.
+
+2026-11-24 07:33 Dubai: Dibba (79557d13 + b63186fa), science history (ab9db528), population/islands (af110833) CLOSED LIVE. All 17 HTML byte-exact. Totals: 13 fronts, 1 popup, 18 print pages individually inspected. Final Dibba beach cue separately recaptured after deployment. Grade 4 remains in progress.
+
+
+## 2026-11-24 07:52 Dubai NN local closure
+Seven NN lessons across 19 HTML resources locally corrected and visually checked, not yet published. Manifests grade4-nn-literal-visuals-changes.json and grade4-nn-readings-changes.json carry exact views. Final media audit: original img/audio/video/source/iframe src lists unchanged in all 19 files. Semantic diff inspected, changes limited to intended literal visual cleanup, visibly adapted factual readings, synchronized quizzes/worksheets/answer keys, and recap correction. Source ledger updated with UNICEF, Bhutan Studies, NASA, NOAA and LOC evidence. Upstream dab8c35b video-slide merge fetched, must preserve.
+
+Late fixes inspected PASS: L03 guide footer and worksheet matching overlap; L12 worksheet literal stilt-house/wind-tower/igloo; L13 warm-up and worksheet walrus; L13 support sheet now parrot/walrus, with penguin/camel/walrus Antarctica choice; L09 sourcecard spacing; L10 and L13 worksheet keys; L13 recap scenes 2/3/5. Final late captures /tmp/ssy4nnlabel-final and print, /tmp/ssy4nnfinalpod, /tmp/ssy4nnrecap2. All remaining old print pages and L10/L13 flip backs inspected PASS. Last content changed L13 camel quantity to LOC up to 20 gallons at a time, marked adapted. Bhutan comparison GNP not GDP per primary source.
+
+NEXT: commit/rebase preserving upstream, push, verify Pages deployment and 19 HTML byte-exact live, capture both manifests live using /tmp/ssy4-capture.py; custom flip backs via /tmp/rt/flipshot.js and recap scenes via /tmp/rt/recapshot.js. Inspect live pixels, update closure. Then finish grade4 lesson retained rationales and counts. Grade4 not complete. Last AR batch closure metadata also uncommitted and should be included.

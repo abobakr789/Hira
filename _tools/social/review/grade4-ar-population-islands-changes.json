@@ -6,7 +6,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
   },
   {
     "file": "resources/ssd/SS-Y4-T1-L10/teacher-deck.html",
@@ -15,7 +15,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L02/answer-key.html",
@@ -24,7 +24,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L02/sources-concept-card.html",
@@ -33,7 +33,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L02/worksheets-A4.html",
@@ -45,7 +45,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L02/teacher-deck.html",
@@ -56,7 +56,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L02/pod-sheet.html",
@@ -65,6 +65,6 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
   }
 ]

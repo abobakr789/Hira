@@ -1,0 +1,105 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L09/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L09/teacher-deck.html",
+    "views": [
+      "text5"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L10/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L10/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "text4",
+      "check",
+      "quiz"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/lesson-recap.html",
+    "views": [],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending",
+    "recap_scenes": [
+      2,
+      3,
+      5
+    ]
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "text3",
+      "text4",
+      "check",
+      "quiz"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+    "live_qa": "pending"
+  }
+]
