@@ -1,0 +1,181 @@
+[
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L02/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L03/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L04/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L05/teacher-deck.html",
+    "views": [
+      "levels",
+      "vocab",
+      "vflip",
+      "text3"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L07/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L09/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "change": "Correct the onscreen Level 2 model to match the actual worksheet statements and independently checked printed answer key. Also replace the incomplete beginner/word-meaning model with the verified worksheet-specific answers.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L05/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "change": "Qualify the textbook historical enrolment figure against the charity report.",
+    "qa": {
+      "local": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+      "live": "pending"
+    }
+  }
+]
