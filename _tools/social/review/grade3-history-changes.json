@@ -4,8 +4,9 @@
     "views": [
       0
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L08/teacher-deck.html",
@@ -13,16 +14,18 @@
       "model",
       "models"
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L10/answer-key.html",
     "views": [
       0
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L10/teacher-deck.html",
@@ -30,24 +33,27 @@
       "model",
       "models"
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L15/answer-key.html",
     "views": [
       0
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L15/sources-concept-card.html",
     "views": [
       0
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L15/teacher-deck.html",
@@ -62,16 +68,18 @@
       "together",
       "vocab"
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L16/answer-key.html",
     "views": [
       0
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L16/teacher-deck.html",
@@ -79,16 +87,18 @@
       "model",
       "models"
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L18/answer-key.html",
     "views": [
       0
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L18/teacher-deck.html",
@@ -96,8 +106,9 @@
       "model",
       "models"
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
     "file": "resources/ssd/SS-Y3-T1-L15/worksheets-A4.html",
@@ -105,7 +116,8 @@
       0,
       2
     ],
-    "local_qa": "pending",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
+    "live_qa": "pending",
+    "media_reference_check": "PASS; decoded src/href sets unchanged"
   }
 ]
