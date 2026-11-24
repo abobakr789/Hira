@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-24",
+  "scope": "NN12 CBT terminology and safe professional-support guidance",
+  "changes": [
+    "resources/ssd/SS-Y10-NN-T1-L12/unit-progress-answers.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/answer-key.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/sources-concept-card.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/unit-progress-check.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/lesson-recap.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/worksheets-A4.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/parent-note.html"
+  ],
+  "sources": [
+    {
+      "url": "https://www.nhs.uk/tests-and-treatments/cognitive-behavioural-therapy-cbt/",
+      "supports": "CBT means cognitive behavioural therapy."
+    },
+    {
+      "url": "https://nrc.gov.ae/ar/faq",
+      "supports": "Individualized treatment,8002252,confidentiality and emergencies sent to hospital emergency departments."
+    },
+    {
+      "url": "https://nida.nih.gov/publications/drugs-brains-behavior-science-addiction/treatment-recovery",
+      "supports": "Treatment tailored to patient; detox alone not full treatment."
+    },
+    {
+      "url": "https://uaelegislation.gov.ae/en/legislations/1540",
+      "supports": "Active2021law with amendments; metadata only, no claim of verifiedarticle89conditions."
+    }
+  ],
+  "qa": "Local actual pixels passed: text3, text5, text6, vocabulary, worksheet level2, answer key, recap vocabulary and summary. Recap grid repaired after visual overflow. Live QA pending."
+}
