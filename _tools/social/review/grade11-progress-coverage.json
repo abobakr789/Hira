@@ -1,16 +1,23 @@
 {
-  "status": "targeted review in progress; not closed",
+  "status": "targeted review closed; published and sampled live",
   "lessons": 64,
   "html_inventory": 384,
   "slides": 2048,
-  "changed_html": 187,
+  "changed_html": 189,
   "changed_lessons": 64,
-  "review": "Read all64 core lesson texts and targeted activities (guess,predict,critique,enrich,quick,think,values,citizenship); dependency review of affected support copies. Preserve originals where not corrected. Retrieval boilerplate replaced with lesson concept in64 decks.",
+  "review": "Read all64 core lesson texts and targeted activities (guess,predict,critique,enrich,quick,think,values,citizenship); dependency review of affected support copies. Preserve originals where not corrected. Retrieval boilerplate replaced with lesson concept in64 decks. All64 opening hooks read as joined text;18 corrected and64 discussion popups aligned. All64 vocabulary matching popup keys aligned to actual vocabulary.",
   "limits": "Not every slide independently fact checked or pixel inspected. Historical statistics are labeled rather than replaced with invented new figures. Legal arguments are textbook viewpoints, not court judgments.",
   "qa": {
     "html": 384,
     "scripts": 512,
     "missing_assets": [],
     "script_errors": []
+  },
+  "live_qa": {
+    "exact_changed_html": 189,
+    "verified_commit": "69be0db577e25da23553da6768769ff4754e97f1",
+    "time": "2026-11-24T21:46:00+04:00",
+    "sampled": "six new explanatory panels, four opening prompts/popups, a matching key and retrieval quiz inspected as live screenshots",
+    "local": "all11 explanatory panels plus matching, quizzes and four print layouts inspected"
   }
 }
