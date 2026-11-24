@@ -1,0 +1,194 @@
+[
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L06/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "text2",
+      "text3",
+      "text5",
+      "levels"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L08/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "text5",
+      "g3"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L11/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "text3"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L12/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L12/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "text4",
+      "draw",
+      "levels"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L13/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "hook",
+      "text2",
+      "text3",
+      "text5",
+      "think",
+      "guide",
+      "quiz"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L13/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L15/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "text3"
+    ],
+    "qa": {
+      "local": "passed; all changed views, print pages and revealed models inspected; original media unchanged",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]
