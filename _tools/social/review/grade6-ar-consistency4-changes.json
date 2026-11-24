@@ -1,0 +1,403 @@
+[
+  {
+    "file": "resources/ssd/SS-Y6-T1-L01/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L01/worksheets-A4.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L01/teacher-deck.html",
+    "views": [
+      "enrich",
+      "watani"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L02/teacher-deck.html",
+    "views": [
+      "g1",
+      "groupmap",
+      "watani"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L02/group-work.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/teacher-deck.html",
+    "views": [
+      "g1",
+      "learn1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/group-work.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/teacher-deck.html",
+    "views": [
+      "watani"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/teacher-deck.html",
+    "views": [
+      "g1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/group-work.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L07/group-work.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L02/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L03/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L04/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L05/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L06/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L07/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L08/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T1-L09/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L01/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L02/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L04/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L05/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L06/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T2-L07/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L01/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L03/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L04/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L06/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L07/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "All changed slide views, 23 complete concept-card pages, five group-card pages and the worksheet page inspected as pixels; China knowledge and tiered task rechecked"
+    },
+    "original_media": "unchanged"
+  }
+]
