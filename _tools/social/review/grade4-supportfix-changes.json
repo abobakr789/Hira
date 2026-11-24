@@ -1,0 +1,25 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T2-L08/worksheets-A4.html",
+    "views": [
+      1
+    ],
+    "reason": "Remove leftover suffix after whole-word traffic blank; word bank and key use complete word.",
+    "qa": {
+      "local": "PASS individual1front1print Nov24 08:35 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L16/teacher-deck.html",
+    "views": [
+      "watani"
+    ],
+    "reason": "Restore sourced Sheikh Zayed heritage quotation.",
+    "source": "https://www.albayan.ae/across-the-uae/news-and-reports/2019-05-24-1.3568225",
+    "qa": {
+      "local": "PASS individual1front1print Nov24 08:35 Dubai",
+      "live": "PENDING"
+    }
+  }
+]

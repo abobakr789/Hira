@@ -7,7 +7,7 @@
     "reason": "Printed quiz answers now use actual visible numeric option positions rather than obsolete all-a letters.",
     "qa": {
       "local": "PASS individual A4 pixel inspection Nov24 08:28 Dubai",
-      "live": "PENDING"
+      "live": "PASS individual3A4 pixels and byte-exact Nov24 08:34 Dubai deployment45326609219"
     }
   },
   {
@@ -18,7 +18,7 @@
     "reason": "Printed quiz answers now use actual visible numeric option positions rather than obsolete all-a letters.",
     "qa": {
       "local": "PASS individual A4 pixel inspection Nov24 08:28 Dubai",
-      "live": "PENDING"
+      "live": "PASS individual3A4 pixels and byte-exact Nov24 08:34 Dubai deployment45326609219"
     }
   },
   {
@@ -29,7 +29,7 @@
     "reason": "Printed quiz answers now use actual visible numeric option positions rather than obsolete all-a letters.",
     "qa": {
       "local": "PASS individual A4 pixel inspection Nov24 08:28 Dubai",
-      "live": "PENDING"
+      "live": "PASS individual3A4 pixels and byte-exact Nov24 08:34 Dubai deployment45326609219"
     }
   }
 ]
