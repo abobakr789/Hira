@@ -1,0 +1,420 @@
+[
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L02/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L02/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L03/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L04/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L04/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L05/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L05/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L06/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L07/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L08/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L09/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L09/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L10/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L10/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L11/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L11/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L12/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L12/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L14/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L14/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y6-NN-T1-L15/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
+    "qa": {
+      "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
+      "live": "pending"
+    }
+  }
+]
