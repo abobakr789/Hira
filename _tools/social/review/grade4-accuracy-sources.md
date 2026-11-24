@@ -131,3 +131,10 @@ T1 L21: removed the later Sheikh Zayed bin Sultan portrait from the section abou
 - https://www.mdpi.com/2073-4441/14/21/3448 fetched: Bih construction1983 while its data series begins1982, conflicting with2015study https://doi.org/10.5383/swes.7.01.003 (1982). Do not silently pick one exact year.
 - https://u.ae/ar/about-the-uae/the-seven-emirates/sharjah fetched: Qawasim rule predates1749. Does not itself decide when major naval-power phase began.
 - https://courses.lumenlearning.com/wm-macroeconomics/chapter/aggregate-expenditure-consumption/ fetched: consumption-income relationship is a model, saving also possible. T3L01 needs visible qualification in authored summary, preserve source text with label if adapted.
+
+## Visible qualification batch Nov24 08:33
+- Removed exact1749first-appearance wording in authored Qawasim summary+sourcecard, preserving naval-power relationship and centers. Source text remains unchanged and does not contain that date.
+- T3L01 authored summary+sourcecard now states tendency and possibility of saving, not universal automatic spending increase. Original reading unchanged.
+- T2L01 undated world-first coexistence claim replaced with multicultural coexistence. https://al-ain.com/article/international-day-cultural-uae-convergence-peoples fetched supports this. A historical2019media superlative without present metric should not be current classroom fact.
+- https://u.ae/ar/about-the-uae/the-constitution-of-the-uae fetched supports1971temporary/1996permanent in T1L23.
+- https://dct.gov.ae/en/what.we.do/culture/projects/wahat.al.karama.aspx fetched supports31leaningtablets for solidarity. T1L24children dialogue is figurative hands, not an official literal design explanation.

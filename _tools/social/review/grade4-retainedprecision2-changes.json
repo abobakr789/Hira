@@ -1,0 +1,57 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L19/teacher-deck.html",
+    "views": [
+      "learn4"
+    ],
+    "reason": "Remove unsupported exact first-appearance date; retain documented naval power and centers.",
+    "qa": {
+      "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L19/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "Remove unsupported exact first-appearance date; retain documented naval power and centers.",
+    "qa": {
+      "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L01/teacher-deck.html",
+    "views": [
+      "watani"
+    ],
+    "reason": "Replace undated world-ranking claim with supported multicultural coexistence fact.",
+    "qa": {
+      "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L01/teacher-deck.html",
+    "views": [
+      "learn4"
+    ],
+    "reason": "Qualify income-consumption tendency and include saving, rather than universal automatic spending increase.",
+    "qa": {
+      "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L01/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "Qualify income-consumption tendency and include saving, rather than universal automatic spending increase.",
+    "qa": {
+      "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+      "live": "PENDING"
+    }
+  }
+]
