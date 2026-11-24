@@ -1,0 +1,25 @@
+{
+  "changes": [
+    "resources/ssd/SS-Y10-T1-L3/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T1-L3/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T1-L3/teacher-deck.html",
+    "resources/ssd/SS-Y10-T1-L8/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T1-L8/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T1-L8/teacher-deck.html",
+    "resources/ssd/SS-Y10-T1-L20/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T1-L20/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T1-L20/teacher-deck.html",
+    "resources/ssd/SS-Y10-T1-L21/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T1-L21/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T1-L21/teacher-deck.html",
+    "resources/ssd/SS-Y10-T1-L22/answer-key.html",
+    "resources/ssd/SS-Y10-T1-L22/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T1-L22/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T1-L22/teacher-deck.html"
+  ],
+  "sources": [
+    "https://qasralhosn.ae/en/history",
+    "https://www.wam.ae/en/article/aq7sb1t-uae-president-issues-federal-decree-law"
+  ],
+  "scope": "Repair matching tasks and repeated definitions, preserve historical context versus current authority."
+}

@@ -1,0 +1,40 @@
+{
+  "changes": [
+    "resources/ssd/SS-Y10-T3-L2/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T3-L2/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L2/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L3/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T3-L3/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L3/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L5/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L5/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L6/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L6/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L7/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T3-L7/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L7/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L9/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T3-L9/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L9/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L10/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T3-L10/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L10/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L13/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T3-L13/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L13/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L14/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L14/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L16/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L16/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L16/pod-sheet.html",
+    "resources/ssd/SS-Y10-T3-L19/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T3-L19/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T3-L19/teacher-deck.html"
+  ],
+  "review": "All56 Arabic bronze multiple-choice and matching tasks read, in addition to all56 keys. Corrected residual definitions and dated quiz stems. Other levels and group tasks continue.",
+  "sources": [
+    "https://www.eia.gov/energyexplained/natural-gas/natural-gas-and-the-environment.php",
+    "https://www.iea.org/reports/global-energy-review-2025/coal",
+    "https://www.nationalgas.com/our-businesses/nts-linepack"
+  ]
+}

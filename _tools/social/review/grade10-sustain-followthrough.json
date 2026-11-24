@@ -1,0 +1,15 @@
+{
+  "changes": [
+    "resources/ssd/SS-Y10-T2-L6/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T2-L6/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T2-L6/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L14/sources-concept-card.html",
+    "resources/ssd/SS-Y10-T2-L14/worksheets-A4.html",
+    "resources/ssd/SS-Y10-T2-L14/teacher-deck.html"
+  ],
+  "sources": [
+    "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/ER.H2O.FWTL.ZS",
+    "https://treaties.un.org/Pages/showDetails.aspx?clang=_en&objid=0800000280043ad5"
+  ],
+  "scope": "Follow through on matching task water denominator and signature versus ratification quiz stem."
+}
