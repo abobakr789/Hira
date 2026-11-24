@@ -2433,6 +2433,86 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
+  // ===== رحلة القنديل: مصادر الطالب في البيت (صفحة مستقلة لكل درس، تُحفظ نتائجها ويراها المعلم) =====
+  const JOURNEYS = new Set(["AR-Y1-N-T3-L08"]);
+  const JR_TOTAL = 9;
+  const journeySrc = (code) => "resources/ar/" + code + "/student-journey.html?embed=1&v=20261125";
+  const jrSum = (j) => { j = j || {}; const f = j.first || {}, fk = Object.keys(f);
+    return { stations: Object.keys(j.done || {}).filter((k) => j.done[k]).length, medals: Object.values(j.medals || {}).filter(Boolean).length,
+      first_ok: fk.filter((k) => f[k]).length, first_total: fk.length, quiz_score: j.quiz ? j.quiz.score : null, quiz_max: j.quiz ? j.quiz.of : null, mistakes: (j.mist || []).length, seconds: j.secs || 0 }; };
+  let JR_L = null, jrT = null, jrPend = null;
+  const jrFlush = () => { if (!jrPend || !JR_L || !isStudent()) return; const j = jrPend; jrPend = null; const m = jrSum(j);
+    sb.rpc("journey_save", { p_lesson: JR_L.id, p_state: j, p_stations: m.stations, p_total: JR_TOTAL, p_medals: m.medals, p_first_ok: m.first_ok, p_first_total: m.first_total, p_quiz_score: m.quiz_score, p_quiz_max: m.quiz_max, p_mistakes: m.mistakes, p_seconds: m.seconds }).then(() => {}, () => {}); };
+  function openJourney(id, code) { JR_L = { id, code };
+    let o = document.getElementById("jrOv"); if (o) o.remove();
+    o = document.createElement("div"); o.id = "jrOv";
+    o.innerHTML = `<iframe src="${esc(journeySrc(code))}" title="رحلة القنديل" allow="microphone; autoplay; fullscreen"></iframe>`;
+    document.body.appendChild(o); document.body.style.overflow = "hidden"; }
+  const closeJourney = () => { jrFlush(); const o = document.getElementById("jrOv"); if (o) o.remove(); document.body.style.overflow = ""; document.querySelectorAll(".jr-prog[data-set]").forEach((x) => x.removeAttribute("data-set")); };
+  window.addEventListener("message", async (e) => { const fr = document.querySelector("#jrOv iframe"); const d = e.data;
+    if (!fr || e.source !== fr.contentWindow || e.origin !== location.origin || !d || !JR_L) return;
+    if (d.type === "hiraa-journey-ready") { let st = null;
+      if (isStudent() && state.session) { try { const { data } = await sb.from("journey_progress").select("state").eq("lesson_id", JR_L.id).eq("student_id", state.session.user.id).maybeSingle(); st = data && data.state; } catch (er) {} }
+      const nm = String((state.profile && (state.profile.full_name_ar || state.profile.full_name)) || "").trim().split(/\s+/)[0] || "";
+      fr.contentWindow.postMessage({ type: "hiraa-journey-init", state: st, role: isStudent() ? "student" : isStaff() ? "staff" : "guest", uid: state.session ? state.session.user.id : null, name: isStudent() ? nm : "" }, location.origin); }
+    else if (d.type === "hiraa-journey" && d.code === JR_L.code && isStudent()) { jrPend = d.state; clearTimeout(jrT); jrT = setTimeout(jrFlush, 1500); }
+    else if (d.type === "hiraa-journey-close") closeJourney(); });
+  window.addEventListener("pagehide", jrFlush);
+  // تقدّم الطالب على بطاقة الرحلة
+  new MutationObserver(() => document.querySelectorAll(".jr-prog:not([data-set])").forEach(async (x) => { x.setAttribute("data-set", "1");
+    if (!isStudent() || !state.session) return;
+    const { data } = await sb.from("journey_progress").select("stations, total_stations, medals").eq("lesson_id", x.dataset.lid).eq("student_id", state.session.user.id).maybeSingle();
+    const n = data ? data.stations : 0, t = (data && data.total_stations) || JR_TOTAL;
+    x.innerHTML = `<span class="jr-lamps">${Array.from({ length: t }, (_, i) => `<i class="${i < n ? "on" : ""}"></i>`).join("")}</span><b><bdi dir="ltr">${n}/${t}</bdi></b> ${n >= t ? "أَضَأْتَ الْقَناديلَ كُلَّها! 🌟" : n ? "قِنْديلًا مُضاءً" : "لَمْ تَبْدَأْ بَعْدُ"}${data && data.medals ? ` · 🏅 <bdi dir="ltr">${data.medals}/4</bdi>` : ""}`;
+    const b = x.closest(".jr-hero") && x.closest(".jr-hero").querySelector(".jr-open b"); if (b && n) b.textContent = n >= t ? "أُراجِعُ رِحْلَتي" : "أُكْمِلُ الرِّحْلَةَ"; })).observe(document.documentElement, { childList: true, subtree: true });
+  // تقرير الصف للمعلم
+  async function journeyReport(lid, title, yg, tr, sub) {
+    let o = document.getElementById("jrRepOv"); if (o) o.remove();
+    o = document.createElement("div"); o.id = "jrRepOv"; o.className = "jr-rep-ov";
+    o.innerHTML = `<div class="jr-rep" role="dialog" aria-modal="true"><div class="jr-rep-h"><h3>🏮 تقرير رحلة القنديل · ${esc(title)}</h3><button class="btn btn-ghost btn-small" id="jrRepX">✕ إغلاق</button></div><div id="jrRepB"><div class="loading">جارٍ التحميل…</div></div></div>`;
+    document.body.appendChild(o); o.querySelector("#jrRepX").onclick = () => o.remove(); o.onclick = (e) => { if (e.target === o) o.remove(); };
+    const B = o.querySelector("#jrRepB");
+    const { data: tc } = await sb.from("class_teachers").select("classes(id, name, year_group, track, subject_id)").eq("teacher_id", state.session.user.id);
+    let cls = (tc || []).map((x) => x.classes).filter((c) => c && String(c.year_group) === String(yg) && c.track === tr && c.subject_id === sub);
+    if (!cls.length && (isSchoolAdmin() || isSuper())) { const { data } = await sb.from("classes").select("id, name, year_group, track, subject_id").eq("year_group", yg).eq("track", tr).eq("subject_id", sub).limit(20); cls = data || []; }
+    if (!cls.length) { B.innerHTML = `<div class="empty"><strong>لا توجد فصول مرتبطة بك في هذا الصف، فلا يوجد تقرير بعد.</strong></div>`; return; }
+    let cur = cls[0].id;
+    const CR = [["bronze", "أذكر الشخصيات وما تحبه", "#B06A34"], ["silver", "أحدد عناصر القصة", "#7A8797"], ["gold", "أرتب الأحداث وأعيد السرد", "#C99A1E"], ["challenge", "أستنتج الرسالة وأربطها بحياتي", "#7B4FC0"]];
+    const plain = (t) => String(t || "").replace(/[ً-ْ]/g, "");
+    const draw = async () => {
+      const { data: roster } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur);
+      const S = (roster || []).map((r) => ({ id: r.student_id, name: (r.profiles && r.profiles.full_name_ar) || "—" })).sort((a, b) => a.name.localeCompare(b.name, "ar"));
+      const { data: rows, error } = S.length ? await sb.from("journey_progress").select("*").eq("lesson_id", lid).in("student_id", S.map((s) => s.id)) : { data: [] };
+      if (error) { B.innerHTML = `<div class="empty"><strong>تعذّر تحميل التقرير الآن.</strong></div>`; return; }
+      const M = {}; (rows || []).forEach((r) => { M[r.student_id] = r; });
+      const started = S.filter((s) => M[s.id]), fin = S.filter((s) => M[s.id] && M[s.id].finished_at);
+      const pct = (a, b) => b ? Math.round(a * 100 / b) : null;
+      const ft = started.reduce((a, s) => [a[0] + M[s.id].first_ok, a[1] + M[s.id].first_total], [0, 0]);
+      const qd = started.filter((s) => M[s.id].quiz_max);
+      const qAvg = qd.length ? Math.round(qd.reduce((a, s) => a + M[s.id].quiz_score / M[s.id].quiz_max, 0) * 100 / qd.length) : null;
+      // أكثر الأخطاء تكرارًا (ما لم يراجعه الطلاب بعد)
+      const mc = {}; started.forEach((s) => ((M[s.id].state || {}).mist || []).forEach((m) => { const k = plain(m.q); mc[k] = mc[k] || { n: 0, a: plain((m.opts || [])[m.ans]) }; mc[k].n++; }));
+      const top = Object.entries(mc).sort((a, b) => b[1].n - a[1].n).slice(0, 4);
+      // تقييم الطلاب لأنفسهم قبل/بعد
+      const shift = CR.map(([k, t, c]) => { const pre = [], post = []; started.forEach((s) => { const j = M[s.id].state || {}; if (j.pre && k in j.pre) pre.push(j.pre[k]); if (j.post && k in j.post) post.push(j.post[k]); });
+        const av = (a) => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null; const got = started.filter((s) => (M[s.id].state || {}).medals && M[s.id].state.medals[k]).length;
+        return { t, c, pre: av(pre), post: av(post), got }; });
+      const bar = (v, c) => `<span class="jr-bar"><i style="width:${v == null ? 0 : Math.round((v + 1) / 3 * 100)}%;background:${c}"></i></span>`;
+      const mm = (x) => x >= 60 ? Math.round(x / 60) + " د" : x + " ث";
+      B.innerHTML = `${cls.length > 1 ? `<div class="rd-cls">${cls.map((c) => `<button class="btn btn-small ${c.id === cur ? "btn-primary" : "btn-ghost"}" data-cls="${c.id}">${esc(c.name)}</button>`).join("")}</div>` : ""}
+        <div class="lp-stats"><div><b><bdi dir="ltr">${started.length}/${S.length}</bdi></b><small>بدؤوا الرحلة</small></div><div><b><bdi dir="ltr">${fin.length}/${S.length}</bdi></b><small>أكملوها</small></div><div><b>${pct(ft[0], ft[1]) == null ? "—" : pct(ft[0], ft[1]) + "%"}</b><small>صحيح من أول محاولة</small></div><div><b>${qAvg == null ? "—" : qAvg + "%"}</b><small>متوسط التحقق النهائي</small></div></div>
+        <div class="jr-grid"><div class="jr-box"><h4>🎯 معايير النجاح في الصف</h4>${shift.map((x) => `<div class="jr-cr"><span class="jr-dot" style="background:${x.c}"></span><span class="jr-ct">${x.t} <small>· حققه <bdi dir="ltr">${x.got}/${S.length}</bdi></small></span><span class="jr-ba"><small>قبل</small>${bar(x.pre, "#CDBF9F")}<small>بعد</small>${bar(x.post, x.c)}</span></div>`).join("")}<p class="muted" style="font-size:13px;margin:6px 0 0">الأشرطة: متوسط تقييم الطلاب لأنفسهم قبل الرحلة وبعدها.</p></div>
+        <div class="jr-box"><h4>📒 ابدأ بها الحصة القادمة</h4>${top.length ? `<ol class="jr-top">${top.map(([q, v]) => `<li>${esc(q)}<br><small>الإجابة: <b>${esc(v.a)}</b> · لم يراجعه ${v.n === 1 ? "طالب واحد" : v.n === 2 ? "طالبان" : `<bdi dir="ltr">${v.n}</bdi> ${v.n <= 10 ? "طلاب" : "طالبًا"}`}</small></li>`).join("")}</ol>` : `<p class="muted">لا أخطاء معلّقة في هذا الصف. 🌟</p>`}</div></div>
+        <div class="lp-tw"><table class="lp-tbl"><thead><tr><th>الطالب</th><th>القناديل</th><th>الأوسمة</th><th>من أول محاولة</th><th>التحقق</th><th>أخطاء معلّقة</th><th>مهمة البيت</th><th>الوقت</th></tr></thead><tbody>
+        ${S.map((s) => { const r = M[s.id]; if (!r) return `<tr><td>${esc(s.name)}</td><td colspan="7" class="muted">لم يبدأ</td></tr>`; const j = r.state || {}; const fam = j.fam || {}; const p = pct(r.first_ok, r.first_total);
+          return `<tr><td>${esc(s.name)}</td><td>${r.finished_at ? "✅ " : "🏮 "}<bdi dir="ltr">${r.stations}/${r.total_stations || JR_TOTAL}</bdi></td><td>${CR.map(([k, , c]) => `<span class="jr-dot" style="background:${j.medals && j.medals[k] ? c : "#e5e0d4"}"></span>`).join("")}</td><td>${p == null ? "—" : (p >= 80 ? "🟢 " : p >= 60 ? "🟡 " : "🔴 ") + p + "%"}</td><td>${r.quiz_max ? `<bdi dir="ltr">${r.quiz_score}/${r.quiz_max}</bdi>` : "—"}</td><td>${r.mistakes || "—"}</td><td>${(fam.asked || []).length ? "✅" : "—"} ${Object.keys(fam.week || {}).length ? `🏮<bdi dir="ltr">${Object.keys(fam.week).length}/7</bdi>` : ""}</td><td>${mm(r.seconds || 0)}</td></tr>`; }).join("") || `<tr><td colspan="8">لا يوجد طلاب في هذا الفصل</td></tr>`}
+        </tbody></table></div>`;
+      B.querySelectorAll("[data-cls]").forEach((b) => b.onclick = () => { cur = b.dataset.cls; draw(); });
+    };
+    draw();
+  }
+  document.addEventListener("click", (e) => { const b = e.target.closest(".jr-open"); if (b) { openJourney(b.dataset.lid, b.dataset.code); return; }
+    const r = e.target.closest(".jr-rep-btn"); if (r) journeyReport(r.dataset.lid, r.dataset.title, r.dataset.yg, r.dataset.tr, r.dataset.sub); });
   window.addEventListener("message", (e) => { if (e.data && e.data.hiraa === "deck-close") { const o = document.getElementById("ieDeckOv"); if (o) { if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); o.remove(); document.body.style.overflow = ""; } } });
   function present(src, title) {
     let o = document.getElementById("presentOverlay");
@@ -3822,13 +3902,18 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const forms = pick("🔗"), sounds = pick("👂") || pick("🎩"), write = pick("✍️"), blend = pick("⚙️");
       const id = (l.lesson_identity_links || [])[0];
       const quiz = (sm.quiz || []).slice(0, 2);
+      const jrHero = JOURNEYS.has(l.code) ? `<div class="jr-hero ars-wide"><div class="jr-art" aria-hidden="true"><svg viewBox="0 0 100 120"><circle cx="50" cy="8" r="5" fill="none" stroke="#102A4C" stroke-width="3.5"/><path d="M32 34 Q32 20 50 14 Q68 20 68 34Z" fill="#102A4C"/><rect x="26" y="34" width="48" height="7" rx="3.5" fill="#102A4C"/><path d="M29 44 L71 44 L78 100 Q50 114 22 100Z" fill="#FFF1C9" stroke="#102A4C" stroke-width="5" stroke-linejoin="round"/><path d="M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z" fill="#F7B731"/><line x1="36" y1="112" x2="64" y2="112" stroke="#102A4C" stroke-width="5" stroke-linecap="round"/></svg></div>
+        <div class="jr-body"><span class="jr-kick">🏠 مُذاكَرَتي في الْبَيْتِ</span><h3>رِحْلَةُ الْقِنْديلِ</h3><p>تِسْعُ مَحَطّاتٍ أَقْرَأُ فيها الْقِصَّةَ وَأَلْعَبُ وَأَتَحَقَّقُ، وَأُضيءُ قِنْديلًا بَعْدَ كُلِّ مَحَطَّةٍ، وَأَجْمَعُ أَرْبَعَةَ أَوْسِمَةٍ.</p>
+        ${isStudent() ? `<div class="jr-prog" data-lid="${esc(l.id)}"></div>` : ""}
+        <div class="jr-act"><button class="btn btn-primary jr-open" data-lid="${esc(l.id)}" data-code="${esc(l.code)}">🏮 <b>${isStaff() ? "معاينة الرحلة" : "أَبْدَأُ الرِّحْلَةَ"}</b></button>${isStaff() ? `<button class="btn btn-ghost jr-rep-btn" data-lid="${esc(l.id)}" data-title="${esc(l.title_ar || "")}" data-yg="${esc(u.year_group)}" data-tr="${esc(u.track)}" data-sub="${esc(u.subject_id)}">📊 تقرير الصف</button>` : ""}</div></div></div>` : "";
       return `<div class="ars"${nnEn ? ' dir="ltr"' : ""}>
+        ${jrHero}
         ${goalBlock(l, nnEn) ? card("ars-goal ars-wide", "🎯", nnEn ? "My goal today" : "هَدَفي الْيَوْمَ", goalBlock(l, nnEn)) : ""}
         ${bookTx && bookTx.body ? card("ars-book ars-wide", "📖", nnEn ? "The lesson text" : "نَصُّ الدَّرْسِ", `${sm.idea ? `<p>${esc(sm.idea)}</p>` : ""}${((h) => TIL.musHtml(bookTx.body, h, { tr: nn ? "en" : "", en: nnEn }) || h)(`<div class="ars-text">${((sm.key && sm.key.length) ? sm.key : bookLines(bookTx.body).slice(0, 3)).map((x) => `<p>${bkHL(esc(x))}</p>`).join("")}</div>
-          <details class="ars-full"><summary>📖 ${nnEn ? "Read the full text" : "أَقْرَأُ النَّصَّ كامِلًا"}${bookTx.pages ? ` (${esc(bookTx.title || "")} · ص ${esc(bookTx.pages)})` : ""}</summary><div class="bk-read"${bookTx.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div></details>`)}
+          <details class="ars-full"><summary>📖 ${nnEn ? "Read the full text" : "أَقْرَأُ النَّصَّ كامِلًا"}${bookTx.title ? ` (${esc(bookTx.title)})` : ""}</summary><div class="bk-read"${bookTx.kind === "poem" ? ' style="text-align:center;font-weight:600"' : ""}>${bookLines(bookTx.body).map((x) => `<p>${bkHL(esc(x)).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="qf">${m}</span>`)}</p>`).join("")}</div></details>`)}
           <p class="muted" style="margin-top:8px">${nnEn ? "You will also find it in the lesson slides." : "وَأَجِدُهُ أَيْضًا في شَرائِحِ الدَّرْسِ."}</p>`)
           + ((sm.words || []).length ? card("ars-dict ars-wide", "🔤", nnEn ? "Word meanings" : "مَعاني الْكَلِماتِ", `<div class="ars-vocab">${sm.words.map((w) => `<div class="ars-v"><b>${esc(w[0])}</b><span>${esc(w[1])}</span></div>`).join("")}</div>`) : "") : ""}
-        ${bookTx && bookTx.body ? "" : card("ars-book", "📖", nnEn ? "My textbook" : "كتابي المدرسي", nnEn ? `<p>Read «${esc(story)}» in your student book${l.book_pages ? ` (page ${esc(String(l.book_pages).replace(/^ص\s*/, ""))})` : ""} with your teacher.</p>` : `<p>أقرأ «${esc(story)}» في كتاب الطالب${l.book_pages ? ` (${esc(l.book_pages)})` : ""}، وأتابع مع معلمي.</p>`)}
+        ${bookTx && bookTx.body ? "" : card("ars-book", "📖", nnEn ? "My textbook" : "كتابي المدرسي", nnEn ? `<p>Read «${esc(story)}» in your student book with your teacher.</p>` : `<p>أقرأ «${esc(story)}» في كتاب الطالب، وأتابع مع معلمي.</p>`)}
         ${letter ? card("ars-letter", "🔤", nnEn ? "Letter card" : "بطاقة الحرف", `<div class="ars-letter-big">${esc(letter)}</div>${forms ? `<p>${esc(forms)}</p>` : ""}${write ? `<p class="muted">✍️ ${esc(write)}</p>` : ""}`) : ""}
         ${pics.length && !(bookTx && bookTx.body) ? card("ars-dict", "🖼️", nnEn ? "My picture dictionary" : "قاموسي المصوّر", `<div class="ars-words">${pics.slice(0, 8).map((w) => `<div class="ars-w"><span class="ars-emo">${esc(w[1])}</span><b>${esc(w[0])}</b>${w[2] ? `<small>${esc(w[2])}</small>` : ""}</div>`).join("")}</div>`) : ""}
         ${sounds ? card("ars-sound", "👂", nnEn ? "Listen and repeat" : "أسمع وأردّد", `<p class="ars-say">${esc(sounds)}</p><p class="muted">${nnEn ? "Say it clearly, then ask someone at home to listen to you." : "أقرأ بصوت واضح، ثم أطلب من أحد أفراد أسرتي أن يسمعني."}</p>`) : ""}
