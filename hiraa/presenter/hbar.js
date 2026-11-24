@@ -53,6 +53,7 @@
     save: "M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2zM17 21v-8H7v8M7 3v5h8",
     keys: "M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10",
     users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8",
+    pdf: "M12 3v12M7 10l5 5 5-5M5 21h14",
     pv: "M2 4h13v10H2zM17 7h5v8h-5zM5 18h7M8.5 14v4",
     phone: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2",
     ask: "M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8zM9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"
@@ -135,6 +136,8 @@
     ".hb-pop .hb-btn{font:600 15px 'Thmanyah Text',Tahoma,sans-serif;border:1.5px solid #E5DCC8;background:#FBF7EF;border-radius:12px;padding:7px 14px;cursor:pointer;color:#1F2A3C}",
     ".hb-pop .hb-btn.pri{background:#102A4C;border-color:#102A4C;color:#fff}",
     ".hb-pop .hb-muted{font-size:13px;color:#6B7280}",
+    ".hb-pop .hb-ck{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:14.5px;cursor:pointer}.hb-pop .hb-ck input{width:17px;height:17px;accent-color:#102A4C}",
+    "#hbSavePop{width:340px}",
     ".hb-pop .hb-pick{margin-top:12px;min-height:96px;border-radius:18px;background:linear-gradient(135deg,#102A4C,#1E4E86);color:#FFF0C2;display:flex;align-items:center;justify-content:center;text-align:center;font:700 46px/1.2 'Thmanyah Display',Tahoma,sans-serif;padding:10px;transition:transform .25s}",
     ".hb-pop .hb-pick.done{transform:scale(1.05);background:linear-gradient(135deg,#D4AA55,#F0C977);color:#1B1405}",
     ".hb-pop .hb-keys{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px}",
@@ -227,7 +230,7 @@
     B("hbTpen", "pen", T("قلم (P)", "Pen (P)")) + B("hbThl", "hl", T("قلم تظليل (H)", "Highlighter (H)")) + B("hbTtext", "text", T("كتابة نص", "Text")) +
     B("hbTeraser", "eraser", T("ممحاة", "Eraser")) +
     '<button type="button" class="hb-b" id="hbCol" data-tip="' + T("اللون والسُّمك", "Colour & size") + '" aria-label="' + T("اللون والسُّمك", "Colour & size") + '"><span class="hb-sw" id="hbSw"></span></button>' +
-    B("hbUndo", "undo", T("تراجع (Ctrl+Z)", "Undo (Ctrl+Z)")) + B("hbClr", "trash", T("مسح كتابة الشريحة", "Clear this slide's ink")) + "</div>" +
+    B("hbUndo", "undo", T("تراجع (Ctrl+Z)", "Undo (Ctrl+Z)")) + B("hbClr", "trash", T("مسح كتابة الشريحة", "Clear this slide's ink")) + B("hbSave", "pdf", T("حفظ الشرح: كتابتك على الشرائح PDF", "Save your annotated slides as PDF")) + "</div>" +
     '<span class="hb-sep"></span>' +
     '<div class="hb-g">' + B("hbSpot", "spot", T("الكشّاف: يُظلم كل شيء إلا ما تشير إليه (S)", "Spotlight (S)")) + B("hbCurt", "curtain", T("الستارة: اكشف الشريحة تدريجيًّا", "Curtain reveal")) +
     B("hbBoard", "board", T("سبورة بيضاء (W)", "Whiteboard (W)")) + B("hbBlack", "moon", T("شاشة سوداء (B)", "Black screen (B)")) + B("hbKeys", "keys", T("اختصارات لوحة المفاتيح", "Keyboard shortcuts")) + "</div>" +
@@ -442,10 +445,11 @@
   var ctx = ink.getContext("2d"), lctx = laser.getContext("2d"), dpr = 1;
   var COLORS = { pen: ["#E53935", "#1E6BC2", "#0B7A75", "#102A4C", "#F0962E", "#8A3FFC", "#FFFFFF"], hl: ["#FFE14D", "#7CF29C", "#FF8AD8", "#7FD6FF", "#FFB561"] };
   var st = { pen: { c: LS.get("hb-pen-c", "#E53935"), w: +LS.get("hb-pen-w", "6") }, hl: { c: LS.get("hb-hl-c", "#FFE14D"), w: +LS.get("hb-hl-w", "34") }, text: { c: LS.get("hb-tx-c", "#102A4C"), w: 44 } };
-  var INK = SS.get("hb-ink-" + DECK) || {};
+  var KEEP = LS.get("hb-keep-" + DECK, "") === "1";
+  var INK = (KEEP ? (function () { try { return JSON.parse(localStorage.getItem("hb-ink-" + DECK) || "null"); } catch (e) { return null; } })() : SS.get("hb-ink-" + DECK)) || {};
   var keyNow = function () { return board.classList.contains("on") ? "wb" : String(cur); };
   var items = function () { return INK[keyNow()] || (INK[keyNow()] = []); };
-  var saveInk = function () { SS.set("hb-ink-" + DECK, INK); };
+  var saveInk = function () { SS.set("hb-ink-" + DECK, INK); if (KEEP) LS.set("hb-ink-" + DECK, JSON.stringify(INK)); };
   function sizeCanvas() {
     dpr = Math.min(2, W.devicePixelRatio || 1);
     var w = innerWidth, h = innerHeight - G.top;
@@ -533,6 +537,77 @@
   }
   on("hbUndo", function () { var L = items(); if (L.length) { L.pop(); saveInk(); redraw(); } });
   on("hbClr", function () { if (!items().length) return; INK[keyNow()] = []; saveInk(); redraw(); say(T("مُسحت كتابة هذه الشريحة", "Ink cleared")); });
+
+  /* ---------- حفظ الشرح وتصديره PDF ---------- */
+  var stTitle = function (k) { var s = SL[k]; if (!s) return ""; return ((s.querySelector("h1,h2,h3") || {}).textContent || "").replace(/\s+/g, " ").trim(); };
+  var notesOf = function (k) { var s = SL[k]; if (!s) return ""; return [].map.call(s.querySelectorAll("aside"), function (a) { return a.textContent.trim(); }).join("\n\n"); };
+  var deckCss = function () { return [].map.call(D.querySelectorAll("style"), function (s) { return s.id === "hb-css" || s.textContent.indexOf("#hbResP") >= 0 ? "" : s.textContent; }).join("\n"); };
+  var savePop = mk("div", "hbSavePop"); savePop.className = "pop hb-pop"; savePop.dir = RTL ? "rtl" : "ltr"; stop(savePop);
+  var inkedKeys = function () { return Object.keys(INK).filter(function (k) { return (INK[k] || []).length; }); };
+  function paintSave() {
+    var ks = inkedKeys(), nS = ks.filter(function (k) { return k !== "wb"; }).length, hasWb = ks.indexOf("wb") >= 0;
+    savePop.innerHTML = '<div class="hb-h">' + T("حفظ الشرح", "Save your explanation") + '</div>' +
+      '<p class="hb-muted" style="margin:0 0 10px">' + (ks.length ? T("كتبت على ", "You annotated ") + nS + T(" شريحة", " slide(s)") + (hasWb ? T(" وعلى السبورة", " and the whiteboard") : "") : T("لم تكتب على أي شريحة بعد. يمكنك مع ذلك حفظ العرض كاملًا.", "No annotations yet. You can still save the whole deck.")) + "</p>" +
+      '<label class="hb-ck"><input type="radio" name="hbSv" value="ink"' + (ks.length ? " checked" : " disabled") + "> " + T("الشرائح التي كتبت عليها فقط", "Only the slides I annotated") + "</label>" +
+      '<label class="hb-ck"><input type="radio" name="hbSv" value="all"' + (ks.length ? "" : " checked") + "> " + T("كل الشرائح مع كتابتي", "All slides with my annotations") + "</label>" +
+      '<label class="hb-ck"><input type="checkbox" id="hbSvN"> ' + T("أضف ملاحظات المعلم تحت كل شريحة", "Add teacher notes under each slide") + "</label>" +
+      '<button type="button" class="hb-btn pri" id="hbSvGo" style="width:100%;margin:10px 0 12px">' + T("📄 حفظ PDF", "📄 Save PDF") + "</button>" +
+      '<div style="border-top:1px solid rgba(16,42,76,.12);padding-top:10px"><label class="hb-ck"><input type="checkbox" id="hbKeep"' + (KEEP ? " checked" : "") + "> " + T("احتفظ بكتابتي على هذا الجهاز للحصة القادمة", "Keep my annotations on this device for next time") + "</label>" +
+      '<p class="hb-muted" style="margin:4px 0 0;font-size:12.5px">' + T("دون هذا الخيار تُمحى الكتابة حين تغلق المتصفح، فيبدأ كل صف بعرض نظيف.", "Without it, annotations clear when the browser closes, so each class starts clean.") + "</p>" +
+      (ks.length ? '<button type="button" class="hb-btn" id="hbClrAll" style="margin-top:8px;color:#B42318">🗑 ' + T("امسح كتابتي من كل الشرائح", "Clear annotations on all slides") + "</button>" : "") + "</div>";
+    $("hbSvGo").onclick = function () { var m = (savePop.querySelector("[name=hbSv]:checked") || {}).value || "all"; exportPdf(m, $("hbSvN").checked); closePops(); };
+    $("hbKeep").onchange = function () { KEEP = this.checked; LS.set("hb-keep-" + DECK, KEEP ? "1" : ""); if (KEEP) LS.set("hb-ink-" + DECK, JSON.stringify(INK)); else try { localStorage.removeItem("hb-ink-" + DECK); } catch (e) {}
+      say(KEEP ? T("ستبقى كتابتك محفوظة على هذا الجهاز", "Annotations will be kept on this device") : T("ستُمحى الكتابة عند إغلاق المتصفح", "Annotations clear when the browser closes")); };
+    var ca = $("hbClrAll"); if (ca) ca.onclick = function () { if (!confirm(T("مسح كل ما كتبته على الشرائح والسبورة؟", "Clear all annotations?"))) return; INK = {}; saveInk(); redraw(); paintSave(); say(T("مُسحت الكتابة كلها", "All annotations cleared")); };
+  }
+  function inkPng(k) {
+    var L = INK[k] || []; if (!L.length) return "";
+    var c = D.createElement("canvas"); c.width = 1920; c.height = 1080; var x = c.getContext("2d");
+    L.forEach(function (it) { drawItem(it, x); });
+    return c.toDataURL("image/png");
+  }
+  function exportPdf(mode, withNotes) {
+    var ks = inkedKeys();
+    var list = mode === "ink" && ks.length ? ks.filter(function (k) { return k !== "wb"; }).map(Number).sort(function (a, b) { return a - b; }) : SL.map(function (_, i) { return i; });
+    var wb = ks.indexOf("wb") >= 0;
+    var pw2 = W.open("", "_blank");
+    if (!pw2) { say(T("اسمح للمتصفح بفتح نافذة جديدة لحفظ PDF", "Allow pop-ups to save the PDF")); return; }
+    var pd = pw2.document, day = new Date().toLocaleDateString(EN ? "en-GB" : "ar-AE", { year: "numeric", month: "long", day: "numeric" });
+    var page = function (inner, cap, note) {
+      return '<section class="pg"><header><b>' + esc(title) + "</b><span>" + cap + '</span></header><div class="box">' + inner + "</div>" +
+        (note ? '<div class="nt">' + esc(note) + "</div>" : "") + "<footer><span>🏮 " + T("منصة حراء", "Hiraa") + "</span><span>" + day + "</span></footer></section>";
+    };
+    var html = list.map(function (k) {
+      var im = inkPng(String(k));
+      return page('<div class="in" data-k="' + k + '"></div>' + (im ? '<img class="ink" src="' + im + '">' : ""), T("الشريحة ", "Slide ") + (k + 1) + " / " + N + (stTitle(k) && stTitle(k) !== title ? " · " + esc(stTitle(k)) : ""), withNotes ? notesOf(k) : "");
+    }).join("");
+    if (wb) html += page('<div class="wbg"></div><img class="ink" src="' + inkPng("wb") + '">', T("السبورة", "Whiteboard"), "");
+    pd.open();
+    pd.write('<!doctype html><html lang="' + (EN ? "en" : "ar") + '" dir="' + (RTL ? "rtl" : "ltr") + '"><head><meta charset="utf-8"><base href="' + location.href.replace(/#.*$/, "") + '"><title>' + esc(title) + " · " + T("شرح الحصة", "Lesson notes") + "</title><style>" + deckCss() + "</style><style>" +
+      "@page{size:A4 landscape;margin:0}html,body{margin:0;background:#E9EDF3;font-family:'Thmanyah Text','Cairo',Tahoma,sans-serif;overflow:auto!important;height:auto!important}" +
+      ".bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:12px 20px;background:#102A4C;color:#fff;font-weight:700}.bar span{flex:1}.bar button{font:700 15px inherit;font-family:inherit;border:0;border-radius:10px;padding:9px 18px;background:#D4AA55;color:#1B1405;cursor:pointer}" +
+      ".pg{position:relative;width:297mm;height:210mm;margin:16px auto;background:#fff;box-shadow:0 6px 24px rgba(16,42,76,.18);display:flex;flex-direction:column;align-items:center;padding:9mm 12mm 7mm;box-sizing:border-box;page-break-after:always;break-after:page;overflow:hidden}" +
+      ".pg header,.pg footer{width:100%;display:flex;justify-content:space-between;gap:16px;color:#102A4C;font-size:13px}.pg header{border-bottom:2px solid #D4AA55;padding-bottom:5px;margin-bottom:6mm}.pg header b{font-size:15px}.pg footer{margin-top:auto;color:#7A8698;font-size:11px}" +
+      ".box{position:relative;width:256mm;aspect-ratio:16/9;border:1px solid #DCE3EC;border-radius:6px;overflow:hidden;flex:none}.pg:has(.nt) .box{width:214mm}" +
+      ".box .in{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}.box .ink{position:absolute;inset:0;width:100%;height:100%}.wbg{position:absolute;inset:0;background:#fff}" +
+      ".in .sl{opacity:1!important;transform:none!important;visibility:visible!important;display:block}.in *{animation:none!important;transition:none!important;view-transition-name:none!important}.in .hid{opacity:1!important;transform:none!important;visibility:visible!important}.in aside{display:none!important}" +
+      ".nt{width:100%;margin-top:4mm;padding:3mm 4mm;border-inline-start:3px solid #D4AA55;background:#FBF7EE;color:#2A3548;font-size:12.5px;line-height:1.7;white-space:pre-wrap;max-height:38mm;overflow:hidden}" +
+      "@media print{html,body{background:#fff}.bar{display:none}.pg{margin:0;box-shadow:none}}" +
+      '</style></head><body><div class="bar"><span>📄 ' + list.length + (wb ? " + 1" : "") + T(" صفحة · اختر «حفظ بصيغة PDF» في نافذة الطباعة", " page(s) · choose “Save as PDF” in the print dialog") + '</span><button id="go">' + T("حفظ PDF / طباعة", "Save PDF / Print") + "</button></div>" + html + "</body></html>");
+    pd.close();
+    pd.querySelectorAll(".in").forEach(function (box) {
+      var k = +box.dataset.k, c = pd.importNode(SL[k], true); c.classList.add("on");
+      c.querySelectorAll("video,audio,iframe,script").forEach(function (x) { x.remove(); });
+      c.querySelectorAll(".hid").forEach(function (x) { x.classList.remove("hid"); });
+      box.appendChild(c);
+      var w = box.parentNode.getBoundingClientRect().width || 968; box.style.transform = "scale(" + w / 1920 + ")";
+    });
+    var pr = function () { try { pw2.focus(); pw2.print(); } catch (e) {} };
+    pd.getElementById("go").onclick = pr;
+    var imgs = [].slice.call(pd.images).map(function (i) { return i.complete ? 0 : new Promise(function (r) { i.onload = i.onerror = r; }); });
+    Promise.race([Promise.all(imgs.concat([pd.fonts ? pd.fonts.ready : 0])), new Promise(function (r) { setTimeout(r, 4000); })]).then(function () { setTimeout(pr, 300); });
+  }
+  on("hbSave", function (e, b) { paintSave(); togglePop(savePop, b); });
 
   /* لوحة اللون والسُّمك */
   var colPop = mk("div", "hbColPop"); colPop.className = "pop hb-pop"; colPop.dir = RTL ? "rtl" : "ltr"; stop(colPop);
