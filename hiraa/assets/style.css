@@ -3013,3 +3013,10 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .dp-slide.full{position:fixed;inset:0;z-index:2000;max-width:none;margin:0;background:#0E1621;display:flex;align-items:center;justify-content:center}
 .dp-slide.full .dp-sbox{width:min(100vw,calc(100vh * 16 / 9));border-radius:0}
 @media (min-width:900px){.dp-slide{max-width:900px}}
+.dp-qz{display:flex;flex-direction:column;gap:2px;align-items:center}
+.dp-qz b{background:linear-gradient(90deg,#D4AA55,#F0C977);color:#1B1405;border-radius:99px;padding:4px 14px}
+.dp-qz span{font-size:.85rem;color:var(--muted)}
+.dp-tm{height:10px;border-radius:99px;background:var(--line,#E3E8EF);overflow:hidden}
+.dp-tm i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#2E9E5B,#E0A100,#D64545);transform-origin:right;animation:dpTm var(--t) linear forwards}
+[dir=ltr] .dp-tm i{transform-origin:left}
+@keyframes dpTm{to{transform:scaleX(0)}}

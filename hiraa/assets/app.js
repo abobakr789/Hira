@@ -2406,7 +2406,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125k", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125l", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -10529,7 +10529,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const q = L.q || {}, a = mine[L.q_seq];
       if (L.state === "done") { put(`<section class="dp">${head()}<div class="dp-card dp-done"><div class="dp-big">🌟</div><h2>${CT("انتهت الحصة. أحسنت المشاركة!", "The lesson is over. Great participation!")}</h2></div></section>`); liveStop(); try { sessionStorage.removeItem("hiraa.dl"); } catch (e) {} return; }
       if (L.state === "idle" || !L.q) { put(`<section class="dp">${head()}<div class="dp-card dp-wait"><div class="lv-wait"><i></i><i></i><i></i></div><h2>${CT("انظر إلى شاشة معلمك", "Look at your teacher's screen")}</h2><p class="muted">${CT("سيظهر السؤال هنا حين يطرحه المعلم.", "The question will appear here when your teacher asks it.")}</p></div></section>`); return; }
-      const qt = q.text ? `<p class="dp-q">${esc(q.text)}</p>` : `<p class="dp-q dp-q0">${CT("انظر إلى الشريحة، ثم أجب هنا", "Look at the slide, then answer here")}</p>`;
+      const qz = q.quiz && L.state === "open" && !a ? `<div class="dp-qz"><b>🏆 ${CT("سؤال", "Question")} ${q.quiz.i} ${CT("من", "of")} ${q.quiz.n}</b><span>${CT("أسرع إجابة صحيحة تكسب نقاطًا أكثر!", "Faster correct answers score more!")}</span></div>${q.timer ? `<div class="dp-tm" style="--t:${+q.timer}s"><i></i></div>` : ""}` : "";
+      const qt = qz + (q.text ? `<p class="dp-q">${esc(q.text)}</p>` : `<p class="dp-q dp-q0">${CT("انظر إلى الشريحة، ثم أجب هنا", "Look at the slide, then answer here")}</p>`);
       if (L.state === "reveal" && (q.t === "mc" || q.t === "tf") && q.correct != null) {
         const ok = a && +a.o === +q.correct;
         put(`<section class="dp ${a ? (ok ? "dp-good" : "dp-bad") : ""}">${head()}<div class="dp-card"><div class="dp-big">${a ? (ok ? "✅" : "💡") : "⏱"}</div><h2>${a ? (ok ? CT("إجابة صحيحة!", "Correct!") : CT("ليست هذه المرة", "Not this time")) : CT("لم تُجب", "No answer")}</h2>
