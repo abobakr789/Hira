@@ -2403,7 +2403,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     // شريط العرض الجديد (hbar.js): يُحقن في العرض نفسه فيستبدل شريطه القديم بشريطين على نمط قارئ الكتب
     const fr = o.querySelector("iframe");
     fr.addEventListener("load", () => { try { const d = fr.contentDocument; if (!d || d.getElementById("hb-css") || !d.getElementById("tb")) return;
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261124a", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
+      const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
+      fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125a", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -10278,6 +10281,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     document.getElementById("ljGo").onclick = async () => {
       const c = document.getElementById("ljCode").value.trim(), nk = document.getElementById("ljNick"), er = document.getElementById("ljErr");
       if (!/^\d{6}$/.test(c)) { er.textContent = CT("الرمز من 6 أرقام", "The code has 6 digits"); return; }
+      // الرمز قد يكون لحصة يعرضها المعلم (مشاركة داخل العرض) أو لتحدٍّ مباشر
+      const dl = await sb.rpc("dl_join", { p_code: c, p_nick: nk ? nk.value : "" });
+      if (!dl.error) { try { sessionStorage.setItem("hiraa.dl", JSON.stringify(dl.data)); } catch (e) {} location.hash = "#/live/deck"; return; }
+      if (/bad name/.test(dl.error.message)) { er.textContent = CT("اكتب اسمك", "Enter your name"); return; }
+      if (/full/.test(dl.error.message)) { er.textContent = CT("اكتمل عدد الطلاب في هذه الحصة", "This class session is full"); return; }
       const { data, error } = await sb.rpc("live_join", { p_code: c, p_nick: nk ? nk.value : "" });
       if (error) { er.textContent = /no game/.test(error.message) ? CT("لا يوجد تحدٍّ بهذا الرمز", "No challenge with this code") : /bad name/.test(error.message) ? CT("اكتب اسمك", "Enter your name") : error.message; return; }
       try { sessionStorage.setItem("hiraa.live", JSON.stringify(data)); } catch (e) {}
@@ -10390,6 +10398,67 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const onGame = async (ng) => { G = ng; if (G.mode === "self") { if (G.state === "done") await loadP(); else render(); return; } if (G.state === "question" || G.state === "reveal") { const { data } = await sb.rpc("live_question", { p_game: id }); Qd = data; if (G.state === "question") counts = { answered: 0, by_option: {} }; else { const { data: c } = await sb.rpc("live_counts", { p_game: id }); counts = c || counts; } } if (G.state === "reveal" || G.state === "done") await loadP(); else render(); };
     liveSub(id, onGame, loadP); livePoll(id, onGame, loadP);
     if (G.state !== "lobby") await onGame(G); else await loadP();
+  }
+  /* مشاركة الطالب في حصة يعرضها المعلم: سؤال واحد مفتوح في كل لحظة يصل إلى جهاز الطالب */
+  async function pageDeckPlay() {
+    setNav("live"); liveStop();
+    let me = null; try { me = JSON.parse(sessionStorage.getItem("hiraa.dl") || "null"); } catch (e) {}
+    if (!me) { location.hash = "#/live?join=1"; return; }
+    const FACES = [["😟", CT("لم أتعلّمه بعد", "Not yet"), "#F28B82"], ["😐", CT("أعرف قليلًا", "A little"), "#FFD25C"], ["😊", CT("أستطيع وحدي", "I can do it"), "#7BCB8A"]];
+    let L = null, key = "", mine = {}, editing = false;
+    const head = () => `<div class="dp-head"><span class="dp-live"><i></i>${CT("حصة مباشرة", "Live lesson")}</span><b>${esc(me.title || "")}</b><small>${CT("أهلًا", "Hi")} ${esc(me.nick)} 👋</small></div>`;
+    const send = async (ans) => {
+      const { error } = await sb.rpc("dl_answer", { p_player: me.player, p_token: me.token, p_seq: L.q_seq, p_answer: ans });
+      if (error) { toast(/closed/.test(error.message) ? CT("أغلق المعلم السؤال", "The teacher closed the question") : error.message); return false; }
+      mine[L.q_seq] = ans; editing = false; render(true); return true;
+    };
+    const mySummary = (q, a) => {
+      if (!a) return "";
+      if (q.t === "mc" || q.t === "tf") return esc((q.opts || [])[a.o] || "");
+      if (q.t === "word") return esc(a.w || "");
+      if (q.t === "scale") return FACES[(a.v || 1) - 1][0] + " " + FACES[(a.v || 1) - 1][1];
+      if (q.t === "rate") return (a.r || []).map((v) => FACES[(v || 1) - 1][0]).join(" ");
+      return "";
+    };
+    function render(force) {
+      if (!L) { h(`<section class="dp">${head()}<div class="dp-card"><h2>${CT("انتهت الحصة", "The lesson has ended")}</h2></div></section>`); return; }
+      const k = L.q_seq + ":" + L.state + ":" + (editing ? 1 : 0) + ":" + (mine[L.q_seq] ? 1 : 0);
+      if (!force && k === key) return; key = k;
+      const q = L.q || {}, a = mine[L.q_seq];
+      if (L.state === "done") { h(`<section class="dp">${head()}<div class="dp-card dp-done"><div class="dp-big">🌟</div><h2>${CT("انتهت الحصة. أحسنت المشاركة!", "The lesson is over. Great participation!")}</h2></div></section>`); liveStop(); try { sessionStorage.removeItem("hiraa.dl"); } catch (e) {} return; }
+      if (L.state === "idle" || !L.q) { h(`<section class="dp">${head()}<div class="dp-card dp-wait"><div class="lv-wait"><i></i><i></i><i></i></div><h2>${CT("انظر إلى شاشة معلمك", "Look at your teacher's screen")}</h2><p class="muted">${CT("سيظهر السؤال هنا حين يطرحه المعلم.", "The question will appear here when your teacher asks it.")}</p></div></section>`); return; }
+      const qt = q.text ? `<p class="dp-q">${esc(q.text)}</p>` : `<p class="dp-q dp-q0">${CT("انظر إلى الشريحة، ثم أجب هنا", "Look at the slide, then answer here")}</p>`;
+      if (L.state === "reveal" && (q.t === "mc" || q.t === "tf") && q.correct != null) {
+        const ok = a && +a.o === +q.correct;
+        h(`<section class="dp ${a ? (ok ? "dp-good" : "dp-bad") : ""}">${head()}<div class="dp-card"><div class="dp-big">${a ? (ok ? "✅" : "💡") : "⏱"}</div><h2>${a ? (ok ? CT("إجابة صحيحة!", "Correct!") : CT("ليست هذه المرة", "Not this time")) : CT("لم تُجب", "No answer")}</h2>
+          <p>${CT("الإجابة الصحيحة", "Correct answer")}: <b>${esc((q.opts || [])[q.correct] || "")}</b></p></div></section>`); return; }
+      if (L.state !== "open" || (a && !editing)) {
+        h(`<section class="dp">${head()}<div class="dp-card">${qt}<div class="dp-big">${L.state === "open" ? "✓" : "🔒"}</div><h2>${a ? CT("أُرسلت إجابتك", "Answer sent") : CT("أُغلق السؤال", "The question is closed")}</h2>
+          ${a ? `<p class="dp-mine">${mySummary(q, a)}</p>` : ""}${L.state === "open" && a ? `<button class="btn btn-ghost" id="dpEdit">${CT("غيّر إجابتي", "Change my answer")}</button>` : ""}</div></section>`);
+        const eb = document.getElementById("dpEdit"); if (eb) eb.onclick = () => { editing = true; render(true); }; return; }
+      if (q.t === "mc" || q.t === "tf") {
+        h(`<section class="dp">${head()}<div class="dp-card">${qt}<div class="dp-opts">${(q.opts || []).map((o, i) => `<button style="--c:${LIVE_COL[i % 4]}" data-o="${i}"><span>${q.t === "tf" ? (i ? "✗" : "✓") : LIVE_SH[i % 4]}</span>${esc(o)}</button>`).join("")}</div></div></section>`);
+        document.querySelectorAll(".dp-opts [data-o]").forEach((b) => b.onclick = () => send({ o: +b.dataset.o })); return; }
+      if (q.t === "word") {
+        h(`<section class="dp">${head()}<div class="dp-card">${qt}<input class="dp-in" id="dpW" maxlength="40" placeholder="${CT("اكتب كلمة أو عبارة قصيرة", "Type a word or short phrase")}" value="${esc(a ? a.w : "")}"><button class="btn btn-dawn" id="dpS">${CT("أرسل", "Send")}</button></div></section>`);
+        const w = document.getElementById("dpW"); setTimeout(() => w.focus(), 50);
+        const go = () => { const v = w.value.trim(); if (v) send({ w: v }); };
+        document.getElementById("dpS").onclick = go; w.onkeydown = (e) => { if (e.key === "Enter") go(); }; return; }
+      if (q.t === "scale") {
+        h(`<section class="dp">${head()}<div class="dp-card">${qt}<div class="dp-faces">${FACES.map((f, i) => `<button data-v="${i + 1}" style="--c:${f[2]}"><span>${f[0]}</span>${f[1]}</button>`).join("")}</div></div></section>`);
+        document.querySelectorAll(".dp-faces [data-v]").forEach((b) => b.onclick = () => send({ v: +b.dataset.v })); return; }
+      if (q.t === "rate") {
+        const rows = q.rows || [], r = (a && a.r) ? a.r.slice() : rows.map(() => 0);
+        h(`<section class="dp">${head()}<div class="dp-card"><p class="dp-q">${esc(q.text || CT("أين أنا من معايير النجاح؟", "Where am I with the success criteria?"))}</p><div class="dp-rate">${rows.map((row, i) => `<div class="dp-row"><p>${row.v ? `<b>${esc(row.v)}</b> ` : ""}${esc(row.p || "")}</p><div class="dp-rf">${FACES.map((f, j) => `<button data-i="${i}" data-v="${j + 1}" style="--c:${f[2]}" aria-label="${f[1]}" class="${r[i] === j + 1 ? "on" : ""}">${f[0]}</button>`).join("")}</div></div>`).join("")}</div>
+          <p class="muted small">${FACES.map((f) => f[0] + " " + f[1]).join(" · ")}</p><button class="btn btn-dawn" id="dpS" ${r.every((x) => x) ? "" : "disabled"}>${CT("أرسل تقييمي", "Send my rating")}</button></div></section>`);
+        document.querySelectorAll(".dp-rf [data-v]").forEach((b) => b.onclick = () => { r[+b.dataset.i] = +b.dataset.v; b.parentNode.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b)); document.getElementById("dpS").disabled = !r.every((x) => x); });
+        document.getElementById("dpS").onclick = () => send({ r }); return; }
+    }
+    const pull = async () => { const { data } = await sb.from("deck_live").select("id, title, q, q_seq, state").eq("id", me.live).maybeSingle(); L = data; render(); };
+    await pull();
+    state._liveCh = sb.channel("dl-" + me.live + "-" + Math.random().toString(36).slice(2, 7))
+      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "deck_live", filter: `id=eq.${me.live}` }, (p) => { L = p.new; render(); }).subscribe();
+    state._livePoll = setInterval(() => { if (!location.hash.startsWith("#/live/deck")) { liveStop(); return; } pull(); }, 3000);
   }
   async function pageLivePlay() {
     setNav("live"); liveStop();
@@ -15092,6 +15161,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "prep") return pagePrep(params);
       if (p0 === "live" && parts[1] === "host" && parts[2]) return pageLiveHost(parts[2]);
       if (p0 === "live" && parts[1] === "play") return pageLivePlay();
+      if (p0 === "live" && parts[1] === "deck") return pageDeckPlay();
       if (p0 === "live") return pageLive(params);
       if (p0 === "achievements") return pageAchievements(params);
       if (p0 === "duel" && parts[1]) return pageDuel(parts[1]);
