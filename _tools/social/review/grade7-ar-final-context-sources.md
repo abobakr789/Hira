@@ -7,4 +7,4 @@ Reviewed 24 November 2026. Original media references preserved.
 - Australia: humid subtropical conditions characterize parts of the east; temperate conditions include southern/southeastern regions and Tasmania. Rainfall seasons differ by region. https://www.bom.gov.au/resources/learn-and-explore/climate-knowledge-centre/australian-climate-zones
 - Britain: maritime influences moderate climate but do not by themselves establish economic productivity. Island geography is not immunity from European wars. https://weather.metoffice.gov.uk/climate-change/climate-change-in-the-uk
 
-Local QA: all 12 changed slide reveals and 11 printable pages inspected, vocabulary flip inspected, final model answer and key inspected again after consistency correction. Live QA pending.
+Local QA: all 12 changed slide reveals and 11 printable pages inspected, vocabulary flip inspected, final model answer and key inspected again after consistency correction. Live QA: 14/14 changed HTML byte-exact, live Al-Andalus learning/model and Australian climate slides visually inspected 24 November 2026 14:52 Dubai.

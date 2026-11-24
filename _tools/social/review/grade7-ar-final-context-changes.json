@@ -6,8 +6,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -18,8 +18,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -30,8 +30,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -42,8 +42,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -54,8 +54,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -66,8 +66,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -78,8 +78,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -90,8 +90,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -102,8 +102,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -114,8 +114,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -128,8 +128,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -147,8 +147,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -159,8 +159,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   },
@@ -171,8 +171,8 @@
     ],
     "original_media": "unchanged",
     "qa": {
-      "local": "pending",
-      "live": "pending"
+      "local": "PASS: inspected changed slides and printable pages",
+      "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
     },
     "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
   }

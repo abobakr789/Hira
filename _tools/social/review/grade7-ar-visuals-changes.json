@@ -1,0 +1,62 @@
+[
+  {
+    "lesson": "SS-Y7-T1-L04",
+    "slide": "learn2",
+    "rationale": "Births, deaths and net migration contribute to population change. Internal migration only redistributes within national boundaries.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
+      "live": "pending"
+    }
+  },
+  {
+    "lesson": "SS-Y7-T1-L06",
+    "slide": "learn4",
+    "rationale": "Three functions of money use concrete hypothetical purchase, price-comparison and saving examples, not a false causal sequence.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
+      "live": "pending"
+    }
+  },
+  {
+    "lesson": "SS-Y7-T2-L12",
+    "slide": "learn4",
+    "rationale": "A worked GIS workflow makes direct digital input and optional digitization alternatives converge before spatial linkage, analysis and mapped output.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
+      "live": "pending"
+    }
+  },
+  {
+    "lesson": "SS-Y7-T2-L13",
+    "slide": "learn1",
+    "rationale": "Passive reflected sunlight example is distinct from an active radar sending energy and receiving an echo. Arrow direction conveys the verified physical process.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
+      "live": "pending"
+    }
+  },
+  {
+    "lesson": "SS-Y7-T2-L14",
+    "slide": "learn4",
+    "rationale": "Four separate satellite signals go one way to an ordinary receiver; receiver determines three-dimensional location and time. Not orbital geometry or to scale.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
+      "live": "pending"
+    }
+  },
+  {
+    "lesson": "SS-Y7-T3-L22",
+    "slide": "learn1",
+    "rationale": "A generic same perennial survives several seasons, with variable growth and dormancy possible; not continuous growth. No invented species-specific behavior.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
+      "live": "pending"
+    }
+  }
+]
