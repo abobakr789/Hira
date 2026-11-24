@@ -60,3 +60,6 @@ Vocabulary content f58b606c deployed successfully, action 45311365701. All 11 HT
 
 ## 2026-11-24 06:30 Dubai Earth closure
 Earth content 7eba3959 is live; five HTML resources byte-exact at 06:28. Six fronts, one popup and seven print pages passed live pixel QA by 06:30. Source adaptation labelled and original media preserved. Zayed the First correction prepared locally, four fronts, one popup and seven print pages passed local pixel QA; not yet published.
+
+## 2026-11-24 06:35 Dubai Zayed closure
+Zayed content 0e90cdbb live, all five HTML byte-exact 06:33. Four fronts, one popup, seven print pages individually passed live pixel QA. Removed inconsistent birth/age claims instead of choosing a speculative date. Retained verified reign 1855–1909. Three economy lessons under local review, not published.
