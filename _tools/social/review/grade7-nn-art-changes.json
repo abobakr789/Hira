@@ -1,0 +1,28 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L15/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:26 Dubai: both visible reading slides and full source page inspected; city wording revised and all rechecked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "cover",
+      "text1",
+      "text2"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:26 Dubai: both visible reading slides and full source page inspected; city wording revised and all rechecked."
+    },
+    "original_media": "unchanged"
+  }
+]
