@@ -1,5 +1,5 @@
 {
-  "status": "targeted grade1 review ready for deployment",
+  "status": "closed: targeted review published and verified",
   "inventory": {
     "lessons": 29,
     "html": 203,
@@ -21,5 +21,10 @@
     "https://www.unicef.org/parenting/safety/burns-scalds-fire-safety-tips",
     "https://www.eca.gov.ae/ar/Parent-Resources/2025/11/talking-to-your-child-about-personal-safety"
   ],
-  "choices": "Book coffee-third fraction retained as book-specific, UNESCO quarter variation visible. Adult hand-holding custom retained with visible child road-safety exception. Unsupported first-preserver superlative corrected. Privacy teaching excludes secrets of harm. Teacher departure rule replaced with permission plus immediate evacuation instruction."
+  "choices": "Book coffee-third fraction retained as book-specific, UNESCO quarter variation visible. Adult hand-holding custom retained with visible child road-safety exception. Unsupported first-preserver superlative corrected. Privacy teaching excludes secrets of harm. Teacher departure rule replaced with permission plus immediate evacuation instruction.",
+  "live_qa": {
+    "exact_changed_files": "84/84 at 2026-11-24 22:00 Asia/Dubai",
+    "pixels": "Published coffee, behavior/result diagram, road safety and privacy/model slides inspected at 22:01. Local deck and print samples inspected before publishing.",
+    "commit": "88c2f5cabdd095048b0007d55b37f3438e75038c"
+  }
 }
