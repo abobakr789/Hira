@@ -1,0 +1,96 @@
+{
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y11-T3-L26/sources-concept-card.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L26/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L26/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L27/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L27/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L27/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L28/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L28/sources-concept-card.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L28/worksheets-A4.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L28/teacher-deck.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L30/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L30/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L31/sources-concept-card.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L31/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L31/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L32/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L32/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L32/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L33/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L33/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L33/teacher-deck.html",
+      "nodes": 2
+    }
+  ],
+  "sources": [
+    "https://www.cisa.gov/secure-our-world/secure-yourself-your-family",
+    "https://www.cisa.gov/audiences/high-risk-communities/projectupskill/module5",
+    "https://consumer.ftc.gov/articles/buying-online-marketplace?hss_channel=tw-14074515",
+    "https://www.osha.gov/etools/computer-workstations/components/monitors/",
+    "https://www.who.int/standards/classifications/frequently-asked-questions/gaming-disorder",
+    "https://csrc.nist.gov/pubs/sp/800/88/r2/final"
+  ]
+}

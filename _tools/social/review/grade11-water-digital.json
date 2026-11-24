@@ -1,0 +1,136 @@
+{
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y11-T2-L15/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T2-L15/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L3/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L3/teacher-deck.html",
+      "nodes": 5
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L4/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L4/sources-concept-card.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L4/worksheets-A4.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L4/teacher-deck.html",
+      "nodes": 9
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L7/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L7/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L7/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L11/sources-concept-card.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L11/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L11/teacher-deck.html",
+      "nodes": 5
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L15/sources-concept-card.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L15/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L15/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L16/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L16/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L16/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L22/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L22/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L23/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L23/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L23/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L23/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L24/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y11-T3-L24/teacher-deck.html",
+      "nodes": 1
+    }
+  ],
+  "note": "Source-backed water and digital-literacy corrections. Historic book proportions are labeled as book data, not new current measurements.",
+  "sources": [
+    "https://www.usgs.gov/water-science-school/science/acid-rain-and-water",
+    "https://documents1.worldbank.org/curated/en/949281468161359020/pdf/WPS6997.pdf",
+    "https://www.pub.gov.sg/Public/WaterLoop/Sustainability",
+    "https://www.cisa.gov/secure-our-world/secure-yourself-your-family",
+    "https://consumer.ftc.gov/articles/buying-online-marketplace?hss_channel=tw-14074515",
+    "https://u.ae/en/information-and-services/visa-and-emirates-id/emirates-id",
+    "https://www.usgs.gov/water-science-school/science/how-much-water-there-earth",
+    "https://cdc.gov/drinking-water/about/collecting-rainwater-and-your-health-an-overview.html",
+    "https://www.waterfootprint.org/water-footprint-2/what-is-a-water-footprint/",
+    "https://tools.waterfootprint.org/virtual-water/",
+    "https://moc.gov.ae/ar/national-register/%d8%a7%d9%84%d9%85%d9%86%d8%a8%d9%91%d8%aa/",
+    "https://www.cisa.gov/audiences/high-risk-communities/projectupskill/module5",
+    "https://www.osha.gov/etools/computer-workstations/components/monitors/",
+    "https://www.who.int/standards/classifications/frequently-asked-questions/gaming-disorder",
+    "https://csrc.nist.gov/pubs/sp/800/88/r2/final",
+    "https://water.usgs.gov/outreach/Posters/groundwater/grade_school/Page2.html",
+    "https://whc.unesco.org/en/list/1700/"
+  ]
+}
