@@ -1,0 +1,130 @@
+[
+  {
+    "path": "resources/ssd/SS-Y8-T1-L1/sources-concept-card.html",
+    "sha256": "7a4dc08a8de42f6c1bb2df49d208d01d049bedb75ff3c2642bd13c572c22373e",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L1/teacher-deck.html",
+    "sha256": "7d23283ccd8074dabaf59022b65cb91e44557221add87a24ea0285a0c53beddb",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L1/worksheets-A4.html",
+    "sha256": "6ee6518b9c76c7f0f27704b2c6aa1b82f3a6f8e6d5834aad3f02280474f5bfcc",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L7/pod-sheet.html",
+    "sha256": "855ca0889a8eb289a12671ce86375ee7919b2ef98222c87949a70b7f96c184a2",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L7/sources-concept-card.html",
+    "sha256": "2b4b1d09587b41f8969c5d3d2230d5f843ac5c5bddc781642bf79dbc56d8b232",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L7/teacher-deck.html",
+    "sha256": "6896ec8e5dbc147cae74381131c110e4568d774988b3e06fb0941c527110a3fa",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L5/answer-key.html",
+    "sha256": "c999c20d2d333a3b043d896ba9691509434e1eb24c45a35de63a07668036bd80",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L5/sources-concept-card.html",
+    "sha256": "c9765753a1116973fd3d9d4a0c302908266e0b9a9d906e8c0502d4705b9d6e86",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L5/teacher-deck.html",
+    "sha256": "6acb1ae162c888cb64f730fd746029d4e5acb7d4387170171ce65481ce71a494",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L1/sources-concept-card.html",
+    "sha256": "4cfc6a219fc6d147fa60de4a2ac30104c99a9599107afb7d7fa87b5d1d5c4b1d",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L1/teacher-deck.html",
+    "sha256": "2f19a23bff7bd8512f85c94e13695e4870f641f916683c56dd39cbaf17724c23",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L1/worksheets-A4.html",
+    "sha256": "22aaf3384e4fbd37c30bcdcba8a26fc8112aece00bfa7b1dc617b907b8ac36c1",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L6/answer-key.html",
+    "sha256": "17e5ad39d81aa3db3be96e611fe0d6f057139402b2c92900ab08b1a4d9759101",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L6/sources-concept-card.html",
+    "sha256": "195ce166ee7c77b92490f40eb932c1ffa37a42b29af8b9b5e86010fdadb22c54",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L6/teacher-deck.html",
+    "sha256": "ada86de1ad9b57a65c12bd5052d8e5caf2f723acf910a0c6129264db7fe49434",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L6/worksheets-A4.html",
+    "sha256": "8850a29d41b2fd05e6c43fce5f0e3a3b96342bb5369097b4d4655b037b0de454",
+    "qa": {
+      "local": "PASS: 13 slide views and three print pages inspected; cloze restored",
+      "live": "pending"
+    }
+  }
+]
