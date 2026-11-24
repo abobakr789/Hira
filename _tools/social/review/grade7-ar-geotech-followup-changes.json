@@ -7,7 +7,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "pass: 1 revealed slide and 3 print pages inspected",
-      "live": "pending"
+      "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
     }
   },
   {
@@ -19,7 +19,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "pass: 1 revealed slide and 3 print pages inspected",
-      "live": "pending"
+      "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
     }
   },
   {
@@ -30,7 +30,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "pass: 1 revealed slide and 3 print pages inspected",
-      "live": "pending"
+      "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
     }
   }
 ]
