@@ -1,0 +1,16 @@
+{
+  "changes": [
+    "SS-Y11-T1-L14",
+    "SS-Y11-T1-L16",
+    "SS-Y11-T2-L10",
+    "SS-Y11-T3-L3",
+    "SS-Y11-T3-L10",
+    "SS-Y11-T3-L11",
+    "SS-Y11-T3-L17",
+    "SS-Y11-T3-L19",
+    "SS-Y11-T3-L33",
+    "SS-Y11-T3-L7",
+    "SS-Y11-T3-L8"
+  ],
+  "note": "Word-by-word animated hooks needed whole-paragraph changes: node-only corrections elsewhere did not reach split sentences. Central claims aligned with verified core corrections."
+}
