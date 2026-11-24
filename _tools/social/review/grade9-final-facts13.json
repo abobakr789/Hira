@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-24",
+  "scope": "SS9 final factual and literal picture repairs",
+  "sources": [
+    {
+      "url": "https://khaward.ae/en/all-fields/people-with-special-needs/",
+      "claim": "Eligibility is supporting professionals and centres; listed prizes 75000 and 100000 AED, not blanket payment of 200000 AED to people with disabilities."
+    },
+    {
+      "url": "https://met.caa.gov.om/en/publication/westerly-disturbances/",
+      "claim": "Northern Oman winter rainfall relates to westerly disturbances, moisture and topography, not a blanket northeast Asia wind attribution."
+    }
+  ],
+  "repairs": [
+    "Qualified undated UAE plant inventory rather than presenting old counts as current.",
+    "Changed responsibility advice to retain agency while acknowledging circumstances and support.",
+    "Corrected Mediterranean tree/shrub labels.",
+    "Replaced wheelchair-symbol-as-ramp, moai-as-tools, drop-as-falaj, house-as-mudbrick and flame-as-burner with labeled schematics.",
+    "Replaced cactus desert with arid dunes schematic; literal captions for books/scales/factory."
+  ],
+  "qa": "Local actual pixels checked on ten slides, then four revised slides; no original media elements removed or changed."
+}
