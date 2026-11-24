@@ -1,0 +1,39 @@
+{
+  "status": "targeted review ready for deployment",
+  "baseline": "0a140d70",
+  "inventory": {
+    "lessons": 21,
+    "html": 201,
+    "slides": 736
+  },
+  "changed_html": 115,
+  "changed_lessons": 21,
+  "explanatory_panels": 4,
+  "review": "Read all21 main/core and model-source excerpts and group/challenge/retrieval tasks. Compared missing core details against stored book transcription. Reviewed affected printables and answer dependencies. Added source-versus-practice safety context, exact opening questions and meaningful success criteria. Preserved original religious wording and media.",
+  "corrections": [
+    "Completed the three dallahs with their distinct functions.",
+    "Replaced an orphan sentence about punishment with an institution-role explanation grounded in official cultural bodies.",
+    "Restored omitted principles and constituent categories as explicitly non-exhaustive grouped summaries.",
+    "Teacher-arrival contradiction resolved in the educational paraphrase, not represented as verbatim book text.",
+    "Coffee fraction visibly book-specific; no claim of universal measure.",
+    "Classroom hospitality uses cold empty props, no hot drinks or incense.",
+    "Greeting is consensual and represented verbally without touch; privacy excludes harmful secrets.",
+    "Hospital-visit length depends on the patient and facility; hand hygiene context added.",
+    "School exit permits safe evacuation; ordinary exit by permission."
+  ],
+  "source_text_concerns": [
+    "Stored book transcription itself contains a contradictory no-early-arrival sentence; deck now states the consistent early-arrival meaning.",
+    "Source ritual wording for newborns retained, not independently adjudicated as religious ruling.",
+    "Source superlative about first preserver retained as attributed expression with visible historical-claim caveat."
+  ],
+  "sources": [
+    "https://ich.unesco.org/en/decisions/10.COM/10.B.32",
+    "https://www.unicef.org/parenting/safety/burns-scalds-fire-safety-tips",
+    "https://www.eca.gov.ae/ar/Parent-Resources/2025/11/talking-to-your-child-about-personal-safety",
+    "https://cdc.gov/patient-safety/about/index.html",
+    "https://dubaiculture.gov.ae/en/about-us/who-we-are",
+    "https://dct.gov.ae/en/what.we.do/culture.aspx"
+  ],
+  "qa": "201HTML264scripts: no missing src assets or JS syntax errors. Local four panels, exact hooks, success criteria, safety notes, printable tasks and answer-key samples visually checked.",
+  "limits": "Targeted review, not every slide independently fact checked or visually inspected."
+}
