@@ -1925,7 +1925,30 @@
         <p><b>فجوات الفئات (15 نقطة فأكثر):</b> ${gaps.length ? `<ul>${gaps.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>` : "لا فجوات كبيرة ✓"}</p>
         <p><b>فصول تحصيلها دون 50%:</b> ${weakCls.length ? `<ul>${weakCls.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>` : "لا يوجد ✓"}</p>
         <p class="muted">لكل فصل «ملف أدلة» مفصّل (إتقان النواتج، والفئات، والإجراءات): اضغط اسم الفصل في الجدول 3.</p></div>`}
+      <div id="insLive"></div>
       </div></section>`);
+    insLiveSection(sid);
+  }
+  /* لوحة القسم: التعلّم النشط في الحصص المباشرة لكل فصل (بلا أسماء طلاب) */
+  async function insLiveSection(sid) {
+    const box = document.getElementById("insLive"); if (!box) return;
+    const { data, error } = await sb.rpc("dl_overview", { p_subject: sid, p_days: 60 }); if (error || !Array.isArray(data)) return;
+    const used = data.filter((c) => c.sessions > 0), idle = data.filter((c) => !c.sessions);
+    const bandC = (v, lo, hi) => v == null ? "#94A3B8" : v >= hi ? "#15803D" : v >= lo ? "#D97706" : "#DC2626";
+    const td = (v, suf, lo, hi) => v == null ? `<td class="muted">—</td>` : `<td><b style="color:${bandC(v, lo, hi)}">${v}${suf}</b></td>`;
+    const tot = (k) => { const v = used.map((c) => c[k]).filter((x) => x != null); return v.length ? Math.round(v.reduce((s, x) => s + +x, 0) / v.length) : null; };
+    const und = (() => { const v = used.map((c) => c.understanding).filter((x) => x != null); return v.length ? (v.reduce((s, x) => s + +x, 0) / v.length).toFixed(1) : "—"; })();
+    box.innerHTML = `<h2>6. التعلّم النشط في الحصص المباشرة <small class="muted">(آخر 60 يومًا)</small></h2>
+      <p class="muted">من عروض المعلمين حين تُربط الحصة المباشرة بالفصل: الحضور، والإجابات الصحيحة في أسئلة الاختيار المكشوفة، ومدى الفهم الذاتي (من 3) ونسبة «لم أتعلّمه بعد» في مقياس الفهم وبطاقة الخروج. لا تظهر أسماء الطلاب هنا.</p>
+      ${used.length ? `<div class="cards-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:10px 0">
+        <div class="form-card" style="margin:0;max-width:none"><b style="font-size:1.6rem">${used.reduce((s, c) => s + c.sessions, 0)}</b><br><small class="muted">حصة مباشرة في ${used.length === 1 ? "فصل واحد" : used.length === 2 ? "فصلين" : used.length <= 10 ? used.length + " فصول" : used.length + " فصلًا"}</small></div>
+        <div class="form-card" style="margin:0;max-width:none"><b style="font-size:1.6rem">${tot("attendance") ?? "—"}%</b><br><small class="muted">متوسط الحضور</small></div>
+        <div class="form-card" style="margin:0;max-width:none"><b style="font-size:1.6rem">${tot("correct") ?? "—"}%</b><br><small class="muted">متوسط الإجابات الصحيحة</small></div>
+        <div class="form-card" style="margin:0;max-width:none"><b style="font-size:1.6rem">${und}</b><br><small class="muted">متوسط الفهم الذاتي من 3</small></div></div>
+      <div style="overflow-x:auto"><table class="ev-t" style="width:100%"><thead><tr><th>الفصل</th><th>المعلم</th><th>الحصص</th><th>الأسئلة</th><th>الحضور</th><th>الصحيحة</th><th>الفهم من 3</th><th>«لم أتعلّمه بعد»</th><th>آخر حصة</th></tr></thead><tbody>
+        ${used.map((c) => `<tr><td>${esc(c.name)} <small class="muted">الصف ${c.year}</small></td><td>${esc(c.teachers || "—")}</td><td>${c.sessions}</td><td>${c.questions}</td>${td(c.attendance, "%", 70, 90)}${td(c.correct, "%", 50, 75)}<td>${c.understanding ?? "—"}</td>${c.not_yet == null ? `<td class="muted">—</td>` : `<td><b style="color:${c.not_yet >= 30 ? "#DC2626" : c.not_yet >= 15 ? "#D97706" : "#15803D"}">${c.not_yet}%</b></td>`}<td>${c.last ? new Date(c.last).toLocaleDateString("ar-AE", { day: "numeric", month: "short" }) : "—"}</td></tr>`).join("")}
+      </tbody></table></div>` : `<div class="empty"><strong>لم تُستخدم الحصص المباشرة المرتبطة بالفصول بعد</strong>حين يبدأ المعلم «حصة مباشرة» من عرض الدرس ويختار فصله، تظهر مؤشراتها هنا.</div>`}
+      ${used.length && idle.length ? `<p class="muted" style="margin-top:8px">فصول لم تُستخدم فيها الحصص المباشرة بعد: ${idle.map((c) => esc(c.name) + " (" + c.year + ")").join("، ")}</p>` : ""}`;
   }
   
 async function pageArMocks(params) {
@@ -2406,7 +2429,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125o", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125p", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -4441,9 +4464,21 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <h1>📝 ${T("مراجعة الوحدة واختبارها", "Unit review and test")}</h1><p class="muted">${esc(en && u.title_en ? u.title_en : u.title_ar)} · ${L.length} ${T("دروس", "lessons")}</p></div></section>
       <section class="section" style="padding-top:20px"><div class="wrap">${side}
         <div class="ur-bar"><button class="btn btn-dawn btn-small" id="urPrint">🖨️ ${T("طباعة ورقة المراجعة", "Print the review sheet")}</button>
-          ${staff ? `<a class="btn btn-ghost btn-small" href="#/unit/${u.id}${key ? "" : "?key=1"}">${key ? T("نسخة الطالب", "Student copy") : "🔑 " + T("نسخة المعلم مع الإجابات", "Teacher copy with answers")}</a>` : ""}</div>
+          ${staff ? `<a class="btn btn-ghost btn-small" href="#/unit/${u.id}${key ? "" : "?key=1"}">${key ? T("نسخة الطالب", "Student copy") : "🔑 " + T("نسخة المعلم مع الإجابات", "Teacher copy with answers")}</a>` : ""}
+          ${staff && "caches" in window ? `<button class="btn btn-ghost btn-small" id="urOff">📴 ${T("احفظ عروض الوحدة للعمل دون إنترنت", "Save this unit's decks for offline use")}</button><small class="muted" id="urOffM"></small>` : ""}</div>
         ${sheet}</div></section>`);
     if (!document.getElementById("urCss")) { const st = document.createElement("style"); st.id = "urCss"; st.textContent = UR_CSS; document.head.appendChild(st); }
+    const offB = document.getElementById("urOff");
+    if (offB) offB.onclick = async () => {
+      const msg = document.getElementById("urOffM"); offB.disabled = true; msg.textContent = " …";
+      const ids = L.map((l) => l.id), list = [];
+      if (u.subject_id === 2) L.forEach((l) => { if (/^AR-Y\d+-[A-Z]+-T[123]-L\d\d$/.test(l.code || "")) list.push({ url: "resources/ar/" + l.code + "/teacher-deck.html", title: l.title_ar }); });
+      else if (ids.length) { const { data: rs } = await sb.from("lesson_resources").select("lesson_id, url").in("lesson_id", ids).eq("kind", "slides").eq("audience", "teacher"); (rs || []).forEach((r) => { if (/^resources\/(ie|ssd)\/.+\.html$/i.test(r.url || "")) { const l = L.find((x) => x.id === r.lesson_id); list.push({ url: r.url, title: l ? l.title_ar : r.url }); } }); }
+      if (!list.length) { msg.textContent = " " + T("لا عروض معلم في هذه الوحدة.", "No teacher decks in this unit."); offB.disabled = false; return; }
+      const r = await saveDecksOffline(list, (i, n) => { msg.textContent = " ⏳ " + T("العرض ", "Deck ") + i + " / " + n; });
+      msg.textContent = " ✅ " + T("حُفظ ", "Saved ") + (LANG === "en" ? r.ok + " decks" : r.ok === 1 ? "عرض واحد" : r.ok === 2 ? "عرضان" : r.ok <= 10 ? r.ok + " عروض" : r.ok + " عرضًا") + (r.fail ? T(" · تعذّر ", " · failed ") + r.fail : "") + " · " + (r.size / 1048576).toFixed(1) + " MB · ";
+      const a = document.createElement("a"); a.href = "#/offline"; a.textContent = T("عروضي المحفوظة", "My saved decks"); msg.appendChild(a); offB.disabled = false;
+    };
     document.getElementById("urPrint").onclick = () => { const f = document.createElement("iframe"); f.style.cssText = "position:fixed;width:0;height:0;border:0"; document.body.appendChild(f);
       f.contentDocument.write(`<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Amiri&family=Readex+Pro:wght@400;700&display=swap" rel="stylesheet"><style>${UR_CSS}@page{size:A4;margin:12mm}body{margin:0;font-family:"Readex Pro",sans-serif}</style></head><body>${document.getElementById("urSheet").outerHTML}</body></html>`);
       f.contentDocument.close(); setTimeout(() => { f.contentWindow.print(); setTimeout(() => f.remove(), 2000); }, 900); };
@@ -10414,6 +10449,34 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     fr.onload = () => { try { const w = fr.contentWindow, dd = fr.contentDocument; w.__notes = { slides: N.slides || [], ink: N.ink || {} }; const s = dd.createElement("script"); s.src = new URL("hiraa/presenter/notes.js?v=20261125a", location.href.split("#")[0]).href; s.onload = () => { const fit = () => { if (w.__notesHeight) fr.style.height = w.__notesHeight() + "px"; }; fit(); setTimeout(fit, 600); setTimeout(fit, 2000); w.addEventListener("resize", fit); }; dd.head.appendChild(s); } catch (e) {} };
     fr.src = String(N.deck).split("?")[0];
     document.getElementById("ntsPr").onclick = () => { try { fr.contentWindow.print(); } catch (e) {} };
+  }
+
+  /* حفظ عروض المعلم (ملفاتها وصورها وخطوطها وشريط العرض) في ذاكرة المتصفح الدائمة hira-decks */
+  async function saveDecksOffline(list, onStep) {
+    const base = location.href.split("#")[0], c = await caches.open("hira-decks"), done = new Set(); let ok = 0, fail = 0, size = 0;
+    let saved = []; try { saved = JSON.parse(localStorage.getItem("hira-offline-decks") || "[]") || []; } catch (e) {}
+    const okHost = (h0) => /fonts\.(googleapis|gstatic)\.com$|cdnjs\.cloudflare\.com$|cdn\.jsdelivr\.net$/.test(h0);
+    const put = async (u) => { if (done.has(u)) return 0; done.add(u); const same = u.indexOf(location.origin) === 0; try { const r = await fetch(u, same ? { cache: "no-cache" } : { mode: "no-cors" }); if (!(r.ok || r.type === "opaque")) return 0; const b = await r.clone().blob(); await c.put(same ? u.split("?")[0] : u, r); return b.size; } catch (e) { return 0; } };
+    const extra = [new URL("hiraa/presenter/hbar.js", base).href, new URL("hiraa/presenter/follow.js", base).href];
+    for (const x of extra) size += await put(x);
+    for (let i = 0; i < list.length; i++) {
+      onStep && onStep(i + 1, list.length);
+      const deckUrl = new URL(list[i].url.split("?")[0], base).href;
+      try {
+        const res = await fetch(deckUrl, { cache: "no-cache" }); if (!res.ok) { fail++; continue; }
+        const html = await res.clone().text(); await c.put(deckUrl, res); size += html.length;
+        const doc = new DOMParser().parseFromString(html, "text/html"), U = new Set();
+        const add = (v) => { if (!v || /^(data|blob|javascript|#)/i.test(v)) return; try { const a = new URL(v, deckUrl); if (/\.(mp4|webm|mov|pdf)$/i.test(a.pathname)) return; if (a.origin !== location.origin && !okHost(a.hostname)) return; a.hash = ""; U.add(a.href); } catch (e) {} };
+        doc.querySelectorAll("img[src],source[src],audio[src],script[src],link[href],video[poster]").forEach((e) => { if (e.tagName === "LINK" && !/stylesheet|icon|preload/i.test(e.getAttribute("rel") || "")) return; add(e.getAttribute("src") || e.getAttribute("href") || e.getAttribute("poster")); });
+        doc.querySelectorAll("[srcset]").forEach((e) => e.getAttribute("srcset").split(",").forEach((x) => add(x.trim().split(/\s+/)[0])));
+        const css = [...doc.querySelectorAll("style")].map((s) => s.textContent).join("\n") + [...doc.querySelectorAll("[style]")].map((s) => s.getAttribute("style")).join("\n");
+        (css.match(/url\(\s*['"]?[^'")]+/g) || []).forEach((m) => add(m.replace(/^url\(\s*['"]?/, "")));
+        const arr = [...U]; for (let k = 0; k < arr.length; k += 6) { const r6 = await Promise.all(arr.slice(k, k + 6).map(put)); r6.forEach((s0) => size += s0); }
+        saved = saved.filter((d) => d.url !== deckUrl); saved.unshift({ url: deckUrl, src: list[i].url.split("?")[0], title: list[i].title || list[i].url, at: Date.now(), size: html.length, n: arr.length + 1 }); ok++;
+      } catch (e) { fail++; }
+    }
+    try { localStorage.setItem("hira-offline-decks", JSON.stringify(saved.slice(0, 120))); } catch (e) {}
+    return { ok, fail, size };
   }
 
   /* العروض المحفوظة للعمل دون إنترنت (تُحفظ من زر «حفظ» في شريط العرض) */
