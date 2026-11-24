@@ -4,7 +4,7 @@
     "views": [
       "vocab"
     ],
-    "local_qa": "PASS 2026-11-24 04:58 Asia/Dubai, vocab inspected",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
+    "live_qa": "PASS 2026-11-24 05:06 Asia/Dubai; live pixels inspected and HTML byte-exact"
   }
 ]
