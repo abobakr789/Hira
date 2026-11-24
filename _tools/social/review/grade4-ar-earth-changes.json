@@ -1,0 +1,57 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L01/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L01/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L01/teacher-deck.html",
+    "views": [
+      "retrieve",
+      "hook",
+      "guess",
+      "learn1",
+      "booktext",
+      "quick"
+    ],
+    "popups": [
+      "hook"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L01/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+    "live_qa": "pending"
+  }
+]

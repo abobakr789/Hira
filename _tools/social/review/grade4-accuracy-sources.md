@@ -46,3 +46,6 @@ These support later edits, not completed corrections.
 
 ## AR vocabulary batch, 2026-11-24 06:18 Dubai
 T1 L07 malformed mountain-definition word corrected to slope/steepness across five HTML resources. T3 L10 and L12 teak spelling corrected to الساج. L10 explicitly separates wooden hull from ropes made of palm/coconut fibre. Original images and answer-bank targets retained. Sources fetched and read during this review: FAO AGROVOC mountain definition and UAE Ministry of Culture Jallaf register, both listed above. Nine fronts, three popups and nine print pages passed local visual inspection. Live verification is recorded in grade4-ar-vocabulary-changes.json.
+
+## AR T1 L01 Earth, 2026-11-24 06:25 Dubai
+Qualified the life-bearing-planet statement as the only known planet with life, not proof of absence elsewhere. Changed the opening question to conditions suitable for life. Synchronized five HTML resources and visibly labelled the adapted source passage. NASA Earth Facts, fetched and read 06:24: https://science.nasa.gov/earth/facts/ . Six fronts, one answer popup and seven print pages passed local pixel inspection. Media references match the prior committed versions exactly. Live QA is recorded separately.
