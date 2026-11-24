@@ -1,5 +1,5 @@
 # Grade 9 Arabic factual batch 1
-24 November 2026. Three lessons, five HTML. Local slide pixels checked; live verification pending. Original media unchanged.
+24 November 2026. Three lessons, nine HTML, including four serialization-only companion files. Local slide pixels checked; live verification pending. Original media unchanged.
 
 - Article 17 text concerns spreading education and eradicating illiteracy, not technology. Corrected the enrichment paraphrase without changing the lesson's religious wording. https://uaelegislation.gov.ae/ar/constitution
 - Euro area is not all EU states. Bulgaria joined January 2026, making 21 members. Replaced the stale 19-of-28 present-tense claim and clarified 1999 introduction versus 2002 notes and coins. https://www.consilium.europa.eu/en/policies/join-the-euro-area/
