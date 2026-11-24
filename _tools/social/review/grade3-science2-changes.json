@@ -6,7 +6,7 @@
       "models"
     ],
     "local_qa": "PASS 2026-11-24 04:17 Asia/Dubai; inspected all 3 slides and 1 print page",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   },
   {
@@ -15,7 +15,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:17 Asia/Dubai; inspected all 3 slides and 1 print page",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   },
   {
@@ -24,7 +24,7 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 04:17 Asia/Dubai; inspected all 3 slides and 1 print page",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   }
 ]

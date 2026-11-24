@@ -13,7 +13,7 @@
       "mirror"
     ],
     "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   },
   {
@@ -22,7 +22,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   },
   {
@@ -31,7 +31,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   },
   {
@@ -43,7 +43,7 @@
       3
     ],
     "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   },
   {
@@ -52,7 +52,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:23 Asia/Dubai; inspected 9 slides and 7 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   }
 ]

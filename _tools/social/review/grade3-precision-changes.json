@@ -6,7 +6,7 @@
       "models"
     ],
     "local_qa": "PASS 2026-11-24 04:19 Asia/Dubai; 6 slides and 2 print pages inspected; corrected quiz rerender passed",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   },
   {
@@ -15,7 +15,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:19 Asia/Dubai; 6 slides and 2 print pages inspected; corrected quiz rerender passed",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   },
   {
@@ -27,7 +27,7 @@
       "mirror"
     ],
     "local_qa": "PASS 2026-11-24 04:19 Asia/Dubai; 6 slides and 2 print pages inspected; corrected quiz rerender passed",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   },
   {
@@ -36,7 +36,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:19 Asia/Dubai; 6 slides and 2 print pages inspected; corrected quiz rerender passed",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:30 Asia/Dubai; all listed slides/print pages inspected; live bytes exact",
     "media_reference_check": "PASS"
   }
 ]
