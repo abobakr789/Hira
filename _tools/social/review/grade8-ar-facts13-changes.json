@@ -1,0 +1,34 @@
+[
+  {
+    "path": "resources/ssd/SS-Y8-T1-L1/worksheets-A4.html",
+    "sha256": "f74d8a29cfb84a163a33f5a794bdadb21fcefb9a4d558c41d592f214983a2219",
+    "qa": {
+      "local": "PASS: cloze, revealed model and both answer-key pages inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L8/answer-key.html",
+    "sha256": "ebed88c3351116c1528978564882726e98e70ad3a7e2edc2ca7fc80bcaa0f928",
+    "qa": {
+      "local": "PASS: cloze, revealed model and both answer-key pages inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L5/answer-key.html",
+    "sha256": "1af7c30e59ba4aab566dde53f9b764694d21bb54711e17c5d44aa289961e7126",
+    "qa": {
+      "local": "PASS: cloze, revealed model and both answer-key pages inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L5/teacher-deck.html",
+    "sha256": "21d762f37d8a8f0b2743965da5a83bfdd99f251e99dc81c19b29de415a4ba815",
+    "qa": {
+      "local": "PASS: cloze, revealed model and both answer-key pages inspected",
+      "live": "pending"
+    }
+  }
+]
