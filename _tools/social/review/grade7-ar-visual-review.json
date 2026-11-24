@@ -1,0 +1,326 @@
+[
+  {
+    "lesson": "SS-Y7-T1-L01",
+    "title": "الْمَوْقِعُ الْجُغْرافِيُّ وَأَهَمِّيَّتُهُ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added a clearly hypothetical coordinate grid. Existing location prose and activities remain text-led; an unverified regional border map would be misleading.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L02",
+    "title": "تَضاريسُ شِبْهِ الْجَزيرَةِ الْعَرَبِيَّةِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added isolated plateau/plain profiles and a plain on the plains slide. No invented real-world mountain transect. Generic landform symbols elsewhere retained as decoration, not evidence.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L03",
+    "title": "الْمُناخُ وَالنَّباتُ الطَّبيعِيُّ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Seasonal climate and plant relationships are explained in corrected prose. A single desert picture would hide Dhofar and winter-rain differences; retained layout without new generalized landscape.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L04",
+    "title": "سُكّانُ شِبْهِ الْجَزيرَةِ الْعَرَبِيَّةِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added birth/death and migration accounting panel. No invented population pyramid or current demographic counts.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L05",
+    "title": "الْأَنْشِطَةُ الِاقْتِصادِيَّةُ لِلسُّكّانِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Economic activities span oil, agriculture and fishing. Retained existing activity cues; no unsupported percentage chart or unrelated industrial photograph.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L06",
+    "title": "النُّقودُ في شِبْهِ الْجَزيرَةِ الْعَرَبِيَّةِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added three concrete hypothetical examples of money functions. No new historic coin picture because issue, date and provenance would need item-level evidence.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L07",
+    "title": "أَحْوالُ الْعَرَبِ قَبْلَ الْإِسْلامِ وَبَعْدَهُ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Retained text-based before/after discussion and existing symbols. No depiction of the Prophet or Companions; no invented historical scene.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L08",
+    "title": "التّاريخُ الْحَديثُ وَالْمُعاصِرُ لِدُوَلِ شِبْهِ الْجَزيرَةِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Corrected historical dates and qualified boundaries in prose. A modern boundary map would not represent all periods; no unsupported historical map added.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L09",
+    "title": "أُحافِظُ عَلى هُوِيَّتِيَ الْوَطَنِيَّةِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Identity lesson uses cultural choices and student reflection. Existing literal identity cues retained; a generic crowd would not teach the specific choices.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L10",
+    "title": "أَهَمِّيَّةُ الْخِدْمَةِ الْوَطَنِيَّةِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Legal scope corrected using the national-service law. Retained text and original media; no invented military procedure or illustrative uniform presented as evidence.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T1-L11",
+    "title": "الْمُناسَباتُ الْوَطَنِيَّةُ في دَوْلَةِ الْإِماراتِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added a literal UAE flag with correct hoist and stripe arrangement. Kept other occasion discussion text-led; no unrelated parade photograph.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L12",
+    "title": "نُظُمُ الْمَعْلوماتِ الْجُغْرافِيَّةِ (GIS)",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added a GIS data-to-layer-to-analysis sequence with optional paper digitization. No mock GIS screenshot implying a real software product.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L13",
+    "title": "الِاسْتِشْعارُ عَنْ بُعْدٍ (Remote Sensing)",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added parallel passive reflected-sunlight and active-radar sensing paths. No false underground/deep-water cutaway.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L14",
+    "title": "نِظامُ تَحْديدِ الْمَواقِعِ الْعالَمِيُّ (GPS)",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added four one-way signals to receiver, three-dimensional position and clock correction. No two-way satellite arrows or invented satellite orbit scale.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L15",
+    "title": "الْخَصائِصُ الطَّبيعِيَّةُ لِدَوْلَةِ الْإِماراتِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Coastal, desert and mountain characteristics retained as corrected prose. A single scenic photograph would not explain their geographic distribution, and no unverified map added.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L16",
+    "title": "الْخَصائِصُ الْبَشَرِيَّةُ لِدَوْلَةِ الْإِماراتِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Undated demographic and economic quantities qualified. No current-looking chart from those older numbers; retained existing literal symbols and original media.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L17",
+    "title": "التّاريخُ الْحَديثُ وَالْمُعاصِرُ لِدَوْلَةِ الْإِماراتِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added verified 1968, 1971 and 1972 formation stages. No invented signing scene, and founder portraits/media preserved.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L18",
+    "title": "زايِدٌ وَالتّاريخُ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Humanitarian history corrected with dates and geography. Retained original historical media; no invented Bosnia scene or generic relief image used as documentary evidence.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L19",
+    "title": "الْعَلاقاتُ الْإِماراتِيَّةُ الْبْريطانِيَّةُ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Distinguished UK from Great Britain and removed geographic determinism. Retained prose because an island silhouette would not establish political stability or bilateral relations.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L20",
+    "title": "الْعَلاقاتُ الْإِماراتِيَّةُ الْفَرَنْسِيَّةُ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Qualified Mont Blanc height and preserved dated population context. Retained original media; no unverified Paris landmark or decorative mountain photograph added.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T2-L21",
+    "title": "الْعَلاقاتُ الْإِماراتِيَّةُ الرّوسِيَّةُ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Corrected Russian east/west longitude across 180 degrees. No distorted invented outline map; existing country-information layout retained.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T3-L22",
+    "title": "النَّباتاتُ الْمُعَمَّرَةُ بِدَوْلَةِ الْإِماراتِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added multiyear survival versus seasonal growth. No plant portrait substituted for an identified species, and toxic Calotropis handling warning preserved.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T3-L23",
+    "title": "الْإِماراتُ وَأَمْريكا الشَّمالِيَّةُ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Distinguished UN Northern America statistical scope from the whole continent. No choropleth or continent chart built from incompatible geographic denominators.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T3-L24",
+    "title": "قارَّةُ أُسْتُرالْيا",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Corrected climate and dated wheat-area context. No uniform-desert picture or misleading whole-country crop-share chart.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T3-L25",
+    "title": "جَوْلاتٌ مَيْدانِيَّةٌ لِلشَّيْخِ زايِدٍ -رَحِمَهُ اللهُ-",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Corrected dam network count and scope. Retained original historical visit media; no invented field-visit scene.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T3-L26",
+    "title": "الْأَنْدَلُسُ (كُنوزٌ مِعْمارِيَّةٌ)",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Qualified changing Andalus territory and multiple decline factors. No fixed map implying the same borders throughout 711–1492, and original architecture media retained.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  },
+  {
+    "lesson": "SS-Y7-T3-L27",
+    "title": "الْإِماراتُ: الِابْتِكارُ وَرِيادَةُ الْأَعْمالِ",
+    "learning_slides_inspected": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4"
+    ],
+    "visual_decision": "Added a hypothetical school lending process demonstrating implementation, not merely a new idea. No robot/lightbulb substitute for the abstract concept and no promised success.",
+    "qa": "All four learning slides inspected at actual pixels; new panels and changed supplementary views inspected separately."
+  }
+]

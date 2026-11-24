@@ -1,0 +1,26 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-T2-L19/teacher-deck.html",
+    "views": [
+      "g1"
+    ],
+    "reason": "Remove deterministic island-location premise from challenge question to agree with corrected lesson explanation.",
+    "qa": {
+      "local": "PASS: actual slide and complete print page pixels inspected 24 November 2026 15:10 Dubai",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L19/group-work.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Remove deterministic island-location premise from challenge question to agree with corrected lesson explanation.",
+    "qa": {
+      "local": "PASS: actual slide and complete print page pixels inspected 24 November 2026 15:10 Dubai",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]
