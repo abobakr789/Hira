@@ -1,0 +1,21 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L06/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:40 Dubai. Two fronts and one print page individually inspected. Adaptation label visible; original media retained.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L06/teacher-deck.html",
+    "views": [
+      "learn4",
+      "booktext"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:40 Dubai. Two fronts and one print page individually inspected. Adaptation label visible; original media retained.",
+    "live_qa": "pending"
+  }
+]
