@@ -1,0 +1,23 @@
+{
+  "reviewed": "All17NNaccessible worksheets. Replaced arbitrary icon-word matching with read/say/example, optional feelings self-check and text choices. Removed misleading option icons; clarified multiple-answer prompts for L09/L14.",
+  "changes": [
+    "resources/ssd/SS-Y10-NN-T1-L01/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L02/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L03/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L04/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L05/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L06/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L07/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L08/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L09/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L10/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L11/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L13/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L14/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L15/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L16/pod-sheet.html",
+    "resources/ssd/SS-Y10-NN-T1-L17/pod-sheet.html"
+  ],
+  "qa": "Local pixel checks passed: four critique/quiz slides; two NN accessible sheets. Prompt/answer consistency inspected for supply/demand, linepack, FNC and adaptation."
+}

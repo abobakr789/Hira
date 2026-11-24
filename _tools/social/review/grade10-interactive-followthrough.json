@@ -1,0 +1,28 @@
+{
+  "review": "Reviewed all56Arabic critique statements and advanced tasks; repaired remaining truth-statement wording and marked historical sustainability statistics in interactive exercises.",
+  "changes": [
+    "resources/ssd/SS-Y10-T1-L16/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L1/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L2/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L9/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L13/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L15/teacher-deck.html",
+    "resources/ssd/SS-Y10-T3-L19/teacher-deck.html",
+    "resources/ssd/SS-Y10-T1-L13/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L1/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L10/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L11/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L12/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L13/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L14/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L2/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L3/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L4/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L5/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L6/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L7/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L8/teacher-deck.html",
+    "resources/ssd/SS-Y10-T2-L9/teacher-deck.html"
+  ],
+  "qa": "Local pixel checks passed: four critique/quiz slides; two NN accessible sheets. Prompt/answer consistency inspected for supply/demand, linepack, FNC and adaptation."
+}
