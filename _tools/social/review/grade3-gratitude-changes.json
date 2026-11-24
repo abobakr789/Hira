@@ -11,6 +11,6 @@
       "g4"
     ],
     "local_qa": "PASS 2026-11-24 05:18 Asia/Dubai; all seven changed slides inspected, final guide widened and rows reflowed clear of footer",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:24 Asia/Dubai: seven individual fresh live slides inspected; HTML and SVG byte-exact de20f6b7."
   }
 ]
