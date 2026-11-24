@@ -4,7 +4,7 @@
     "sha256": "e4a7419cd93ef109bbaba93f78859b8c8bed3598d0effb0fd45e02ed919393d3",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -12,7 +12,7 @@
     "sha256": "8406ad1009ebe6876ce2f5ec88ff242152f80d9a55b923a37467147d8ea23407",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -20,7 +20,7 @@
     "sha256": "15b1535ecfec7f1ed2092f7a782a693ec4ad1ccf9ad00b1baf51a343f8efa2e7",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -28,7 +28,7 @@
     "sha256": "67b61e6002fa181ae87594ce2709f1ddd0d8e11966e28b4540803adfbcaceab5",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -36,7 +36,7 @@
     "sha256": "fcedb8c54c7bf4a4f799028f814c458e6636f2b0efab17da2f82ff81a1e2985e",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -44,7 +44,7 @@
     "sha256": "53228d1dffb1da972b689eea6801bebc3df3f6dbee8762bd23a1cab95cb9f446",
     "qa": {
       "local": "PASS: changed slides and dependent print surfaces inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   }
 ]

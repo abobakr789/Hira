@@ -4,7 +4,7 @@
     "sha256": "afdae564ef38b848eb2a6413ee75bd95c3f5310f0ae5e6a77dfff1fc68e75459",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -12,7 +12,7 @@
     "sha256": "48d4c9a08b4e31310a75692e37c2e40ba0dd45d40090d494db2c0ca8cac38a7b",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -20,7 +20,7 @@
     "sha256": "5136d7ca62e457a0272d1bf4a5b785d513ebe0e1c0f401d6d06f4bf2d537eba5",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -28,7 +28,7 @@
     "sha256": "c2ce9b5d6c035574ad38b7825d5ba54bfb771198de9bee3b3dc9135fc8cf029b",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -36,7 +36,7 @@
     "sha256": "24fdbc2396c112ca58183861b55bd3a6ca57c3dbe91f9717d941b9c1ab9e8e2d",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -44,7 +44,7 @@
     "sha256": "cf12f8b7cfb03845a85fed9bc65ab9bcf78b4901d66ed0c8c094cceb2a94d684",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -52,7 +52,7 @@
     "sha256": "2e837f841db4aa945012e71cd7fe999c20596661268acfee051e500d9f3b53fe",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -60,7 +60,7 @@
     "sha256": "af04747d0c4d955743af0e7babf8f947a162066abdeef17b003ecb62b48b4c9b",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -68,7 +68,7 @@
     "sha256": "b6079da170279137b37c1d73a6590da9019975e300174cac60381f722e7c0cc3",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -76,7 +76,7 @@
     "sha256": "e22de3ba5b58b75ec16737a4c374720507df400668766e1492095932866277a0",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -84,7 +84,7 @@
     "sha256": "8c7cf4ef57163f875fbe7707e834e532f04c8328ccef7f849b4dd71ee762e64b",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -92,7 +92,7 @@
     "sha256": "beb64ee018cbcc341fd0eb9d2b47619679ad069a9c20f504dace5a4a0b7ff86e",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   },
   {
@@ -100,7 +100,7 @@
     "sha256": "ab0be37fa2a9f915137641a2d10edfc4cfb0d09b73906451f3263cf05042f431",
     "qa": {
       "local": "PASS: changed learning, critique, quiz and dependent activity/print views inspected",
-      "live": "pending"
+      "live": "PASS: all batch paths byte-exact against final local versions; six representative live views inspected 2026-11-24 16:35 Asia/Dubai"
     }
   }
 ]

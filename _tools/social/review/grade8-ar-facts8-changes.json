@@ -1,0 +1,42 @@
+[
+  {
+    "path": "resources/ssd/SS-Y8-T3-L2/answer-key.html",
+    "sha256": "6142f38077fc202b494c372f15e5cb8e8675dcafbd2860fa11f08b94d3e2ccc1",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L2/group-work.html",
+    "sha256": "bffa4ed909993db9bb21a00d5c1d3568d18b71998ef9b88ca4d79a2b143a0b6e",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L2/sources-concept-card.html",
+    "sha256": "5a5a8605d4bacb5637f3dc85f41edf896cdf3c693025de1c7e36e2484b2cbf2c",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L2/teacher-deck.html",
+    "sha256": "279a1fbd60ba83c24c51303736e66755b91364800c48e5166f6973fd6cd154ba",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L2/worksheets-A4.html",
+    "sha256": "95be61bfe487409582f9f462f5eded05753a80d091fff029ede89c21669c921f",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  }
+]
