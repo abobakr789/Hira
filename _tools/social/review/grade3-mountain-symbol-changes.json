@@ -5,7 +5,7 @@
       "vocab"
     ],
     "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:10 Asia/Dubai; 7ba850e4 live pixels inspected, byte exact"
   },
   {
     "file": "resources/ssd/SS-Y3-T2-L17/teacher-deck.html",
@@ -13,6 +13,6 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 05:06 Asia/Dubai; all changed views inspected",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:10 Asia/Dubai; 7ba850e4 live pixels inspected, byte exact"
   }
 ]
