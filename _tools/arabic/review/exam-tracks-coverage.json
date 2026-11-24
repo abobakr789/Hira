@@ -26,6 +26,7 @@
     "AR-Y10-IG-T2-L03": 1,
     "AR-Y10-IG-T2-L04": 1,
     "AR-Y10-IG-T2-L05": 1,
+    "AR-Y10-IG-T3-L02": 1,
     "AR-Y10-IG-T3-L03": 1,
     "AR-Y11-AL-T1-L01": 2,
     "AR-Y11-AL-T1-L08": 1,
@@ -48,6 +49,7 @@
     "AR-Y12-AL-T1-L23": 1,
     "AR-Y12-AL-T2-L06": 2,
     "AR-Y12-AL-T2-L07": 1,
+    "AR-Y12-AL-T3-L02": 1,
     "AR-Y9-GC-T1-L01": 1,
     "AR-Y9-GC-T1-L02": 1,
     "AR-Y9-GC-T1-L03": 1,
@@ -113,6 +115,7 @@
     "resources/ar/AR-Y10-IG-T2-L03/teacher-deck.html",
     "resources/ar/AR-Y10-IG-T2-L04/teacher-deck.html",
     "resources/ar/AR-Y10-IG-T2-L05/teacher-deck.html",
+    "resources/ar/AR-Y10-IG-T3-L02/teacher-deck.html",
     "resources/ar/AR-Y10-IG-T3-L03/teacher-deck.html",
     "resources/ar/AR-Y11-AL-T1-L01/teacher-deck.html",
     "resources/ar/AR-Y11-AL-T1-L08/teacher-deck.html",
@@ -135,6 +138,7 @@
     "resources/ar/AR-Y12-AL-T1-L23/teacher-deck.html",
     "resources/ar/AR-Y12-AL-T2-L06/teacher-deck.html",
     "resources/ar/AR-Y12-AL-T2-L07/teacher-deck.html",
+    "resources/ar/AR-Y12-AL-T3-L02/teacher-deck.html",
     "resources/ar/AR-Y9-GC-T1-L01/teacher-deck.html",
     "resources/ar/AR-Y9-GC-T1-L02/teacher-deck.html",
     "resources/ar/AR-Y9-GC-T1-L03/teacher-deck.html",
@@ -213,7 +217,7 @@
   },
   "original_teacher_slides_reviewed": 2582,
   "scope": "All lesson cores and main tasks sampled directly by lesson; bounded exam/grammar/clarity review. Existing literature/film quotations and factual source passages retained except explicitly documented repairs. Not a new textual-critical audit of prescribed works.",
-  "changed_sections": 154,
+  "changed_sections": 156,
   "qa_static": {
     "html": 144,
     "scripts": 288,
@@ -221,11 +225,11 @@
     "missing_assets": [],
     "duplicate_ids": [],
     "media_changes": [],
-    "changed_lessons": 85,
-    "changed_sections": 154
+    "changed_lessons": 87,
+    "changed_sections": 156
   },
   "visual_qa": {
-    "changed_sections_inspected": 154,
+    "changed_sections_inspected": 156,
     "resolution": "1920x1080 slide area",
     "result": "pass",
     "rows": [
@@ -530,6 +534,12 @@
         "result": "pass: full slide visually inspected for fit and legibility"
       },
       {
+        "lesson": "AR-Y10-IG-T3-L02",
+        "section": "s1",
+        "capture": "/tmp/ar-settled/AR-Y10-IG-T3-L02-s1.png",
+        "result": "pass: full slide visually inspected for fit and legibility"
+      },
+      {
         "lesson": "AR-Y10-IG-T3-L03",
         "section": "s12",
         "capture": "/tmp/ar-allqa/AR-Y10-IG-T3-L03-s12.png",
@@ -671,6 +681,12 @@
         "lesson": "AR-Y12-AL-T2-L07",
         "section": "s12",
         "capture": "/tmp/ar-allqa/AR-Y12-AL-T2-L07-s12.png",
+        "result": "pass: full slide visually inspected for fit and legibility"
+      },
+      {
+        "lesson": "AR-Y12-AL-T3-L02",
+        "section": "s1",
+        "capture": "/tmp/ar-settled/AR-Y12-AL-T3-L02-s1.png",
         "result": "pass: full slide visually inspected for fit and legibility"
       },
       {
@@ -1154,6 +1170,293 @@
         "result": "pass: full slide visually inspected for fit and legibility"
       }
     ],
-    "method": "All 154 changed sections inspected as full-slide pairs. Twenty animated/blurred captures rerendered with settled text and reinspected; seven new diagrams also inspected separately."
-  }
+    "method": "All 156 changed sections inspected as full slides. Twenty-two captures rerendered settled and reinspected; seven new diagrams inspected separately. Final A Level exam-map heading reduced to fit after detecting overlap."
+  },
+  "unchanged_lessons": [
+    {
+      "lesson": "AR-Y10-GC-T1-L06",
+      "reason": "Existing spoken model, response-building sequence and practice prompts already teach this skill. No new decorative picture or answer-revealing panel added.",
+      "existing_core_excerpt": "أنا أفعل: أرى ← أفهم ← أختار ← أبني نمذجة المعلّم: «أنا أفعل» ⏱ 5 دقائق أرى أنظر إلى الصورة/النص أفهم أحدّد المطلوب أختار أختار الكلمات أبني أصوغ الجملة 🧱 التراكيب المستهدفة أعتقد أنّ … لأنّ … ، مثلًا …\nفي الماضي … لكن الآن …\nلو كان عندي … لـ … 👩‍🏫 نموذج المعلّم أ: هل تحبّ مدرستك"
+    },
+    {
+      "lesson": "AR-Y10-GC-T3-L02",
+      "reason": "Existing spoken model, response-building sequence and practice prompts already teach this skill. No new decorative picture or answer-revealing panel added.",
+      "existing_core_excerpt": "قبل الحصة وفي أثنائها وبعدها التدريب الكامل ⏱ 5 دقائق قبل ورقة حقيقية كاملة\nبلا قاموس أثناء توقيت صارم\nكالامتحان بعد تصحيح بمعيار\nالتصحيح الرسمي ثم سجلّ أخطاء\nوخطّة علاج 📚 التدريب الكامل: «الامتحانات التجريبية» في صفحة GCSE على حراء، بشكل أوراق Pearson نفسه، مع تصحيح فوري. القامو"
+    },
+    {
+      "lesson": "AR-Y10-GC-T3-L04",
+      "reason": "Existing spoken model, response-building sequence and practice prompts already teach this skill. No new decorative picture or answer-revealing panel added.",
+      "existing_core_excerpt": "قبل الحصة وفي أثنائها وبعدها التدريب الكامل ⏱ 5 دقائق الأسبوع 1 الاستماع\nوالقراءة الأسبوع 2 الكتابة\nوالترجمتان الأسبوع 3 المحادثة\nالمهام الثلاث الأسبوع 4 اختبار تجريبي\nشامل 📚 التدريب الكامل: «الامتحانات التجريبية» في صفحة GCSE على حراء، بشكل أوراق Pearson نفسه، مع تصحيح فوري. الق"
+    },
+    {
+      "lesson": "AR-Y10-IG-T3-L01",
+      "reason": "Existing whole-paper structure and timed practice already make the task visible. No extra diagram needed after the bounded exam-structure check.",
+      "existing_core_excerpt": "قبل الحصة وفي أثنائها وبعدها التدريب الكامل ⏱ 5 دقائق قبل ورقة حقيقية كاملة\nبلا قاموس أثناء توقيت صارم\nكالامتحان بعد تصحيح بمعيار\nالتصحيح الرسمي ثم سجلّ أخطاء\nوخطّة علاج 📚 التدريب الكامل: «الامتحانات التجريبية» في صفحة International GCSE على حراء، بشكل أوراق Pearson نفسه، مع تصحي"
+    },
+    {
+      "lesson": "AR-Y10-IG-T3-L04",
+      "reason": "Existing whole-paper structure and timed practice already make the task visible. No extra diagram needed after the bounded exam-structure check.",
+      "existing_core_excerpt": "قبل الحصة وفي أثنائها وبعدها التدريب الكامل ⏱ 5 دقائق الأسبوع 1 الورقة 1\nكاملة الأسبوع 2 الورقة 2\nكاملة الأسبوع 3 أضعف سؤالين\nفي سجلّك الأسبوع 4 اختبار تجريبي\nللورقتين 📚 التدريب الكامل: «الامتحانات التجريبية» في صفحة International GCSE على حراء، بشكل أوراق Pearson نفسه، مع تصحيح "
+    },
+    {
+      "lesson": "AR-Y11-AL-T1-L02",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق تَمْكينُ الْمَرْأَة منحها الفرص والقدرة على المشاركة women's empowerment مثال: تدعم الدولة تمكين المرأة في العمل. الشَّراكَة تعاون متكافئ في المسؤولية partnership مثال: تقوم الأسرة الحديثة على الشراكة والت"
+    },
+    {
+      "lesson": "AR-Y11-AL-T1-L03",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق التَّكافُل تعاون الناس ومساندة بعضهم بعضًا mutual support مثال: التكافل العائلي شبكة أمان. الِاسْتِقْلالِيَّة الاعتماد على النفس في القرار والسكن independence مثال: يبحث الشباب عن الاستقلالية. الْخُصوصِيَّ"
+    },
+    {
+      "lesson": "AR-Y11-AL-T1-L04",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الِاسْتِقْرارُ الْأُسَرِيّ هدوء الأسرة وثباتها family stability مثال: الحوار يحفظ الاستقرار الأسري. الطَّلاق انفصال الزوجين divorce مثال: تسعى المراكز إلى الحدّ من الطلاق. الْإِرْشادُ الْأُسَرِيّ توجيه الأ"
+    },
+    {
+      "lesson": "AR-Y11-AL-T1-L05",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق التَّحَقُّقُ مِنَ الْخَبَر التأكّد من صحّته قبل نشره fact-checking مثال: التحقّق من الخبر مسؤولية الجميع. الْمُواطِنُ الصَّحَفِيّ شخص عادي ينقل الحدث بهاتفه citizen journalist مثال: صوّر المواطن الصحفي الح"
+    },
+    {
+      "lesson": "AR-Y11-AL-T1-L06",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْخُصوصِيَّة حماية المعلومات الشخصية privacy مثال: أحمي خصوصيّتي على الإنترنت. الْإِدْمانُ الرَّقْمِيّ الإفراط في استخدام الأجهزة digital addiction مثال: يحذّر الأطباء من الإدمان الرقمي. الْمُواطَنَةُ الر"
+    },
+    {
+      "lesson": "AR-Y11-AL-T1-L07",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْمَوْروث ما ينتقل من جيل إلى جيل heritage / legacy مثال: نحافظ على موروثنا الشعبي. الْعادات وَالتَّقاليد ما اعتاده الناس وتوارثوه customs and traditions مثال: تحترم المدرسة العادات والتقاليد. الْهُوِيَّة"
+    },
+    {
+      "lesson": "AR-Y11-AL-T2-L01",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْمَوْروثُ الْغِنائِيّ الأغاني المتوارثة عبر الأجيال musical heritage مثال: نوثّق الموروث الغنائي. الصَّوْن الحماية والحفظ safeguarding مثال: صون التراث مسؤولية مشتركة. الْأَداءُ الْجَماعِيّ غناء أو رقص ت"
+    },
+    {
+      "lesson": "AR-Y11-AL-T2-L02",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْهُوِيَّةُ الثَّقافِيَّة ما يميّز ثقافة شعب cultural identity مثال: تحمي اللغة الهوية الثقافية. الْمَزْج الجمع بين أسلوبين fusion مثال: يقدّم الفنان مزجًا بين الشرقي والغربي. الْجُمْهور المستمعون والمشاه"
+    },
+    {
+      "lesson": "AR-Y11-AL-T2-L03",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الذّاكِرَةُ الْجَمْعِيَّة ما يتذكّره المجتمع معًا collective memory مثال: حفظت الأغاني الذاكرة الجمعية. التَّوْعِيَة نشر المعرفة والتنبيه awareness-raising مثال: استُخدمت الأغنية في حملات التوعية. التَّعَل"
+    },
+    {
+      "lesson": "AR-Y11-AL-T2-L04",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْإِتْقان إحكام العمل وإجادته mastery / precision مثال: الإتقان قيمة في كل حرفة. الْمَصْنوعاتُ الْيَدَوِيَّة منتجات تُصنع باليد handicrafts مثال: يقبل السيّاح على المصنوعات اليدوية. التَّوارُث انتقال الشي"
+    },
+    {
+      "lesson": "AR-Y11-AL-T2-L05",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْخَطُّ الْعَرَبِيّ فنّ كتابة الحروف العربية بجمال Arabic calligraphy مثال: أُدرج الخط العربي في قائمة اليونسكو. الطّابَعُ الْمَحَلِّيّ ما يميّز المكان عن غيره local character مثال: تحافظ المدن على طابعها"
+    },
+    {
+      "lesson": "AR-Y11-AL-T2-L06",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْعادات الْمَوْسِمِيَّة عادات مرتبطة بوقت من السنة seasonal customs مثال: «حقّ الليلة» من العادات الموسمية. التَّلاحُم الترابط والتماسك unity / cohesion مثال: تعزّز الاحتفالات التلاحم الوطني. الْمَوْروثُ "
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L01",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة البحث (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْمِعْيار أساس نحكم به ونختار criterion مثال: توفّر المصادر معيار مهمّ. الْمَصْدَرُ الْأَصيل مصدر كُتب بالعربية لأهلها authentic source مثال: أحتاج مصدرين أصيلين على الأقل. التَّقْويم الحكم على قيمة الشيء بأد"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L02",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة البحث (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق التَّوْثيق تسجيل بيانات المصدر referencing مثال: وثّقتُ كل مصدر بتاريخه ورابطه. الِانْتِحال نسبة كلام غيرك إلى نفسك plagiarism مثال: النسخ دون توثيق انتحال. إِعادَةُ الصِّياغَة التعبير عن الفكرة بكلمات أخرى pa"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L03",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة البحث (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْخَريطَةُ الذِّهْنِيَّة تنظيم بصري للأفكار mind map مثال: رسمتُ خريطة لجوانب بحثي. التَّلْخيص عرض الفكرة بإيجاز summary مثال: كتبتُ تلخيصًا في سطرين. بِطاقَةُ الْمُراجَعَة بطاقة صغيرة للحفظ revision card مثا"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L05",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق السِّياق ظروف كتابة العمل وزمنه context مثال: كُتبت الرواية في سياق رحلات الدراسة إلى أوروبا. الْمُفارَقَة تناقض يكشف معنى irony مثال: في المشهد مفارقة بين ما يرجوه محسن وما يلقاه. تَطَوُّرُ الشَّخْصِيَّة تغ"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L06",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الرّاوي من يحكي الأحداث narrator مثال: يحكي الراوي الأحداث من منظور محسن. الشَّخْصِيَّةُ الرَّئيسَة محور الأحداث protagonist مثال: محسن هو الشخصية الرئيسة. الْمَوْضوع الفكرة الكبرى في العمل theme مثال: صراع "
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L07",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْحَنين الشوق إلى الوطن nostalgia / homesickness مثال: يظهر الحنين في تذكّر السيدة زينب. الْخَيْبَة فشل الأمل disillusionment مثال: انتهى حبّه بخيبة. الِانْدِماج المشاركة في المجتمع الجديد integration مثال:"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L08",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الرّاوي من يحكي الأحداث narrator مثال: الراوي قريب من أفكار محسن. الْحِوار كلام الشخصيات dialogue مثال: يكشف الحوار الشخصيات. الرَّمْز شيء يدلّ على معنى أعمق symbol مثال: العصفور رمز. الْأَثَر ما تُحدثه التق"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L10",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق السُّخْرِيَة نقد بأسلوب يُضحك satire مثال: تسخر الرواية من الواقع. الشَّخْصِيَّةُ الثّانَوِيَّة شخصية مساعدة للبطل minor character مثال: حفّار القبور شخصية ثانوية مهمّة. الْمُفارَقَة تناقض يكشف معنى irony مث"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L11",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الرّاوي من يحكي الأحداث narrator مثال: فرفار هو راوي الحكاية. الرِّوايَةُ داخِلَ الرِّوايَة عمل يتحدّث عن كتابة عمل metafiction مثال: «صائد اليرقات» رواية عن كتابة رواية. الْمُراقَبَة تتبّع الناس سرًّا surve"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L12",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الطُّموح رغبة قوية في الوصول ambition مثال: طموح فرفار أن يكتب. السُّخْرِيَة نقد بأسلوب يُضحك satire مثال: تسخر الرواية من الواقع. الِاغْتِراب شعور بالانفصال عن المجتمع alienation مثال: يعيش حفّار القبور اغت"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L13",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق النِّهايَةُ الْمُفاجِئَة خاتمة غير متوقّعة twist مثال: في الرواية نهاية مفاجئة. الْأُسْلوب طريقة الكتابة style مثال: أسلوب ساخر. التَّقْرير نصّ رسمي وصفي report مثال: نصّ فرفار كالتقرير. الْأَثَر ما تُحدثه ا"
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L15",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق السُّخْرِيَة نقد بأسلوب يُضحك satire / sarcasm مثال: يسخر شوقي من البخل. الْمُفارَقَة تناقض يكشف معنى irony مثال: في اسم «نظيفة» مفارقة. الشَّخْصِيَّة إنسان في العمل الأدبي character مثال: حسنى شخصية نبيلة. "
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L16",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْمَسْرَحِيَّةُ الشِّعْرِيَّة مسرحية حوارها شعر verse drama مثال: «البخيلة» مسرحية شعرية. الْمَلْهاة مسرحية هزلية تنتقد بالضحك comedy مثال: تنتقد الملهاة عيوب المجتمع. الْحِوار كلام الشخصيات dialogue مثال: "
+    },
+    {
+      "lesson": "AR-Y11-AL-T3-L17",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْقَناعَة الرضا بالقليل contentment مثال: القناعة صفة حسنى. الْميراث مال الميت لورثته inheritance مثال: يدور الطمع حول الميراث. الْوَقْف مال يُحبس لجهة endowment (waqf) مثال: ردّت حسنى الوقف إلى جمال. الْحَ"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L01",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْعَوائِق ما يمنع التقدّم obstacles / barriers مثال: من العوائق ارتفاع تكاليف التعليم. الْمَحْسوبِيَّة تفضيل الأقارب والمعارف في الوظائف nepotism / favouritism مثال: تضرّ المحسوبية بالكفاءة. الْكَفاءَة ال"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L02",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْمُرونَة القدرة على التكيّف مع الظروف flexibility مثال: ساعات العمل المرنة تساعد الأمهات. التَّوْظيف منح الوظيفة لشخص employment / hiring مثال: يجب أن يقوم التوظيف على الكفاءة. الْإِدْماج إشراك جميع الفئ"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L03",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق ريادَةُ الْأَعْمال إنشاء المشاريع الخاصة entrepreneurship مثال: تشجّع الدولة ريادة الأعمال. التَّدْريبُ الْمِهْنِيّ تعلّم مهارات مهنة عملية vocational training مثال: يفتح التدريب المهني فرصًا جديدة. الْقِط"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L04",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْفَرْز فصل النفايات بحسب نوعها sorting مثال: يبدأ التدوير بالفرز. الْوَعْيُ الْبيئِيّ إدراك أهمية حماية البيئة environmental awareness مثال: ارتفع الوعي البيئي بين الشباب. الْبَصْمَةُ الْكَرْبونِيَّة كمي"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L05",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْأَلْواحُ الشَّمْسِيَّة ألواح تحوّل ضوء الشمس إلى كهرباء solar panels مثال: تغطّي الألواح الشمسية الأسطح. الْحِيادُ الْمَناخِيّ التوازن بين الانبعاثات وإزالتها net zero مثال: تهدف دول إلى الحياد المناخي."
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L06",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْبُنْيَةُ التَّحْتِيَّة الطرق والمطارات والخدمات الأساسية infrastructure مثال: تحتاج السياحة إلى بنية تحتية قوية. الدَّخْلُ الْقَوْمِيّ مجموع دخل الدولة national income مثال: تسهم السياحة في الدخل القومي"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L10",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْمَشْهَد جزء متّصل من الفيلم في مكان وزمان scene مثال: يكشف المشهد الأخير مصير الأسرة. اللَّقْطَة تصوير متّصل دون قطع shot مثال: لقطة قريبة لوجه الأم. زاوِيَةُ التَّصْوير موضع الكاميرا من الشخصية camera an"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L11",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق التَّرابُط تماسك الأفراد cohesion مثال: الترابط الأسري موضوع رئيس. الطُّفولَةُ الْمَسْروقَة حرمان الطفل طفولته lost childhood مثال: نور طفولة مسروقة. الْواقِعِيَّة تصوير الحياة كما هي realism مثال: الفيلم وا"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L14",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْمُفارَقَةُ الدِّرامِيَّة أن يعرف المشاهد ما لا تعرفه الشخصية dramatic irony مثال: نعرف أن الإشاعة مدبّرة وسميحة لا تعرف. الْمَشْهَد جزء متّصل من الفيلم scene مثال: مشهد المكالمة يكشف الحيلة. الْمُخْرِج صا"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L15",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق تَطَوُّرُ الشَّخْصِيَّة تغيّرها عبر الأحداث character development مثال: يتطوّر حسين ليكسب سميحة. الْمُؤامَرَة تدبير خفيّ ضدّ شخص plot / scheme مثال: يدبّر لوسي ضدّ حسين. الْمُفارَقَة تناقض يكشف معنى irony مث"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L16",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق حُرِّيَّةُ الِاخْتِيار حقّ الإنسان في أن يختار freedom of choice مثال: تُتجاهل حرية سميحة. التَّدَخُّل التصرّف في شأن غيرك interference مثال: تدخّل الوالدين في الزواج. الْخَجَل التردّد في إظهار المشاعر shyne"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L17",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْعُقْدَة ذروة المشكلة في الحبكة climax / complication مثال: تتعقّد الحبكة بزيارة هند رستم. الْحَلّ انفراج العقدة resolution مثال: تحلّ المكالمة العقدة. التَّوْقيت اختيار لحظة الحدث timing مثال: توقيت المكا"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L19",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْموسيقى التَّصْويرِيَّة موسيقى ترافق المشاهد soundtrack مثال: تعمّق الموسيقى الحزن. الرَّمْز شيء يدلّ على معنى أعمق symbol مثال: الدراجة رمز للحرية. الْمُخْرِج صانع رؤية الفيلم director مثال: يختار المخرج "
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L20",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الصَّرامَة الشدّة في تطبيق القواعد strictness مثال: المديرة صارمة. الطُّموح رغبة قوية في الوصول ambition مثال: وجدة طموحة. الْمُساواة تساوي الحقوق equality مثال: يطرح الفيلم قضية المساواة. الشَّخْصِيَّة إنسا"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L21",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق التَّغَيُّرُ الِاجْتِماعِيّ تحوّل قيم المجتمع social change مثال: الدراجة علامة تغيّر. الْمُحافِظ متمسّك بالتقاليد conservative مثال: مجتمع محافظ. التَّضْحِيَة بذل شيء من أجل غيرك sacrifice مثال: ضحّت الأم م"
+    },
+    {
+      "lesson": "AR-Y12-AL-T1-L22",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "لغة التحليل (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْفَضاء المكان كما يظهر في الصورة space مثال: فضاء الشارع وفضاء البيت. اللَّقْطَة تصوير متّصل shot مثال: لقطة للدراجة في المتجر. الْإِخْراج صناعة رؤية الفيلم directing مثال: إخراج من داخل شاحنة. الدَّلالَة "
+    },
+    {
+      "lesson": "AR-Y12-AL-T2-L01",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق السِّيادَة سلطة الدولة العليا على أرضها sovereignty مثال: تحترم الدول سيادة بعضها. الْجامِعَةُ الْعَرَبِيَّة منظمة إقليمية للدول العربية the Arab League مثال: تأسّست الجامعة العربية عام 1945. التَّضامُن ال"
+    },
+    {
+      "lesson": "AR-Y12-AL-T2-L02",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْفُصْحى العربية الفصيحة Modern Standard Arabic مثال: تُكتب الصحف بالفصحى. الْمُحْتَوى الرَّقْمِيّ ما يُنشر على الإنترنت digital content مثال: يزداد المحتوى الرقمي العربي. الِاعْتِزاز الفخر والتقدير pride"
+    },
+    {
+      "lesson": "AR-Y12-AL-T2-L03",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق السُّلْطَةُ الْقَضائِيَّة المحاكم والقضاة judicial authority مثال: تفصل السلطة القضائية في النزاعات. الِاتِّحاد دولة تجمع وحدات لها صلاحيات federation مثال: دولة الإمارات اتحاد من سبع إمارات. الْمَجْلِسُ ا"
+    },
+    {
+      "lesson": "AR-Y12-AL-T2-L04",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق نِسْبَةُ الْمُشارَكَة عدد المصوّتين مقارنة بالمسجّلين turnout مثال: ارتفعت نسبة المشاركة. الْبَرْنامَجُ الِانْتِخابِيّ خطّة المرشّح ووعوده manifesto مثال: قرأت البرنامج الانتخابي. الْمُشارَكَةُ الْمُجْتَمَ"
+    },
+    {
+      "lesson": "AR-Y12-AL-T2-L05",
+      "reason": "Existing thematic reading, language model and related tasks are the useful teaching material. No added image was needed to explain this lesson, and source passages were retained rather than illustrated speculatively.",
+      "existing_core_excerpt": "مفردات المحور (2 من 2): المعنى والترجمة والاستعمال كلمات مفتاحية ⏱ 4 دقائق الْجالِيات جماعات من المقيمين من بلد واحد expatriate communities مثال: تحتفل الجاليات بأعيادها. الِانْدِماج المشاركة في حياة المجتمع integration مثال: تسهّل المدارس الاندماج. التَّمْييز معاملة غير متساوية "
+    },
+    {
+      "lesson": "AR-Y12-AL-T3-L01",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "قبل الحصة وفي أثنائها وبعدها التدريب الكامل ⏱ 5 دقائق قبل ورقة حقيقية كاملة\nبلا قاموس أثناء توقيت صارم\nكالامتحان بعد تصحيح بمعيار\nالتصحيح الرسمي ثم سجلّ أخطاء\nوخطّة علاج 📚 التدريب الكامل: «الامتحانات التجريبية» في صفحة A Level على حراء، بشكل أوراق Pearson نفسه (الأسئلة والدرجات و"
+    },
+    {
+      "lesson": "AR-Y12-AL-T3-L03",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "قبل الحصة وفي أثنائها وبعدها التدريب الكامل ⏱ 5 دقائق قبل ورقة حقيقية كاملة\nبلا قاموس أثناء توقيت صارم\nكالامتحان بعد تصحيح بمعيار\nالتصحيح الرسمي ثم سجلّ أخطاء\nوخطّة علاج 📚 التدريب الكامل: «الامتحانات التجريبية» في صفحة A Level على حراء، بشكل أوراق Pearson نفسه (الأسئلة والدرجات و"
+    },
+    {
+      "lesson": "AR-Y12-AL-T3-L04",
+      "reason": "Existing text-led analysis and exam practice remain the useful teaching medium. A new picture would not add evidence to the argument and could introduce an unverified interpretation; existing quotations retained, not newly certified.",
+      "existing_core_excerpt": "قبل الحصة وفي أثنائها وبعدها التدريب الكامل ⏱ 5 دقائق قبل ورقة حقيقية كاملة\nبلا قاموس أثناء توقيت صارم\nكالامتحان بعد تصحيح بمعيار\nالتصحيح الرسمي ثم سجلّ أخطاء\nوخطّة علاج 📚 التدريب الكامل: «الامتحانات التجريبية» في صفحة A Level على حراء، بشكل أوراق Pearson نفسه (الأسئلة والدرجات و"
+    },
+    {
+      "lesson": "AR-Y9-GC-T1-L08",
+      "reason": "Existing spoken model, response-building sequence and practice prompts already teach this skill. No new decorative picture or answer-revealing panel added.",
+      "existing_core_excerpt": "أنا أفعل: أرى ← أفهم ← أختار ← أبني نمذجة المعلّم: «أنا أفعل» ⏱ 5 دقائق أرى أنظر إلى الصورة/النص أفهم أحدّد المطلوب أختار أختار الكلمات أبني أصوغ الجملة 🧱 التراكيب المستهدفة في وقت فراغي أحبّ …\nشاهدت مؤخّرًا فيلم … وكان …\nأفضّل … على … لأنّ … 👩‍🏫 نموذج المعلّم أ: ماذا تفعل في وقت"
+    },
+    {
+      "lesson": "AR-Y9-GC-T3-L06",
+      "reason": "Existing spoken model, response-building sequence and practice prompts already teach this skill. No new decorative picture or answer-revealing panel added.",
+      "existing_core_excerpt": "أنا أفعل: أرى ← أفهم ← أختار ← أبني نمذجة المعلّم: «أنا أفعل» ⏱ 5 دقائق أرى أنظر إلى الصورة/النص أفهم أحدّد المطلوب أختار أختار الكلمات أبني أصوغ الجملة 🧱 التراكيب المستهدفة في الصورة أرى …\nيبدو أنّ …\nفي رأيي … ؛ وفي الماضي … ؛ وفي المستقبل … 👩‍🏫 نموذج المعلّم أ: ماذا ترى في الصو"
+    }
+  ]
 }
