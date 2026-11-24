@@ -1,0 +1,109 @@
+[
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L10/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Verified history corrections, synchronized visible readings, teacher guidance and assessments.",
+    "qa": {
+      "local": "PASS: changed fronts, printable pages and L15 model-answer popup inspected",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "text2"
+    ],
+    "reason": "Verified history corrections, synchronized visible readings, teacher guidance and assessments.",
+    "qa": {
+      "local": "PASS: changed fronts, printable pages and L15 model-answer popup inspected",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L14/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Verified history corrections, synchronized visible readings, teacher guidance and assessments.",
+    "qa": {
+      "local": "PASS: changed fronts, printable pages and L15 model-answer popup inspected",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "cover",
+      "text2",
+      "text3",
+      "text5"
+    ],
+    "reason": "Verified history corrections, synchronized visible readings, teacher guidance and assessments.",
+    "qa": {
+      "local": "PASS: changed fronts, printable pages and L15 model-answer popup inspected",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L15/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Verified history corrections, synchronized visible readings, teacher guidance and assessments.",
+    "qa": {
+      "local": "PASS: changed fronts, printable pages and L15 model-answer popup inspected",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L15/sources-concept-card.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Verified history corrections, synchronized visible readings, teacher guidance and assessments.",
+    "qa": {
+      "local": "PASS: changed fronts, printable pages and L15 model-answer popup inspected",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "cover",
+      "text2",
+      "text3",
+      "text4",
+      "text5",
+      "talk",
+      "check",
+      "levels",
+      "quiz"
+    ],
+    "reason": "Verified history corrections, synchronized visible readings, teacher guidance and assessments.",
+    "qa": {
+      "local": "PASS: changed fronts, printable pages and L15 model-answer popup inspected",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L15/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "reason": "Verified history corrections, synchronized visible readings, teacher guidance and assessments.",
+    "qa": {
+      "local": "PASS: changed fronts, printable pages and L15 model-answer popup inspected",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]
