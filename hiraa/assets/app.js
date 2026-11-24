@@ -2406,7 +2406,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125a", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125b", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -10399,6 +10399,49 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     liveSub(id, onGame, loadP); livePoll(id, onGame, loadP);
     if (G.state !== "lobby") await onGame(G); else await loadP();
   }
+  /* جهاز التحكم: جوال المعلم يقلّب شرائح العرض المفتوح على شاشة الصف، ويعرض ملاحظاته */
+  async function pageRemote(key) {
+    liveStop();
+    if (!/^[a-z0-9]{8,40}$/i.test(key)) { h(`<div class="wrap loading">${CT("رابط غير صالح", "Invalid link")}</div>`); return; }
+    if (!state.session || !isStaff()) {
+      try { sessionStorage.setItem("hiraa.after", "#/remote/" + key); } catch (e) {}
+      h(`<section class="rm"><div class="rm-card"><div class="rm-big">📱</div><h2>${CT("جهاز التحكم بالعرض", "Presentation remote")}</h2><p>${CT("سجّل الدخول بحساب المعلم نفسه الذي فتح العرض، ثم امسح الرمز مرة أخرى.", "Sign in with the same teacher account that opened the presentation, then scan the code again.")}</p><a class="btn btn-dawn" href="#/login">${CT("تسجيل الدخول", "Sign in")}</a></div></section>`); return; }
+    document.body.classList.add("rm-on");
+    let S = null, seen = 0, t0 = Date.now(), fz = 17;
+    h(`<section class="rm" id="rm"><div class="rm-top"><span class="rm-dot" id="rmDot"></span><b id="rmTitle">${CT("جارٍ الاتصال بالعرض…", "Connecting to the presentation…")}</b><span class="rm-clk" id="rmClk">00:00</span></div>
+      <div class="rm-now"><div class="rm-ct" id="rmCt">– / –</div><div class="rm-st" id="rmSt"></div><div class="rm-nx" id="rmNx"></div><div class="rm-live" id="rmLive" hidden></div></div>
+      <div class="rm-notes" id="rmNt"></div>
+      <div class="rm-tools"><button id="rmFirst">⏮ ${CT("الأولى", "First")}</button><button id="rmBlack">🌑 ${CT("شاشة سوداء", "Black")}</button><button id="rmPick">🎲 ${CT("القرعة", "Pick")}</button><button id="rmA">A±</button></div>
+      <div class="rm-pick" id="rmPk" hidden></div>
+      <div class="rm-nav"><button class="rm-prev" id="rmPrev">${CT("السابق", "Back")}</button><button class="rm-next" id="rmNext">${CT("التالي", "Next")}</button></div></section>`);
+    const ch = sb.channel("hbr-" + key, { config: { broadcast: { self: false } } });
+    const cmd = (c, extra) => { ch.send({ type: "broadcast", event: "cmd", payload: Object.assign({ c }, extra || {}) }); if (c !== "hello") try { navigator.vibrate && navigator.vibrate(12); } catch (e) {} };
+    const $r = (id) => document.getElementById(id);
+    const paint = () => {
+      if (!S) return;
+      $r("rmTitle").textContent = S.title || ""; $r("rmCt").textContent = (S.cur + 1) + " / " + S.n; $r("rmSt").textContent = S.st || "";
+      $r("rmNx").textContent = S.nx ? CT("التالية: ", "Next: ") + S.nx : CT("هذه آخر شريحة", "This is the last slide");
+      $r("rmNt").textContent = S.nt || CT("لا ملاحظات لهذه الشريحة.", "No notes for this slide."); $r("rmNt").style.fontSize = fz + "px";
+      $r("rmBlack").classList.toggle("on", !!S.black);
+      const lv = $r("rmLive"); lv.hidden = !S.live; if (S.live) lv.textContent = "📲 " + S.live.p + " " + CT("طالبًا", "students") + (S.live.q ? " · " + CT("أجاب ", "answered ") + S.live.a : "");
+      $r("rmPrev").disabled = S.cur === 0; $r("rmNext").disabled = S.cur >= S.n - 1;
+    };
+    ch.on("broadcast", { event: "state" }, (m) => { S = m.payload; seen = Date.now(); paint(); })
+      .on("broadcast", { event: "pick" }, (m) => { const p = $r("rmPk"); if (!p) return; p.hidden = false; p.textContent = "🎲 " + (m.payload.name || ""); setTimeout(() => { if ($r("rmPk")) $r("rmPk").hidden = true; }, 6000); })
+      .subscribe((s) => { if (s === "SUBSCRIBED") cmd("hello"); });
+    state._liveCh = ch;
+    $r("rmNext").onclick = () => cmd("next"); $r("rmPrev").onclick = () => cmd("prev"); $r("rmFirst").onclick = () => cmd("first");
+    $r("rmBlack").onclick = () => cmd("black"); $r("rmPick").onclick = () => cmd("pick");
+    $r("rmA").onclick = () => { fz = fz >= 26 ? 14 : fz + 3; paint(); };
+    state._livePoll = setInterval(() => {
+      if (!location.hash.startsWith("#/remote")) { document.body.classList.remove("rm-on"); liveStop(); return; }
+      const s = Math.floor((Date.now() - t0) / 1000); $r("rmClk").textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+      const ok = Date.now() - seen < 12000; $r("rmDot").classList.toggle("ok", ok);
+      if (!ok && S) $r("rmTitle").textContent = CT("انقطع الاتصال بالعرض… تأكد أنه ما زال مفتوحًا", "Lost the presentation… make sure it is still open");
+      if (!ok) cmd("hello");
+    }, 1000);
+  }
+
   /* مشاركة الطالب في حصة يعرضها المعلم: سؤال واحد مفتوح في كل لحظة يصل إلى جهاز الطالب */
   async function pageDeckPlay() {
     setNav("live"); liveStop();
@@ -15162,6 +15205,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "live" && parts[1] === "host" && parts[2]) return pageLiveHost(parts[2]);
       if (p0 === "live" && parts[1] === "play") return pageLivePlay();
       if (p0 === "live" && parts[1] === "deck") return pageDeckPlay();
+      if (p0 === "remote" && parts[1]) return pageRemote(parts[1]);
       if (p0 === "live") return pageLive(params);
       if (p0 === "achievements") return pageAchievements(params);
       if (p0 === "duel" && parts[1]) return pageDuel(parts[1]);

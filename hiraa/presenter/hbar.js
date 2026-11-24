@@ -53,6 +53,8 @@
     save: "M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2zM17 21v-8H7v8M7 3v5h8",
     keys: "M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10",
     users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8",
+    pv: "M2 4h13v10H2zM17 7h5v8h-5zM5 18h7M8.5 14v4",
+    phone: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2",
     ask: "M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8zM9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"
   };
   var ic = function (k, flip) { return '<svg viewBox="0 0 24 24" aria-hidden="true"' + (flip ? ' class="hb-flip"' : "") + '><path d="' + P[k] + '"/></svg>'; };
@@ -206,6 +208,8 @@
     ($("bE") ? B("hbE", "edit", T("تعديل نصوص الشريحة", "Edit slide text"), T("تعديل", "Edit")) : "") +
     "</div>" +
     '<span class="hb-sep"></span>' +
+    B("hbPV", "pv", T("شاشة المعلم: الملاحظات والشريحة التالية على حاسوبك", "Presenter view: notes and next slide on your laptop")) +
+    (LIVE ? B("hbRemote", "phone", T("تحكّم بالعرض من جوالك", "Control from your phone")) : "") +
     B("hbF", "full", T("ملء الشاشة (F)", "Full screen (F)"), T("ملء الشاشة", "Full screen"), "gold") +
     B("hbX", "close", T("إغلاق العرض", "Close"), T("إغلاق", "Close"), "x");
   var r2 = D.createElement("div"); r2.className = "hb-r hb-r2"; r2.dir = RTL ? "rtl" : "ltr";
@@ -624,6 +628,7 @@
     var COLS = ["#E53B3B", "#1F6FD1", "#E0A100", "#2E9E6A", "#8A3FFC", "#F0962E"], SH = ["▲", "◆", "●", "■", "★", "⬟"];
     var TYPES = { mc: T("اختيار من متعدد", "Multiple choice"), tf: T("صح أم خطأ", "True or false"), word: T("كلمة واحدة", "One word"), scale: T("مدى الفهم", "Understanding check"), rate: T("قياس التقدّم", "Progress check") };
     var btnLive = $("hbLive"), btnAsk = $("hbAsk"), badge = $("hbLiveN");
+    W.__hbLiveInfo = function () { return { on: !!(S && S.state !== "done"), players: players.length, answered: answers.length, q: !!(S && S.q && S.state === "open") }; };
     /* شرائح «قياس التقدّم» في العرض: أولاها قبل الدرس وثانيتها بعده */
     var PR = SL.map(function (s, i) { return { i: i, rows: [].slice.call(s.querySelectorAll(".pr")).map(function (r) { return { v: ((r.querySelector(".vb") || {}).textContent || "").trim(), p: ((r.querySelector("p") || {}).textContent || "").trim() }; }) }; }).filter(function (x) { return x.rows.length; });
     var css2 = D.createElement("style");
@@ -992,6 +997,143 @@
     if (keep) sb.from("deck_live").select("id, code, q, q_seq, state").eq("id", keep).maybeSingle().then(function (r) {
       if (r.data && r.data.state !== "done") { S = r.data; subscribe(); setActive(); if (S.q && S.q_seq) { loadAnswers(); resP.classList.add("on"); } }
     });
+  })();
+
+  /* ======================================================================
+     شاشة المعلم (نافذة ثانية على حاسوب المعلم) والتحكم من الجوال
+     ====================================================================== */
+  (function () {
+    var nextB = function () { var b = $("nN"); if (b) b.click(); else go(cur + 1); };
+    var prevB = function () { var b = $("nP"); if (b) b.click(); else go(cur - 1); };
+    var stTitle = function (k) { var s = SL[k]; if (!s) return ""; return ((s.querySelector("h1,h2,h3") || {}).textContent || "").replace(/\s+/g, " ").trim(); };
+    var notesOf = function (k) { var s = SL[k]; if (!s) return ""; return [].map.call(s.querySelectorAll("aside"), function (a) { return a.textContent.trim(); }).join("\n\n"); };
+    var liveInfo = function () { return W.__hbLiveInfo ? W.__hbLiveInfo() : null; };
+    W.__hb = { next: nextB, prev: prevB, go: go, cur: function () { return cur; }, N: N, title: title, stTitle: stTitle, notes: notesOf, black: function () { toggleBlack(); return black.classList.contains("on"); }, isBlack: function () { return black.classList.contains("on"); }, live: liveInfo };
+    var subs = [];
+    var prevHook = W.__hbOnSlide;
+    W.__hbOnSlide = function (k, ch) { if (prevHook) prevHook(k, ch); subs.forEach(function (f) { try { f(k); } catch (e) {} }); };
+
+    /* ---------- شاشة المعلم ---------- */
+    var pw = null;
+    function deckCss() { return [].map.call(D.querySelectorAll("style"), function (s) { return s.id === "hb-css" || s.textContent.indexOf("#hbResP") >= 0 ? "" : s.textContent; }).join("\n"); }
+    function openPV() {
+      if (pw && !pw.closed) { pw.focus(); return; }
+      pw = W.open("", "hiraaPresenter", "width=1280,height=800");
+      if (!pw) { say(T("اسمح للمتصفح بفتح نافذة جديدة لشاشة المعلم", "Allow pop-ups to open the presenter view")); return; }
+      var pd = pw.document;
+      pd.open();
+      pd.write('<!doctype html><html lang="' + (EN ? "en" : "ar") + '" dir="' + (RTL ? "rtl" : "ltr") + '"><head><meta charset="utf-8"><base href="' + location.href.replace(/#.*$/, "") + '"><title>' + T("شاشة المعلم", "Presenter view") + " · " + esc(title) + "</title><style>" + deckCss() + "</style><style>" +
+        "html,body{margin:0;height:100%;background:#0B1628;color:#E9EEF5;font-family:'Thmanyah Text','Cairo',Tahoma,sans-serif;overflow:hidden}" +
+        ".pv{display:grid;grid-template-rows:56px 1fr 84px;height:100%}" +
+        ".pv-top{display:flex;align-items:center;gap:14px;padding:0 18px;background:#0F2340;border-bottom:1px solid rgba(255,255,255,.08)}" +
+        ".pv-top .t{flex:1;min-width:0;font:700 17px 'Thmanyah Display','Thmanyah Text',Tahoma,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
+        ".pv-top .clk{display:flex;align-items:center;gap:8px;font:700 22px ui-monospace,Menlo,monospace;direction:ltr}" +
+        ".pv-top .now{opacity:.6;font:600 15px ui-monospace,Menlo,monospace;direction:ltr}" +
+        ".pv-top button,.pv-bot button{font:600 14px 'Thmanyah Text',Tahoma,sans-serif;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#E9EEF5;border-radius:10px;padding:6px 12px;cursor:pointer}" +
+        ".pv-top button:hover,.pv-bot button:hover{background:rgba(255,255,255,.14)}" +
+        ".pv-main{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:16px;padding:16px;min-height:0}" +
+        ".pv-col{display:flex;flex-direction:column;gap:12px;min-height:0}" +
+        ".pv-lab{font-size:13px;opacity:.65;display:flex;justify-content:space-between;gap:8px}" +
+        ".pv-box{position:relative;width:100%;aspect-ratio:16/9;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.4)}" +
+        ".pv-box.cur{box-shadow:0 0 0 3px #D4AA55,0 10px 30px rgba(0,0,0,.4)}" +
+        ".pv-in{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;pointer-events:none}" +
+        ".pv-in .sl{opacity:1!important;transform:none!important;visibility:visible!important}.pv-in *{animation:none!important;transition:none!important;view-transition-name:none!important}.pv-in .hid{opacity:1!important;transform:none!important}.pv-in aside{display:none!important}" +
+        ".pv-end{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#0F2340;color:#9FB0C8;font-size:20px}" +
+        ".pv-notes{flex:1;min-height:0;overflow:auto;background:#FFFDF7;color:#1F2A3C;border-radius:14px;padding:16px 18px;line-height:1.85;white-space:pre-wrap}" +
+        ".pv-notes:empty::before{content:attr(data-empty);color:#9AA3AF}" +
+        ".pv-live{background:rgba(46,158,91,.16);border:1px solid rgba(73,194,122,.5);border-radius:12px;padding:8px 12px;font-size:15px;display:none}" +
+        ".pv-bot{display:flex;align-items:center;gap:12px;padding:0 18px;background:#0F2340;border-top:1px solid rgba(255,255,255,.08)}" +
+        ".pv-bot .pvnav{font:800 22px 'Thmanyah Text',Tahoma,sans-serif;padding:12px 30px;border-radius:14px}" +
+        ".pv-bot .pvnx{background:#D4AA55;color:#1B1405;border-color:#D4AA55}" +
+        ".pv-bot .ct{font:800 26px ui-monospace,Menlo,monospace;direction:ltr;min-width:110px;text-align:center}" +
+        ".pv-bot .sp{flex:1}.pv-bot button.on{background:#D4AA55;color:#1B1405}" +
+        "@media (max-width:900px){.pv-main{grid-template-columns:1fr}}" +
+        '</style></head><body><div class="pv"><div class="pv-top"><span>🏮</span><div class="t">' + esc(title) + '</div><div class="clk"><span id="el">00:00</span><button id="tp" title="' + T("إيقاف/تشغيل", "Pause/resume") + '">⏸</button><button id="tr" title="' + T("من البداية", "Reset") + '">↺</button></div><span class="now" id="now"></span><button id="fs">⛶ ' + T("ملء الشاشة", "Full screen") + "</button></div>" +
+        '<div class="pv-main"><div class="pv-col"><div class="pv-lab"><span>' + T("الشريحة الآن على شاشة الصف", "Now on the class screen") + '</span><span id="ctT"></span></div><div class="pv-box cur" id="bc"></div></div>' +
+        '<div class="pv-col"><div class="pv-lab"><span>' + T("التالية", "Next") + '</span><span id="nxT"></span></div><div class="pv-box" id="bn"></div><div class="pv-live" id="lv"></div><div class="pv-lab"><span>' + T("ملاحظات المعلم", "Teacher notes") + '</span><span><button id="a1" style="padding:0 8px">A−</button> <button id="a2" style="padding:0 8px">A+</button></span></div><div class="pv-notes" id="nt" data-empty="' + T("لا ملاحظات لهذه الشريحة.", "No notes for this slide.") + '"></div></div></div>' +
+        '<div class="pv-bot"><button class="pvnav" id="pv">' + (RTL ? "→ " : "← ") + T("السابق", "Previous") + '</button><div class="ct" id="ct"></div><button class="pvnav pvnx" id="nx">' + T("التالي", "Next") + (RTL ? " ←" : " →") + '</button><span class="sp"></span><button id="bk">🌑 ' + T("شاشة سوداء", "Black screen") + '</button><button id="pk">🎲 ' + T("القرعة", "Pick") + "</button></div></div></body></html>");
+      pd.close();
+      var $p = function (id) { return pd.getElementById(id); };
+      var fit2 = function (box) { var w = box.clientWidth; var i = box.querySelector(".pv-in"); if (i) i.style.transform = "scale(" + w / 1920 + ")"; };
+      var put = function (box, k) {
+        box.innerHTML = "";
+        if (k >= N) { box.innerHTML = '<div class="pv-end">' + T("نهاية العرض", "End of the presentation") + "</div>"; return; }
+        var c = pd.importNode(SL[k], true); c.classList.add("on"); c.querySelectorAll("video,audio,iframe,script").forEach(function (x) { x.remove(); });
+        c.querySelectorAll(".hid").forEach(function (x) { x.classList.remove("hid"); }); c.querySelectorAll("[style]").forEach(function (x) { x.style.viewTransitionName = ""; });
+        var w = pd.createElement("div"); w.className = "pv-in"; w.appendChild(c); box.appendChild(w); fit2(box);
+      };
+      var fsz = +LS.get("hb-pv-fs", "19");
+      var sync = function (k) {
+        if (pw.closed) return;
+        put($p("bc"), k); put($p("bn"), k + 1);
+        $p("ct").textContent = (k + 1) + " / " + N; $p("ctT").textContent = stTitle(k); $p("nxT").textContent = k + 1 < N ? stTitle(k + 1) : "";
+        $p("nt").textContent = notesOf(k); $p("nt").style.fontSize = fsz + "px";
+        $p("bk").classList.toggle("on", black.classList.contains("on"));
+      };
+      pw.__pvSync = sync; subs.push(function (k) { if (pw && !pw.closed) sync(k); });
+      $p("nx").onclick = nextB; $p("pv").onclick = prevB;
+      $p("bk").onclick = function () { toggleBlack(); $p("bk").classList.toggle("on", black.classList.contains("on")); };
+      $p("pk").onclick = function () { W.focus(); $("hbPick").click(); setTimeout(function () { var g = $("hbGo"); if (g) g.click(); }, 120); };
+      $p("a1").onclick = function () { fsz = Math.max(14, fsz - 2); LS.set("hb-pv-fs", fsz); $p("nt").style.fontSize = fsz + "px"; };
+      $p("a2").onclick = function () { fsz = Math.min(36, fsz + 2); LS.set("hb-pv-fs", fsz); $p("nt").style.fontSize = fsz + "px"; };
+      $p("fs").onclick = function () { if (pd.fullscreenElement) pd.exitFullscreen(); else pd.documentElement.requestFullscreen().catch(function () {}); };
+      var t0 = Date.now(), paused = 0, pAt = 0;
+      var tick = function () { if (pw.closed) return clearInterval(iv); var ms = (pAt || Date.now()) - t0 - paused, s = Math.floor(ms / 1000); $p("el").textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); $p("now").textContent = new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+        var L = liveInfo(), lv = $p("lv"); if (L && L.on) { lv.style.display = "block"; lv.textContent = "📲 " + L.players + " " + T("طالبًا في الحصة", "students in") + (L.q ? " · " + T("أجاب ", "answered ") + L.answered + " / " + L.players : ""); } else lv.style.display = "none"; };
+      var iv = setInterval(tick, 1000); tick();
+      $p("tp").onclick = function () { if (pAt) { paused += Date.now() - pAt; pAt = 0; $p("tp").textContent = "⏸"; } else { pAt = Date.now(); $p("tp").textContent = "▶"; } tick(); };
+      $p("tr").onclick = function () { t0 = Date.now(); paused = 0; pAt = 0; $p("tp").textContent = "⏸"; tick(); };
+      pw.addEventListener("keydown", function (e) {
+        var k = e.key;
+        if ([" ", "PageDown", "ArrowDown", "Enter"].indexOf(k) >= 0 || k === (RTL ? "ArrowLeft" : "ArrowRight")) { e.preventDefault(); nextB(); }
+        else if (["PageUp", "ArrowUp", "Backspace"].indexOf(k) >= 0 || k === (RTL ? "ArrowRight" : "ArrowLeft")) { e.preventDefault(); prevB(); }
+        else if (k === "b" || k === "B" || k === ".") $p("bk").click(); else if (k === "Home") go(0); else if (k === "End") go(N - 1, true);
+      });
+      pw.addEventListener("resize", function () { fit2($p("bc")); fit2($p("bn")); });
+      sync(cur); $("hbPV").classList.add("on");
+      var watch = setInterval(function () { if (!pw || pw.closed) { clearInterval(watch); var b = $("hbPV"); if (b) b.classList.remove("on"); } }, 1000);
+      say(T("اسحب «شاشة المعلم» إلى حاسوبك، واجعل العرض بملء الشاشة على شاشة الصف (F)", "Drag the presenter view to your laptop and make the deck full screen on the class display (F)"));
+    }
+    on("hbPV", openPV);
+    W.addEventListener("pagehide", function () { try { if (pw && !pw.closed) pw.close(); } catch (e) {} });
+
+    /* ---------- التحكم من الجوال ---------- */
+    if (!LIVE) { var rb = $("hbRemote"); if (rb) rb.remove(); return; }
+    var sb = HX.sb, rch = null, rkey = null, lastSeen = 0, remPop = mk("div", "hbRemPop");
+    remPop.className = "pop hb-pop"; remPop.dir = RTL ? "rtl" : "ltr"; stop(remPop);
+    var rUrl = function () { return String(HX.joinUrl).replace(/#\/live$/, "") + "#/remote/" + rkey; };
+    var state = function () { var L = liveInfo(); return { cur: cur, n: N, title: title, st: stTitle(cur), nx: cur + 1 < N ? stTitle(cur + 1) : "", nt: notesOf(cur).slice(0, 2500), black: black.classList.contains("on"), live: L && L.on ? { p: L.players, a: L.answered, q: !!L.q } : null, rtl: RTL }; };
+    var push = function () { if (rch) rch.send({ type: "broadcast", event: "state", payload: state() }); };
+    subs.push(function () { push(); });
+    function connect() {
+      rkey = (crypto.randomUUID ? crypto.randomUUID().replace(/-/g, "") : String(Math.random()).slice(2) + Date.now()).slice(0, 14);
+      try { sessionStorage.setItem("hb-remote-" + DECK, rkey); } catch (e) {}
+      listen();
+    }
+    function listen() {
+      if (rch) try { sb.removeChannel(rch); } catch (e) {}
+      rch = sb.channel("hbr-" + rkey, { config: { broadcast: { self: false } } })
+        .on("broadcast", { event: "cmd" }, function (m) {
+          var c = (m.payload || {}).c; lastSeen = Date.now(); paintRem();
+          if (c === "next") nextB(); else if (c === "prev") prevB(); else if (c === "first") go(0);
+          else if (c === "go") go(+m.payload.k || 0);
+          else if (c === "black") { toggleBlack(); push(); }
+          else if (c === "pick") { $("hbPick").click(); setTimeout(function () { var g = $("hbGo"); if (g) g.click(); setTimeout(function () { rch.send({ type: "broadcast", event: "pick", payload: { name: ($("hbPickOut") || {}).textContent || "" } }); }, 1900); }, 150); }
+          else if (c === "hello") push();
+        }).subscribe(function (s) { if (s === "SUBSCRIBED") push(); });
+    }
+    function qrRem(el) { (W.QRCode ? Promise.resolve(W.QRCode) : new Promise(function (res, rej) { var sc = D.createElement("script"); sc.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"; sc.onload = function () { res(W.QRCode); }; sc.onerror = rej; D.head.appendChild(sc); }))
+      .then(function (Q) { el.innerHTML = ""; new Q(el, { text: rUrl(), width: 170, height: 170, colorDark: "#0A1D36", colorLight: "#ffffff", correctLevel: Q.CorrectLevel.M }); }).catch(function () {}); }
+    function paintRem() {
+      var ok = Date.now() - lastSeen < 15000;
+      remPop.innerHTML = '<div class="hb-h">📱 ' + T("تحكّم بالعرض من جوالك", "Control the slides from your phone") + '</div><div class="hb-join"><div class="hb-qr" id="hbRQr" style="width:170px;height:170px"></div><div><p>' + T("امسح الرمز بكاميرا جوالك، وادخل بحساب المعلم نفسه. فتتنقّل بين الشرائح وترى ملاحظاتك وأنت تتجوّل بين الطلاب.", "Scan with your phone camera and sign in with the same teacher account. Move through the slides and read your notes while you walk around the class.") +
+        '</p><p style="font-weight:700;color:' + (ok ? "#1B6B3A" : "#A85F0C") + '">' + (ok ? "✓ " + T("الجوال متصل", "Phone connected") : "⏳ " + T("بانتظار الجوال…", "Waiting for the phone…")) + '</p></div></div><p class="hb-muted">' + T("💡 يعمل أيضًا مؤشّر العروض اللاسلكي (Clicker) مباشرة دون إعداد.", "💡 A wireless presentation clicker also works with no setup.") + "</p>";
+      qrRem($("hbRQr"));
+    }
+    on("hbRemote", function (e, b) { if (!rkey) connect(); paintRem(); togglePop(remPop, b); b.classList.add("on"); });
+    var old = null; try { old = sessionStorage.getItem("hb-remote-" + DECK); } catch (e) {}
+    if (old) { rkey = old; listen(); $("hbRemote").classList.add("on"); }
+    W.addEventListener("pagehide", function () { if (rch) try { sb.removeChannel(rch); } catch (e) {} });
   })();
 
   /* تلميحات الأزرار */

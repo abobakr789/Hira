@@ -2958,3 +2958,31 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .dp-bad .dp-card{border-color:#F0962E;background:#FFF5E8}
 .dp .btn[disabled]{opacity:.45;pointer-events:none}
 @media (max-width:520px){.dp-row{flex-direction:column;align-items:stretch}.dp-rf{justify-content:center}}
+
+/* ===== جهاز التحكم بالعرض من جوال المعلم (#/remote/…) ===== */
+body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on .pg-back{display:none!important}
+.rm{min-height:100vh;min-height:100dvh;box-sizing:border-box;background:#0B1628;color:#E9EEF5;display:flex;flex-direction:column;gap:12px;padding:14px 14px calc(14px + env(safe-area-inset-bottom))}
+.rm-card{margin:auto;max-width:420px;text-align:center;background:#0F2340;border-radius:22px;padding:26px 20px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.rm-big{font-size:3rem}
+.rm-top{display:flex;align-items:center;gap:10px}
+.rm-top b{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:1rem}
+.rm-dot{width:10px;height:10px;border-radius:50%;background:#F0962E;flex:none}
+.rm-dot.ok{background:#49C27A;box-shadow:0 0 0 4px rgba(73,194,122,.2)}
+.rm-clk{font:700 1rem ui-monospace,Menlo,monospace;direction:ltr;opacity:.8}
+.rm-now{background:#0F2340;border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.rm-ct{font:800 2.2rem ui-monospace,Menlo,monospace;direction:ltr;text-align:center;color:#F0C977}
+.rm-st{font-weight:700;font-size:1.15rem;text-align:center}
+.rm-nx{font-size:.9rem;opacity:.65;text-align:center}
+.rm-live{margin-top:6px;text-align:center;background:rgba(46,158,91,.18);border-radius:10px;padding:6px;font-weight:700;color:#9BE3B5}
+.rm-notes{flex:1;min-height:90px;overflow:auto;background:#FFFDF7;color:#1F2A3C;border-radius:16px;padding:14px 16px;line-height:1.85;white-space:pre-wrap}
+.rm-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.rm-tools button{font-family:inherit;font-weight:600;font-size:.9rem;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#E9EEF5;border-radius:12px;padding:10px 4px;cursor:pointer}
+.rm-tools button.on{background:#D4AA55;color:#1B1405}
+.rm-pick{text-align:center;font-family:inherit;font-weight:800;font-size:1.6rem;background:#D4AA55;color:#1B1405;border-radius:16px;padding:12px}
+.rm-pick[hidden],.rm-live[hidden]{display:none}
+.rm-nav{display:grid;grid-template-columns:1fr 1.6fr;gap:10px}
+.rm-nav button{font-family:inherit;font-weight:800;font-size:1.3rem;border:0;border-radius:20px;padding:26px 8px;cursor:pointer;touch-action:manipulation;user-select:none}
+.rm-prev{background:#1E3352;color:#E9EEF5}
+.rm-next{background:#D4AA55;color:#1B1405;box-shadow:0 6px 0 #9C7A2E}
+.rm-next:active{transform:translateY(4px);box-shadow:0 2px 0 #9C7A2E}
+.rm-nav button[disabled]{opacity:.35}
