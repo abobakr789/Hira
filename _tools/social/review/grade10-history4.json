@@ -1,0 +1,78 @@
+{
+  "scope": "NN14–17 historical evidence and chronology corrections",
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L14/answer-key.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L14/sources-concept-card.html",
+      "text_nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L14/worksheets-A4.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L14/teacher-deck.html",
+      "text_nodes": 5
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L15/sources-concept-card.html",
+      "text_nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L15/teacher-deck.html",
+      "text_nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L16/answer-key.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L16/sources-concept-card.html",
+      "text_nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L16/worksheets-A4.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L16/teacher-deck.html",
+      "text_nodes": 11
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L17/answer-key.html",
+      "text_nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L17/sources-concept-card.html",
+      "text_nodes": 5
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L17/unit-progress-check.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L17/worksheets-A4.html",
+      "text_nodes": 5
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L17/teacher-deck.html",
+      "text_nodes": 12
+    }
+  ],
+  "qa": "Local actual pixels passed for eight corrected core slides, two quizzes, glossary, revised worksheet banks and two answer keys. Original media references unchanged. Live pending.",
+  "sources": [
+    "https://humanorigins.si.edu/research/whats-hot-human-origins/our-species-arose-least-300000-years-ago",
+    "https://whc.unesco.org/en/list/1405/",
+    "https://whc.unesco.org/document/152590",
+    "https://www.naturalhistorymag.com/features/113822/from-sunda-to-sahul",
+    "https://www.britishmuseum.org/blog/how-write-cuneiform",
+    "https://www.britishmuseum.org/exhibitions/hieroglyphs-unlocking-ancient-egypt/egyptian-hieroglyphs-decipherment-timeline",
+    "https://www.britishmuseum.org/collection/object/A_1950-1117-306-ay",
+    "https://www.metmuseum.org/essays/babylon",
+    "https://www.metmuseum.org/exhibitions/listings/2003/art-of-the-first-cities",
+    "https://www.metmuseum.org/toah/hd/meru/hd_meru.htm"
+  ]
+}
