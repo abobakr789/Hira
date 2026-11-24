@@ -6,7 +6,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: 6/6 decks byte-exact live 2026-11-24 15:03 Dubai; population, remote-sensing and GPS live pixels inspected"
     }
   },
   {
@@ -16,7 +16,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: 6/6 decks byte-exact live 2026-11-24 15:03 Dubai; population, remote-sensing and GPS live pixels inspected"
     }
   },
   {
@@ -26,7 +26,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: 6/6 decks byte-exact live 2026-11-24 15:03 Dubai; population, remote-sensing and GPS live pixels inspected"
     }
   },
   {
@@ -36,7 +36,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: 6/6 decks byte-exact live 2026-11-24 15:03 Dubai; population, remote-sensing and GPS live pixels inspected"
     }
   },
   {
@@ -46,7 +46,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: 6/6 decks byte-exact live 2026-11-24 15:03 Dubai; population, remote-sensing and GPS live pixels inspected"
     }
   },
   {
@@ -56,7 +56,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after CSS cascade and flow-direction corrections, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: 6/6 decks byte-exact live 2026-11-24 15:03 Dubai; population, remote-sensing and GPS live pixels inspected"
     }
   }
 ]

@@ -1,0 +1,111 @@
+[
+  {
+    "lesson": "SS-Y7-T1-L01",
+    "slide": "learn1",
+    "rationale": "Coordinate grid separates latitude north/south from longitude east/west. Hypothetical point, not a map or border.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y7-T1-L01/teacher-deck.html",
+    "views": [
+      "learn1"
+    ]
+  },
+  {
+    "lesson": "SS-Y7-T1-L02",
+    "slide": "learn3",
+    "rationale": "Two isolated schematic landforms distinguish elevated plateau from broad plain without claiming a real transect or universal elevation threshold.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y7-T1-L02/teacher-deck.html",
+    "views": [
+      "learn3"
+    ]
+  },
+  {
+    "lesson": "SS-Y7-T1-L11",
+    "slide": "learn3",
+    "rationale": "Literal UAE flag shows red hoist and green/white/black horizontal stripes, not a generic flag symbol.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y7-T1-L11/teacher-deck.html",
+    "views": [
+      "learn3"
+    ]
+  },
+  {
+    "lesson": "SS-Y7-T2-L17",
+    "slide": "learn3",
+    "rationale": "Verified chronological stages distinguish 1968 bilateral accord, 1971 six-emirate union and 1972 RAK accession.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y7-T2-L17/teacher-deck.html",
+    "views": [
+      "learn3"
+    ]
+  },
+  {
+    "lesson": "SS-Y7-T3-L27",
+    "slide": "learn1",
+    "rationale": "Hypothetical school process shows difference between idea and implemented innovation, no promise of automatic success.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y7-T3-L27/teacher-deck.html",
+    "views": [
+      "learn1"
+    ]
+  },
+  {
+    "lesson": "SS-Y7-T1-L02",
+    "slide": "learn4",
+    "rationale": "Plain schematic replaces an unrelated mountain icon on the plains paragraph. General plain definition corrected across deck and print pack.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y7-T1-L02/teacher-deck.html",
+    "views": [
+      "learn4"
+    ]
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L02/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "reason": "Align general plain definition and correct highest Hajar peak to Jabal Shams from official Oman tourism and Britannica, original media unchanged.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: source card and changed worksheet pages inspected at actual pixels 24 November 2026 15:08 Dubai",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L02/worksheets-A4.html",
+    "views": [
+      "0",
+      "2"
+    ],
+    "reason": "Align general plain definition and correct highest Hajar peak to Jabal Shams from official Oman tourism and Britannica, original media unchanged.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: source card and changed worksheet pages inspected at actual pixels 24 November 2026 15:08 Dubai",
+      "live": "pending"
+    }
+  }
+]
