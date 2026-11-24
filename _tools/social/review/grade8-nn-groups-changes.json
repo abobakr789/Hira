@@ -1,0 +1,96 @@
+[
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
+    "qa": {
+      "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/group-work.html",
+    "views": [
+      "1"
+    ],
+    "original_media": "unchanged",
+    "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
+    "qa": {
+      "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/lesson-recap.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "original_media": "unchanged",
+    "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
+    "qa": {
+      "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "original_media": "unchanged",
+    "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
+    "qa": {
+      "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "cover",
+      "vocab",
+      "vflip",
+      "text2",
+      "text3",
+      "talk",
+      "guide",
+      "check",
+      "words",
+      "g2",
+      "levels",
+      "quiz"
+    ],
+    "original_media": "unchanged",
+    "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
+    "qa": {
+      "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y8-NN-T1-L01/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "original_media": "unchanged",
+    "reason": "Correct sociological definitions and synchronize teaching surfaces; fit recap text above captions.",
+    "qa": {
+      "local": "PASS: changed fronts, card backs, popup, printable pages, all 10 recap scenes inspected",
+      "live": "pending"
+    }
+  }
+]
