@@ -15,6 +15,7 @@
   var LS = { get: function (k, d) { try { var v = localStorage.getItem(k); return v == null ? d : v; } catch (e) { return d; } }, set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
   var SS = { get: function (k) { try { return JSON.parse(sessionStorage.getItem(k) || "null"); } catch (e) { return null; } }, set: function (k, v) { try { sessionStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
   var DECK = location.pathname;
+  var nStu = function (n) { return EN ? n + " student" + (n === 1 ? "" : "s") : n === 1 ? "طالب واحد" : n === 2 ? "طالبَين" : n + (n >= 3 && n <= 10 ? " طلاب" : " طالبًا"); };
   var SL = [].slice.call(stage.querySelectorAll(":scope > .sl"));
   var N = SL.length;
   var HX = W.__hiraa, LIVE = !!(HX && HX.sb && HX.staff && HX.uid);
@@ -590,12 +591,27 @@
       '<label class="hb-ck"><input type="radio" name="hbSv" value="all"' + (ks.length ? "" : " checked") + "> " + T("كل الشرائح مع كتابتي", "All slides with my annotations") + "</label>" +
       '<label class="hb-ck"><input type="checkbox" id="hbSvN"> ' + T("أضف ملاحظات المعلم تحت كل شريحة", "Add teacher notes under each slide") + "</label>" +
       '<button type="button" class="hb-btn pri" id="hbSvGo" style="width:100%;margin:10px 0 12px">' + T("📄 حفظ PDF", "📄 Save PDF") + "</button>" +
+      (LIVE ? '<div style="border-top:1px solid rgba(16,42,76,.12);padding:10px 0"><div style="font-weight:800;margin-bottom:4px">📤 ' + T("شارك ملخص الحصة مع طلابك", "Share the lesson summary with your students") + '</div><p class="hb-muted" style="margin:0 0 6px;font-size:12.5px">' + T("تصل الشرائح بما كتبته عليها إلى طلاب الفصل في المنصة، فيراجعونها ويطبعونها.", "Your annotated slides reach the class in the platform to review and print.") + '</p><select id="hbSumC" class="hb-sel2"><option value="">' + T("اختر الفصل…", "Choose the class…") + '</option></select><div class="hb-row" style="margin-top:6px"><button type="button" class="hb-btn" id="hbSumGo" disabled>📤 ' + T("أرسل الملخص", "Send the summary") + '</button><span class="hb-muted" id="hbSumM" style="font-size:12.5px"></span></div></div>' : "") +
       '<div style="border-top:1px solid rgba(16,42,76,.12);padding:10px 0"><div style="font-weight:800;margin-bottom:4px">📴 ' + T("العمل دون إنترنت", "Work offline") + '</div><p class="hb-muted" style="margin:0 0 8px;font-size:12.5px" id="hbOffS">' + offState() + '</p><div class="hb-row"><button type="button" class="hb-btn" id="hbOff">' + (offSaved() ? "↻ " + T("حدّث النسخة المحفوظة", "Update the saved copy") : "⬇ " + T("احفظ هذا العرض على الجهاز", "Save this deck on this device")) + '</button>' + (W.top !== W ? '<button type="button" class="hb-btn" id="hbOffL">📂 ' + T("عروضي المحفوظة", "My saved decks") + "</button>" : "") + "</div></div>" +
       '<div style="border-top:1px solid rgba(16,42,76,.12);padding-top:10px"><label class="hb-ck"><input type="checkbox" id="hbKeep"' + (KEEP ? " checked" : "") + "> " + T("احتفظ بكتابتي على هذا الجهاز للحصة القادمة", "Keep my annotations on this device for next time") + "</label>" +
       '<p class="hb-muted" style="margin:4px 0 0;font-size:12.5px">' + T("دون هذا الخيار تُمحى الكتابة حين تغلق المتصفح، فيبدأ كل صف بعرض نظيف.", "Without it, annotations clear when the browser closes, so each class starts clean.") + "</p>" +
       (ks.length ? '<button type="button" class="hb-btn" id="hbClrAll" style="margin-top:8px;color:#B42318">🗑 ' + T("امسح كتابتي من كل الشرائح", "Clear annotations on all slides") + "</button>" : "") + "</div>";
     $("hbSvGo").onclick = function () { var m = (savePop.querySelector("[name=hbSv]:checked") || {}).value || "all"; exportPdf(m, $("hbSvN").checked); closePops(); };
     $("hbOff").onclick = saveOffline;
+    if (LIVE && $("hbSumC")) {
+      var sc = $("hbSumC"), sg = $("hbSumGo");
+      HX.sb.rpc("dl_my_classes").then(function (r) { var C = r.data || []; if (!C.length) { sc.closest("div").hidden = true; return; } var last = LS.get("hb-class-" + DECK, LS.get("hb-class-last", "")); sc.innerHTML = '<option value="">' + T("اختر الفصل…", "Choose the class…") + "</option>" + C.map(function (c) { return '<option value="' + c.id + '"' + (c.id === last ? " selected" : "") + ">" + esc(c.name) + " · " + T("الصف ", "Year ") + c.year + "</option>"; }).join(""); sg.disabled = !sc.value; });
+      sc.onchange = function () { sg.disabled = !sc.value; };
+      sg.onclick = function () {
+        var mode = (savePop.querySelector("[name=hbSv]:checked") || {}).value || "all", ks = inkedKeys().filter(function (k) { return k !== "wb"; });
+        var slides = mode === "ink" && ks.length ? ks.map(Number).sort(function (a, b) { return a - b; }) : SL.map(function (_, i) { return i; });
+        var ink = {}; slides.forEach(function (k) { if ((INK[k] || []).length) ink[k] = INK[k].map(function (it) { var o = { t: it.t, c: it.c, w: it.w }; if (it.t === "x") { o.s = it.s; o.x = Math.round(it.x); o.y = Math.round(it.y); } else o.p = it.p.map(function (q) { return [Math.round(q[0]), Math.round(q[1])]; }); return o; }); });
+        sg.disabled = true; $("hbSumM").textContent = "…";
+        HX.sb.rpc("ds_publish", { p_class: sc.value, p_deck: HX.deck, p_lesson: HX.lesson, p_title: title, p_slides: slides, p_ink: ink, p_note: null }).then(function (r) {
+          sg.disabled = false; $("hbSumM").textContent = r.error ? "⚠️ " + (/too big/.test(r.error.message) ? T("الكتابة كثيرة جدًّا؛ أرسل الشرائح التي كتبت عليها فقط", "Too much ink; send only the annotated slides") : r.error.message) : "✅ " + T("وصل الملخص إلى ", "Sent to ") + nStu(r.data.sent);
+        });
+      };
+    }
     var ol = $("hbOffL"); if (ol) ol.onclick = function () { try { W.top.location.hash = "#/offline"; } catch (e) {} };
     $("hbKeep").onchange = function () { KEEP = this.checked; LS.set("hb-keep-" + DECK, KEEP ? "1" : ""); if (KEEP) LS.set("hb-ink-" + DECK, JSON.stringify(INK)); else try { localStorage.removeItem("hb-ink-" + DECK); } catch (e) {}
       say(KEEP ? T("ستبقى كتابتك محفوظة على هذا الجهاز", "Annotations will be kept on this device") : T("ستُمحى الكتابة عند إغلاق المتصفح", "Annotations clear when the browser closes")); };
@@ -1614,7 +1630,7 @@
         if (!ids.length) { msg.textContent = T("اختر طالبًا واحدًا على الأقل", "Pick at least one student"); return; }
         go.disabled = true; msg.textContent = "…";
         sb.rpc("dl_send_support", { p_class: cls, p_students: ids, p_title: T("🤝 نشاط دعم من معلمك: ", "🤝 Support activity: ") + (ttl || ""), p_note: d.getElementById("supNote").value, p_link: lesson ? "#/lesson/" + encodeURIComponent(lesson) : null }).then(function (r) {
-          go.disabled = false; msg.textContent = r.error ? "⚠️ " + r.error.message : "✅ " + T("وصل النشاط إلى ", "Sent to ") + r.data.sent + T(" طالب", " student(s)");
+          go.disabled = false; msg.textContent = r.error ? "⚠️ " + r.error.message : "✅ " + T("وصل النشاط إلى ", "Sent to ") + nStu(r.data.sent);
         });
       };
     }

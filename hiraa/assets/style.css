@@ -3032,3 +3032,11 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .dp-dsvg{width:100%;max-width:320px;height:auto;border:1px solid var(--line,#E3E8EF);border-radius:12px;margin:0 auto;display:block}
 .dp-exit label{display:flex;flex-direction:column;gap:6px;text-align:start;font-weight:700}
 .dp-exit .dp-faces button.on{outline:3px solid var(--hira,#102A4C);outline-offset:2px}
+
+/* ===== ملخص الحصة للطالب (#/notes/…) ===== */
+.nts{padding-block:24px}
+.nts-h{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:14px}
+.nts-h>div:first-child{flex:1;min-width:240px}
+.nts-h h1{margin:0 0 4px;font-size:1.5rem}
+.nts-b{display:flex;gap:8px;flex-wrap:wrap}
+.nts-fr{width:100%;min-height:400px;border:0;border-radius:16px;background:#EEF1F6;display:block}

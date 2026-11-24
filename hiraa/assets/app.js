@@ -2406,7 +2406,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125n", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125o", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -2498,7 +2498,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     panel.hidden = false; btn.setAttribute("aria-expanded", "true"); panel.innerHTML = '<p class="muted" style="padding:12px">…</p>';
     const { data } = await sb.from("notifications").select("*").eq("user_id", state.session.user.id).order("created_at", { ascending: false }).limit(25);
     const ago = (d) => { const m = Math.round((Date.now() - new Date(d)) / 60000); return m < 1 ? "الآن" : m < 60 ? `قبل ${m} د` : m < 1440 ? `قبل ${Math.round(m / 60)} س` : new Date(d).toLocaleDateString(LANG === "en" ? "en-GB" : "ar-AE", { day: "numeric", month: "short" }); };
-    const IC = { signup: "👤", payment: "💳", trial: "🎁", activated: "✅", lead: "🏫", access: "🔓", support: "🤝" };
+    const IC = { signup: "👤", payment: "💳", trial: "🎁", activated: "✅", lead: "🏫", access: "🔓", support: "🤝", notes: "📒" };
     panel.innerHTML = `<div class="bell-h"><strong>${LANG === "en" ? "Notifications" : "الإشعارات"}</strong>${(data || []).some((x) => !x.read_at) ? `<button class="linklike" id="bellAll">${LANG === "en" ? "Mark all read" : "تعليم الكل كمقروء"}</button>` : ""}</div>
       ${(data || []).map((x) => `<a class="bell-item ${x.read_at ? "" : "unread"}" href="${esc(x.link || "#/")}" data-nid="${x.id}"><span class="bi-ic">${IC[x.kind] || "🔔"}</span><span><b>${esc(x.title)}</b>${x.body ? `<small>${esc(x.body)}</small>` : ""}<em>${ago(x.created_at)}</em></span></a>`).join("") || `<p class="muted" style="padding:14px">${LANG === "en" ? "No notifications" : "لا إشعارات بعد"}</p>`}`;
     panel.querySelectorAll("[data-nid]").forEach((a) => a.onclick = () => { sb.from("notifications").update({ read_at: new Date().toISOString() }).eq("id", a.dataset.nid).then(refreshBell); panel.hidden = true; });
@@ -10400,6 +10400,22 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (G.state !== "lobby") await onGame(G); else await loadP();
   }
   /* جهاز التحكم: جوال المعلم يقلّب شرائح العرض المفتوح على شاشة الصف، ويعرض ملاحظاته */
+  /* ملخص الحصة: شرائح المعلم بما كتبه عليها، يرسلها من شريط العرض إلى طلاب فصله */
+  async function pageDeckNotes(id) {
+    loading();
+    if (!state.session) { try { sessionStorage.setItem("hiraa.after", "#/notes/" + id); } catch (e) {} h(`<div class="wrap"><div class="form-card empty"><strong>${CT("سجّل الدخول لترى ملخص الحصة", "Sign in to see the lesson summary")}</strong><a class="btn btn-dawn" href="#/login">${CT("تسجيل الدخول", "Sign in")}</a></div></div>`); return; }
+    const { data: N } = await sb.from("deck_summaries").select("id, deck, lesson_code, title, slides, ink, created_at").eq("id", id).maybeSingle();
+    if (!N) { h(`<div class="wrap"><div class="form-card empty"><strong>${CT("هذا الملخص غير متاح لك", "This summary isn't available to you")}</strong></div></div>`); return; }
+    const d = new Date(N.created_at).toLocaleDateString(LANG === "en" ? "en-GB" : "ar-AE", { weekday: "long", day: "numeric", month: "long" });
+    h(`<section class="wrap nts"><div class="nts-h"><div><h1>📒 ${esc(N.title || CT("ملخص الحصة", "Lesson summary"))}</h1><p class="muted">${d} · ${(N.slides || []).length} ${CT("شريحة", "slides")} · ${CT("✍️ = كتب عليها معلمك", "✍️ = your teacher wrote on it")}</p></div>
+      <div class="nts-b">${N.lesson_code ? `<a class="btn btn-ghost" href="#/lesson/${encodeURIComponent(N.lesson_code)}">📖 ${CT("صفحة الدرس", "Lesson page")}</a>` : ""}<button class="btn btn-dawn" id="ntsPr">🖨 ${CT("اطبع / احفظ PDF", "Print / save PDF")}</button></div></div>
+      <iframe id="ntsFr" class="nts-fr" title="${CT("شرائح الحصة", "Lesson slides")}"></iframe></section>`);
+    const fr = document.getElementById("ntsFr");
+    fr.onload = () => { try { const w = fr.contentWindow, dd = fr.contentDocument; w.__notes = { slides: N.slides || [], ink: N.ink || {} }; const s = dd.createElement("script"); s.src = new URL("hiraa/presenter/notes.js?v=20261125a", location.href.split("#")[0]).href; s.onload = () => { const fit = () => { if (w.__notesHeight) fr.style.height = w.__notesHeight() + "px"; }; fit(); setTimeout(fit, 600); setTimeout(fit, 2000); w.addEventListener("resize", fit); }; dd.head.appendChild(s); } catch (e) {} };
+    fr.src = String(N.deck).split("?")[0];
+    document.getElementById("ntsPr").onclick = () => { try { fr.contentWindow.print(); } catch (e) {} };
+  }
+
   /* العروض المحفوظة للعمل دون إنترنت (تُحفظ من زر «حفظ» في شريط العرض) */
   function pageOfflineDecks() {
     let L = []; try { L = JSON.parse(localStorage.getItem("hira-offline-decks") || "[]") || []; } catch (e) {}
@@ -15308,6 +15324,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "live" && parts[1] === "deck") return pageDeckPlay();
       if (p0 === "remote" && parts[1]) return pageRemote(parts[1]);
       if (p0 === "offline") return pageOfflineDecks();
+      if (p0 === "notes" && parts[1]) return pageDeckNotes(parts[1]);
       if (p0 === "live") return pageLive(params);
       if (p0 === "achievements") return pageAchievements(params);
       if (p0 === "duel" && parts[1]) return pageDuel(parts[1]);
