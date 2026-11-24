@@ -1,0 +1,3689 @@
+{
+  "reviewed_lessons": 43,
+  "changed_lessons": 43,
+  "unique_changed_html_files": 167,
+  "unique_changed_slide_views": 230,
+  "unique_changed_print_views": 161,
+  "unique_changed_recap_scenes": 5,
+  "baseline_commit": "12a35de2",
+  "closure": "CLOSED_LIVE",
+  "live_verified_at": "2026-11-24T15:16:38.554783+04:00",
+  "content_commit": "d7891929",
+  "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45381860195",
+  "original_media_audit": "All original media references unchanged against baseline",
+  "count_method": "Unique structural HTML sections and print pages against pre-grade-7 baseline, whitespace-only changes ignored. Recap script scenes counted separately from print pages.",
+  "added_explanatory_panel_views": 12,
+  "lessons": [
+    {
+      "code": "SS-Y7-NN-T1-L01",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L01/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L01/teacher-deck.html",
+          "views": [
+            "text4",
+            "uae"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L01/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L02",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L02/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L02/lesson-recap.html",
+          "views": [
+            "3"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L02/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L02/teacher-deck.html",
+          "views": [
+            "text2",
+            "text3",
+            "check",
+            "uae"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L02/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L02/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L03",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L03/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L03/teacher-deck.html",
+          "views": [
+            "text4"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations.",
+            "live_evidence": "2026-11-24 13:24 Dubai: all 9 changed HTML byte-exact; four core health/fire slide readings and two full published print pages inspected as pixels. Deployment 45364201640 succeeded."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L03/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations.",
+            "live_evidence": "2026-11-24 13:24 Dubai: all 9 changed HTML byte-exact; four core health/fire slide readings and two full published print pages inspected as pixels. Deployment 45364201640 succeeded."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L04",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L04/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L04/lesson-recap.html",
+          "views": [
+            "3"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L04/teacher-deck.html",
+          "views": [
+            "text2",
+            "text3"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L04/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L04/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L05",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L05/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L05/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L06",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L06/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L06/teacher-deck.html",
+          "views": [
+            "text3"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L06/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L06/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L07",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L07/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L07/teacher-deck.html",
+          "views": [
+            "text4"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations.",
+            "live_evidence": "2026-11-24 13:24 Dubai: all 9 changed HTML byte-exact; four core health/fire slide readings and two full published print pages inspected as pixels. Deployment 45364201640 succeeded."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L07/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations.",
+            "live_evidence": "2026-11-24 13:24 Dubai: all 9 changed HTML byte-exact; four core health/fire slide readings and two full published print pages inspected as pixels. Deployment 45364201640 succeeded."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L08",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L08/lesson-recap.html",
+          "views": [
+            "3"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L08/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L08/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L08/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L08/teacher-deck.html",
+          "views": [
+            "text3",
+            "text4",
+            "text5",
+            "guide",
+            "check",
+            "levels",
+            "quiz",
+            "cover",
+            "g1",
+            "g2",
+            "g3",
+            "g4"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All changed slide fronts, guide and models inspected; four group task slides checked 13:18 Dubai. Guide fits above footer.",
+            "live_evidence": "2026-11-24 13:24 Dubai: all 9 changed HTML byte-exact; four core health/fire slide readings and two full published print pages inspected as pixels. Deployment 45364201640 succeeded."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L08/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations.",
+            "live_evidence": "2026-11-24 13:24 Dubai: all 9 changed HTML byte-exact; four core health/fire slide readings and two full published print pages inspected as pixels. Deployment 45364201640 succeeded."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L08/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations.",
+            "live_evidence": "2026-11-24 13:24 Dubai: all 9 changed HTML byte-exact; four core health/fire slide readings and two full published print pages inspected as pixels. Deployment 45364201640 succeeded."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L08/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations.",
+            "live_evidence": "2026-11-24 13:24 Dubai: all 9 changed HTML byte-exact; four core health/fire slide readings and two full published print pages inspected as pixels. Deployment 45364201640 succeeded."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L08/group-work.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "All four full group pages inspected as pixels; baby-procedure challenge corrected and rechecked 13:18 Dubai.",
+            "live_evidence": "2026-11-24 13:24 Dubai: all 9 changed HTML byte-exact; four core health/fire slide readings and two full published print pages inspected as pixels. Deployment 45364201640 succeeded."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L09",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L09/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L09/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L10",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L10/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L10/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L11",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L11/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L11/teacher-deck.html",
+          "views": [
+            "hook",
+            "text1",
+            "text3",
+            "text4"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L11/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L11/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L12",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L12/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L12/teacher-deck.html",
+          "views": [
+            "text1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L12/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L12/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L13",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L13/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L13/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L13/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts1-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L13/teacher-deck.html",
+          "views": [
+            "cover",
+            "text1",
+            "text3",
+            "talk",
+            "check",
+            "quiz"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:24 Dubai: 13 slide fronts, complete three-answer talk reveal and seven print pages inspected. Long Asia title, quiz and revealed talk layout corrected and rechecked. Environmental print page fitted to A4 and rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L13/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L13/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L13/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L14",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L14/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-facts2-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L14/teacher-deck.html",
+          "views": [
+            "text1",
+            "text2"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-final-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L14/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:41 Dubai: five print pages, slide fronts, revealed talk answers and recap scene inspected. Long title and bottom-fit issues fixed and rechecked."
+          }
+        },
+        {
+          "manifest": "grade7-nn-final-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L14/teacher-deck.html",
+          "views": [
+            "cover",
+            "text1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:41 Dubai: five print pages, slide fronts, revealed talk answers and recap scene inspected. Long title and bottom-fit issues fixed and rechecked."
+          }
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L14/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L14/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L15",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-art-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L15/sources-concept-card.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:26 Dubai: both visible reading slides and full source page inspected; city wording revised and all rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-art-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L15/teacher-deck.html",
+          "views": [
+            "cover",
+            "text1",
+            "text2"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:26 Dubai: both visible reading slides and full source page inspected; city wording revised and all rechecked.",
+            "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L15/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L15/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-NN-T1-L16",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-nn-final-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L16/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:41 Dubai: five print pages, slide fronts, revealed talk answers and recap scene inspected. Long title and bottom-fit issues fixed and rechecked."
+          }
+        },
+        {
+          "manifest": "grade7-nn-final-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L16/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:41 Dubai: five print pages, slide fronts, revealed talk answers and recap scene inspected. Long title and bottom-fit issues fixed and rechecked."
+          }
+        },
+        {
+          "manifest": "grade7-nn-final-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L16/lesson-recap.html",
+          "views": [
+            "3"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:41 Dubai: five print pages, slide fronts, revealed talk answers and recap scene inspected. Long title and bottom-fit issues fixed and rechecked."
+          }
+        },
+        {
+          "manifest": "grade7-nn-final-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L16/worksheets-A4.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:41 Dubai: five print pages, slide fronts, revealed talk answers and recap scene inspected. Long title and bottom-fit issues fixed and rechecked."
+          }
+        },
+        {
+          "manifest": "grade7-nn-final-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L16/teacher-deck.html",
+          "views": [
+            "guide",
+            "talk",
+            "text1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:41 Dubai: five print pages, slide fronts, revealed talk answers and recap scene inspected. Long title and bottom-fit issues fixed and rechecked."
+          }
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L16/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L16/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y7-NN-T1-L16/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass",
+            "live": "pass",
+            "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked.",
+            "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L01",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L01/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L01/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L01/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L01/teacher-deck.html",
+          "views": [
+            "critique",
+            "learn3",
+            "wordj"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L01/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-more-visuals-changes.json",
+          "lesson": "SS-Y7-T1-L01",
+          "slide": "learn1",
+          "rationale": "Coordinate grid separates latitude north/south from longitude east/west. Hypothetical point, not a map or border.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          },
+          "file": "resources/ssd/SS-Y7-T1-L01/teacher-deck.html",
+          "views": [
+            "learn1"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L02",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L02/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-more-visuals-changes.json",
+          "lesson": "SS-Y7-T1-L02",
+          "slide": "learn3",
+          "rationale": "Two isolated schematic landforms distinguish elevated plateau from broad plain without claiming a real transect or universal elevation threshold.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          },
+          "file": "resources/ssd/SS-Y7-T1-L02/teacher-deck.html",
+          "views": [
+            "learn3"
+          ]
+        },
+        {
+          "manifest": "grade7-ar-more-visuals-changes.json",
+          "lesson": "SS-Y7-T1-L02",
+          "slide": "learn4",
+          "rationale": "Plain schematic replaces an unrelated mountain icon on the plains paragraph. General plain definition corrected across deck and print pack.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          },
+          "file": "resources/ssd/SS-Y7-T1-L02/teacher-deck.html",
+          "views": [
+            "learn4"
+          ]
+        },
+        {
+          "manifest": "grade7-ar-more-visuals-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Align general plain definition and correct highest Hajar peak to Jabal Shams from official Oman tourism and Britannica, original media unchanged.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: source card and changed worksheet pages inspected at actual pixels 24 November 2026 15:08 Dubai",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          }
+        },
+        {
+          "manifest": "grade7-ar-more-visuals-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L02/worksheets-A4.html",
+          "views": [
+            "0",
+            "2"
+          ],
+          "reason": "Align general plain definition and correct highest Hajar peak to Jabal Shams from official Oman tourism and Britannica, original media unchanged.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: source card and changed worksheet pages inspected at actual pixels 24 November 2026 15:08 Dubai",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L03",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L03/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L03/worksheets-A4.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L03/teacher-deck.html",
+          "views": [
+            "critique",
+            "enrich",
+            "hook",
+            "learn4",
+            "match",
+            "models",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L04",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L04/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L04/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L04/teacher-deck.html",
+          "views": [
+            "critique",
+            "g1",
+            "learn1",
+            "learn2",
+            "match",
+            "models",
+            "quick",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L05",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L05/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L05/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L05/teacher-deck.html",
+          "views": [
+            "booktext",
+            "critique",
+            "g2",
+            "hook",
+            "learn2",
+            "quick"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L05/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L05/teacher-deck.html",
+          "views": [
+            "critique",
+            "g4",
+            "learn3",
+            "learn4",
+            "watani"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L06",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-money-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-money-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L06/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-money-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L06/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-money-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L06/teacher-deck.html",
+          "views": [
+            "booktext",
+            "critique",
+            "g2",
+            "g3",
+            "g4",
+            "learn1",
+            "learn3",
+            "learn4",
+            "match",
+            "models",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-money-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L06/group-work.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L06/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L07",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L07/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L07/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L07/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L07/teacher-deck.html",
+          "views": [
+            "learn2"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L08",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L08/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L08/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L08/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L08/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L08/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn3",
+            "models",
+            "retrieve"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L08/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L08/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L08/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L08/teacher-deck.html",
+          "views": [
+            "learn1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L09",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L09/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L09/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L10",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L10/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L10/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L10/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L10/teacher-deck.html",
+          "views": [
+            "critique",
+            "learn4",
+            "predict",
+            "watani"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T1-L11",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L11/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T1-L11/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-more-visuals-changes.json",
+          "lesson": "SS-Y7-T1-L11",
+          "slide": "learn3",
+          "rationale": "Literal UAE flag shows red hoist and green/white/black horizontal stripes, not a generic flag symbol.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          },
+          "file": "resources/ssd/SS-Y7-T1-L11/teacher-deck.html",
+          "views": [
+            "learn3"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L12",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-geotech-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L12/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-geotech-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L12/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-geotech-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L12/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-geotech-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L12/teacher-deck.html",
+          "views": [
+            "critique",
+            "enrich",
+            "g2",
+            "g4",
+            "learn3",
+            "learn4",
+            "models",
+            "quick",
+            "watani"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L12/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L13",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-geotech-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L13/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-geotech-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L13/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-geotech-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L13/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-geotech-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L13/teacher-deck.html",
+          "views": [
+            "booktext",
+            "critique",
+            "g1",
+            "learn1",
+            "learn2",
+            "match",
+            "models",
+            "quick",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-geotech-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L13/group-work.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: actual pixels, 18 slide views and 11 print pages; long critique and matching text shortened and rechecked",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-geotech-followup-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L13/worksheets-A4.html",
+          "views": [
+            "2"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 1 revealed slide and 3 print pages inspected",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L13/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L13/teacher-deck.html",
+          "views": [
+            "enrich"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L14",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-geotech-followup-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L14/worksheets-A4.html",
+          "views": [
+            "2",
+            "3"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 1 revealed slide and 3 print pages inspected",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-geotech-followup-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L14/teacher-deck.html",
+          "views": [
+            "think"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 1 revealed slide and 3 print pages inspected",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-gps-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L14/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 11 revealed deck views and 8 print pages inspected; split text, model flow and copied answer keys corrected",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-gps-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L14/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 11 revealed deck views and 8 print pages inspected; split text, model flow and copied answer keys corrected",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-gps-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L14/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 11 revealed deck views and 8 print pages inspected; split text, model flow and copied answer keys corrected",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-gps-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L14/teacher-deck.html",
+          "views": [
+            "booktext",
+            "critique",
+            "g2",
+            "g3",
+            "hook",
+            "learn2",
+            "learn3",
+            "learn4",
+            "match",
+            "models",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 11 revealed deck views and 8 print pages inspected; split text, model flow and copied answer keys corrected",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-gps-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L14/group-work.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 11 revealed deck views and 8 print pages inspected; split text, model flow and copied answer keys corrected",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-gps-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L14/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 11 revealed deck views and 8 print pages inspected; split text, model flow and copied answer keys corrected",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L14/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L15",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L15/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L15/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L15/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L15/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L15/teacher-deck.html",
+          "views": [
+            "booktext",
+            "critique",
+            "g4",
+            "learn3",
+            "learn4"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L16",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L16/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L16/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L16/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L16/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L16/teacher-deck.html",
+          "views": [
+            "critique",
+            "learn3",
+            "match",
+            "quick",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L16/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L16/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L16/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L16/teacher-deck.html",
+          "views": [
+            "enrich",
+            "g1",
+            "learn2",
+            "learn4",
+            "models",
+            "quick"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L17",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L17/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L17/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-more-visuals-changes.json",
+          "lesson": "SS-Y7-T2-L17",
+          "slide": "learn3",
+          "rationale": "Verified chronological stages distinguish 1968 bilateral accord, 1971 six-emirate union and 1972 RAK accession.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          },
+          "file": "resources/ssd/SS-Y7-T2-L17/teacher-deck.html",
+          "views": [
+            "learn3"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L18",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L18/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L18/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L18/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L18/teacher-deck.html",
+          "views": [
+            "g4",
+            "learn4",
+            "match",
+            "models",
+            "quick",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L18/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L18/worksheets-A4.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L19",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/worksheets-A4.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/teacher-deck.html",
+          "views": [
+            "learn4",
+            "match",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/teacher-deck.html",
+          "views": [
+            "learn2"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-context-followup-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/teacher-deck.html",
+          "views": [
+            "g1"
+          ],
+          "reason": "Remove deterministic island-location premise from challenge question to agree with corrected lesson explanation.",
+          "qa": {
+            "local": "PASS: actual slide and complete print page pixels inspected 24 November 2026 15:10 Dubai",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-ar-context-followup-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L19/group-work.html",
+          "views": [
+            "0"
+          ],
+          "reason": "Remove deterministic island-location premise from challenge question to agree with corrected lesson explanation.",
+          "qa": {
+            "local": "PASS: actual slide and complete print page pixels inspected 24 November 2026 15:10 Dubai",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          },
+          "original_media": "unchanged"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L20",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L20/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L20/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L20/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L20/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L20/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L20/teacher-deck.html",
+          "views": [
+            "critique",
+            "g2",
+            "learn2",
+            "quick"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T2-L21",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L21/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-quick-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L21/teacher-deck.html",
+          "views": [
+            "quick"
+          ],
+          "reason": "Replaced off-topic copied folk-heritage Q4 with a question drawn from this lesson; correct option remains first and reveal text matches.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified and representative live pixels inspected 24 November 2026",
+            "local_evidence": "2026-11-24 13:46 Dubai: all 21 quick-check slides inspected with reveals visible. New fourth-question prompts and answer options fit."
+          }
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L21/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L21/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T2-L21/teacher-deck.html",
+          "views": [
+            "critique",
+            "g1",
+            "learn1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T3-L22",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L22/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-plant-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L22/teacher-deck.html",
+          "views": [
+            "learn4"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-plant-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L22/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-plant-safety-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L22/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L22/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L22/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L22/teacher-deck.html",
+          "views": [
+            "critique",
+            "guess",
+            "hook",
+            "learn1",
+            "match",
+            "models",
+            "quick",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L22/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-nature-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L22/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T3-L23",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L23/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L23/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L23/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L23/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L23/teacher-deck.html",
+          "views": [
+            "critique",
+            "guess",
+            "hook",
+            "learn3",
+            "learn4",
+            "quick"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-regions-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L23/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+            "live": "pass: 25/25 combined current published bytes, representative live pixels inspected 24 November 2026"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T3-L24",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L24/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-australia-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L24/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-ar-australia-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L24/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-ar-australia-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L24/worksheets-A4.html",
+          "views": [
+            "3"
+          ],
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-ar-australia-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L24/teacher-deck.html",
+          "views": [
+            "g3",
+            "learn4",
+            "models",
+            "think"
+          ],
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-ar-australia-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L24/group-work.html",
+          "views": [
+            "1"
+          ],
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          },
+          "original_media": "unchanged"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L24/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L24/teacher-deck.html",
+          "views": [
+            "learn3"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T3-L25",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L25/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L25/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L25/teacher-deck.html",
+          "views": [
+            "learn4"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: 22 changed slide/reveal views and 16 print pages inspected, plus final retrieval and vocabulary backs",
+            "live": "pass: 19/19 exact published HTML; live Bahrain/Qatar and Bosnia teaching views inspected 24 November 2026"
+          }
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T3-L26",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L26/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L26/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L26/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L26/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L26/teacher-deck.html",
+          "views": [
+            "critique",
+            "g2",
+            "learn2",
+            "learn3",
+            "match",
+            "models",
+            "quick",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L26/group-work.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y7-T3-L27",
+      "status": "changed",
+      "changes": [
+        {
+          "manifest": "grade7-ar-assessment-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L27/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "basis": "own worksheet questions, lesson concepts, and open-answer marking rubric; no copied Sanaa responses",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+            "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
+          }
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L27/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L27/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-statistics-geography-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L27/teacher-deck.html",
+          "views": [
+            "critique",
+            "learn2",
+            "match",
+            "vocab"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "live_qa": "PASS: 24/24 HTML byte-exact on live site 2026-11-24 14:43 Dubai; representative live slides visually inspected"
+        },
+        {
+          "manifest": "grade7-ar-final-context-changes.json",
+          "file": "resources/ssd/SS-Y7-T3-L27/teacher-deck.html",
+          "views": [
+            "retrieve"
+          ],
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: inspected changed slides and printable pages",
+            "live": "PASS: all changed HTML byte-exact and representative live pixels inspected 2026-11-24"
+          },
+          "local_visual_qa": "PASS: changed slides and printable pages inspected; final L26 model/key consistency rechecked 2026-11-24"
+        },
+        {
+          "manifest": "grade7-ar-more-visuals-changes.json",
+          "lesson": "SS-Y7-T3-L27",
+          "slide": "learn1",
+          "rationale": "Hypothetical school process shows difference between idea and implemented innovation, no promise of automatic success.",
+          "original_media": "unchanged",
+          "qa": {
+            "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
+            "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
+          },
+          "file": "resources/ssd/SS-Y7-T3-L27/teacher-deck.html",
+          "views": [
+            "learn1"
+          ]
+        }
+      ]
+    }
+  ]
+}

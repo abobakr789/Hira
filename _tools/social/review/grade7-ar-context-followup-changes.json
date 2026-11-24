@@ -7,7 +7,7 @@
     "reason": "Remove deterministic island-location premise from challenge question to agree with corrected lesson explanation.",
     "qa": {
       "local": "PASS: actual slide and complete print page pixels inspected 24 November 2026 15:10 Dubai",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     },
     "original_media": "unchanged"
   },
@@ -19,7 +19,7 @@
     "reason": "Remove deterministic island-location premise from challenge question to agree with corrected lesson explanation.",
     "qa": {
       "local": "PASS: actual slide and complete print page pixels inspected 24 November 2026 15:10 Dubai",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     },
     "original_media": "unchanged"
   }

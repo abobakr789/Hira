@@ -6,7 +6,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     },
     "file": "resources/ssd/SS-Y7-T1-L01/teacher-deck.html",
     "views": [
@@ -20,7 +20,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     },
     "file": "resources/ssd/SS-Y7-T1-L02/teacher-deck.html",
     "views": [
@@ -34,7 +34,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     },
     "file": "resources/ssd/SS-Y7-T1-L11/teacher-deck.html",
     "views": [
@@ -48,7 +48,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     },
     "file": "resources/ssd/SS-Y7-T2-L17/teacher-deck.html",
     "views": [
@@ -62,7 +62,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     },
     "file": "resources/ssd/SS-Y7-T3-L27/teacher-deck.html",
     "views": [
@@ -76,7 +76,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: actual pixels after caption spacing and CSS cascade repairs, 2026-11-24",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     },
     "file": "resources/ssd/SS-Y7-T1-L02/teacher-deck.html",
     "views": [
@@ -92,7 +92,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: source card and changed worksheet pages inspected at actual pixels 24 November 2026 15:08 Dubai",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     }
   },
   {
@@ -105,7 +105,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "PASS: source card and changed worksheet pages inspected at actual pixels 24 November 2026 15:08 Dubai",
-      "live": "pending"
+      "live": "PASS: all 167 changed grade HTML files byte-exact on published Pages; all six final explanatory panels plus corrected group challenge and print page inspected at actual live pixels, 24 November 2026."
     }
   }
 ]
