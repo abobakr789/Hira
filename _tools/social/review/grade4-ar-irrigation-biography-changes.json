@@ -6,7 +6,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L05/sources-concept-card.html",
@@ -15,7 +15,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L05/worksheets-A4.html",
@@ -24,7 +24,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L05/teacher-deck.html",
@@ -36,7 +36,7 @@
       "match"
     ],
     "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L12/answer-key.html",
@@ -45,7 +45,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L12/sources-concept-card.html",
@@ -54,7 +54,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L12/worksheets-A4.html",
@@ -66,7 +66,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L12/teacher-deck.html",
@@ -84,7 +84,7 @@
       "predict"
     ],
     "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L12/pod-sheet.html",
@@ -93,6 +93,6 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
   }
 ]

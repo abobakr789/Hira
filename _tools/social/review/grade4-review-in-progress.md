@@ -89,3 +89,7 @@ Latitude content 57c6f159 CLOSED LIVE. Six HTML byte-exact at 07:01; six fronts,
 
 ## 2026-11-24 07:08 Dubai irrigation/biography local closure
 Nine HTML resources across T2 L05 and L12 ready to publish. Nine fronts, three popups, ten print pages inspected locally PASS. Important QA caught inherited modern portrait with misleading historical context, now explicitly captioned while retaining media; also caught shortened stale date fragments and synchronized split wordbank/key. Not yet live.
+
+2026-11-24 07:14 Dubai: irrigation/biography live closure PASS, commit dbe54fee. Nine HTML byte-exact; nine fronts, three popups, ten print pages individually inspected. Grade 4 remains in progress.
+
+2026-11-24 07:17 Dubai: Magan live closure PASS, content 0f81e842, five HTML byte-exact, six fronts, one popup, seven print pages individually inspected.

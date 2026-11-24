@@ -6,7 +6,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L10/sources-concept-card.html",
@@ -15,7 +15,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L10/worksheets-A4.html",
@@ -27,7 +27,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L10/teacher-deck.html",
@@ -43,7 +43,7 @@
       "match"
     ],
     "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L10/pod-sheet.html",
@@ -52,6 +52,6 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*"
   }
 ]
