@@ -5,7 +5,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -15,7 +15,7 @@
       "models"
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -24,7 +24,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -34,7 +34,7 @@
       "models"
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -43,7 +43,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -52,7 +52,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -69,7 +69,7 @@
       "vocab"
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -78,7 +78,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -88,7 +88,7 @@
       "models"
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -97,7 +97,7 @@
       0
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -107,7 +107,7 @@
       "models"
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   },
   {
@@ -117,7 +117,7 @@
       2
     ],
     "local_qa": "PASS 2026-11-24 04:11 Asia/Dubai; inspected 17 slides and 8 print pages",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS; decoded src/href sets unchanged"
   }
 ]

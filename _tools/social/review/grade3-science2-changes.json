@@ -1,0 +1,30 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-T3-L01/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "local_qa": "PASS 2026-11-24 04:17 Asia/Dubai; inspected all 3 slides and 1 print page",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L01/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:17 Asia/Dubai; inspected all 3 slides and 1 print page",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L02/teacher-deck.html",
+    "views": [
+      "model"
+    ],
+    "local_qa": "PASS 2026-11-24 04:17 Asia/Dubai; inspected all 3 slides and 1 print page",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  }
+]

@@ -5,7 +5,7 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 04:16 Asia/Dubai; both slides visually inspected after all animations settled",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS"
   },
   {
@@ -14,7 +14,7 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 04:16 Asia/Dubai; both slides visually inspected after all animations settled",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:21 Asia/Dubai; all 14 HTML byte-exact; 19 slides and 8 print pages inspected live",
     "media_reference_check": "PASS"
   }
 ]
