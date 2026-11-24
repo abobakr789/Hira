@@ -1,0 +1,79 @@
+[
+  {
+    "lesson": "SS-Y8-T1-L2",
+    "slide": "learn2",
+    "rationale": "HDI dimensions are parallel inputs, not successive stages. UNDP confirms health, education and living standard.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels inspected; layout revised where necessary",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y8-T1-L2/teacher-deck.html"
+  },
+  {
+    "lesson": "SS-Y8-T1-L5",
+    "slide": "learn1",
+    "rationale": "Contrast the verified Nye mechanisms rather than a generic globe. The two coexist, neither automatically replaces the other.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels inspected; layout revised where necessary",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y8-T1-L5/teacher-deck.html"
+  },
+  {
+    "lesson": "SS-Y8-T1-L6",
+    "slide": "learn4",
+    "rationale": "A proportionate labelled bar chart uses the verified 2024 UN regions. No decorative fabricated chart.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels inspected; layout revised where necessary",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y8-T1-L6/teacher-deck.html"
+  },
+  {
+    "lesson": "SS-Y8-T1-L8",
+    "slide": "learn3",
+    "rationale": "The mixed model combines private markets and government action; no incorrect claim of no regulation in capitalism.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels inspected; layout revised where necessary",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y8-T1-L8/teacher-deck.html"
+  },
+  {
+    "lesson": "SS-Y8-T2-L5",
+    "slide": "learn3",
+    "rationale": "Dated Metro opening and later size are genuine chronology. Avoid conflating a proposed Hyperloop with operational transport.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels inspected; layout revised where necessary",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y8-T2-L5/teacher-deck.html"
+  },
+  {
+    "lesson": "SS-Y8-T2-L7",
+    "slide": "learn3",
+    "rationale": "An explicit hypothetical cost-plus calculation teaches murabaha, grounded in the central bank definition. No product or advice.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels inspected; layout revised where necessary",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y8-T2-L7/teacher-deck.html"
+  },
+  {
+    "lesson": "SS-Y8-T3-L7",
+    "slide": "learn1",
+    "rationale": "Separate defining technologies, not a promise that one technology alone causes a whole social revolution. WEF 2016 evidence.",
+    "original_media": "unchanged",
+    "qa": {
+      "local": "PASS: actual pixels inspected; layout revised where necessary",
+      "live": "pending"
+    },
+    "file": "resources/ssd/SS-Y8-T3-L7/teacher-deck.html"
+  }
+]
