@@ -1,0 +1,301 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-T1-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L04/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L04/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L04/teacher-deck.html",
+    "views": [
+      "critique",
+      "g1",
+      "learn1",
+      "learn2",
+      "match",
+      "models",
+      "quick",
+      "vocab"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L05/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L05/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L05/teacher-deck.html",
+    "views": [
+      "critique",
+      "g4",
+      "learn3",
+      "learn4",
+      "watani"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L15/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L15/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L15/teacher-deck.html",
+    "views": [
+      "booktext",
+      "critique",
+      "g4",
+      "learn3",
+      "learn4"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L16/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L16/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L16/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L16/teacher-deck.html",
+    "views": [
+      "enrich",
+      "g1",
+      "learn2",
+      "learn4",
+      "models",
+      "quick"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L20/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L20/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L20/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L20/teacher-deck.html",
+    "views": [
+      "critique",
+      "g2",
+      "learn2",
+      "quick"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L21/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L21/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L21/teacher-deck.html",
+    "views": [
+      "critique",
+      "g1",
+      "learn1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L27/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L27/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L27/teacher-deck.html",
+    "views": [
+      "critique",
+      "learn2",
+      "match",
+      "vocab"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 34 slide views plus final rechecks and vocabulary backs; 24 print pages plus final completion recheck",
+      "live": "pending"
+    }
+  }
+]
