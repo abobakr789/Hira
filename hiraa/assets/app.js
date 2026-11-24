@@ -10473,7 +10473,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         const r = await fetch(cfg.supabaseUrl + "/functions/v1/lesson-buddy", { method: "POST", headers: { "Content-Type": "application/json", apikey: cfg.supabaseKey, Authorization: "Bearer " + tok }, body: JSON.stringify({ lesson_id: l.id, question: q, history: hist.slice(-6) }) });
         const j = await r.json().catch(() => ({}));
         if (!r.ok) { wait.textContent = ERR[j.error] || T2("حدث خطأ، حاول مرة أخرى.", "Something went wrong, try again."); face(null); return; }
-        const src = (j.sources || []).map((s) => `<li>📚 ${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title_ar)}</a>` : esc(s.title_ar)}${s.author_ar ? ` — <small>${esc(s.author_ar)}</small>` : ""}${s.citation_ar ? `<br><small class="muted">${esc(s.citation_ar)}</small>` : ""}</li>`).join("");
+        const src = (j.sources || []).map((s) => `<li>📚 ${esc(s.citation_ar || s.title_ar)}</li>`).join("");
         wait.remove(); say("bot", esc(j.answer).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\n/g, "<br>") + (src ? `<ul class="bd-src">${src}</ul>` : ""), j.answer);
         hist.push({ role: "user", text: q }, { role: "assistant", text: j.answer || "" });
         if (byVoice) speak(j.answer); else { face(/أحسنت|ممتاز|رائع|well done|great job|excellent/i.test(j.answer || "") ? "cheer" : "idea", 4000); mood("talk", 1500); }
