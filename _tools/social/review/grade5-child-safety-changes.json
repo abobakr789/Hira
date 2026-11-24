@@ -5,11 +5,16 @@
       "retrieve",
       "watani",
       "enrich",
-      "quick"
+      "quick",
+      "hook",
+      "groups",
+      "g2",
+      "models",
+      "cover"
     ],
     "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
     "qa": {
-      "local": "PASS 2026-11-24 08:54 Dubai; four fronts and five A4 pages individually inspected, final quiz option layout recaptured.",
+      "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
       "live": "PENDING"
     }
   },
@@ -22,7 +27,7 @@
     ],
     "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
     "qa": {
-      "local": "PASS 2026-11-24 08:54 Dubai; four fronts and five A4 pages individually inspected, final quiz option layout recaptured.",
+      "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
       "live": "PENDING"
     }
   },
@@ -33,7 +38,7 @@
     ],
     "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
     "qa": {
-      "local": "PASS 2026-11-24 08:54 Dubai; four fronts and five A4 pages individually inspected, final quiz option layout recaptured.",
+      "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
       "live": "PENDING"
     }
   },
@@ -44,7 +49,18 @@
     ],
     "reason": "Clarify verified Ministry of Interior child-protection hotline and emergency distinction; synchronize question and printed key; repair inherited unrelated answers, fill-in task and literal education/health picture choices.",
     "qa": {
-      "local": "PASS 2026-11-24 08:54 Dubai; four fronts and five A4 pages individually inspected, final quiz option layout recaptured.",
+      "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L15/group-work.html",
+    "views": [
+      0
+    ],
+    "reason": "Add basic rights category so six rights from the source can be classified without forcing life/name into unrelated branches.",
+    "qa": {
+      "local": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
       "live": "PENDING"
     }
   }
