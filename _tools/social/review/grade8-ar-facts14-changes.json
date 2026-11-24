@@ -1,5 +1,5 @@
 {
-  "status": "local pixels passed, live pending",
+  "status": "PASS: local pixels and live 133/133 byte verification 17:18, representative live pixels 17:19",
   "scope": "final enrichment and dependent-task reconciliation",
   "files": [
     {
