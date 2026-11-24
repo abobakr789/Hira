@@ -1,0 +1,26 @@
+[
+  {
+    "file": "resources/ssd/SS-Y6-T2-L03/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "Both full concept cards inspected; Japan card rechecked after vocabulary count update. Source extracts intact with explicit corrections."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L02/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "Both full concept cards inspected; Japan card rechecked after vocabulary count update. Source extracts intact with explicit corrections."
+    },
+    "original_media": "unchanged"
+  }
+]
