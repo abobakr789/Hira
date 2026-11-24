@@ -7,7 +7,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L03/teacher-deck.html",
@@ -18,7 +18,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L03/worksheets-A4.html",
@@ -29,7 +29,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L03/pod-sheet.html",
@@ -38,7 +38,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L07/teacher-deck.html",
@@ -48,7 +48,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L09/teacher-deck.html",
@@ -58,7 +58,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L10/teacher-deck.html",
@@ -68,7 +68,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L12/teacher-deck.html",
@@ -80,7 +80,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L12/worksheets-A4.html",
@@ -91,7 +91,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L13/teacher-deck.html",
@@ -105,14 +105,14 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L13/lesson-recap.html",
     "views": [],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L13/worksheets-A4.html",
@@ -123,7 +123,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L13/group-work.html",
@@ -135,7 +135,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L13/pod-sheet.html",
@@ -144,6 +144,6 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
   }
 ]
