@@ -1,0 +1,111 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-T1-L08/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L08/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L10/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L10/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L15/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L15/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L15/teacher-deck.html",
+    "views": [
+      "exit",
+      "goal",
+      "mirror",
+      "model",
+      "models",
+      "quick",
+      "story",
+      "together",
+      "vocab"
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L16/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L16/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L18/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L18/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T1-L15/worksheets-A4.html",
+    "views": [
+      0,
+      2
+    ],
+    "local_qa": "pending",
+    "live_qa": "pending"
+  }
+]
