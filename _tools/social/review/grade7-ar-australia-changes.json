@@ -1,0 +1,60 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-T3-L24/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L24/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L24/worksheets-A4.html",
+    "views": [
+      "3"
+    ],
+    "qa": {
+      "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L24/teacher-deck.html",
+    "views": [
+      "g3",
+      "learn4",
+      "models",
+      "think"
+    ],
+    "qa": {
+      "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L24/group-work.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
+      "live": "pending"
+    },
+    "original_media": "unchanged"
+  }
+]
