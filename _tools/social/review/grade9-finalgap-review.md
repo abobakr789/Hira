@@ -1,0 +1,1 @@
+Reviewed all 27 Arabic silver cloze tasks and their three banks. Repaired four orphan or doubled-gap sentences left by factual corrections, preserving the keyed answers: الخارجية، البحر، إليه، درجات. Actual printed pages inspected. Earlier six affected silver tasks in facts10 also retain their original bank answers.
