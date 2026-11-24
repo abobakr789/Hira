@@ -7,8 +7,9 @@
     "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
     "qa": {
       "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L07/sources-concept-card.html",
@@ -18,8 +19,9 @@
     "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
     "qa": {
       "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L07/worksheets-A4.html",
@@ -32,8 +34,9 @@
     "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
     "qa": {
       "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L07/teacher-deck.html",
@@ -44,8 +47,9 @@
     "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
     "qa": {
       "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L07/group-work.html",
@@ -55,8 +59,9 @@
     "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
     "qa": {
       "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L07/pod-sheet.html",
@@ -66,7 +71,8 @@
     "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
     "qa": {
       "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   }
 ]

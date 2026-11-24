@@ -7,8 +7,9 @@
     "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
     "qa": {
       "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L08/sources-concept-card.html",
@@ -18,8 +19,9 @@
     "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
     "qa": {
       "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L08/worksheets-A4.html",
@@ -32,8 +34,9 @@
     "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
     "qa": {
       "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L08/teacher-deck.html",
@@ -47,8 +50,9 @@
     "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
     "qa": {
       "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L08/pod-sheet.html",
@@ -58,7 +62,8 @@
     "reason": "Remove unsupported concrete-material identification of WadiBih, use dam/recharge concept and label adapted reading. Keep curriculum1982construction date, distinguish1983opening in source ledger.",
     "qa": {
       "local": "PASS 5fronts7A4 Nov24 08:38 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   }
 ]

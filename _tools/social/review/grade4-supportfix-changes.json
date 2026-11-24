@@ -6,9 +6,10 @@
     ],
     "reason": "Remove leftover suffix after whole-word traffic blank; word bank and key use complete word.",
     "qa": {
-      "local": "PASS individual1front1print Nov24 08:35 Dubai",
-      "live": "PENDING"
-    }
+      "local": "PASS correctedwholewordblank individualA4 Nov24 08:36 Dubai /tmp/ssy4sf2-localprint",
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L16/teacher-deck.html",
@@ -19,7 +20,8 @@
     "source": "https://www.albayan.ae/across-the-uae/news-and-reports/2019-05-24-1.3568225",
     "qa": {
       "local": "PASS individual1front1print Nov24 08:35 Dubai",
-      "live": "PENDING"
-    }
+      "live": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+    },
+    "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
   }
 ]

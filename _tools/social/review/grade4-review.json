@@ -1,0 +1,2361 @@
+{
+  "grade": 4,
+  "reviewed_lessons": 76,
+  "changed_lessons": 60,
+  "retained_lessons": 16,
+  "unique_changed_slide_views": 170,
+  "unique_changed_print_views": 178,
+  "closure": "CLOSED_LIVE",
+  "lessons": [
+    {
+      "code": "SS-Y4-NN-T1-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L01/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-finalpixel-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L02/teacher-deck.html",
+          "views": [
+            "guide"
+          ],
+          "local_qa": "PASS individual pixel inspection",
+          "live_qa": "PASS fresh live3 individual pixel inspection and byte-exact Nov24 08:28 Dubai; deployment45326047026"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L03/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "guide"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L03/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L03/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-followup-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L04/teacher-deck.html",
+          "views": [
+            "text2",
+            "text3",
+            "text5"
+          ],
+          "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+          "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
+        },
+        {
+          "manifest": "grade4-nn-followup-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L04/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+          "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
+        },
+        {
+          "manifest": "grade4-nn-followup-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L04/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+          "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-accuracy-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L05/teacher-deck.html",
+          "views": [
+            "model"
+          ],
+          "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+          "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-retained-quiz-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L06/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS individual A4 pixel inspection Nov24 08:28 Dubai",
+          "live_qa": "PASS individual3A4 pixels and byte-exact Nov24 08:34 Dubai deployment45326609219"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L07/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L08",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-retained-quiz-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L08/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS individual A4 pixel inspection Nov24 08:28 Dubai",
+          "live_qa": "PASS individual3A4 pixels and byte-exact Nov24 08:34 Dubai deployment45326609219"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L09",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L09/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L09/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L09/teacher-deck.html",
+          "views": [
+            "text5"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L10",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L10/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L10/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L10/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L10/teacher-deck.html",
+          "views": [
+            "text4",
+            "check",
+            "quiz"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L11",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-accuracy-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L11/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+          "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
+        },
+        {
+          "manifest": "grade4-nn-accuracy-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L11/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+          "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
+        },
+        {
+          "manifest": "grade4-nn-accuracy-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L11/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text3",
+            "text6"
+          ],
+          "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+          "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L12",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L12/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "guide",
+            "see"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L12/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L13",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "warm",
+            "guide",
+            "see",
+            "g1"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/lesson-recap.html",
+          "views": [],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/group-work.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-literal-visuals-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/lesson-recap.html",
+          "views": [],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/teacher-deck.html",
+          "views": [
+            "text3",
+            "text4",
+            "check",
+            "quiz"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        },
+        {
+          "manifest": "grade4-nn-readings-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L13/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:52 Dubai; individual pixel checks including late fixes",
+          "live_qa": "PASS 2026-11-24 08:00 Dubai; deployed 3149e685, byte-exact resources, individual live pixel checks"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L14",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-accuracy-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L14/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+          "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
+        },
+        {
+          "manifest": "grade4-nn-accuracy-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L14/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+          "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
+        },
+        {
+          "manifest": "grade4-nn-accuracy-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L14/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+          "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
+        },
+        {
+          "manifest": "grade4-nn-accuracy-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L14/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text3",
+            "text5",
+            "guide",
+            "check",
+            "quiz"
+          ],
+          "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+          "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L15",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-nn-followup-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L15/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text3",
+            "text4",
+            "text6",
+            "check",
+            "quiz"
+          ],
+          "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+          "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
+        },
+        {
+          "manifest": "grade4-nn-followup-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L15/sources-concept-card.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+          "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
+        },
+        {
+          "manifest": "grade4-nn-followup-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L15/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+          "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
+        },
+        {
+          "manifest": "grade4-nn-followup-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L15/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+          "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-NN-T1-L16",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-retained-quiz-changes.json",
+          "file": "resources/ssd/SS-Y4-NN-T1-L16/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS individual A4 pixel inspection Nov24 08:28 Dubai",
+          "live_qa": "PASS individual3A4 pixels and byte-exact Nov24 08:34 Dubai deployment45326609219"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-earth-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+          "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811."
+        },
+        {
+          "manifest": "grade4-ar-earth-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L01/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+          "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811."
+        },
+        {
+          "manifest": "grade4-ar-earth-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L01/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+          "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811."
+        },
+        {
+          "manifest": "grade4-ar-earth-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L01/teacher-deck.html",
+          "views": [
+            "retrieve",
+            "hook",
+            "guess",
+            "learn1",
+            "booktext",
+            "quick"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+          "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811.",
+          "popups": [
+            "hook"
+          ]
+        },
+        {
+          "manifest": "grade4-ar-earth-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L01/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:21 Dubai, 6 fronts, 1 answer popup and 7 print pages individually inspected. No clipping or overlap. Source adaptation labelled. Original media preserved.",
+          "live_qa": "PASS: 2026-11-24 06:30 Dubai. All five HTML files byte-exact live at 06:28. Six fronts, one answer popup and seven print pages inspected individually. No clipping or overlap. Deployment action 45312192811."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-longitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+          "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
+        },
+        {
+          "manifest": "grade4-ar-longitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+          "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
+        },
+        {
+          "manifest": "grade4-ar-longitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L02/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+          "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
+        },
+        {
+          "manifest": "grade4-ar-longitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L02/teacher-deck.html",
+          "views": [
+            "hook",
+            "guess",
+            "predict",
+            "goal",
+            "progress",
+            "learn2",
+            "learn4",
+            "booktext",
+            "think",
+            "truefalse",
+            "g1",
+            "g4",
+            "models",
+            "quick",
+            "progress2"
+          ],
+          "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+          "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures",
+          "popups": [
+            "hook",
+            "guess",
+            "predict",
+            "think"
+          ]
+        },
+        {
+          "manifest": "grade4-ar-longitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L02/group-work.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+          "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
+        },
+        {
+          "manifest": "grade4-ar-longitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L02/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 06:51 Dubai, full-size changed views individually inspected; equations LTR; group cards 1 and 4 on print pages 0 and 1",
+          "live_qa": "PASS 2026-11-24 06:58 Dubai; all six HTML byte-exact live 06:54; 15 fronts, 4 popups and 9 print pages individually inspected at full size from fresh 06:55 captures"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-latitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 06:58 Dubai; 6 fronts, 1 popup, 8 print pages individually inspected, wordbank and key synchronized, original media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:03 Dubai; six HTML byte-exact live at 07:01; 6 fronts, 1 popup and 8 print pages individually pixel-inspected"
+        },
+        {
+          "manifest": "grade4-ar-latitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 06:58 Dubai; 6 fronts, 1 popup, 8 print pages individually inspected, wordbank and key synchronized, original media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:03 Dubai; six HTML byte-exact live at 07:01; 6 fronts, 1 popup and 8 print pages individually pixel-inspected"
+        },
+        {
+          "manifest": "grade4-ar-latitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L03/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS 2026-11-24 06:58 Dubai; 6 fronts, 1 popup, 8 print pages individually inspected, wordbank and key synchronized, original media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:03 Dubai; six HTML byte-exact live at 07:01; 6 fronts, 1 popup and 8 print pages individually pixel-inspected"
+        },
+        {
+          "manifest": "grade4-ar-latitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L03/teacher-deck.html",
+          "views": [
+            "predict",
+            "learn1",
+            "booktext",
+            "g1",
+            "models",
+            "quick"
+          ],
+          "local_qa": "PASS 2026-11-24 06:58 Dubai; 6 fronts, 1 popup, 8 print pages individually inspected, wordbank and key synchronized, original media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:03 Dubai; six HTML byte-exact live at 07:01; 6 fronts, 1 popup and 8 print pages individually pixel-inspected",
+          "popups": [
+            "predict"
+          ]
+        },
+        {
+          "manifest": "grade4-ar-latitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L03/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 06:58 Dubai; 6 fronts, 1 popup, 8 print pages individually inspected, wordbank and key synchronized, original media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:03 Dubai; six HTML byte-exact live at 07:01; 6 fronts, 1 popup and 8 print pages individually pixel-inspected"
+        },
+        {
+          "manifest": "grade4-ar-latitude-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L03/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 06:58 Dubai; 6 fronts, 1 popup, 8 print pages individually inspected, wordbank and key synchronized, original media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:03 Dubai; six HTML byte-exact live at 07:01; 6 fronts, 1 popup and 8 print pages individually pixel-inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L04",
+      "status": "retained",
+      "rationale": "Astronomical location: existing coordinate and globe illustrations support the latitude/longitude address; preserve them rather than add a decorative UAE silhouette.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T1-L05",
+      "status": "retained",
+      "rationale": "Relative location: map-based neighbor and coast tasks are more useful than a generic globe. Existing peninsula and land/water examples retained.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T1-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L06/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:40 Dubai. Two fronts and one print page individually inspected. Adaptation label visible; original media retained.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L06/teacher-deck.html",
+          "views": [
+            "learn4",
+            "booktext"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:40 Dubai. Two fronts and one print page individually inspected. Adaptation label visible; original media retained.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L07/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L07/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L07/teacher-deck.html",
+          "views": [
+            "guess",
+            "learn1"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L07/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L08",
+      "status": "retained",
+      "rationale": "Plains: existing coastal/interior visual supports comparison of the named plains. The grouping task distinguishes location and use without a new process flow.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T1-L09",
+      "status": "retained",
+      "rationale": "Mountains and plains uses: existing landscape/economic pictures and sorting tasks support quarry, dam, port and farm examples. Avoid arrows suggesting these parallel uses are stages.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T1-L10",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-population-islands-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L10/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-population-islands-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L10/teacher-deck.html",
+          "views": [
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L11",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-retainedquote-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L11/teacher-deck.html",
+          "views": [
+            "watani"
+          ],
+          "local_qa": "PASS individual pixel inspection Nov24 08:31 Dubai",
+          "live_qa": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L12",
+      "status": "retained",
+      "rationale": "Desert importance: existing oil, palm, livestock and heritage examples support parallel economic uses. A new chain would wrongly imply one produces the next.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T1-L13",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L13/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        },
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L13/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        },
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L13/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        },
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L13/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "wordj",
+            "learn1",
+            "booktext",
+            "models"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        },
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L13/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L14",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L14/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        },
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L14/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        },
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L14/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        },
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L14/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "learn2",
+            "learn3",
+            "booktext",
+            "g2",
+            "models"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        },
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L14/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        },
+        {
+          "manifest": "grade4-ar-science-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L14/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: final rendered pixels inspected 2026-11-24 05:59 Dubai, 13 slides and 15 print pages total; no clipping or overlap.",
+          "live_qa": "PASS: deployed files byte-identical; all 13 changed slides and 15 print pages visually inspected 2026-11-24 06:05 Dubai. Captures ssy4ar-live0602 and ssy4ar-live0602print. Deployment 45309060899 success."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L15",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-lastchecks-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L15/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        },
+        {
+          "manifest": "grade4-ar-lastchecks-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L15/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        },
+        {
+          "manifest": "grade4-ar-lastchecks-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L15/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match"
+          ],
+          "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition.",
+          "popups": [
+            "match"
+          ]
+        },
+        {
+          "manifest": "grade4-ar-lastchecks-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L15/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L16",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L16/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        },
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L16/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        },
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L16/teacher-deck.html",
+          "views": [
+            "learn3"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L17",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-finalpixel-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L17/teacher-deck.html",
+          "views": [
+            "learn1"
+          ],
+          "local_qa": "PASS individual pixel inspection",
+          "live_qa": "PASS fresh live3 individual pixel inspection and byte-exact Nov24 08:28 Dubai; deployment45326047026"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L18",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-finalpixel-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L18/teacher-deck.html",
+          "views": [
+            "learn3"
+          ],
+          "local_qa": "PASS individual pixel inspection",
+          "live_qa": "PASS fresh live3 individual pixel inspection and byte-exact Nov24 08:28 Dubai; deployment45326047026"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L19",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-retainedprecision2-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L19/teacher-deck.html",
+          "views": [
+            "learn4"
+          ],
+          "local_qa": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+          "live_qa": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
+        },
+        {
+          "manifest": "grade4-retainedprecision2-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L19/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+          "live_qa": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L20",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-zayed-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L20/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:27 Dubai. Four fronts, one answer popup and seven print pages individually inspected. No clipping or overlap. Adaptation labelled. Media references unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:35 Dubai. All five HTML resources byte-exact live at 06:33. Four fronts, one popup and seven print pages individually inspected. No clipping or overlap. Deployment 45312835362; API status limited, exact live content verified."
+        },
+        {
+          "manifest": "grade4-ar-zayed-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L20/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:27 Dubai. Four fronts, one answer popup and seven print pages individually inspected. No clipping or overlap. Adaptation labelled. Media references unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:35 Dubai. All five HTML resources byte-exact live at 06:33. Four fronts, one popup and seven print pages individually inspected. No clipping or overlap. Deployment 45312835362; API status limited, exact live content verified."
+        },
+        {
+          "manifest": "grade4-ar-zayed-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L20/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:27 Dubai. Four fronts, one answer popup and seven print pages individually inspected. No clipping or overlap. Adaptation labelled. Media references unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:35 Dubai. All five HTML resources byte-exact live at 06:33. Four fronts, one popup and seven print pages individually inspected. No clipping or overlap. Deployment 45312835362; API status limited, exact live content verified."
+        },
+        {
+          "manifest": "grade4-ar-zayed-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L20/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn1",
+            "booktext",
+            "models"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:27 Dubai. Four fronts, one answer popup and seven print pages individually inspected. No clipping or overlap. Adaptation labelled. Media references unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:35 Dubai. All five HTML resources byte-exact live at 06:33. Four fronts, one popup and seven print pages individually inspected. No clipping or overlap. Deployment 45312835362; API status limited, exact live content verified.",
+          "popups": [
+            "hook"
+          ]
+        },
+        {
+          "manifest": "grade4-ar-zayed-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L20/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:27 Dubai. Four fronts, one answer popup and seven print pages individually inspected. No clipping or overlap. Adaptation labelled. Media references unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:35 Dubai. All five HTML resources byte-exact live at 06:33. Four fronts, one popup and seven print pages individually inspected. No clipping or overlap. Deployment 45312835362; API status limited, exact live content verified."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L21",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-finalpixel-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L21/teacher-deck.html",
+          "views": [
+            "learn1"
+          ],
+          "local_qa": "PASS individual pixel inspection",
+          "live_qa": "PASS fresh live3 individual pixel inspection and byte-exact Nov24 08:28 Dubai; deployment45326047026"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L22",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L22/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        },
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L22/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        },
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T1-L22/teacher-deck.html",
+          "views": [
+            "learn3"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T1-L23",
+      "status": "retained",
+      "rationale": "Constitution: rights/duties sorting and dated constitutional summary already carry the concept. Keep the distinction rather than add an unmentioned court or legal procedure.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T1-L24",
+      "status": "retained",
+      "rationale": "Commemoration: existing memorial material and respectful discussion prompts support remembrance. No battle reconstruction or imagined casualty scene.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T2-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-retainedprecision2-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L01/teacher-deck.html",
+          "views": [
+            "watani"
+          ],
+          "local_qa": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+          "live_qa": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-population-islands-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-population-islands-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-population-islands-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L02/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-population-islands-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L02/teacher-deck.html",
+          "views": [
+            "booktext",
+            "learn2",
+            "truefalse"
+          ],
+          "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-population-islands-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L02/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:27 Dubai; four fronts and eight print pages individually inspected. Models is not a popup.",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts and 8 print pages individually inspected 07:33"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-finalpixel-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L03/teacher-deck.html",
+          "views": [
+            "learn2"
+          ],
+          "local_qa": "PASS individual pixel inspection",
+          "live_qa": "PASS fresh live3 individual pixel inspection and byte-exact Nov24 08:28 Dubai; deployment45326047026"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L04",
+      "status": "retained",
+      "rationale": "Industry: original cement and industrial production pictures fit the manufacturing comparison. Extraction/manufacturing classification already makes the distinction.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T2-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-irrigation-biography-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+          "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
+        },
+        {
+          "manifest": "grade4-ar-irrigation-biography-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+          "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
+        },
+        {
+          "manifest": "grade4-ar-irrigation-biography-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L05/worksheets-A4.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+          "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
+        },
+        {
+          "manifest": "grade4-ar-irrigation-biography-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L05/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match"
+          ],
+          "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+          "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*",
+          "popups": [
+            "match"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L06",
+      "status": "retained",
+      "rationale": "Tourism: heritage village and tourism examples match the named visit purposes. Keep classification and promotional-writing tasks open.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T2-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-fireprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L07/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        },
+        {
+          "manifest": "grade4-fireprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L07/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        },
+        {
+          "manifest": "grade4-fireprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L07/worksheets-A4.html",
+          "views": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "local_qa": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        },
+        {
+          "manifest": "grade4-fireprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L07/teacher-deck.html",
+          "views": [
+            "learn2",
+            "g2"
+          ],
+          "local_qa": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        },
+        {
+          "manifest": "grade4-fireprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L07/group-work.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        },
+        {
+          "manifest": "grade4-fireprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L07/pod-sheet.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L08",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-supportfix-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L08/worksheets-A4.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS correctedwholewordblank individualA4 Nov24 08:36 Dubai /tmp/ssy4sf2-localprint",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L09",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-finalpixel-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L09/teacher-deck.html",
+          "views": [
+            "learn4"
+          ],
+          "local_qa": "PASS individual pixel inspection",
+          "live_qa": "PASS fresh live3 individual pixel inspection and byte-exact Nov24 08:28 Dubai; deployment45326047026"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L10",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-magan-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L10/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*"
+        },
+        {
+          "manifest": "grade4-ar-magan-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L10/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*"
+        },
+        {
+          "manifest": "grade4-ar-magan-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L10/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*"
+        },
+        {
+          "manifest": "grade4-ar-magan-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L10/teacher-deck.html",
+          "views": [
+            "booktext",
+            "learn1",
+            "match",
+            "models",
+            "quick",
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*",
+          "popups": [
+            "match"
+          ]
+        },
+        {
+          "manifest": "grade4-ar-magan-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L10/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+          "live_qa": "PASS 2026-11-24 07:17 Dubai; five HTML byte-exact, six fronts, one popup, seven print pages individually inspected /tmp/ssy4magan-live0716*"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L11",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-dibba-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L11/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:18 Dubai; four fronts, one popup, four print pages inspected; booktext refined and re-inspected separately /tmp/ssy4dibba-bookfix0718",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts, 1 popup and 4 print pages inspected; final beach cue rechecked 07:31"
+        },
+        {
+          "manifest": "grade4-ar-dibba-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L11/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:18 Dubai; four fronts, one popup, four print pages inspected; booktext refined and re-inspected separately /tmp/ssy4dibba-bookfix0718",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts, 1 popup and 4 print pages inspected; final beach cue rechecked 07:31"
+        },
+        {
+          "manifest": "grade4-ar-dibba-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L11/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 07:18 Dubai; four fronts, one popup, four print pages inspected; booktext refined and re-inspected separately /tmp/ssy4dibba-bookfix0718",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts, 1 popup and 4 print pages inspected; final beach cue rechecked 07:31"
+        },
+        {
+          "manifest": "grade4-ar-dibba-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L11/teacher-deck.html",
+          "views": [
+            "booktext",
+            "learn3",
+            "match",
+            "vocab"
+          ],
+          "local_qa": "PASS 2026-11-24 07:18 Dubai; four fronts, one popup, four print pages inspected; booktext refined and re-inspected separately /tmp/ssy4dibba-bookfix0718",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 4 fronts, 1 popup and 4 print pages inspected; final beach cue rechecked 07:31",
+          "popups": [
+            "match"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L12",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-irrigation-biography-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L12/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+          "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
+        },
+        {
+          "manifest": "grade4-ar-irrigation-biography-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L12/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+          "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
+        },
+        {
+          "manifest": "grade4-ar-irrigation-biography-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L12/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+          "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
+        },
+        {
+          "manifest": "grade4-ar-irrigation-biography-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L12/teacher-deck.html",
+          "views": [
+            "cover",
+            "predict",
+            "hook",
+            "learn1",
+            "learn3",
+            "booktext",
+            "models"
+          ],
+          "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+          "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*",
+          "popups": [
+            "hook",
+            "predict"
+          ]
+        },
+        {
+          "manifest": "grade4-ar-irrigation-biography-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L12/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+          "live_qa": "PASS 2026-11-24 07:14 Dubai; all nine HTML byte-exact, nine fronts, three popups, ten print pages individually inspected in /tmp/ssy4irrigationbio-live0714*"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L13",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L13/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        },
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L13/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        },
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L13/teacher-deck.html",
+          "views": [
+            "learn4",
+            "think"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L14",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-finalprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L14/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        },
+        {
+          "manifest": "grade4-ar-finalprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L14/teacher-deck.html",
+          "views": [
+            "booktext"
+          ],
+          "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L15",
+      "status": "retained",
+      "rationale": "Other emirates: original mountains/plains/coast diagram supports the named Ras Al Khaimah landscape; it is not captioned as a photograph of Jebel Jais.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T2-L16",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-supportfix-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L16/teacher-deck.html",
+          "views": [
+            "watani"
+          ],
+          "local_qa": "PASS individual1front1print Nov24 08:35 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L17",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L17/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        },
+        {
+          "manifest": "grade4-ar-history-changes.json",
+          "file": "resources/ssd/SS-Y4-T2-L17/teacher-deck.html",
+          "views": [
+            "learn4"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:10 Dubai, five fronts, one answer popup, seven print pages. Final museum picture caption disambiguates preserved Dubai Museum photo. Live pending.",
+          "live_qa": "PASS: 2026-11-24 06:16 Dubai, 11 HTML files byte-exact live. All 5 fronts, 1 answer popup and 7 print pages visually inspected, no clipping or overlap. Deploy 45310537330 succeeded."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T2-L18",
+      "status": "retained",
+      "rationale": "Crafts and customs: original pottery/craft picture supports the named craft; skills and produced objects remain distinguished in the wider lesson.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T3-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-retainedprecision2-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L01/teacher-deck.html",
+          "views": [
+            "learn4"
+          ],
+          "local_qa": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+          "live_qa": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
+        },
+        {
+          "manifest": "grade4-retainedprecision2-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L01/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
+          "live_qa": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L02/teacher-deck.html",
+          "views": [
+            "models"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L03/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L03/teacher-deck.html",
+          "views": [
+            "learn3",
+            "booktext"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-finalprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        },
+        {
+          "manifest": "grade4-ar-finalprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L04/teacher-deck.html",
+          "views": [
+            "learn4"
+          ],
+          "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L05",
+      "status": "retained",
+      "rationale": "Human economic factors: coin illustration fits capital, while planning, labor and technology remain parallel factors. No sequential flow added.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T3-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L06/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L06/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L06/teacher-deck.html",
+          "views": [
+            "learn2"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-economy-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L06/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-lastchecks-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        },
+        {
+          "manifest": "grade4-ar-lastchecks-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L07/teacher-deck.html",
+          "views": [
+            "models",
+            "quick"
+          ],
+          "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        },
+        {
+          "manifest": "grade4-ar-lastchecks-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L07/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L08",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-damreview-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L08/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        },
+        {
+          "manifest": "grade4-damreview-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L08/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        },
+        {
+          "manifest": "grade4-damreview-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L08/worksheets-A4.html",
+          "views": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "local_qa": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        },
+        {
+          "manifest": "grade4-damreview-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L08/teacher-deck.html",
+          "views": [
+            "guess",
+            "vocab",
+            "match",
+            "learn1",
+            "booktext"
+          ],
+          "local_qa": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        },
+        {
+          "manifest": "grade4-damreview-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L08/pod-sheet.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 5fronts7A4 Nov24 08:38 Dubai",
+          "live_qa": "PASS 2026-11-24 08:49 Dubai; deployed45328236064, all175HTML byte-exact; individual live pixels inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L09",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-finalpixel-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L09/teacher-deck.html",
+          "views": [
+            "learn3"
+          ],
+          "local_qa": "PASS individual pixel inspection",
+          "live_qa": "PASS fresh live3 individual pixel inspection and byte-exact Nov24 08:28 Dubai; deployment45326047026"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L10",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L10/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L10/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L10/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L10/teacher-deck.html",
+          "views": [
+            "hook",
+            "guess",
+            "vocab",
+            "match",
+            "learn3",
+            "quick"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved.",
+          "popups": [
+            "hook",
+            "guess",
+            "match"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L11",
+      "status": "retained",
+      "rationale": "Herding and agriculture: original well/irrigation images support the yazra mechanism and material-use comparison; no extra generic farming picture.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T3-L12",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L12/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        },
+        {
+          "manifest": "grade4-ar-vocabulary-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L12/teacher-deck.html",
+          "views": [
+            "models"
+          ],
+          "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+          "live_qa": "PASS: 2026-11-24 06:24 Dubai. Successful deployment 45311365701; all 11 HTML files byte-exact live. Nine fronts, three answer popups and nine print pages individually inspected at full size. No clipping or overlap. Original media preserved."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L13",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-lastchecks-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L13/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        },
+        {
+          "manifest": "grade4-ar-lastchecks-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L13/teacher-deck.html",
+          "views": [
+            "learn4"
+          ],
+          "local_qa": "PASS 2026-11-24 08:14 Dubai; 5 fronts, 12 print pages inspected, original media unchanged",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L14",
+      "status": "retained",
+      "rationale": "Medicine and physician qualities: existing medical image and confidentiality/listening prompts support the lesson. Do not depict historical physicians without established identity.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T3-L15",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-sciencehistory-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L15/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 5 fronts and 6 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-sciencehistory-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L15/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 5 fronts and 6 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-sciencehistory-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L15/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 5 fronts and 6 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-sciencehistory-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L15/teacher-deck.html",
+          "views": [
+            "booktext",
+            "g2",
+            "learn2",
+            "models",
+            "quick"
+          ],
+          "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 5 fronts and 6 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-sciencehistory-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L15/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 5 fronts and 6 print pages individually inspected 07:33"
+        },
+        {
+          "manifest": "grade4-ar-sciencehistory-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L15/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS 2026-11-24 07:24 Dubai; five fronts and six print pages individually inspected; group card page0 and corrected key re-inspected",
+          "live_qa": "PASS 2026-11-24 07:33 Dubai; byte-exact HTML live; 5 fronts and 6 print pages individually inspected 07:33"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L16",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade4-ar-finalprecision-changes.json",
+          "file": "resources/ssd/SS-Y4-T3-L16/teacher-deck.html",
+          "views": [
+            "learn3"
+          ],
+          "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+          "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y4-T3-L17",
+      "status": "retained",
+      "rationale": "Neighboring civilizations: map/original source material supports contact and geography; no fabricated exact ancient trade route.",
+      "changes": []
+    },
+    {
+      "code": "SS-Y4-T3-L18",
+      "status": "retained",
+      "rationale": "Civilization evidence: original falaj picture supports irrigation, with named sites, forts and craft examples retained. No invented reconstruction of an archaeological settlement.",
+      "changes": []
+    }
+  ],
+  "closed_at": "2026-11-24T08:50:00+04:00",
+  "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45328236064",
+  "unique_changed_html_files": 175,
+  "final_live_byte_audit": {
+    "exact": 175,
+    "total": 175,
+    "checked_at": "2026-11-24T08:49:00+04:00"
+  },
+  "qa_note": "Each changed view inspected locally and after publication. Interactions listed in individual manifests; slide/print counts are unique views, not lesson counts."
+}
