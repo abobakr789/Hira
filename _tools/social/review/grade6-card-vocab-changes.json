@@ -1,0 +1,26 @@
+[
+  {
+    "file": "resources/ssd/SS-Y6-T1-L04/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "Both complete print pages inspected as pixels 2026-11-24 13:04 Dubai"
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y6-T3-L05/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "Both complete print pages inspected as pixels 2026-11-24 13:04 Dubai"
+    },
+    "original_media": "unchanged"
+  }
+]
