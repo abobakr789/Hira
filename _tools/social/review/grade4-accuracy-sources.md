@@ -68,3 +68,7 @@ Removed internally conflicting birth/accession-age assertions rather than guessi
 
 ## Latitude correction, 2026-11-24
 - NOAA, https://oceanservice.noaa.gov/facts/latitude.html supports 0–90 degrees north/south. Replaced misleading circle-count convention with angular measure. Synchronized quiz, differentiated worksheets, key and group work. Adapted source passage labelled; original media preserved. Local QA: six fronts, one popup and eight print pages individually PASS.
+
+## AR T2 L05 and L12, 2026-11-24 07:08 Dubai
+L05: unsupported irrigation vocabulary replaced with aflaj and its verified tunnel/channel irrigation definition, synchronized across vocabulary, matching, popup, worksheet and answer key. Abu Dhabi Culture, fetched again 07:05: https://abudhabiculture.ae/ar/cultural-heritage/intangible/unesco-ich-inscribed-elements/al-aflaj
+L12: omitted disputed exact birth year and unsupported Qadisiyyah participation. Retained first-century AH context and verified governorship of Khurasan/experience in warfare. Shamela narrator biography, fetched again 07:05: https://read.shamela.ws/narrator/6386 . This source explicitly records conflicting birth reports. Worksheets, wordbank, answer key and source summaries synchronized. Adapted text is visibly labelled. Original contemporary portrait retained with an explicit caption on all uses saying it does not depict Muhallab; prediction now refers to lesson title, not the pictured person. No new historic-person portrait created. All original media references preserved.

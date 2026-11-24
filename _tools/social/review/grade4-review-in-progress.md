@@ -83,3 +83,9 @@ Zayed content 0e90cdbb live, all five HTML byte-exact 06:33. Four fronts, one po
 ## 2026-11-24 06:58 Dubai geography progress
 - Longitude a969176a CLOSED LIVE. Six HTML byte-exact 06:54; 15 fronts, four popups, nine print pages individually PASS from fresh 06:55 captures. Preserved concurrent upstream d51064f2 during rebase.
 - Latitude local QA PASS: six fronts, one popup, eight print pages. Six HTML content and associated source/manifest now ready for publication.
+
+## 2026-11-24 07:03 Dubai latitude closure
+Latitude content 57c6f159 CLOSED LIVE. Six HTML byte-exact at 07:01; six fronts, one popup and eight print pages individually inspected PASS from fresh 07:01 captures. Geography batch totals 12 HTML, 21 fronts, five popups, 17 print pages. Grade 4 remains in progress.
+
+## 2026-11-24 07:08 Dubai irrigation/biography local closure
+Nine HTML resources across T2 L05 and L12 ready to publish. Nine fronts, three popups, ten print pages inspected locally PASS. Important QA caught inherited modern portrait with misleading historical context, now explicitly captioned while retaining media; also caught shortened stale date fragments and synchronized split wordbank/key. Not yet live.

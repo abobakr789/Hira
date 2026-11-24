@@ -1,0 +1,98 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T2-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L05/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L05/worksheets-A4.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L05/teacher-deck.html",
+    "views": [
+      "vocab",
+      "match"
+    ],
+    "popups": [
+      "match"
+    ],
+    "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L12/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L12/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L12/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L12/teacher-deck.html",
+    "views": [
+      "cover",
+      "predict",
+      "hook",
+      "learn1",
+      "learn3",
+      "booktext",
+      "models"
+    ],
+    "popups": [
+      "hook",
+      "predict"
+    ],
+    "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L12/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:08 Dubai; 9 fronts, 3 popups and 10 print pages individually inspected; final revisions rerendered; all original media references preserved",
+    "live_qa": "pending"
+  }
+]
