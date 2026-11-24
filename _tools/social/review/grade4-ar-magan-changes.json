@@ -1,0 +1,57 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T2-L10/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L10/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L10/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L10/teacher-deck.html",
+    "views": [
+      "booktext",
+      "learn1",
+      "match",
+      "models",
+      "quick",
+      "vocab"
+    ],
+    "popups": [
+      "match"
+    ],
+    "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L10/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 07:12 Dubai, six fronts, one popup, seven print pages individually inspected; silver cloze and key synchronized; media references unchanged",
+    "live_qa": "pending"
+  }
+]
