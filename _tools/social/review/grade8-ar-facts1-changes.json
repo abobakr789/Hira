@@ -1,0 +1,122 @@
+[
+  {
+    "path": "resources/ssd/SS-Y8-T1-L3/sources-concept-card.html",
+    "sha256": "372ff515f24ca379c0b74eb6326c392da55035e6823c52e407a6e62e61bf6714",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L3/worksheets-A4.html",
+    "sha256": "ba715df61c777b0e676c36fa4c0121199a39ad4035d600eea9e6a3eb00472875",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L3/teacher-deck.html",
+    "sha256": "09728862725fc9bee46222a8cd8b98e8bffaf9a136f5e3da42732d6718f92176",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L5/sources-concept-card.html",
+    "sha256": "87f2f6bd59e1e0ff8e6a8574448416b603b578d68fb1d716a7cc6edbd023b5b3",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L5/worksheets-A4.html",
+    "sha256": "1965e11c5fb0b7a9add823b73c05b824a5855669c1e8b441c7ab13ea3768e864",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L5/teacher-deck.html",
+    "sha256": "78b99a06d16a105e749202d9072af2b540467a5d828199e94c10ddf7856edb03",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L6/sources-concept-card.html",
+    "sha256": "d9a6ab43dfeef41d7d954fa4a3393f24974e7d5852a5d09da671b5118982adb0",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L6/worksheets-A4.html",
+    "sha256": "f9c5dd88ca0005bd5b10896702e04deb540a10df89714fd205561d8473d310c7",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T1-L6/teacher-deck.html",
+    "sha256": "c53c527e7f73f01b617e232c82451f09feb53786463bd989ed6d2f1326edc373",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L1/sources-concept-card.html",
+    "sha256": "93f3e30cd78f8b8cb91d0235fc45e7acaef55fc5194b2aa4e389ba39fa6f90de",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L1/worksheets-A4.html",
+    "sha256": "58eb22a46a0f0bf1eaef34aa9f8b82a4c1365de6e09d05b82cea16a170890e39",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L1/teacher-deck.html",
+    "sha256": "87856b92b8bda6337f0c9a22c96d0dd2f8d0667adf5320c73ea978dba1e9258c",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L3/sources-concept-card.html",
+    "sha256": "e26b362d90a472a6314cab46a6f46342939686b49bd658276ec57e8e150719e1",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L3/worksheets-A4.html",
+    "sha256": "4ca2c39edecf5fc4e0ad1f1ff3ef607173df40639fef8783a7178f2de4c0fa97",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L3/teacher-deck.html",
+    "sha256": "977afe2b7dd874ecb3dbb5291f070c2ab053233bc7c8f28135e9f6e25cf9e2b6",
+    "qa": {
+      "local": "PASS: changed vocabulary, matching, learning, critique and printable surfaces inspected",
+      "live": "pending"
+    }
+  }
+]

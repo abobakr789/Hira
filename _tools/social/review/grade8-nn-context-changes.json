@@ -4,7 +4,7 @@
     "sha256": "78ffe3331b29373294390cc765ce7070a2be5b9c08969bec03ddf98a5a1fff65",
     "qa": {
       "local": "PASS: eight changed reading fronts and three printable source pages inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -12,7 +12,7 @@
     "sha256": "7f2c3a1bc5e1b5b32a315444aa4a3a7bcdbf389a6e94dc8143d3f7df80fc523e",
     "qa": {
       "local": "PASS: eight changed reading fronts and three printable source pages inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -20,7 +20,7 @@
     "sha256": "e7554b12e0ff7c3f6e4e1b4dbda5032a47d0738c748608d93c4044ab572ac9d1",
     "qa": {
       "local": "PASS: eight changed reading fronts and three printable source pages inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -28,7 +28,7 @@
     "sha256": "7b3afeb770681e57b7c8158563ca741a916fc75a22f107d4710d5ee304907762",
     "qa": {
       "local": "PASS: eight changed reading fronts and three printable source pages inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -36,7 +36,7 @@
     "sha256": "60d00397277854891ed9f1fe8a956dc5ba3ebb2f4f8900dcca98b9adbfcc5825",
     "qa": {
       "local": "PASS: eight changed reading fronts and three printable source pages inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -44,7 +44,7 @@
     "sha256": "26f0e588da88aa6ca77a9a8e73924c2ac5ef979cd53c2c3387f7b089945ddae7",
     "qa": {
       "local": "PASS: eight changed reading fronts and three printable source pages inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   }
 ]

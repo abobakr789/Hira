@@ -4,7 +4,7 @@
     "sha256": "1f6494d283c96d2b837ab8ecbaff4e48d04520d9ef4dffad1d52f87aa7af24c8",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -12,7 +12,7 @@
     "sha256": "284ff7ad9dd6049e8f344626b08b25ff216d078f2394db6115443bd155ef09f8",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -20,7 +20,7 @@
     "sha256": "acfb8f458ab849ed82acd77e5f17eeb1fe4ff8fca64ea9df9b430366e0b49d47",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -28,7 +28,7 @@
     "sha256": "4bbaea4dc21e33f2d6e7ae574bcc995419c6fa8f03c02d8ed7f01e7b78ea9114",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -36,7 +36,7 @@
     "sha256": "2510bd3d086e8547e9709d4a510331828022278c55a4786ae04b20998156f8af",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -44,7 +44,7 @@
     "sha256": "36fec1ba0ab44e7627815a37d5cfa6272426ca5b1053c63596d4616be874f5c6",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -52,7 +52,7 @@
     "sha256": "c013077ffc85b737b57c8954a62837ef2b48373fd59b602622810e418a527e52",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -60,7 +60,7 @@
     "sha256": "8ee0e9257879f13ec78743da824c03baabe67c36c28957aea67825c6f0fa80ee",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -68,7 +68,7 @@
     "sha256": "59491e557ff85169d1e2d1ed54eb169842aee605a7c50dea5bfb01a96b929cb9",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   },
   {
@@ -76,7 +76,7 @@
     "sha256": "60acf8328727cb034d3b82f019e2d23919f8d636a325a6f6a163d185ee2f1737",
     "qa": {
       "local": "PASS: changed reading, vocab fronts/backs, quiz, matching, model answers; print source pages, worksheets and parent note; recap scenes inspected",
-      "live": "pending"
+      "live": "PASS: byte-exact published files; representative live reading and recap pixels inspected 2026-11-24 16:13 Asia/Dubai"
     }
   }
 ]
