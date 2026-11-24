@@ -49,3 +49,6 @@ T1 L07 malformed mountain-definition word corrected to slope/steepness across fi
 
 ## AR T1 L01 Earth, 2026-11-24 06:25 Dubai
 Qualified the life-bearing-planet statement as the only known planet with life, not proof of absence elsewhere. Changed the opening question to conditions suitable for life. Synchronized five HTML resources and visibly labelled the adapted source passage. NASA Earth Facts, fetched and read 06:24: https://science.nasa.gov/earth/facts/ . Six fronts, one answer popup and seven print pages passed local pixel inspection. Media references match the prior committed versions exactly. Live QA is recorded separately.
+
+## AR T1 L20, Zayed the First, 2026-11-24 06:27 Dubai
+Removed internally conflicting birth/accession-age assertions rather than guessing a birth year. Retained the verified reign 1855–1909. Replaced the worksheet age blank with the end-of-reign year and synchronized the answer key, models, summaries and adapted passage. Five HTML resources; four fronts, one popup and seven print pages passed local pixel inspection. Original media unchanged. Official DMT source fetched and read 06:25: https://pages.dmt.gov.ae/en/founding-uae/founding-uae-listing-section/zayed-the-first . This source supports the reign dates, not an exact birth year or accession age.
