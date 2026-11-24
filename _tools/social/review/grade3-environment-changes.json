@@ -7,7 +7,7 @@
       "model"
     ],
     "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified",
     "media_reference_check": "PASS"
   },
   {
@@ -16,7 +16,7 @@
       0
     ],
     "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified",
     "media_reference_check": "PASS"
   },
   {
@@ -27,7 +27,7 @@
       "models"
     ],
     "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified",
     "media_reference_check": "PASS"
   },
   {
@@ -36,7 +36,7 @@
       0
     ],
     "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified",
     "media_reference_check": "PASS"
   },
   {
@@ -45,7 +45,7 @@
       0
     ],
     "local_qa": "PASS inspected six slides and three print pages; complete reading text and visible qualification checked",
-    "live_qa": "pending",
+    "live_qa": "PASS 2026-11-24 04:01 Asia/Dubai; live pixels and byte-exact HTML verified",
     "media_reference_check": "PASS"
   }
 ]
