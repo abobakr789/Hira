@@ -1,0 +1,59 @@
+{
+  "scope": "SS10 NN lesson13 history dating and volcanic deposits",
+  "review_date": "2026-11-24",
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L13/sources-concept-card.html",
+      "text_nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L13/worksheets-A4.html",
+      "text_nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L13/teacher-deck.html",
+      "text_nodes": 7
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.arch.ox.ac.uk/oxford-radiocarbon-accelerator-unit",
+      "supports": "Radiocarbon applies to suitable organic material, approximately 50000-year limit."
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/829/",
+      "supports": "Detailed property description identifies ash/lapilli and pyroclastic material, not lava."
+    },
+    {
+      "url": "https://pompeiisites.org/en/comunicati/new-victims-from-pompeii-emerge-from-the-excavation-of-the-house-of-the-chaste-lovers",
+      "supports": "Pumice fall and pyroclastic flow evidence."
+    },
+    {
+      "url": "https://kids.britannica.com/scholars/article/philology/59722",
+      "supports": "Historical study of languages and literary texts."
+    },
+    {
+      "url": "https://www.nps.gov/subjects/fossilday/faq.htm",
+      "supports": "Fossils include remains and traces; archaeology/palaeontology distinction."
+    }
+  ],
+  "qa": "Passed local actual-pixel checks of corrected core readings, vocabulary, true/false, worksheet levels1/2 and two-page source/concept card; live verification pending.",
+  "dependencies": [
+    [
+      "resources/ssd/SS-Y10-NN-T1-L13/answer-key.html",
+      3
+    ],
+    [
+      "resources/ssd/SS-Y10-NN-T1-L13/sources-concept-card.html",
+      3
+    ],
+    [
+      "resources/ssd/SS-Y10-NN-T1-L13/worksheets-A4.html",
+      3
+    ],
+    [
+      "resources/ssd/SS-Y10-NN-T1-L13/teacher-deck.html",
+      10
+    ]
+  ]
+}
