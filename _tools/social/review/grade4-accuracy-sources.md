@@ -113,3 +113,8 @@ All pages fetched and read 08:01–08:02 Dubai. Corrections synchronized in read
 - National Wildlife Federation, reptiles: https://www.nwf.org/Educational-Resources/Wildlife-Guide/Reptiles . Replaced the belly-crawling definition with vertebrates having dry scaly skin, using lizard and snake examples. Synchronized vocabulary, matching, worksheet and answer key.
 - Stanford Encyclopedia of Philosophy, Arabic/Islamic influence on the Latin West: https://plato.stanford.edu/entries/arabic-islamic-influence/ . Changed an exclusive-sounding basis-of-European-scientific-renaissance claim to contribution, in the learning slide and concept card. The original book passage is unchanged.
 - Water journal study, 2016: https://www.mdpi.com/2073-4441/8/9/415 . The lesson dates the count of 130 dams/barriers to 2015; propagated that date into the derived model answer and quiz question, retained the historical count rather than suggesting a current statistic.
+
+## 2026-11-24 08:23 image-identity check
+T1 L21: removed the later Sheikh Zayed bin Sultan portrait from the section about Sheikh Zayed the First, keeping original asset and other lesson references. Al Bayan supports the 1906 Khawaneej account; Khaleej Times discusses a different 1905 meeting, so these should not be silently conflated. Original lesson date retained.
+- https://www.albayan.ae/uae/golden-jubilee/patriotism/2021-12-01-1.4310939
+- https://www.khaleejtimes.com/uae/from-challenges-to-union

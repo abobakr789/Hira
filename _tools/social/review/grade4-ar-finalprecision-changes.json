@@ -6,7 +6,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L04/teacher-deck.html",
@@ -15,7 +15,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L14/sources-concept-card.html",
@@ -24,7 +24,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
   },
   {
     "file": "resources/ssd/SS-Y4-T2-L14/teacher-deck.html",
@@ -33,7 +33,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L16/teacher-deck.html",
@@ -42,6 +42,6 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:22 Dubai; byte-exact live HTML, every listed front and print page visually inspected; matching popup also checked for reptile definition."
   }
 ]

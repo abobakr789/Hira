@@ -1,0 +1,65 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L21/teacher-deck.html",
+    "views": [
+      "learn1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:23 Dubai; all seven final changed fronts visually inspected. Original assets retained; mismatched images removed from affected section only.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L02/teacher-deck.html",
+    "views": [
+      "guide"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:23 Dubai; all seven final changed fronts visually inspected. Original assets retained; mismatched images removed from affected section only.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L18/teacher-deck.html",
+    "views": [
+      "learn3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:23 Dubai; all seven final changed fronts visually inspected. Original assets retained; mismatched images removed from affected section only.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L17/teacher-deck.html",
+    "views": [
+      "learn1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:23 Dubai; all seven final changed fronts visually inspected. Original assets retained; mismatched images removed from affected section only.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L03/teacher-deck.html",
+    "views": [
+      "learn2"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:23 Dubai; all seven final changed fronts visually inspected. Original assets retained; mismatched images removed from affected section only.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L09/teacher-deck.html",
+    "views": [
+      "learn4"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:23 Dubai; all seven final changed fronts visually inspected. Original assets retained; mismatched images removed from affected section only.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L09/teacher-deck.html",
+    "views": [
+      "learn3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:23 Dubai; all seven final changed fronts visually inspected. Original assets retained; mismatched images removed from affected section only.",
+    "live_qa": "pending"
+  }
+]
