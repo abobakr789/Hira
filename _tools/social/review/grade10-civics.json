@@ -1,0 +1,140 @@
+{
+  "scope": "Arabic term1 federalism: researched corrections and historical-context labels",
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y10-T1-L12/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L12/sources-concept-card.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L12/worksheets-A4.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L12/teacher-deck.html",
+      "nodes": 10
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L13/answer-key.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L13/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L13/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L13/teacher-deck.html",
+      "nodes": 9
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L14/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L14/teacher-deck.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L15/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L15/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L16/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L16/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L16/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L16/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L17/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L17/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L19/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L19/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L19/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L19/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L20/sources-concept-card.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L20/worksheets-A4.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L20/teacher-deck.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L21/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L21/sources-concept-card.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L21/worksheets-A4.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L21/teacher-deck.html",
+      "nodes": 7
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L22/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L22/teacher-deck.html",
+      "nodes": 2
+    }
+  ],
+  "qa": "Local actual pixels passed for six core slides, dependent quick questions, T/F statements, vocabulary fronts and four print pages. Broad replacements found in option cells were rewritten as compact questions, with keys and T/F mechanics reconciled. Original media unchanged. Live pending.",
+  "sources": [
+    "https://www.uaelegislation.gov.ae/en/constitution",
+    "https://u.ae/en/about-the-uae/the-uae-government/the-federal-national-council-/",
+    "https://u.ae/en/about-the-uae/the-uae-government/the-president-and-his-deputy",
+    "https://uaeaa.gov.ae/ar/mediahub/news/Pages/N19122023.aspx",
+    "https://www.wam.ae/en/article/c1y1au1-lubna-qasimi-highlights-key-milestones-from-her",
+    "https://www.swissinfo.ch/eng/swiss-politics/cantons-and-municipalities/29289028",
+    "https://www.qdl.qa/en/historical-profile-qatar",
+    "https://plato.stanford.edu/ENTRIES/world-government/"
+  ]
+}
