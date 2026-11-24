@@ -1,0 +1,15 @@
+{
+  "files": [
+    "resources/ssd/SS-Y9-NN-T1-L01/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L01/worksheets-A4.html",
+    "resources/ssd/SS-Y9-NN-T1-L01/teacher-deck.html",
+    "resources/ssd/SS-Y9-NN-T1-L02/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L02/teacher-deck.html",
+    "resources/ssd/SS-Y9-NN-T1-L03/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L03/teacher-deck.html",
+    "resources/ssd/SS-Y9-NN-T1-L04/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L04/teacher-deck.html"
+  ],
+  "qa": "local slide and print actual pixels PASS, live pending",
+  "media": "unchanged"
+}
