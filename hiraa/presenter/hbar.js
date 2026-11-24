@@ -4,7 +4,7 @@
    لا يعدّل ملف العرض نفسه: يستدعي أزراره القديمة ودوالّه (show، next، prev) كما هي. */
 (function () {
   "use strict";
-  var D = document, W = window;
+  var D = document, W = window, SELF = (D.currentScript && D.currentScript.src) || "";
   if (W.__hbar) return; W.__hbar = 1;
   var $ = function (id) { return D.getElementById(id); };
   var tb = $("tb"), stage = $("stage"), wrap = $("wrap");
@@ -56,6 +56,7 @@
     rec: "M12 19a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
     cup: "M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3",
     sup: "M12 6.5a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5zM5 8.5l7 1.5 7-1.5M12 10v4.5M8.5 21l3.5-6.5 3.5 6.5",
+    dock: "M3 15h18v5H3zM7 17.5h.01M12 17.5h.01M17 17.5h.01M12 4v7M9 8l3 3 3-3",
     pdf: "M12 3v12M7 10l5 5 5-5M5 21h14",
     pv: "M2 4h13v10H2zM17 7h5v8h-5zM5 18h7M8.5 14v4",
     phone: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2",
@@ -207,6 +208,11 @@
     "#hbLCurt.on{display:block}",
     "#hbLCurt .hb-cv{position:absolute;left:0;right:0;bottom:0;background:#102A4C;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 26px),linear-gradient(180deg,#17325A,#0B1C33);box-shadow:0 -10px 30px rgba(0,0,0,.35)}",
     "#hbLCurt .hb-ch{position:absolute;left:50%;top:14px;transform:translateX(-50%);height:44px;padding:0 18px;border-radius:22px;background:#D4AA55;color:#1B1405;display:flex;align-items:center;gap:8px;font:700 16px 'Thmanyah Text',Tahoma,sans-serif;cursor:ns-resize;box-shadow:0 6px 18px rgba(0,0,0,.35);user-select:none;touch-action:none;white-space:nowrap}",
+    "#hbDock{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:13;display:none;align-items:center;gap:6px;padding:6px;background:rgba(15,35,64,.92);border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.35);touch-action:none}#hbDock.on{display:flex}",
+    "#hbDock button{width:58px;height:58px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:#E9EEF5;display:grid;place-items:center;cursor:pointer}#hbDock button svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}#hbDock button.on{background:#D4AA55;color:#1B1405}#hbDock .hbd-nav{background:#D4AA55;color:#1B1405;width:66px;height:66px}#hbDock .hbd-nav svg{width:34px;height:34px}#hbDock i{width:1px;height:34px;background:rgba(255,255,255,.18)}#hbDock .hb-flip svg,#hbDock svg.hb-flip{transform:scaleX(-1)}",
+    "@media (pointer:coarse){#tb.hb .hb-r1{height:62px}#tb.hb .hb-r2{height:56px}#tb.hb button.hb-b{min-width:46px;min-height:44px}#tb.hb button.hb-b svg{width:24px;height:24px}.hb-pop button,.hb-pop .hb-btn{min-height:44px}}",
+    ".hb-dockon #hbHint{bottom:104px}.hb-dockon #hbScore,.hb-dockon #hbNoise{bottom:100px}",
+    ".hb-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}",
     "#hbHint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);opacity:0;background:#0F2340;color:#fff;font:15px 'Thmanyah Text',Tahoma,sans-serif;padding:8px 16px;border-radius:12px;z-index:45;pointer-events:none;transition:opacity .25s,transform .25s;box-shadow:0 8px 24px rgba(0,0,0,.35)}",
     "#hbHint.on{opacity:1;transform:translateX(-50%)}",
     "#hbZone{position:fixed;left:0;right:0;top:0;height:14px;z-index:19;display:none}",
@@ -264,7 +270,7 @@
     B("hbUndo", "undo", T("تراجع (Ctrl+Z)", "Undo (Ctrl+Z)")) + B("hbClr", "trash", T("مسح كتابة الشريحة", "Clear this slide's ink")) + B("hbSave", "pdf", T("حفظ الشرح: كتابتك على الشرائح PDF", "Save your annotated slides as PDF")) + "</div>" +
     '<span class="hb-sep"></span>' +
     '<div class="hb-g">' + B("hbSup", "sup", T("دعم القراءة: اقرأ لي، والتشكيل، ومسطرة القراءة", "Reading support: read aloud, vowel marks, reading ruler")) + B("hbSpot", "spot", T("الكشّاف: يُظلم كل شيء إلا ما تشير إليه (S)", "Spotlight (S)")) + B("hbCurt", "curtain", T("الستارة: اكشف الشريحة تدريجيًّا", "Curtain reveal")) +
-    B("hbBoard", "board", T("سبورة بيضاء (W)", "Whiteboard (W)")) + B("hbBlack", "moon", T("شاشة سوداء (B)", "Black screen (B)")) + B("hbKeys", "keys", T("اختصارات لوحة المفاتيح", "Keyboard shortcuts")) + "</div>" +
+    B("hbBoard", "board", T("سبورة بيضاء (W)", "Whiteboard (W)")) + B("hbBlack", "moon", T("شاشة سوداء (B)", "Black screen (B)")) + B("hbDockT", "dock", T("شريط السبورة السفلي: للسبورة الذكية واللمس", "Bottom board bar: for smart boards and touch")) + B("hbKeys", "keys", T("اختصارات لوحة المفاتيح", "Keyboard shortcuts")) + "</div>" +
     '<div class="hb-pbar"><div class="hb-prog" id="hbProg"></div></div>';
   tb.classList.add("hb"); tb.appendChild(r1); tb.appendChild(r2);
   r2.querySelector(".hb-pbar").style.display = "block";
@@ -584,13 +590,53 @@
       '<label class="hb-ck"><input type="radio" name="hbSv" value="all"' + (ks.length ? "" : " checked") + "> " + T("كل الشرائح مع كتابتي", "All slides with my annotations") + "</label>" +
       '<label class="hb-ck"><input type="checkbox" id="hbSvN"> ' + T("أضف ملاحظات المعلم تحت كل شريحة", "Add teacher notes under each slide") + "</label>" +
       '<button type="button" class="hb-btn pri" id="hbSvGo" style="width:100%;margin:10px 0 12px">' + T("📄 حفظ PDF", "📄 Save PDF") + "</button>" +
+      '<div style="border-top:1px solid rgba(16,42,76,.12);padding:10px 0"><div style="font-weight:800;margin-bottom:4px">📴 ' + T("العمل دون إنترنت", "Work offline") + '</div><p class="hb-muted" style="margin:0 0 8px;font-size:12.5px" id="hbOffS">' + offState() + '</p><div class="hb-row"><button type="button" class="hb-btn" id="hbOff">' + (offSaved() ? "↻ " + T("حدّث النسخة المحفوظة", "Update the saved copy") : "⬇ " + T("احفظ هذا العرض على الجهاز", "Save this deck on this device")) + '</button>' + (W.top !== W ? '<button type="button" class="hb-btn" id="hbOffL">📂 ' + T("عروضي المحفوظة", "My saved decks") + "</button>" : "") + "</div></div>" +
       '<div style="border-top:1px solid rgba(16,42,76,.12);padding-top:10px"><label class="hb-ck"><input type="checkbox" id="hbKeep"' + (KEEP ? " checked" : "") + "> " + T("احتفظ بكتابتي على هذا الجهاز للحصة القادمة", "Keep my annotations on this device for next time") + "</label>" +
       '<p class="hb-muted" style="margin:4px 0 0;font-size:12.5px">' + T("دون هذا الخيار تُمحى الكتابة حين تغلق المتصفح، فيبدأ كل صف بعرض نظيف.", "Without it, annotations clear when the browser closes, so each class starts clean.") + "</p>" +
       (ks.length ? '<button type="button" class="hb-btn" id="hbClrAll" style="margin-top:8px;color:#B42318">🗑 ' + T("امسح كتابتي من كل الشرائح", "Clear annotations on all slides") + "</button>" : "") + "</div>";
     $("hbSvGo").onclick = function () { var m = (savePop.querySelector("[name=hbSv]:checked") || {}).value || "all"; exportPdf(m, $("hbSvN").checked); closePops(); };
+    $("hbOff").onclick = saveOffline;
+    var ol = $("hbOffL"); if (ol) ol.onclick = function () { try { W.top.location.hash = "#/offline"; } catch (e) {} };
     $("hbKeep").onchange = function () { KEEP = this.checked; LS.set("hb-keep-" + DECK, KEEP ? "1" : ""); if (KEEP) LS.set("hb-ink-" + DECK, JSON.stringify(INK)); else try { localStorage.removeItem("hb-ink-" + DECK); } catch (e) {}
       say(KEEP ? T("ستبقى كتابتك محفوظة على هذا الجهاز", "Annotations will be kept on this device") : T("ستُمحى الكتابة عند إغلاق المتصفح", "Annotations clear when the browser closes")); };
     var ca = $("hbClrAll"); if (ca) ca.onclick = function () { if (!confirm(T("مسح كل ما كتبته على الشرائح والسبورة؟", "Clear all annotations?"))) return; INK = {}; saveInk(); redraw(); paintSave(); say(T("مُسحت الكتابة كلها", "All annotations cleared")); };
+  }
+  /* حفظ العرض للعمل دون إنترنت: الملف وصوره وخطوطه وأنماطه في ذاكرة المتصفح الدائمة */
+  var DECK_URL = location.href.split("#")[0].split("?")[0];
+  var offList = function () { try { return JSON.parse(localStorage.getItem("hira-offline-decks") || "[]") || []; } catch (e) { return []; } };
+  var offSaved = function () { return offList().filter(function (d) { return d.url === DECK_URL; })[0] || null; };
+  var offState = function () { var d = offSaved(); if (!W.caches) return T("المتصفح لا يدعم الحفظ دون إنترنت.", "This browser can't save for offline use."); return d ? "✅ " + T("محفوظ على هذا الجهاز", "Saved on this device") + " · " + new Date(d.at).toLocaleDateString(EN ? "en-GB" : "ar-AE") + " · " + (d.size / 1048576).toFixed(1) + " MB" : T("احفظه قبل الحصة، فيُفتح ويعمل بأدواته حتى لو انقطع الإنترنت في الصف.", "Save it before class and it opens with all its tools even if the internet drops."); };
+  function offUrls() {
+    var U = {}, add = function (u) { if (!u || /^(data|blob|javascript):/i.test(u)) return; try { var a = new URL(u, location.href); if (/\.(mp4|webm|mov|pdf)$/i.test(a.pathname)) return; if (a.origin !== location.origin && !/fonts\.(googleapis|gstatic)\.com$|cdnjs\.cloudflare\.com$|cdn\.jsdelivr\.net$/.test(a.hostname)) return; a.hash = ""; U[a.href] = 1; } catch (e) {} };
+    add(DECK_URL); add(SELF);
+    D.querySelectorAll("img[src],source[src],audio[src],script[src],link[rel~=stylesheet][href],link[rel~=icon][href],video[poster]").forEach(function (e) { add(e.getAttribute("src") || e.getAttribute("href") || e.getAttribute("poster")); });
+    D.querySelectorAll("[srcset]").forEach(function (e) { e.getAttribute("srcset").split(",").forEach(function (x) { add(x.trim().split(/\s+/)[0]); }); });
+    var css = [].map.call(D.querySelectorAll("style"), function (x) { return x.textContent; }).join("\n") + [].map.call(D.querySelectorAll("[style]"), function (x) { return x.getAttribute("style"); }).join("\n");
+    (css.match(/url\(\s*['"]?[^'")]+/g) || []).forEach(function (m) { add(m.replace(/^url\(\s*['"]?/, "")); });
+    return Object.keys(U);
+  }
+  function saveOffline() {
+    if (!W.caches) return;
+    var b = $("hbOff"), st = $("hbOffS"), L = offUrls(), done = 0, size = 0, fail = 0;
+    b.disabled = true;
+    caches.open("hira-decks").then(function (c) {
+      var q = L.slice(), worker = function () {
+        var u = q.shift(); if (!u) return Promise.resolve();
+        var same = u.indexOf(location.origin) === 0;
+        return fetch(u, same ? { cache: "no-cache" } : { mode: "no-cors" }).then(function (r) {
+          if (!(r.ok || r.type === "opaque")) { fail++; return; }
+          return r.clone().blob().then(function (bl) { size += bl.size; return c.put(same ? u.split("?")[0] : u, r); });
+        }).catch(function () { fail++; }).then(function () { done++; st.textContent = "⏳ " + T("جارٍ الحفظ… ", "Saving… ") + done + " / " + L.length; return worker(); });
+      };
+      return Promise.all([worker(), worker(), worker(), worker()]);
+    }).then(function () {
+      var list = offList().filter(function (d) { return d.url !== DECK_URL; });
+      var src = DECK_URL.replace(location.origin, "").replace(/^\/[^/]+\/(?=resources\/)/, "");
+      list.unshift({ url: DECK_URL, src: src, title: title, at: Date.now(), size: size, n: L.length, lang: EN ? "en" : "ar" });
+      try { localStorage.setItem("hira-offline-decks", JSON.stringify(list.slice(0, 60))); } catch (e) {}
+      b.disabled = false; paintSave();
+      say(fail ? T("حُفظ العرض، وتعذّر ", "Saved; ") + fail + T(" ملفًّا", " file(s) failed") : T("✅ حُفظ العرض على هذا الجهاز", "✅ Deck saved on this device"));
+    });
   }
   function inkPng(k) {
     var L = INK[k] || []; if (!L.length) return "";
@@ -1586,6 +1632,48 @@
   [["pP", "hbPg"], ["pT", "hbT"], ["pS", "hbS"]].forEach(function (m) { var p = $(m[0]); if (!p || !$(m[1])) return;
     new MutationObserver(function () { if (p.style.display !== "block" || p._hbA) return; p._hbA = 1; anchor(p, $(m[1])); setTimeout(function () { p._hbA = 0; }, 0); }).observe(p, { attributes: true, attributeFilter: ["style"] }); });
   $("hbZo").disabled = true;
+
+  /* ---------- السبورة الذكية واللمس: شريط سفلي قريب من يد المعلم، والسحب للتنقّل، والقلم الرقمي ---------- */
+  (function () {
+    var dock = mk("div", "hbDock"); dock.setAttribute("role", "toolbar"); dock.setAttribute("aria-label", T("أدوات السبورة", "Board tools")); stop(dock);
+    var DB = function (id, icon, tip, cls, flip) { return '<button type="button" id="' + id + '" class="' + (cls || "") + '" aria-label="' + tip + '" title="' + tip + '">' + ic(icon, flip) + "</button>"; };
+    dock.innerHTML = DB("hdPrev", "prev", T("السابق", "Previous"), "hbd-nav", RTL) + "<i></i>" + DB("hdPen", "pen", T("قلم", "Pen")) + DB("hdHl", "hl", T("قلم تظليل", "Highlighter")) + DB("hdEr", "eraser", T("ممحاة", "Eraser")) + DB("hdUndo", "undo", T("تراجع", "Undo")) + DB("hdOff", "close", T("إنهاء الكتابة", "Stop drawing")) + "<i></i>" + DB("hdNext", "next", T("التالي", "Next"), "hbd-nav", RTL);
+    var sync = function () { [["hdPen", "hbTpen"], ["hdHl", "hbThl"], ["hdEr", "hbTeraser"]].forEach(function (m) { $(m[0]).classList.toggle("on", $(m[1]).classList.contains("on")); }); };
+    $("hdPrev").onclick = function () { $("hbPrev").click(); }; $("hdNext").onclick = function () { $("hbNext").click(); };
+    $("hdPen").onclick = function () { $("hbTpen").click(); sync(); }; $("hdHl").onclick = function () { $("hbThl").click(); sync(); }; $("hdEr").onclick = function () { $("hbTeraser").click(); sync(); };
+    $("hdUndo").onclick = function () { $("hbUndo").click(); }; $("hdOff").onclick = function () { ["hbTpen", "hbThl", "hbTeraser", "hbTtext", "hbTlaser", "hbTpan", "hbSpot"].forEach(function (id) { var b = $(id); if (b && b.classList.contains("on")) b.click(); }); sync(); };
+    new MutationObserver(sync).observe(tb, { subtree: true, attributes: true, attributeFilter: ["class"] });
+    var coarse = W.matchMedia && W.matchMedia("(pointer: coarse)").matches;
+    var want = LS.get("hb-dock", coarse ? "1" : "") === "1";
+    var setDock = function (on) { want = on; LS.set("hb-dock", on ? "1" : ""); dock.classList.toggle("on", on); D.documentElement.classList.toggle("hb-dockon", on); var b = $("hbDockT"); if (b) b.classList.toggle("on", on); };
+    setDock(want);
+    W.__hbDock = setDock; W.__hbDockOn = function () { return want; };
+    /* السحب بالإصبع على الشريحة للتنقّل (حين لا تكون أداة كتابة مفعّلة) */
+    var sx = null;
+    wrap.addEventListener("pointerdown", function (e) { if (e.pointerType === "mouse") return; if (e.pointerType === "pen" && !$("hbTpen").classList.contains("on") && !$("hbThl").classList.contains("on") && !$("hbTeraser").classList.contains("on")) { $("hbTpen").click(); say(T("✏️ القلم جاهز: اكتب على الشريحة", "✏️ Pen ready: write on the slide")); return; } sx = { x: e.clientX, y: e.clientY, t: Date.now() }; }, true);
+    wrap.addEventListener("pointerup", function (e) {
+      if (!sx) return; var dx = e.clientX - sx.x, dy = e.clientY - sx.y, dt = Date.now() - sx.t; sx = null;
+      if (dt > 700 || Math.abs(dx) < 70 || Math.abs(dy) > Math.abs(dx) * 0.6) return;
+      var fwd = RTL ? dx > 0 : dx < 0; swallow = Date.now(); (fwd ? $("hbNext") : $("hbPrev")).click();
+    }, true);
+    var swallow = 0;
+    wrap.addEventListener("click", function (e) { if (e.isTrusted && Date.now() - swallow < 400) { e.stopPropagation(); e.stopImmediatePropagation(); e.preventDefault(); } }, true);
+    on("hbDockT", function () { setDock(!want); say(want ? T("ظهر شريط السبورة أسفل الشاشة", "Board bar shown at the bottom") : T("أُخفي شريط السبورة", "Board bar hidden")); });
+  })();
+
+  /* ---------- إمكانية الوصول: إعلان الشريحة، والحالة المضغوطة للأزرار، وأدوار اللوحات ---------- */
+  (function () {
+    tb.setAttribute("role", "toolbar"); tb.setAttribute("aria-label", T("شريط العرض", "Presenter toolbar"));
+    hint.setAttribute("role", "status"); hint.setAttribute("aria-live", "polite");
+    var ann = mk("div", "hbAnn"); ann.className = "hb-sr"; ann.setAttribute("aria-live", "polite");
+    var stt = function (k) { var s2 = SL[k]; return s2 ? ((s2.querySelector("h1,h2,h3") || {}).textContent || "").replace(/\s+/g, " ").trim() : ""; };
+    slideFx.push(function (k, ch) { if (ch) ann.textContent = T("الشريحة ", "Slide ") + (k + 1) + T(" من ", " of ") + N + (stt(k) ? ": " + stt(k) : ""); });
+    var TOG = ["hbTpan", "hbTlaser", "hbTpen", "hbThl", "hbTtext", "hbTeraser", "hbSpot", "hbCurt", "hbBoard", "hbBlack", "hbSup", "hbClass", "hbNo", "hbE"];
+    var aria = function () { TOG.forEach(function (id) { var b = $(id); if (b) b.setAttribute("aria-pressed", b.classList.contains("on") ? "true" : "false"); }); };
+    aria(); new MutationObserver(aria).observe(tb, { subtree: true, attributes: true, attributeFilter: ["class"] });
+    var dlg = function () { D.querySelectorAll(".hb-pop,#hbClassOv,#hbResP").forEach(function (p) { if (!p.getAttribute("role")) { p.setAttribute("role", "dialog"); var h = p.querySelector(".hb-h,.ct-h"); p.setAttribute("aria-label", h ? h.textContent.trim().slice(0, 60) : T("لوحة", "Panel")); } }); };
+    dlg(); setTimeout(dlg, 1500);
+  })();
 
   /* ---------- البدء ---------- */
   W.addEventListener("resize", function () { requestAnimationFrame(fit); });

@@ -3013,6 +3013,15 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .rm-msg{text-align:center;font-weight:700;font-size:.9rem;color:#FFD08A;background:rgba(240,150,46,.14);border-radius:12px;padding:8px}
 .rm.rm-blk .rm-now{background:#05080E}
 
+/* ===== العروض المحفوظة دون إنترنت (#/offline) ===== */
+.off-head h1{margin:0 0 6px;font-size:1.6rem}
+.off-list{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.off-item{display:flex;align-items:center;gap:10px;background:var(--paper,#fff);border:1px solid var(--line,#E3E8EF);border-radius:16px;padding:12px 16px}
+.off-item>div{flex:1;min-width:0;display:flex;flex-direction:column}
+.off-item b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.off-item small{color:#7A8698}
+#offChip{position:fixed;bottom:16px;inset-inline-start:16px;z-index:60;background:#102A4C;color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(16,42,76,.3)}
+
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
 .arc button { font: inherit; color: inherit; }
@@ -8912,7 +8921,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125h", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125i", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -16906,6 +16915,25 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (G.state !== "lobby") await onGame(G); else await loadP();
   }
   /* جهاز التحكم: جوال المعلم يقلّب شرائح العرض المفتوح على شاشة الصف، ويعرض ملاحظاته */
+  /* العروض المحفوظة للعمل دون إنترنت (تُحفظ من زر «حفظ» في شريط العرض) */
+  function pageOfflineDecks() {
+    let L = []; try { L = JSON.parse(localStorage.getItem("hira-offline-decks") || "[]") || []; } catch (e) {}
+    const on = navigator.onLine;
+    h(`<section class="wrap" style="padding-block:28px"><div class="off-head"><h1>📴 ${CT("عروضي المحفوظة على هذا الجهاز", "Decks saved on this device")}</h1><p class="muted">${on ? CT("تعمل هذه العروض حتى لو انقطع الإنترنت في الصف. احفظ أي عرض من زر «حفظ الشرح» في شريط العرض.", "These decks work even if the internet drops in class. Save any deck from the “Save” button in the presenter bar.") : CT("أنت الآن دون إنترنت: افتح أي عرض محفوظ وستعمل أدواته (الكتابة، المؤقت، القرعة، أدوات الصف). المشاركة المباشرة تحتاج الإنترنت.", "You're offline: open any saved deck and its tools work (ink, timer, pick, class tools). Live participation needs the internet.")}</p></div>
+      ${L.length ? `<div class="off-list">${L.map((d, i) => `<div class="off-item"><div><b>${esc(d.title || d.src)}</b><small>${new Date(d.at).toLocaleDateString(LANG === "en" ? "en-GB" : "ar-AE")} · ${((d.size || 0) / 1048576).toFixed(1)} MB</small></div><button class="btn btn-dawn" data-open="${i}">▶ ${CT("افتح العرض", "Open")}</button><button class="btn btn-ghost" data-del="${i}" aria-label="${CT("حذف", "Delete")}">🗑</button></div>`).join("")}</div>` : `<div class="form-card empty"><strong>${CT("لا عروض محفوظة بعد", "No saved decks yet")}</strong>${CT("افتح أي عرض للمعلم، ثم من زر «حفظ الشرح» ⬇ اختر «احفظ هذا العرض على الجهاز».", "Open any teacher deck, then in the ⬇ Save button choose “Save this deck on this device”.")}</div>`}</section>`);
+    document.querySelectorAll("[data-open]").forEach((b) => b.onclick = () => { const d = L[+b.dataset.open]; if (d) openIeDeck(d.src); });
+    document.querySelectorAll("[data-del]").forEach((b) => b.onclick = async () => { const d = L[+b.dataset.del]; if (!d || !confirm(CT("حذف هذا العرض من الجهاز؟", "Remove this deck from the device?"))) return;
+      try { const c = await caches.open("hira-decks"); await c.delete(d.url); } catch (e) {}
+      L = L.filter((x) => x !== d); try { localStorage.setItem("hira-offline-decks", JSON.stringify(L)); } catch (e) {} pageOfflineDecks(); });
+  }
+  (function offlineChip() {
+    const paint = () => { let c = document.getElementById("offChip"); const has = (() => { try { return (JSON.parse(localStorage.getItem("hira-offline-decks") || "[]") || []).length; } catch (e) { return 0; } })();
+      if (navigator.onLine || !has) { if (c) c.remove(); return; }
+      if (!c) { c = document.createElement("a"); c.id = "offChip"; c.href = "#/offline"; document.body.appendChild(c); }
+      c.textContent = "📴 " + CT("دون إنترنت · عروضك المحفوظة", "Offline · your saved decks"); };
+    window.addEventListener("online", paint); window.addEventListener("offline", paint); setTimeout(paint, 1500);
+  })();
+
   async function pageRemote(key) {
     liveStop();
     if (!/^[a-z0-9]{8,40}$/i.test(key)) { h(`<div class="wrap loading">${CT("رابط غير صالح", "Invalid link")}</div>`); return; }
@@ -21727,6 +21755,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "live" && parts[1] === "play") return pageLivePlay();
       if (p0 === "live" && parts[1] === "deck") return pageDeckPlay();
       if (p0 === "remote" && parts[1]) return pageRemote(parts[1]);
+      if (p0 === "offline") return pageOfflineDecks();
       if (p0 === "live") return pageLive(params);
       if (p0 === "achievements") return pageAchievements(params);
       if (p0 === "duel" && parts[1]) return pageDuel(parts[1]);

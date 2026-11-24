@@ -1,5 +1,6 @@
 /* Hira service worker: app shell offline, curriculum data cached for offline reading */
-const VERSION = "hira-v94";
+const VERSION = "hira-v95";
+const DECKS = "hira-decks"; // عروض المعلم المحفوظة للعمل دون إنترنت: لا تُحذف عند تحديث الإصدار
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 // only public curriculum tables are cached (never student data, resources or results)
 const CURRICULUM = /\/rest\/v1\/(units|lessons|learning_outcomes|lesson_outcomes|fw_domains|fw_axes|fw_standards|evidences|identity_tags|lesson_identity_links|success_criteria)\b/;
@@ -9,7 +10,7 @@ self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => Promise.allSettled(SHELL.map((u) => c.add(u)))).then(() => self.skipWaiting()));
 });
 self.addEventListener("activate", (e) => {
-  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== VERSION).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== VERSION && k !== DECKS).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 
 const networkFirst = async (req, key) => {
@@ -19,18 +20,31 @@ const networkFirst = async (req, key) => {
     if (res.ok) cache.put(key || req, res.clone());
     return res;
   } catch (err) {
-    const hit = await cache.match(key || req);
+    const hit = (await cache.match(key || req)) || (await caches.match(key || req, { ignoreSearch: true }));
     if (hit) return hit;
     throw err;
   }
 };
 const cacheFirst = async (req) => {
   const cache = await caches.open(VERSION);
-  const hit = await cache.match(req);
+  const hit = (await cache.match(req)) || (await caches.match(req));
   if (hit) return hit;
   const res = await fetch(req);
   if (res.ok || res.type === "opaque") cache.put(req, res.clone());
   return res;
+};
+
+// ملفات العروض: من الشبكة دائمًا، وإن انقطع الإنترنت فمن النسخة المحفوظة (ويُحدَّث المحفوظ منها تلقائيًّا)
+const deckFile = async (req) => {
+  try {
+    const res = await fetch(req);
+    if (res.ok) { const c = await caches.open(DECKS); if (await c.match(req, { ignoreSearch: true })) c.put(req.url.split("?")[0], res.clone()); }
+    return res;
+  } catch (err) {
+    const hit = await caches.match(req.url.split("?")[0], { ignoreSearch: true, cacheName: DECKS });
+    if (hit) return hit;
+    throw err;
+  }
 };
 
 self.addEventListener("fetch", (e) => {
@@ -38,6 +52,7 @@ self.addEventListener("fetch", (e) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   // only app-shell navigations use the cached index; files (resources/*.pdf) go straight to the network
+  if (url.origin === location.origin && (url.pathname.includes("/resources/") || url.pathname.includes("/hiraa/presenter/")) && !req.headers.has("range") && !/\.(mp4|webm|mov|pdf|m4a)$/i.test(url.pathname)) { e.respondWith(deckFile(req)); return; }
   if (url.origin === location.origin && (url.pathname.includes("/resources/") || url.pathname.includes("/art/madarij/audio/"))) return;
   if (req.mode === "navigate") { e.respondWith(networkFirst(req, "./index.html")); return; }
   if (url.origin === location.origin) { e.respondWith(networkFirst(req)); return; }
