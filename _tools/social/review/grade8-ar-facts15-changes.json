@@ -1,0 +1,9 @@
+{
+  "files": [
+    "resources/ssd/SS-Y8-T2-L2/teacher-deck.html",
+    "resources/ssd/SS-Y8-T3-L1/teacher-deck.html",
+    "resources/ssd/SS-Y8-T3-L3/teacher-deck.html"
+  ],
+  "qa": "local actual-pixel PASS, live pending",
+  "original_media": "unchanged"
+}
