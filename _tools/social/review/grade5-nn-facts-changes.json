@@ -1,0 +1,124 @@
+[
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L02/teacher-deck.html",
+    "views": [
+      "text5",
+      "uae"
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L02/sources-concept-card.html",
+    "views": [
+      1
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L02/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L05/teacher-deck.html",
+    "views": [
+      "text2"
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L05/sources-concept-card.html",
+    "views": [
+      1
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L05/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "text3"
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L08/sources-concept-card.html",
+    "views": [
+      1
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L08/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L08/worksheets-A4.html",
+    "views": [
+      1
+    ],
+    "reason": "Visible source-qualified factual correction while preserving quoted book text; synchronize printed answers with actual shuffled choices and worksheet statements.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L02/worksheets-A4.html",
+    "views": [
+      1
+    ],
+    "reason": "Supply landlord in word bank to match the sentence and answer key.",
+    "qa": {
+      "local": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+      "live": "PENDING"
+    }
+  }
+]
