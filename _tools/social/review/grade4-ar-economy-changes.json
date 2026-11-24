@@ -6,7 +6,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L02/teacher-deck.html",
@@ -15,7 +15,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L03/sources-concept-card.html",
@@ -24,7 +24,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L03/worksheets-A4.html",
@@ -33,7 +33,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L03/teacher-deck.html",
@@ -43,7 +43,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L06/answer-key.html",
@@ -52,7 +52,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L06/sources-concept-card.html",
@@ -61,7 +61,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L06/worksheets-A4.html",
@@ -70,7 +70,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L06/teacher-deck.html",
@@ -79,7 +79,7 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   },
   {
     "file": "resources/ssd/SS-Y4-T3-L06/pod-sheet.html",
@@ -88,6 +88,6 @@
     ],
     "popups": [],
     "local_qa": "PASS: 2026-11-24 06:38 Dubai. Four fronts and seven print pages individually inspected. Fixed blank answers in two silver worksheets and moved transport qualifier into main passage. Final rerenders passed. Media unchanged.",
-    "live_qa": "pending"
+    "live_qa": "PASS: 2026-11-24 06:45 Dubai. All HTML byte-exact live at 06:43; every changed front and print page individually inspected from live captures. Economy four fronts/seven prints; ancient two fronts/one print. No clipping or answer blank defects. Original media preserved."
   }
 ]

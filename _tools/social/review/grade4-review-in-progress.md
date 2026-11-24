@@ -63,3 +63,19 @@ Earth content 7eba3959 is live; five HTML resources byte-exact at 06:28. Six fro
 
 ## 2026-11-24 06:35 Dubai Zayed closure
 Zayed content 0e90cdbb live, all five HTML byte-exact 06:33. Four fronts, one popup, seven print pages individually passed live pixel QA. Removed inconsistent birth/age claims instead of choosing a speculative date. Retained verified reign 1855–1909. Three economy lessons under local review, not published.
+
+### Research continuation 2026-11-24 06:41 Dubai
+- Economy content d7c830a2 pushed 06:38; local QA four fronts and seven print pages PASS. Live still old at 06:41, latest Pages run is in progress. Ancient-example content add5e85d pushed 06:40; two fronts + one print local PASS. Do not call either closed until live matches and pixels pass.
+- T1 L02/L03: NOAA longitude and USNO time pages read again; 15 degrees/hour, not 15 arbitrary lines. Distinguish solar time from legal time zones. Longitude range 0 to 180 E/W; latitude 0 to 90 N/S. NASA archived page read, use only its coordinate geometry, not its outdated time-zone claims. Need synchronized change across slides, quizzes, worksheets and keys.
+- T2 L05 term remains unsupported after exact-match searches. Definition mentions an aperture collecting water; do not guess a replacement technical word. May instead use verified aflaj example, carefully synchronize matching vocab and answer popup.
+- T2 L10 Qibraa name remains unsupported, do not silently replace with a guessed name. Magan regional name supported by KSU study fetched 06:40: https://direct.ksu.edu.sa/entities/journalarticle/1d03edef-4775-4e53-a822-ee1f629da605 . Could retain verified example and remove unsupported additional name, label adaptation.
+- T2 L11 mafaariz remains unsupported as mountain passes; official Dibba tourism describes coast and mountains only. Safer replace unsupported vocabulary and passage fragment with explicit supported coastal/mountain feature, not a speculative OCR repair.
+- T2 L12: https://read.shamela.ws/narrator/6386 fetched, explicitly records disputed birth reports, including year of conquest or before. Exact 7 AH and Qadisiyyah participation are unsafe together. Prefer remove exact birth-year and unverified early battle, keep verified governorship. No depictions.
+- T3 L15: RSC alchemy page read again, history predates medieval Muslim scholars. Rewrite invention-from-nothing and Arabic-name claims as contribution/development in chemistry and physics. Need independent support for physics contribution; RSC alone supports chemistry only.
+
+- Physics support now fetched 06:41: https://www.unesco.org/en/articles/international-year-light-ibn-al-haytham-pioneer-modern-optics-celebrated-unesco and https://www.unesco.org/en/articles/sm-razaullah-ansari-ibn-al-haythams-scientific-method . Supports significant optics/physics advances and experimental methods, with prior ancient scholarship. Use contribution rather than sole invention or Arabic etymology.
+
+- Published ancient example source explicitly reread 06:40, https://abudhabiculture.ae/en/cultural-heritage/tangible/archaeology/umm-an-nar , Bronze Age settlement 2500–2000 BCE and overseas trade.
+- Latest run observed https://github.com/abobakr789/Hira/actions/runs/45314067839 for add5e85d in progress at 06:42. Earlier economy run https://github.com/abobakr789/Hira/actions/runs/45313810886 was superseded/cancelled by this newer run; not a content failure. Avoid pushing documentation until this deploy closes to avoid canceling it again.
+
+- Economy and ancient batches CLOSED LIVE 06:45. All 12 HTML byte-exact live 06:43; six fronts and eight print pages individually inspected PASS. Capture directories /tmp/ssy4economy-live0643 and print, /tmp/ssy4ancient-live0643 and print. Content commits d7c830a2, add5e85d.
