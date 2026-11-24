@@ -3030,3 +3030,5 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .dp-dcol .dp-w span{display:block;border-radius:50%;background:#1F2A3C}
 .dp-dcol .dp-w.on{border-color:var(--hira,#102A4C);background:#EEF3FA}
 .dp-dsvg{width:100%;max-width:320px;height:auto;border:1px solid var(--line,#E3E8EF);border-radius:12px;margin:0 auto;display:block}
+.dp-exit label{display:flex;flex-direction:column;gap:6px;text-align:start;font-weight:700}
+.dp-exit .dp-faces button.on{outline:3px solid var(--hira,#102A4C);outline-offset:2px}

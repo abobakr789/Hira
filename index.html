@@ -3048,6 +3048,8 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .dp-dcol .dp-w span{display:block;border-radius:50%;background:#1F2A3C}
 .dp-dcol .dp-w.on{border-color:var(--hira,#102A4C);background:#EEF3FA}
 .dp-dsvg{width:100%;max-width:320px;height:auto;border:1px solid var(--line,#E3E8EF);border-radius:12px;margin:0 auto;display:block}
+.dp-exit label{display:flex;flex-direction:column;gap:6px;text-align:start;font-weight:700}
+.dp-exit .dp-faces button.on{outline:3px solid var(--hira,#102A4C);outline-offset:2px}
 
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
@@ -8948,7 +8950,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125m", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125n", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -9040,7 +9042,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     panel.hidden = false; btn.setAttribute("aria-expanded", "true"); panel.innerHTML = '<p class="muted" style="padding:12px">…</p>';
     const { data } = await sb.from("notifications").select("*").eq("user_id", state.session.user.id).order("created_at", { ascending: false }).limit(25);
     const ago = (d) => { const m = Math.round((Date.now() - new Date(d)) / 60000); return m < 1 ? "الآن" : m < 60 ? `قبل ${m} د` : m < 1440 ? `قبل ${Math.round(m / 60)} س` : new Date(d).toLocaleDateString(LANG === "en" ? "en-GB" : "ar-AE", { day: "numeric", month: "short" }); };
-    const IC = { signup: "👤", payment: "💳", trial: "🎁", activated: "✅", lead: "🏫", access: "🔓" };
+    const IC = { signup: "👤", payment: "💳", trial: "🎁", activated: "✅", lead: "🏫", access: "🔓", support: "🤝" };
     panel.innerHTML = `<div class="bell-h"><strong>${LANG === "en" ? "Notifications" : "الإشعارات"}</strong>${(data || []).some((x) => !x.read_at) ? `<button class="linklike" id="bellAll">${LANG === "en" ? "Mark all read" : "تعليم الكل كمقروء"}</button>` : ""}</div>
       ${(data || []).map((x) => `<a class="bell-item ${x.read_at ? "" : "unread"}" href="${esc(x.link || "#/")}" data-nid="${x.id}"><span class="bi-ic">${IC[x.kind] || "🔔"}</span><span><b>${esc(x.title)}</b>${x.body ? `<small>${esc(x.body)}</small>` : ""}<em>${ago(x.created_at)}</em></span></a>`).join("") || `<p class="muted" style="padding:14px">${LANG === "en" ? "No notifications" : "لا إشعارات بعد"}</p>`}`;
     panel.querySelectorAll("[data-nid]").forEach((a) => a.onclick = () => { sb.from("notifications").update({ read_at: new Date().toISOString() }).eq("id", a.dataset.nid).then(refreshBell); panel.hidden = true; });
@@ -17059,6 +17061,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (q.t === "word") return esc(a.w || "");
       if (q.t === "scale") return FACES[(a.v || 1) - 1][0] + " " + FACES[(a.v || 1) - 1][1];
       if (q.t === "draw") return drawSvg(a.d);
+      if (q.t === "exit") return (FACES[(a.v || 1) - 1] || [""])[0] + " " + esc(a.w || "");
       if (q.t === "rate") return (a.r || []).map((v) => FACES[(v || 1) - 1][0]).join(" ");
       return "";
     };
@@ -17112,6 +17115,18 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         const w = document.getElementById("dpW"); setTimeout(() => w.focus(), 50);
         const go = () => { const v = w.value.trim(); if (v) send({ w: v }); };
         document.getElementById("dpS").onclick = go; w.onkeydown = (e) => { if (e.key === "Enter") go(); }; return; }
+      if (q.t === "exit") {
+        let v = a ? a.v || 0 : 0;
+        put(`<section class="dp">${head()}<div class="dp-card dp-exit"><div class="dp-big">🎟</div><h2>${CT("بطاقة الخروج", "Exit ticket")}</h2>
+          <label>1. ${CT("ما أهم شيء تعلّمته اليوم؟", "What's the most important thing you learned today?")}<input class="dp-in" id="dpEw" maxlength="80" value="${esc(a ? a.w || "" : "")}"></label>
+          <label>2. ${CT("كيف فهمك للدرس؟", "How well did you understand?")}</label><div class="dp-faces">${FACES.map((f, i) => `<button data-v="${i + 1}" style="--c:${f[2]}" class="${v === i + 1 ? "on" : ""}"><span>${f[0]}</span>${f[1]}</button>`).join("")}</div>
+          <label>3. ${CT("سؤال ما زال في ذهنك (اختياري)", "A question still on your mind (optional)")}<input class="dp-in" id="dpEk" maxlength="200" value="${esc(a ? a.k || "" : "")}"></label>
+          <button class="btn btn-dawn" id="dpS" ${v ? "" : "disabled"}>${CT("أرسل بطاقتي", "Send my ticket")}</button></div></section>`);
+        const ok = () => { document.getElementById("dpS").disabled = !(v && document.getElementById("dpEw").value.trim()); };
+        document.querySelectorAll(".dp-exit [data-v]").forEach((b) => b.onclick = () => { v = +b.dataset.v; document.querySelectorAll(".dp-exit [data-v]").forEach((x) => x.classList.toggle("on", x === b)); ok(); });
+        document.getElementById("dpEw").oninput = ok; ok();
+        document.getElementById("dpS").onclick = () => send({ w: document.getElementById("dpEw").value.trim(), v, k: document.getElementById("dpEk").value.trim() });
+        return; }
       if (q.t === "draw") {
         put(`<section class="dp">${head()}<div class="dp-card">${qt}<canvas id="dpCv" class="dp-cv" width="800" height="600" aria-label="${CT("لوحة الرسم", "Drawing pad")}"></canvas>
           <div class="dp-dcol">${DCOL.map((c, i) => `<button data-c="${i}" class="${i ? "" : "on"}" style="--c:${c}" aria-label="${c}"></button>`).join("")}<i></i>${[[3, "S"], [5, "M"], [10, "L"]].map(([w, l]) => `<button data-w="${w}" class="dp-w${w === 5 ? " on" : ""}" aria-label="${l}"><span style="width:${w + 2}px;height:${w + 2}px"></span></button>`).join("")}<i></i><button id="dpUndo" aria-label="${CT("تراجع", "Undo")}">↶</button><button id="dpClr" aria-label="${CT("امسح", "Clear")}">🗑</button></div>
