@@ -54,3 +54,6 @@ Next: audit text/media diff, add concise correction source notes if useful, fetc
 
 ## 2026-11-24 06:18 Dubai history closure
 History/civics content 27b326a7 deployed successfully, action 45310537330. All 11 HTML files verified byte-exact live. Five fronts, one popup and seven print pages inspected live PASS at 06:16. Original media retained with accurate museum caption. Batch closure only; grade 4 review continues.
+
+## 2026-11-24 06:24 Dubai vocabulary closure
+Vocabulary content f58b606c deployed successfully, action 45311365701. All 11 HTML files byte-exact live. Nine fronts, three popups and nine print pages inspected live PASS. Synchronized mountain definition and teak spelling/material distinction. Original media retained. Grade 4 remains in progress.
