@@ -3020,3 +3020,13 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .dp-tm i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#2E9E5B,#E0A100,#D64545);transform-origin:right;animation:dpTm var(--t) linear forwards}
 [dir=ltr] .dp-tm i{transform-origin:left}
 @keyframes dpTm{to{transform:scaleX(0)}}
+/* «ارسم إجابتك» على جهاز الطالب */
+.dp-cv{width:100%;aspect-ratio:4/3;height:auto;border:2px solid var(--line,#E3E8EF);border-radius:16px;background:#fff;touch-action:none;cursor:crosshair}
+.dp-dcol{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px}
+.dp-dcol i{width:1px;height:26px;background:var(--line,#E3E8EF)}
+.dp-dcol [data-c]{width:32px;height:32px;border-radius:50%;border:3px solid #fff;background:var(--c);box-shadow:0 0 0 1.5px var(--line,#CBD5E1);cursor:pointer}
+.dp-dcol [data-c].on{box-shadow:0 0 0 3px var(--hira,#102A4C)}
+.dp-dcol .dp-w,.dp-dcol #dpUndo,.dp-dcol #dpClr{width:38px;height:38px;border-radius:12px;border:1.5px solid var(--line,#CBD5E1);background:var(--paper,#fff);display:grid;place-items:center;font-size:18px;cursor:pointer}
+.dp-dcol .dp-w span{display:block;border-radius:50%;background:#1F2A3C}
+.dp-dcol .dp-w.on{border-color:var(--hira,#102A4C);background:#EEF3FA}
+.dp-dsvg{width:100%;max-width:320px;height:auto;border:1px solid var(--line,#E3E8EF);border-radius:12px;margin:0 auto;display:block}

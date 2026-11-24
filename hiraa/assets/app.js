@@ -2406,7 +2406,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125l", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125m", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -10489,11 +10489,34 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       if (error) { toast(/closed/.test(error.message) ? CT("أغلق المعلم السؤال", "The teacher closed the question") : error.message); return false; }
       mine[L.q_seq] = ans; editing = false; render(true); return true;
     };
+    /* «ارسم إجابتك»: لوحة 400×300 تُرسل خطوطًا مختصرة [لون، سُمك، "x,y x,y"] */
+    const DCOL = ["#1F2A3C", "#E53B3B", "#1F6FD1", "#2E9E6A", "#E0A100", "#8A3FFC"];
+    const drawSvg = (d) => `<svg class="dp-dsvg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#fff"/>${(Array.isArray(d) ? d : []).map((st) => Array.isArray(st) && typeof st[2] === "string" && /^[\d ,]*$/.test(st[2]) ? `<polyline points="${st[2].trim().indexOf(" ") < 0 && st[2].trim() ? st[2].trim() + " " + st[2].trim() : st[2]}" fill="none" stroke="${DCOL[(st[0] | 0) % 6]}" stroke-width="${Math.max(1, Math.min(24, st[1] | 0))}" stroke-linecap="round" stroke-linejoin="round"/>` : "").join("")}</svg>`;
+    const drawPad = (prev) => {
+      const cv = document.getElementById("dpCv"), ctx = cv.getContext("2d"); let strokes = (prev && Array.isArray(prev.d) ? prev.d : []).map((s) => ({ c: s[0] | 0, w: s[1] | 0, p: String(s[2] || "").split(" ").filter(Boolean).map((x) => x.split(",").map(Number)) })), cur = null, col = 0, wid = 5;
+      const paint = () => { ctx.setTransform(2, 0, 0, 2, 0, 0); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, 400, 300); strokes.concat(cur ? [cur] : []).forEach((s) => { if (!s.p.length) return; ctx.strokeStyle = DCOL[s.c]; ctx.lineWidth = s.w; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.beginPath(); ctx.moveTo(s.p[0][0], s.p[0][1]); s.p.forEach((pt) => ctx.lineTo(pt[0], pt[1])); if (s.p.length === 1) ctx.lineTo(s.p[0][0] + 0.1, s.p[0][1]); ctx.stroke(); }); document.getElementById("dpS").disabled = !strokes.length; };
+      const pos = (e) => { const r = cv.getBoundingClientRect(); return [Math.round(Math.max(0, Math.min(400, (e.clientX - r.left) / r.width * 400))), Math.round(Math.max(0, Math.min(300, (e.clientY - r.top) / r.height * 300)))]; };
+      cv.onpointerdown = (e) => { e.preventDefault(); cv.setPointerCapture(e.pointerId); cur = { c: col, w: wid, p: [pos(e)] }; paint(); };
+      cv.onpointermove = (e) => { if (!cur) return; const pt = pos(e), l = cur.p[cur.p.length - 1]; if (Math.hypot(pt[0] - l[0], pt[1] - l[1]) >= 2) { cur.p.push(pt); paint(); } };
+      cv.onpointerup = cv.onpointercancel = () => { if (cur) { strokes.push(cur); cur = null; paint(); } };
+      document.querySelectorAll(".dp-dcol [data-c]").forEach((b) => b.onclick = () => { col = +b.dataset.c; document.querySelectorAll(".dp-dcol [data-c]").forEach((x) => x.classList.toggle("on", x === b)); });
+      document.querySelectorAll(".dp-dcol [data-w]").forEach((b) => b.onclick = () => { wid = +b.dataset.w; document.querySelectorAll(".dp-dcol [data-w]").forEach((x) => x.classList.toggle("on", x === b)); });
+      document.getElementById("dpUndo").onclick = () => { strokes.pop(); paint(); };
+      document.getElementById("dpClr").onclick = () => { strokes = []; paint(); };
+      document.getElementById("dpS").onclick = () => {
+        let out = strokes.map((s) => [s.c, s.w, s.p.map((pt) => pt.join(",")).join(" ")]), j = JSON.stringify(out);
+        while (j.length > 22000 && out.some((s) => s[2].split(" ").length > 4)) { out = out.map((s) => { const P = s[2].split(" "); return [s[0], s[1], P.filter((_, i) => i % 2 === 0 || i === P.length - 1).join(" ")]; }); j = JSON.stringify(out); }
+        if (j.length > 22000) { toast(CT("الرسم كبير جدًّا، امسح جزءًا منه", "The drawing is too big; erase some of it")); return; }
+        send({ d: out });
+      };
+      paint();
+    };
     const mySummary = (q, a) => {
       if (!a) return "";
       if (q.t === "mc" || q.t === "tf") return esc((q.opts || [])[a.o] || "");
       if (q.t === "word") return esc(a.w || "");
       if (q.t === "scale") return FACES[(a.v || 1) - 1][0] + " " + FACES[(a.v || 1) - 1][1];
+      if (q.t === "draw") return drawSvg(a.d);
       if (q.t === "rate") return (a.r || []).map((v) => FACES[(v || 1) - 1][0]).join(" ");
       return "";
     };
@@ -10547,6 +10570,11 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         const w = document.getElementById("dpW"); setTimeout(() => w.focus(), 50);
         const go = () => { const v = w.value.trim(); if (v) send({ w: v }); };
         document.getElementById("dpS").onclick = go; w.onkeydown = (e) => { if (e.key === "Enter") go(); }; return; }
+      if (q.t === "draw") {
+        put(`<section class="dp">${head()}<div class="dp-card">${qt}<canvas id="dpCv" class="dp-cv" width="800" height="600" aria-label="${CT("لوحة الرسم", "Drawing pad")}"></canvas>
+          <div class="dp-dcol">${DCOL.map((c, i) => `<button data-c="${i}" class="${i ? "" : "on"}" style="--c:${c}" aria-label="${c}"></button>`).join("")}<i></i>${[[3, "S"], [5, "M"], [10, "L"]].map(([w, l]) => `<button data-w="${w}" class="dp-w${w === 5 ? " on" : ""}" aria-label="${l}"><span style="width:${w + 2}px;height:${w + 2}px"></span></button>`).join("")}<i></i><button id="dpUndo" aria-label="${CT("تراجع", "Undo")}">↶</button><button id="dpClr" aria-label="${CT("امسح", "Clear")}">🗑</button></div>
+          <button class="btn btn-dawn" id="dpS" disabled>${CT("أرسل رسمي", "Send my drawing")}</button></div></section>`);
+        drawPad(a); return; }
       if (q.t === "scale") {
         put(`<section class="dp">${head()}<div class="dp-card">${qt}<div class="dp-faces">${FACES.map((f, i) => `<button data-v="${i + 1}" style="--c:${f[2]}"><span>${f[0]}</span>${f[1]}</button>`).join("")}</div></div></section>`);
         document.querySelectorAll(".dp-faces [data-v]").forEach((b) => b.onclick = () => send({ v: +b.dataset.v })); return; }
