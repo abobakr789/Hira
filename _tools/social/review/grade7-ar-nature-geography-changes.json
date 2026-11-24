@@ -1,0 +1,172 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-T1-L01/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L01/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L01/teacher-deck.html",
+    "views": [
+      "critique",
+      "learn3",
+      "wordj"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L01/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L03/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L03/worksheets-A4.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L03/teacher-deck.html",
+    "views": [
+      "critique",
+      "enrich",
+      "hook",
+      "learn4",
+      "match",
+      "models",
+      "vocab"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L13/teacher-deck.html",
+    "views": [
+      "enrich"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L22/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L22/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L22/teacher-deck.html",
+    "views": [
+      "critique",
+      "guess",
+      "hook",
+      "learn1",
+      "match",
+      "models",
+      "quick",
+      "vocab"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T1-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L22/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L22/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: 19 changed slide/reveal views and 11 print pages inspected, including corrected assessment synchronization",
+      "live": "pending"
+    }
+  }
+]
