@@ -1,0 +1,70 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-T3-L15/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L15/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L15/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L15/teacher-deck.html",
+    "views": [
+      "hook",
+      "goal",
+      "vocab",
+      "story",
+      "model",
+      "check",
+      "truefalse",
+      "g2",
+      "models",
+      "quick",
+      "exit",
+      "mirror"
+    ],
+    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L15/group-work.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L15/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:46 Asia/Dubai; all 12 slides and 8 print pages inspected; source-card correction rerender inspected",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  }
+]
