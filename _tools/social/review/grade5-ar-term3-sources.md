@@ -42,4 +42,4 @@ Exact source URLs are stored in the companion JSON ledger, extracted from the fe
 
 Local: 20 learning panels, 18 interaction views, additional group/critique slides, four flipped vocabulary panels and 45 print pages inspected. Rechecked the corrected natural-vegetation quick quiz, Ibn Sina hook and full group-model answer key. Original image/audio/video/iframe references compared with the baseline and unchanged.
 
-Live verification: pending publication.
+Live verification: 29/29 changed HTML byte-exact, 24 November 2026 at 11:15 Dubai. Four decisive live views visually inspected. Deployment 45345840784 succeeded.
