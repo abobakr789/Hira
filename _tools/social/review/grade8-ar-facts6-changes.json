@@ -1,0 +1,74 @@
+[
+  {
+    "path": "resources/ssd/SS-Y8-T2-L6/sources-concept-card.html",
+    "sha256": "4d042152182a105d56d0e5bb524b04ff69e051fa824c1933f3e90b43821dedc6",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L6/teacher-deck.html",
+    "sha256": "5c99f079df133e7dd7ef9ff8c8d55e7ca682fbc4c6bffc0b12219e739510bc37",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T2-L6/worksheets-A4.html",
+    "sha256": "965283e136afcb4ed0978589ae7f032d5c05daca7ddb1c7058d9ccce4b12ef12",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L1/pod-sheet.html",
+    "sha256": "e8af491fb339f8f18f4c4bf23693405fadf0f40f08c5e39edc4b5652a486a70f",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L1/teacher-deck.html",
+    "sha256": "3b2c514128d0a8df48393cd5eead5a07002b9a6b1c6b8f77f47cab524fd4bac5",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L7/answer-key.html",
+    "sha256": "49ee0a36495ab272d5a1390c1f1239caf4a1921a4766a096e80fe40fb50a7101",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L7/sources-concept-card.html",
+    "sha256": "f93a1a09424db692075513f27869029b8be59b4cf8da5f2e740f75eb4755f8f6",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L7/teacher-deck.html",
+    "sha256": "9e2c05e0ef459f57c0d8b9eb1e4e4968e36f71f4456fe46cd34119a32b726fdb",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  },
+  {
+    "path": "resources/ssd/SS-Y8-T3-L7/worksheets-A4.html",
+    "sha256": "6fde7767837596ff13d262f89f1dbf7e235197bf34d36dd5fd103973f1b0c679",
+    "qa": {
+      "local": "PASS: changed slides and dependent print surfaces inspected",
+      "live": "pending"
+    }
+  }
+]
