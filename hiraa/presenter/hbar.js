@@ -1180,13 +1180,28 @@
       }
       sharePop.innerHTML = '<div class="hb-h">📲 ' + T("الحصة المباشرة", "Live lesson") + '</div><div class="hb-join"><div class="hb-qr" id="hbQr"></div><div><p style="margin:0">' + T("ادخلوا من", "Go to") + ' <span class="hb-url">' + esc(shortUrl()) + '</span> ' + T("ثم «تحدٍّ مباشر»، واكتبوا:", "→ “Live challenge”, then type:") + '</p><div class="hb-code">' + code3(S.code) + '</div><p class="hb-muted" style="margin:0">' + T("أو امسحوا الرمز بكاميرا الجوال", "or scan the QR code") + '</p></div></div>' +
         '<div class="hb-row" style="margin:0"><b id="hbJn">' + players.length + '</b> ' + T("طالبًا دخلوا الحصة", "students joined") + '</div><div class="hb-names" id="hbNm">' + names() + '</div><div id="hbRos"></div>' +
+        '<label class="hb-ck" style="margin:8px 0 2px"><input type="checkbox" id="hbFollow"' + (follow ? " checked" : "") + "> 📺 " + T("اعرض الشرائح على أجهزة الطلاب (تتبع تنقّلك)", "Show the slides on students' devices (they follow you)") + "</label>" +
         '<div class="hb-row"><button type="button" class="hb-btn pri" id="hbBigBtn">⛶ ' + T("اعرض الرمز على الشاشة", "Show the code full screen") + '</button><button type="button" class="hb-btn" id="hbRepBtn">📊 ' + T("تقرير الحصة", "Lesson report") + '</button><button type="button" class="hb-btn" id="hbEndBtn">■ ' + T("أنهِ الحصة", "End") + "</button></div>";
       qrInto($("hbQr"), 134);
       $("hbBigBtn").onclick = function () { closePops(); showBig(); };
+      $("hbFollow").onchange = function () { follow = this.checked; LS.set("hb-follow", follow ? "1" : ""); sendPos(true); say(follow ? T("📺 تظهر الشرائح الآن على أجهزة الطلاب", "📺 Slides now show on students' devices") : T("أُخفيت الشرائح عن أجهزة الطلاب", "Slides hidden from students' devices")); };
       loadRoster();
       $("hbRepBtn").onclick = function () { report(S); };
       $("hbEndBtn").onclick = function () { if (!confirm(T("إنهاء الحصة المباشرة؟ ستبقى نتائجها في تقرير الحصة.", "End the live lesson? Its results stay in the report."))) return; step("end").then(function () { var s0 = S; stopSubs(); try { sessionStorage.removeItem(KEY); } catch (e) {} S = null; setActive(); paintShare(); say(T("انتهت الحصة · التقرير محفوظ", "Lesson ended · report saved")); report(s0); }); };
     }
+    /* الشرائح على أجهزة الطلاب: نرسل موضع العرض (الشريحة وعدد العناصر الظاهرة والشاشة السوداء) */
+    var follow = LS.get("hb-follow", "1") === "1", posT = 0, lastPos = "";
+    function sendPos(force) {
+      if (!S || S.state === "done") return;
+      clearTimeout(posT); posT = setTimeout(function () {
+        if (!S) return; var sl = SL[cur]; if (!sl) return;
+        var p = { k: cur, b: sl.querySelectorAll("[data-build-in]").length - sl.querySelectorAll("[data-build-in].hid").length, on: follow, black: black.classList.contains("on") };
+        var j = JSON.stringify(p); if (j === lastPos && !force) return; lastPos = j;
+        sb.rpc("dl_step", { p_live: S.id, p_action: "pos", p_q: p }).then(function (r) { if (r && r.error) lastPos = ""; });
+      }, 250);
+    }
+    new MutationObserver(function () { sendPos(); }).observe(stage, { subtree: true, attributes: true, attributeFilter: ["class"] });
+    new MutationObserver(function () { sendPos(); }).observe(black, { attributes: true, attributeFilter: ["class"] });
     var roster = [];
     function loadRoster() {
       var box = $("hbRos"); if (!box || !S || !S.class_id) return;
@@ -1272,7 +1287,7 @@
         if (r.error) { t.disabled = false; t.textContent = T("ابدأ حصة مباشرة", "Start a live lesson"); say(T("تعذّر بدء الحصة: ", "Could not start: ") + r.error.message); return; }
         S = { id: r.data.id, code: r.data.code, q_seq: 0, state: "idle", q: null, class_id: cid, cname: cobj ? cobj.name : "" }; players = []; answers = []; roster = [];
         try { sessionStorage.setItem(KEY, S.id); } catch (e) {}
-        subscribe(); setActive(); paintShare(); closePops(); showBig();
+        subscribe(); setActive(); paintShare(); closePops(); showBig(); sendPos(true);
       });
     }
     function step(action, q) { return sb.rpc("dl_step", { p_live: S.id, p_action: action, p_q: q || null }).then(function (r) { if (r.error) { say(r.error.message); throw r.error; } S.q_seq = r.data.q_seq; S.state = r.data.state; return r.data; }); }
@@ -1554,7 +1569,7 @@
     W.addEventListener("pagehide", stopSubs);
     var keep = null; try { keep = sessionStorage.getItem(KEY); } catch (e) {}
     if (keep) sb.from("deck_live").select("id, code, q, q_seq, state, class_id").eq("id", keep).maybeSingle().then(function (r) {
-      if (r.data && r.data.state !== "done") { S = r.data; subscribe(); setActive(); if (S.q && S.q_seq) { loadAnswers(); resP.classList.add("on"); } }
+      if (r.data && r.data.state !== "done") { S = r.data; subscribe(); setActive(); sendPos(true); if (S.q && S.q_seq) { loadAnswers(); resP.classList.add("on"); } }
     });
   })();
 
