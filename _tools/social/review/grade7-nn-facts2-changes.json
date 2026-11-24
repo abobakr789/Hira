@@ -7,8 +7,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   },
@@ -19,8 +20,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   },
@@ -31,8 +33,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   },
@@ -46,20 +49,23 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   },
   {
     "file": "resources/ssd/SS-Y7-NN-T1-L04/sources-concept-card.html",
     "views": [
+      "0",
       "1"
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   },
@@ -70,8 +76,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   },
@@ -83,8 +90,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   },
@@ -95,8 +103,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   },
@@ -108,8 +117,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   },
@@ -120,8 +130,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:30 Dubai: all eight slide fronts, five print pages and three full recap scenes inspected. Recap summaries shortened and rechecked to avoid overlap. Child-rights concept card and local-source slide rechecked.",
+      "live_evidence": "2026-11-24 13:38 Dubai: all batch HTML byte-exact on live Pages. Facts2 changed reading fronts, concept cards, and three recap summaries inspected as pixels. Publication 45366088486."
     },
     "original_media": "unchanged"
   }

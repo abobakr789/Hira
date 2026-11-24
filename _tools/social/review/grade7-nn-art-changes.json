@@ -6,8 +6,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:26 Dubai: both visible reading slides and full source page inspected; city wording revised and all rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:26 Dubai: both visible reading slides and full source page inspected; city wording revised and all rechecked.",
+      "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
     },
     "original_media": "unchanged"
   },
@@ -20,8 +21,9 @@
     ],
     "qa": {
       "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:26 Dubai: both visible reading slides and full source page inspected; city wording revised and all rechecked."
+      "live": "pass",
+      "local_evidence": "2026-11-24 13:26 Dubai: both visible reading slides and full source page inspected; city wording revised and all rechecked.",
+      "live_evidence": "2026-11-24 13:32–13:33 Dubai: all batch HTML byte-exact on live Pages. Changed reading fronts checked at 1920x1080, art source sheet checked as pixels. Publication run 45365208021."
     },
     "original_media": "unchanged"
   }
