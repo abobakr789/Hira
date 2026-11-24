@@ -1,0 +1,69 @@
+{
+  "scope": "NN7–11 health accuracy and safeguarding",
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L07/sources-concept-card.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L07/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L08/sources-concept-card.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L08/teacher-deck.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L09/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L09/sources-concept-card.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L09/worksheets-A4.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L09/teacher-deck.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L10/answer-key.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L10/sources-concept-card.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L10/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L10/teacher-deck.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L11/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L11/teacher-deck.html",
+      "nodes": 2
+    }
+  ],
+  "qa": "Local actual pixels passed for eight core slides, two quizzes, worksheet level2 and answer key. Original media unchanged. Live pending.",
+  "sources": [
+    "https://www.who.int/europe/news-room/fact-sheets/item/physical-activity",
+    "https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response",
+    "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight",
+    "https://www.who.int/standards/classifications/frequently-asked-questions/gaming-disorder",
+    "https://nida.nih.gov/publications/drugfacts/understanding-drug-use-addiction"
+  ]
+}
