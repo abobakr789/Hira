@@ -55,6 +55,7 @@
     users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8",
     rec: "M12 19a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
     cup: "M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3",
+    sup: "M12 6.5a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5zM5 8.5l7 1.5 7-1.5M12 10v4.5M8.5 21l3.5-6.5 3.5 6.5",
     pdf: "M12 3v12M7 10l5 5 5-5M5 21h14",
     pv: "M2 4h13v10H2zM17 7h5v8h-5zM5 18h7M8.5 14v4",
     phone: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2",
@@ -192,6 +193,9 @@
     "#hbInk.t-text{cursor:text}",
     "#hbInk.t-pan{cursor:grab}#hbInk.t-pan.drag{cursor:grabbing}",
     "#hbTxt{position:fixed;z-index:30;min-width:120px;font:700 28px 'Thmanyah Text',Tahoma,sans-serif;background:rgba(255,255,255,.92);border:2px dashed #D4AA55;border-radius:10px;padding:4px 10px;outline:none;color:#102A4C}",
+    "#hbRuler{position:fixed;left:0;right:0;top:var(--hb-lay);bottom:0;z-index:9;pointer-events:none;display:none}#hbRuler.on{display:block}#hbRuler i{position:absolute;left:0;right:0;background:rgba(8,14,26,.62)}#hbRuler i:first-child{top:0}#hbRuler i:last-child{bottom:0}#hbRuler b{position:absolute;left:0;right:0;border-block:3px solid #D4AA55;box-sizing:border-box}",
+    ".hb-reading #wrap,.hb-reading #wrap *{cursor:help!important}.hb-say{outline:4px solid #D4AA55!important;outline-offset:6px;border-radius:6px;background:rgba(212,170,85,.14)!important}",
+    "#hbSupPop{width:380px}#hbSupPop .hb-sec{border-top:1px solid #E6EBF2;padding-top:10px;margin-top:10px}#hbSupPop .hb-sec:first-of-type{border:0;margin:0;padding:0}#hbSupPop .hb-st{font-weight:800;margin-bottom:6px}",
     "#hbLSpot{position:fixed;left:0;right:0;top:var(--hb-lay);bottom:0;z-index:10;pointer-events:none;display:none}",
     "#hbLSpot.on{display:block}",
     "#hbLBlack{position:fixed;left:0;right:0;top:var(--hb-lay);bottom:0;z-index:11;display:none;background:#05080E;align-items:center;justify-content:center;color:rgba(255,255,255,.25);font:600 18px 'Thmanyah Text',Tahoma,sans-serif;cursor:pointer}",
@@ -259,7 +263,7 @@
     '<button type="button" class="hb-b" id="hbCol" data-tip="' + T("اللون والسُّمك", "Colour & size") + '" aria-label="' + T("اللون والسُّمك", "Colour & size") + '"><span class="hb-sw" id="hbSw"></span></button>' +
     B("hbUndo", "undo", T("تراجع (Ctrl+Z)", "Undo (Ctrl+Z)")) + B("hbClr", "trash", T("مسح كتابة الشريحة", "Clear this slide's ink")) + B("hbSave", "pdf", T("حفظ الشرح: كتابتك على الشرائح PDF", "Save your annotated slides as PDF")) + "</div>" +
     '<span class="hb-sep"></span>' +
-    '<div class="hb-g">' + B("hbSpot", "spot", T("الكشّاف: يُظلم كل شيء إلا ما تشير إليه (S)", "Spotlight (S)")) + B("hbCurt", "curtain", T("الستارة: اكشف الشريحة تدريجيًّا", "Curtain reveal")) +
+    '<div class="hb-g">' + B("hbSup", "sup", T("دعم القراءة: اقرأ لي، والتشكيل، ومسطرة القراءة", "Reading support: read aloud, vowel marks, reading ruler")) + B("hbSpot", "spot", T("الكشّاف: يُظلم كل شيء إلا ما تشير إليه (S)", "Spotlight (S)")) + B("hbCurt", "curtain", T("الستارة: اكشف الشريحة تدريجيًّا", "Curtain reveal")) +
     B("hbBoard", "board", T("سبورة بيضاء (W)", "Whiteboard (W)")) + B("hbBlack", "moon", T("شاشة سوداء (B)", "Black screen (B)")) + B("hbKeys", "keys", T("اختصارات لوحة المفاتيح", "Keyboard shortcuts")) + "</div>" +
     '<div class="hb-pbar"><div class="hb-prog" id="hbProg"></div></div>';
   tb.classList.add("hb"); tb.appendChild(r1); tb.appendChild(r2);
@@ -317,6 +321,7 @@
   var cur = 0;
   var readCur = function () { var m = ($("pg") ? $("pg").textContent : "").match(/(\d+)\s*\/\s*(\d+)/); if (m) return +m[1] - 1; var k = SL.findIndex(function (s) { return s.classList.contains("on"); }); return k < 0 ? 0 : k; };
   var go = function (k, end) { k = Math.max(0, Math.min(N - 1, k)); if (typeof W.show === "function") W.show(k, end); else ev("show(" + k + (end ? ",true" : "") + ")"); };
+  var slideFx = [];
   function onSlide() {
     var k = readCur(); var changed = k !== cur; cur = k;
     var num = $("hbNum"); if (D.activeElement !== num) num.value = k + 1;
@@ -324,7 +329,7 @@
     $("hbFirst").disabled = $("hbPrev").disabled = k === 0; $("hbLast").disabled = k === N - 1;
     drawer.querySelectorAll(".hb-th").forEach(function (t, i) { t.classList.toggle("cur", i === k); });
     if (changed) { var c = drawer.querySelector(".hb-th.cur"); if (c && drawer.classList.contains("open")) c.scrollIntoView({ block: "nearest", behavior: "smooth" }); if (curt.classList.contains("on")) { curtY = 0; place(); } }
-    redraw(); if (W.__hbOnSlide) W.__hbOnSlide(k, changed);
+    redraw(); slideFx.forEach(function (f) { try { f(k, changed); } catch (e) {} }); if (W.__hbOnSlide) W.__hbOnSlide(k, changed);
   }
   if ($("pg")) new MutationObserver(onSlide).observe($("pg"), { childList: true, characterData: true, subtree: true });
 
@@ -821,6 +826,91 @@
     paintMini();
     on("hbClass", function () { closePops(); if (ov.classList.contains("on")) { closeOv(); return; } ov.classList.add("on"); $("hbClass").classList.add("on"); paint(); });
     W.addEventListener("pagehide", micOff);
+  })();
+
+  /* ---------- دعم القراءة والتمايز ---------- */
+  (function () {
+    var pop = mk("div", "hbSupPop"); pop.className = "pop hb-pop"; pop.dir = RTL ? "rtl" : "ltr"; stop(pop);
+    var QRE = /[﴾﴿ٱۖ-ۜ۟-۪ۨ-ۭ]/;
+    var isQuran = function (el) { for (var e = el; e && e !== stage; e = e.parentElement) { if (/hafs|quran|uthman/i.test(e.style.fontFamily || "") || /\b(ayah|aya|quran|verse)\b/i.test(e.className || "")) return true; } return QRE.test(el.textContent || ""); };
+    var HAR = /[ً-ٰٟ]/g;
+    /* التشكيل */
+    var orig = new Map(), noTash = false;
+    function setTash(off) {
+      noTash = off; LS.set("hb-notash-" + DECK, off ? "1" : "");
+      if (off) {
+        var w = D.createTreeWalker(stage, NodeFilter.SHOW_TEXT), n;
+        while ((n = w.nextNode())) { if (!HAR.test(n.nodeValue)) { HAR.lastIndex = 0; continue; } HAR.lastIndex = 0; var pe = n.parentElement; if (!pe || pe.closest("aside,script,style") || isQuran(pe)) continue; var v = n.nodeValue.replace(HAR, ""); orig.set(n, [n.nodeValue, v]); n.nodeValue = v; }
+      } else { orig.forEach(function (o, n) { if (n.nodeValue === o[1]) n.nodeValue = o[0]; }); orig.clear(); }
+    }
+    /* مسطرة القراءة */
+    var rl = mk("div", "hbRuler", "<i></i><b></b><i></i>"), rH = +LS.get("hb-ruler-h", "110"), rY = innerHeight / 2;
+    function paintRuler() { var top = parseFloat(getComputedStyle(rl).top) || 0, y = rY - top, a = Math.max(0, y - rH / 2); rl.children[0].style.height = a + "px"; rl.children[1].style.top = a + "px"; rl.children[1].style.height = rH + "px"; rl.children[2].style.top = (a + rH) + "px"; }
+    W.addEventListener("pointermove", function (e) { if (!rl.classList.contains("on")) return; rY = e.clientY; paintRuler(); }, { passive: true });
+    /* اقرأ لي */
+    var SY = W.speechSynthesis, rate = +LS.get("hb-tts-rate", "0.9"), reading = false, sayEl = null;
+    var voice = function (ar) { var V = SY ? SY.getVoices() : []; var pref = ar ? /^ar/i : /^en/i; var L = V.filter(function (v) { return pref.test(v.lang); }); return L.filter(function (v) { return /natural|online|neural|google/i.test(v.name); })[0] || L[0] || null; };
+    var unmark = function () { if (sayEl) sayEl.classList.remove("hb-say"); sayEl = null; };
+    var cleanT = function (t) { return String(t || "").replace(/[\u{1F300}-\u{1FAFF}☀-➿️]/gu, "").replace(/\s+/g, " ").trim(); };
+    var fullText = function (el) { if (!orig.size) return el.textContent; var w = D.createTreeWalker(el, NodeFilter.SHOW_TEXT), n, o = ""; while ((n = w.nextNode())) { var x = orig.get(n); o += x && n.nodeValue === x[1] ? x[0] : n.nodeValue; } return o; };
+    function speak(list, i) {
+      i = i || 0; unmark(); if (!SY || i >= list.length) return;
+      var el = list[i], t = cleanT(fullText(el)); if (!t) return speak(list, i + 1);
+      var ar = /[؀-ۿ]/.test(t.replace(/[ﷺﷻ]/g, "")), v = voice(ar);
+      t = t.replace(/ﷺ/g, ar ? " صلى الله عليه وسلم " : " (peace be upon him) ").replace(/ﷻ/g, ar ? " جل جلاله " : " ");
+      if (!v) { say(ar ? T("لا يوجد صوت عربي في هذا المتصفح · جرّب Edge أو Chrome", "No Arabic voice in this browser · try Edge or Chrome") : T("لا يوجد صوت إنجليزي في هذا المتصفح", "No English voice in this browser")); return; }
+      var u = new SpeechSynthesisUtterance(t); u.voice = v; u.lang = v.lang; u.rate = rate;
+      sayEl = el; el.classList.add("hb-say");
+      u.onend = function () { if (sayEl === el) { unmark(); if (list.length > 1) speak(list, i + 1); } };
+      u.onerror = function () { unmark(); };
+      SY.speak(u);
+    }
+    function stopSpeak() { if (SY) SY.cancel(); unmark(); }
+    var BLOCK = "h1,h2,h3,h4,p,li,td,th,figcaption,blockquote,.q,.qo,.cd";
+    function slideBlocks() {
+      var out = [];
+      SL[cur].querySelectorAll(BLOCK).forEach(function (e) {
+        if (e.closest("aside,.ft,.hid,script,style") || e.offsetParent === null) return;
+        if (out.some(function (o) { return o.contains(e); })) return;
+        if (isQuran(e)) return;
+        if (cleanT(e.textContent)) out.push(e);
+      });
+      return out;
+    }
+    D.addEventListener("click", function (e) {
+      if (!reading || !SL[cur].contains(e.target)) return;
+      e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+      var el = e.target.closest(BLOCK) || e.target; if (!SL[cur].contains(el)) return;
+      if (isQuran(el)) { stopSpeak(); say(T("الآيات الكريمة تُتلى بصوت قارئ، لا بالقراءة الآلية", "Qur'anic verses are recited by a reciter, not read by a machine voice")); return; }
+      SY.cancel(); speak([el]);
+    }, true);
+    function setReading(on) { reading = on; D.documentElement.classList.toggle("hb-reading", on); if (!on) stopSpeak(); else say(T("انقر أي جملة على الشريحة لتسمعها", "Click any sentence on the slide to hear it")); }
+    function paint() {
+      var ok = !!(SY && W.SpeechSynthesisUtterance);
+      pop.innerHTML = '<div class="hb-h">' + T("دعم القراءة والتمايز", "Reading support") + "</div>" +
+        '<div class="hb-sec"><div class="hb-st">🔊 ' + T("اقرأ لي", "Read aloud") + "</div>" + (ok ?
+          '<div class="hb-row"><button type="button" class="hb-btn' + (reading ? " pri" : "") + '" id="hsR">' + (reading ? "✓ " : "") + T("انقر جملة لتسمعها", "Click a sentence to hear it") + '</button><button type="button" class="hb-btn" id="hsAll">▶ ' + T("اقرأ الشريحة", "Read the slide") + '</button><button type="button" class="hb-btn" id="hsStop">⏹</button></div>' +
+          '<label class="hb-muted" style="display:flex;align-items:center;gap:8px">' + T("السرعة", "Speed") + ' <input type="range" id="hsRate" min="0.5" max="1.3" step="0.1" value="' + rate + '" style="flex:1"></label>' +
+          '<p class="hb-muted" style="font-size:12.5px;margin:4px 0 0">' + T("الآيات القرآنية لا تُقرأ آليًّا احترامًا لتلاوتها.", "Qur'anic verses are skipped out of respect for their recitation.") + "</p>"
+          : '<p class="hb-muted">' + T("القراءة الصوتية غير متاحة في هذا المتصفح.", "Read aloud isn't available in this browser.") + "</p>") + "</div>" +
+        '<div class="hb-sec"><div class="hb-st">ـَ ' + T("التشكيل", "Vowel marks (tashkeel)") + '</div><label class="hb-ck"><input type="checkbox" id="hsT"' + (noTash ? " checked" : "") + "> " + T("أخفِ التشكيل لتدريب القراءة دونه", "Hide vowel marks for unvowelled reading practice") + '</label><p class="hb-muted" style="font-size:12.5px;margin:0">' + T("تبقى الآيات القرآنية مشكولة دائمًا.", "Qur'anic verses always keep their marks.") + "</p></div>" +
+        '<div class="hb-sec"><div class="hb-st">📏 ' + T("مسطرة القراءة", "Reading ruler") + '</div><label class="hb-ck"><input type="checkbox" id="hsRl"' + (rl.classList.contains("on") ? " checked" : "") + "> " + T("أظهر شريطًا يتبع المؤشر ويُعتم ما حوله", "A band that follows the pointer and dims the rest") + '</label><div class="hb-seg" style="margin-top:4px">' + [[70, T("سطر", "Line")], [110, T("سطران", "Two lines")], [180, T("فقرة", "Paragraph")]].map(function (o) { return '<button type="button" data-rh="' + o[0] + '" class="' + (rH === o[0] ? "on" : "") + '">' + o[1] + "</button>"; }).join("") + "</div></div>";
+      if (ok) {
+        $("hsR").onclick = function () { setReading(!reading); paint(); if (reading) closePops(); };
+        $("hsAll").onclick = function () { stopSpeak(); var L = slideBlocks(); if (!L.length) say(T("لا نص للقراءة على هذه الشريحة", "No text to read on this slide")); else speak(L); };
+        $("hsStop").onclick = stopSpeak;
+        $("hsRate").oninput = function () { rate = +this.value; LS.set("hb-tts-rate", rate); };
+      }
+      $("hsT").onchange = function () { setTash(this.checked); };
+      $("hsRl").onchange = function () { rl.classList.toggle("on", this.checked); paintRuler(); $("hbSup").classList.toggle("on", rl.classList.contains("on") || reading || noTash); };
+      pop.querySelectorAll("[data-rh]").forEach(function (b) { b.onclick = function () { rH = +b.dataset.rh; LS.set("hb-ruler-h", rH); paintRuler(); paint(); }; });
+      $("hbSup").classList.toggle("on", rl.classList.contains("on") || reading || noTash);
+    }
+    if (SY) { SY.getVoices(); SY.onvoiceschanged = function () {}; }
+    on("hbSup", function (e, b) { paint(); togglePop(pop, b); });
+    slideFx.push(function (k, ch) { if (ch) stopSpeak(); });
+    if (LS.get("hb-notash-" + DECK, "") === "1") setTash(true);
+    W.addEventListener("pagehide", stopSpeak);
   })();
 
   /* لوحة اللون والسُّمك */
