@@ -1,0 +1,12 @@
+{
+  "files": [
+    "resources/ssd/SS-Y9-NN-T1-L09/answer-key.html",
+    "resources/ssd/SS-Y9-NN-T1-L09/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L09/teacher-deck.html",
+    "resources/ssd/SS-Y9-NN-T1-L10/answer-key.html",
+    "resources/ssd/SS-Y9-NN-T1-L10/sources-concept-card.html",
+    "resources/ssd/SS-Y9-NN-T1-L10/teacher-deck.html"
+  ],
+  "qa": "local source slides, quiz and print keys PASS, live pending",
+  "original_media": "unchanged"
+}
