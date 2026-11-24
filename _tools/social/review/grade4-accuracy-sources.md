@@ -93,3 +93,13 @@ The 70% population figure is retained as lesson data, not asserted as a current 
 - NOAA climate-ratio teaching resource: https://gml.noaa.gov/outreach/lesson_plans/Climate%20Ratios.pdf . Dryness relates precipitation to potential evaporation; retained textbook 35 cm only as an explicitly qualified classroom guide, synchronized checks and recap.
 - Library of Congress, camel water storage: https://www.loc.gov/everyday-mysteries/categories/zoology/item/how-much-water-does-a-camels-hump-hold/ . Water in bloodstream, not hump; up to 20 gallons at a time. Replaced unsupported 40 gallons in 10 minutes.
 - Teacher worksheet keys L10 and L13 checked against their actual worksheet prompts and shuffled deck quizzes. Corrected inherited matching/true-false keys, used answer words rather than unstable option letters.
+
+## NN tolerance and energy follow-up, 2026-11-24 08:05 Dubai
+- Nobel Foundation, King biography: https://www.nobelprize.org/prizes/peace/1964/king/biographical/ . Prize age 35 and civil-rights/pastoral work; the historical youngest statement is dated to the award, not a current record.
+- Nobel Foundation, Bunche facts: https://www.nobelprize.org/prizes/peace/1950/bunche/facts/ . First African American Peace Prize laureate was Bunche in 1950, not King.
+- Nobel Foundation, Yousafzai facts: https://www.nobelprize.org/prizes/peace/2014/yousafzai/facts/ . Born 1997, award 2014; corroborates that King's youngest-ever claim is stale.
+- Stanford King Institute: https://kinginstitute.stanford.edu/kings-home-bombed . King away, wife and baby daughter inside and uninjured. Corrected faulty son/near-death narrative, retained source attribution with adapted-reading label.
+- UAE official portal: https://u.ae/en/about-the-uae/culture/tolerance/tolerance-initiatives and Cabinet https://uaecabinet.ae/en/news/e-president-declares-2019-as-year-of-tolerance . Year of Tolerance 2019, distinct from minister/programme introduced 2016.
+- US EIA: https://www.eia.gov/energyexplained/biomass/ . Biomass includes plants and animal waste.
+- US EPA: https://www.epa.gov/ghgemissions/carbon-footprint-calculator and https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator . Carbon footprint comprises greenhouse gas emissions, often measured as CO2 equivalent, not every kind of pollution.
+All pages fetched and read 08:01–08:02 Dubai. Corrections synchronized in readings, source cards, relevant worksheets and key. Original media preserved. No new portrait added.

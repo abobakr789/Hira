@@ -1,0 +1,75 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L04/teacher-deck.html",
+    "views": [
+      "text2",
+      "text3",
+      "text5"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L04/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L04/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "text3",
+      "text4",
+      "text6",
+      "check",
+      "quiz"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L15/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L15/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L15/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
+    "live_qa": "pending"
+  }
+]
