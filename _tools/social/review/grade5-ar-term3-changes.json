@@ -5,7 +5,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L01/group-work.html",
@@ -13,7 +16,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L01/pod-sheet.html",
@@ -21,7 +27,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L01/sources-concept-card.html",
@@ -29,7 +38,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L01/teacher-deck.html",
@@ -52,7 +64,23 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "hook",
+      "vocab",
+      "match",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "critique",
+      "groupmap",
+      "g2",
+      "models",
+      "watani",
+      "enrich",
+      "quick"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L01/worksheets-A4.html",
@@ -60,7 +88,11 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0",
+      "1"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L03/answer-key.html",
@@ -68,7 +100,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L03/group-work.html",
@@ -76,7 +111,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L03/pod-sheet.html",
@@ -84,7 +122,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L03/sources-concept-card.html",
@@ -92,7 +133,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L03/teacher-deck.html",
@@ -114,7 +158,22 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "hook",
+      "vocab",
+      "match",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "critique",
+      "g2",
+      "models",
+      "watani",
+      "enrich",
+      "quick"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L03/worksheets-A4.html",
@@ -122,7 +181,12 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0",
+      "1",
+      "2"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L04/answer-key.html",
@@ -130,7 +194,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L04/pod-sheet.html",
@@ -138,7 +205,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L04/sources-concept-card.html",
@@ -146,7 +216,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L04/teacher-deck.html",
@@ -164,7 +237,18 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "hook",
+      "vocab",
+      "match",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "models",
+      "quick"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L04/worksheets-A4.html",
@@ -172,7 +256,11 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0",
+      "1"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L05/answer-key.html",
@@ -180,7 +268,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L05/group-work.html",
@@ -188,7 +279,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "1"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L05/pod-sheet.html",
@@ -196,7 +290,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L05/sources-concept-card.html",
@@ -204,7 +301,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L05/teacher-deck.html",
@@ -222,7 +322,18 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "hook",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "critique",
+      "g3",
+      "models",
+      "quick"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L05/worksheets-A4.html",
@@ -230,7 +341,12 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "1",
+      "2",
+      "3"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L06/answer-key.html",
@@ -238,7 +354,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L06/group-work.html",
@@ -246,7 +365,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L06/pod-sheet.html",
@@ -254,7 +376,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L06/sources-concept-card.html",
@@ -262,7 +387,10 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L06/teacher-deck.html",
@@ -284,7 +412,22 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "vocab",
+      "match",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "booktext",
+      "critique",
+      "g2",
+      "models",
+      "watani",
+      "enrich",
+      "quick"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L06/worksheets-A4.html",
@@ -292,6 +435,12 @@
     "qa": {
       "local": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
       "live": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
-    }
+    },
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ]
   }
 ]

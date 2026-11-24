@@ -1,0 +1,2880 @@
+{
+  "grade": 5,
+  "reviewed_lessons": 47,
+  "changed_lessons": 47,
+  "retained_lessons": 0,
+  "unique_changed_html_files": 204,
+  "unique_changed_slide_views": 318,
+  "unique_changed_print_views": 196,
+  "count_method": "Unique current structural section/page differences against the pre-grade-5 baseline, ignoring whitespace-only serialization; a slide can contain several corrected elements.",
+  "baseline_commit": "301981a27dae2bca6f332835524f9a70752bd3e3",
+  "closure": "CLOSED_LIVE",
+  "live_verified_at": "2026-11-24T11:40:00+04:00",
+  "content_commit": "4d7eb939",
+  "deployment_url": "https://github.com/abobakr789/Hira/actions/runs/45349263038",
+  "lessons": [
+    {
+      "code": "SS-Y5-NN-T1-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L01/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L01/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L01/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L02/teacher-deck.html",
+          "views": [
+            "text5",
+            "uae"
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L02/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L02/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L02/worksheets-A4.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L02/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L02/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L02/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L03/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L03/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L03/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-definitions-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L04/sources-concept-card.html",
+          "views": [
+            1,
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+          "live_qa": "PASS 2026-11-24 09:22 Dubai. 8/8 exact published HTML. 9 fronts, 3 flipped backs and 5 print pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45332152799"
+        },
+        {
+          "manifest": "grade5-nn-definitions-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L04/teacher-deck.html",
+          "views": [
+            "text6",
+            "text5",
+            "vocab",
+            "vflip"
+          ],
+          "local_qa": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+          "live_qa": "PASS 2026-11-24 09:22 Dubai. 8/8 exact published HTML. 9 fronts, 3 flipped backs and 5 print pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45332152799"
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L04/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L04/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L04/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L05/teacher-deck.html",
+          "views": [
+            "text2"
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L05/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L05/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L05/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L05/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L05/teacher-deck.html",
+          "views": [
+            "levels",
+            "vocab",
+            "vflip",
+            "text3"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-definitions-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L06/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+          "live_qa": "PASS 2026-11-24 09:22 Dubai. 8/8 exact published HTML. 9 fronts, 3 flipped backs and 5 print pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45332152799"
+        },
+        {
+          "manifest": "grade5-nn-definitions-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L06/teacher-deck.html",
+          "views": [
+            "text3"
+          ],
+          "local_qa": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+          "live_qa": "PASS 2026-11-24 09:22 Dubai. 8/8 exact published HTML. 9 fronts, 3 flipped backs and 5 print pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45332152799"
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L06/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L06/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L06/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L07/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L07/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L07/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L08",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-definitions-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L08/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+          "live_qa": "PASS 2026-11-24 09:22 Dubai. 8/8 exact published HTML. 9 fronts, 3 flipped backs and 5 print pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45332152799"
+        },
+        {
+          "manifest": "grade5-nn-definitions-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L08/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip"
+          ],
+          "local_qa": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+          "live_qa": "PASS 2026-11-24 09:22 Dubai. 8/8 exact published HTML. 9 fronts, 3 flipped backs and 5 print pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45332152799"
+        },
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L08/teacher-deck.html",
+          "views": [
+            "text3"
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L08/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L08/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-facts-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L08/worksheets-A4.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS 2026-11-24 09:00 Dubai. Four changed fronts and eight changed print pages individually inspected. All three printed quiz keys now use actual numeric option positions; all worksheet true/false keys checked against statements.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Four changed fronts and eight changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L08/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L08/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L08/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L09",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-definitions-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L09/sources-concept-card.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+          "live_qa": "PASS 2026-11-24 09:22 Dubai. 8/8 exact published HTML. 9 fronts, 3 flipped backs and 5 print pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45332152799"
+        },
+        {
+          "manifest": "grade5-nn-definitions-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L09/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip"
+          ],
+          "local_qa": "PASS 2026-11-24 09:16 Dubai. 9 slide fronts, 3 flipped backs, and 5 print pages individually inspected. Shortened sustainable definition to fit; source text and media preserved.",
+          "live_qa": "PASS 2026-11-24 09:22 Dubai. 8/8 exact published HTML. 9 fronts, 3 flipped backs and 5 print pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45332152799"
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L09/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L09/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L09/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L10",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L10/sources-concept-card.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L10/lesson-recap.html",
+          "views": [
+            2
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L10/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text4",
+            "text6"
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L10/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L10/worksheets-A4.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L10/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L10/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L11",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L11/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L11/teacher-deck.html",
+          "views": [
+            "text2",
+            "text3"
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L11/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L11/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L11/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L12",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L12/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L12/teacher-deck.html",
+          "views": [
+            "text2",
+            "text3",
+            "text5"
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L12/worksheets-A4.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L12/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L12/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L12/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L13",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L13/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L13/sources-concept-card.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L13/lesson-recap.html",
+          "views": [
+            2
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L13/worksheets-A4.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L13/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text2",
+            "text3",
+            "check",
+            "quiz",
+            "words"
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L13/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L13/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L13/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L14",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L14/sources-concept-card.html",
+          "views": [
+            1
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L14/teacher-deck.html",
+          "views": [
+            "text2"
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L14/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L14/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L14/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-NN-T1-L15",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L15/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L15/sources-concept-card.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L15/lesson-recap.html",
+          "views": [
+            2
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L15/worksheets-A4.html",
+          "views": [
+            0,
+            1
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-history-environment-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L15/teacher-deck.html",
+          "views": [
+            "vocab",
+            "vflip",
+            "text3",
+            "text4",
+            "talk",
+            "check",
+            "quiz"
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L15/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 09:12 Dubai. All 16 changed print pages individually inspected; 75 actual deck quiz answer positions checked. L13 row4 corrected and visually rechecked. Factual source-text revisions remain separately in progress.",
+          "live_qa": "PASS 2026-11-24 09:18 Dubai. 16/16 exact published HTML; all 16 printed pages individually inspected. Deployment https://github.com/abobakr789/Hira/actions/runs/45331678417"
+        },
+        {
+          "manifest": "grade5-nn-level1keys-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L15/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+          "live_qa": "PASS 2026-11-24 09:47 Asia/Dubai: all 33 unique HTML byte-exact; inspected 24 slide fronts, 3 flip backs, 3 recap views and 29 print pages. Superseding deployment 45334582037 succeeded; no clipping or overlap in changed views."
+        },
+        {
+          "manifest": "grade5-nn-model-consistency-changes.json",
+          "file": "resources/ssd/SS-Y5-NN-T1-L15/teacher-deck.html",
+          "views": [
+            "levels"
+          ],
+          "local_qa": "PASS:15 complete answer popups visually inspected; charity text and vocabulary fronts inspected; original media references unchanged.",
+          "live_qa": "PASS:16/16 changed HTML byte-exact 24 November 2026 at11:20Dubai. Three live model-answer popups, historical-statistics slide and matching source print visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L01/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L01/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "models"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L01/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L02/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L02/teacher-deck.html",
+          "views": [
+            "hook",
+            "guess",
+            "vocab",
+            "match",
+            "learn3",
+            "learn4",
+            "booktext",
+            "critique",
+            "models",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L02/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L03/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L03/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn2",
+            "booktext",
+            "critique"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L03/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L04/teacher-deck.html",
+          "views": [
+            "learn2",
+            "learn3",
+            "learn4",
+            "critique"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L05/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L05/teacher-deck.html",
+          "views": [
+            "hook",
+            "vocab",
+            "match",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "models"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L05/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L06/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L06/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L06/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn2",
+            "learn3",
+            "booktext",
+            "critique",
+            "models",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-ancient-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L06/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L07/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L07/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "models"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L07/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L08",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L08/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L08/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L08/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "booktext"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L08/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L09",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L09/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L09/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L09/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L09/teacher-deck.html",
+          "views": [
+            "learn2",
+            "learn3",
+            "learn4",
+            "booktext",
+            "watani",
+            "quick"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L09/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L10",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L10/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L10/group-work.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L10/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L10/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "booktext",
+            "critique",
+            "g3",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L10/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L11",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L11/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L11/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L11/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "watani",
+            "enrich"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L11/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L12",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L12/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L12/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L12/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "models"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L12/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L13",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L13/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L13/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L13/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "models",
+            "enrich"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L13/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L14",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L14/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L14/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L14/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "critique"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L14/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L15",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-child-safety-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L15/teacher-deck.html",
+          "views": [
+            "retrieve",
+            "watani",
+            "enrich",
+            "quick",
+            "hook",
+            "groups",
+            "g2",
+            "models",
+            "cover"
+          ],
+          "local_qa": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-child-safety-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L15/worksheets-A4.html",
+          "views": [
+            0,
+            1,
+            2
+          ],
+          "local_qa": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-child-safety-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L15/answer-key.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-child-safety-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L15/pod-sheet.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        },
+        {
+          "manifest": "grade5-child-safety-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L15/group-work.html",
+          "views": [
+            0
+          ],
+          "local_qa": "PASS 2026-11-24 08:57 Dubai; all changed fronts, hook popup, six changed print pages individually inspected. Original hotline photo retained with explicit Dubai/national distinction.",
+          "live_qa": "PASS 2026-11-24 09:08 Dubai. Nine changed fronts, hook popup and six changed print pages individually inspected. Combined batch exact live HTML audit 16/16 at 09:04. Deployment https://github.com/abobakr789/Hira/actions/runs/45330274679"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L16",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L16/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L16/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L16/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "think",
+            "critique",
+            "models"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L16/worksheets-A4.html",
+          "views": [
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L17",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L17/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L17/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L17/teacher-deck.html",
+          "views": [
+            "hook",
+            "guess",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "booktext",
+            "critique",
+            "quick"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-civic-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L17/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
+          "live_qa": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T1-L18",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L18/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L18/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L18/teacher-deck.html",
+          "views": [
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "models"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        },
+        {
+          "manifest": "grade5-finalseven-changes.json",
+          "file": "resources/ssd/SS-Y5-T1-L18/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: actual pixels inspected; all 28 learning panels, seven model panels, six answer interactions, 36 changed printable pages; concept-card overflow repaired and rechecked",
+          "live_qa": "PASS:29/29 final-batch HTML and 204/204 grade HTML byte-exact 24 November 2026 11:40 Dubai; four final revised slides and both final print pages inspected live, no overlap or clipping"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T2-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L01/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L01/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L01/teacher-deck.html",
+          "views": [
+            "learn3",
+            "learn4",
+            "critique",
+            "g2",
+            "models",
+            "quick"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L01/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T2-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L02/teacher-deck.html",
+          "views": [
+            "hook",
+            "vocab",
+            "match",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "critique",
+            "g1",
+            "g3",
+            "models",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L02/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L02/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L02/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L02/teacher-deck.html",
+          "views": [
+            "g1"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T2-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L03/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "watani",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L03/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L03/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T2-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L04/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "watani",
+            "quick"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L04/worksheets-A4.html",
+          "views": [
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L04/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T2-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L05/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "groupmap",
+            "g2",
+            "models",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L05/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L05/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L05/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L05/teacher-deck.html",
+          "views": [
+            "groupmap",
+            "g2"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T2-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L06/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L06/teacher-deck.html",
+          "views": [
+            "retrieve",
+            "hook",
+            "predict",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "critique",
+            "g2",
+            "models",
+            "watani",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L06/worksheets-A4.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L06/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T2-L07",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L07/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L07/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "watani",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L07/worksheets-A4.html",
+          "views": [
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L07/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L07/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T2-L08",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L08/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L08/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L08/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "think",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L08/worksheets-A4.html",
+          "views": [
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: learning panels, altered enrichment, seven hook answers, vocabulary backs, critique explanations, model answers, quick questions and all 42 print pages visually inspected",
+          "live_qa": "PASS: 28/28 byte-exact live on 24 Nov 2026 10:50 Dubai; GCC hook answer, green-energy learning panel, inclusion enrichment, reserve quiz and rights answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L08/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-term2-support-changes.json",
+          "file": "resources/ssd/SS-Y5-T2-L08/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: two revised group slides, both altered group print cards, seven accessible sheets and seven updated answer keys visually inspected",
+          "live_qa": "PASS:18/18 byte-exact 24Nov2026 10:57 Dubai; live wetland group slide, accessible worksheet and matching answer key visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T3-L01",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L01/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L01/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L01/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L01/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L01/teacher-deck.html",
+          "views": [
+            "hook",
+            "vocab",
+            "match",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "critique",
+            "groupmap",
+            "g2",
+            "models",
+            "watani",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L01/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T3-L02",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L02/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L02/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L02/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L02/teacher-deck.html",
+          "views": [
+            "hook",
+            "vocab",
+            "match",
+            "learn2",
+            "learn3",
+            "learn4",
+            "critique",
+            "g2",
+            "models",
+            "watani",
+            "quick"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        },
+        {
+          "manifest": "grade5-ar-geography-astronomy-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L02/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
+          "live_qa": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T3-L03",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L03/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L03/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L03/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L03/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L03/teacher-deck.html",
+          "views": [
+            "hook",
+            "vocab",
+            "match",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "critique",
+            "g2",
+            "models",
+            "watani",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L03/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T3-L04",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L04/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L04/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L04/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L04/teacher-deck.html",
+          "views": [
+            "hook",
+            "vocab",
+            "match",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "models",
+            "quick"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L04/worksheets-A4.html",
+          "views": [
+            "0",
+            "1"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T3-L05",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L05/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L05/group-work.html",
+          "views": [
+            "1"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L05/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L05/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L05/teacher-deck.html",
+          "views": [
+            "hook",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "critique",
+            "g3",
+            "models",
+            "quick"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L05/worksheets-A4.html",
+          "views": [
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        }
+      ]
+    },
+    {
+      "code": "SS-Y5-T3-L06",
+      "status": "changed",
+      "rationale": null,
+      "changes": [
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L06/answer-key.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L06/group-work.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L06/pod-sheet.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L06/sources-concept-card.html",
+          "views": [
+            "0"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L06/teacher-deck.html",
+          "views": [
+            "vocab",
+            "match",
+            "learn1",
+            "learn2",
+            "learn3",
+            "learn4",
+            "booktext",
+            "critique",
+            "g2",
+            "models",
+            "watani",
+            "enrich",
+            "quick"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        },
+        {
+          "manifest": "grade5-ar-term3-changes.json",
+          "file": "resources/ssd/SS-Y5-T3-L06/worksheets-A4.html",
+          "views": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
+          "local_qa": "PASS: 20 learning panels, 18 interaction views, additional revised group and critique slides, four vocabulary backs, and 45 print pages visually inspected; late corrections rechecked. Original media references unchanged.",
+          "live_qa": "PASS:29/29 changed HTML byte-exact on 24 November 2026 at 11:15 Dubai; live natural-vegetation quiz, Ibn Sina chronology, city-growth panel and corrected full group answer key visually inspected."
+        }
+      ]
+    }
+  ]
+}

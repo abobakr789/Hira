@@ -4,181 +4,303 @@
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L08/sources-concept-card.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L08/teacher-deck.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "booktext"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L08/worksheets-A4.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "1"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L09/answer-key.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L09/pod-sheet.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L09/sources-concept-card.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L09/teacher-deck.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "learn2",
+      "learn3",
+      "learn4",
+      "booktext",
+      "watani",
+      "quick"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L09/worksheets-A4.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0",
+      "1"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L10/answer-key.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L10/group-work.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "1"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L10/sources-concept-card.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L10/teacher-deck.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "booktext",
+      "critique",
+      "g3",
+      "enrich",
+      "quick"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L10/worksheets-A4.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L11/answer-key.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L11/sources-concept-card.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L11/teacher-deck.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "vocab",
+      "match",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "watani",
+      "enrich"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L11/worksheets-A4.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0",
+      "1"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L14/answer-key.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L14/sources-concept-card.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L14/teacher-deck.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "critique"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L14/worksheets-A4.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "1"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L17/answer-key.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L17/sources-concept-card.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L17/teacher-deck.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "hook",
+      "guess",
+      "learn1",
+      "learn2",
+      "learn3",
+      "learn4",
+      "booktext",
+      "critique",
+      "quick"
+    ]
   },
   {
     "file": "resources/ssd/SS-Y5-T1-L17/worksheets-A4.html",
     "qa": {
       "local": "PASS: 24 learning panels, changed reading/enrichment panels and 36 print pages inspected; source cards checked again after icon removal",
       "live": "PASS: exact deployed HTML confirmed 2026-11-24 10:31 Asia/Dubai; representative revised slides and print pages visually inspected"
-    }
+    },
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ]
   }
 ]
