@@ -1,0 +1,112 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L07/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L07/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L07/teacher-deck.html",
+    "views": [
+      "guess",
+      "learn1"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T1-L07/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L10/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L10/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L10/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L10/teacher-deck.html",
+    "views": [
+      "hook",
+      "guess",
+      "vocab",
+      "match",
+      "learn3",
+      "quick"
+    ],
+    "popups": [
+      "hook",
+      "guess",
+      "match"
+    ],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L12/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L12/teacher-deck.html",
+    "views": [
+      "models"
+    ],
+    "popups": [],
+    "local_qa": "PASS: 2026-11-24 06:17 Dubai. All 9 fronts, 3 answer popups and 9 print pages visually inspected at full size. No clipping or overlap. Media unchanged.",
+    "live_qa": "pending"
+  }
+]

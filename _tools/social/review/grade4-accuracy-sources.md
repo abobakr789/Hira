@@ -43,3 +43,6 @@ These support later edits, not completed corrections.
 - Ministry national register shipbuilding, https://moc.gov.ae/ar/national-register/%D8%A7%D9%84%D8%AC%D9%84%D8%A7%D9%81/ : teak الساج imported from India.
 - FAO AGROVOC, https://agrovoc.fao.org/skosmosAsfa/asfa/ar/page/c_12676 : mountain steep sides.
 - Arabic Language Academy mountain entry, https://www.arabicacademy.gov.eg/ar/%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB/%D8%A7%D9%84%D8%AC%D8%A8%D9%84 : mountain height and summit definition.
+
+## AR vocabulary batch, 2026-11-24 06:18 Dubai
+T1 L07 malformed mountain-definition word corrected to slope/steepness across five HTML resources. T3 L10 and L12 teak spelling corrected to الساج. L10 explicitly separates wooden hull from ropes made of palm/coconut fibre. Original images and answer-bank targets retained. Sources fetched and read during this review: FAO AGROVOC mountain definition and UAE Ministry of Culture Jallaf register, both listed above. Nine fronts, three popups and nine print pages passed local visual inspection. Live verification is recorded in grade4-ar-vocabulary-changes.json.
