@@ -1071,6 +1071,8 @@
       ".hb-code{font:800 40px/1.1 ui-monospace,'SF Mono',Menlo,monospace;letter-spacing:.08em;color:#102A4C;direction:ltr;text-align:start}",
       ".hb-url{font:600 14px 'Thmanyah Text',Tahoma,sans-serif;color:#1E6BC2;direction:ltr;unicode-bidi:isolate}",
       ".hb-names{display:flex;flex-wrap:wrap;gap:6px;max-height:120px;overflow:auto;margin:6px 0}",
+      ".hb-cls{background:#F4F7FB;border-radius:12px;padding:10px 12px;margin:8px 0}.hb-cls label{font-weight:800;display:block;margin-bottom:6px}.hb-cls[hidden]{display:none}.hb-sel2{width:100%;font:inherit;font-size:14.5px;padding:8px 10px;border:1px solid #CBD5E1;border-radius:10px;background:#fff;color:#102A4C}",
+      ".hb-ros{background:#F4F7FB;border-radius:12px;padding:10px 12px;margin:6px 0}.hb-rosh{font-weight:700}.hb-link{display:flex;align-items:center;gap:8px;margin-top:6px}.hb-link span{flex:1;font-weight:600}.hb-link select{font:inherit;font-size:13px;padding:4px 8px;border-radius:8px;border:1px solid #CBD5E1}",
       ".hb-names span{background:#EEF6F1;color:#1B6B3A;border-radius:99px;padding:3px 10px;font:600 13px 'Thmanyah Text',Tahoma,sans-serif;animation:hbPop .35s ease}",
       "@keyframes hbPop{from{transform:scale(.6);opacity:0}}",
       ".hb-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}",
@@ -1171,16 +1173,72 @@
     function paintShare() {
       if (!S || S.state === "done") {
         sharePop.innerHTML = '<div class="hb-h">📲 ' + T("شارك الطلاب في العرض", "Let students join the presentation") + '</div><p>' + T("يدخل الطلاب من الجوال أو الآيباد برمز من 6 أرقام. تسأل الصف من الشريط فيجيبون من أجهزتهم، وتظهر الإجابات هنا فورًا. وتقييمهم لمعايير النجاح قبل الدرس وبعده يُحفظ في «تقرير الحصة».", "Students join from a phone or iPad with a 6-digit code. Ask the class from the toolbar and their answers appear here instantly. Their success-criteria ratings before and after the lesson are kept in the lesson report.") +
-          '</p><div class="hb-row"><button type="button" class="hb-btn pri" id="hbStart">▶ ' + T("ابدأ حصة مباشرة", "Start a live lesson") + '</button></div><div id="hbPast"></div>';
-        $("hbStart").onclick = start; past(); return;
+          '</p><div class="hb-cls"><label for="hbCls">🏫 ' + T("فصل الحصة", "Class") + '</label><select id="hbCls" class="hb-sel2"><option value="">' + T("بلا فصل: يدخل الطلاب بأسماء حرة", "No class: students type any name") + "</option></select>" +
+          '<p class="hb-muted" id="hbClsN" style="margin:4px 0 0;font-size:12.5px">' + T("اختر فصلك ليُحسب حضور كل طالب وإجاباته عبر الحصص. يدخل الطلاب بحساباتهم فيُعرفون تلقائيًّا.", "Pick your class to track each student's attendance and answers across lessons. Signed-in students are recognised automatically.") + "</p></div>" +
+          '<div class="hb-row"><button type="button" class="hb-btn pri" id="hbStart">▶ ' + T("ابدأ حصة مباشرة", "Start a live lesson") + '</button><button type="button" class="hb-btn" id="hbClsProg" hidden>📊 ' + T("تقدّم الفصل عبر الحصص", "Class progress across lessons") + '</button></div><div id="hbPast"></div>';
+        $("hbStart").onclick = start; past(); loadClasses(); return;
       }
       sharePop.innerHTML = '<div class="hb-h">📲 ' + T("الحصة المباشرة", "Live lesson") + '</div><div class="hb-join"><div class="hb-qr" id="hbQr"></div><div><p style="margin:0">' + T("ادخلوا من", "Go to") + ' <span class="hb-url">' + esc(shortUrl()) + '</span> ' + T("ثم «تحدٍّ مباشر»، واكتبوا:", "→ “Live challenge”, then type:") + '</p><div class="hb-code">' + code3(S.code) + '</div><p class="hb-muted" style="margin:0">' + T("أو امسحوا الرمز بكاميرا الجوال", "or scan the QR code") + '</p></div></div>' +
-        '<div class="hb-row" style="margin:0"><b id="hbJn">' + players.length + '</b> ' + T("طالبًا دخلوا الحصة", "students joined") + '</div><div class="hb-names" id="hbNm">' + names() + '</div>' +
+        '<div class="hb-row" style="margin:0"><b id="hbJn">' + players.length + '</b> ' + T("طالبًا دخلوا الحصة", "students joined") + '</div><div class="hb-names" id="hbNm">' + names() + '</div><div id="hbRos"></div>' +
         '<div class="hb-row"><button type="button" class="hb-btn pri" id="hbBigBtn">⛶ ' + T("اعرض الرمز على الشاشة", "Show the code full screen") + '</button><button type="button" class="hb-btn" id="hbRepBtn">📊 ' + T("تقرير الحصة", "Lesson report") + '</button><button type="button" class="hb-btn" id="hbEndBtn">■ ' + T("أنهِ الحصة", "End") + "</button></div>";
       qrInto($("hbQr"), 134);
       $("hbBigBtn").onclick = function () { closePops(); showBig(); };
+      loadRoster();
       $("hbRepBtn").onclick = function () { report(S); };
       $("hbEndBtn").onclick = function () { if (!confirm(T("إنهاء الحصة المباشرة؟ ستبقى نتائجها في تقرير الحصة.", "End the live lesson? Its results stay in the report."))) return; step("end").then(function () { var s0 = S; stopSubs(); try { sessionStorage.removeItem(KEY); } catch (e) {} S = null; setActive(); paintShare(); say(T("انتهت الحصة · التقرير محفوظ", "Lesson ended · report saved")); report(s0); }); };
+    }
+    var roster = [];
+    function loadRoster() {
+      var box = $("hbRos"); if (!box || !S || !S.class_id) return;
+      sb.rpc("dl_roster", { p_live: S.id }).then(function (r) {
+        roster = r.data || []; box = $("hbRos"); if (!box) return;
+        var inn = roster.filter(function (x) { return x.player; }), out = roster.filter(function (x) { return !x.player; });
+        var linked = {}; inn.forEach(function (x) { linked[x.player] = 1; });
+        var guests = players.filter(function (p) { return !linked[p.id]; });
+        box.innerHTML = '<div class="hb-ros"><div class="hb-rosh">🏫 ' + esc(S.cname || T("الفصل", "Class")) + " · " + T("حضر ", "Present ") + "<b>" + inn.length + "</b>" + T(" من ", " of ") + roster.length + "</div>" +
+          (out.length ? '<div class="hb-muted" style="font-size:12.5px;margin:4px 0">' + T("لم يدخلوا بعد: ", "Not in yet: ") + out.map(function (x) { return esc(x.name); }).join("، ") + "</div>" : '<div class="hb-muted" style="font-size:12.5px">✅ ' + T("حضر الفصل كله", "The whole class is here") + "</div>") +
+          (guests.length && out.length ? '<div class="hb-muted" style="font-size:12.5px;margin-top:6px">' + T("دخلوا بلا حساب؛ اربط كل اسم بطالبه ليُحسب له:", "Joined without an account; link each name to its student:") + "</div>" + guests.map(function (g) { return '<div class="hb-link"><span>' + esc(g.nick) + '</span><select data-pl="' + g.id + '"><option value="">' + T("— اربط بـ —", "— link to —") + "</option>" + out.map(function (x) { return '<option value="' + x.id + '">' + esc(x.name) + "</option>"; }).join("") + "</select></div>"; }).join("") : "") + "</div>";
+        box.querySelectorAll("[data-pl]").forEach(function (sl) { sl.onchange = function () { if (!sl.value) return; sb.rpc("dl_link_player", { p_player: sl.dataset.pl, p_student: sl.value }).then(function (r2) { if (r2.error) say(r2.error.message); else { say(T("رُبط الاسم بالطالب", "Linked")); loadRoster(); } }); }; });
+      });
+    }
+    function classProgress(c) {
+      var w = W.open("", "_blank"); if (!w) { say(T("اسمح للمتصفح بفتح نافذة جديدة", "Allow pop-ups")); return; }
+      w.document.write('<!doctype html><meta charset="utf-8"><body style="font-family:Tahoma,sans-serif;padding:40px;color:#102A4C">' + T("جارٍ إعداد التقرير…", "Preparing…") + "</body>");
+      sb.rpc("dl_class_progress", { p_class: c.id, p_days: 180 }).then(function (r) {
+        if (r.error) { w.document.body.textContent = r.error.message; return; }
+        w.document.open(); w.document.write(progressHtml(c, r.data || { sessions: [], students: [] })); w.document.close();
+      });
+    }
+    function progressHtml(c, D0) {
+      var SS0 = D0.sessions || [], ST = D0.students || [], nS = SS0.length;
+      var fmt = function (v) { return v == null ? "—" : (Math.round(v * 10) / 10).toFixed(1); };
+      var dt = function (x) { return new Date(x).toLocaleDateString(EN ? "en-GB" : "ar-AE-u-nu-latn", { day: "numeric", month: "short" }); };
+      var rows = ST.map(function (s0) {
+        var att = nS ? pct(s0.present, nS) : 0, cor = s0.graded ? pct(s0.correct, s0.graded) : null, rb = s0.rate && s0.rate.before, ra = s0.rate && s0.rate.after;
+        var flag = (nS && att < 60) || (cor != null && s0.graded >= 3 && cor < 50) || (ra != null && ra < 2);
+        return { s: s0, att: att, cor: cor, rb: rb, ra: ra, flag: flag };
+      });
+      var avgAtt = rows.length ? Math.round(rows.reduce(function (a, x) { return a + x.att; }, 0) / rows.length) : 0;
+      var g = rows.filter(function (x) { return x.cor != null; }), avgCor = g.length ? Math.round(g.reduce(function (a, x) { return a + x.cor; }, 0) / g.length) : null;
+      var css = "body{font-family:'Thmanyah Text','Cairo',Tahoma,sans-serif;color:#102A4C;margin:0;background:#F4F6FA}main{max-width:1050px;margin:0 auto;padding:28px 24px 60px}h1{margin:0;font-size:26px}h2{margin:28px 0 10px;font-size:19px}.sub{color:#5B6B82;margin:4px 0 18px}" +
+        ".cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.cards div{background:#fff;border-radius:14px;padding:14px 16px;box-shadow:0 2px 10px rgba(16,42,76,.06)}.cards b{display:block;font-size:28px}.cards span{color:#5B6B82;font-size:13px}" +
+        "table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(16,42,76,.06)}th,td{padding:9px 12px;text-align:start;border-bottom:1px solid #EDF0F5;font-size:14px}th{background:#102A4C;color:#fff;font-weight:700}td.num{font-variant-numeric:tabular-nums;white-space:nowrap}tr.flag td{background:#FFF6EC}" +
+        ".bar{display:inline-block;width:70px;height:8px;border-radius:9px;background:#E6EAF0;vertical-align:middle;margin-inline-end:6px;overflow:hidden}.bar i{display:block;height:100%;background:#2E9E5B}.lo .bar i{background:#E0892B}" +
+        ".up{color:#1B6B3A;font-weight:700}.dn{color:#B42318;font-weight:700}.note{color:#5B6B82;font-size:13px}.need{background:#FFF6EC;border-inline-start:4px solid #E0892B;padding:10px 14px;border-radius:10px;margin-top:14px}" +
+        ".ses span{display:inline-block;background:#fff;border-radius:99px;padding:4px 12px;margin:3px;font-size:13px;box-shadow:0 1px 4px rgba(16,42,76,.08)}@media print{body{background:#fff}.np{display:none}table,.cards div{box-shadow:none;border:1px solid #DDE3EC}}";
+      var h = '<!doctype html><html lang="' + (EN ? "en" : "ar") + '" dir="' + (RTL ? "rtl" : "ltr") + '"><head><meta charset="utf-8"><title>' + T("تقدّم الفصل", "Class progress") + " · " + esc(c.name) + "</title><style>" + fontCss() + css + "</style></head><body><main>" +
+        '<p class="np" style="text-align:end"><button onclick="print()" style="font:inherit;padding:8px 16px;border-radius:10px;border:0;background:#D4AA55;cursor:pointer">🖨 ' + T("طباعة / PDF", "Print / PDF") + "</button></p>" +
+        "<h1>📊 " + T("تقدّم الفصل عبر الحصص المباشرة", "Class progress across live lessons") + '</h1><p class="sub">' + esc(c.name) + " · " + T("الصف ", "Year ") + c.year + " · " + T("آخر 180 يومًا", "last 180 days") + "</p>" +
+        '<div class="cards"><div><b>' + nS + "</b><span>" + T("حصة مباشرة", "live lessons") + "</span></div><div><b>" + ST.length + "</b><span>" + T("طالبًا في الفصل", "students") + "</span></div><div><b>" + avgAtt + "%</b><span>" + T("متوسط الحضور", "average attendance") + "</span></div>" + (avgCor != null ? "<div><b>" + avgCor + "%</b><span>" + T("متوسط الإجابات الصحيحة", "average correct") + "</span></div>" : "") + "</div>";
+      if (!nS) h += '<p class="note" style="margin-top:20px">' + T("لا حصص مباشرة مرتبطة بهذا الفصل بعد. اختر الفصل عند «ابدأ حصة مباشرة».", "No live lessons linked to this class yet. Choose the class when you start a live lesson.") + "</p>";
+      h += "<h2>👥 " + T("كل طالب", "Each student") + "</h2><table><thead><tr><th>" + T("الطالب", "Student") + "</th><th>" + T("الحضور", "Attendance") + "</th><th>" + T("الإجابات", "Answers") + "</th><th>" + T("الصحيحة", "Correct") + "</th><th>" + T("الفهم 😊", "Understanding 😊") + "</th><th>" + T("معايير النجاح: قبل ← بعد", "Criteria: before → after") + "</th><th>" + T("آخر حضور", "Last seen") + "</th></tr></thead><tbody>" +
+        rows.map(function (x) { var dd = x.ra != null && x.rb != null ? x.ra - x.rb : null;
+          return "<tr" + (x.flag ? ' class="flag"' : "") + "><td>" + (x.flag ? "🤝 " : "") + esc(x.s.name) + '</td><td class="num' + (x.att < 60 ? " lo" : "") + '"><span class="bar"><i style="width:' + x.att + '%"></i></span>' + x.s.present + "/" + nS + '</td><td class="num">' + x.s.answers + '</td><td class="num' + (x.cor != null && x.cor < 50 ? " lo" : "") + '">' + (x.cor == null ? "—" : '<span class="bar"><i style="width:' + x.cor + '%"></i></span>' + x.cor + "% <small>(" + x.s.correct + "/" + x.s.graded + ")</small>") + '</td><td class="num">' + fmt(x.s.scale) + '/3</td><td class="num">' + fmt(x.rb) + " ← " + fmt(x.ra) + (dd != null ? (dd > 0 ? ' <span class="up">▲' + fmt(dd) + "</span>" : dd < 0 ? ' <span class="dn">▼' + fmt(-dd) + "</span>" : "") : "") + '</td><td class="num">' + (x.s.last ? dt(x.s.last) : "—") + "</td></tr>"; }).join("") + "</tbody></table>" +
+        '<p class="note">' + T("الصحيحة تُحسب من أسئلة الاختيار وصح أم خطأ التي كشفتَ إجابتها. الفهم ومعايير النجاح من 3. 🤝 = يحتاج متابعة: حضور أقل من 60% أو صحيحة أقل من 50% أو تقييم ذاتي بعد الدرس أقل من 2.", "Correct counts reveal-marked multiple-choice and true/false questions. Understanding and criteria are out of 3. 🤝 = needs follow-up: attendance under 60%, correct under 50%, or after-lesson self-rating under 2.") + "</p>";
+      var need = rows.filter(function (x) { return x.flag; }).map(function (x) { return esc(x.s.name); });
+      if (need.length) h += '<div class="need"><b>🤝 ' + T("طلاب يحتاجون متابعة", "Students to follow up") + ":</b> " + need.join("، ") + "</div>";
+      if (nS) h += "<h2>🗓 " + T("الحصص", "Lessons") + '</h2><div class="ses">' + SS0.map(function (x) { return "<span>" + dt(x.at) + " · " + esc(x.title || "") + " · " + T("حضر ", "present ") + x.present + (x.guests ? " + " + x.guests + T(" بلا حساب", " guests") : "") + "</span>"; }).join("") + "</div>";
+      return h + "</main></body></html>";
     }
     function showBig() {
       joinBig.innerHTML = '<div class="q" id="hbBigQr"></div><div><h2>📲 ' + T("ادخلوا الحصة من أجهزتكم", "Join the lesson on your device") + '</h2><div class="u">' + esc(shortUrl()) + '</div><div class="n">' + T("ثم «تحدٍّ مباشر»، واكتبوا الرمز:", "→ “Live challenge”, then type the code:") + '</div><div class="c">' + code3(S.code) + '</div><div class="n">👥 <b id="hbBigN">' + players.length + '</b> ' + T("طالبًا دخلوا", "joined") + '</div><div class="nm" id="hbBigNm">' + names(40) + '</div><button type="button" id="hbBigGo">' + T("لنبدأ ▶", "Let's start ▶") + "</button></div>";
@@ -1194,11 +1252,25 @@
         box.querySelectorAll("[data-id]").forEach(function (b) { b.onclick = function () { report(L.find(function (x) { return x.id === b.dataset.id; })); }; });
       });
     }
+    var CLS = null;
+    function loadClasses() {
+      var sel = $("hbCls"); if (!sel) return;
+      var fill = function () {
+        var last = LS.get("hb-class-" + DECK, LS.get("hb-class-last", ""));
+        sel.innerHTML = '<option value="">' + T("بلا فصل: يدخل الطلاب بأسماء حرة", "No class: students type any name") + "</option>" + CLS.map(function (c) { return '<option value="' + c.id + '"' + (c.id === last ? " selected" : "") + ">" + esc(c.name) + " · " + T("الصف ", "Year ") + c.year + " (" + c.n + T(c.n >= 3 && c.n <= 10 ? " طلاب" : " طالبًا", " students") + ")</option>"; }).join("");
+        var upd = function () { var v = sel.value; $("hbClsProg").hidden = !v; LS.set("hb-class-" + DECK, v); if (v) LS.set("hb-class-last", v); };
+        sel.onchange = upd; upd();
+        $("hbClsProg").onclick = function () { var c = CLS.find(function (x) { return x.id === sel.value; }); if (c) classProgress(c); };
+      };
+      if (CLS) return fill();
+      sb.rpc("dl_my_classes").then(function (r) { CLS = r.data || []; if (!CLS.length) { var b = sel.closest(".hb-cls"); if (b) b.hidden = true; return; } fill(); });
+    }
     function start() {
       var t = $("hbStart"); t.disabled = true; t.textContent = "…";
-      sb.rpc("dl_create", { p_deck: HX.deck, p_title: title, p_lesson: HX.lesson }).then(function (r) {
+      var cid = ($("hbCls") || {}).value || null, cobj = cid && CLS ? CLS.find(function (x) { return x.id === cid; }) : null;
+      sb.rpc("dl_create", { p_deck: HX.deck, p_title: title, p_lesson: HX.lesson, p_class: cid }).then(function (r) {
         if (r.error) { t.disabled = false; t.textContent = T("ابدأ حصة مباشرة", "Start a live lesson"); say(T("تعذّر بدء الحصة: ", "Could not start: ") + r.error.message); return; }
-        S = { id: r.data.id, code: r.data.code, q_seq: 0, state: "idle", q: null }; players = []; answers = [];
+        S = { id: r.data.id, code: r.data.code, q_seq: 0, state: "idle", q: null, class_id: cid, cname: cobj ? cobj.name : "" }; players = []; answers = []; roster = [];
         try { sessionStorage.setItem(KEY, S.id); } catch (e) {}
         subscribe(); setActive(); paintShare(); closePops(); showBig();
       });
@@ -1222,7 +1294,7 @@
       if (!S) return Promise.resolve();
       return sb.from("deck_live_players").select("id, nick, joined_at").eq("live_id", S.id).order("joined_at").then(function (r) {
         var L = r.data || []; if (L.length === players.length) return; players = L; badge.textContent = players.length;
-        if ($("hbJn")) { $("hbJn").textContent = players.length; $("hbNm").innerHTML = names(); }
+        if ($("hbJn")) { $("hbJn").textContent = players.length; $("hbNm").innerHTML = names(); loadRoster(); }
         if ($("hbBigN")) { $("hbBigN").textContent = players.length; $("hbBigNm").innerHTML = names(40); }
         if (resP.classList.contains("on")) paintRes();
       });
@@ -1393,14 +1465,15 @@
       Promise.all([
         sb.from("deck_live").select("*").eq("id", row.id).maybeSingle(),
         sb.from("deck_live_players").select("id, nick, joined_at").eq("live_id", row.id).order("joined_at"),
-        sb.from("deck_live_answers").select("player_id, q_seq, q, answer, at").eq("live_id", row.id).order("q_seq")
-      ]).then(function (R) { w.document.open(); w.document.write(reportHtml(R[0].data || row, R[1].data || [], R[2].data || [])); w.document.close(); })
+        sb.from("deck_live_answers").select("player_id, q_seq, q, answer, at").eq("live_id", row.id).order("q_seq"),
+        sb.rpc("dl_roster", { p_live: row.id })
+      ]).then(function (R) { w.document.open(); w.document.write(reportHtml(R[0].data || row, R[1].data || [], R[2].data || [], R[3].data || [])); w.document.close(); })
         .catch(function (e) { w.document.body.textContent = String(e && e.message || e); });
     }
     function fontCss() {
       var out = ""; [].forEach.call(D.styleSheets, function (ss) { try { [].forEach.call(ss.cssRules || [], function (r) { if (r.type === 5) out += r.cssText.replace(/url\((['"]?)([^'")]+)\1\)/g, function (m0, q, u) { try { return "url(" + q + new URL(u, ss.href || location.href).href + q + ")"; } catch (e) { return m0; } }) + "\n"; }); } catch (e) {} }); return out;
     }
-    function reportHtml(L, P, A) {
+    function reportHtml(L, P, A, RO) {
       var nick = {}; P.forEach(function (p) { nick[p.id] = p.nick; });
       var bySeq = {}; A.forEach(function (a) { (bySeq[a.q_seq] = bySeq[a.q_seq] || { q: a.q || {}, a: [] }).a.push(a); if (a.q && a.q.correct != null) bySeq[a.q_seq].q = a.q; });
       var seqs = Object.keys(bySeq).map(Number).sort(function (a, b) { return a - b; });
@@ -1418,6 +1491,11 @@
       h += '<div class="cards"><div><b>' + P.length + "</b><span>" + T("طالبًا شاركوا", "students took part") + "</span></div><div><b>" + qN + "</b><span>" + T("سؤالًا طُرح", "questions asked") + "</span></div>" +
         (tot ? "<div><b>" + pct(corr, tot) + "%</b><span>" + T("متوسط الإجابات الصحيحة", "average correct") + "</span></div>" : "") +
         (rateB && rateA ? '<div class="g"><b>' + allP3(rateB) + "% ← " + allP3(rateA) + "%</b><span>" + T("«أستطيع وحدي» قبل الدرس وبعده", "“I can do it” before → after") + "</span></div>" : "") + "</div>";
+      /* الحضور من قائمة الفصل */
+      if (RO && RO.length) {
+        var inR = RO.filter(function (x) { return x.player; }), outR = RO.filter(function (x) { return !x.player; });
+        h += "<h2>🏫 " + T("الحضور", "Attendance") + '</h2><p class="note" style="font-size:15px">' + T("حضر ", "Present: ") + "<b>" + inR.length + "</b>" + T(" من ", " of ") + RO.length + T(" طالبًا", " students") + (outR.length ? " · " + T("غاب: ", "Absent: ") + outR.map(function (x) { return esc(x.name); }).join("، ") : " · ✅ " + T("حضر الفصل كله", "whole class present")) + "</p>";
+      }
       /* قياس التقدّم */
       if (rows.length) {
         h += "<h2>📈 " + T("قياس التقدّم في معايير النجاح", "Progress on the success criteria") + "</h2><table class=\"crit\"><thead><tr><th>" + T("معيار النجاح", "Success criterion") + "</th><th>" + T("قبل الدرس", "Before") + "</th><th>" + T("بعد الدرس", "After") + "</th><th>" + T("أستطيع وحدي", "I can do it") + "</th></tr></thead><tbody>" +
@@ -1475,7 +1553,7 @@
     on("hbAsk", function (e, b) { paintAsk(); togglePop(askPop, b, $("hbQt")); });
     W.addEventListener("pagehide", stopSubs);
     var keep = null; try { keep = sessionStorage.getItem(KEY); } catch (e) {}
-    if (keep) sb.from("deck_live").select("id, code, q, q_seq, state").eq("id", keep).maybeSingle().then(function (r) {
+    if (keep) sb.from("deck_live").select("id, code, q, q_seq, state, class_id").eq("id", keep).maybeSingle().then(function (r) {
       if (r.data && r.data.state !== "done") { S = r.data; subscribe(); setActive(); if (S.q && S.q_seq) { loadAnswers(); resP.classList.add("on"); } }
     });
   })();
