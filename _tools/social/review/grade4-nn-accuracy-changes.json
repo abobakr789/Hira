@@ -1,0 +1,78 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L05/teacher-deck.html",
+    "views": [
+      "model"
+    ],
+    "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L11/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L11/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "text3",
+      "text6"
+    ],
+    "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L14/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L14/sources-concept-card.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L14/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "text3",
+      "text5",
+      "guide",
+      "check",
+      "quiz"
+    ],
+    "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
+    "live_qa": "pending"
+  }
+]
