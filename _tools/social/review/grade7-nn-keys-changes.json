@@ -1,0 +1,470 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L01/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L01/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L02/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L02/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L02/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L03/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L03/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L04/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L04/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L04/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L05/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L05/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L05/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L06/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L06/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L06/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L07/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L07/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L08/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L09/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L09/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L10/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L11/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L12/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L13/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L13/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L14/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L15/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L16/teacher-deck.html",
+    "views": [
+      "levels"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L16/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  },
+  {
+    "file": "resources/ssd/SS-Y7-NN-T1-L16/worksheets-A4.html",
+    "views": [
+      "1"
+    ],
+    "qa": {
+      "local": "pass",
+      "live": "pending",
+      "local_evidence": "2026-11-24 13:11 Dubai: all 16 complete model-answer popups and 23 print pages inspected as pixels; actual 80 quiz-option positions reconciled and all matching rows checked."
+    },
+    "original_media": "unchanged"
+  }
+]
