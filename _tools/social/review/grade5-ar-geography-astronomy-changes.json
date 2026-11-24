@@ -3,70 +3,70 @@
     "file": "resources/ssd/SS-Y5-T2-L01/answer-key.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   },
   {
     "file": "resources/ssd/SS-Y5-T2-L01/sources-concept-card.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   },
   {
     "file": "resources/ssd/SS-Y5-T2-L01/worksheets-A4.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   },
   {
     "file": "resources/ssd/SS-Y5-T2-L01/teacher-deck.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   },
   {
     "file": "resources/ssd/SS-Y5-T2-L01/group-work.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L02/answer-key.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L02/sources-concept-card.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L02/worksheets-A4.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L02/teacher-deck.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   },
   {
     "file": "resources/ssd/SS-Y5-T3-L02/group-work.html",
     "qa": {
       "local": "PASS: slide fronts, explanation panels, vocabulary backs and all print pages visually inspected",
-      "live": "PENDING"
+      "live": "PASS: exact deployed bytes; six changed slide fronts and six print pages visually inspected"
     }
   }
 ]

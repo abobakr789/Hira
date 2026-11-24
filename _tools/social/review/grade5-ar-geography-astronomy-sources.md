@@ -21,4 +21,4 @@ Verified 24 November 2026. Two lessons, ten HTML resources. Grade review remains
 - Original image/audio/video/source references are unchanged in all ten HTML resources.
 - Colors, identity, navigation and interaction handlers retained.
 - Local review included 16 slide fronts, vocabulary backs, four explanation panels and 15 print pages. Corrected the clipped concept-card source box by including it inside the existing print auto-fit container. Final concept cards and revised exercises/keys were rendered and inspected again.
-- Live QA pending publication.
+- Live QA passed: all ten deployed resources match local bytes; six changed slide fronts and six print pages inspected. Deployment: https://github.com/abobakr789/Hira/actions/runs/45336881684
