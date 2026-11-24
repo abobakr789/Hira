@@ -103,3 +103,8 @@ The 70% population figure is retained as lesson data, not asserted as a current 
 - US EIA: https://www.eia.gov/energyexplained/biomass/ . Biomass includes plants and animal waste.
 - US EPA: https://www.epa.gov/ghgemissions/carbon-footprint-calculator and https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator . Carbon footprint comprises greenhouse gas emissions, often measured as CO2 equivalent, not every kind of pollution.
 All pages fetched and read 08:01–08:02 Dubai. Corrections synchronized in readings, source cards, relevant worksheets and key. Original media preserved. No new portrait added.
+
+## Grade 4 final precision, 24 November 2026
+- UAE Government, water resources: https://u.ae/en/information-and-services/environment-and-energy/natural-resources/water- . Dams harvest rain/flood water and recharge groundwater. Corrected the reversed groundwater-to-dam causal claim, synchronized learning slide and concept card.
+- Visit Dubai, city history: https://www.visitdubai.com/ar/explore-dubai/about-dubai . Supports early fishing settlement; removed an incomplete unsupported BCE date, visibly labeled the edited reading as adapted.
+- Civilizational contact: removed an unrelated equator/Greenwich globe from the text-only explanation. No new historical claim or media replacement.

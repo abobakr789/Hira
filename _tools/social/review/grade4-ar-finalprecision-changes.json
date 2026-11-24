@@ -1,0 +1,47 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T3-L04/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L04/teacher-deck.html",
+    "views": [
+      "learn4"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L14/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L14/teacher-deck.html",
+    "views": [
+      "booktext"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+    "live_qa": "pending"
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T3-L16/teacher-deck.html",
+    "views": [
+      "learn3"
+    ],
+    "popups": [],
+    "local_qa": "PASS 2026-11-24 08:10 Dubai; three fronts and two print pages individually inspected; source label rechecked separately",
+    "live_qa": "pending"
+  }
+]

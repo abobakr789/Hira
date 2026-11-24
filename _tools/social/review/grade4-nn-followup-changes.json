@@ -8,7 +8,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L04/sources-concept-card.html",
@@ -18,7 +18,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L04/worksheets-A4.html",
@@ -27,7 +27,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L15/teacher-deck.html",
@@ -42,7 +42,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L15/sources-concept-card.html",
@@ -52,7 +52,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L15/worksheets-A4.html",
@@ -61,7 +61,7 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L15/answer-key.html",
@@ -70,6 +70,6 @@
     ],
     "popups": [],
     "local_qa": "PASS 2026-11-24 08:05 Dubai; individually inspected fronts, flip back and print pages after final corrections",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 08:10 Dubai; 6129a575 live byte-exact, ten fronts, one flip back, seven print pages individually inspected"
   }
 ]

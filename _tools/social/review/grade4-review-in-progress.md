@@ -109,3 +109,5 @@ NEXT: finish grade4 lesson-specific retained rationales and reconcile all 76 dec
 
 ## 2026-11-24 08:05 Dubai follow-up local QA
 Lesson reconciliation found two further source-reading problems, now corrected locally in NN L04 and L15. Tolerance: Nobel chronology, bombed-house family details, UAE tolerance year. Energy: carbon footprint is greenhouse gases rather than all pollution; biomass includes animal waste; corrected inherited worksheet key and removed shuffled letter labels. Seven HTML files, ten fronts, one flip back and seven print pages individually inspected locally PASS after late fixes. Not yet published. Coverage before this batch: 34 changed lessons, 42 without changes, not final closure.
+
+08:12 Dubai: NN tolerance/energy follow-up 6129a575 deployed successfully, all 7 HTML byte-exact. Ten fronts, one flip back and seven print pages individually inspected live PASS. Arabic final precision: 3 lessons, 5 HTML, local QA PASS (3 fronts and 2 print pages), original media unchanged. Grade 4 closure reconciliation continues, not yet complete.
