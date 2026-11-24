@@ -1,0 +1,505 @@
+{
+  "changed": [
+    "resources/ssd/SS-Y10-NN-T1-L01/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L02/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L03/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L04/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L05/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L06/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L07/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L08/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L09/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L10/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L11/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L12/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L13/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L14/sources-concept-card.html",
+    "resources/ssd/SS-Y10-NN-T1-L14/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L15/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L16/teacher-deck.html",
+    "resources/ssd/SS-Y10-NN-T1-L17/teacher-deck.html"
+  ],
+  "word_cards_without_misleading_symbols": [
+    [
+      "SS-Y10-NN-T1-L01",
+      "globalisation"
+    ],
+    [
+      "SS-Y10-NN-T1-L01",
+      "economy"
+    ],
+    [
+      "SS-Y10-NN-T1-L01",
+      "global economy"
+    ],
+    [
+      "SS-Y10-NN-T1-L01",
+      "revenue"
+    ],
+    [
+      "SS-Y10-NN-T1-L01",
+      "customs union"
+    ],
+    [
+      "SS-Y10-NN-T1-L01",
+      "bilateral trade agreement"
+    ],
+    [
+      "SS-Y10-NN-T1-L02",
+      "capital"
+    ],
+    [
+      "SS-Y10-NN-T1-L02",
+      "capital goods"
+    ],
+    [
+      "SS-Y10-NN-T1-L02",
+      "multinational company"
+    ],
+    [
+      "SS-Y10-NN-T1-L02",
+      "trickle-down effect"
+    ],
+    [
+      "SS-Y10-NN-T1-L02",
+      "inequality"
+    ],
+    [
+      "SS-Y10-NN-T1-L02",
+      "diversify"
+    ],
+    [
+      "SS-Y10-NN-T1-L02",
+      "infrastructure"
+    ],
+    [
+      "SS-Y10-NN-T1-L02",
+      "water scarce"
+    ],
+    [
+      "SS-Y10-NN-T1-L03",
+      "income"
+    ],
+    [
+      "SS-Y10-NN-T1-L03",
+      "wealth"
+    ],
+    [
+      "SS-Y10-NN-T1-L03",
+      "gross domestic product (GDP)"
+    ],
+    [
+      "SS-Y10-NN-T1-L03",
+      "GDP per capita"
+    ],
+    [
+      "SS-Y10-NN-T1-L03",
+      "inequality"
+    ],
+    [
+      "SS-Y10-NN-T1-L03",
+      "assets"
+    ],
+    [
+      "SS-Y10-NN-T1-L03",
+      "income distribution"
+    ],
+    [
+      "SS-Y10-NN-T1-L03",
+      "Gini coefficient"
+    ],
+    [
+      "SS-Y10-NN-T1-L04",
+      "trade"
+    ],
+    [
+      "SS-Y10-NN-T1-L04",
+      "profit"
+    ],
+    [
+      "SS-Y10-NN-T1-L04",
+      "Fairtrade Minimum Price"
+    ],
+    [
+      "SS-Y10-NN-T1-L04",
+      "Fairtrade Premium"
+    ],
+    [
+      "SS-Y10-NN-T1-L04",
+      "cooperative"
+    ],
+    [
+      "SS-Y10-NN-T1-L04",
+      "certification"
+    ],
+    [
+      "SS-Y10-NN-T1-L04",
+      "sustainable"
+    ],
+    [
+      "SS-Y10-NN-T1-L04",
+      "WFTO"
+    ],
+    [
+      "SS-Y10-NN-T1-L05",
+      "ethics"
+    ],
+    [
+      "SS-Y10-NN-T1-L05",
+      "factor inputs"
+    ],
+    [
+      "SS-Y10-NN-T1-L05",
+      "intermediate consumer"
+    ],
+    [
+      "SS-Y10-NN-T1-L05",
+      "profit margin"
+    ],
+    [
+      "SS-Y10-NN-T1-L05",
+      "biodegrade"
+    ],
+    [
+      "SS-Y10-NN-T1-L05",
+      "carbon footprint"
+    ],
+    [
+      "SS-Y10-NN-T1-L06",
+      "investment"
+    ],
+    [
+      "SS-Y10-NN-T1-L06",
+      "socially responsible investing"
+    ],
+    [
+      "SS-Y10-NN-T1-L06",
+      "share (stock)"
+    ],
+    [
+      "SS-Y10-NN-T1-L06",
+      "bond"
+    ],
+    [
+      "SS-Y10-NN-T1-L06",
+      "capital market"
+    ],
+    [
+      "SS-Y10-NN-T1-L06",
+      "interest"
+    ],
+    [
+      "SS-Y10-NN-T1-L06",
+      "stock exchange"
+    ],
+    [
+      "SS-Y10-NN-T1-L06",
+      "maturity date"
+    ],
+    [
+      "SS-Y10-NN-T1-L07",
+      "moderate lifestyle"
+    ],
+    [
+      "SS-Y10-NN-T1-L07",
+      "excess"
+    ],
+    [
+      "SS-Y10-NN-T1-L07",
+      "work-life balance"
+    ],
+    [
+      "SS-Y10-NN-T1-L07",
+      "balanced diet"
+    ],
+    [
+      "SS-Y10-NN-T1-L07",
+      "positive"
+    ],
+    [
+      "SS-Y10-NN-T1-L07",
+      "responsible"
+    ],
+    [
+      "SS-Y10-NN-T1-L07",
+      "empathy"
+    ],
+    [
+      "SS-Y10-NN-T1-L08",
+      "self-confidence"
+    ],
+    [
+      "SS-Y10-NN-T1-L08",
+      "problem-solving skills"
+    ],
+    [
+      "SS-Y10-NN-T1-L08",
+      "moderation"
+    ],
+    [
+      "SS-Y10-NN-T1-L08",
+      "boundary"
+    ],
+    [
+      "SS-Y10-NN-T1-L08",
+      "calorie"
+    ],
+    [
+      "SS-Y10-NN-T1-L08",
+      "support network"
+    ],
+    [
+      "SS-Y10-NN-T1-L08",
+      "role model"
+    ],
+    [
+      "SS-Y10-NN-T1-L08",
+      "reliable"
+    ],
+    [
+      "SS-Y10-NN-T1-L09",
+      "burn out"
+    ],
+    [
+      "SS-Y10-NN-T1-L09",
+      "body mass index (BMI)"
+    ],
+    [
+      "SS-Y10-NN-T1-L09",
+      "saturated fat"
+    ],
+    [
+      "SS-Y10-NN-T1-L09",
+      "excess"
+    ],
+    [
+      "SS-Y10-NN-T1-L09",
+      "downward spiral"
+    ],
+    [
+      "SS-Y10-NN-T1-L09",
+      "negative thinking"
+    ],
+    [
+      "SS-Y10-NN-T1-L09",
+      "bacteria and viruses"
+    ],
+    [
+      "SS-Y10-NN-T1-L10",
+      "addiction"
+    ],
+    [
+      "SS-Y10-NN-T1-L10",
+      "risk factor"
+    ],
+    [
+      "SS-Y10-NN-T1-L10",
+      "stress"
+    ],
+    [
+      "SS-Y10-NN-T1-L10",
+      "habit"
+    ],
+    [
+      "SS-Y10-NN-T1-L10",
+      "tolerance"
+    ],
+    [
+      "SS-Y10-NN-T1-L10",
+      "withdrawal symptoms"
+    ],
+    [
+      "SS-Y10-NN-T1-L10",
+      "peer influence"
+    ],
+    [
+      "SS-Y10-NN-T1-L10",
+      "protective factor"
+    ],
+    [
+      "SS-Y10-NN-T1-L11",
+      "insomnia"
+    ],
+    [
+      "SS-Y10-NN-T1-L11",
+      "psychosis"
+    ],
+    [
+      "SS-Y10-NN-T1-L11",
+      "paranoia"
+    ],
+    [
+      "SS-Y10-NN-T1-L11",
+      "compulsion"
+    ],
+    [
+      "SS-Y10-NN-T1-L11",
+      "denial"
+    ],
+    [
+      "SS-Y10-NN-T1-L11",
+      "debt"
+    ],
+    [
+      "SS-Y10-NN-T1-L11",
+      "relapse"
+    ],
+    [
+      "SS-Y10-NN-T1-L12",
+      "stigma"
+    ],
+    [
+      "SS-Y10-NN-T1-L12",
+      "counselling"
+    ],
+    [
+      "SS-Y10-NN-T1-L12",
+      "cognitive behavioural therapy (CBT)"
+    ],
+    [
+      "SS-Y10-NN-T1-L12",
+      "detox"
+    ],
+    [
+      "SS-Y10-NN-T1-L12",
+      "trigger"
+    ],
+    [
+      "SS-Y10-NN-T1-L12",
+      "coping skills"
+    ],
+    [
+      "SS-Y10-NN-T1-L12",
+      "confidential"
+    ],
+    [
+      "SS-Y10-NN-T1-L13",
+      "field"
+    ],
+    [
+      "SS-Y10-NN-T1-L13",
+      "branch"
+    ],
+    [
+      "SS-Y10-NN-T1-L13",
+      "philology"
+    ],
+    [
+      "SS-Y10-NN-T1-L13",
+      "demographics"
+    ],
+    [
+      "SS-Y10-NN-T1-L13",
+      "radiocarbon dating"
+    ],
+    [
+      "SS-Y10-NN-T1-L14",
+      "cross-disciplinary"
+    ],
+    [
+      "SS-Y10-NN-T1-L14",
+      "grassland"
+    ],
+    [
+      "SS-Y10-NN-T1-L14",
+      "geneticist"
+    ],
+    [
+      "SS-Y10-NN-T1-L14",
+      "migration"
+    ],
+    [
+      "SS-Y10-NN-T1-L14",
+      "oral history"
+    ],
+    [
+      "SS-Y10-NN-T1-L14",
+      "Ice Age"
+    ],
+    [
+      "SS-Y10-NN-T1-L14",
+      "adaptation"
+    ],
+    [
+      "SS-Y10-NN-T1-L15",
+      "nomadic"
+    ],
+    [
+      "SS-Y10-NN-T1-L15",
+      "cultivate"
+    ],
+    [
+      "SS-Y10-NN-T1-L15",
+      "wilderness"
+    ],
+    [
+      "SS-Y10-NN-T1-L15",
+      "desertification"
+    ],
+    [
+      "SS-Y10-NN-T1-L15",
+      "surplus"
+    ],
+    [
+      "SS-Y10-NN-T1-L16",
+      "agrarian"
+    ],
+    [
+      "SS-Y10-NN-T1-L16",
+      "ideogram"
+    ],
+    [
+      "SS-Y10-NN-T1-L16",
+      "pictograph"
+    ],
+    [
+      "SS-Y10-NN-T1-L16",
+      "character"
+    ],
+    [
+      "SS-Y10-NN-T1-L16",
+      "logogram"
+    ],
+    [
+      "SS-Y10-NN-T1-L16",
+      "cuneiform"
+    ],
+    [
+      "SS-Y10-NN-T1-L16",
+      "granary"
+    ],
+    [
+      "SS-Y10-NN-T1-L16",
+      "decipher"
+    ],
+    [
+      "SS-Y10-NN-T1-L17",
+      "empire"
+    ],
+    [
+      "SS-Y10-NN-T1-L17",
+      "standard measurement system"
+    ],
+    [
+      "SS-Y10-NN-T1-L17",
+      "Fertile Crescent"
+    ],
+    [
+      "SS-Y10-NN-T1-L17",
+      "code of laws"
+    ],
+    [
+      "SS-Y10-NN-T1-L17",
+      "dynasty"
+    ],
+    [
+      "SS-Y10-NN-T1-L17",
+      "monument"
+    ]
+  ],
+  "rationale": "Retained literal depictions, removed abstract or wrong emoji clues, kept word-card interaction and house colors. Two-column key-learning grid prevents narrow text columns. Adaptation wording separates population change over generations from individual relocation.",
+  "sources": [
+    "https://humanorigins.si.edu/evidence/genetics/human-skin-color-variation"
+  ],
+  "qa": "Pixel-checked six key-learning grids, word-card definitions, adaptation reading. Four cards remain visible and readable; literal picture cues retained; misleading symbols removed."
+}
