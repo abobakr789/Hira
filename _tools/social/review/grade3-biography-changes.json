@@ -4,16 +4,16 @@
     "views": [
       0
     ],
-    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 05:02 Asia/Dubai, final changed slides and print pages inspected",
+    "live_qa": "pending final deployment"
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L13/sources-concept-card.html",
     "views": [
       0
     ],
-    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 05:02 Asia/Dubai, final changed slides and print pages inspected",
+    "live_qa": "pending final deployment"
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L13/worksheets-A4.html",
@@ -23,8 +23,8 @@
       2,
       3
     ],
-    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 05:02 Asia/Dubai, final changed slides and print pages inspected",
+    "live_qa": "pending final deployment"
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L13/teacher-deck.html",
@@ -44,23 +44,23 @@
       "mirror",
       "vocab"
     ],
-    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 05:02 Asia/Dubai, final changed slides and print pages inspected",
+    "live_qa": "pending final deployment"
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L13/group-work.html",
     "views": [
       0
     ],
-    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 05:02 Asia/Dubai, final changed slides and print pages inspected",
+    "live_qa": "pending final deployment"
   },
   {
     "file": "resources/ssd/SS-Y3-T3-L13/pod-sheet.html",
     "views": [
       0
     ],
-    "local_qa": "PASS 2026-11-24 04:56 Asia/Dubai; all changed views and final corrections inspected",
-    "live_qa": "pending"
+    "local_qa": "PASS 2026-11-24 05:02 Asia/Dubai, final changed slides and print pages inspected",
+    "live_qa": "pending final deployment"
   }
 ]

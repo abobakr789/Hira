@@ -1,0 +1,10 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-T3-L16/teacher-deck.html",
+    "views": [
+      "vocab"
+    ],
+    "local_qa": "PASS 2026-11-24 04:58 Asia/Dubai, vocab inspected",
+    "live_qa": "pending"
+  }
+]
