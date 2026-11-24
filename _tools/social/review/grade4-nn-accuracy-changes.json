@@ -5,7 +5,7 @@
       "model"
     ],
     "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L11/sources-concept-card.html",
@@ -14,7 +14,7 @@
       "1"
     ],
     "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L11/worksheets-A4.html",
@@ -22,7 +22,7 @@
       "1"
     ],
     "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L11/teacher-deck.html",
@@ -33,7 +33,7 @@
       "text6"
     ],
     "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L14/answer-key.html",
@@ -41,7 +41,7 @@
       "0"
     ],
     "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L14/sources-concept-card.html",
@@ -50,7 +50,7 @@
       "1"
     ],
     "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L14/worksheets-A4.html",
@@ -59,7 +59,7 @@
       "1"
     ],
     "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
   },
   {
     "file": "resources/ssd/SS-Y4-NN-T1-L14/teacher-deck.html",
@@ -73,6 +73,6 @@
       "quiz"
     ],
     "local_qa": "PASS 2026-11-24 05:45 Dubai; 12 slide fronts, 2 card backs, 8 print pages inspected; final print answer key in /tmp/ssy4nn-local6print",
-    "live_qa": "pending"
+    "live_qa": "PASS 2026-11-24 05:53 Dubai; exact content 459c699cd50cf6796d0de6f36dbcb6352da6d962; 12 slide fronts, 2 card backs and 8 print pages inspected live, no clipping or stale answers"
   }
 ]
