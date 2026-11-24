@@ -1,0 +1,170 @@
+{
+  "scope": "Researched current-vs-historical energy and sustainability corrections",
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y10-T1-L11/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T1-L11/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L1/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L1/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L1/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L1/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L13/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L13/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L13/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L13/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L14/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L14/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T2-L14/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L1/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L1/group-work.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L1/pod-sheet.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L1/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L1/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L1/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L11/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L11/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L11/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L12/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L12/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L12/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L12/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L15/group-work.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L15/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L15/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L15/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L17/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L17/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L17/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L18/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L2/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L2/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L2/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L4/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L4/group-work.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L4/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L4/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L4/worksheets-A4.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L5/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L5/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L8/answer-key.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L8/pod-sheet.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L8/sources-concept-card.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L8/teacher-deck.html"
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L8/worksheets-A4.html"
+    }
+  ],
+  "qa": "Local actual-pixel checks passed for core slides, assessment questions, four group-task slides and dependent print pages. Cloze gaps and keys reconciled after content edits. Original media unchanged. Live QA pending.",
+  "sources": [
+    "https://u.ae/en/information-and-services/environment-and-energy/water-and-energy/types-of-energy-sources/nuclear-energy",
+    "https://iucn.org/about-iucn/history",
+    "https://masdarcity.ae/sustainable-urban-development/net-zero",
+    "https://masdar.ae/en/news/newsroom/masdar-launches-shams-1-the-worlds-largest-concentrated-solar-power-plant-in-operation",
+    "https://www.eia.gov/energyexplained/us-energy-facts/imports-and-exports.php",
+    "https://energy.ec.europa.eu/topics/energy-security/security-gas-supply_en",
+    "https://energy.ec.europa.eu/topics/energy-security/diversification-gas-supply-sources-and-routes_en",
+    "https://www.iai.it/sites/default/files/iaiwp1332.pdf",
+    "https://www.eia.gov/analysis/studies/worldshalegas/",
+    "https://www.eia.gov/energyexplained/electricity/measuring-electricity.php",
+    "https://www.cbd.int/convention/articles?a=cbd-02",
+    "https://www.gecf.org/About-Us/Overview",
+    "https://treaties.un.org/Pages/showDetails.aspx?clang=_en&objid=0800000280043ad5",
+    "https://kids.britannica.com/kids/article/North-America/353542",
+    "https://ice.com/brent-crude"
+  ]
+}
