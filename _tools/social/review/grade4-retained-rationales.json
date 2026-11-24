@@ -1,5 +1,5 @@
 {
-  "status": "Draft rationales. Core and representative pixels reviewed; full remaining section/support sweep still pending before grade closure.",
+  "status": "CONTENT_REVIEW_COMPLETE_PENDING_LAST_LIVE_BATCHES",
   "lessons": {
     "SS-Y4-T1-L04": "Astronomical location: existing coordinate and globe illustrations support the latitude/longitude address; preserve them rather than add a decorative UAE silhouette.",
     "SS-Y4-T1-L05": "Relative location: map-based neighbor and coast tasks are more useful than a generic globe. Existing peninsula and land/water examples retained.",
@@ -10,7 +10,6 @@
     "SS-Y4-T1-L24": "Commemoration: existing memorial material and respectful discussion prompts support remembrance. No battle reconstruction or imagined casualty scene.",
     "SS-Y4-T2-L04": "Industry: original cement and industrial production pictures fit the manufacturing comparison. Extraction/manufacturing classification already makes the distinction.",
     "SS-Y4-T2-L06": "Tourism: heritage village and tourism examples match the named visit purposes. Keep classification and promotional-writing tasks open.",
-    "SS-Y4-T2-L07": "Pollution: car exhaust and environmental examples fit the human-cause discussion; no new all-pollution-equals-climate diagram.",
     "SS-Y4-T2-L15": "Other emirates: original mountains/plains/coast diagram supports the named Ras Al Khaimah landscape; it is not captioned as a photograph of Jebel Jais.",
     "SS-Y4-T2-L18": "Crafts and customs: original pottery/craft picture supports the named craft; skills and produced objects remain distinguished in the wider lesson.",
     "SS-Y4-T3-L05": "Human economic factors: coin illustration fits capital, while planning, labor and technology remain parallel factors. No sequential flow added.",
@@ -21,9 +20,7 @@
   },
   "support_sweep_completed": [
     "SS-Y4-T1-L04",
-    "SS-Y4-T1-L05"
-  ],
-  "support_sweep_partial": [
+    "SS-Y4-T1-L05",
     "SS-Y4-T1-L08",
     "SS-Y4-T1-L09",
     "SS-Y4-T1-L12",
@@ -31,7 +28,6 @@
     "SS-Y4-T1-L24",
     "SS-Y4-T2-L04",
     "SS-Y4-T2-L06",
-    "SS-Y4-T2-L07",
     "SS-Y4-T2-L15",
     "SS-Y4-T2-L18",
     "SS-Y4-T3-L05",
@@ -39,5 +35,6 @@
     "SS-Y4-T3-L14",
     "SS-Y4-T3-L17",
     "SS-Y4-T3-L18"
-  ]
+  ],
+  "support_sweep_partial": []
 }

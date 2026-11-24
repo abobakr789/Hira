@@ -7,7 +7,7 @@
     "reason": "Remove unsupported exact first-appearance date; retain documented naval power and centers.",
     "qa": {
       "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
-      "live": "PENDING"
+      "live": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
     }
   },
   {
@@ -18,7 +18,7 @@
     "reason": "Remove unsupported exact first-appearance date; retain documented naval power and centers.",
     "qa": {
       "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
-      "live": "PENDING"
+      "live": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
     }
   },
   {
@@ -29,7 +29,7 @@
     "reason": "Replace undated world-ranking claim with supported multicultural coexistence fact.",
     "qa": {
       "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
-      "live": "PENDING"
+      "live": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
     }
   },
   {
@@ -40,7 +40,7 @@
     "reason": "Qualify income-consumption tendency and include saving, rather than universal automatic spending increase.",
     "qa": {
       "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
-      "live": "PENDING"
+      "live": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
     }
   },
   {
@@ -51,7 +51,7 @@
     "reason": "Qualify income-consumption tendency and include saving, rather than universal automatic spending increase.",
     "qa": {
       "local": "PASS individual pixel inspection3fronts2print Nov24 08:33 Dubai",
-      "live": "PENDING"
+      "live": "PASS byteexactandpixels Nov24 08:42 Dubai deployment45327537279"
     }
   }
 ]

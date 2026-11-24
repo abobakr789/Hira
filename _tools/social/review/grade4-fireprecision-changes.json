@@ -1,0 +1,72 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T2-L07/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
+    "qa": {
+      "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L07/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
+    "qa": {
+      "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L07/worksheets-A4.html",
+    "views": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
+    "qa": {
+      "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L07/teacher-deck.html",
+    "views": [
+      "learn2",
+      "g2"
+    ],
+    "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
+    "qa": {
+      "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L07/group-work.html",
+    "views": [
+      0
+    ],
+    "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
+    "qa": {
+      "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y4-T2-L07/pod-sheet.html",
+    "views": [
+      0
+    ],
+    "reason": "Specify lightning-caused fires in natural-cause examples, because fires may be human-caused too.",
+    "qa": {
+      "local": "PASS 2fronts8A4 includingcorrectgroupworkpage0 Nov24 08:42 Dubai",
+      "live": "PENDING"
+    }
+  }
+]
