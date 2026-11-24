@@ -1,0 +1,14 @@
+[
+  {
+    "file": "resources/ssd/SS-Y4-T1-L11/teacher-deck.html",
+    "views": [
+      "watani"
+    ],
+    "reason": "Restore sourced Sheikh Zayed wording, replacing a mistranscribed singular quotation and wrong verb with documented plural wording.",
+    "source": "https://www.albayan.ae/across-the-uae/news-and-reports/2019-05-24-1.3568225",
+    "qa": {
+      "local": "PASS individual pixel inspection Nov24 08:31 Dubai",
+      "live": "PENDING"
+    }
+  }
+]

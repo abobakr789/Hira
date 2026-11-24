@@ -118,3 +118,16 @@ All pages fetched and read 08:01–08:02 Dubai. Corrections synchronized in read
 T1 L21: removed the later Sheikh Zayed bin Sultan portrait from the section about Sheikh Zayed the First, keeping original asset and other lesson references. Al Bayan supports the 1906 Khawaneej account; Khaleej Times discusses a different 1905 meeting, so these should not be silently conflated. Original lesson date retained.
 - https://www.albayan.ae/uae/golden-jubilee/patriotism/2021-12-01-1.4310939
 - https://www.khaleejtimes.com/uae/from-challenges-to-union
+
+## Retained sweep follow-up, Nov24 08:29 Dubai (not resolved)
+- Sharjah Museums Authority about page fetched: https://www.sharjahmuseums.ae/en-US/AboutUs states16museums. Existing more-than15 claim is supported.
+- https://www.albayan.ae/across-the-uae/news-and-reports/2020-01-13-1.3751146 fetched:36,816,255m3 during Jan11–12 2020, supports dated rainfall quantity.1982 refers to observation-record start, not proof both named dams opened that year.
+- T3L08 says both WadiHam and Bih constructed1982 in hook, learn2 and source/booktext. Potential construction-versus-opening distinction: search lead gives WadiHam opening1983. Must fetch original AlBayan archival opening account and authoritative dam source before deciding wording. Do not silently substitute opening for construction.
+- T1L19 Qawasim1749: university lecture https://uomustansiriyah.edu.iq/media/lectures/8/8_2024_04_14!12_23_59_AM.pdf fetched, describes earlier leader1722–1760 and prominent1740s role. This does not disprove rise-as-major-power1749, but categorical first appearance needs caution. Search for official UAE account, do not replace with a guessed date. University PDF itself has obvious unrelated chronology errors, so do not use it alone for an exact replacement.
+
+## Sourced quotation repair
+- https://www.albayan.ae/across-the-uae/news-and-reports/2019-05-24-1.3568225 fetched Nov24 08:30. Corrected T1L11 Sheikh Zayed quotation to documented plural wording and verb for goodness growing, rather than original mistranscribed singular and wrong verb. Local pixel PASS08:31.
+- https://www.albayan.ae/across-the-uae/news-and-reports/2014-08-30-1.2191884 fetched. WadiHam opening Feb15 1983, construction14months. Distinguish opening from construction; original1982 remains pending reconciliation, not automatically disproved.
+- https://www.mdpi.com/2073-4441/14/21/3448 fetched: Bih construction1983 while its data series begins1982, conflicting with2015study https://doi.org/10.5383/swes.7.01.003 (1982). Do not silently pick one exact year.
+- https://u.ae/ar/about-the-uae/the-seven-emirates/sharjah fetched: Qawasim rule predates1749. Does not itself decide when major naval-power phase began.
+- https://courses.lumenlearning.com/wm-macroeconomics/chapter/aggregate-expenditure-consumption/ fetched: consumption-income relationship is a model, saving also possible. T3L01 needs visible qualification in authored summary, preserve source text with label if adapted.

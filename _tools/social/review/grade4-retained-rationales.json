@@ -5,7 +5,6 @@
     "SS-Y4-T1-L05": "Relative location: map-based neighbor and coast tasks are more useful than a generic globe. Existing peninsula and land/water examples retained.",
     "SS-Y4-T1-L08": "Plains: existing coastal/interior visual supports comparison of the named plains. The grouping task distinguishes location and use without a new process flow.",
     "SS-Y4-T1-L09": "Mountains and plains uses: existing landscape/economic pictures and sorting tasks support quarry, dam, port and farm examples. Avoid arrows suggesting these parallel uses are stages.",
-    "SS-Y4-T1-L11": "Desert and dunes: original desert/oasis images show the specific surface and water concepts. No extra desert symbol needed.",
     "SS-Y4-T1-L12": "Desert importance: existing oil, palm, livestock and heritage examples support parallel economic uses. A new chain would wrongly imply one produces the next.",
     "SS-Y4-T1-L19": "Tribes and alliances: existing text comparison of Bani Yas and Qawasim supports the historical task. Avoid invented tribal portraits or an unverified territorial map.",
     "SS-Y4-T1-L23": "Constitution: rights/duties sorting and dated constitutional summary already carry the concept. Keep the distinction rather than add an unmentioned court or legal procedure.",
@@ -25,5 +24,14 @@
     "SS-Y4-T3-L14": "Medicine and physician qualities: existing medical image and confidentiality/listening prompts support the lesson. Do not depict historical physicians without established identity.",
     "SS-Y4-T3-L17": "Neighboring civilizations: map/original source material supports contact and geography; no fabricated exact ancient trade route.",
     "SS-Y4-T3-L18": "Civilization evidence: original falaj picture supports irrigation, with named sites, forts and craft examples retained. No invented reconstruction of an archaeological settlement."
-  }
+  },
+  "support_sweep_completed": [
+    "SS-Y4-T1-L04",
+    "SS-Y4-T1-L05"
+  ],
+  "support_sweep_partial": [
+    "SS-Y4-T1-L08",
+    "SS-Y4-T1-L09",
+    "SS-Y4-T1-L12"
+  ]
 }
