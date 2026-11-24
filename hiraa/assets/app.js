@@ -7840,7 +7840,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   // Arabic framework domains (the last digit of the standard code / axis): reading, literary texts, informational texts, writing, listening & speaking, language
   const DOMS_AR = { 1: ["القراءة: الأسس والاستراتيجيات", "Reading foundations"], 2: ["النصوص الأدبية", "Literary texts"], 3: ["النصوص المعلوماتية", "Informational texts"], 4: ["الكتابة", "Writing"], 5: ["الاستماع والتحدث", "Listening & speaking"], 6: ["اللغة: المفردات والنحو والإملاء", "Language"] };
   let benchSubjId = 1;
-  const domName = (d) => { const D = benchSubjId === 2 ? DOMS_AR : DOMS; return CT(D[d][0], D[d][1]); };
+  // Social Studies benchmark domains (questions carry bench_domain): content strands, sources & thinking skills, and Emirati Sanaa
+  const DOMS_SS = { 1: ["التاريخ والتراث", "History & heritage"], 2: ["الجغرافيا", "Geography"], 3: ["الهوية الوطنية والمواطنة", "National identity & citizenship"], 4: ["الاقتصاد", "Economics"], 5: ["مهارات المصادر والتفكير", "Sources & thinking skills"], 6: ["السنع الإماراتي", "Emirati Sanaa"] };
+  const domName = (d) => { const D = benchSubjId === 2 ? DOMS_AR : benchSubjId === 3 ? DOMS_SS : DOMS; return CT(D[d][0], D[d][1]); };
   const winState = (w) => { const n = Date.now(); if (w.opens_at && n < new Date(w.opens_at)) return "soon"; if (w.closes_at && n > new Date(w.closes_at)) return "closed"; return "open"; };
   const WSTATE = { soon: ["قادمة", "Upcoming"], open: ["مفتوحة الآن", "Open now"], closed: ["انتهت", "Closed"] };
   const fpIcon = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c-9.9 0-18 8.1-18 18M24 12c-6.6 0-12 5.4-12 12v6M24 18c-3.3 0-6 2.7-6 6v10M24 24v14M30 24c0 5-1 9-3 13M36 24c0 7-2 12-5 16M42 24c0-9.9-8.1-18-18-18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
@@ -7856,7 +7858,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const ring = (r) => ax.map((d, i) => pt(i, r).join(",")).join(" ");
     const rings = [25, 50, 75, 100].map((r) => `<polygon points="${ring(r)}" fill="none" stroke="var(--line)" stroke-width="1"/>`).join("");
     const exp = `<polygon points="${ring(60)}" fill="none" stroke="#E0A800" stroke-width="1.5" stroke-dasharray="4 4"/>`;
-    const lbl = (d) => (benchSubjId === 2 ? CT(RADAR_AR[d][0], RADAR_AR[d][1]) : domName(d));
+    const RADAR_SS = { 1: ["التاريخ", "History"], 2: ["الجغرافيا", "Geography"], 3: ["الهوية والمواطنة", "Identity"], 4: ["الاقتصاد", "Economics"], 5: ["المصادر والتفكير", "Sources"], 6: ["السنع", "Sanaa"] };
+    const lbl = (d) => (benchSubjId === 2 ? CT(RADAR_AR[d][0], RADAR_AR[d][1]) : benchSubjId === 3 ? CT(RADAR_SS[d][0], RADAR_SS[d][1]) : domName(d));
     const labels = ax.map((d, i) => { const [x, y] = pt(i, 122); return `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="var(--ink)">${esc(lbl(d))}</text>`; }).join("");
     return `<svg class="radar" viewBox="0 0 ${size} ${size}" role="img" aria-label="${CT("بصمة المتعلم في المجالات", "Learner fingerprint across domains")}">${rings}${exp}
       ${comp ? `<polygon points="${poly(comp)}" fill="rgba(120,130,150,.15)" stroke="#8A94A6" stroke-width="1.5"/>` : ""}
@@ -7866,8 +7869,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   const bandChip = (pct) => { const b = bandOf(pct); return `<span class="band-chip" style="--bc:${b.c}">${esc(CT(b.ar, b.en))}</span>`; };
   const benchN = (g) => (g <= 2 ? 20 : g <= 6 ? 30 : 40);
   async function benchDomains(assessmentId) {
-    const { data } = await sb.from("assessment_questions").select("question_id, questions(lessons(axis_code), learning_outcomes(fw_standards(axis_code)))").eq("assessment_id", assessmentId);
-    const m = {}; (data || []).forEach((r) => { const q = r.questions || {}; const ax = (q.lessons && q.lessons.axis_code) || (q.learning_outcomes && q.learning_outcomes.fw_standards && q.learning_outcomes.fw_standards.axis_code); if (ax) m[r.question_id] = Number(String(ax).split(".")[1]); });
+    const { data } = await sb.from("assessment_questions").select("question_id, questions(bench_domain, lessons(axis_code), learning_outcomes(fw_standards(axis_code)))").eq("assessment_id", assessmentId);
+    const m = {}; (data || []).forEach((r) => { const q = r.questions || {}; if (q.bench_domain) { m[r.question_id] = q.bench_domain; return; } const ax = (q.lessons && q.lessons.axis_code) || (q.learning_outcomes && q.learning_outcomes.fw_standards && q.learning_outcomes.fw_standards.axis_code); if (ax) m[r.question_id] = Number(String(ax).split(".")[1]); });
     // a domain needs at least 3 questions to be reported (one question gives a misleading 0% or 100%)
     const cnt = {}; Object.values(m).forEach((d) => { cnt[d] = (cnt[d] || 0) + 1; });
     Object.keys(m).forEach((q) => { if (cnt[m[q]] < 3) delete m[q]; });
@@ -8193,7 +8196,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     } else if (!state.session) roleHtml = `<div class="cp-panel"><strong>${CT("سجّل الدخول لأداء الاختبار أو متابعة النتائج", "Sign in to take the test or see results")}</strong><a class="btn btn-primary" href="#/login">${CT("تسجيل الدخول", "Sign in")}</a></div>`;
     h(`<section class="bench-hero"><div class="wrap">
         <div class="bh-badge">${fpIcon}<span>${CT("معيار حراء", "Hira Benchmark")}</span></div>
-        <h1>${CT("الاختبارات المعيارية", "Benchmark Tests")}</h1>${hubTabs("benchmarks", subj)}${subj !== "islamic" ? `<p>${CT("اختبار معياري موحّد في " + hubName(subj) + " ثلاث مرات في العام (بداية العام ومنتصفه ونهايته)، يقيس مستوى الطالب مقابل نواتج صفّه في الإطار الوطني، ويتتبّع نموّه.", "A standardised " + hubName(subj) + " benchmark three times a year that measures each student against the national outcomes for their grade and tracks growth.")}</p>${subj === "social" ? hubSoon("اختبارات الدراسات الاجتماعية المعيارية قيد الإعداد.", "Social Studies benchmarks are being prepared.") : ""}` : ""}<p ${subj !== "islamic" ? "hidden" : ""}>${CT("اختبار معياري موحّد في التربية الإسلامية للصفوف 1–12 بمساريها، يقيس مستوى الطالب مقابل معايير صفّه، ويرسم <b>بصمته</b> في المجالات الستة للإطار الوطني، ويتتبّع نموّه ثلاث مرات في العام.", "A standardised Islamic Education benchmark for Grades 1–12, measuring each student against grade standards, drawing their <b>fingerprint</b> across the six framework domains, and tracking growth three times a year.")}</p>
+        <h1>${CT("الاختبارات المعيارية", "Benchmark Tests")}</h1>${hubTabs("benchmarks", subj)}${subj !== "islamic" ? `<p>${CT("اختبار معياري موحّد في " + hubName(subj) + " ثلاث مرات في العام (بداية العام ومنتصفه ونهايته)، يقيس مستوى الطالب مقابل نواتج صفّه في الإطار الوطني، ويتتبّع نموّه.", "A standardised " + hubName(subj) + " benchmark three times a year that measures each student against the national outcomes for their grade and tracks growth.")}</p>${subj === "social" ? `<p>${CT("يشمل الاختبار مجالات التاريخ والتراث، والجغرافيا، والهوية الوطنية والمواطنة، والاقتصاد، ومهارات المصادر والتفكير، و<b>السنع الإماراتي</b> مجالًا مستقلًّا له درجته في بصمة المتعلم.", "Covers history & heritage, geography, identity & citizenship, economics, sources & thinking skills, and <b>Emirati Sanaa</b> as its own domain.")}</p>` : ""}` : ""}<p ${subj !== "islamic" ? "hidden" : ""}>${CT("اختبار معياري موحّد في التربية الإسلامية للصفوف 1–12 بمساريها، يقيس مستوى الطالب مقابل معايير صفّه، ويرسم <b>بصمته</b> في المجالات الستة للإطار الوطني، ويتتبّع نموّه ثلاث مرات في العام.", "A standardised Islamic Education benchmark for Grades 1–12, measuring each student against grade standards, drawing their <b>fingerprint</b> across the six framework domains, and tracking growth three times a year.")}</p>
         <div class="bh-actions"><a class="btn btn-dawn" href="#/bench-guide?subject=${subj}">${CT("دليل المعيار", "Benchmark guide")}</a><a class="btn btn-ghost" href="#/bench-sample?subject=${subj}">${CT("نماذج التقارير", "Sample reports")}</a></div>
       </div></section>
       <section class="section" style="padding-top:30px"><div class="wrap">
@@ -8354,7 +8357,40 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const subj = hubSubj(params);
     const head = (sub) => `<section class="bench-hero slim"><div class="wrap"><div class="crumbs"><a href="#/benchmarks?subject=${subj}">الاختبارات المعيارية</a></div>
         <div class="bh-badge">${fpIcon}<span>معيار حراء</span></div><h1>دليل المعيار</h1>${hubTabs("bench-guide", subj)}<p>${sub}</p></div></section>`;
-    if (subj === "social") { h(head("الدراسات الاجتماعية") + `<section class="section"><div class="wrap">${hubSoon("اختبارات الدراسات الاجتماعية المعيارية ودليلها قيد الإعداد.", "Social Studies benchmarks and their guide are being prepared.")}</div></section>`); return; }
+    if (subj === "social") {
+      h(head("الدراسات الاجتماعية والسنع الإماراتي: المنهجية، ومواصفات الاختبار، وخطوات التطبيق.") + `
+      <section class="section" style="padding-top:26px"><div class="wrap prose bench-guide">
+        <h2>ما هو معيار حراء للدراسات الاجتماعية؟</h2>
+        <p>اختبار معياري موحّد يقيس فهم الطالب لنواتج صفّه في الإطار الوطني للدراسات الاجتماعية، ومعه <b>السنع الإماراتي</b> مجالًا مستقلًّا له درجته. يُطبَّق بالمواصفات نفسها على كل طلاب الصف، ويتتبّع النمو ثلاث مرات في العام. وكل سؤال مأخوذ من دروس حراء المبنية على كتب الوزارة، لا من خارجها.</p>
+        <p class="br-judge">الجاهز الآن: مسار الناطقين بالعربية للصفوف 1–6، ويُستكمل الصفوف 7–12 تباعًا، ثم مسار غير الناطقين (MSC) بالإنجليزية.</p>
+        <h2>المجالات الستة</h2>
+        <div class="table-wrap"><table class="admin-table"><thead><tr><th>المجال</th><th>ما يقيسه</th><th>نصيبه</th></tr></thead><tbody>
+          <tr><td><b>التاريخ والتراث</b></td><td>الأحداث والشخصيات وقيام الاتحاد والحضارات والتراث</td><td rowspan="4">نحو 60% موزعة بحسب دروس الصف</td></tr>
+          <tr><td><b>الجغرافيا</b></td><td>الموقع والتضاريس والمناخ والسكان والخرائط</td></tr>
+          <tr><td><b>الهوية الوطنية والمواطنة</b></td><td>الرموز والمناسبات والدستور والحقوق والواجبات والقيم</td></tr>
+          <tr><td><b>الاقتصاد</b></td><td>الحاجات والموارد والإنتاج والاستهلاك والميزانية والتجارة</td></tr>
+          <tr><td><b>مهارات المصادر والتفكير</b></td><td>قراءة جدول أو خط زمني أو خريطة أو نص قصير، والاستنتاج والحكم منه</td><td>نحو 20%</td></tr>
+          <tr><td><b>السنع الإماراتي</b></td><td>مفهوم السنع وقيمه، والأسرة والمدرسة، والضيافة والمجالس، والزيارات والمناسبات، والسفر والهوايات</td><td>نحو 20%</td></tr>
+        </tbody></table></div>
+        <h2>مواصفات الاختبار</h2>
+        <div class="table-wrap"><table class="admin-table"><thead><tr><th>الصفوف</th><th>عدد الأسئلة</th><th>الزمن</th><th>مستويات التفكير</th></tr></thead><tbody>
+          <tr><td>1–2</td><td>20 سؤالًا</td><td>25 دقيقة</td><td>التذكر والفهم والتطبيق، مع قليل من التحليل</td></tr>
+          <tr><td>3–6</td><td>30 سؤالًا</td><td>40 دقيقة</td><td rowspan="2">المستويات الخمسة من التذكر إلى التقويم (تصنيف بلوم المعدّل)</td></tr>
+          <tr><td>7–12</td><td>40 سؤالًا</td><td>50 دقيقة</td></tr></tbody></table></div>
+        <p>في الصفين الأول والثاني يقرأ المعلم الأسئلة بصوت واضح إذا احتاج الطلاب إلى ذلك. ولكل خيار خاطئ تعليل يكشف نوع الخطأ، ويُخلط ترتيب الخيارات لكل طالب.</p>
+        <h2>النوافذ الثلاث</h2>
+        <p>بداية العام تقيس ما بقي من تعلّم الصف السابق (تشخيصي، وفي الصف الأول قياس جاهزية)، ومنتصف العام يقيس الفصل الأول، ونهاية العام تقيس العام كله مع تركيز على الفصلين الثاني والثالث. لكل نافذة نموذج مستقل بالمواصفات نفسها.</p>
+        <h2>مستويات الأداء</h2>
+        ${guideBands()}
+        <h2>بصمة المتعلم</h2>
+        <p>شكل سداسي أضلاعه المجالات الستة، يظهر عليه أداء الطالب والمستوى المتوقع (60%) ومتوسط المنصة، فيظهر للمعلم وولي الأمر موقع الطالب في السنع الإماراتي إلى جانب بقية المجالات.</p>
+        <h2>خطوات التطبيق في المدرسة</h2>
+        <ol><li>تتأكد الإدارة من إنشاء فصول الدراسات الاجتماعية وإضافة الطلاب.</li><li>يعاين المعلم الأسئلة من «معاينة» إن أراد.</li><li>يفتح الاختبار لفصله في الحصة، ويؤديه الطلاب في الزمن المحدد لصفهم.</li><li>يقفل المعلم الاختبار بعد الحصة، فتظهر التقارير فورًا.</li><li>يحوّل المعلم المجالات الأضعف إلى خطة دعم من دروس حراء.</li></ol>
+        ${guidePrivacy()}
+        <button class="btn btn-ghost" onclick="hiraPrintMain()">طباعة الدليل</button>
+      </div></section>`);
+      return;
+    }
     if (subj === "arabic") {
       const crit = (g) => g === 4
         ? { w: ["الأفكار وصلتها بالمهمة", "التنظيم (بداية، حدث، نهاية)", "الترابط", "المعجم والتفاصيل الحسية", "السلامة اللغوية", "الترقيم والفقرات"], s: ["المحتوى والتسلسل", "سلامة اللغة", "النطق والأداء", "الطلاقة", "جذب المستمع والتعبير"] }
@@ -8450,7 +8486,6 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const subj = hubSubj(params);
     const head = `<section class="bench-hero slim"><div class="wrap"><div class="crumbs"><a href="#/benchmarks?subject=${subj}">الاختبارات المعيارية</a></div>
         <div class="bh-badge">${fpIcon}<span>نموذج توضيحي ببيانات افتراضية</span></div><h1>نماذج التقارير</h1>${hubTabs("bench-sample", subj)}</div></section>`;
-    if (subj === "social") { h(head + `<section class="section"><div class="wrap">${hubSoon("نماذج تقارير الدراسات الاجتماعية قيد الإعداد.", "Social Studies sample reports are being prepared.")}</div></section>`); return; }
     const legend = (n) => `<div class="radar-legend"><span><i style="background:var(--hira)"></i>${n}</span><span><i style="background:#8A94A6"></i>متوسط المنصة</span><span><i class="dash"></i>المستوى المتوقع</span></div>`;
     const bars = (v, nm) => `<div class="dom-bars">${Object.keys(v).map(Number).map((d) => `<div class="db"><span>${esc(domName(d))}</span><span class="db-bar"><i style="width:${v[d]}%;background:${bandOf(v[d]).c}"></i>${nm[d] != null ? `<b class="db-norm" style="inset-inline-start:${nm[d]}%" title="متوسط المنصة"></b>` : ""}</span><strong>${v[d]}%</strong></div>`).join("")}</div>`;
     const growth = (a) => `<div class="growth-row">${a.map(([n, p], i) => `<div class="gr ${i === a.length - 1 ? "cur" : ""}"><span>${n}</span><b>${p}%</b>${bandChip(p)}</div>`).join('<span class="gr-arrow">←</span>')}</div>`;
@@ -8459,6 +8494,24 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div class="dist"><span>المنصة</span><div class="stack">${plat.map((x, i) => `<i style="width:${x}%;background:${BANDS[i].c}">${x}%</i>`).join("")}</div></div>
         <div class="legend">${BANDS.map((b) => `<span class="lgb"><i style="background:${b.c}"></i>${b.ar}</span>`).join("")}</div>`;
 
+    if (subj === "social") {
+      benchSubjId = 3;
+      const v = { 1: 78, 2: 64, 3: 85, 4: 57, 5: 70, 6: 88 }, nm = { 1: 71, 2: 66, 3: 76, 4: 62, 5: 64, 6: 79 };
+      h(head + `<section class="section" style="padding-top:26px"><div class="wrap">
+        <p class="br-judge">مثال لطالب في الصف الخامس في معيار نهاية العام للدراسات الاجتماعية، والسنع الإماراتي مجال مستقل فيه. البيانات افتراضية.</p>
+        <h2>تقرير الطالب: بصمة المتعلم</h2>
+        <div class="br-top">${top(74, 69)}<div class="br-radar">${radarSVG(v, nm)}${legend("الطالب")}</div></div>
+        <h2>المستوى في كل مجال</h2>${bars(v, nm)}
+        <h2>النمو عبر العام</h2>${growth([["بداية العام", 61], ["منتصف العام", 68], ["نهاية العام", 74]])}
+        <div class="br-cols"><div><h2>نقاط القوة</h2><ul>${[6, 3, 1].map((d) => `<li>${esc(domName(d))} (${v[d]}%)</li>`).join("")}</ul></div>
+          <div><h2>خطة الدعم المقترحة</h2><p><b>${esc(domName(4))}</b> (57%): روابط دروس المجال من حراء، مثل دروس الأسواق والميزانية.</p></div></div>
+        <h2 style="margin-top:30px">تقرير الفصل</h2>
+        <div class="kpis"><div><b>25/27</b><span>أدّوا الاختبار</span></div><div><b>70%</b><span>متوسط الفصل</span></div><div><b>76%</b><span>في المستوى المتوقع أو أعلى</span></div><div><b>67%</b><span>متوسط المنصة</span></div></div>
+        ${dist([3, 6, 10, 4, 2], [11, 21, 33, 21, 14], 25)}
+        <h2>مجالات الفصل</h2>${bars({ 1: 72, 2: 63, 3: 80, 4: 58, 5: 66, 6: 84 }, nm)}
+      </div></section>`);
+      return;
+    }
     if (subj === "arabic") {
       benchSubjId = 2;
       const v = { 2: 82, 3: 69, 5: 73, 6: 58 }, nm = { 2: 72, 3: 66, 5: 70, 6: 63 }, obj = 70;
