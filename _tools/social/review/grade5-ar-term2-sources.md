@@ -33,4 +33,4 @@
 ## QA
 - Local pixel checks: all 28 learning panels, changed enrichment/fronts, seven hook answer popups, vocabulary backs, critique explanations and model-answer panels, all seven quick questions, and all 42 print pages inspected.
 - Final revised enrichment headings checked separately.
-- Live QA: pending publication. This batch does not close grade 5.
+- Live QA: 28/28 HTML files byte-exact on 24 November 2026 at 10:50 Dubai after successful deployment https://github.com/abobakr789/Hira/actions/runs/45342980235 . Representative hook answer, learning panel, enrichment, quick quiz and answer key visually inspected. Supporting group-work/accessibility sheets remain under separate review. This batch does not close grade 5.
