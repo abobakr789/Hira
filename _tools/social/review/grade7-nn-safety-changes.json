@@ -33,12 +33,16 @@
       "check",
       "levels",
       "quiz",
-      "cover"
+      "cover",
+      "g1",
+      "g2",
+      "g3",
+      "g4"
     ],
     "qa": {
       "local": "pass",
       "live": "pending",
-      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+      "local_evidence": "All changed slide fronts, guide and models inspected; four group task slides checked 13:18 Dubai. Guide fits above footer."
     },
     "original_media": "unchanged"
   },
@@ -107,42 +111,17 @@
     "original_media": "unchanged"
   },
   {
-    "file": "resources/ssd/SS-Y7-NN-T1-L08/lesson-recap.html",
-    "views": [],
-    "qa": {
-      "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
-    },
-    "original_media": "unchanged"
-  },
-  {
     "file": "resources/ssd/SS-Y7-NN-T1-L08/group-work.html",
-    "views": [],
+    "views": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
     "qa": {
       "local": "pass",
       "live": "pending",
-      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
-    },
-    "original_media": "unchanged"
-  },
-  {
-    "file": "resources/ssd/SS-Y7-NN-T1-L08/parent-note.html",
-    "views": [],
-    "qa": {
-      "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
-    },
-    "original_media": "unchanged"
-  },
-  {
-    "file": "resources/ssd/SS-Y7-NN-T1-L08/pod-sheet.html",
-    "views": [],
-    "qa": {
-      "local": "pass",
-      "live": "pending",
-      "local_evidence": "2026-11-24 13:17 Dubai: nine visible slide fronts, four revealed models/answers and nine print pages inspected. Guide reduced to fit above footer and rechecked. Source-page headings visibly mark adaptations."
+      "local_evidence": "All four full group pages inspected as pixels; baby-procedure challenge corrected and rechecked 13:18 Dubai."
     },
     "original_media": "unchanged"
   }
