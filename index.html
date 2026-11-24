@@ -12089,7 +12089,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     loading();
     const me = state.session.user.id, role = state.profile.role;
     const { data: allClasses, error } = await sb.from("classes")
-      .select("id, name, year_group, track, subject_id, lock_lessons, buddy_enabled, academic_year, school_id, schools(name_ar), class_teachers(teacher_id)")
+      .select("id, name, year_group, track, subject_id, lock_lessons, buddy_enabled, buddy_char, academic_year, school_id, schools(name_ar), class_teachers(teacher_id)")
       .order("year_group").order("name");
     if (error) { h(`<div class="wrap loading">${esc(error.message)}</div>`); return; }
     const classes = role === "teacher" ? (allClasses || []).filter((c) => (c.class_teachers || []).some((t) => t.teacher_id === me)) : (allClasses || []);
@@ -12218,8 +12218,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         </div>
         <div class="lock-mode ${cls.buddy_enabled !== false ? "on" : ""}" style="margin-top:12px">
           <label class="switch"><input type="checkbox" id="buddyMode" ${cls.buddy_enabled !== false ? "checked" : ""}><span></span></label>
-          <div><strong>${cls.buddy_enabled !== false ? "سالم مفعّل: يساعد طلاب هذا الفصل في الدروس" : "سالم متوقف لهذا الفصل"}</strong>
-          <p class="muted">يختفي سالم تلقائيًا عن الطالب ما دام عنده اختبار مفتوح. ويمكنك إيقافه يدويًا وقت التقييمات الصفية. <a href="#/buddy-report?class=${cls.id}">ماذا يسأل طلابي؟</a></p></div>
+          <div><strong>${cls.buddy_enabled !== false ? "رفيق الدراسة مفعّل: يساعد طلاب هذا الفصل في الدروس" : "رفيق الدراسة متوقف لهذا الفصل"}</strong>
+          <p class="muted">يختفي تلقائيًا عن الطالب ما دام عنده اختبار مفتوح. ويمكنك إيقافه يدويًا وقت التقييمات الصفية. <a href="#/buddy-report?class=${cls.id}">ماذا يسأل طلابي؟</a></p>
+          <label class="muted" style="display:flex;gap:8px;align-items:center;margin-top:6px">الشخصية: <select id="buddyChar" style="width:auto">${[["auto", "تلقائي حسب الطالب"], ["salem", "سالم (للبنين)"], ["salama", "سلامة (للبنات)"]].map(([v, t]) => `<option value="${v}" ${(cls.buddy_char || "auto") === v ? "selected" : ""}>${t}</option>`).join("")}</select></label></div>
         </div>
         <div class="controls" style="margin:22px 0 10px">
           <div class="term-tabs" role="tablist">${[1, 2, 3].map((t) => `<a class="term-tab" role="tab" style="text-decoration:none" href="#/teacher?class=${cls.id}&term=${t}" aria-selected="${t === term}">${TERMS[t]}</a>`).join("")}</div>
@@ -12338,7 +12339,13 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (bm) bm.onchange = async (e) => {
       const { error: e2 } = await sb.from("classes").update({ buddy_enabled: e.target.checked }).eq("id", cls.id);
       if (e2) { toast("تعذّر الحفظ: " + e2.message); e.target.checked = !e.target.checked; return; }
-      toast(e.target.checked ? "شُغّل سالم لهذا الفصل" : "أُوقف سالم لهذا الفصل"); reload();
+      toast(e.target.checked ? "شُغّل رفيق الدراسة لهذا الفصل" : "أُوقف رفيق الدراسة لهذا الفصل"); reload();
+    };
+    const bc = document.getElementById("buddyChar");
+    if (bc) bc.onchange = async (e) => {
+      const { error: e3 } = await sb.from("classes").update({ buddy_char: e.target.value }).eq("id", cls.id);
+      if (e3) { toast("تعذّر الحفظ: " + e3.message); return; }
+      toast("حُفظت شخصية رفيق الدراسة لهذا الفصل");
     };
     main.querySelectorAll("[data-toggle]").forEach((b) => b.addEventListener("click", async () => {
       b.disabled = true;

@@ -3,7 +3,7 @@
    deps = { sb, cfg, esc, h, loading, state } من التطبيق نفسه */
 (function () {
   "use strict";
-  const ART = "art/salem/";
+  let ART = "art/salem/";
   const FACES = ["head", "wink", "think", "listen", "idea", "cheer", "great"];
   let preloaded = false;
 
@@ -13,30 +13,34 @@
     if (!location.hash.startsWith("#/lesson/")) return;
     // المعلم أوقفه لهذا الفصل، أو عند الطالب اختبار مفتوح: لا يظهر
     try { const { data: st } = await sb.rpc("buddy_status", { p_lesson: l.id }); if (st && st !== "ok") return; } catch (e) { /* عند الخطأ يُعتمد على فحص الخادم */ }
+    let ch = "salem";
+    try { const { data: c } = await sb.rpc("buddy_character", { p_lesson: l.id }); if (c === "salama") ch = "salama"; } catch (e) { /* الافتراضي سالم */ }
     if (!location.hash.startsWith("#/lesson/")) return;
+    const F = ch === "salama", NM = F ? "سلامة" : "سالم", NE = F ? "Salama" : "Salem";
+    if (ART !== "art/" + ch + "/") { ART = "art/" + ch + "/"; preloaded = false; }
     if (!preloaded) { FACES.forEach((k) => { const i = new Image(); i.src = ART + k + ".webp"; }); preloaded = true; }
     const T2 = (a, e) => (nn ? e : a);
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     const canSpeak = "speechSynthesis" in window;
-    const fig = document.createElement("button"); fig.id = "buddyFab"; fig.className = "salem"; fig.type = "button";
-    fig.setAttribute("aria-label", T2("افتح سالم، رفيق المذاكرة", "Open Salem, your study buddy"));
+    const fig = document.createElement("button"); fig.id = "buddyFab"; fig.className = "salem" + (F ? " is-salama" : ""); fig.type = "button";
+    fig.setAttribute("aria-label", T2("افتح " + NM + "، " + (F ? "رفيقة" : "رفيق") + " المذاكرة", "Open " + NE + ", your study buddy"));
     fig.innerHTML = `<img class="salem-img" src="${ART}full.webp" alt="" draggable="false"><span class="salem-face" aria-hidden="true"><img alt="" src="${ART}think.webp"></span><span class="salem-tip">${T2("اسألني عن الدرس!", "Ask me about the lesson!")}</span>`;
     const box = document.createElement("div"); box.id = "buddyBox"; box.className = "buddy-box"; box.hidden = true; box.dir = nn ? "ltr" : "rtl";
-    box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "سالم");
-    box.innerHTML = `<div class="bd-head"><span class="bd-av"><img alt="" src="${ART}head.webp"></span><div><b>سالم</b><small class="bd-state">${T2("زميلك في المذاكرة", "Your study buddy")}</small></div><button class="bd-x" type="button" aria-label="إغلاق">✕</button></div>
+    box.setAttribute("role", "dialog"); box.setAttribute("aria-label", NM);
+    box.innerHTML = `<div class="bd-head"><span class="bd-av"><img alt="" src="${ART}head.webp"></span><div><b>${NM}</b><small class="bd-state">${T2(F ? "زميلتك في المذاكرة" : "زميلك في المذاكرة", "Your study buddy")}</small></div><button class="bd-x" type="button" aria-label="إغلاق">✕</button></div>
       <div class="bd-log" aria-live="polite"></div>
       <div class="bd-chips"></div>
-      <form class="bd-form">${SR ? `<button type="button" class="bd-mic" aria-label="${T2("اسأل بصوتك", "Ask by voice")}" title="${T2("اسأل بصوتك", "Ask by voice")}">🎙️</button>` : ""}<input maxlength="400" dir="auto" placeholder="${T2("اكتب سؤالك أو اضغط الميكروفون…", "Type or tap the mic… / اكتب سؤالك")}" aria-label="سؤالك"><button class="bd-send" aria-label="${T2("أرسل", "Send")}">➤</button></form>
-      <p class="bd-note">${T2("يجيب سالم من الدرس ومصادره المعتمدة فقط. للأحكام والمسائل الخلافية اسأل معلمك.", "Salem answers only from this lesson and approved sources. Ask your teacher about rulings.")}</p>`;
+      <form class="bd-form">${SR ? `<button type="button" class="bd-mic" aria-label="${T2("اسأل بصوتك", "Ask by voice")}" title="${T2("اسأل بصوتك", "Ask by voice")}">🎙️</button>` : ""}<input maxlength="400" dir="auto" placeholder="${T2(F ? "اكتبي سؤالك أو اضغطي الميكروفون…" : "اكتب سؤالك أو اضغط الميكروفون…", "Type or tap the mic… / اكتب سؤالك")}" aria-label="سؤالك"><button class="bd-send" aria-label="${T2("أرسل", "Send")}">➤</button></form>
+      <p class="bd-note">${T2((F ? "تجيب سلامة من الدرس ومصادره المعتمدة فقط. للأحكام والمسائل الخلافية اسألي معلمتك." : "يجيب سالم من الدرس ومصادره المعتمدة فقط. للأحكام والمسائل الخلافية اسأل معلمك."), NE + " answers only from this lesson and approved sources. Ask your teacher about rulings.")}</p>`;
     document.body.append(fig, box);
     const log = box.querySelector(".bd-log"), form = box.querySelector("form"), inp = form.querySelector("input"), send = form.querySelector(".bd-send"), mic = form.querySelector(".bd-mic"), hist = [];
     const av = box.querySelector(".bd-av img"), faceImg = fig.querySelector(".salem-face img"), stateTxt = box.querySelector(".bd-state");
-    const STATE = { think: T2("يفكّر…", "Thinking…"), listen: T2("يستمع إليك…", "Listening…") };
+    const STATE = { think: T2(F ? "تفكّر…" : "يفكّر…", "Thinking…"), listen: T2(F ? "تستمع إليكِ…" : "يستمع إليك…", "Listening…") };
     let faceTimer = 0;
     const face = (k, ms) => {
       clearTimeout(faceTimer); av.src = ART + (k || "head") + ".webp";
       fig.dataset.face = k || ""; if (k) faceImg.src = ART + k + ".webp";
-      stateTxt.textContent = STATE[k] || T2("زميلك في المذاكرة", "Your study buddy");
+      stateTxt.textContent = STATE[k] || T2(F ? "زميلتك في المذاكرة" : "زميلك في المذاكرة", "Your study buddy");
       if (ms) faceTimer = setTimeout(() => face(null), ms);
     };
     const mood = (m, ms) => { fig.classList.add(m); if (ms) setTimeout(() => fig.classList.remove(m), ms); };
@@ -53,7 +57,7 @@
       log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
     };
     const fmt = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\n/g, "<br>");
-    const hello = T2("أهلًا يا صديقي! أنا سالم 👋 اكتب سؤالك عن درس «" + l.title_ar + "» أو اسألني بصوتك.", "Hi! I'm Salem 👋 Type or say your question about this lesson, in English or Arabic.");
+    const hello = T2(F ? "أهلًا يا صديقتي! أنا سلامة 👋 اكتبي سؤالك عن درس «" + l.title_ar + "» أو اسأليني بصوتك." : "أهلًا يا صديقي! أنا سالم 👋 اكتب سؤالك عن درس «" + l.title_ar + "» أو اسألني بصوتك.", "Hi! I'm " + NE + " 👋 Type or say your question about this lesson, in English or Arabic.");
     say("bot", esc(hello), hello);
 
     // محتوى الدرس المعتمد، للإجابات البديلة حين يتعذّر الاتصال بالنموذج
@@ -72,14 +76,14 @@
       if (k === "explain" && (sum.idea || (sum.learn || []).length))
         return `${sum.idea ? `<b>${esc(sum.idea)}</b>` : ""}${(sum.learn || []).length ? `<ul class="bd-list">${sum.learn.map((x) => `<li>${esc(Array.isArray(x) ? x.join(" ") : x)}</li>`).join("")}</ul>` : ""}`;
       if (k === "example" && sum.scene) return esc(sum.scene);
-      if (k === "sources") return srcs.length ? `${T2("المصادر المعتمدة لهذا الدرس:", "Approved sources for this lesson:")}<ul class="bd-src">${srcs.map((s) => `<li>📚 ${esc(s.citation_ar || s.title_ar)}</li>`).join("")}</ul>` : esc(T2("سيضيف معلمك مصادر إضافية لهذا الدرس قريبًا. وإلى ذلك الحين راجع تبويبات الدرس: نص الكتاب والمصادر والفيديو.", "Your teacher will add extra sources soon. Meanwhile, check the lesson tabs."));
+      if (k === "sources") return srcs.length ? `${T2("المصادر المعتمدة لهذا الدرس:", "Approved sources for this lesson:")}<ul class="bd-src">${srcs.map((s) => `<li>📚 ${esc(s.citation_ar || s.title_ar)}</li>`).join("")}</ul>` : esc(T2(F ? "ستُضاف مصادر إضافية لهذا الدرس قريبًا. وإلى ذلك الحين راجعي تبويبات الدرس: نص الكتاب والمصادر والفيديو." : "سيضيف معلمك مصادر إضافية لهذا الدرس قريبًا. وإلى ذلك الحين راجع تبويبات الدرس: نص الكتاب والمصادر والفيديو.", "Your teacher will add extra sources soon. Meanwhile, check the lesson tabs."));
       return null;
     };
 
     const chipDefs = [
-      { k: "explain", t: T2("اشرح لي الفكرة الرئيسة ببساطة", "Explain the main idea simply") },
-      { k: "quiz", t: T2("اختبرني بسؤال واحد", "Quiz me with one question") },
-      { k: "example", t: T2("أعطني مثالًا من حياتي", "Give me an example from my life") },
+      { k: "explain", t: T2(F ? "اشرحي لي الفكرة الرئيسة ببساطة" : "اشرح لي الفكرة الرئيسة ببساطة", "Explain the main idea simply") },
+      { k: "quiz", t: T2(F ? "اختبريني بسؤال واحد" : "اختبرني بسؤال واحد", "Quiz me with one question") },
+      { k: "example", t: T2(F ? "أعطيني مثالًا من حياتي" : "أعطني مثالًا من حياتي", "Give me an example from my life") },
       { k: "sources", t: T2("أريد مصادر إضافية", "Any extra sources?") },
     ];
     const chipBox = box.querySelector(".bd-chips");
@@ -91,12 +95,12 @@
     setTimeout(() => { if (document.body.contains(fig) && box.hidden) mood("hint", 5000); }, 1200);
     const off = () => { if (!location.hash.startsWith("#/lesson/")) { if (canSpeak) speechSynthesis.cancel(); fig.remove(); box.remove(); window.removeEventListener("hashchange", off); } }; window.addEventListener("hashchange", off);
     const ERR = {
-      rate_limited: T2("بلغتَ الحدّ: 20 سؤالًا في الساعة. عُد بعد قليل 🙂 ويمكنك الآن أن تجرّب «اختبرني بسؤال واحد».", "Limit reached: 20 questions per hour. You can still try «Quiz me»."),
+      rate_limited: T2(F ? "بلغتِ الحدّ: 20 سؤالًا في الساعة. عودي بعد قليل 🙂 ويمكنكِ الآن أن تجرّبي «اختبريني بسؤال واحد»." : "بلغتَ الحدّ: 20 سؤالًا في الساعة. عُد بعد قليل 🙂 ويمكنك الآن أن تجرّب «اختبرني بسؤال واحد».", "Limit reached: 20 questions per hour. You can still try «Quiz me»."),
       no_access: T2("هذا الدرس غير مفتوح لك.", "This lesson isn't open for you."),
-      disabled: T2("أوقف معلمك سالم لهذا الفصل الآن.", "Your teacher has paused Salem for this class."),
-      test_open: T2("عندك اختبار مفتوح الآن. أكمله أولًا، ثم أكون معك 🙂", "You have a test open. Finish it first, then I'm here."),
+      disabled: T2(F ? "أوقفت معلمتك سلامة لهذا الفصل الآن." : "أوقف معلمك سالم لهذا الفصل الآن.", "Your teacher has paused " + NE + " for this class."),
+      test_open: T2(F ? "عندكِ اختبار مفتوح الآن. أكمليه أولًا، ثم أكون معكِ 🙂" : "عندك اختبار مفتوح الآن. أكمله أولًا، ثم أكون معك 🙂", "You have a test open. Finish it first, then I'm here."),
     };
-    const RESTING = T2("سالم يأخذ استراحة قصيرة ☕ جرّب «اختبرني بسؤال واحد»، أو راجع تبويبات الدرس، أو اسألني لاحقًا.", "Salem is taking a short break ☕ Try «Quiz me», or check the lesson tabs.");
+    const RESTING = T2(F ? "سلامة تأخذ استراحة قصيرة ☕ جرّبي «اختبريني بسؤال واحد»، أو راجعي تبويبات الدرس، أو اسأليني لاحقًا." : "سالم يأخذ استراحة قصيرة ☕ جرّب «اختبرني بسؤال واحد»، أو راجع تبويبات الدرس، أو اسألني لاحقًا.", NE + " is taking a short break ☕ Try «Quiz me», or check the lesson tabs.");
     let busy = false;
     const showChips = () => { chipBox.hidden = false; log.scrollTop = log.scrollHeight; };
 
@@ -141,7 +145,7 @@
         let res = null; try { const { data } = await sb.rpc("buddy_quiz_check", { p_question: q.id, p_answer: b.dataset.o }); res = data; } catch (e) { res = null; }
         if (!res) { say("bot", esc(T2("تعذّر تصحيح الإجابة الآن.", "Couldn't check the answer now."))); showChips(); return; }
         card.querySelectorAll(".bd-opts button").forEach((x) => { if (x.dataset.o === res.answer_id) x.classList.add("right"); else if (x === b) x.classList.add("wrong"); });
-        const msg = res.correct ? T2("أحسنت يا بطل! إجابة صحيحة ✅", "Well done! Correct ✅") : T2("قريب! الإجابة الصحيحة: ", "Close! The right answer is: ") + (res.correct ? "" : (res.answer_text || ""));
+        const msg = res.correct ? T2(F ? "أحسنتِ يا بطلة! إجابة صحيحة ✅" : "أحسنت يا بطل! إجابة صحيحة ✅", "Well done! Correct ✅") : T2("قريب! الإجابة الصحيحة: ", "Close! The right answer is: ") + (res.correct ? "" : (res.answer_text || ""));
         const more = `<div class="bd-more"><button type="button" class="bd-again">${esc(T2("سؤال آخر", "Another question"))}</button></div>`;
         const fb = say("bot", esc(msg) + (res.explanation ? `<br><small>${esc(res.explanation)}</small>` : "") + more, msg);
         face(res.correct ? "cheer" : "think", 3000);
@@ -157,10 +161,10 @@
         if (rec) { rec.stop(); return; }
         if (canSpeak) speechSynthesis.cancel();
         rec = new SR(); rec.lang = nn ? "en-US" : "ar-AE"; rec.interimResults = true; rec.maxAlternatives = 1;
-        let finalText = ""; mic.classList.add("on"); face("listen"); inp.placeholder = T2("أستمع إليك…", "Listening…");
+        let finalText = ""; mic.classList.add("on"); face("listen"); inp.placeholder = T2(F ? "أستمع إليكِ…" : "أستمع إليك…", "Listening…");
         rec.onresult = (ev) => { let t = ""; for (const r of ev.results) { t += r[0].transcript; if (r.isFinal) finalText = t; } inp.value = t; };
         rec.onerror = () => {};
-        rec.onend = () => { mic.classList.remove("on"); face(null); inp.placeholder = T2("اكتب سؤالك أو اضغط الميكروفون…", "Type or tap the mic… / اكتب سؤالك"); const q = (finalText || inp.value).trim(); rec = null; if (q) ask(q, true); };
+        rec.onend = () => { mic.classList.remove("on"); face(null); inp.placeholder = T2(F ? "اكتبي سؤالك أو اضغطي الميكروفون…" : "اكتب سؤالك أو اضغط الميكروفون…", "Type or tap the mic… / اكتب سؤالك"); const q = (finalText || inp.value).trim(); rec = null; if (q) ask(q, true); };
         try { rec.start(); } catch (e) { rec = null; mic.classList.remove("on"); face(null); }
       };
     }
@@ -174,28 +178,29 @@
     if (!["teacher", "school_admin", "super_admin"].includes(role)) { h('<div class="wrap loading">هذه الصفحة للمعلمين.</div>'); return; }
     const clsId = params.get("class"); const days = Math.max(1, Math.min(365, +params.get("days") || 30));
     loading();
-    const { data: cls } = await sb.from("classes").select("id, name, year_group, buddy_enabled").eq("id", clsId).maybeSingle();
+    const { data: cls } = await sb.from("classes").select("id, name, year_group, buddy_enabled, buddy_char").eq("id", clsId).maybeSingle();
     if (!cls) { h('<div class="wrap loading">اختر فصلًا من <a href="#/teacher">صفحة المعلم</a>.</div>'); return; }
     const { data: rows, error } = await sb.rpc("teacher_buddy_report", { p_class: clsId, p_days: days });
     if (error) { h(`<div class="wrap loading">تعذّر تحميل التقرير: ${esc(error.message)}</div>`); return; }
     const R = rows || [];
+    const BN = cls.buddy_char === "salama" ? "سلامة" : cls.buddy_char === "salem" ? "سالم" : "سالم وسلامة";
     const students = new Set(R.map((r) => r.student_id)).size;
     const flagged = R.filter((r) => r.flagged);
     const byLesson = new Map();
     R.forEach((r) => { const k = r.lesson_id; if (!byLesson.has(k)) byLesson.set(k, { code: r.lesson_code, title: r.lesson_title, items: [], who: new Set() }); const g = byLesson.get(k); g.items.push(r); g.who.add(r.student_id); });
     const lessons = [...byLesson.values()].sort((a, b) => b.items.length - a.items.length);
     const fmtD = (t) => new Date(t).toLocaleString("ar-AE", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
-    const qItem = (r, showName) => `<li><div class="br-q">«${esc(r.question)}»</div><div class="muted br-meta">${showName ? esc(r.student_name || "طالب") + " · " : ""}${fmtD(r.created_at)}</div>${r.answer ? `<details><summary>جواب سالم</summary><p>${esc(r.answer)}</p></details>` : ""}</li>`;
+    const qItem = (r, showName) => `<li><div class="br-q">«${esc(r.question)}»</div><div class="muted br-meta">${showName ? esc(r.student_name || "طالب") + " · " : ""}${fmtD(r.created_at)}</div>${r.answer ? `<details><summary>الجواب</summary><p>${esc(r.answer)}</p></details>` : ""}</li>`;
     h(`<section class="page-head"><div class="wrap"><div class="crumbs"><a href="#/teacher?class=${esc(cls.id)}">صفحة المعلم</a> / ${esc(cls.name)}</div>
-      <h1>ماذا يسأل طلابي؟</h1><p class="muted">أسئلة طلاب ${esc(cls.name)} لسالم، رفيق الدراسة. استعملها لمعرفة ما لم يتضح لهم في الدرس.</p></div></section>
+      <h1>ماذا يسأل طلابي؟</h1><p class="muted">أسئلة طلاب ${esc(cls.name)} لرفيق الدراسة (${BN}). استعملها لمعرفة ما لم يتضح لهم في الدرس.</p></div></section>
       <section class="section"><div class="wrap br-wrap">
         <div class="br-days">${[[7, "آخر أسبوع"], [30, "آخر 30 يومًا"], [90, "آخر 90 يومًا"]].map(([n, t]) => `<a class="term-tab" style="text-decoration:none" href="#/buddy-report?class=${esc(cls.id)}&days=${n}" aria-selected="${n === days}">${t}</a>`).join("")}</div>
         <div class="br-stats"><div><b>${R.length}</b><span>سؤالًا</span></div><div><b>${students}</b><span>طالبًا سأل</span></div><div><b>${lessons.length}</b><span>درسًا</span></div><div class="${flagged.length ? "warn" : ""}"><b>${flagged.length}</b><span>يحتاج متابعة</span></div></div>
-        ${cls.buddy_enabled ? "" : `<p class="br-off">سالم متوقف الآن لهذا الفصل. يمكنك تشغيله من <a href="#/teacher?class=${esc(cls.id)}">صفحة الفصل</a>.</p>`}
-        ${flagged.length ? `<div class="br-flag"><h2>⚠️ أسئلة تحتاج متابعتك</h2><p class="muted">نبّه سالم إلى أن في هذه الرسائل ضيقًا أو أمرًا لا يناسب عمر الطالب، وطلب منه أن يكلّم معلمه أو أهله.</p><ul class="br-list">${flagged.map((r) => qItem(r, true)).join("")}</ul></div>` : ""}
+        ${cls.buddy_enabled ? "" : `<p class="br-off">رفيق الدراسة متوقف الآن لهذا الفصل. يمكنك تشغيله من <a href="#/teacher?class=${esc(cls.id)}">صفحة الفصل</a>.</p>`}
+        ${flagged.length ? `<div class="br-flag"><h2>⚠️ أسئلة تحتاج متابعتك</h2><p class="muted">نبّه رفيق الدراسة إلى أن في هذه الرسائل ضيقًا أو أمرًا لا يناسب عمر الطالب، وطلب منه أن يكلّم معلمه أو أهله.</p><ul class="br-list">${flagged.map((r) => qItem(r, true)).join("")}</ul></div>` : ""}
         <h2>الدروس الأكثر أسئلة</h2>
         ${lessons.length ? lessons.map((g) => `<details class="br-lesson"><summary><span class="br-n">${g.items.length}</span> <a href="#/lesson/${esc(g.code)}">${esc(g.title)}</a> <span class="muted">· عدد الطلاب: ${g.who.size}</span></summary><ul class="br-list">${g.items.map((r) => qItem(r, true)).join("")}</ul></details>`).join("")
-          : `<p class="muted">لم يسأل طلاب هذا الفصل سالم بعد في هذه المدة.</p>`}
+          : `<p class="muted">لم يسأل طلاب هذا الفصل رفيق الدراسة بعد في هذه المدة.</p>`}
       </div></section>`);
   }
 
