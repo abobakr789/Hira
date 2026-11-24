@@ -1,5 +1,5 @@
 {
-  "status": "targeted review ready for deployment",
+  "status": "closed: targeted review published and verified",
   "inventory": {
     "lessons": 29,
     "html": 214,
@@ -9,5 +9,7 @@
   "changed_lessons": 27,
   "method": "Compared baseline grade1 sections and all shared printables; reused verified identical material. Inspected grade-specific retrieval distractors, goals, group tasks and differentiated challenge instructions. Preserved grade-specific writing scaffolds. Reviewed safety and answer dependencies; fixed visible class practice instructions and printable text-choice layout.",
   "qa": "642 HTML and 903 inline scripts across grades2-4: no script syntax errors or missing src assets. Local slide, key-popup and print samples inspected.",
-  "limitations": "Targeted review, not individual factual and pixel inspection of every original slide."
+  "limitations": "Targeted review, not individual factual and pixel inspection of every original slide.",
+  "live_qa": "255/255 changed HTML across grades1-4 exact at 22:10 Dubai; published grade2 diagram, grade3 coffee and greeting quiz, grade4 safe class practice and grade3 support printable pixel inspected.",
+  "content_commit": "0a140d7041953cc81c83e9d739c47f7ddf1d4ebe"
 }
