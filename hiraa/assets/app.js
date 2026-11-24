@@ -8417,8 +8417,40 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const ids = new Set(roster.map((r) => r.id));
     const by = {}; (atts || []).filter((t) => ids.has(t.student_id)).forEach((t) => { by[t.student_id] = t; });
     const took = roster.filter((r) => by[r.id]);
-    const { data: ans } = took.length ? await sb.from("attempt_answers").select("attempt_id, question_id, is_correct").in("attempt_id", took.map((r) => by[r.id].id)) : { data: [] };
+    const { data: ans } = took.length ? await sb.from("attempt_answers").select("attempt_id, question_id, is_correct, response").in("attempt_id", took.map((r) => by[r.id].id)) : { data: [] };
     const classDom = domPct(ans, qDom);
+    // item analysis + class outcome layer (staff only page)
+    const { data: aqI } = await sb.from("assessment_questions").select("sort_order, question_id, questions(stem_ar, stem_en, options, lessons(code, title_ar, title_en), learning_outcomes(id, code, statement_ar, statement_en))").eq("assessment_id", id).order("sort_order");
+    const enI = a.track === "non_native" && benchSubjId !== 2;
+    const pctOf = (sid) => by[sid].score / by[sid].max_score;
+    const ranked = took.slice().sort((x, y) => pctOf(y.id) - pctOf(x.id));
+    const kG = Math.max(1, Math.round(ranked.length * 0.27));
+    const attOf = {}; took.forEach((r) => { attOf[by[r.id].id] = r.id; });
+    const upper = new Set(ranked.slice(0, kG).map((r) => r.id)), lower = new Set(ranked.slice(-kG).map((r) => r.id));
+    const resp = (v) => String(typeof v === "string" ? v : v == null ? "" : JSON.stringify(v)).replace(/^"|"$/g, "");
+    const optText = (q, id) => { const o = q && q.options; const list = Array.isArray(o) ? o : (o && (o.choices || o.options || o.items)) || []; const f = list.find((x) => x && String(x.id) === id); return f ? String(f.text || f.label || id) : id; };
+    const items = (aqI || []).map((r) => { const q = r.questions || {}; const A = (ans || []).filter((x) => x.question_id === r.question_id);
+      const n = A.length, ok = A.filter((x) => x.is_correct).length;
+      const U = A.filter((x) => upper.has(attOf[x.attempt_id])), Lw = A.filter((x) => lower.has(attOf[x.attempt_id]));
+      const pU = U.length ? U.filter((x) => x.is_correct).length / U.length : 0, pL = Lw.length ? Lw.filter((x) => x.is_correct).length / Lw.length : 0;
+      const wrong = {}; A.filter((x) => !x.is_correct && x.response != null).forEach((x) => { const k = resp(x.response); if (k) wrong[k] = (wrong[k] || 0) + 1; });
+      const nW = n - ok, top = Object.entries(wrong).sort((x, y) => y[1] - x[1])[0];
+      const p = n ? ok / n : null, D = n ? pU - pL : null, flags = [];
+      if (n) { if (p >= 0.9) flags.push("سهل جدًا"); if (p <= 0.25) flags.push("صعب جدًا"); if (ranked.length >= 6 && D < 0) flags.push("معكوس: أصابه الضعفاء أكثر من الأقوياء، راجع المفتاح والصياغة"); else if (ranked.length >= 10 && D < 0.2 && p > 0.1 && p < 0.9) flags.push("تمييز ضعيف");
+        if (top && nW >= 3 && top[1] / n >= 0.4) flags.push(`مشتّت جاذب: «${optText(q, top[0])}»`); }
+      return { no: r.sort_order, q, n, p, D, flags }; });
+    const flagged = items.filter((x) => x.flags.length);
+    const oc = {}; items.forEach((it) => { const o = it.q.learning_outcomes; if (!o || !it.n) return; const e = (oc[o.id] = oc[o.id] || { o, n: 0, ok: 0, les: it.q.lessons }); e.n += it.n; e.ok += Math.round(it.p * it.n); });
+    const ocWeak = Object.values(oc).map((e) => ({ ...e, pc: Math.round((e.ok / e.n) * 100) })).filter((e) => e.pc < 60).sort((x, y) => x.pc - y.pc);
+    const stemI = (q) => { const t = String((enI && q.stem_en) || q.stem_ar || ""); return t.length > 110 ? t.slice(0, 110) + "…" : t; };
+    const itemRow = (it) => `<tr><td>${it.no}</td><td${enI ? ' dir="ltr" style="text-align:left"' : ""}>${esc(stemI(it.q))}</td><td>${it.p == null ? "—" : Math.round(it.p * 100) + "%"}</td><td>${it.D == null ? "—" : it.D.toFixed(2)}</td><td>${it.flags.map((f) => `<span class="lv ${/معكوس|مشتّت/.test(f) ? "needs_support" : "developing"}">${esc(f)}</span>`).join(" ") || "✓"}</td></tr>`;
+    const itemHead = `<thead><tr><th>#</th><th>السؤال</th><th>نسبة الإجابة الصحيحة</th><th>معامل التمييز</th><th>ملاحظة</th></tr></thead>`;
+    const itemsHtml = !took.length ? "" : `<h2>نواتج تحتاج إعادة تدريس للفصل</h2>
+        ${ocWeak.length ? `<div class="table-wrap"><table class="admin-table"><thead><tr><th>الناتج</th><th>نسبة الإجابة الصحيحة في الفصل</th><th>الدرس</th></tr></thead><tbody>${ocWeak.map((e) => `<tr><td${enI ? ' dir="ltr" style="text-align:left"' : ""}>${esc(enI && e.o.statement_en ? e.o.statement_en : e.o.statement_ar)}${enI ? `<br><small class="muted" dir="rtl">${esc(e.o.statement_ar)}</small>` : ""}</td><td>${e.pc}%</td><td>${e.les ? `<a href="#/lesson/${esc(e.les.code)}">${esc(enI ? e.les.title_en || e.les.title_ar : e.les.title_ar)}</a>` : "—"}</td></tr>`).join("")}</tbody></table></div>` : '<p class="muted">بلغ الفصل 60% أو أكثر في كل النواتج التي قاسها الاختبار.</p>'}
+        <h2>تحليل الأسئلة</h2>
+        <p class="muted small">نسبة الإجابة الصحيحة تبيّن سهولة السؤال، ومعامل التمييز هو الفرق بين نسبة الصواب في أعلى 27% من الطلاب وأدنى 27% (يُستحسن 0.3 فأكثر). ${ranked.length < 10 ? `<b>عدد الطلاب ${ranked.length} فقط، فالمؤشرات تقديرية؛ تثبت من 10 طلاب فأكثر، وتتضح أكثر على مستوى المنصة.</b>` : ""}</p>
+        ${flagged.length ? `<div class="table-wrap"><table class="admin-table">${itemHead}<tbody>${flagged.map(itemRow).join("")}</tbody></table></div>` : '<p class="muted">لا أسئلة تحتاج مراجعة.</p>'}
+        <details><summary>كل الأسئلة (${items.length})</summary><div class="table-wrap"><table class="admin-table">${itemHead}<tbody>${items.map(itemRow).join("")}</tbody></table></div></details>`;
     // previous window for growth
     const { data: sibs } = await sb.from("assessments").select("id, benchmark_windows(code)").eq("kind", "benchmark").eq("subject_id", benchSubjId).eq("year_group", a.year_group).eq("track", a.track);
     const ord = { BOY: 1, MOY: 2, EOY: 3 }, cur = ord[a.benchmark_windows.code];
@@ -8446,6 +8478,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         <div class="br-top" style="margin-top:20px"><div><h2>المجالات الستة: الفصل مقابل المنصة</h2>
           <div class="dom-bars">${[1, 2, 3, 4, 5, 6].filter((d) => classDom[d] != null).map((d) => `<div class="db"><span>${esc(domName(d))}</span><span class="db-bar"><i style="width:${classDom[d]}%;background:${bandOf(classDom[d]).c}"></i>${normD[d] != null && N.n > 4 ? `<b class="db-norm" style="inset-inline-start:${normD[d]}%"></b>` : ""}</span><strong>${classDom[d]}%</strong></div>`).join("")}</div></div>
           <div class="br-radar">${radarSVG(classDom, N.n > 4 ? normD : null)}</div></div>
+        ${itemsHtml}
         <h2>الطلاب</h2>
         <div class="table-wrap"><table class="admin-table"><thead><tr><th>الطالب</th><th>الدرجة</th><th>المستوى</th>${prev ? "<th>النمو عن النافذة السابقة</th>" : ""}<th></th></tr></thead><tbody>
           ${roster.map((r) => { const t = by[r.id]; if (!t) return `<tr><td>${esc(r.name)}</td><td colspan="${prev ? 4 : 3}" class="muted">لم يؤدِّه</td></tr>`; const p = Math.round((t.score / t.max_score) * 100); const g = prevBy[r.id] != null ? p - prevBy[r.id] : null;
