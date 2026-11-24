@@ -1,0 +1,98 @@
+[
+  {
+    "file": "resources/ssd/SS-Y3-T3-L07/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L07/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L10/teacher-deck.html",
+    "views": [
+      "vocab",
+      "model"
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L11/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L11/sources-concept-card.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L11/teacher-deck.html",
+    "views": [
+      "story",
+      "model",
+      "models"
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L12/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L12/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L14/answer-key.html",
+    "views": [
+      0
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  },
+  {
+    "file": "resources/ssd/SS-Y3-T3-L14/teacher-deck.html",
+    "views": [
+      "model",
+      "models"
+    ],
+    "local_qa": "PASS 2026-11-24 04:41 Asia/Dubai; all 11 changed slides and 5 print pages inspected; shifted model cards fixed and rerendered",
+    "live_qa": "pending",
+    "media_reference_check": "PASS"
+  }
+]
