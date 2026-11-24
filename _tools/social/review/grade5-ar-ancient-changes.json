@@ -1,0 +1,121 @@
+[
+  {
+    "file": "resources/ssd/SS-Y5-T1-L02/answer-key.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L02/pod-sheet.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L02/sources-concept-card.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L02/teacher-deck.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L02/worksheets-A4.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L03/answer-key.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L03/pod-sheet.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L03/sources-concept-card.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L03/teacher-deck.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L03/worksheets-A4.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L04/sources-concept-card.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L04/teacher-deck.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L06/answer-key.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L06/pod-sheet.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L06/sources-concept-card.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L06/teacher-deck.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-T1-L06/worksheets-A4.html",
+    "qa": {
+      "local": "PASS: slide fronts, interaction explanations and all changed print pages inspected",
+      "live": "PENDING"
+    }
+  }
+]
