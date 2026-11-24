@@ -1,0 +1,137 @@
+[
+  {
+    "file": "resources/ssd/SS-Y7-T2-L16/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L16/worksheets-A4.html",
+    "views": [
+      "0",
+      "1"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L16/teacher-deck.html",
+    "views": [
+      "critique",
+      "learn3",
+      "match",
+      "quick",
+      "vocab"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L19/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L19/worksheets-A4.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T2-L19/teacher-deck.html",
+    "views": [
+      "learn4",
+      "match",
+      "vocab"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L23/answer-key.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L23/sources-concept-card.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L23/worksheets-A4.html",
+    "views": [
+      "0",
+      "1",
+      "2"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L23/teacher-deck.html",
+    "views": [
+      "critique",
+      "guess",
+      "hook",
+      "learn3",
+      "learn4",
+      "quick"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y7-T3-L23/pod-sheet.html",
+    "views": [
+      "0"
+    ],
+    "original_media": "unchanged",
+    "qa": {
+      "local": "pass: all changed slide/reveal and print page pixels inspected 24 November 2026",
+      "live": "pending"
+    }
+  }
+]

@@ -7,7 +7,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     }
   },
   {
@@ -18,7 +18,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     }
   },
   {
@@ -32,7 +32,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     }
   },
   {
@@ -53,7 +53,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     }
   },
   {
@@ -65,7 +65,7 @@
     "original_media": "unchanged",
     "qa": {
       "local": "pass: final changed slide and print pixels inspected, including repaired full source-card fit",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     }
   }
 ]

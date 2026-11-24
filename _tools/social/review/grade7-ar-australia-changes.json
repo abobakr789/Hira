@@ -6,7 +6,7 @@
     ],
     "qa": {
       "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     },
     "original_media": "unchanged"
   },
@@ -17,7 +17,7 @@
     ],
     "qa": {
       "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     },
     "original_media": "unchanged"
   },
@@ -28,7 +28,7 @@
     ],
     "qa": {
       "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     },
     "original_media": "unchanged"
   },
@@ -42,7 +42,7 @@
     ],
     "qa": {
       "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     },
     "original_media": "unchanged"
   },
@@ -53,7 +53,7 @@
     ],
     "qa": {
       "local": "pass: all listed print and revealed slide pixels inspected 24 November 2026",
-      "live": "pending"
+      "live": "pass: current live bytes verified, representative final pixels inspected 24 November 2026"
     },
     "original_media": "unchanged"
   }
