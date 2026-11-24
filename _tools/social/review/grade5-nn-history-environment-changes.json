@@ -1,0 +1,245 @@
+[
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L10/sources-concept-card.html",
+    "views": [
+      0,
+      1
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L10/lesson-recap.html",
+    "views": [
+      2
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media. Reflowed inherited overflowing vocabulary cards into a readable two-column grid above captions.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L10/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "text4",
+      "text6"
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media. Removed inherited misleading object/geography icons rather than labeling unrelated pictures.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L11/sources-concept-card.html",
+    "views": [
+      1
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L11/teacher-deck.html",
+    "views": [
+      "text2",
+      "text3"
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L12/sources-concept-card.html",
+    "views": [
+      1
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L12/teacher-deck.html",
+    "views": [
+      "text2",
+      "text3",
+      "text5"
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L13/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L13/sources-concept-card.html",
+    "views": [
+      0,
+      1
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L13/lesson-recap.html",
+    "views": [
+      2
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media. Reflowed inherited overflowing vocabulary cards into a readable two-column grid above captions.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L13/worksheets-A4.html",
+    "views": [
+      0,
+      1
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media. Removed unrelated matching icons and visibly qualified preserved source claim about first domesticated animals.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L13/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "text2",
+      "text3",
+      "check",
+      "quiz",
+      "words"
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media. Removed inherited misleading object/geography icons rather than labeling unrelated pictures.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L14/sources-concept-card.html",
+    "views": [
+      1
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L14/teacher-deck.html",
+    "views": [
+      "text2"
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L15/answer-key.html",
+    "views": [
+      0
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L15/sources-concept-card.html",
+    "views": [
+      0,
+      1
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L15/lesson-recap.html",
+    "views": [
+      2
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media. Reflowed inherited overflowing vocabulary cards into a readable two-column grid above captions.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L15/worksheets-A4.html",
+    "views": [
+      0,
+      1
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L15/teacher-deck.html",
+    "views": [
+      "vocab",
+      "vflip",
+      "text3",
+      "text4",
+      "talk",
+      "check",
+      "quiz"
+    ],
+    "reason": "Synchronized source-qualified factual clarifications, precise vocabulary and preserved original textbook quotations/media. Removed inherited misleading object/geography icons rather than labeling unrelated pictures.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  },
+  {
+    "file": "resources/ssd/SS-Y5-NN-T1-L12/worksheets-A4.html",
+    "views": [
+      0
+    ],
+    "reason": "Synchronized fact-correct assessment/support wording.",
+    "qa": {
+      "local": "PASS: individually inspected changed slide fronts, affected flip backs, recap vocabulary scenes and print pages; no clipping or overlap.",
+      "live": "PENDING"
+    }
+  }
+]
