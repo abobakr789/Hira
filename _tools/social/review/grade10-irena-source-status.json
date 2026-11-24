@@ -1,0 +1,26 @@
+{
+  "reason": "Exact historical dialogue title and counterpart not independently verified; retained only as textbook reading account. IRENA definition and opening clue use confirmed primary-source facts.",
+  "sources": [
+    "https://www.irena.org/About/Contact",
+    "https://www.irena.org/news/pressreleases/2015/Jun/IRENA-Opens-Doors-on-New-Permanent-Headquarters-in-Masdar-City",
+    "https://www.eia.gov/energyexplained/natural-gas/natural-gas-and-the-environment.php"
+  ],
+  "files": [
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/answer-key.html",
+      "text_nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/sources-concept-card.html",
+      "text_nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/worksheets-A4.html",
+      "text_nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-T3-L3/teacher-deck.html",
+      "text_nodes": 10
+    }
+  ]
+}
