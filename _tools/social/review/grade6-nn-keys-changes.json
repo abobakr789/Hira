@@ -7,7 +7,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -18,7 +18,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -29,7 +29,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -40,7 +40,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -51,7 +51,7 @@
     "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -62,7 +62,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -73,7 +73,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -84,7 +84,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -95,7 +95,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -106,7 +106,7 @@
     "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -117,7 +117,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -128,7 +128,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -139,7 +139,7 @@
     "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -150,7 +150,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -161,7 +161,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -172,7 +172,7 @@
     "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -183,7 +183,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -194,7 +194,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -205,7 +205,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -216,7 +216,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -227,7 +227,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -238,7 +238,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -249,7 +249,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -260,7 +260,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -271,7 +271,7 @@
     "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -282,7 +282,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -293,7 +293,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -304,7 +304,7 @@
     "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -315,7 +315,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -326,7 +326,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -337,7 +337,7 @@
     "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -348,7 +348,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -359,7 +359,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -370,7 +370,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -381,7 +381,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -392,7 +392,7 @@
     "reason": "Every sentence-completion answer must be available as a complete item in the word bank.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -403,7 +403,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   },
   {
@@ -414,7 +414,7 @@
     "reason": "Replace obsolete matching models with the four actual row answers; supply actual word-meaning answers and numeric shuffled quiz positions; synchronize printed and onscreen models.",
     "qa": {
       "local": "PASS: 15 full model-answer popups and all 23 changed print pages visually inspected; Venice popup overflow shortened and rechecked; every shuffled quiz position checked against current deck. Original media unchanged.",
-      "live": "pending"
+      "live": "PASS:38/38 HTML byte-exact 24 November 2026 11:51 Dubai; two live model popups, repaired word bank and full printed answer key visually inspected."
     }
   }
 ]
