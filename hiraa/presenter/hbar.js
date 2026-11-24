@@ -54,6 +54,7 @@
     keys: "M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10",
     users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8",
     rec: "M12 19a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+    cup: "M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3",
     pdf: "M12 3v12M7 10l5 5 5-5M5 21h14",
     pv: "M2 4h13v10H2zM17 7h5v8h-5zM5 18h7M8.5 14v4",
     phone: "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2",
@@ -138,6 +139,25 @@
     ".hb-pop .hb-btn.pri{background:#102A4C;border-color:#102A4C;color:#fff}",
     ".hb-pop .hb-muted{font-size:13px;color:#6B7280}",
     ".hb-pop .hb-ck{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:14.5px;cursor:pointer}.hb-pop .hb-ck input{width:17px;height:17px;accent-color:#102A4C}",
+    "#hbClassOv{position:fixed;left:50%;top:calc(var(--hb-lay) + 50%);transform:translate(-50%,-50%);width:min(1000px,94vw);max-height:calc(100vh - var(--hb-lay) - 40px);overflow:auto;z-index:30;display:none;background:#fff;color:#102A4C;border-radius:22px;box-shadow:0 30px 80px rgba(5,12,25,.45);font-family:'Thmanyah Text',Tahoma,sans-serif}",
+    "#hbClassOv.on{display:block}#hbClassOv .ct-h{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid #E6EBF2;position:sticky;top:0;background:#fff;z-index:1}",
+    "#hbClassOv .ct-tab{font:700 16px inherit;font-family:inherit;border:0;background:#F1F4F9;color:#102A4C;border-radius:999px;padding:9px 18px;cursor:pointer}#hbClassOv .ct-tab.on{background:#102A4C;color:#fff}",
+    "#hbClassOv .ct-x{margin-inline-start:auto;border:0;background:#F1F4F9;border-radius:50%;width:38px;height:38px;font-size:18px;cursor:pointer}",
+    "#hbClassOv .ct-b{padding:18px 22px 22px}#hbClassOv .ct-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:14px;font-size:15px}",
+    "#hbClassOv .ct-row input[type=number]{width:70px;font:700 16px inherit;font-family:inherit;padding:6px 8px;border:1px solid #CBD5E1;border-radius:10px;text-align:center}",
+    "#hbClassOv .ct-btn{font:700 15px inherit;font-family:inherit;border:1px solid #CBD5E1;background:#fff;color:#102A4C;border-radius:12px;padding:9px 16px;cursor:pointer}#hbClassOv .ct-btn.pri{background:#102A4C;color:#fff;border-color:#102A4C}#hbClassOv .ct-btn.gold{background:#D4AA55;border-color:#D4AA55;color:#1B1405}",
+    ".ct-groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}",
+    ".ct-g{border-radius:16px;padding:14px 16px;color:#fff;animation:hbPopIn .45s cubic-bezier(.2,1.4,.4,1) both}.ct-g h4{margin:0 0 8px;font:800 20px 'Thmanyah Display','Thmanyah Text',Tahoma,sans-serif}.ct-g ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}.ct-g li{background:rgba(255,255,255,.22);border-radius:999px;padding:3px 11px;font-weight:600}",
+    "@keyframes hbPopIn{from{opacity:0;transform:scale(.6) translateY(20px)}}",
+    ".ct-teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}.ct-t{border-radius:18px;padding:14px;color:#fff;text-align:center;position:relative}.ct-t .hbc-nm{font:800 18px 'Thmanyah Display','Thmanyah Text',Tahoma,sans-serif;background:transparent;border:0;color:#fff;text-align:center;width:100%}",
+    ".ct-t .hbc-sc{font:900 64px/1.1 ui-rounded,'Thmanyah Display',Tahoma,sans-serif;font-variant-numeric:tabular-nums;transition:transform .25s}.ct-t .hbc-sc.hbc-bump{transform:scale(1.3)}.ct-t .hbc-crown{position:absolute;top:-14px;inset-inline-end:10px;font-size:28px}",
+    ".ct-t .hbc-pm{display:flex;gap:8px;justify-content:center}.ct-t .hbc-pm button{width:52px;height:42px;border-radius:12px;border:0;font:800 22px inherit;font-family:inherit;cursor:pointer;background:rgba(255,255,255,.95);color:#102A4C}.ct-t .hbc-pm button.hbc-m{background:rgba(255,255,255,.3);color:#fff}",
+    "#hbScore{position:fixed;inset-inline-end:20px;bottom:20px;z-index:12;display:none;gap:8px;padding:8px;background:rgba(11,22,40,.88);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:grab;touch-action:none;font-family:'Thmanyah Text',Tahoma,sans-serif}#hbScore.on{display:flex}",
+    "#hbScore .hbc-ms{height:auto;line-height:1.2;min-width:74px;border-radius:12px;padding:6px 10px;color:#fff;text-align:center;cursor:pointer;user-select:none}#hbScore .hbc-ms b{display:block!important;margin:0;font:900 26px/1 ui-rounded,Tahoma,sans-serif}#hbScore .hbc-ms span{display:block;font-size:12px;font-weight:700;opacity:.95;white-space:nowrap}",
+    ".ct-noise{display:grid;grid-template-columns:1fr 240px;gap:22px;align-items:center}.ct-meter{height:64px;border-radius:999px;background:#EEF2F7;overflow:hidden;position:relative}.ct-meter i{position:absolute;inset-block:0;inset-inline-start:0;width:0;border-radius:999px;background:#2E9E5B;transition:width .12s,background .3s}.ct-meter u{position:absolute;inset-block:-6px;width:4px;background:#102A4C;border-radius:2px}",
+    ".ct-face{font-size:120px;text-align:center;line-height:1}.ct-msg{font:800 26px 'Thmanyah Display','Thmanyah Text',Tahoma,sans-serif;text-align:center;margin-top:6px}",
+    "#hbClassOv.loud{animation:hbLoud .5s 3}@keyframes hbLoud{50%{box-shadow:0 0 0 14px rgba(214,69,69,.55),0 30px 80px rgba(5,12,25,.45)}}",
+    "#hbNoise{position:fixed;inset-inline-start:20px;bottom:20px;z-index:12;display:none;align-items:center;gap:10px;padding:8px 14px;background:rgba(11,22,40,.88);border-radius:999px;color:#fff;font:700 14px 'Thmanyah Text',Tahoma,sans-serif;cursor:pointer}#hbNoise.on{display:flex}#hbNoise .ct-meter{width:160px;height:14px;background:rgba(255,255,255,.15)}#hbNoise .hbc-f{font-size:26px}",
     "#hbSavePop{width:340px}#hbRecPop{width:360px}",
     "#tb.hb #hbRec.rec{background:#C62828;color:#fff;border-color:#C62828}#tb.hb #hbRec.rec svg{animation:hbPulse 1.2s infinite}#tb.hb #hbRec.paused{background:#8A5A00;color:#fff}",
     "@keyframes hbPulse{50%{opacity:.35}}#tb.hb #hbRecL{font-variant-numeric:tabular-nums;direction:ltr}",
@@ -212,6 +232,7 @@
     ($("bT") ? B("hbT", "timer", T("المؤقت (T)", "Timer (T)"), T("المؤقت", "Timer")) : "") +
     ($("bS") ? B("hbS", "bell", T("لفت الانتباه", "Get attention"), T("الانتباه", "Attention")) : "") +
     B("hbPick", "dice", T("اختيار طالب عشوائيًّا", "Pick a student"), T("القرعة", "Pick")) +
+    B("hbClass", "cup", T("إدارة الصف: المجموعات والنقاط ومقياس الهدوء", "Class tools: groups, points, noise meter"), T("الصف", "Class")) +
     ($("bNo") ? B("hbNo", "notes", T("ملاحظات المعلم (N)", "Teacher notes (N)"), T("الملاحظات", "Notes")) : "") +
     ($("bE") ? B("hbE", "edit", T("تعديل نصوص الشريحة", "Edit slide text"), T("تعديل", "Edit")) : "") +
     "</div>" +
@@ -696,6 +717,110 @@
     on("hbRecP", function () { if (!rec) return; if (rec.state === "recording") { rec.pause(); acc += Date.now() - t0; running = false; rb.classList.add("paused"); say(T("⏸ التسجيل متوقف مؤقتًا", "⏸ Paused")); } else { rec.resume(); t0 = Date.now(); running = true; rb.classList.remove("paused"); say(T("● عاد التسجيل", "● Recording")); } });
     on("hbRecS", function () { if (rec && rec.state !== "inactive") rec.stop(); });
     W.addEventListener("pagehide", function () { if (rec && rec.state !== "inactive") try { rec.stop(); } catch (e) {} });
+  })();
+
+  /* ---------- إدارة الصف: المجموعات والنقاط ومقياس الهدوء ---------- */
+  (function () {
+    var GC = ["#1E6BC2", "#C2410C", "#0B7A75", "#7C3AED", "#B8860B", "#BE185D", "#15803D", "#475569"];
+    var GN = EN ? ["Honesty", "Trust", "Excellence", "Mercy", "Patience", "Justice", "Gratitude", "Kindness"] : ["الصدق", "الأمانة", "الإتقان", "الرحمة", "الصبر", "العدل", "الشكر", "الإحسان"];
+    var ov = mk("div", "hbClassOv"); ov.dir = RTL ? "rtl" : "ltr"; stop(ov);
+    var mini = mk("div", "hbScore"); mini.dir = RTL ? "rtl" : "ltr"; stop(mini);
+    var nz = mk("div", "hbNoise"); nz.dir = RTL ? "rtl" : "ltr"; stop(nz);
+    var tab = "groups", G2 = SS.get("hb-groups-" + DECK) || null;
+    var teams = SS.get("hb-teams-" + DECK) || GN.slice(0, 4).map(function (n, i) { return { n: n, s: 0, c: GC[i] }; });
+    var saveT = function () { SS.set("hb-teams-" + DECK, teams); };
+    var studentList = function () { return LS.get("hb-names", "").split(/\n|،|,/).map(function (x) { return x.trim(); }).filter(Boolean); };
+    function shell(body) {
+      ov.innerHTML = '<div class="ct-h"><button class="ct-tab' + (tab === "groups" ? " on" : "") + '" data-t="groups">👥 ' + T("المجموعات", "Groups") + '</button><button class="ct-tab' + (tab === "points" ? " on" : "") + '" data-t="points">🏆 ' + T("نقاط المجموعات", "Team points") + '</button><button class="ct-tab' + (tab === "noise" ? " on" : "") + '" data-t="noise">🔊 ' + T("مقياس الهدوء", "Noise meter") + '</button><button class="ct-x" aria-label="' + T("إغلاق", "Close") + '">✕</button></div><div class="ct-b">' + body + "</div>";
+      ov.querySelectorAll(".ct-tab").forEach(function (b) { b.onclick = function () { tab = b.dataset.t; paint(); }; });
+      ov.querySelector(".ct-x").onclick = closeOv;
+    }
+    function closeOv() { ov.classList.remove("on"); $("hbClass").classList.remove("on"); }
+    function paint() { if (tab === "groups") paintGroups(); else if (tab === "points") paintPoints(); else paintNoise(); }
+    /* المجموعات */
+    function paintGroups() {
+      var L = studentList();
+      shell('<div class="ct-row"><label>' + T("عدد المجموعات", "Number of groups") + ' <input type="number" id="ctN" min="2" max="8" value="' + (G2 ? G2.length : 4) + '"></label>' +
+        '<span class="hb-muted">' + (L.length ? T("من أسماء القرعة: ", "From the pick list: ") + L.length + T(" طالبًا", " students") : T("لا أسماء في القرعة بعد، فاكتب عدد الطلاب:", "No names in the pick list yet, so enter the class size:") + ' <input type="number" id="ctC" min="4" max="60" value="' + LS.get("hb-count", "24") + '">') + "</span>" +
+        '<button class="ct-btn pri" id="ctGo">🎲 ' + (G2 ? T("وزّع من جديد", "Shuffle again") : T("وزّع الطلاب", "Make groups")) + "</button>" + (G2 ? '<button class="ct-btn gold" id="ctUse">🏆 ' + T("اجعلها فرق النقاط", "Use for team points") + "</button>" : "") + "</div>" +
+        '<div class="ct-groups">' + (G2 || []).map(function (g, i) { return '<div class="ct-g" style="background:' + GC[i % 8] + ";animation-delay:" + i * 0.08 + 's"><h4>' + esc(GN[i % 8]) + " <small style=\"opacity:.75;font-size:14px\">(" + g.length + ")</small></h4><ul>" + g.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div>" +
+        (L.length ? "" : '<p class="hb-muted" style="margin-top:12px">' + T("💡 لتوزيع الأسماء: اكتبها مرة واحدة في «القرعة» فتُحفظ على جهازك.", "💡 To use names, type them once in “Pick”; they stay on your device.") + "</p>"));
+      $("ctGo").onclick = function () {
+        var n = Math.max(2, Math.min(8, parseInt($("ctN").value, 10) || 4)), P = studentList();
+        if (!P.length) { var c = Math.max(4, Math.min(60, parseInt(($("ctC") || {}).value, 10) || 24)); LS.set("hb-count", c); for (var i = 1; i <= c; i++) P.push(T("طالب ", "Student ") + i); }
+        for (var j = P.length - 1; j > 0; j--) { var r = Math.floor(Math.random() * (j + 1)), t = P[j]; P[j] = P[r]; P[r] = t; }
+        G2 = []; for (var k = 0; k < n; k++) G2.push([]); P.forEach(function (x, i2) { G2[i2 % n].push(x); });
+        SS.set("hb-groups-" + DECK, G2); ev("snd&&snd('correct')"); paintGroups();
+      };
+      var u = $("ctUse"); if (u) u.onclick = function () { teams = G2.map(function (_, i) { return { n: GN[i % 8], s: 0, c: GC[i % 8] }; }); saveT(); paintMini(); tab = "points"; paint(); say(T("صارت المجموعات فرقًا للنقاط", "Groups are now the teams")); };
+    }
+    /* النقاط */
+    function add(i, d) {
+      teams[i].s = Math.max(0, teams[i].s + d); saveT(); paintMini();
+      if (d > 0) ev("snd&&snd('correct')");
+      var el = ov.querySelector('.ct-t[data-i="' + i + '"]');
+      if (el && ov.classList.contains("on")) { el.querySelector(".hbc-sc").textContent = teams[i].s; el.querySelector(".hbc-sc").classList.add("hbc-bump"); setTimeout(function () { el.querySelector(".hbc-sc").classList.remove("hbc-bump"); }, 250); crowns(); }
+    }
+    function crowns() { var mx = Math.max.apply(null, teams.map(function (t) { return t.s; })); ov.querySelectorAll(".ct-t").forEach(function (el) { var t = teams[+el.dataset.i]; el.querySelector(".hbc-crown").hidden = !(mx > 0 && t.s === mx); }); }
+    function paintPoints() {
+      shell('<div class="ct-row"><button class="ct-btn" id="ctAdd">＋ ' + T("فريق", "Team") + '</button><button class="ct-btn" id="ctDel">－ ' + T("فريق", "Team") + '</button><button class="ct-btn" id="ctZero">↺ ' + T("صفّر النقاط", "Reset scores") + '</button><span style="flex:1"></span><button class="ct-btn gold" id="ctMini">' + (mini.classList.contains("on") ? T("أخفِ اللوحة الصغيرة", "Hide mini board") : "📌 " + T("اعرضها على الشريحة", "Pin on the slide")) + "</button></div>" +
+        '<div class="ct-teams">' + teams.map(function (t, i) { return '<div class="ct-t" data-i="' + i + '" style="background:' + t.c + '"><span class="hbc-crown" hidden>👑</span><input class="hbc-nm" value="' + esc(t.n) + '" aria-label="' + T("اسم الفريق", "Team name") + '"><div class="hbc-sc">' + t.s + '</div><div class="hbc-pm"><button class="hbc-m" data-d="-1" aria-label="-1">−</button><button data-d="1" dir="ltr" aria-label="+1">+1</button></div></div>'; }).join("") + "</div>" +
+        '<p class="hb-muted" style="margin-top:12px">' + T("💡 في اللوحة الصغيرة على الشريحة: انقر الفريق لتضيف نقطة، وانقر بالزر الأيمن لتنقص نقطة.", "💡 On the mini board: click a team to add a point, right-click to remove one.") + "</p>");
+      ov.querySelectorAll(".ct-t").forEach(function (el) { var i = +el.dataset.i;
+        el.querySelectorAll("[data-d]").forEach(function (b) { b.onclick = function () { add(i, +b.dataset.d); }; });
+        el.querySelector(".hbc-nm").oninput = function () { teams[i].n = this.value; saveT(); paintMini(); }; });
+      crowns();
+      $("ctAdd").onclick = function () { if (teams.length >= 8) return; var i = teams.length; teams.push({ n: GN[i], s: 0, c: GC[i] }); saveT(); paintMini(); paintPoints(); };
+      $("ctDel").onclick = function () { if (teams.length <= 2) return; teams.pop(); saveT(); paintMini(); paintPoints(); };
+      $("ctZero").onclick = function () { if (!confirm(T("تصفير نقاط كل الفرق؟", "Reset all scores?"))) return; teams.forEach(function (t) { t.s = 0; }); saveT(); paintMini(); paintPoints(); };
+      $("ctMini").onclick = function () { mini.classList.toggle("on"); paintMini(); paintPoints(); if (mini.classList.contains("on")) closeOv(); };
+    }
+    function paintMini() {
+      mini.innerHTML = teams.map(function (t, i) { return '<div class="hbc-ms" data-i="' + i + '" style="background:' + t.c + '"><b>' + t.s + "</b><span>" + esc(t.n) + "</span></div>"; }).join("");
+    }
+    var md = null, moved = false;
+    mini.addEventListener("pointerdown", function (e) { var r = mini.getBoundingClientRect(); md = { dx: e.clientX - r.left, dy: e.clientY - r.top, x: e.clientX, y: e.clientY }; moved = false; mini.setPointerCapture(e.pointerId); });
+    mini.addEventListener("pointermove", function (e) { if (!md) return; if (Math.hypot(e.clientX - md.x, e.clientY - md.y) > 5) moved = true; if (!moved) return; mini.style.insetInlineEnd = "auto"; mini.style.bottom = "auto"; mini.style.left = Math.max(0, Math.min(innerWidth - mini.offsetWidth, e.clientX - md.dx)) + "px"; mini.style.top = Math.max(0, Math.min(innerHeight - mini.offsetHeight, e.clientY - md.dy)) + "px"; });
+    mini.addEventListener("pointerup", function (e) { var was = md && !moved; md = null; if (!was) return; var t = D.elementFromPoint(e.clientX, e.clientY), m = t && t.closest(".hbc-ms"); if (m && e.button === 0) add(+m.dataset.i, 1); });
+    mini.addEventListener("contextmenu", function (e) { e.preventDefault(); var m = e.target.closest(".hbc-ms"); if (m) add(+m.dataset.i, -1); });
+    /* مقياس الهدوء */
+    var au = null, lvl = 0, thr = +LS.get("hb-noise-thr", "60"), over = 0, hits = 0, nraf = 0;
+    function micOn() {
+      if (au) return Promise.resolve();
+      return navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } }).then(function (s2) {
+        var A = new (W.AudioContext || W.webkitAudioContext)(), src = A.createMediaStreamSource(s2), an = A.createAnalyser(); an.fftSize = 1024; src.connect(an);
+        au = { A: A, s: s2, an: an, buf: new Float32Array(an.fftSize) }; loop();
+      });
+    }
+    function micOff() { if (!au) return; cancelAnimationFrame(nraf); au.s.getTracks().forEach(function (t) { t.stop(); }); try { au.A.close(); } catch (e) {} au = null; lvl = 0; nz.classList.remove("on"); }
+    var last = 0;
+    function loop() {
+      nraf = requestAnimationFrame(loop); if (!au) return;
+      au.an.getFloatTimeDomainData(au.buf); var sum = 0; for (var i = 0; i < au.buf.length; i++) sum += au.buf[i] * au.buf[i];
+      var db = 20 * Math.log10(Math.sqrt(sum / au.buf.length) + 1e-6), v = Math.max(0, Math.min(100, (db + 60) * 1.9));
+      lvl = lvl * 0.85 + v * 0.15;
+      var now = performance.now(); if (now - last < 100) return; last = now;
+      if (lvl > thr) { over += 100; if (over >= 1500) { over = -2500; hits++; ov.classList.remove("loud"); void ov.offsetWidth; ov.classList.add("loud"); ev("snd&&snd('wrong')"); } } else if (over > 0) over = Math.max(0, over - 50); else if (over < 0) over += 100;
+      var face = lvl > thr ? "😣" : lvl > thr * 0.7 ? "😐" : "😊", msg = lvl > thr ? T("صوتنا عالٍ… لنهدأ", "Too loud… let's calm down") : lvl > thr * 0.7 ? T("انتبهوا للصوت", "Watch the volume") : T("رائع! صفّ هادئ", "Great! A calm class");
+      var col = lvl > thr ? "#D64545" : lvl > thr * 0.7 ? "#E6B325" : "#2E9E5B";
+      var bar = ov.querySelector(".ct-meter i"); if (bar) { bar.style.width = lvl + "%"; bar.style.background = col; ov.querySelector(".ct-face").textContent = face; ov.querySelector(".ct-msg").textContent = msg; ov.querySelector("#ctHits").textContent = hits; }
+      var nb = nz.querySelector(".ct-meter i"); if (nb) { nb.style.width = lvl + "%"; nb.style.background = col; nz.querySelector(".hbc-f").textContent = face; }
+    }
+    function paintNoise() {
+      shell('<div class="ct-noise"><div><div class="ct-meter"><i></i><u style="inset-inline-start:calc(' + thr + '% - 2px)"></u></div>' +
+        '<div class="ct-row" style="margin-top:16px"><label>' + T("الحدّ المسموح", "Allowed level") + ' <input type="range" id="ctThr" min="20" max="95" value="' + thr + '" style="width:220px;vertical-align:middle"></label><span class="hb-muted">' + T("تجاوز الحدّ: ", "Times too loud: ") + '<b id="ctHits">' + hits + "</b></span></div>" +
+        '<div class="ct-row">' + (au ? '<button class="ct-btn" id="ctStop">⏹ ' + T("أوقف المقياس", "Stop") + '</button><button class="ct-btn gold" id="ctPin">📌 ' + T("اعرضه صغيرًا على الشريحة", "Pin small on the slide") + "</button>" : '<button class="ct-btn pri" id="ctStart">🎙️ ' + T("شغّل المقياس", "Start the meter") + "</button>") + "</div>" +
+        '<p class="hb-muted">' + T("يستمع إلى صوت الصف من ميكروفون الحاسوب ولا يسجّل شيئًا. إن بقي الصوت فوق الحدّ ثانيةً ونصفًا نبّه الصف.", "Listens through the laptop microphone and records nothing. If it stays above the line for 1.5 s, it alerts the class.") + "</p></div>" +
+        '<div><div class="ct-face">😊</div><div class="ct-msg">' + (au ? "" : T("اضغط «شغّل المقياس»", "Press “Start the meter”")) + "</div></div></div>");
+      $("ctThr").oninput = function () { thr = +this.value; LS.set("hb-noise-thr", thr); ov.querySelector(".ct-meter u").style.insetInlineStart = "calc(" + thr + "% - 2px)"; nz.querySelector("u") && (nz.querySelector("u").style.insetInlineStart = "calc(" + thr + "% - 2px)"); };
+      var b1 = $("ctStart"); if (b1) b1.onclick = function () { micOn().then(paintNoise).catch(function () { say(T("لم يُسمح بالميكروفون", "Microphone not allowed")); }); };
+      var b2 = $("ctStop"); if (b2) b2.onclick = function () { micOff(); paintNoise(); };
+      var b3 = $("ctPin"); if (b3) b3.onclick = function () { nz.innerHTML = '<span class="hbc-f">😊</span><div class="ct-meter"><i></i><u style="inset-inline-start:calc(' + thr + '% - 2px)"></u></div>'; nz.classList.add("on"); closeOv(); };
+    }
+    nz.addEventListener("click", function () { tab = "noise"; ov.classList.add("on"); $("hbClass").classList.add("on"); paint(); });
+    paintMini();
+    on("hbClass", function () { closePops(); if (ov.classList.contains("on")) { closeOv(); return; } ov.classList.add("on"); $("hbClass").classList.add("on"); paint(); });
+    W.addEventListener("pagehide", micOff);
   })();
 
   /* لوحة اللون والسُّمك */
