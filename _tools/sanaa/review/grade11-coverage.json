@@ -1,6 +1,6 @@
 {
   "grade": 11,
-  "status": "published pending live verification",
+  "status": "closed: deployed and verified",
   "lessons_reviewed": 55,
   "html_reviewed": 468,
   "slides_reviewed": 1890,
@@ -543,5 +543,8 @@
       "rationale": "Read lesson core, quiz, group tasks and source dependencies. Corrected confirmed factual/context problems where present; retained existing media, religious wording and grade-level tasks."
     }
   ],
-  "port_review": "grades10-12-port-review.json"
+  "port_review": "grades10-12-port-review.json",
+  "live_checked_at": "2026-11-24T22:47:00+04:00",
+  "live_exact_total_all_four_grades": 1157,
+  "live_exact_all_four_grades": 1157
 }
