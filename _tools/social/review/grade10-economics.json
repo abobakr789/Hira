@@ -1,0 +1,78 @@
+{
+  "scope": "NN1–6 economics accuracy and safe practical work",
+  "changes": [
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L01/sources-concept-card.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L01/teacher-deck.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L02/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L02/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L03/sources-concept-card.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L03/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L03/teacher-deck.html",
+      "nodes": 6
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L04/sources-concept-card.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L04/teacher-deck.html",
+      "nodes": 2
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L05/sources-concept-card.html",
+      "nodes": 3
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L05/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L05/teacher-deck.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L06/answer-key.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L06/sources-concept-card.html",
+      "nodes": 4
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L06/worksheets-A4.html",
+      "nodes": 1
+    },
+    {
+      "file": "resources/ssd/SS-Y10-NN-T1-L06/teacher-deck.html",
+      "nodes": 6
+    }
+  ],
+  "qa": "Local actual pixels passed: six core slides, shortened Fairtrade heading, investment quiz and GDP worksheet. Original media unchanged. Live pending.",
+  "sources": [
+    "https://www.worldbank.org/en/news/factsheet/2025/06/05/june-2025-update-to-global-poverty-lines",
+    "https://www.fairtrade.net/en/why-fairtrade/how-we-do-it/standards/fairtrade-minimum-price-and-premium-information.html",
+    "https://www.fairtrade.net/us-en/for-shoppers/how-fairtrade-works.html",
+    "https://www.ilo.org/resource/statement/conclusions-ilos-high-level-mission-bangladesh",
+    "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+    "https://www.singstat.gov.sg/find-data/concepts-methods-and-applications/stat-resource/initiative-gdp"
+  ]
+}
