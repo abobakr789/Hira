@@ -3125,3 +3125,15 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .hb-ring .rg-t{fill:#FFF0C2;font:800 46px var(--font-brand);text-anchor:middle}
 .hb-ring.mid .rg-pr{stroke:#E8833A}.hb-ring.low .rg-pr{stroke:#E5484D}.hb-ring.low .rg-bg{fill:#3A1015}
 .hb-ring.end .rg-bg{fill:#D4AA55}.hb-ring.end .rg-t{fill:#1B1405}.hb-ring.end .rg-pr{stroke:#1B1405}
+
+/* وقت التفكير الهادئ ونقاط الفرق والملاحظات على الجوال */
+.hb-ring.q .rg-bg{fill:#0E3B3A;stroke:#7FC8C0}
+.hb-ring.q .rg-pr{stroke:#7FC8C0}
+.hb-ring.q .rg-t{fill:#E6FAF6}
+.rm-tp{display:flex;flex-direction:column;gap:8px}
+.rm-tr{display:flex;align-items:center;gap:8px;border-radius:14px;padding:6px 8px;color:#fff}
+.rm-tr .rm-tn{flex:1;font-weight:800;font-size:16px;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.rm-tr b{font:800 26px var(--font-brand);min-width:36px;text-align:center}
+.rm-tr button{width:48px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.25);color:#fff;font-size:24px;font-weight:800}
+.rm-pks{margin-top:8px;padding:12px;border-radius:14px;background:#102A4C;color:#FFF0C2;font:800 24px var(--font-brand);text-align:center}
+.rm-in{flex:1;min-width:0;padding:10px 12px;border:1px solid rgba(16,42,76,.25);border-radius:12px;font:inherit;font-size:16px}

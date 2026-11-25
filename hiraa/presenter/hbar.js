@@ -230,6 +230,7 @@
     "#hbTm .tm-dot{fill:#D4AA55;opacity:.75}#hbTm .tm-t{fill:#FFF0C2;font-weight:800;font-size:46px;text-anchor:middle}#hbTm .tm-s{fill:#D4AA55;font-weight:700;font-size:15px;text-anchor:middle}",
     "#hbTm.mid .tm-pr{stroke:#E8833A}#hbTm.low .tm-pr{stroke:#E5484D}#hbTm.low .tm-bg{fill:#3A1015}#hbTm.low{animation:hbTmP 1s infinite}",
     "#hbTm.end .tm-bg{fill:#D4AA55}#hbTm.end .tm-t,#hbTm.end .tm-s{fill:#1B1405}#hbTm.end .tm-pr{stroke:#1B1405}#hbTm.end .tm-in{stroke:rgba(27,20,5,.35)}#hbTm.end{animation:hbTmF .5s 6}",
+    "#hbTm.q .tm-bg{fill:#0E3B3A;stroke:#7FC8C0}#hbTm.q .tm-pr{stroke:#7FC8C0}#hbTm.q .tm-in{stroke:rgba(127,200,192,.35)}#hbTm.q .tm-dot{fill:#7FC8C0}#hbTm.q .tm-t{fill:#E6FAF6}#hbTm.q .tm-s{fill:#7FC8C0}#hbTm.q.end .tm-bg{fill:#0E3B3A}#hbTm.q.end .tm-t,#hbTm.q.end .tm-s{fill:#E6FAF6}#hbTm.q.end .tm-pr{stroke:#7FC8C0}#hbTm.q.end{animation:none}",
     "@keyframes hbTmP{50%{transform:scale(1.05)}}@keyframes hbTmF{50%{opacity:.4}}",
     "#hbBell{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.8);z-index:47;opacity:0;pointer-events:none;background:#D4AA55;color:#1B1405;font:800 64px 'Thmanyah Display','Thmanyah Text',Tahoma,sans-serif;padding:18px 44px;border-radius:32px;box-shadow:0 20px 60px rgba(0,0,0,.45);transition:opacity .25s,transform .25s;white-space:nowrap;direction:rtl}",
     "#hbBell.on{opacity:1;transform:translate(-50%,-50%) scale(1)}",
@@ -912,6 +913,7 @@
     mini.addEventListener("pointermove", function (e) { if (!md) return; if (Math.hypot(e.clientX - md.x, e.clientY - md.y) > 5) moved = true; if (!moved) return; mini.style.insetInlineEnd = "auto"; mini.style.bottom = "auto"; mini.style.left = Math.max(0, Math.min(innerWidth - mini.offsetWidth, e.clientX - md.dx)) + "px"; mini.style.top = Math.max(0, Math.min(innerHeight - mini.offsetHeight, e.clientY - md.dy)) + "px"; });
     mini.addEventListener("pointerup", function (e) { var was = md && !moved; md = null; if (!was) return; var t = D.elementFromPoint(e.clientX, e.clientY), m = t && t.closest(".hbc-ms"); if (m && e.button === 0) add(+m.dataset.i, 1); });
     mini.addEventListener("contextmenu", function (e) { e.preventDefault(); var m = e.target.closest(".hbc-ms"); if (m) add(+m.dataset.i, -1); });
+    W.__hbTeams = { get: function () { return teams.map(function (t) { return { n: t.n, s: t.s, c: t.c }; }); }, add: function (i, d) { if (!teams[i]) return; paintMini(); mini.classList.add("on"); add(i, d); } };
     /* مقياس الهدوء */
     var au = null, lvl = 0, thr = +LS.get("hb-noise-thr", "60"), over = 0, hits = 0, nraf = 0;
     function micOn() {
@@ -1804,6 +1806,8 @@
             '<textarea id="supNote" rows="3">' + esc(T("راجع درس «", "Review the lesson “") + (L.title || "") + T("»، ثم حلّ تدريبات «أتدرّب» في صفحة الدرس. أنا معك 🌟", "”, then do the practice in the lesson page. You've got this 🌟")) + '</textarea><div><button id="supGo">📨 ' + T("أرسل للطلاب المختارين", "Send to the selected students") + '</button> <span id="supMsg" class="note"></span></div>'
             : '<p class="note">' + T("لا يوجد طلاب دخلوا بحساباتهم أو رُبطت أسماؤهم بالفصل في هذه الحصة.", "No students joined with their accounts or were linked to the class in this lesson.") + "</p>") + "</div>";
       }
+      var NT = []; try { NT = JSON.parse(LS.get("hb-notes-" + DECK, "[]")).filter(function (n) { return n.l && n.l === L.id; }); } catch (e) {}
+      if (NT.length) h += "<h2>📝 " + T("ملاحظات المعلم أثناء الحصة", "Teacher's notes during the lesson") + '</h2><table><thead><tr><th style="width:70px">' + T("الوقت", "Time") + '</th><th style="width:80px">' + T("الشريحة", "Slide") + "</th><th>" + T("الملاحظة", "Note") + "</th></tr></thead><tbody>" + NT.map(function (n) { return "<tr><td>" + new Date(n.t).toLocaleTimeString(EN ? "en-GB" : "ar-AE-u-nu-latn", { hour: "2-digit", minute: "2-digit" }) + "</td><td>" + n.s + "</td><td>" + (n.g ? "<b>" + esc(n.g) + "</b> " : "") + esc(n.x || "") + "</td></tr>"; }).join("") + "</tbody></table>";
       if (!seqs.length) h += '<p class="note" style="font-size:16px">' + T("لم يُطرح أي سؤال في هذه الحصة بعد.", "No questions were asked in this lesson yet.") + "</p>";
       var LOGO2 = '<svg viewBox="0 0 40 56" width="26" height="36"><path d="M11 14c0-4 4-6 9-6s9 2 9 6z" fill="#102A4C"/><rect x="9" y="14" width="22" height="3" rx="1.5" fill="#102A4C"/><path d="M10 19h20l2 22c-6 4-18 4-24 0z" fill="none" stroke="#102A4C" stroke-width="2.4"/><path d="M20 23l5 9c1 2.5-.5 5-3 5h-4c-2.5 0-4-2.5-3-5z" fill="#C4943A"/><path d="M16 46h8l-4 6z" fill="#102A4C"/></svg>';
       return '<!doctype html><html lang="' + (EN ? "en" : "ar") + '" dir="' + (RTL ? "rtl" : "ltr") + '"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + T("تقرير الحصة", "Lesson report") + " · " + esc(L.title || title) + "</title><style>" + fontCss() +
@@ -1960,18 +1964,18 @@
     })();
     var paintTm = function () {
       var s = tmLeft(), vis = tmActive(), frac = TM.t > 0 ? Math.max(0, Math.min(1, s / TM.t)) : 0;
-      tmBox.classList.toggle("on", vis); tmBox.classList.toggle("low", TM.run && s <= 10); tmBox.classList.toggle("mid", TM.run && s > 10 && frac <= 0.3); tmBox.classList.toggle("end", TM.done);
+      tmBox.classList.toggle("on", vis); tmBox.classList.toggle("q", !!TM.q); tmBox.classList.toggle("low", !TM.q && TM.run && s <= 10); tmBox.classList.toggle("mid", !TM.q && TM.run && s > 10 && frac <= 0.3); tmBox.classList.toggle("end", TM.done);
       tmP.setAttribute("stroke-dashoffset", (CIRC * (1 - frac)).toFixed(1));
-      var t = TM.done ? "⏰" : fmtT(s); if (tmT.textContent !== t) tmT.textContent = t;
-      var l = TM.done ? T("انتهى الوقت", "Time is up") : TM.run ? T("حراء", "Hiraa") : "⏸ " + T("متوقّف", "Paused"); if (tmS.textContent !== l) tmS.textContent = l;
+      var t = TM.done ? (TM.q ? "✓" : "⏰") : fmtT(s); if (tmT.textContent !== t) tmT.textContent = t;
+      var l = TM.done ? (TM.q ? T("انتهى وقت التفكير", "Thinking time is over") : T("انتهى الوقت", "Time is up")) : TM.run ? (TM.q ? T("وقت التفكير", "Thinking time") : T("حراء", "Hiraa")) : "⏸ " + T("متوقّف", "Paused"); if (tmS.textContent !== l) tmS.textContent = l;
     };
     var tmFinish = function () {
       clearInterval(tmIv); TM.run = false; TM.rem = 0; TM.done = true; paintTm();
-      tone([[880, 0, 0.5], [1175, 0.35, 0.5], [1568, 0.7, 1.0]]); tmHook();
+      if (!TM.q) tone([[880, 0, 0.5], [1175, 0.35, 0.5], [1568, 0.7, 1.0]]); else tone([[523, 0, 0.5]]); tmHook();
       clearTimeout(doneT); doneT = setTimeout(function () { TM.done = false; TM.t = 0; paintTm(); tmHook(); }, 8000);
     };
-    var tmDo = function (a, s) {
-      s = Math.round(+s) || 0; clearTimeout(doneT);
+    var tmDo = function (a, s, q) {
+      s = Math.round(+s) || 0; clearTimeout(doneT); if (a === "start" && s > 0) TM.q = !!+q;
       if (a === "start") {
         if (s > 0) { TM.t = Math.min(s, 5999); TM.end = Date.now() + TM.t * 1000; TM.run = true; TM.done = false; }
         else if (!TM.run && TM.rem > 0) { TM.end = Date.now() + TM.rem * 1000; TM.run = true; TM.done = false; }
@@ -1984,7 +1988,7 @@
       clearInterval(tmIv); if (TM.run) tmIv = setInterval(function () {
         var l = tmLeft();
         if (l <= 0) return tmFinish();
-        if (!TM.half && TM.t >= 60 && l <= TM.t / 2) { TM.half = true; tone([[660, 0, 0.25], [660, 0.3, 0.25]]); say("⏱ " + T("مضى نصف الوقت", "Half the time has passed")); tmHook(); }
+        if (!TM.q && !TM.half && TM.t >= 60 && l <= TM.t / 2) { TM.half = true; tone([[660, 0, 0.25], [660, 0.3, 0.25]]); say("⏱ " + T("مضى نصف الوقت", "Half the time has passed")); tmHook(); }
         paintTm();
       }, 250);
       paintTm(); tmHook();
@@ -2015,7 +2019,7 @@
     };
     var bell = function () { alertDo(0); };
     /* ما يُضاف إلى موضع العرض المحفوظ ليصل أجهزة الطلاب: المؤقّت (وقت الانتهاء المطلق) وعدّاد التنبيه */
-    W.__hbPosX = function () { return { ak: lastAk, tm: tmActive() ? (TM.run ? { e: TM.end, t: Math.round(TM.t) } : TM.done ? { d: 1, t: Math.round(TM.t) } : { r: Math.round(TM.rem), t: Math.round(TM.t) }) : 0, bl: bellN }; };
+    W.__hbPosX = function () { return { ak: lastAk, tm: tmActive() ? (TM.run ? { e: TM.end, t: Math.round(TM.t), q: TM.q ? 1 : 0 } : TM.done ? { d: 1, t: Math.round(TM.t), q: TM.q ? 1 : 0 } : { r: Math.round(TM.rem), t: Math.round(TM.t), q: TM.q ? 1 : 0 }) : 0, bl: bellN }; };
     W.__hbTimer = { do: tmDo, bell: bell, alert: alertDo };
 
     /* ---------- التحكم من الجوال ---------- */
@@ -2023,7 +2027,14 @@
     var sb = HX.sb, rch = null, rkey = null, lastSeen = 0, remPop = mk("div", "hbRemPop");
     remPop.className = "pop hb-pop"; remPop.dir = RTL ? "rtl" : "ltr"; stop(remPop);
     var rUrl = function () { return String(HX.joinUrl).replace(/#\/live$/, "") + "#/remote/" + rkey; };
-    var withTl = false, state = function () { var L = liveInfo(); return { cur: cur, n: N, title: title, st: stTitle(cur), nx: cur + 1 < N ? stTitle(cur + 1) : "", nt: notesOf(cur).slice(0, 2500), black: black.classList.contains("on"), live: L && L.on ? { p: L.players, a: L.answered, q: !!L.q } : null, rtl: RTL, bt: SL[cur] ? SL[cur].querySelectorAll("[data-build-in]").length : 0, bl: SL[cur] ? SL[cur].querySelectorAll("[data-build-in].hid").length : 0, id: cmdId, tm: tmActive() ? { r: Math.round(tmLeft()), run: TM.run ? 1 : 0, t: Math.round(TM.t), d: TM.done ? 1 : 0, h: TM.half ? 1 : 0 } : null, md: mediaState(), ma: maState(), cu: curState(), hp: hpList(), snd: sndOn ? 1 : 0, tl: withTl ? SL.map(function (x, i) { return stTitle(i).slice(0, 48); }) : undefined }; };
+    var withTl = false, state = function () { var L = liveInfo(); return { cur: cur, n: N, title: title, st: stTitle(cur), nx: cur + 1 < N ? stTitle(cur + 1) : "", nt: notesOf(cur).slice(0, 2500), black: black.classList.contains("on"), live: L && L.on ? { p: L.players, a: L.answered, q: !!L.q } : null, rtl: RTL, bt: SL[cur] ? SL[cur].querySelectorAll("[data-build-in]").length : 0, bl: SL[cur] ? SL[cur].querySelectorAll("[data-build-in].hid").length : 0, id: cmdId, tm: tmActive() ? { r: Math.round(tmLeft()), run: TM.run ? 1 : 0, t: Math.round(TM.t), d: TM.done ? 1 : 0, h: TM.half ? 1 : 0, q: TM.q ? 1 : 0 } : null, md: mediaState(), ma: maState(), cu: curState(), hp: hpList(), snd: sndOn ? 1 : 0, tp: W.__hbTeams ? W.__hbTeams.get() : [], nn: notesGet().length, nl: notesGet().slice(-4).reverse().map(function (x) { return { g: x.g, x: x.x, s: x.s }; }), tl: withTl ? SL.map(function (x, i) { return stTitle(i).slice(0, 48); }) : undefined }; };
+    /* ملاحظات سريعة من الجوال: تُحفظ على جهاز المعلم وتدخل تقرير الحصة، ولا تظهر على شاشة الفصل */
+    var notesKey = "hb-notes-" + DECK;
+    var notesGet = function () { try { var a = JSON.parse(LS.get(notesKey, "[]")); return Array.isArray(a) ? a : []; } catch (e) { return []; } };
+    var noteAdd = function (g, x) {
+      g = String(g || "").slice(0, 40); x = String(x || "").slice(0, 300); if (!g && !x) return;
+      var a = notesGet(), lid = W.__hbLiveId ? W.__hbLiveId() : null; a.push({ t: Date.now(), s: cur + 1, g: g, x: x, l: lid || 0 }); LS.set(notesKey, JSON.stringify(a.slice(-300)));
+    };
     var cmdId = 0, pushT = 0, pushSoon = function () { clearTimeout(pushT); pushT = setTimeout(push, 120); };
     /* الفيديو والصوت داخل الشريحة: رفع وخفض وكتم وتشغيل وتقديم من الجوال */
     var mediaEls = function () { var s = SL[cur], l = s ? [].slice.call(s.querySelectorAll("video,audio")) : []; [].forEach.call(D.querySelectorAll("video,audio"), function (m) { if (!m.paused && l.indexOf(m) < 0) l.push(m); }); return l; };
@@ -2083,7 +2094,10 @@
           else if (c === "black") { toggleBlack(); push(); }
           else if (c === "pick") { $("hbPick").click(); setTimeout(function () { var g = $("hbGo"); if (g) g.click(); setTimeout(function () { rch.send({ type: "broadcast", event: "pick", payload: { name: ($("hbPickOut") || {}).textContent || "" } }); }, 1900); }, 150); }
           else if (c === "hello") pushTl();
-          else if (c === "tm") tmDo(m.payload.a, m.payload.s);
+          else if (c === "tm") tmDo(m.payload.a, m.payload.s, m.payload.q);
+          else if (c === "tp") { if (W.__hbTeams) W.__hbTeams.add(+m.payload.i, +m.payload.d > 0 ? 1 : -1); }
+          else if (c === "note") noteAdd(m.payload.g, m.payload.x);
+          else if (c === "pickp") { var Rp = left(); if (!Rp.length) { used = []; Rp = left(); } var wn = Rp[Math.floor(Math.random() * Rp.length)]; if ($("hbNoRep").checked) { used.push(wn); SS.set("hb-used-" + DECK, used); } var lf = left() && $("hbNoRep").checked ? Rp.length - 1 : 0; rch.send({ type: "broadcast", event: "pick", payload: { name: wn, priv: 1, left: lf } }); }
           else if (c === "bell") bell();
           else if (c === "md") mediaDo(m.payload.a, m.payload.x);
           else if (c === "ans") { var bx = maBoxes(); if (bx.length) { var shown = bx.some(function (e) { return e.classList.contains("on"); }), want = m.payload.a === "show" ? true : m.payload.a === "hide" ? false : !shown; bx.forEach(function (e) { e.classList.toggle("on", want); }); } else { var ae = ansEl(); if (ae) ae.click(); } }
