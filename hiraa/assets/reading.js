@@ -946,7 +946,7 @@
     const ov = document.createElement("div"); ov.className = "mdr-board"; ov.setAttribute("dir", "rtl"); document.body.appendChild(ov);
     const close = () => { document.removeEventListener("keydown", key); try { if (document.fullscreenElement) document.exitFullscreen(); } catch (e) {} ov.remove(); };
     const draw = () => { ov.innerHTML = `<div class="bd-top"><button class="bd-btn" data-a="x">✕ إغلاق</button><span>${i + 1} / ${slides.length}</span>
-        <span class="bd-tools"><button class="bd-btn" data-a="f-">أ−</button><button class="bd-btn" data-a="f+">أ+</button><button class="bd-btn ${ruler ? "on" : ""}" data-a="r">📏</button><button class="bd-btn" data-a="fs">⛶</button></span></div>
+        <span class="bd-tools"><button class="bd-btn" data-a="f-">أ−</button><button class="bd-btn" data-a="f+">أ+</button><button class="bd-btn ${ruler ? "on" : ""}" data-a="r">📏</button><button class="bd-btn fs-ic" data-a="fs" title="ملء الشاشة"></button></span></div>
       <div class="bd-main" style="font-size:${(1 + fs * 0.12).toFixed(2)}em">${slides[i]()}</div>
       <div class="bd-nav"><button class="bd-btn" data-a="p" ${i ? "" : "disabled"}>→ السابق</button><div class="bd-dots">${slides.map((_, k) => `<i class="${k === i ? "on" : ""}"></i>`).join("")}</div><button class="bd-btn" data-a="n" ${i < slides.length - 1 ? "" : "disabled"}>التالي ←</button></div>`;
       ov.querySelectorAll("[data-a]").forEach((b) => b.onclick = () => act(b.dataset.a));
