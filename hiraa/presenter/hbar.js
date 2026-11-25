@@ -182,6 +182,7 @@
     "#hbIceOv .ice-lv{display:flex;flex-direction:column;align-items:center;border:2px solid #D8E1EE;background:#fff;border-radius:14px;padding:6px 14px;font-size:26px;font-family:inherit;cursor:pointer}#hbIceOv .ice-lv small{font-size:12px;color:#51607A}#hbIceOv .ice-lv.on{border-color:#D4AA55;background:#FFF1C2}",
     "#hbIceOv .ice-sum{margin:8px 0;font-size:22px;background:#FFF6DC;border-radius:14px;padding:12px}#hbIceOv .ice-cnt3{display:flex;align-items:center;gap:6px;border-radius:14px;color:#fff;padding:6px 10px;font-weight:700}#hbIceOv .ice-cnt3 b{font:800 26px 'Thmanyah Display',Tahoma,sans-serif;min-width:30px;text-align:center}#hbIceOv .ice-cnt3 button{width:34px;height:34px;border:0;border-radius:10px;background:rgba(255,255,255,.3);color:#fff;font-size:20px;cursor:pointer}#hbIceOv .ice-cnt3 small{font-size:13px}",
     "#hbIceOv .ice-stack{display:flex;height:14px;border-radius:999px;overflow:hidden}#hbIceOv .ice-stack i{display:block}#hbIceOv .ice-grow{font-weight:800;color:#0B5F3A}",
+    "#hbIceOv .ice-goal{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 18px;background:#FFF6DD;border-bottom:1px solid #E8D9A8;color:#5A4410;font-size:17px;text-align:start}#hbIceOv .ice-goal .ice-gt{flex:1 1 280px}#hbIceOv .ice-goal b{color:#102A4C}#hbIceOv .ice-gb{border:1px solid #C4943A;background:#fff;color:#5A4410;border-radius:999px;padding:6px 14px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit}#hbIceOv .ice-gb.go{background:#C4943A;color:#102A4C}#hbIceOv .ice-gc{display:flex;gap:6px;align-items:center}#hbIceOv .ice-gc button{border:0;border-radius:12px;padding:6px 12px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;color:#fff}#hbIceOv .ice-hint{display:block;font-size:14px;color:#B45309;min-height:18px;margin-top:2px}#hbIceOv .ice-mdl{display:flex;gap:8px;justify-content:center;margin:6px 0}#hbIceOv .ice-hist{margin-top:14px;border-top:1px dashed #cfd6e2;padding-top:10px;text-align:start}#hbIceOv .ice-hist h4{margin:0 0 6px;font-size:18px;color:#102A4C}#hbIceOv .ice-hr{display:flex;gap:10px;align-items:center;font-size:15px;padding:4px 0;border-bottom:1px solid #eef1f6}#hbIceOv .ice-hr>span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#hbIceOv .ice-hr b{color:#0B5F3A}",
     "#hbIceOv .ice-bar{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:12px 16px;background:#F6F8FC;border-top:1px solid #E6EBF2;border-radius:0 0 22px 22px}#hbIceOv .ice-bl{font-weight:800;font-size:16px}",
     "#hbIceOv .ice-tm{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:14px;padding:8px 14px;color:#fff;font-weight:700;font-size:16px;font-family:inherit;font-family:inherit;cursor:pointer}#hbIceOv .ice-tm b{font:800 24px 'Thmanyah Display',Tahoma,sans-serif}#hbIceOv .ice-tm i{font-style:normal;background:rgba(255,255,255,.3);border-radius:999px;padding:2px 10px;font-weight:800}#hbIceOv .ice-tm:disabled{opacity:.4}",
     "#hbClassOv{position:fixed;left:50%;top:calc(var(--hb-lay) + 50%);transform:translate(-50%,-50%);width:min(1000px,94vw);max-height:calc(100vh - var(--hb-lay) - 40px);overflow:auto;z-index:30;display:none;background:#fff;color:#102A4C;border-radius:22px;box-shadow:0 30px 80px rgba(5,12,25,.45);font-family:'Thmanyah Text',Tahoma,sans-serif}",
@@ -1031,16 +1032,17 @@
     var pickWord = function (key) { var L = kws(); if (!L.length) return ""; var u = st.used = st.used || []; var R = L.filter(function (x) { return u.indexOf(x) < 0; }); if (!R.length) { u.length = 0; R = L; } var w = R[Math.floor(Math.random() * R.length)]; u.push(w); return w; };
     function stopT() { clearInterval(tIv); tIv = 0; }
     function shell(ttl, inner, prize) {
-      ov.innerHTML = '<div class="ice-h">' + (mode !== "menu" ? '<button class="ice-back" id="iceBk">→ ' + T("الأنشطة", "Activities") + "</button>" : "") + "<b>" + HIC[hub] + " " + ttl + '</b><button class="ice-x" id="iceX" aria-label="' + T("إغلاق", "Close") + '">✕</button></div><div class="ice-b">' + inner + "</div>" + (prize != null ? '<div class="ice-bar" id="iceBar"></div>' : "");
+      ov.innerHTML = '<div class="ice-h">' + (mode !== "menu" ? '<button class="ice-back" id="iceBk">→ ' + T("الأنشطة", "Activities") + "</button>" : "") + "<b>" + HIC[hub] + " " + ttl + '</b><button class="ice-x" id="iceX" aria-label="' + T("إغلاق", "Close") + '">✕</button></div>' + (hub !== "ice" ? '<div class="ice-goal" id="iceGl"></div>' : "") + '<div class="ice-b">' + inner + "</div>" + (prize != null ? '<div class="ice-bar" id="iceBar"></div>' : "");
       $("iceX").onclick = closeIce; var bk = $("iceBk"); if (bk) bk.onclick = function () { stopT(); mode = "menu"; st = {}; paint(); };
       if (prize != null) paintBar(prize);
+      if (hub !== "ice" && W.__hbPaintGoal) W.__hbPaintGoal();
     }
     function paintBar(prize) {
       var bar = $("iceBar"); if (!bar) return; st.prize = prize;
       bar.innerHTML = '<span class="ice-bl">🏆 ' + T("امنح النقاط:", "Award points:") + "</span>" + tms().map(function (t, i) { return '<button class="ice-tm" data-i="' + i + '" style="background:' + t.c + '"' + (prize > 0 ? "" : " disabled") + "><b>" + t.s + "</b><span>" + esc(t.n) + "</span><i>+" + prize + "</i></button>"; }).join("");
       bar.querySelectorAll(".ice-tm").forEach(function (b) { b.onclick = function () { if (W.__hbTeams && st.prize > 0) { W.__hbTeams.add(+b.dataset.i, st.prize); snd("correct"); burst(["⭐", "🎉"]); paintBar(st.prize); } }; });
     }
-    function closeIce() { stopT(); ov.classList.remove("on"); ["hbIce", "hbAct", "hbFb"].forEach(function (id) { var b = $(id); if (b) b.classList.remove("on"); }); if (W.__hbPush) W.__hbPush(); }
+    function closeIce() { stopT(); gedit = false; gchk = false; ov.classList.remove("on"); ["hbIce", "hbAct", "hbFb"].forEach(function (id) { var b = $(id); if (b) b.classList.remove("on"); }); if (W.__hbPush) W.__hbPush(); }
     var ACT = [
       ["scr", "🔤", T("الكلمة المبعثرة", "Scrambled word"), T("حروف كلمة من الدرس مخلوطة، وأسرع فريق يرتّبها", "Letters of a lesson word are mixed; the fastest team unscrambles it")],
       ["mys", "🕵️", T("الكلمة الغامضة", "Mystery word"), T("تُكشف الحروف تدريجيًّا، وكلما خمّنتَ مبكرًا زادت الجائزة", "Letters are revealed one by one; the earlier the guess, the bigger the prize")],
@@ -1272,6 +1274,45 @@
     var lines = function (k, def) { var L = LS.get(k, "").split(/\n/).map(function (x) { return x.trim(); }).filter(Boolean); return L.length ? L : def; };
     var jget = function (k) { try { return JSON.parse(LS.get(k, "{}")) || {}; } catch (e) { return {}; } };
     var curTitle = function () { return stTitle(cur) || title; };
+    /* هدف الدرس وسجلّ النمو */
+    var GK = "hb-goal-" + DECK, GRK = "hb-growth", gedit = false, gchk = false;
+    var gget = function () { try { return JSON.parse(LS.get(GRK, "[]")) || []; } catch (e) { return []; } };
+    var gpush = function (o) { var a = gget(); a.push(Object.assign({ t: Date.now(), d: DECK, n: title, l: (W.__hbLiveId && W.__hbLiveId()) || 0 }, o)); LS.set(GRK, JSON.stringify(a.slice(-400))); };
+    var goalAuto = function () {
+      var r = "";
+      for (var k = 0; k < SL.length && !r; k++) {
+        if (!/هدف الدرس|اهداف الدرس|نواتج/.test(norm(stTitle(k)))) continue;
+        var els = SL[k].querySelectorAll("p");
+        for (var i = 0; i < els.length; i++) {
+          var t = (els[i].textContent || "").replace(/\s+/g, " ").trim();
+          if (/^[^\u0621-\u064A]*(ال)?هدف( الدرس)?\s*[:：]/.test(norm(t))) { var c = t.search(/[:：]/); r = t.slice(c + 1).trim(); break; }
+        }
+      }
+      return r;
+    };
+    var goalTxt = function () { return LS.get(GK, "") || goalAuto(); };
+    var GLV = [["🌱", T("لم نحقّقه بعد", "Not yet"), "#B3261E"], ["🌿", T("حقّقناه جزئيًّا", "Partly"), "#B7791F"], ["🌳", T("حقّقناه", "Achieved"), "#15803D"]];
+    W.__hbPaintGoal = function () {
+      var g = $("iceGl"); if (!g) return; var txt = goalTxt();
+      if (gedit) {
+        g.innerHTML = "<span>🎯</span>" + '<input id="iceGi" class="ice-txt" style="flex:1 1 260px;width:auto" value="' + esc(txt) + '" placeholder="' + T("اكتب هدف الدرس (من شريحة الأهداف)", "Write the lesson goal (from the objectives slide)") + '"><button class="ice-gb go" id="iceGs">💾 ' + T("احفظ", "Save") + '</button><button class="ice-gb" id="iceGa">↺ ' + T("من العرض", "From the deck") + "</button>";
+        $("iceGs").onclick = function () { LS.set(GK, $("iceGi").value.trim()); gedit = false; W.__hbPaintGoal(); };
+        $("iceGa").onclick = function () { LS.set(GK, ""); gedit = false; W.__hbPaintGoal(); }; return;
+      }
+      g.innerHTML = '<span class="ice-gt">🎯 ' + T("هدف الدرس: ", "Lesson goal: ") + "<b>" + (txt ? esc(txt) : T("لم يُحدَّد بعد — اضغط ✏️", "not set yet — tap ✏️")) + '</b></span><button class="ice-gb" id="iceGe" aria-label="' + T("عدّل الهدف", "Edit goal") + '">✏️</button>' +
+        (gchk ? '<span class="ice-gc">' + GLV.map(function (l, i) { return '<button data-v="' + i + '" style="background:' + l[2] + '">' + l[0] + " " + l[1] + "</button>"; }).join("") + '<button style="background:#6b7280" id="iceGx">✕</button></span>' : '<button class="ice-gb go" id="iceGc">✅ ' + T("هل حقّقنا الهدف؟", "Did we meet the goal?") + "</button>");
+      $("iceGe").onclick = function () { gedit = true; W.__hbPaintGoal(); };
+      var c = $("iceGc"); if (c) c.onclick = function () { gchk = true; W.__hbPaintGoal(); };
+      var x = $("iceGx"); if (x) x.onclick = function () { gchk = false; W.__hbPaintGoal(); };
+      g.querySelectorAll(".ice-gc button[data-v]").forEach(function (b) { b.onclick = function () { gpush({ k: "goal", g: +b.dataset.v, m: mode, o: txt.slice(0, 120) }); gchk = false; snd("chime"); say(T("سُجّلت في سجلّ النمو", "Logged in the growth record")); W.__hbPaintGoal(); }; });
+    };
+    var growHtml = function () {
+      var a = gget().slice(-6).reverse(); if (!a.length) return "";
+      return '<div class="ice-hist"><h4>📈 ' + T("سجلّ النمو (آخر السجلات)", "Growth record (latest)") + "</h4>" + a.map(function (e) {
+        var dt = new Date(e.t).toLocaleDateString(EN ? "en-GB" : "ar-AE-u-nu-latn", { day: "numeric", month: "numeric" });
+        return '<div class="ice-hr"><span>' + dt + " · " + esc((e.n || "").slice(0, 40)) + "</span><b>" + (e.k === "goal" ? "🎯 " + GLV[e.g][0] + " " + GLV[e.g][1] : "🪞 " + e.b + "% → " + e.a + "% (" + (e.a - e.b >= 0 ? "+" : "") + (e.a - e.b) + ")") + "</b></div>";
+      }).join("") + "</div>";
+    };
     var STRUCT = /قبل ان نبدا|قياس التقدم|خريطه العمل|نماذج الاجابه|اهداف|معايير النجاح|الخروج|الختام|الواجب|التقويم|شكرا|المراجعه|قبل الدرس|بعد الدرس|مفردات|الاستراتيجي|ملخص|عنوان/;
     var slideTitles = function () { var o = []; SL.forEach(function (s, i) { var t = stTitle(i); if (t && o.indexOf(t) < 0 && i > 0 && i < SL.length - 1 && t.length >= 6 && t.length < 70 && !STRUCT.test(norm(t))) o.push(t); }); return o; };
     var spread = function (arr, n) { if (arr.length <= n) return arr.slice(); var o = []; for (var k = 0; k < n; k++) o.push(arr[Math.floor(k * arr.length / n)]); return o; };
@@ -1359,24 +1400,40 @@
       $("iceGo").onclick = function () { snd("drum"); countdown(60, function () { snd("chime"); }); };
     }
     /* --- الفيدباك --- */
-    var STEM = { a: [T("أعجبني أنك…", "I liked that you…"), T("أحسنتَ حين…", "Well done when you…"), T("لاحظتُ أنك…", "I noticed you…")], b: [T("ستتطوّر أكثر لو…", "You'll improve if you…"), T("حاول أن…", "Try to…"), T("ما رأيك أن…", "What if you…")], c: [T("في المرة القادمة…", "Next time…"), T("ابدأ بـ…", "Start with…"), T("تدرّب على…", "Practise…")] };
+    var STEM0 = {
+      a: [T("أعجبني أنك… لأن…", "I liked that you… because…"), T("استخدمتَ ما تعلّمناه (…) وظهر ذلك حين…", "You used what we learned (…) and it showed when…"), T("أحسنتَ حين… وأثر ذلك في…", "You did well when… and it helped…")],
+      b: [T("ستتطوّر أكثر لو… لأن…", "You'll improve if you… because…"), T("حاول أن تضيف… ليصبح عملك…", "Try adding… so your work becomes…"), T("ما رأيك أن تربط… بـ…؟", "What if you link… with…?")],
+      c: [T("في المرة القادمة ابدأ بـ… ثم…", "Next time start with… then…"), T("تدرّب على… قبل الدرس القادم", "Practise… before the next lesson"), T("راجع… ثم أعد المحاولة", "Review… then try again")]
+    };
+    var STK = "hb-fb-stems-" + DECK;
+    var bank = function (k) { var d = jget(STK); return d[k] && d[k].length ? d[k] : STEM0[k]; };
+    var fbHint = function (v) { v = (v || "").trim(); if (!v) return ""; if (/…/.test(v)) return T("🔎 أكمل الجملة بما فعله الطالب فعلًا", "🔎 Finish the sentence with what the student actually did"); var w = v.split(/\s+/).length; if (w < 4 || /^(احسنت|أحسنت|ممتاز|جيد|رائع|برافو|شكرا|شكرًا)[\s!.،]*$/.test(norm(v).replace(/أ/g, "ا"))) return T("🔎 اجعله محدّدًا: ماذا فعل؟ ولماذا أفاد؟", "🔎 Be specific: what did they do, and why did it help?"); return ""; };
     function paintTfb() {
-      var Stu = STU(), Tm = tms();
+      var Stu = STU(), Tm = tms(), M2 = (st.mdl || "2s1w") === "2s1w", ks = M2 ? ["a", "a2", "b"] : ["a", "b", "c"];
+      if (st.bankEd) {
+        shell(T("جمل الفيدباك", "Feedback stems"), '<p class="ice-lead">' + T("اكتب جملة في كل سطر؛ تظهر كأزرار بنقرة واحدة. اتركها فارغة للعودة للافتراضي.", "One stem per line; they appear as one-tap buttons. Leave empty for the defaults.") + "</p>" + ["a", "b", "c"].map(function (k) { return '<div class="ice-fld"><label>' + ({ a: "⭐", b: "🎯", c: "➡" })[k] + '</label><div><textarea class="ice-ta" data-bk="' + k + '" rows="3">' + esc(bank(k).join("\n")) + "</textarea></div></div>"; }).join("") + '<div class="ice-row"><button class="ice-sm go" id="iceBs">💾 ' + T("احفظ", "Save") + '</button><button class="ice-sm" id="iceBr">↺ ' + T("الافتراضي", "Defaults") + "</button></div>");
+        $("iceBs").onclick = function () { var o = {}; ov.querySelectorAll("[data-bk]").forEach(function (t) { var L = t.value.split(/\n/).map(function (x) { return x.trim(); }).filter(Boolean); if (L.length) o[t.dataset.bk] = L; }); LS.set(STK, JSON.stringify(o)); st.bankEd = false; paintTfb(); };
+        $("iceBr").onclick = function () { LS.set(STK, "{}"); st.bankEd = false; paintTfb(); }; return;
+      }
       if (st.show) {
+        var parts = M2 ? [st.a && "⭐ " + st.a, st.a2 && "⭐ " + st.a2, st.b && "🎯 " + st.b] : [st.a && "⭐ " + st.a, st.b && "🎯 " + st.b, st.c && "➡ " + st.c];
         shell(T("رسالة تقدير", "A message for you"),
-          '<div class="ice-fbcard"><div class="ice-fbto">' + T("إلى: ", "To: ") + "<b>" + esc(st.to || T("الصف", "the class")) + "</b></div>" + (st.a ? '<p>⭐ ' + esc(st.a) + "</p>" : "") + (st.b ? '<p>🎯 ' + esc(st.b) + "</p>" : "") + (st.c ? '<p>➡ ' + esc(st.c) + "</p>" : "") + '</div><div class="ice-row"><button class="ice-sm" id="iceBk2">✏️ ' + T("عدّل", "Edit") + '</button><button class="ice-sm go" id="iceSv">💾 ' + T("احفظ في ملاحظاتي", "Save to my notes") + '</button><button class="ice-sm" id="iceNw">🆕 ' + T("فيدباك جديد", "New feedback") + "</button></div>");
-        $("iceBk2").onclick = function () { st.show = false; paintTfb(); }; $("iceNw").onclick = function () { st = { used: [] }; paintTfb(); };
-        $("iceSv").onclick = function () { saveNote("💬 " + T("فيدباك إلى ", "Feedback to ") + (st.to || T("الصف", "class")), [st.a && "⭐ " + st.a, st.b && "🎯 " + st.b, st.c && "➡ " + st.c].filter(Boolean).join(" | ")); }; return;
+          '<div class="ice-fbcard"><div class="ice-fbto">' + T("إلى: ", "To: ") + "<b>" + esc(st.to || T("الصف", "the class")) + "</b></div>" + parts.filter(Boolean).map(function (x) { return "<p>" + esc(x) + "</p>"; }).join("") + '</div><div class="ice-row"><button class="ice-sm" id="iceBk2">✏️ ' + T("عدّل", "Edit") + '</button><button class="ice-sm go" id="iceSv">💾 ' + T("احفظ في ملاحظاتي", "Save to my notes") + '</button><button class="ice-sm" id="iceNw">🆕 ' + T("فيدباك جديد", "New feedback") + "</button></div>");
+        $("iceBk2").onclick = function () { st.show = false; paintTfb(); }; $("iceNw").onclick = function () { st = { used: [], mdl: st.mdl }; paintTfb(); };
+        $("iceSv").onclick = function () { saveNote("💬 " + T("فيدباك إلى ", "Feedback to ") + (st.to || T("الصف", "class")), parts.filter(Boolean).join(" | ")); }; return;
       }
       var opt = '<option value="">' + T("اختر المستلم…", "Choose a recipient…") + "</option>" + Stu.map(function (x) { return "<option" + (st.to === x ? " selected" : "") + ">" + esc(x) + "</option>"; }).join("") + Tm.map(function (t) { var v = T("الفريق ", "Team ") + t.n; return "<option" + (st.to === v ? " selected" : "") + ">" + esc(v) + "</option>"; }).join("") + "<option" + (st.to === T("الصف كله", "The whole class") ? " selected" : "") + ">" + T("الصف كله", "The whole class") + "</option>";
-      var fld = function (k, ic, ph) { return '<div class="ice-fld"><label>' + ic + '</label><input class="ice-txt" data-k="' + k + '" value="' + esc(st[k] || "") + '" placeholder="' + ph + '"><div class="ice-stems">' + STEM[k].map(function (s) { return '<button class="ice-chip" data-k="' + k + '" data-s="' + esc(s) + '">' + esc(s) + "</button>"; }).join("") + "</div></div>"; };
+      var ICO = { a: "⭐", a2: "⭐", b: "🎯", c: "➡" }, PH = { a: T("نجمة: ما أحسن فيه ولماذا…", "Star: what went well and why…"), a2: T("نجمة ثانية…", "A second star…"), b: T("أمنية: ما يطوّره وكيف…", "Wish: what to improve and how…"), c: T("خطوته التالية…", "The next step…") };
+      var fld = function (k) { var bk = k === "a2" ? "a" : k; return '<div class="ice-fld"><label>' + ICO[k] + '</label><div style="flex:1"><input class="ice-txt" data-k="' + k + '" value="' + esc(st[k] || "") + '" placeholder="' + PH[k] + '"><span class="ice-hint" data-h="' + k + '">' + fbHint(st[k]) + '</span><div class="ice-stems">' + bank(bk).map(function (x) { return '<button class="ice-chip" data-k="' + k + '" data-s="' + esc(x) + '">' + esc(x) + "</button>"; }).join("") + "</div></div></div>"; };
       shell(T("فيدباك المعلم للطالب", "Teacher → student feedback"),
-        '<p class="ice-lead">' + T("فيدباك محدّد ومفيد: نجمة، وأمنية، وخطوة تالية.", "Specific, useful feedback: a star, a wish and a next step.") + '</p><div class="ice-row"><select id="iceTo" class="ice-sel">' + opt + "</select></div>" +
-        fld("a", "⭐", T("ما أحسن فيه…", "What went well…")) + fld("b", "🎯", T("ما يطوّره…", "What to improve…")) + fld("c", "➡", T("خطوته التالية…", "The next step…")) + '<div class="ice-row"><button class="ice-sm go" id="iceSh">📺 ' + T("اعرضها على الشاشة", "Show on screen") + "</button></div>");
+        '<p class="ice-lead">' + T("فيدباك محدّد يحرّك التعلّم: اذكر ما فعله الطالب فعلًا ولماذا أفاد.", "Specific feedback that moves learning: say what the student actually did and why it helped.") + '</p><div class="ice-mdl"><button class="ice-sm' + (M2 ? " on" : "") + '" data-m="2s1w">⭐⭐🎯 ' + T("نجمتان وأمنية", "Two stars & a wish") + '</button><button class="ice-sm' + (!M2 ? " on" : "") + '" data-m="1s1w1n">⭐🎯➡ ' + T("نجمة وأمنية وخطوة", "Star, wish & next step") + '</button></div><div class="ice-row"><select id="iceTo" class="ice-sel">' + opt + "</select></div>" +
+        ks.map(fld).join("") + '<div class="ice-row"><button class="ice-sm go" id="iceSh">📺 ' + T("اعرضها على الشاشة", "Show on screen") + '</button><button class="ice-sm" id="iceBe">✏️ ' + T("عدّل بنوك الجمل", "Edit stems") + "</button></div>");
       $("iceTo").onchange = function () { st.to = this.value; };
-      ov.querySelectorAll(".ice-txt").forEach(function (i) { i.oninput = function () { st[i.dataset.k] = i.value; }; });
-      ov.querySelectorAll(".ice-chip").forEach(function (b) { b.onclick = function () { var inp = ov.querySelector('.ice-txt[data-k="' + b.dataset.k + '"]'); inp.value = (inp.value ? inp.value + " " : "") + b.dataset.s; st[b.dataset.k] = inp.value; inp.focus(); }; });
-      $("iceSh").onclick = function () { if (!(st.a || st.b || st.c)) { say(T("اكتب جملة واحدة على الأقل", "Write at least one line")); return; } st.show = true; snd("correct"); paintTfb(); };
+      ov.querySelectorAll("[data-m]").forEach(function (b) { b.onclick = function () { st.mdl = b.dataset.m; paintTfb(); }; });
+      ov.querySelectorAll(".ice-txt").forEach(function (i) { i.oninput = function () { st[i.dataset.k] = i.value; var h = ov.querySelector('[data-h="' + i.dataset.k + '"]'); if (h) h.textContent = fbHint(i.value); }; });
+      ov.querySelectorAll(".ice-chip").forEach(function (b) { b.onclick = function () { var inp = ov.querySelector('.ice-txt[data-k="' + b.dataset.k + '"]'); inp.value = b.dataset.s; st[b.dataset.k] = inp.value; var h = ov.querySelector('[data-h="' + b.dataset.k + '"]'); if (h) h.textContent = fbHint(inp.value); inp.focus(); var n = inp.value.indexOf("…"); if (n >= 0) inp.setSelectionRange(n, n + 1); }; });
+      $("iceBe").onclick = function () { st.bankEd = true; paintTfb(); };
+      $("iceSh").onclick = function () { if (!ks.some(function (k) { return st[k]; })) { say(T("اكتب جملة واحدة على الأقل", "Write at least one line")); return; } st.show = true; snd("correct"); paintTfb(); };
     }
     function pfbRun() { countdown(60, function () { snd("chime"); if (st.k < (st.n || 4)) { st.k++; paintPfb(); pfbRun(); } else { st.k = 0; st.run = false; paintPfb(); } }, 1); }
     function paintPfb() {
@@ -1384,7 +1441,7 @@
       shell(T("فيدباك الأقران في مجموعات", "Peer feedback in groups"),
         '<p class="ice-lead">' + T("كل عضو في المجموعة يعطي زميله التالي فيدباك لمدة دقيقة. الجميع يأخذ ويعطي.", "Each member gives the next one a minute of feedback. Everyone gives and receives.") + '</p><div class="ice-q"><button class="ice-sm" id="iceNm"' + (run ? " disabled" : "") + '>−</button><span>' + T("عدد أعضاء المجموعة: ", "Group size: ") + "<b>" + n + '</b></span><button class="ice-sm" id="iceNp"' + (run ? " disabled" : "") + ">＋</button></div>" +
         (run ? '<div class="ice-first" style="background:#102A4C">' + T("الدور ", "Turn ") + k + ": " + T("العضو ", "Member ") + k + " → " + T("العضو ", "Member ") + (k % n + 1) + '</div><div class="ice-cdbig" id="iceCd"></div>' : "") +
-        '<div class="ice-rules"><span>🌸 ' + T("لطيف", "Kind") + "</span><span>🎯 " + T("محدّد", "Specific") + "</span><span>🧭 " + T("مفيد", "Helpful") + '</span></div><div class="ice-fbstems"><p>⭐ ' + T("أعجبني في عملك… (نقطتان)", "I liked… (two points)") + "</p><p>🎯 " + T("أتمنى لو… (أمنية واحدة)", "I wish… (one wish)") + "</p><p>🤝 " + T("وأقترح…", "I suggest…") + '</p></div><div class="ice-row">' + (run ? '<button class="ice-sm" id="iceSt">■ ' + T("أوقف", "Stop") + "</button>" : '<button class="ice-sm go" id="iceGo">▶ ' + T("ابدأ الدوران", "Start rotation") + "</button>") + "</div>");
+        '<div class="ice-rules"><span>🌸 ' + T("لطيف", "Kind") + "</span><span>🎯 " + T("محدّد", "Specific") + "</span><span>🧭 " + T("مفيد", "Helpful") + '</span></div><div class="ice-fbstems"><p>⭐ ' + esc(bank("a")[0]) + " " + T("(نجمتان)", "(two stars)") + "</p><p>🎯 " + esc(bank("b")[0]) + " " + T("(أمنية)", "(one wish)") + "</p><p>🤝 " + esc(bank("c")[0]) + '</p></div><div class="ice-row">' + (run ? '<button class="ice-sm" id="iceSt">■ ' + T("أوقف", "Stop") + "</button>" : '<button class="ice-sm go" id="iceGo">▶ ' + T("ابدأ الدوران", "Start rotation") + "</button>") + "</div>");
       var np = $("iceNp"), nm = $("iceNm"); if (np) np.onclick = function () { st.n = Math.min(6, n + 1); paintPfb(); }; if (nm) nm.onclick = function () { st.n = Math.max(2, n - 1); paintPfb(); };
       var go = $("iceGo"); if (go) go.onclick = function () { st.run = true; st.k = 1; paintPfb(); pfbRun(); };
       var sp = $("iceSt"); if (sp) sp.onclick = function () { stopT(); st.run = false; st.k = 0; paintPfb(); };
@@ -1425,10 +1482,15 @@
           return '<div class="ice-cr2" style="flex-wrap:wrap"><span style="flex:1 1 100%">' + esc(c) + "</span>" + [0, 1, 2].map(function (v) { return '<span class="ice-cnt3" style="background:' + COL[v] + '"><button data-i="' + i + '" data-v="' + v + '" data-d="-1">−</button><b>' + a[v] + "</b><small>" + NM[v] + '</small><button data-i="' + i + '" data-v="' + v + '" data-d="1">＋</button></span>'; }).join("") +
             (tot ? '<div class="ice-stack" style="flex:1 1 100%">' + [0, 1, 2].map(function (v) { return a[v] ? '<i style="flex:' + a[v] + ";background:" + COL[v] + '"></i>' : ""; }).join("") + "</div>" : "") +
             (pb != null && pa != null ? '<span class="ice-grow" style="flex:1 1 100%">📈 ' + T("المتقنون: ", "Secure: ") + pb + "% → " + pa + "% (" + (pa - pb >= 0 ? "+" : "") + (pa - pb) + ")</span>" : "") + "</div>"; }).join("") + "</div>" +
-        '<div class="ice-row"><button class="ice-sm" id="iceEd">✏️ ' + T("عدّل العبارات", "Edit statements") + '</button><button class="ice-sm" id="iceSv">💾 ' + T("احفظ الملخص في ملاحظاتي", "Save summary to my notes") + "</button></div>");
+        '<div class="ice-row"><button class="ice-sm" id="iceEd">✏️ ' + T("عدّل العبارات", "Edit statements") + '</button><button class="ice-sm" id="iceSv">💾 ' + T("احفظ الملخص في ملاحظاتي", "Save summary to my notes") + '</button><button class="ice-sm go" id="iceLg">🏁 ' + T("سجّل نموّ هذه الحصة", "Log this lesson's growth") + "</button></div>" + growHtml());
       ov.querySelectorAll("[data-p]").forEach(function (b) { b.onclick = function () { st.ph = b.dataset.p; paintSas(); }; });
       ov.querySelectorAll(".ice-cnt3 button").forEach(function (b) { b.onclick = function () { var i = +b.dataset.i, v = +b.dataset.v, a = (P[i] = P[i] || [0, 0, 0]); a[v] = Math.max(0, a[v] + +b.dataset.d); LS.set("hb-fb-self-" + DECK, JSON.stringify(D)); paintSas(); }; });
       $("iceEd").onclick = function () { st.edit = true; paintSas(); };
+      $("iceLg").onclick = function () {
+        var tp = function (ph2) { var a = 0, t = 0; Object.keys(D[ph2] || {}).forEach(function (i) { var r = D[ph2][i]; a += r[2] || 0; t += (r[0] || 0) + (r[1] || 0) + (r[2] || 0); }); return t ? Math.round(a * 100 / t) : null; };
+        var b0 = tp("before"), a0 = tp("after"); if (b0 == null || a0 == null) { say(T("سجّل «قبل» و«بعد» أولًا", "Record both Before and After first")); return; }
+        gpush({ k: "sas", b: b0, a: a0 }); LS.set("hb-fb-self-" + DECK, "{}"); st.ph = "before"; snd("correct"); burst(["📈", "🌟"]); say(T("سُجّل النموّ: ", "Growth logged: ") + b0 + "% → " + a0 + "%"); paintSas();
+      };
       $("iceSv").onclick = function () { saveNote("🪞 " + T("تقييم ذاتي ", "Self-assessment ") + (ph === "before" ? T("(قبل)", "(before)") : T("(بعد)", "(after)")), crit.map(function (c, i) { var a = P[i]; return a ? c.slice(0, 40) + ": 🔴" + a[0] + " 🟡" + a[1] + " 🟢" + a[2] : ""; }).filter(Boolean).join(" | ")); };
     }
     var letPick = function () { st.L = LETS[Math.floor(Math.random() * LETS.length)]; st.cat = CATS[Math.floor(Math.random() * CATS.length)]; };
@@ -2292,6 +2354,12 @@
       }
       var NT = []; try { NT = JSON.parse(LS.get("hb-notes-" + DECK, "[]")).filter(function (n) { return n.l && n.l === L.id; }); } catch (e) {}
       if (NT.length) h += "<h2>📝 " + T("ملاحظات المعلم أثناء الحصة", "Teacher's notes during the lesson") + '</h2><table><thead><tr><th style="width:70px">' + T("الوقت", "Time") + '</th><th style="width:80px">' + T("الشريحة", "Slide") + "</th><th>" + T("الملاحظة", "Note") + "</th></tr></thead><tbody>" + NT.map(function (n) { return "<tr><td>" + new Date(n.t).toLocaleTimeString(EN ? "en-GB" : "ar-AE-u-nu-latn", { hour: "2-digit", minute: "2-digit" }) + "</td><td>" + n.s + "</td><td>" + (n.g ? "<b>" + esc(n.g) + "</b> " : "") + esc(n.x || "") + "</td></tr>"; }).join("") + "</tbody></table>";
+      var GR = []; try { GR = JSON.parse(LS.get("hb-growth", "[]")) || []; } catch (e) {}
+      var GM = GR.filter(function (e) { return e.l && e.l === L.id; }), GH = GR.filter(function (e) { return !(e.l && e.l === L.id); }).slice(-6);
+      if (GM.length || GH.length) {
+        var GLB = ["🌱 " + T("لم نحقّقه بعد", "Not yet"), "🌿 " + T("جزئيًّا", "Partly"), "🌳 " + T("حقّقناه", "Achieved")], grow = function (e) { return "<tr><td>" + new Date(e.t).toLocaleDateString(EN ? "en-GB" : "ar-AE-u-nu-latn", { day: "numeric", month: "numeric" }) + "</td><td>" + esc((e.n || "").slice(0, 50)) + "</td><td>" + (e.k === "goal" ? "🎯 " + T("تحقّق الهدف", "Goal check") : "🪞 " + T("تقييم ذاتي", "Self-assessment")) + "</td><td>" + (e.k === "goal" ? GLB[e.g] : "<b>" + e.b + "% → " + e.a + "%</b> (" + (e.a - e.b >= 0 ? "+" : "") + (e.a - e.b) + ")") + "</td></tr>"; };
+        h += "<h2>📈 " + T("نموّ التعلّم", "Learning growth") + "</h2>" + (GM.length ? "<p><b>" + T("هذه الحصة", "This lesson") + '</b></p><table><thead><tr><th style="width:70px">' + T("التاريخ", "Date") + "</th><th>" + T("الدرس", "Lesson") + "</th><th>" + T("النوع", "Type") + "</th><th>" + T("النتيجة", "Result") + "</th></tr></thead><tbody>" + GM.map(grow).join("") + "</tbody></table>" : "") + (GH.length ? "<p><b>" + T("حصص سابقة (للمقارنة)", "Earlier lessons (for comparison)") + '</b></p><table><thead><tr><th style="width:70px">' + T("التاريخ", "Date") + "</th><th>" + T("الدرس", "Lesson") + "</th><th>" + T("النوع", "Type") + "</th><th>" + T("النتيجة", "Result") + "</th></tr></thead><tbody>" + GH.map(grow).join("") + "</tbody></table>" : "");
+      }
       if (!seqs.length) h += '<p class="note" style="font-size:16px">' + T("لم يُطرح أي سؤال في هذه الحصة بعد.", "No questions were asked in this lesson yet.") + "</p>";
       var LOGO2 = '<svg viewBox="0 0 40 56" width="26" height="36"><path d="M11 14c0-4 4-6 9-6s9 2 9 6z" fill="#102A4C"/><rect x="9" y="14" width="22" height="3" rx="1.5" fill="#102A4C"/><path d="M10 19h20l2 22c-6 4-18 4-24 0z" fill="none" stroke="#102A4C" stroke-width="2.4"/><path d="M20 23l5 9c1 2.5-.5 5-3 5h-4c-2.5 0-4-2.5-3-5z" fill="#C4943A"/><path d="M16 46h8l-4 6z" fill="#102A4C"/></svg>';
       return '<!doctype html><html lang="' + (EN ? "en" : "ar") + '" dir="' + (RTL ? "rtl" : "ltr") + '"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + T("تقرير الحصة", "Lesson report") + " · " + esc(L.title || title) + "</title><style>" + fontCss() +
