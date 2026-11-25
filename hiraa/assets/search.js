@@ -11,7 +11,7 @@
   let C, en;
   const t = (k) => TX[k][en ? 1 : 0];
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const ar = (n) => (en ? String(n) : String(n).replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]));
+  const ar = (n) => String(n);   // أرقام غربية (0–9) في حراء كلها
   const clip = (s, n) => { s = String(s || "").replace(/\s+/g, " ").trim(); return s.length > n ? s.slice(0, n) + "…" : s; };
   let seq = 0, timer = null;
 
@@ -22,7 +22,7 @@
     const isQ = e.kind === "quran", to = e.ayah_to && e.ayah_to !== e.ayah_from ? "–" + ar(e.ayah_to) : "";
     const ref = isQ && e.surah_no ? ` · ${t("ayah")} ${ar(e.ayah_from)}${to}` : "";
     return `<div class="sr-ev"><span class="sr-tag ${isQ ? "q" : "h"}">${isQ ? t("quran") : t("hadith")}${esc(ref)}</span>
-      <p>${esc(clip(e.text_ar, 170))}</p>
+      <p class="${isQ ? "qt" : ""}">${esc(clip(e.text_ar, 170))}</p>
       <a href="#/lesson/${encodeURIComponent(e.lesson_code)}">${esc(en && e.title_en ? e.title_en : e.title_ar)}</a>${isQ ? ` · <a href="#/ayah/${encodeURIComponent(e.lesson_code)}">${t("card")}</a>` : ""}</div>`;
   }
   function draw(box, data) {

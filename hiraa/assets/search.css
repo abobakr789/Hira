@@ -7,6 +7,7 @@
 .sr-row small{color:var(--muted);white-space:nowrap}
 .sr-ev{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:6px}
 .sr-ev p{font-family:var(--font-brand);line-height:2;margin:6px 0}
+.sr-ev p.qt{font-family:"HiraaMushaf","HiraaQuran","Amiri Quran",serif;font-size:1.3rem}
 .sr-ev a{font-size:14px}
 .sr-tag{display:inline-block;border-radius:999px;padding:1px 10px;font-size:13px;color:#fff}
 .sr-tag.q{background:#2E7A3F}.sr-tag.h{background:#7A5233}

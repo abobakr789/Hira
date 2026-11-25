@@ -11,7 +11,7 @@
   let C, en, S = {};
   const t = (k) => TX[k][en ? 1 : 0];
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const ar = (n) => (en ? String(n) : String(n).replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]));
+  const ar = (n) => String(n);   // أرقام غربية (0–9) في حراء كلها
   const $ = (id) => document.getElementById(id);
 
   async function surahs() {
@@ -48,7 +48,8 @@
     g.strokeStyle = "#E7B659"; g.lineWidth = 4; g.strokeRect(40, 40, W - 80, H - 80);
     g.direction = en ? "ltr" : "rtl"; g.textAlign = "center"; g.fillStyle = "#FFF8E7";
     let size = 64, lines;
-    do { g.font = size + "px " + (getComputedStyle(document.body).getPropertyValue("--font-brand").trim() || "serif"); lines = wrap(g, card.body, W - 220); size -= 4; } while (lines.length * size * 1.9 > H - 560 && size > 28);
+    /* خط المصحف لنص القرآن */
+    do { g.font = size + 'px "HiraaMushaf","HiraaQuran","Amiri Quran",serif'; lines = wrap(g, card.body, W - 220); size -= 4; } while (lines.length * size * 1.9 > H - 560 && size > 28);
     const lh = size * 1.9 + 8, y0 = (H - lines.length * lh) / 2 + lh * 0.4;
     lines.forEach((ln, i) => g.fillText(ln, W / 2, y0 + i * lh));
     g.fillStyle = "#E7B659"; g.font = "40px sans-serif"; g.fillText(card.ref, W / 2, H - 190);

@@ -51,7 +51,7 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;',
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const ntitle=c=>NODE[c].t[L()]||NODE[c].t[0];
 const PASS=(r,a)=>a>=2&&r>=Math.ceil(a*2/3);
-const ar=n=>L()?String(n):String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+const ar=n=>String(n);   // أرقام غربية (0–9) في حراء كلها بحسب تفضيل المعلم
 
 function targetsFor(g){
   let ts=D.nodes.filter(n=>n.year===g);
@@ -152,7 +152,7 @@ async function teacher(){
   const rowsM=codes.map(c=>{
     const tested=latest.filter(r=>r.results[c]&&r.results[c].st!=='na'),ok=tested.filter(r=>r.results[c].st==='ok').length;
     const pct=tested.length?Math.round(ok/tested.length*100):0,col=pct>=75?'var(--ok)':pct>=50?'var(--am)':'var(--no)';
-    return `<div class="dg-trow"><span>${esc(ntitle(c))}<small> ${t('yr')} ${ar(NODE[c].year)} · ${ar(tested.length)} ${t('students')}</small></span><div class="dg-pb"><i style="width:${pct}%;background:${col}"></i></div><em>${ar(pct)}٪</em></div>`;
+    return `<div class="dg-trow"><span>${esc(ntitle(c))}<small> ${t('yr')} ${ar(NODE[c].year)} · ${ar(tested.length)} ${t('students')}</small></span><div class="dg-pb"><i style="width:${pct}%;background:${col}"></i></div><em>${ar(pct)}%</em></div>`;
   }).join('');
   const groups=codes.map(c=>{
     const ss=latest.filter(r=>r.results[c]&&r.results[c].st==='root');

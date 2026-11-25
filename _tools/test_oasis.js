@@ -12,7 +12,7 @@ eval(src);
   await window.HiraaOasis(ctx);
   const h = els.osApp.innerHTML;
   if (!h.includes("<svg") || !h.includes("os-stats")) throw new Error("scene missing: " + h.slice(0, 120));
-  if (!h.includes("٢") ) throw new Error("lessons count (2) not shown");
+  if (!h.includes("<b>2</b>")) throw new Error("lessons count (2) not shown");
   if ((h.match(/#7A5233/g) || []).length !== 2) throw new Error("expected 2 palms, got " + (h.match(/#7A5233/g) || []).length);
   if (process.argv[3]) fs.writeFileSync(process.argv[3], h.match(/<svg[\s\S]*<\/svg>/)[0].replace("<svg ", '<svg xmlns="http://www.w3.org/2000/svg" '));
   await window.HiraaOasis(Object.assign(ctx, { state: { session: null } }));

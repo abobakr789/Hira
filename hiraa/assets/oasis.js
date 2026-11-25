@@ -10,7 +10,7 @@
   };
   let C, en;
   const t = (k, a) => { const v = TX[k]; const x = typeof v === "function" ? v(a) : v; return x[en ? 1 : 0]; };
-  const ar = (n) => (en ? String(n) : String(n).replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]));
+  const ar = (n) => String(n);   // أرقام غربية (0–9) في حراء كلها
 
   function rnd(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
 
