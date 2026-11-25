@@ -2429,7 +2429,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125t", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261126a", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -10590,6 +10590,26 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     window.addEventListener("online", paint); window.addEventListener("offline", paint); setTimeout(paint, 1500);
   })();
 
+  /* حلقة المؤقّت وجدول التنبيهات (تُستعمل في الجوال وجهاز الطالب): [رمز، عربي، إنجليزي، نغمة، تشجيع؟] */
+  const HB_AL = [
+    ["🔔", "انتباه", "Attention", [[784, 0, 0.35], [1047, 0.25, 0.6]]],
+    ["🤫", "هدوءًا من فضلكم", "Quiet please", [[392, 0, 0.6], [330, 0.45, 0.9]]],
+    ["📝", "استعدّوا", "Get ready", [[523, 0, 0.2], [659, 0.25, 0.2], [784, 0.5, 0.45]]],
+    ["🚀", "ابدأوا الآن", "Start now", [[523, 0, 0.15], [659, 0.15, 0.15], [784, 0.3, 0.15], [1047, 0.45, 0.55]]],
+    ["✋", "توقّفوا لحظة", "Pause for a moment", [[880, 0, 0.18], [880, 0.25, 0.18], [659, 0.5, 0.55]]],
+    ["⏳", "تبقّت دقيقة", "One minute left", [[659, 0, 0.3], [523, 0.4, 0.6]]],
+    ["🧹", "رتّبوا أدواتكم", "Tidy up", [[587, 0, 0.25], [784, 0.3, 0.25], [587, 0.6, 0.5]]],
+    ["🔄", "بدّلوا الأدوار", "Switch roles", [[698, 0, 0.2], [880, 0.25, 0.2], [698, 0.5, 0.2], [880, 0.75, 0.45]]],
+    ["🌟", "أحسنتم", "Well done", [[784, 0, 0.2], [988, 0.18, 0.2], [1175, 0.36, 0.2], [1568, 0.54, 0.8]], 1],
+    ["🤲", "جزاكم الله خيرًا", "Jazakum Allahu khayran", [[523, 0, 0.3], [659, 0.3, 0.3], [784, 0.6, 0.8]], 1],
+    ["🌙", "بارك الله فيكم", "Barakallahu feekum", [[440, 0, 0.3], [554, 0.3, 0.3], [659, 0.6, 0.8]], 1],
+    ["✨", "ما شاء الله", "Masha'Allah", [[988, 0, 0.2], [1319, 0.2, 0.2], [1568, 0.4, 0.7]], 1],
+    ["💛", "شكرًا لكم", "Thank you", [[659, 0, 0.25], [784, 0.25, 0.25], [988, 0.5, 0.6]], 1],
+    ["🏅", "ممتاز", "Excellent", [[698, 0, 0.2], [880, 0.2, 0.2], [1047, 0.4, 0.2], [1397, 0.6, 0.8]], 1]
+  ];
+  const HB_LANTERN = '<g transform="translate(86,-20)"><path d="M14 0v5" stroke="#D4AA55" stroke-width="1.8" fill="none"/><path d="M6 11h16l-3-6H9z" fill="#D4AA55"/><rect x="5" y="11" width="18" height="22" rx="6" fill="#102A4C" stroke="#D4AA55" stroke-width="2"/><ellipse cx="14" cy="22" rx="3.4" ry="6" fill="#FFD25C"/><path d="M8 35h12l-1.5 4h-9z" fill="#D4AA55"/></g>';
+  const hbRing = (frac, txt, cls, lantern) => `<svg viewBox="0 0 200 200" class="hb-ring ${cls || ""}" aria-hidden="true"><circle class="rg-bg" cx="100" cy="100" r="96"/><circle class="rg-tr" cx="100" cy="100" r="84"/><circle class="rg-pr" cx="100" cy="100" r="84" stroke-dasharray="527.79" stroke-dashoffset="${(527.79 * (1 - Math.max(0, Math.min(1, frac || 0)))).toFixed(1)}"/>${lantern ? HB_LANTERN : ""}<text class="rg-t" x="100" y="${lantern ? 116 : 118}">${txt}</text></svg>`;
+
   async function pageRemote(key) {
     liveStop();
     if (!/^[a-z0-9]{8,40}$/i.test(key)) { h(`<div class="wrap loading">${CT("رابط غير صالح", "Invalid link")}</div>`); return; }
@@ -10608,11 +10628,16 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       <div class="rm-nav"><button class="rm-prev" id="rmPrev">${CT("السابق", "Back")}</button><button class="rm-next" id="rmNext"><span>${CT("التالي", "Next")}</span><small id="rmNextS"></small></button></div><div class="rm-msg" id="rmMsg" hidden></div>
       <div class="rm-sheet" id="rmSh" hidden><div class="rm-sh">
         <div class="rm-shh"><b>${CT("أدوات الحصة", "Lesson tools")}</b><button id="rmShX" aria-label="${CT("إغلاق", "Close")}">✕</button></div>
-        <div class="rm-sec"><h4>⏱ ${CT("مؤقّت الصف", "Class timer")}</h4><div class="rm-tmbig" id="rmTmBig">00:00</div>
+        <div class="rm-sec"><h4>⏱ ${CT("مؤقّت الصف", "Class timer")}</h4><div class="rm-tmbig" id="rmTmBig"></div>
           <div class="rm-chips" id="rmTmC">${[1, 2, 3, 5, 10, 15].map((m) => `<button data-s="${m * 60}">${m} ${CT("د", "min")}</button>`).join("")}</div>
           <div class="rm-row"><button id="rmTmM">−30 ${CT("ث", "s")}</button><button id="rmTmGo" class="go">▶ ${CT("ابدأ", "Start")}</button><button id="rmTmP">+30 ${CT("ث", "s")}</button><button id="rmTmX">■ ${CT("إلغاء", "Clear")}</button></div>
           <p class="rm-hint">${CT("يظهر المؤقّت على شاشة الصف وعلى أجهزة الطلاب، وتنبّهك الاهتزازة عند الانتهاء.", "It shows on the class screen and on students' devices, and your phone vibrates at the end.")}</p></div>
-        <div class="rm-sec"><h4>🔔 ${CT("التنبيه", "Alert")}</h4><div class="rm-row"><button id="rmBell" class="go">🔔 ${CT("انتباه", "Attention")}</button><button id="rmSnd">🔊 ${CT("الصوت", "Sound")}</button></div></div>
+        <div class="rm-sec"><h4>🔔 ${CT("التنبيهات", "Alerts")}</h4><div class="rm-al" id="rmAl">${HB_AL.slice(0, 8).map((a, i) => `<button data-i="${i}">${a[0]} ${CT(a[1], a[2])}</button>`).join("")}</div><div class="rm-row"><button id="rmSnd">🔊 ${CT("الصوت", "Sound")}</button></div></div>
+        <div class="rm-sec"><h4>🌟 ${CT("التشجيع والشكر", "Praise & thanks")}</h4><div class="rm-al" id="rmPr">${HB_AL.slice(8).map((a, i) => `<button data-i="${i + 8}">${a[0]} ${CT(a[1], a[2])}</button>`).join("")}</div></div>
+        <div class="rm-sec"><h4>🎭 ${CT("الستارة والإجابة", "Curtain & answer")}</h4>
+          <div class="rm-row"><button id="rmCuT" class="go">🎭 ${CT("غطِّ الشريحة", "Cover")}</button><button id="rmCuS">▼ ${CT("اكشف ¼", "Reveal ¼")}</button><button id="rmCuB">▲ ${CT("غطِّ ¼", "Cover ¼")}</button><button id="rmCuX">✕ ${CT("أزِل", "Remove")}</button></div>
+          <div class="rm-row"><button id="rmAns2" class="go" hidden>📖 ${CT("أظهر الإجابة النموذجية", "Show the model answer")}</button></div>
+          <p class="rm-hint" id="rmCuH"></p></div>
         <div class="rm-sec"><h4>🕒 ${CT("ساعة الحصة", "Lesson clock")}</h4><div class="rm-chips" id="rmLsC">${[30, 35, 40, 45, 60].map((m) => `<button data-m="${m}">${m} ${CT("د", "min")}</button>`).join("")}</div>
           <div class="rm-row"><button id="rmLsGo" class="go">▶ ${CT("ابدأ الحصة الآن", "Start the lesson now")}</button><button id="rmLsX">■ ${CT("إخفاء", "Hide")}</button></div>
           <p class="rm-hint">${CT("تُظهر لك المتبقّي من الحصة، وهل تسير الشرائح على المسار أم متأخرة.", "Shows the time left and whether the slides are on pace.")}</p></div>
@@ -10647,7 +10672,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       /* الوسائط: شريط الصوت يظهر فقط إن كان في الشريحة فيديو أو صوت */
       const md = S.md; $r("rmMd").hidden = !md;
       if (md) { $r("rmMdV").textContent = md.mu ? "🔇" : md.v + "%"; $r("rmMdP").textContent = md.p ? "▶" : "⏸"; $r("rmMdM").classList.toggle("on", !!md.mu); }
-      $r("rmAns").hidden = !S.ma;
+      $r("rmAns").hidden = !S.ma; $r("rmAns2").hidden = !S.ma;
+      const al = S.ma === 2 ? "🙈 " + CT("أخفِ الإجابة النموذجية", "Hide the model answer") : "📖 " + CT("أظهر الإجابة النموذجية", "Show the model answer"); $r("rmAns").textContent = al; $r("rmAns2").textContent = al;
+      $r("rmCuH").textContent = S.cu >= 0 ? CT("الستارة ظاهرة، المكشوف منها ", "Curtain is on, revealed ") + S.cu + "%" : CT("الستارة مُزالة", "Curtain is off");
       /* طلبات المساعدة: اهتزاز عند ظهور اسم جديد */
       const hpn = S.hp || []; $r("rmHp").hidden = !hpn.length; $r("rmHpT").textContent = "✋ " + CT("يحتاجون مساعدة: ", "Need help: ") + hpn.join(CT("، ", ", "));
       if (hpn.length > hpSeen) { try { navigator.vibrate && navigator.vibrate([60, 40, 60]); } catch (e) {} } hpSeen = hpn.length;
@@ -10670,7 +10697,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const paintTm = () => {
       const tm = S && S.tm, mini = $r("rmMini"); if (!mini) return; let s = 0;
       if (tm) s = tm.run ? Math.max(0, Math.ceil((tmEnd - Date.now()) / 1000)) : tm.r;
-      const big = $r("rmTmBig"); if (big) { big.textContent = tm && tm.d ? "⏰" : fmtM(s); big.classList.toggle("low", !!(tm && tm.run && s <= 10)); }
+      const big = $r("rmTmBig"); if (big) { const fr = tm && tm.t ? s / tm.t : 0, sg = tm && tm.d ? "⏰" : fmtM(s), cl = tm && tm.d ? "end" : tm && tm.run && s <= 10 ? "low" : tm && tm.run && fr <= 0.3 ? "mid" : ""; const key = sg + "|" + cl + "|" + Math.round(fr * 200); if (big._k !== key) { big._k = key; big.innerHTML = hbRing(fr, sg, cl, true); } }
       const go = $r("rmTmGo"); if (go) go.textContent = tm && tm.run ? "⏸ " + CT("إيقاف", "Pause") : (tm && !tm.d && tm.r > 0 ? "▶ " + CT("استئناف", "Resume") : "▶ " + CT("ابدأ", "Start"));
       if (tm && tm.run && s <= 0 && !tmFired) { tmFired = 1; try { navigator.vibrate && navigator.vibrate([300, 120, 300, 120, 500]); } catch (e) {} }
       const parts = []; let late = false;
@@ -10699,8 +10726,10 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     $r("rmTmM").onclick = () => cmd("tm", { a: "add", s: -30 }); $r("rmTmP").onclick = () => cmd("tm", { a: "add", s: 30 }); $r("rmTmX").onclick = () => cmd("tm", { a: "reset" });
     $r("rmMdP").onclick = () => cmd("md", { a: "play" }); $r("rmMdB").onclick = () => cmd("md", { a: "seek", x: -10 }); $r("rmMdF").onclick = () => cmd("md", { a: "seek", x: 10 });
     $r("rmMdD").onclick = () => cmd("md", { a: "vol", x: -10 }); $r("rmMdU").onclick = () => cmd("md", { a: "vol", x: 10 }); $r("rmMdM").onclick = () => cmd("md", { a: "mute" });
-    $r("rmAns").onclick = () => cmd("ans"); $r("rmHpX").onclick = () => cmd("hpclr");
-    $r("rmBell").onclick = () => cmd("bell"); $r("rmSnd").onclick = () => cmd("snd", { on: S && S.snd === 0 ? 1 : 0 });
+    const ansTog = () => cmd("ans", { a: S && S.ma === 2 ? "hide" : "show" }); $r("rmAns").onclick = ansTog; $r("rmAns2").onclick = ansTog; $r("rmHpX").onclick = () => cmd("hpclr");
+    document.querySelectorAll("#rmAl [data-i],#rmPr [data-i]").forEach((b) => b.onclick = () => cmd("al", { i: +b.dataset.i }));
+    $r("rmCuT").onclick = () => cmd("cur", { a: "cover" }); $r("rmCuS").onclick = () => cmd("cur", { a: "step", x: 25 }); $r("rmCuB").onclick = () => cmd("cur", { a: "step", x: -25 }); $r("rmCuX").onclick = () => cmd("cur", { a: "off" });
+    $r("rmSnd").onclick = () => cmd("snd", { on: S && S.snd === 0 ? 1 : 0 });
     document.querySelectorAll("#rmLsC [data-m]").forEach((b) => b.onclick = () => { lsMin = +b.dataset.m; lsWarn = {}; try { localStorage.setItem("hb-rm-lesson", String(lsMin)); } catch (e) {} paintTm(); });
     $r("rmLsGo").onclick = () => { t0 = Date.now(); lsWarn = {}; if (!lsMin) { lsMin = 45; try { localStorage.setItem("hb-rm-lesson", "45"); } catch (e) {} } paintTm(); $r("rmSh").hidden = true; };
     $r("rmLsX").onclick = () => { lsMin = 0; try { localStorage.removeItem("hb-rm-lesson"); } catch (e) {} paintTm(); };
@@ -10788,17 +10817,17 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const tmTick = () => {
       const el = document.getElementById("dpTmr"); if (!el) { clearInterval(tmIv); return; }
       if (!tmA) { el.hidden = true; return; }
-      el.hidden = false;
-      if (tmA.d) { el.textContent = "⏰ " + CT("انتهى الوقت", "Time is up"); el.className = "dp-tmr end"; return; }
-      if (tmA.e == null) { el.textContent = "⏸ " + dpFmt(tmA.r || 0); el.className = "dp-tmr"; return; }
+      el.hidden = false; const tot = tmA.t || 1;
+      if (tmA.d) { el.innerHTML = hbRing(0, "⏰", "end"); return; }
+      if (tmA.e == null) { el.innerHTML = hbRing((tmA.r || 0) / tot, dpFmt(tmA.r || 0), ""); return; }
       const s = Math.max(0, Math.ceil((tmA.e - Date.now()) / 1000));
       if (s <= 0) {
-        el.textContent = "⏰ " + CT("انتهى الوقت", "Time is up"); el.className = "dp-tmr end";
+        el.innerHTML = hbRing(0, "⏰", "end");
         if (!tmA.fired) { tmA.fired = 1; dpBeep([[880, 0, 0.5], [1175, 0.35, 0.5], [1568, 0.7, 1.0]]); try { navigator.vibrate && navigator.vibrate([200, 100, 200, 100, 400]); } catch (e) {} }
         if (Date.now() - tmA.e > 8000) { tmA = null; clearInterval(tmIv); el.hidden = true; }
         return;
       }
-      el.textContent = "⏱ " + dpFmt(s); el.className = "dp-tmr" + (s <= 10 ? " low" : "");
+      el.innerHTML = hbRing(s / tot, dpFmt(s), s <= 10 ? "low" : s / tot <= 0.3 ? "mid" : "");
     };
     const tmApply = (p) => {
       const t = p && p.tm, sig = t ? JSON.stringify(t) : "";
@@ -10806,7 +10835,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       else if (!tmA || tmA.sig !== sig) { tmA = Object.assign({ sig }, t); if (t.e && Date.now() - t.e > 8000) tmA = null; }
       clearInterval(tmIv); if (tmA && tmA.e != null) tmIv = setInterval(tmTick, 300); tmTick();
       if (p && typeof p.bl === "number") {
-        if (blSeen != null && p.bl > blSeen) { toast("🔔 " + CT("انتباه: انظر إلى معلمك", "Attention: look at your teacher")); dpBeep([[784, 0, 0.35], [1047, 0.25, 0.6]]); try { navigator.vibrate && navigator.vibrate([120, 60, 120]); } catch (e) {} }
+        if (blSeen != null && p.bl > blSeen) { const a = HB_AL[p.ak] || HB_AL[0]; toast(a[0] + " " + CT(a[1], a[2])); dpBeep(a[3]); try { navigator.vibrate && navigator.vibrate(a[4] ? [60, 40, 60, 40, 120] : [120, 60, 120]); } catch (e) {} }
         blSeen = p.bl;
       }
     };
