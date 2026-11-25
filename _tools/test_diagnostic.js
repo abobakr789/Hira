@@ -2,6 +2,8 @@
 const fs = require('fs');
 const root = process.argv[2];
 global.window = { HIRAA_PREREQ: JSON.parse(fs.readFileSync(root + '/data/prereqs-islamic.json', 'utf8')) };
+window.HIRAA_PREREQS = { islamic: window.HIRAA_PREREQ, arabic: JSON.parse(fs.readFileSync(root + '/data/prereqs-arabic.json', 'utf8')) };
+let PARTS = ['diagnose'], seenSubject = null;
 const els = {};
 const lastHtml = () => (els.dgApp || {}).innerHTML || '';
 global.document = {
@@ -19,6 +21,7 @@ let currentQs = {};
 const sb = {
   rpc: async (fn, args) => {
     if (fn === 'diag_questions') {
+      seenSubject = args.p_subject;
       const rows = [];
       args.p_codes.forEach(c => { for (let k = 0; k < 3; k++) { const qid = c + '|' + k; rows.push({ oc: c, qid, qtype: 'mcq', stem_ar: 'سؤال ' + qid, stem_en: null, options: [{ id: 'a', text: 'ا' }, { id: 'b', text: 'ب' }, { id: 'c', text: 'ج' }, { id: 'd', text: 'د' }], difficulty: 1 }); } });
       return { data: rows, error: null };
@@ -35,7 +38,7 @@ const sb = {
 eval(fs.readFileSync(root + '/hiraa/assets/diagnostic.js', 'utf8'));
 async function sim(weakSet, grade) {
   weak = weakSet; for (const k in els) delete els[k];
-  const ctx = { h: html => { els.dgApp = { innerHTML: '' }; }, sb, state: { session: { user: {} }, profile: { year_group: grade } }, isStaff: () => false, lang: () => 'ar' };
+  const ctx = { parts: PARTS, h: html => { els.dgApp = { innerHTML: '' }; }, sb, state: { session: { user: {} }, profile: { year_group: grade } }, isStaff: () => false, lang: () => 'ar' };
   await window.HiraaDiagnose(ctx);
   els.dgGo.onclick();
   // يجيب كل سؤال: خطأ إن كان مخرجه ضمن weak، وإلا صح
@@ -69,5 +72,11 @@ async function sim(weakSet, grade) {
   const rootBlock = out.split('dg-step root')[1] || '';
   const okC = /شروط الصلاة/.test(rootBlock.split('dg-step')[0]) && !/dg-step root[\s\S]*dg-step root/.test(out);
   console.log('C root:', strip(rootBlock).slice(0, 140));
-  console.log(okA && okB && okC ? 'ALL PASS' : 'FAIL', { okA, okB, okC });
+  // د) العربية: ص4 يتعثر فيه، وص3 يتعثر، وص2 ينجح → الأصل ص3 والمتأثر ص4
+  PARTS = ['diagnose', 'arabic'];
+  out = await sim(new Set(['AR-1.1.1.3.G4', 'AR-1.1.1.3.G3']), 4);
+  const rb = out.split('dg-step root')[1] || '';
+  const okD = seenSubject === 'arabic' && /AR-1\.1\.1\.3\.G3/.test(rb.split('dg-step')[0]) && /dg-step affected[\s\S]*AR-1\.1\.1\.3\.G4/.test(out) && !/AR-1\.1\.1\.3\.G2/.test(rb.split('dg-step')[0]);
+  console.log('D root:', strip(rb).slice(0, 140));
+  console.log(okA && okB && okC && okD ? 'ALL PASS' : 'FAIL', { okA, okB, okC, okD });
 })().catch(e => { console.error('ERR', e); process.exit(1); });

@@ -3,9 +3,24 @@
    الأسئلة من بنك حراء عبر الدالة public.diag_questions، والتصحيح عبر prep_grade دون حفظ. لا تكتب شيئًا في القاعدة. */
 (function(){
 "use strict";
-const D=window.HIRAA_PREREQ||{nodes:[],edges:[]};
-const NODE=Object.fromEntries(D.nodes.map(n=>[n.code,n]));
-const PRE={},SUC={};D.edges.forEach(e=>{(PRE[e.to]=PRE[e.to]||[]).push(e.from);(SUC[e.from]=SUC[e.from]||[]).push(e.to)});
+let D={nodes:[],edges:[]},NODE={},PRE={},SUC={},SUBJ='islamic';
+function useSubject(s){
+  SUBJ=s==='arabic'?'arabic':'islamic';
+  const all=window.HIRAA_PREREQS||{};
+  D=all[SUBJ]||(SUBJ==='islamic'&&window.HIRAA_PREREQ)||{nodes:[],edges:[]};
+  NODE=Object.fromEntries(D.nodes.map(n=>[n.code,n]));PRE={};SUC={};
+  D.edges.forEach(e=>{(PRE[e.to]=PRE[e.to]||[]).push(e.from);(SUC[e.from]=SUC[e.from]||[]).push(e.to)});
+}
+useSubject('islamic');
+const short=(x,n)=>{x=String(x||'').replace(/\s+/g,' ').trim();if(x.length<=n)return x;const c=x.slice(0,n),i=c.lastIndexOf(' ');return (i>n*0.6?c.slice(0,i):c)+'…'};
+async function fillTitles(){   // العناوين الفارغة تُجلب من statement_ar/en
+  const miss=D.nodes.filter(n=>!n.t||!n.t[0]).map(n=>n.code);if(!miss.length)return;
+  try{
+    const {data}=await C.sb.from('learning_outcomes').select('code,statement_ar,statement_en').in('code',miss);
+    (data||[]).forEach(o=>{const n=NODE[o.code];if(n)n.t=[short(o.statement_ar,80),short(o.statement_en||o.statement_ar,80)]});
+  }catch(e){}
+  miss.forEach(c=>{if(!NODE[c].t[0])NODE[c].t=[c,c]});
+}
 const T={
  title:['المسار التشخيصي','Diagnostic path'],
  intro:['اختبار قصير يبحث عن أصل التعثر، لا عن الدرس الذي ظهر فيه الخطأ فقط. إن أخطأتَ في مخرج، نختبرك فيما يحتاجه قبله حتى نصل إلى الجذر.','A short check that looks for the root of a difficulty, not only the lesson where the mistake showed. If you miss an outcome, we test what it needs before it.'],
@@ -24,6 +39,7 @@ const T={
  score:['صحيح','correct'],note:['النتيجة تُحفظ على هذا الجهاز فقط.','The result is kept on this device only.'],
  classView:['لوحة الفصل','Class view'],noRuns:['لا نتائج تشخيص من طلابك بعد.','No diagnostic results from your students yet.'],errRuns:['تعذّر تحميل النتائج. قد لا يكون جدول النتائج مُفعَّلًا بعد.','Could not load results. The results table may not be enabled yet.'],
  mastery:['نسبة التمكّن في كل مخرج','Mastery per outcome'],groups:['مجموعات علاج مقترحة حسب أصل التعثر','Suggested remediation groups by root gap'],students:['طالب','students'],noRoot:['دون أصل متعثر','No root gap'],latest:['آخر تشخيص لكل طالب','Latest run per student'],back:['رجوع','Back'],
+ noQs:['لا توجد أسئلة كافية لهذا المسار عند صفك أو مسارك بعد.','Not enough questions for this path at your year or track yet.'],
  stage:['المرحلة','Stage'],why:['لماذا هذه الأسئلة؟ أخطأتَ في مخرج، فنختبر ما يسبقه.','Why these? You missed an outcome, so we test what comes before it.']
 };
 let C=null;
@@ -46,7 +62,7 @@ let R=null;
 
 /* ---------- الأسئلة والتصحيح ---------- */
 async function fetchQs(codes){
-  const {data,error}=await C.sb.rpc('diag_questions',{p_codes:codes,p_n:3});
+  const {data,error}=await C.sb.rpc('diag_questions',{p_codes:codes,p_n:3,p_subject:SUBJ});
   if(error)throw Object.assign(new Error(error.message),{rpc:true});
   const by={};(data||[]).forEach(r=>{(by[r.oc]=by[r.oc]||[]).push(r)});return by;
 }
@@ -155,8 +171,9 @@ async function result(){
   const codes=Object.keys(R.res);
   const rootList=codes.filter(c=>st[c]==='root').sort((a,b)=>NODE[a].year-NODE[b].year);
   const affList=codes.filter(c=>st[c]==='affected').sort((a,b)=>NODE[a].year-NODE[b].year);
+  if(!codes.some(c=>!R.res[c].na)){$('dgApp').innerHTML=`<div class="dg-card"><p>${esc(t('noQs'))}</p><button class="dg-btn" id="dgB">${t('again')}</button></div>`;$('dgB').onclick=landing;return}
   const lessons=await lessonsFor(rootList.concat(affList));
-  try{localStorage.setItem('hiraa-diag-v1',JSON.stringify({g:R.g,at:Date.now(),st}))}catch(e){}
+  try{localStorage.setItem('hiraa-diag-v1-'+SUBJ,JSON.stringify({g:R.g,at:Date.now(),st}))}catch(e){}
   saveRun(st);
   const sc=c=>R.res[c]&&!R.res[c].na?`${ar(R.res[c].right)}/${ar(R.res[c].asked)} ${t('score')}`:'';
   const step=(c,i)=>{
@@ -180,17 +197,17 @@ async function result(){
 function landing(){
   const ses=C.state.session,prof=C.state.profile||{},staff=C.isStaff&&C.isStaff();
   if(!ses){$('dgApp').innerHTML=`<div class="dg-card"><p>${t('signIn')}</p><a class="dg-btn" href="#/login">${L()?'Sign in':'تسجيل الدخول'}</a></div>`;return}
-  const years=[...new Set(D.nodes.map(n=>n.year))].sort((a,b)=>a-b),maxY=Math.max(...years)+2;
+  const years=[...new Set(D.nodes.map(n=>n.year))].sort((a,b)=>a-b),minY=years[0]||3,maxY=Math.max(...years)+2;
   const own=+prof.year_group||0;
-  const sel=(staff||!own)?`<label class="dg-lab">${t('grade')} <select id="dgG">${Array.from({length:maxY-2},(_,i)=>i+3).map(y=>`<option value="${y}" ${y===(own||7)?'selected':''}>${ar(y)}</option>`).join('')}</select></label>`:'';
+  const sel=(staff||!own)?`<label class="dg-lab">${t('grade')} <select id="dgG">${Array.from({length:Math.max(maxY-minY+1,1)},(_,i)=>i+minY).map(y=>`<option value="${y}" ${y===(own||7)?'selected':''}>${ar(y)}</option>`).join('')}</select></label>`:'';
   $('dgApp').innerHTML=`<div class="dg-card"><p>${esc(t('intro'))}</p>${D.status==='draft'?`<p class="dg-warn">${esc(t('draft'))}</p>`:''}${sel}
     <div class="dg-row"><button class="dg-btn" id="dgGo">${t('start')}</button>${staff?`<button class="dg-btn dg-ghost" id="dgCls">${t('classView')}</button>`:''}</div></div>`;
   if(staff)$('dgCls').onclick=teacher;
   $('dgGo').onclick=()=>{const g=$('dgG')?+$('dgG').value:own;if(!targetsFor(g).length){$('dgApp').innerHTML=`<div class="dg-card"><p>${t('none')}</p><button class="dg-btn" id="dgB">${t('again')}</button></div>`;$('dgB').onclick=landing;return}run(g)};
 }
 window.HiraaDiagnose=async function(ctx){
-  C=ctx;
+  C=ctx;useSubject(ctx.parts&&ctx.parts[1]==='arabic'?'arabic':'islamic');
   ctx.h(`<div class="dg" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><h1 class="dg-title">${t('title')}</h1><div id="dgApp">${t('loading')}</div></div></div>`);
-  landing();
+  await fillTitles();landing();
 };
 })();
