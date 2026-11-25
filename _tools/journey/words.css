@@ -1,0 +1,14 @@
+/* أُرَكِّبُ الْكَلِمَةَ */
+.wbk{text-align:center;padding:22px 18px}
+.wbk-top{font-size:18px;color:#8a7a52;text-align:start}
+.wbk-clue{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.wbk-em{font-size:84px;line-height:1}.wbk-clue p{margin:0;font-size:26px;color:#4a3d1c;max-width:420px}
+.wbk-slot{margin:18px auto;min-height:96px;display:flex;align-items:center;justify-content:center;gap:6px;background:#FFFBEF;border:3px dashed #E9C77B;border-radius:22px;padding:8px 18px;max-width:560px}
+.wbk-got{font-size:64px;line-height:1.5;color:#102A4C;font-weight:700}.wbk-rest{font-size:42px;color:#E0C98F;letter-spacing:2px}
+.wbk-slot.ok{border-style:solid;border-color:#2E9E6A;background:#EEF9F2;animation:wbkPop .5s}
+.wbk-tiles{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
+.wbk-t{font-family:inherit;font-size:46px;line-height:1.3;min-width:78px;min-height:78px;padding:4px 14px;border:0;border-radius:20px;background:#fff;color:#102A4C;box-shadow:0 5px 0 #E3D3A6,0 8px 18px rgba(16,42,76,.12);cursor:pointer}
+.wbk-t:active{transform:translateY(3px);box-shadow:0 2px 0 #E3D3A6}
+.wbk-t.used{opacity:.18;box-shadow:none;transform:scale(.85)}
+@keyframes wbkPop{50%{transform:scale(1.05)}}
+@media (prefers-reduced-motion:reduce){.wbk-slot.ok{animation:none}}

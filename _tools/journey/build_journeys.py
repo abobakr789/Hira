@@ -278,6 +278,7 @@ def make_template():
     head = head.replace('<title>رحلة القنديل · المحبة في رمضان · حراء</title>', '<title>رحلة القنديل · __TITLEPLAIN__ · حراء</title>')
     head = head.replace('<b>رِحْلَةُ الْقِنْديلِ: الْمَحَبَّةُ في رَمَضانَ</b>', '<b>رِحْلَةُ الْقِنْديلِ: __TITLE__</b>')
     assert '__TITLE__' in head and '__TITLEPLAIN__' in head
+    head = head.replace('</style>', open(os.path.join(HERE, 'words.css'), encoding='utf-8').read() + '\n</style>', 1)
     return head + gdata + '\n' + b[i_state:i_st] + grender + '\n' + tail
 
 

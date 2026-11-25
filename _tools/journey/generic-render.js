@@ -35,6 +35,30 @@ function retellBox(el,title,hint,onDone){
    rec.start();t0=Date.now();b.classList.add("on");b.textContent="⏹";iv=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);c.querySelector(".timer").textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`;if(s>=60)rec.stop()},250)}
   catch(e){say("لَمْ أَسْتَطِعْ فَتْحَ الْميكْروفونِ. قُلْها لِأَهْلِكَ، ثُمَّ الْمِسِ الزِّرَّ الْأَبْيَضَ.","think",6000)}};
 }
+/* أُرَكِّبُ الْكَلِمَةَ: يَلْمِسُ الطِّفْلُ الْحُروفَ بِالتَّرْتيبِ فَتَتَّصِلُ أَمامَهُ (كَلِماتُ الدَّرْسِ نَفْسُها) */
+function buildWords(el,words,done){
+ const cl=w=>w.match(/[\u0621-\u064A\u0671-\u06D3][\u064B-\u065F\u0670\u0640]*/g)||[];
+ const list=words.filter(p=>p[0]&&!/\s/.test(p[0])&&cl(p[0]).length>=3&&cl(p[0]).length<=8);
+ if(list.length<2){done();return}
+ el.appendChild(h(`<div class="inst reveal" style="margin-top:26px"><span class="ic">🔤</span>أُرَكِّبُ الْكَلِمَةَ: أَلْمِسُ الْحُروفَ بِالتَّرْتيبِ.</div>`));
+ const box=h(`<div class="card reveal wbk"></div>`);el.appendChild(box);box.scrollIntoView({behavior:"smooth",block:"center"});
+ let k=0;
+ const round=()=>{
+  const p=list[k],L=cl(p[0]);let n=0,tiles=shuffle(L.map((x,i)=>i));
+  if(L.length>1&&tiles.every((t,i)=>t===i))tiles=tiles.slice(1).concat(tiles[0]);
+  box.innerHTML=`<div class="wbk-top"><span dir="ltr">${k+1} / ${list.length}</span></div><div class="wbk-clue">${p[2]?`<span class="wbk-em">${p[2]}</span>`:""}<p>${p[1]}</p></div>
+   <div class="wbk-slot" dir="rtl" aria-live="polite"><span class="wbk-got"></span><span class="wbk-rest">${"﹏".repeat(L.length)}</span></div>
+   <div class="wbk-tiles" dir="rtl">${tiles.map(i=>`<button class="wbk-t" data-i="${i}" aria-label="حَرْفٌ">${L[i]}</button>`).join("")}</div>`;
+  const got=box.querySelector(".wbk-got"),rest=box.querySelector(".wbk-rest");
+  box.querySelectorAll(".wbk-t").forEach(b=>b.onclick=()=>{
+   if(b.classList.contains("used"))return;
+   if(b.textContent===L[n]){b.classList.add("used");b.disabled=true;n++;got.textContent=L.slice(0,n).join("");rest.textContent="﹏".repeat(L.length-n);tone(true);
+    if(n===L.length){box.querySelector(".wbk-slot").classList.add("ok");say(`أَحْسَنْتَ! رَكَّبْتَ «${p[0]}»`,"cheer",2500);
+     setTimeout(()=>{k++;if(k<list.length)round();else{box.querySelector(".wbk-tiles").remove();say("رَكَّبْتَ كَلِماتِ الدَّرْسِ كُلَّها!","cheer",3000);done()}},1300)}}
+   else{b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),500);tone(false);say("لَيْسَ هذا هُوَ الْحَرْفُ التّالي… جَرِّبْ حَرْفًا آخَرَ.","think",2500)}});
+ };
+ round();
+}
 const RENDER={
  ready(el){
   el.appendChild(h(`<div class="card reveal" style="display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:center;background:linear-gradient(135deg,#fff,#F3F8FD)">${D.cover?`<img src="${IMG}${D.cover}.webp" alt="" style="width:220px;border-radius:22px">`:emo("📖",120)}<div><h3 style="font-size:32px;color:var(--navy)">هَدَفُ رِحْلَتي</h3><p style="font-size:26px;line-height:1.9;margin:8px 0 0">${D.objective}</p></div></div>`));
@@ -55,7 +79,7 @@ const RENDER={
     if(x.i===y.i&&x.type!==y.type){setTimeout(()=>{open.forEach(o=>o.classList.add("matched"));open=[];lock=false;found++;tone(true);
       const w=pairs[x.i][0];if(!S.words.includes(w)){S.words.push(w);save()}
       say(`«${w}» = ${pairs[x.i][1]}`,"idea",3000);
-      if(found===pairs.length){firstTry("words",moves<=pairs.length+3);setTimeout(()=>complete("words",`جَمَعْتَ الْكَلِماتِ كُلَّها في ${moves} مُحاوَلاتٍ!`),700)}},500)}
+      if(found===pairs.length){firstTry("words",moves<=pairs.length+3);setTimeout(()=>buildWords(el,D.words.slice(0,4),()=>complete("words",`جَمَعْتَ الْكَلِماتِ كُلَّها في ${moves} مُحاوَلاتٍ، وَرَكَّبْتَها حَرْفًا حَرْفًا!`)),700)}},500)}
     else{setTimeout(()=>{open.forEach(o=>o.classList.remove("flip"));open=[];lock=false},1000)}}});
   say("تَذَكَّرْ مَكانَ كُلِّ بِطاقَةٍ… الذّاكِرَةُ الْقَوِيَّةُ تَصْنَعُ قارِئًا قَوِيًّا!","wink",4500);
  },
