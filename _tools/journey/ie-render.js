@@ -12,6 +12,7 @@ const PART={
  concl(el,x,go){el.appendChild(h(`<div class="concl reveal">${x.html}</div>`));go()},
  words(el,x,go){const g=h(`<div class="reveal"><div class="inst"><span class="ic">📘</span>${x.head||"مَعاني الْمُفْرَداتِ: أَلْمِسُ الْكَلِمَةَ لِأَعْرِفَ مَعْناها."}</div><div class="wd-grid">${x.items.map((w,i)=>`<button class="wd" data-i="${i}"><b>${w[0]}</b><span>${w[1]}</span></button>`).join("")}</div></div>`);el.appendChild(g);
   let n=0;g.querySelectorAll(".wd").forEach(b=>b.onclick=()=>{if(b.classList.contains("open"))return;b.classList.add("open");tone(true);const w=x.items[+b.dataset.i];if(!S.words.includes(w[0])){S.words.push(w[0]);save()}n++;if(n===x.items.length)go()})},
+ build(el,x,go){buildWords(el,x.items,go)},
  reveal(el,x,go){if(x.head)el.appendChild(h(`<div class="inst reveal"><span class="ic">🔎</span>${x.head}</div>`));
   const g=h(`<div class="rv-grid ${x.cards.length===4?"four":""}">${x.cards.map((c,i)=>`<button class="rv${c.img?"":" emo"}" data-i="${i}"><div class="rv-pic">${vis(c)}</div><div class="rv-q">${c.q}</div><div class="rv-a">${c.a}</div></button>`).join("")}</div>`);el.appendChild(g);
   let n=0;g.querySelectorAll(".rv").forEach(b=>b.onclick=()=>{if(b.classList.contains("open"))return;b.classList.add("open");tone(true);n++;if(n===x.cards.length)go()})},

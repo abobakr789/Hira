@@ -278,7 +278,8 @@ def make_template():
     head = head.replace('<title>رحلة القنديل · المحبة في رمضان · حراء</title>', '<title>رحلة القنديل · __TITLEPLAIN__ · حراء</title>')
     head = head.replace('<b>رِحْلَةُ الْقِنْديلِ: الْمَحَبَّةُ في رَمَضانَ</b>', '<b>رِحْلَةُ الْقِنْديلِ: __TITLE__</b>')
     assert '__TITLE__' in head and '__TITLEPLAIN__' in head
-    head = head.replace('</style>', open(os.path.join(HERE, 'words.css'), encoding='utf-8').read() + '\n</style>', 1)
+    if '.wbk-t{' not in head:
+        head = head.replace('</style>', open(os.path.join(HERE, 'words.css'), encoding='utf-8').read() + '\n</style>', 1)
     return head + gdata + '\n' + b[i_state:i_st] + grender + '\n' + tail
 
 
@@ -337,6 +338,15 @@ def patch_l08():
         b = b.replace('S.meta={crit:CRIT.map(c=>c.t.replace(/[\\u064B-\\u0652]/g,""))};', 'S.meta={crit:CRIT.map(c=>c.t.replace(/[\\u064B-\\u0652]/g,"")),total:STATIONS.length};', 1)
     if '.scene>div{position:relative;z-index:1}' not in b:
         b = b.replace('.scene .txt{', '.scene>div{position:relative;z-index:1}\n.scene .txt{', 1)
+    # «أُرَكِّبُ الْكَلِمَةَ» في محطة كلماتي (الدالة من generic-render.js، والأنماط من words.css)
+    if '/*L08-BUILD*/' not in b:
+        gr = open(os.path.join(HERE, 'generic-render.js'), encoding='utf-8').read()
+        i0 = gr.index('/* أُرَكِّبُ الْكَلِمَةَ'); i1 = gr.index('const RENDER={')
+        b = b.replace('const RENDER={', '/*L08-BUILD*/\n' + gr[i0:i1] + 'const RENDER={', 1)
+        old = 'setTimeout(()=>complete("words",`جَمَعْتَ الْكَلِماتِ كُلَّها في ${moves} مُحاوَلاتٍ!`),700)'
+        assert old in b, 'L08 words completion not found'
+        b = b.replace(old, 'setTimeout(()=>buildWords(el,pairs,()=>complete("words",`جَمَعْتَ الْكَلِماتِ كُلَّها في ${moves} مُحاوَلاتٍ، وَرَكَّبْتَها حَرْفًا حَرْفًا!`)),700)', 1)
+        b = b.replace('</style>', open(os.path.join(HERE, 'words.css'), encoding='utf-8').read() + '\n</style>', 1)
     open(BASE, 'w', encoding='utf-8').write(b)
 
 
@@ -373,7 +383,7 @@ def build_ie(want):
         head = head.replace('<title>رحلة القنديل · المحبة في رمضان · حراء</title>', '<title>رحلة القنديل · ' + L['titlePlain'] + ' · حراء</title>')
         head = head.replace('<b>رِحْلَةُ الْقِنْديلِ: الْمَحَبَّةُ في رَمَضانَ</b>', '<b>رِحْلَةُ الْقِنْديلِ: ' + L['title'] + '</b>')
         head = head.replace('<small>اللغة العربية · الصف الأول · رحلة المذاكرة في البيت</small>', '<small>' + L['subject'] + ' · رحلة المذاكرة في البيت</small>')
-        head = head.replace('</style>', rd('ie.css') + '\n</style>', 1)
+        head = head.replace('</style>', rd('ie.css') + ('' if '.wbk-t{' in head else '\n' + rd('words.css')) + '\n</style>', 1)
         assert L['title'] in head and L['subject'] in head
         D = {k: v for k, v in L.items() if k not in ('db_code', 'subject', 'weekLabel')}
         data = json.dumps(D, ensure_ascii=False).replace('</', '<\\/')
