@@ -164,6 +164,10 @@
     "#hbIceOv .ice-cnt{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:8px}#hbIceOv .ice-ct{display:flex;align-items:center;gap:8px;border-radius:16px;padding:10px 12px;color:#fff}#hbIceOv .ice-ct span{flex:1;font-weight:800;font-size:18px}#hbIceOv .ice-ct b{font:800 34px 'Thmanyah Display',Tahoma,sans-serif;min-width:44px}#hbIceOv .ice-ct button{width:46px;height:46px;border:0;border-radius:12px;background:rgba(255,255,255,.28);color:#fff;font-size:24px;font-weight:800;cursor:pointer}",
     "#hbIceOv .ice-win{margin:16px 0 4px;font-size:24px;font-weight:800;display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap}#hbIceOv .ice-note{font-size:14px;color:#51607A}",
     "#hbIceOv .ice-words{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:12px 0}#hbIceOv .ice-wd{background:#102A4C;color:#FFF0C2;border-radius:16px;padding:18px 10px;font:800 30px 'Thmanyah Display',Tahoma,sans-serif}#hbIceOv .ice-wd.hid{background:#E4EAF3;color:#8A99B2}",
+    "#hbIceOv .ice-sec{margin:20px 0 10px;text-align:start;font-size:18px;color:#51607A}#hbIceOv .ice-in{width:120px;font:800 30px 'Thmanyah Display',Tahoma,sans-serif;text-align:center;border:2px solid #CBD5E1;border-radius:12px;padding:6px}",
+    "#hbIceOv .ice-hist{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:20px;font-weight:700}#hbIceOv .ice-hist span{background:#EEF2F8;border-radius:999px;padding:4px 14px}",
+    "#hbIceOv .ice-ta{width:100%;box-sizing:border-box;font-weight:600;font-size:18px;line-height:1.7;font-family:inherit;border:1px solid #CBD5E1;border-radius:12px;padding:10px}#hbIceOv .ice-stmt{font:800 36px/1.6 'Thmanyah Display','Thmanyah Text',Tahoma,sans-serif;margin:10px 0;padding:18px;background:#F6F8FC;border-radius:18px}",
+    "#hbIceOv .ice-corn{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0}#hbIceOv .ice-cr{border-radius:20px;color:#fff;padding:22px 8px;display:flex;flex-direction:column;gap:8px;align-items:center}#hbIceOv .ice-cr span{font-size:56px}#hbIceOv .ice-cr b{font-size:24px}@media(max-width:700px){#hbIceOv .ice-corn{grid-template-columns:repeat(2,1fr)}}",
     "#hbIceOv .ice-bar{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:12px 16px;background:#F6F8FC;border-top:1px solid #E6EBF2;border-radius:0 0 22px 22px}#hbIceOv .ice-bl{font-weight:800;font-size:16px}",
     "#hbIceOv .ice-tm{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:14px;padding:8px 14px;color:#fff;font-weight:700;font-size:16px;font-family:inherit;font-family:inherit;cursor:pointer}#hbIceOv .ice-tm b{font:800 24px 'Thmanyah Display',Tahoma,sans-serif}#hbIceOv .ice-tm i{font-style:normal;background:rgba(255,255,255,.3);border-radius:999px;padding:2px 10px;font-weight:800}#hbIceOv .ice-tm:disabled{opacity:.4}",
     "#hbClassOv{position:fixed;left:50%;top:calc(var(--hb-lay) + 50%);transform:translate(-50%,-50%);width:min(1000px,94vw);max-height:calc(100vh - var(--hb-lay) - 40px);overflow:auto;z-index:30;display:none;background:#fff;color:#102A4C;border-radius:22px;box-shadow:0 30px 80px rgba(5,12,25,.45);font-family:'Thmanyah Text',Tahoma,sans-serif}",
@@ -1028,17 +1032,25 @@
       ["brn", "⚡", T("سباق العصف الذهني", "Brainstorm race"), T("كل فريق يكتب أكثر ما يعرفه عن موضوع الدرس قبل انتهاء الوقت", "Each team writes as much as it knows about the topic before time runs out")],
       ["mem", "🧠", T("ذاكرة الكلمات", "Word memory"), T("تُعرض كلمات الدرس لثوانٍ ثم تختفي، والفرق تكتب ما تذكّرته", "Lesson words flash for a few seconds, then teams write what they remember")]
     ];
+    var UNI = [
+      ["let", "🔠", T("حرف وفئة", "Letter & category"), T("حرف وفئة عشوائيان، وكل فريق يذكر أكبر عدد من الكلمات قبل انتهاء الوقت", "A random letter and category; each team lists as many words as it can")],
+      ["lin", "🧍", T("اصطفّوا بصمت", "Silent line-up"), T("الفرق تصطفّ دون كلام حسب معيار مفاجئ، والأسرع يفوز", "Teams line up without speaking by a surprise rule; the fastest wins")],
+      ["num", "🔢", T("خمّن الرقم", "Guess the number"), T("تخمين رقم سرّي بتلميح أكبر/أصغر، وأقل محاولات تنال جائزة أكبر", "Guess a secret number with higher/lower hints; fewer tries, bigger prize")],
+      ["tf", "✅", T("صواب أم خطأ", "True or false"), T("عبارات تكتبها من الدرس، والفرق تقف يمينًا أو يسارًا", "Statements you write from the lesson; teams stand left or right")],
+      ["cor", "🧭", T("الأركان الأربعة", "Four corners"), T("سؤال بأربعة اختيارات، يتحرّك الطلاب إلى ركنهم ويحكون لماذا", "A question with four options; students move to a corner and share why")]
+    ];
     function paintMenu() {
       mode = "menu"; var L = kws();
       shell(T("كسر الجليد", "Ice-breakers"),
         '<p class="ice-lead">' + T("تنافس بين فرق الصف، وكل الكلمات من درس «", "Team competition; every word comes from the lesson «") + esc(title) + T("»", "»") + "</p>" +
-        '<div class="ice-grid">' + ACT.map(function (a) { return '<button class="ice-card" data-a="' + a[0] + '"><span class="ice-ic">' + a[1] + "</span><b>" + a[2] + "</b><small>" + a[3] + "</small></button>"; }).join("") + "</div>" +
+        '<h4 class="ice-sec">📚 ' + T("من كلمات الدرس", "From the lesson's words") + '</h4><div class="ice-grid">' + ACT.map(function (a) { return '<button class="ice-card" data-a="' + a[0] + '"><span class="ice-ic">' + a[1] + "</span><b>" + a[2] + "</b><small>" + a[3] + "</small></button>"; }).join("") + "</div>" +
+        '<h4 class="ice-sec">🌍 ' + T("أنشطة عالمية تصلح لأي درس", "Universal activities for any lesson") + '</h4><div class="ice-grid">' + UNI.map(function (a) { return '<button class="ice-card" data-a="' + a[0] + '"><span class="ice-ic">' + a[1] + "</span><b>" + a[2] + "</b><small>" + a[3] + "</small></button>"; }).join("") + "</div>" +
         '<div class="ice-kw"><b>📚 ' + T("كلمات الدرس (يمكنك تعديلها: كلمة في كل سطر)", "Lesson words (edit freely: one per line)") + '</b><textarea id="iceKw" rows="4" spellcheck="false">' + esc(L.join("\n")) + '</textarea><div class="ice-row"><button class="ice-sm" id="iceSave">💾 ' + T("احفظ", "Save") + '</button><button class="ice-sm" id="iceSug">🔄 ' + T("اقترح من الدرس", "Suggest from the lesson") + '</button></div><small>' + T("اختيرت تلقائيًّا من نص الشرائح نفسها. راجعها وأبقِ المناسب منها فقط. النقاط تُضاف إلى فرق «الصف» 🏆.", "Picked automatically from the slides' own text. Review them. Points go to the class teams 🏆.") + "</small></div>");
       ov.querySelectorAll(".ice-card").forEach(function (b) { b.onclick = function () { start(b.dataset.a); }; });
       $("iceSave").onclick = function () { LS.set(KEY, $("iceKw").value); say(T("حُفظت كلمات الدرس", "Saved")); };
       $("iceSug").onclick = function () { LS.set(KEY, ""); $("iceKw").value = suggest().join("\n"); };
     }
-    function start(a) { stopT(); mode = a; st = { used: [] }; if (!kws().length) { say(T("أضف كلمة واحدة على الأقل", "Add at least one word")); mode = "menu"; return; } paint(); }
+    function start(a) { stopT(); mode = a; st = { used: [] }; if (/^(scr|mys|twq|mem)$/.test(a) && !kws().length) { say(T("أضف كلمة واحدة على الأقل", "Add at least one word")); mode = "menu"; return; } paint(); }
     function paintScr() {
       var w = st.w || (st.w = pickWord()), arr = letters(w), sc = st.sc;
       if (!sc) { var t = 0; do { sc = shuffle(arr); t++; } while (sc.join("") === arr.join("") && t < 12 && arr.length > 1); st.sc = sc; }
@@ -1077,17 +1089,18 @@
       $("iceNx").onclick = function () { st = { used: st.used }; paintTwq(); };
     }
     function paintBrn() {
-      var T0 = tms(); st.c = st.c || T0.map(function () { return 0; });
+      var T0 = tms(), LM = mode === "let", D0 = LM ? 45 : 60; st.c = st.c || T0.map(function () { return 0; }); if (LM && !st.L) letPick();
       var run = !!st.run, over = st.over;
-      shell(T("سباق العصف الذهني", "Brainstorm race"),
-        '<p class="ice-lead">' + T("اكتبوا كل ما تعرفونه عن: ", "Write everything you know about: ") + "<b>«" + esc(title) + "»</b></p>" +
-        '<div class="ice-cdbig" id="iceCd">' + (run ? "" : fmt(st.dur || 60)) + "</div>" +
-        '<div class="ice-row">' + (run ? "" : [60, 90, 120].map(function (s) { return '<button class="ice-sm' + ((st.dur || 60) === s ? " on" : "") + '" data-d="' + s + '">' + s / 60 * 60 + " " + T("ث", "s") + "</button>"; }).join("") + '<button class="ice-sm go" id="iceGo">▶ ' + T("ابدأ", "Start") + "</button>") + '</div>' +
+      shell(LM ? T("حرف وفئة", "Letter & category") : T("سباق العصف الذهني", "Brainstorm race"),
+        (LM ? '<p class="ice-lead">' + T("اذكروا ", "Name ") + "<b>" + esc(st.cat) + "</b>" + T(" يبدأ بحرف", " starting with") + '</p><div class="ice-secret" style="font-size:90px;letter-spacing:0;min-height:110px">' + esc(st.L) + "</div>" : '<p class="ice-lead">' + T("اكتبوا كل ما تعرفونه عن: ", "Write everything you know about: ") + "<b>«" + esc(title) + "»</b></p>") +
+        '<div class="ice-cdbig" id="iceCd">' + (run ? "" : fmt(st.dur || D0)) + "</div>" +
+        '<div class="ice-row">' + (run ? "" : (LM ? [30, 45, 60] : [60, 90, 120]).map(function (s) { return '<button class="ice-sm' + ((st.dur || D0) === s ? " on" : "") + '" data-d="' + s + '">' + s + " " + T("ث", "s") + "</button>"; }).join("") + '<button class="ice-sm go" id="iceGo">▶ ' + T("ابدأ", "Start") + "</button>" + (LM ? '<button class="ice-sm" id="iceCh">🔄 ' + T("حرف آخر", "Another") + "</button>" : "")) + '</div>' +
         '<div class="ice-cnt">' + T0.map(function (t, i) { return '<div class="ice-ct" style="background:' + t.c + '"><button data-i="' + i + '" data-d="-1">−</button><span>' + esc(t.n) + "</span><b>" + st.c[i] + '</b><button data-i="' + i + '" data-d="1">＋</button></div>'; }).join("") + "</div>" +
-        (over ? '<div class="ice-win" id="iceWin"></div>' : "") + '<p class="ice-note">' + T("اضغط ＋ لفريقٍ كلما ذكر فكرة صحيحة جديدة.", "Press ＋ for a team each time it gives a new correct idea.") + "</p>");
+        (over ? '<div class="ice-win" id="iceWin"></div>' : "") + '<p class="ice-note">' + T("اضغط ＋ لفريقٍ كلما ذكر فكرة أو كلمة صحيحة جديدة.", "Press ＋ for a team each time it gives a new correct idea or word.") + "</p>");
       ov.querySelectorAll(".ice-ct button").forEach(function (b) { b.onclick = function () { var i = +b.dataset.i; st.c[i] = Math.max(0, st.c[i] + +b.dataset.d); b.parentNode.querySelector("b").textContent = st.c[i]; if (+b.dataset.d > 0) snd("chime"); }; });
       ov.querySelectorAll("[data-d]").forEach(function (b) { if (b.closest(".ice-ct")) return; b.onclick = function () { st.dur = +b.dataset.d; paintBrn(); }; });
-      var go = $("iceGo"); if (go) go.onclick = function () { st.run = true; st.over = false; st.c = T0.map(function () { return 0; }); paintBrn(); countdown(st.dur || 60, function () { st.run = false; st.over = true; snd("correct"); paintBrn(); }); };
+      var go = $("iceGo"); if (go) go.onclick = function () { st.run = true; st.over = false; st.c = T0.map(function () { return 0; }); paintBrn(); countdown(st.dur || D0, function () { st.run = false; st.over = true; snd("correct"); paintBrn(); }); };
+      var ch = $("iceCh"); if (ch) ch.onclick = function () { letPick(); paintBrn(); };
       if (over) {
         var mx = Math.max.apply(null, st.c), wn = []; st.c.forEach(function (v, i) { if (v === mx && mx > 0) wn.push(i); });
         var w = $("iceWin"); w.innerHTML = wn.length ? "🏆 " + T("الفائز: ", "Winner: ") + wn.map(function (i) { return esc(T0[i].n) + " (" + mx + ")"; }).join(T("، ", ", ")) + '<button class="ice-sm go" id="iceAw">' + T("امنح الفائز 3 نقاط", "Give the winner 3 points") + "</button>" : T("لا أفكار مسجّلة", "No ideas recorded");
@@ -1105,7 +1118,69 @@
       var rv = $("iceRv"); if (rv) rv.onclick = function () { st.ph = "rev"; paintMem(); };
       var nx = $("iceNx"); if (nx) nx.onclick = function () { st = { used: [] }; paintMem(); };
     }
-    function paint() { stopT(); if (mode === "menu") paintMenu(); else if (mode === "scr") paintScr(); else if (mode === "mys") paintMys(); else if (mode === "twq") paintTwq(); else if (mode === "brn") paintBrn(); else if (mode === "mem") paintMem(); }
+    /* ----- أنشطة عالمية: لا تعتمد على مادة بعينها، وتصلح لأي درس ----- */
+    var LETS = EN ? "A B C D E F G H I K L M N O P R S T W".split(" ") : "ا ب ت ج ح د ر س ش ص ع ف ق ك ل م ن ه و ي".split(" ");
+    var CATS = EN ? ["An animal", "A fruit or vegetable", "A country or city", "A job", "Something in school", "A boy's or girl's name", "Something in the kitchen", "Something that moves"] :
+      ["حيوان", "فاكهة أو خضار", "دولة أو مدينة", "مهنة", "شيء في المدرسة", "اسم ولد أو بنت", "شيء في المطبخ", "شيء يتحرّك"];
+    var LINES = [T("تاريخ ميلادكم (من الأصغر إلى الأكبر)", "Birthday (earliest in the year first)"), T("الطول (من الأقصر إلى الأطول)", "Height (shortest to tallest)"), T("الحرف الأول من أسمائكم (أبجديًّا)", "First letter of your names (alphabetical)"), T("عدد الإخوة والأخوات", "Number of brothers and sisters"), T("أول رقم في رقم هاتفكم", "First digit of your phone number"), T("عدد حروف أسمائكم", "Number of letters in your name")];
+    var CORN = [
+      [T("أيّ مكان تفضّل لرحلة؟", "Which trip would you pick?"), [["🏖", T("البحر", "Beach")], ["⛰", T("الجبل", "Mountain")], ["🏜", T("الصحراء", "Desert")], ["🌳", T("الغابة", "Forest")]]],
+      [T("أيّ مهارة تتمنّى أن تتقنها؟", "Which skill would you master?"), [["🏊", T("السباحة", "Swimming")], ["🎨", T("الرسم", "Drawing")], ["💻", T("البرمجة", "Coding")], ["🍳", T("الطبخ", "Cooking")]]],
+      [T("أيّ فصل من السنة تحبّ؟", "Your favourite season?"), [["🌸", T("الربيع", "Spring")], ["☀️", T("الصيف", "Summer")], ["🍂", T("الخريف", "Autumn")], ["❄️", T("الشتاء", "Winter")]]],
+      [T("أيّ وسيلة تنقّل تفضّل؟", "Which ride would you pick?"), [["🚀", T("صاروخ", "Rocket")], ["🚁", T("مروحية", "Helicopter")], ["🚢", T("سفينة", "Ship")], ["🚲", T("دراجة", "Bike")]]],
+      [T("أيّ رياضة تحبّ؟", "Which sport do you like?"), [["⚽", T("كرة القدم", "Football")], ["🏀", T("كرة السلة", "Basketball")], ["🏐", T("الكرة الطائرة", "Volleyball")], ["🎾", T("التنس", "Tennis")]]],
+      [T("أيّ وقت من اليوم تفضّل؟", "Which time of day?"), [["🌅", T("الفجر", "Dawn")], ["☀️", T("الضحى", "Morning")], ["🌇", T("العصر", "Afternoon")], ["🌙", T("الليل", "Night")]]],
+      [T("أيّ حيوان أليف تتمنّى؟", "Which pet would you want?"), [["🐱", T("قطة", "Cat")], ["🐦", T("طائر", "Bird")], ["🐢", T("سلحفاة", "Turtle")], ["🐠", T("سمكة", "Fish")]]],
+      [T("أيّ قدرة خارقة تختار؟", "Which superpower?"), [["⚡", T("السرعة", "Speed")], ["🧠", T("الذكاء", "Genius")], ["🦅", T("الطيران", "Flying")], ["🔍", T("قراءة الأفكار", "Mind-reading")]]]
+    ];
+    var CCOL = ["#1E6BC2", "#C2410C", "#0B7A75", "#7C3AED"];
+    function paintLine() {
+      var i = st.i == null ? (st.i = Math.floor(Math.random() * LINES.length)) : st.i, dur = st.dur || 45;
+      shell(T("اصطفّوا بصمت", "Silent line-up"),
+        '<p class="ice-lead">' + T("تحدٍّ للفرق: اصطفّوا في صفٍّ واحد دون كلام، حسب:", "Team challenge: line up in silence, by:") + '</p><div class="ice-secret" style="font-size:36px;letter-spacing:0">' + esc(LINES[i]) + '</div><div class="ice-cdbig" id="iceCd">' + fmt(dur) + "</div>" +
+        '<div class="ice-row">' + [30, 45, 60].map(function (s) { return '<button class="ice-sm' + (dur === s ? " on" : "") + '" data-d="' + s + '">' + s + " " + T("ث", "s") + "</button>"; }).join("") + '<button class="ice-sm go" id="iceGo">▶ ' + T("ابدأوا", "Go") + '</button><button class="ice-sm" id="iceNx">🔄 ' + T("تحدٍّ آخر", "Another") + '</button></div><p class="ice-note">' + T("الفريق الذي يكمل الصفّ أولًا وبصورة صحيحة يأخذ الجائزة.", "The first team to finish correctly wins the prize.") + "</p>", 3);
+      ov.querySelectorAll("[data-d]").forEach(function (b) { b.onclick = function () { st.dur = +b.dataset.d; paintLine(); }; });
+      $("iceNx").onclick = function () { st.i = (i + 1 + Math.floor(Math.random() * (LINES.length - 1))) % LINES.length; paintLine(); };
+      $("iceGo").onclick = function () { snd("drum"); countdown(dur, function () { snd("chime"); }); };
+    }
+    function paintNum() {
+      var mx = 50; if (!st.n) { st.n = 1 + Math.floor(Math.random() * mx); st.g = []; st.found = false; }
+      var g = st.g, last = g.length ? g[g.length - 1] : null, prize = st.found ? Math.max(1, 7 - g.length) : 0;
+      shell(T("خمّن الرقم", "Guess the number"),
+        '<p class="ice-lead">' + T("فكّرتُ في رقم من 1 إلى ", "I'm thinking of a number from 1 to ") + mx + T("… تتناوب الفرق في التخمين، وأقل محاولات = جائزة أكبر", ". Teams take turns; fewer tries = bigger prize") + "</p>" +
+        (st.found ? '<div class="ice-secret">🎉 ' + st.n + "</div>" : '<div class="ice-secret">' + (last == null ? "❔" : last < st.n ? "⬆️ " + T("أكبر", "Higher") : "⬇️ " + T("أصغر", "Lower")) + "</div>") +
+        (st.found ? "" : '<div class="ice-row"><input id="iceN" type="number" min="1" max="' + mx + '" class="ice-in" placeholder="?"><button class="ice-sm go" id="iceG">' + T("خمّن", "Guess") + "</button></div>") +
+        '<p class="ice-prize">' + T("المحاولات: ", "Tries: ") + "<b>" + g.length + "</b>" + (st.found ? " &nbsp; " + T("الجائزة: ", "Prize: ") + "<b>" + prize + "</b>" : "") + "</p>" +
+        (g.length ? '<div class="ice-hist">' + g.map(function (v) { return "<span>" + v + (v < st.n ? " ⬆️" : v > st.n ? " ⬇️" : " ✓") + "</span>"; }).join("") + "</div>" : "") +
+        '<div class="ice-row"><button class="ice-sm" id="iceNx">🔄 ' + T("رقم جديد", "New number") + "</button></div>", prize);
+      var gb = $("iceG"); if (gb) { var go = function () { var v = parseInt($("iceN").value, 10); if (!(v >= 1 && v <= mx)) return; g.push(v); if (v === st.n) { st.found = true; snd("correct"); burst(["🎉", "⭐"]); } else snd("wrong"); paintNum(); var n2 = $("iceN"); if (n2) n2.focus(); }; gb.onclick = go; $("iceN").onkeydown = function (e) { if (e.key === "Enter") go(); }; $("iceN").focus(); }
+      $("iceNx").onclick = function () { st = { used: [] }; paintNum(); };
+    }
+    function paintCor() {
+      var i = st.i == null ? (st.i = Math.floor(Math.random() * CORN.length)) : st.i, q = CORN[i];
+      shell(T("الأركان الأربعة", "Four corners"),
+        '<p class="ice-lead">' + q[0] + "<br><small>" + T("اختر ركنًا وقف عنده، ثم احكِ لزميلك لماذا اخترته", "Pick a corner and stand there, then tell a classmate why") + '</small></p><div class="ice-corn">' + q[1].map(function (o, k) { return '<div class="ice-cr" style="background:' + CCOL[k] + '"><span>' + o[0] + "</span><b>" + o[1] + "</b></div>"; }).join("") + '</div><div class="ice-row"><button class="ice-sm go" id="iceNx">➡ ' + T("سؤال آخر", "Next question") + "</button></div>");
+      $("iceNx").onclick = function () { st.i = (i + 1) % CORN.length; paintCor(); };
+    }
+    function paintTf() {
+      var key = "hb-ice-tf-" + DECK, raw = LS.get(key, ""), L = raw.split(/\n/).map(function (x) { return x.trim(); }).filter(Boolean).map(function (x) { var p = x.lastIndexOf("|"); if (p < 0) return null; return { q: x.slice(0, p).trim(), a: /^\s*(ص|صح|صواب|t|true|✓)/i.test(x.slice(p + 1)) }; }).filter(Boolean);
+      if (st.edit || !L.length) {
+        shell(T("صواب أم خطأ", "True or false"),
+          '<p class="ice-lead">' + T("اكتب عبارات من الدرس، عبارة في كل سطر، وفي آخرها | ثم ص أو خ", "Write statements from the lesson, one per line, ending with | then T or F") + '</p><textarea id="iceTf" rows="6" class="ice-ta" spellcheck="false" placeholder="' + T("مثال: الصلاة ركن من أركان الإسلام | ص", "Example: The sun is a star | T") + '">' + esc(raw) + '</textarea><div class="ice-row"><button class="ice-sm go" id="iceTs">💾 ' + T("احفظ وابدأ", "Save and start") + "</button></div>");
+        $("iceTs").onclick = function () { LS.set(key, $("iceTf").value); st = { used: [] }; paintTf(); };
+        return;
+      }
+      var i = st.i || 0; if (i >= L.length) i = st.i = 0; var it = L[i], sh = !!st.show;
+      shell(T("صواب أم خطأ", "True or false"),
+        '<p class="ice-lead">' + (i + 1) + " / " + L.length + '</p><div class="ice-stmt">' + esc(it.q) + '</div><p class="ice-note">' + T("تقف الفرق يمين الفصل إن رأت العبارة صحيحة، ويسارَه إن رأتها خاطئة", "Teams stand on the right if true, on the left if false") + "</p>" +
+        (sh ? '<div class="ice-secret" style="color:' + (it.a ? "#15803D" : "#B3261E") + '">' + (it.a ? "✅ " + T("صواب", "True") : "❌ " + T("خطأ", "False")) + "</div>" : "") +
+        '<div class="ice-row"><button class="ice-sm go" id="iceSh">' + (sh ? "🙈 " + T("أخفِ", "Hide") : "👁 " + T("اكشف الإجابة", "Reveal")) + '</button><button class="ice-sm" id="iceNx">➡ ' + T("التالية", "Next") + '</button><button class="ice-sm" id="iceEd">✏️ ' + T("عدّل العبارات", "Edit") + "</button></div>", sh ? 1 : 0);
+      $("iceSh").onclick = function () { st.show = !st.show; if (st.show) snd(it.a ? "correct" : "wrong"); paintTf(); };
+      $("iceNx").onclick = function () { st.i = (i + 1) % L.length; st.show = false; paintTf(); };
+      $("iceEd").onclick = function () { st.edit = true; paintTf(); };
+    }
+    var letPick = function () { st.L = LETS[Math.floor(Math.random() * LETS.length)]; st.cat = CATS[Math.floor(Math.random() * CATS.length)]; };
+    function paint() { stopT(); if (mode === "menu") paintMenu(); else if (mode === "scr") paintScr(); else if (mode === "mys") paintMys(); else if (mode === "twq") paintTwq(); else if (mode === "brn") paintBrn(); else if (mode === "mem") paintMem(); else if (mode === "let") paintBrn(); else if (mode === "lin") paintLine(); else if (mode === "num") paintNum(); else if (mode === "cor") paintCor(); else if (mode === "tf") paintTf(); }
     on("hbIce", function (e, b) { closePops(); var co = $("hbClassOv"); if (co) co.classList.remove("on"); $("hbClass").classList.remove("on"); if (ov.classList.contains("on")) { closeIce(); return; } mode = "menu"; st = {}; ov.classList.add("on"); b.classList.add("on"); paint(); });
   })();
 
