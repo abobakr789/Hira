@@ -78,7 +78,11 @@ const PART={
   c.querySelector(".th-rv").onclick=()=>{c.querySelector(".th-m").hidden=false;c.querySelector(".th-rv").remove();tone(true)};
   c.querySelectorAll(".th-self button").forEach(b=>b.onclick=()=>{S.think=S.think||{};S.think[ctx.id+"-"+ctx.k]={v:+b.dataset.v,a:c.querySelector(".th-in").value.slice(0,500)};firstTry(ctx.id+"-think"+ctx.k,+b.dataset.v>0);save();c.querySelector(".th-self").innerHTML="✓ شُكْرًا!";go()})},
 };
-function runParts(el,st){const parts=st.parts||[];let k=0;
+{const _am=addMistake,tg=v=>typeof v==="string"?v.replace(/<[^>]+>/g,""):v;addMistake=function(st,q,o,a,g){return _am(st,tg(q),(o||[]).map(tg),a,tg(g))}}
+/* النص القرآني داخل الأجزاء يُعرض بخط المصحف: ما بين ﴿﴾، أو عبارة برسم عثماني (ٱ، ۡ) */
+const qrS=v=>typeof v!=="string"?v:v.includes("﴿")?v.replace(/﴿[^﴾]*﴾/g,m=>`<span class="qr">${m}</span>`):(/[ٱۡ]/.test(v)&&!v.includes("<")?`<span class="qr">${v}</span>`:v);
+const qrX=v=>Array.isArray(v)?v.map(qrX):v&&typeof v==="object"?Object.fromEntries(Object.entries(v).map(([k,y])=>[k,k==="p"||k==="img"||k==="imgs"?y:qrX(y)])):qrS(v);
+function runParts(el,st){const parts=(st.parts||[]).map(x=>["memorize","ayah","build"].includes(x.p)?x:qrX(x));let k=0;
  const next=()=>{if(k>=parts.length){if(st.crit!=null)award(CRIT[st.crit].k);setTimeout(()=>complete(st.id,st.done||"أَحْسَنْتَ!"),st.crit!=null?1600:300);return}
   const x=parts[k],ctx={id:st.id,k};k++;const f=PART[x.p];if(!f){next();return}f(el,x,next,ctx)};
  next();if(st.say)say(st.say,"listen",4500);

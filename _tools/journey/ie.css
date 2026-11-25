@@ -75,3 +75,4 @@
 .od.odi{display:grid;gap:6px;padding:8px;text-align:center}.od.odi img{width:100%;height:150px;object-fit:cover;border-radius:12px}
 .od-on img{width:84px;height:64px;object-fit:cover;border-radius:10px;flex:none}
 @media (max-width:760px){.od-grid:has(.odi){grid-template-columns:1fr 1fr}.od.odi img{height:110px}.od.odi span{font-size:18px}}
+.qr{font-family:"Uthmanic Hafs","Thmanyah Display";font-size:1.12em;line-height:1.9;color:#0F6B4F}
