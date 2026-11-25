@@ -282,3 +282,17 @@
 :root[data-theme="dark"] .arc .arc-tl-line::before{background:#F3EBDD}
 .arc .arc-scn .arc-fb{display:block}
 .arc .arc-scn .arc-fb .arc-tip{margin:.35em 0 0}
+
+/* أكمل الناقص */
+.arc-c-cloze .arc-art { background: linear-gradient(135deg, #FFF3DC, #E5F6F0); }
+.arc .arc-cloze{font-size:1.45rem;line-height:2.3;text-align:center;margin:10px 0 16px}
+.arc .arc-blank{display:inline-block;min-width:4.5em;padding:0 12px;border-bottom:3px dashed #D4AA55;border-radius:10px;color:#9AA7BA;transition:background .25s,border-color .25s,color .25s,transform .25s}
+.arc .arc-blank.ok{border-bottom:3px solid #14A37F;background:#E8F7EF;color:#0E6B53;font-weight:700;transform:scale(1.06)}
+.arc .arc-blank.no{border-bottom:3px solid #D2453B;background:#FDECEA;color:#9B2C24;font-weight:700;animation:arcShake .35s}
+.arc .arc-blank.fixed{transform:none}
+.arc .arc-streak{background:#FFF1E6;color:#B45A12}
+@keyframes arcShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.arc .arc-blank,.arc .arc-blank.no{transition:none;animation:none}}
+:root[data-theme="dark"] .arc .arc-blank.ok{background:#12372C;color:#7FE0BE}
+:root[data-theme="dark"] .arc .arc-blank.no{background:#3A1B19;color:#FFB3AC}
+:root[data-theme="dark"] .arc .arc-streak{background:#3A2616;color:#FFC38A}

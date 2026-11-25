@@ -3380,6 +3380,20 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .arc .arc-scn .arc-fb{display:block}
 .arc .arc-scn .arc-fb .arc-tip{margin:.35em 0 0}
 
+/* أكمل الناقص */
+.arc-c-cloze .arc-art { background: linear-gradient(135deg, #FFF3DC, #E5F6F0); }
+.arc .arc-cloze{font-size:1.45rem;line-height:2.3;text-align:center;margin:10px 0 16px}
+.arc .arc-blank{display:inline-block;min-width:4.5em;padding:0 12px;border-bottom:3px dashed #D4AA55;border-radius:10px;color:#9AA7BA;transition:background .25s,border-color .25s,color .25s,transform .25s}
+.arc .arc-blank.ok{border-bottom:3px solid #14A37F;background:#E8F7EF;color:#0E6B53;font-weight:700;transform:scale(1.06)}
+.arc .arc-blank.no{border-bottom:3px solid #D2453B;background:#FDECEA;color:#9B2C24;font-weight:700;animation:arcShake .35s}
+.arc .arc-blank.fixed{transform:none}
+.arc .arc-streak{background:#FFF1E6;color:#B45A12}
+@keyframes arcShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.arc .arc-blank,.arc .arc-blank.no{transition:none;animation:none}}
+:root[data-theme="dark"] .arc .arc-blank.ok{background:#12372C;color:#7FE0BE}
+:root[data-theme="dark"] .arc .arc-blank.no{background:#3A1B19;color:#FFB3AC}
+:root[data-theme="dark"] .arc .arc-streak{background:#3A2616;color:#FFC38A}
+
 @font-face{font-family:"MaarijHafs";src:url("art/fonts/uthmanic-hafs.woff2") format("woff2");font-display:swap}
 .mj{
   --navy:#102A4C;--navy-2:#1C3D66;--gold:#C4943A;--gold-l:#D4AA55;--gold-s:#F7EBD2;
@@ -5355,6 +5369,23 @@ window.HiraArcade = (function () {
     });
     return out;
   }
+  /* «أكمل الناقص»: عبارة صحيحة من الدرس تُحذف منها كلمة من مفرداته، ويختار الطالب الكلمة الناقصة.
+     البدائل من نوع المفردة نفسه، ولا نصوص قرآنية (تُستبعد في addStmt). */
+  function clozeBank(P) {
+    const byK = new Map(); P.pairs.forEach((p) => { if (p.a && !/\s/.test(p.a.trim()) && p.k.length >= 2) byK.set(p.k, p); });
+    const out = [], used = new Set();
+    shuffle(P.stmts).forEach((s) => {
+      const hits = []; s.words.forEach((w, i) => { if (i === 0) return; const p = wordKeys(w).map((k) => byK.get(k)).find(Boolean); if (p) hits.push({ i, p }); });
+      if (!hits.length || used.has(s.text)) return;
+      const h = shuffle(hits)[0], kd = kindOf(h.p);
+      const others = shuffle([...byK.values()].filter((o) => o !== h.p && kindOf(o) === kd && !s.words.some((w) => wordKeys(w).includes(o.k))));
+      if (others.length < 3) return;
+      used.add(s.text);
+      const orig = s.words[h.i], m = orig.match(/^([وف]َ?)(?=\S)/), pre = m && !/^[وف]/.test(h.p.a) ? m[1] : "", tail = (orig.match(/[«»"(),.:؛،؟!]+$/) || [""])[0];
+      out.push({ lid: s.lid, words: s.words, at: h.i, orig, opts: shuffle([orig, pre + others[0].a + tail, pre + others[1].a + tail, pre + others[2].a + tail]), text: s.text });
+    });
+    return out;
+  }
   // أسئلة جديدة لوِرد المراجعة من دروس الطالب الأخيرة (بلا نصّ قرآنيّ)
   function freshCards(lessons, en, n) {
     const T = (a, b) => (en ? b : a), P = buildPool(lessons || []);
@@ -5404,6 +5435,7 @@ window.HiraArcade = (function () {
     sentence: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="10" y="16" width="46" height="18" rx="9" fill="#14A37F"/><rect x="62" y="16" width="48" height="18" rx="9" fill="#102A4C"/><rect x="24" y="50" width="34" height="18" rx="9" fill="#fff" stroke="#D4AA55" stroke-width="3"/><rect x="64" y="50" width="32" height="18" rx="9" fill="#D4AA55"/><path d="M40 40l4 6 4-6" stroke="#7C8DA6" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
     sort: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="44" y="4" width="32" height="20" rx="6" fill="#D4AA55"/><path d="M14 46h38l-5 32H19z" fill="#14A37F"/><path d="M68 46h38l-5 32H73z" fill="#102A4C"/><rect x="10" y="40" width="46" height="8" rx="4" fill="#0E8A6A"/><rect x="64" y="40" width="46" height="8" rx="4" fill="#0A1D36"/><path d="M60 26v8M54 32l6 6 6-6" stroke="#7C8DA6" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
     spot: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="8" y="22" width="30" height="16" rx="8" fill="#102A4C"/><rect x="44" y="22" width="32" height="16" rx="8" fill="#fff" stroke="#E8833A" stroke-width="3"/><rect x="82" y="22" width="30" height="16" rx="8" fill="#102A4C"/><circle cx="60" cy="58" r="15" fill="none" stroke="#D4AA55" stroke-width="5"/><path d="M71 69l12 12" stroke="#D4AA55" stroke-width="6" stroke-linecap="round"/><path d="M53 30h14" stroke="#E8833A" stroke-width="3" stroke-linecap="round"/></svg>`,
+    cloze: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="8" y="14" width="34" height="16" rx="8" fill="#102A4C"/><rect x="48" y="14" width="30" height="16" rx="8" fill="none" stroke="#D4AA55" stroke-width="3" stroke-dasharray="5 4"/><rect x="84" y="14" width="28" height="16" rx="8" fill="#102A4C"/><rect x="14" y="48" width="28" height="16" rx="8" fill="#fff" stroke="#7C8DA6" stroke-width="3"/><rect x="46" y="48" width="28" height="16" rx="8" fill="#14A37F"/><rect x="78" y="48" width="28" height="16" rx="8" fill="#fff" stroke="#7C8DA6" stroke-width="3"/><path d="M60 34v10M55 40l5 6 5-6" stroke="#14A37F" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
     irab: `<svg viewBox="0 0 120 84" aria-hidden="true"><rect x="8" y="12" width="32" height="18" rx="9" fill="#102A4C"/><rect x="44" y="12" width="32" height="18" rx="9" fill="#D4AA55"/><rect x="80" y="12" width="32" height="18" rx="9" fill="#102A4C"/><path d="M60 32v12" stroke="#D4AA55" stroke-width="3"/><rect x="30" y="46" width="60" height="16" rx="8" fill="#fff" stroke="#14A37F" stroke-width="3"/><rect x="42" y="66" width="36" height="12" rx="6" fill="#14A37F"/></svg>`,
     wazn: `<svg viewBox="0 0 120 84" aria-hidden="true"><path d="M60 10v58M34 74h52" stroke="#102A4C" stroke-width="4" stroke-linecap="round"/><path d="M22 24h76" stroke="#D4AA55" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="10" r="5" fill="#D4AA55"/><path d="M22 24l-12 22h24zM98 24l-12 22h24z" fill="none" stroke="#102A4C" stroke-width="3" stroke-linejoin="round"/><path d="M8 46a14 6 0 0 0 28 0zM84 46a14 6 0 0 0 28 0z" fill="#14A37F"/></svg>`,
     timeline: `<svg viewBox="0 0 120 84" aria-hidden="true"><path d="M60 6v72" stroke="#102A4C" stroke-width="4" stroke-linecap="round"/>${[14, 36, 58].map((y, i) => `<circle cx="60" cy="${y + 6}" r="6" fill="${i === 1 ? "#D4AA55" : "#14A37F"}"/><rect x="${i % 2 ? 70 : 14}" y="${y}" width="36" height="13" rx="6" fill="${i === 1 ? "#D4AA55" : "#102A4C"}"/>`).join("")}</svg>`,
@@ -5417,10 +5449,10 @@ window.HiraArcade = (function () {
     const all = cfg.lessons || [], focus = all.find((x) => x.id === cfg.focusId) || all[0] || { id: null };
     const poolL = buildPool([focus], { drafts: !!cfg.drafts }), poolU = buildPool(all, { drafts: !!cfg.drafts });
     const sizeOf = (p) => p.tf.length + p.mcq.length + p.pairs.length + p.sents.length + 3 * (p.sorts.length + p.seqs.length + p.irabs.length) + p.wazns.length + p.tls.length + 2 * p.scns.length;
-    const GAMES = () => ({ memory, tower, ladder, blitz, sentence, sorter, seq, spot, irab, wazn, timeline, scenario });
+    const GAMES = () => ({ memory, tower, ladder, blitz, sentence, sorter, seq, spot, cloze, irab, wazn, timeline, scenario });
     // هل تكفي المادّة لكلّ لعبة؟
     const okFor = (P) => { const qn = bank(P, T, focus.id).length;
-      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, spot: spotBank(P).length >= 3, irab: P.irabs.length >= 1, wazn: P.wazns.length >= 3, timeline: tlCal(P).length >= 3, scenario: P.scns.length >= 2, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
+      return { memory: new Set(P.pairs.map(labelKey).filter(Boolean)).size >= 3, tower: qn >= 4, ladder: qn >= 5, blitz: P.tf.length + P.pairs.length >= 6, sentence: P.sents.length >= 2, spot: spotBank(P).length >= 3, cloze: clozeBank(P).length >= 3, irab: P.irabs.length >= 1, wazn: P.wazns.length >= 3, timeline: tlCal(P).length >= 3, scenario: P.scns.length >= 2, sort: P.sorts.length >= 1, seq: P.seqs.length >= 1, classic: true }; };
     const run = (g) => GAMES()[g]();
     // أحداث التقويم الأكثر في المادّة، بشرط أن تختلف تواريخها
     function tlCal(P) { const g = P.tls.filter((x) => x.cal === "g"), h = P.tls.filter((x) => x.cal === "h"); const L = g.length >= h.length ? g : h; return new Set(L.map((x) => x.k)).size >= 2 ? L : []; }
@@ -5456,6 +5488,7 @@ window.HiraArcade = (function () {
           ${P.wazns.length || (scope === "lesson" && unitExtra && poolU.wazns.length) ? card("wazn", T("ميزان الكلمة", "Word scale"), T("زِنِ الكلمة على «فَعَلَ»، أو صُغْ من الفعل ما يطلبه الدرس، أو اعرف نوع المشتقّ.", "Find the pattern of a word, or derive the form the lesson asks for."), T("الصرف · العربية", "Morphology · Arabic"), P.wazns.length >= 3, P.wazns.length ? `${Math.min(8, P.wazns.length)} ${T("أسئلة", "questions")}` : "") : ""}
           ${P.tls.length || (scope === "lesson" && unitExtra && poolU.tls.length) ? card("timeline", T("الخطّ الزمني", "Timeline"), T("ضع كلّ حدث في مكانه على خطّ الزمن، قبل ما سبقه أو بعده، ثم يظهر تاريخه.", "Place each event in its spot on the timeline, then see its date."), T("التاريخ والتسلسل", "History · sequence"), tlCal(P).length >= 3, tlCal(P).length >= 3 ? `${Math.min(7, tlCal(P).length)} ${T("أحداث", "events")}` : "") : ""}
           ${P.scns.length || (scope === "lesson" && unitExtra && poolU.scns.length) ? card("scenario", T("ماذا تفعل؟", "What would you do?"), T("مواقف من الحياة، ولكلّ موقف ثلاثة تصرّفات. اختر الأحسن، ثم اقرأ ما يقوله الدرس.", "Real-life situations with three choices. Pick the best, then see what the lesson says."), T("القيم والسلوك", "Values · behaviour"), P.scns.length >= 2, P.scns.length >= 2 ? `${Math.min(5, P.scns.length)} ${T("مواقف", "situations")}` : "") : ""}
+          ${(() => { const cb = clozeBank(P).length; return card("cloze", T("أكمل الناقص", "Fill the blank"), T("عبارة من الدرس سقطت منها كلمة. اختر الكلمة التي تُكمل المعنى، وراقب الفراغ يمتلئ.", "A statement from the lesson is missing a word. Pick the one that completes it."), T("الاسترجاع والسياق · الصفّ الثاني فما فوق", "Recall in context · Grade 2+"), cb >= 3, cb >= 3 ? `${Math.min(6, cb)} ${T("عبارات", "statements")}` : ""); })()}
           ${(() => { const sb = spotBank(P).length; return card("spot", T("اكتشف الخطأ", "Spot the mistake"), T("كلمة دخيلة في عبارة، أو بطاقة في غير سلّتها، أو خطوتان في غير مكانهما. اكتشف الخطأ وصحّحه.", "A wrong word, a card in the wrong basket, or two steps out of place. Find the mistake and fix it."), T("الفهم الدقيق · الصفّ الثاني فما فوق", "Close reading · Grade 2+"), sb >= 3, sb >= 3 ? `${Math.min(5, sb)} ${T("عبارات", "statements")}` : ""); })()}
           ${card("sort", T("السلال", "Baskets"), T("ضع كلّ بطاقة في سلّتها الصحيحة، واكتشف ما يجمع بينها.", "Drop each card into the right basket."), T("التصنيف والتمييز", "Classifying"), P.sorts.length >= 1, P.sorts.length ? `${P.sorts.reduce((n, s) => n + s.cats.reduce((m, c) => m + c.items.length, 0), 0)} ${T("بطاقة", "cards")}` : "")}
           ${card("seq", T("رتّب الخطوات", "Order the steps"), T("خطوات أو أحداث مبعثرة، رتّبها من الأوّل إلى الأخير.", "Scrambled steps or events: put them in order."), T("التسلسل والبناء", "Sequencing"), P.seqs.length >= 1, P.seqs.length ? `${P.seqs.length} ${T("سلسلة", "sets")}` : "")}
@@ -5816,6 +5849,38 @@ window.HiraArcade = (function () {
     }
 
     /* ========== 8) اكتشف الخطأ: كلمة دخيلة، أو بطاقة في غير سلّتها، أو خطوتان في غير مكانهما ========== */
+    /* ========== أكمل الناقص ========== */
+    function cloze() {
+      const R = byFocus(clozeBank(pool())).slice(0, 6), n = R.length; if (!n) return menu();
+      let i = 0, right = 0, streak = 0; const missed = [];
+      root.innerHTML = `${hud(T("أكمل الناقص", "Fill the blank"), `<span class="arc-pill">${T("السؤال", "Question")} <b data-i>1</b> / ${n}</span><span class="arc-pill">✓ <b data-r>0</b></span><span class="arc-pill arc-streak" data-st hidden>🔥 <b>0</b></span>`)}<div class="arc-qbox"></div>`;
+      bindHud();
+      const box = root.querySelector(".arc-qbox");
+      const draw = () => {
+        const r = R[i], dir = isAr(r.text) ? "rtl" : "ltr"; root.querySelector("[data-i]").textContent = i + 1;
+        const sent = r.words.map((w, k) => (k === r.at ? `<span class="arc-blank" data-blank>＿＿＿</span>` : esc(w))).join(" ");
+        box.innerHTML = `<div class="arc-q"><p class="arc-kind">${T("اختر الكلمة التي تُكمل العبارة:", "Pick the word that completes the statement:")}</p>
+          <p class="arc-cloze" dir="${dir}">${sent}</p>
+          <div class="arc-opts">${r.opts.map((o, k) => `<button class="arc-opt" type="button" data-o="${k}" dir="auto"><span>${esc(o)}</span></button>`).join("")}</div>
+          <div class="arc-fb" aria-live="polite"></div></div>`;
+        const blank = box.querySelector("[data-blank]");
+        box.querySelectorAll("[data-o]").forEach((b) => b.onclick = () => {
+          box.querySelectorAll("[data-o]").forEach((x) => { x.disabled = true; });
+          const pick = r.opts[Number(b.dataset.o)], ok = pick === r.orig;
+          blank.textContent = pick; blank.classList.add(ok ? "ok" : "no"); b.classList.add(ok ? "ok" : "no");
+          if (!ok) { const rb = box.querySelector(`[data-o="${r.opts.indexOf(r.orig)}"]`); if (rb) rb.classList.add("ok"); setTimeout(() => { blank.textContent = r.orig; blank.classList.remove("no"); blank.classList.add("ok", "fixed"); }, reduced() ? 0 : 900); }
+          if (ok) { right++; streak++; SND.p(streak >= 3 ? "combo" : "coin"); } else { streak = 0; SND.p("no");
+            missed.push({ prompt: r.words.map((w, k) => (k === r.at ? "＿＿＿" : w)).join(" "), solution: r.text, rq: { key: rkey("c", r.text, r.orig), lid: r.lid,
+              q: { t: "mcq", p: T("أكمل: ", "Complete: ") + r.words.map((w, k) => (k === r.at ? "＿＿＿" : w)).join(" "), o: r.opts.map((o) => ({ t: o, i: "", ok: o === r.orig })), s: r.text } } }); }
+          root.querySelector("[data-r]").textContent = right;
+          const st = root.querySelector("[data-st]"); st.hidden = streak < 2; st.querySelector("b").textContent = streak;
+          box.querySelector(".arc-fb").innerHTML = ok ? `<b class="good">${streak >= 3 ? T(`ما شاء الله! ${streak} متتالية`, `Streak of ${streak}!`) : T("أحسنت! أكملت المعنى.", "Well done!")}</b>` : `<b class="bad">${T("العبارة الصحيحة:", "The full statement:")}</b> <span dir="${dir}">${esc(r.text)}</span>`;
+          nextBtn(box, i < n - 1 ? T("التالي ←", "Next →") : T("النتيجة ←", "Result →"), () => { i++; if (i < n) draw(); else finish("cloze", right, n, { title: T("أكمل الناقص", "Fill the blank"), medal: "✍️", big: `${right} / ${n}`, sub: T(`أكملت ${right} من ${n} عبارات.`, `You completed ${right} of ${n}.`), missed }); }, ok ? 1500 : 0);
+        });
+      };
+      draw();
+    }
+
     function spot() {
       const B = byFocus(spotBank(pool())), byKind = { word: [], odd: [], order: [] }; B.forEach((r) => byKind[r.kind].push(r));
       const rounds = []; while (rounds.length < 5 && (byKind.word.length || byKind.odd.length || byKind.order.length)) ["word", "odd", "order"].forEach((k) => { if (rounds.length < 5 && byKind[k].length) rounds.push(byKind[k].shift()); });
@@ -6138,7 +6203,7 @@ window.HiraArcade = (function () {
     return { menu, pool: () => ({ lesson: poolL, unit: poolU }) };
   }
 
-  return { mount, buildPool, sound: SND, freshCards, flashQ, BOXDAYS };
+  return { mount, buildPool, sound: SND, freshCards, flashQ, BOXDAYS, clozeBank };
 })();
 
 /* حراء — تطبيق صفحة واحدة يقرأ محتواه من Supabase */
