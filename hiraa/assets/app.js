@@ -2429,7 +2429,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261126i", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261126j", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
