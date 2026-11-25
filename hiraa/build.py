@@ -6,6 +6,11 @@ html=open(src+'index.html').read(); css=open(src+'assets/style.css').read(); app
 css+='\n'+open(src+'assets/arcade.css').read(); app=open(src+'assets/arcade.js').read()+'\n'+app
 # معارج حراء: وحدة دورات المهارات، تُدمج قبل التطبيق
 css+='\n'+open(src+'assets/maarij.css').read(); app=open(src+'assets/maarij.js').read()+'\n'+app
+# المسار التشخيصي: خريطة المتطلبات (data/prereqs-islamic.json) تُضمَّن قبل الوحدة
+import json
+_pre=json.load(open(os.path.dirname(src.rstrip('/'))+'/data/prereqs-islamic.json',encoding='utf-8'))
+css+='\n'+open(src+'assets/diagnostic.css').read()
+app='window.HIRAA_PREREQ='+json.dumps(_pre,ensure_ascii=False,separators=(',',':'))+';\n'+open(src+'assets/diagnostic.js').read()+'\n'+app
 # مدارج القراءة: تُحقن داخل app.js في موضع العلامة فتشارك دواله
 assert '  //@@READING@@\n' in app; app=app.replace('  //@@READING@@\n', open(src+'assets/reading.js').read()+'\n')
 anon="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzYmt0amJ3anlrZ3Rra3FmYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM1NDc2MTYsImV4cCI6MjEwOTEyMzYxNn0.ZR43uZNPdpnw8vhEf5Qr2ThHjRTZC2seCICDjiMfeW8"

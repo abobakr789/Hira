@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "status": "draft",
+  "note": "مسوّدة متطلبات سابقة بين مخرجات التربية الإسلامية. لم يعتمدها معلم بعد: لا تُنشر للطلاب قبل المراجعة. conf: h=قوي، l=ضعيف يحتاج حكم المعلم.",
+  "nodes": [
+    {"code": "1.2.1.4.G3", "year": 3, "strand": "fiqh", "t": ["شروط الصلاة ومبطلاتها", "Conditions and invalidators of prayer"]},
+    {"code": "1.2.1.4.G5", "year": 5, "strand": "fiqh", "t": ["صلاة الجماعة", "Congregational prayer"]},
+    {"code": "2.2.1.4.G5", "year": 5, "strand": "fiqh", "t": ["صلاة الجمعة والعيدين", "Friday and Eid prayers"]},
+    {"code": "1.3.1.4.G6", "year": 6, "strand": "fiqh", "t": ["أركان الصلاة وسننها ومكروهاتها", "Pillars, sunnahs and disliked acts of prayer"]},
+    {"code": "1.3.1.4.G7", "year": 7, "strand": "fiqh", "t": ["رخص الطهارة والصلاة", "Concessions in purification and prayer"]},
+    {"code": "3.3.1.4.G7", "year": 7, "strand": "fiqh", "t": ["صلاة التطوع", "Voluntary prayers"]},
+    {"code": "2.3.1.4.G7", "year": 7, "strand": "fiqh", "t": ["سنن الفطرة وأحكام الغسل", "Sunan al-fitra and rules of ghusl"]},
+    {"code": "5.3.1.1.G6", "year": 6, "strand": "tajweed", "t": ["النون الساكنة والتنوين", "Noon sakinah and tanween"]},
+    {"code": "3.3.1.1.G7", "year": 7, "strand": "tajweed", "t": ["أحكام الميم الساكنة", "Rules of meem sakinah"]}
+  ],
+  "edges": [
+    {"from": "1.2.1.4.G3", "to": "1.2.1.4.G5", "conf": "h"},
+    {"from": "1.2.1.4.G5", "to": "2.2.1.4.G5", "conf": "h"},
+    {"from": "1.2.1.4.G3", "to": "1.3.1.4.G6", "conf": "h"},
+    {"from": "1.3.1.4.G6", "to": "1.3.1.4.G7", "conf": "h"},
+    {"from": "1.2.1.4.G3", "to": "1.3.1.4.G7", "conf": "h"},
+    {"from": "1.3.1.4.G6", "to": "3.3.1.4.G7", "conf": "h"},
+    {"from": "1.2.1.4.G3", "to": "2.3.1.4.G7", "conf": "l"},
+    {"from": "5.3.1.1.G6", "to": "3.3.1.1.G7", "conf": "h"}
+  ],
+  "untestable": [
+    "المد (ص8) بلا متطلب موثوق",
+    "مخرجات التلاوة وفق التجويد (ص6–9): لا أسئلة في البنك، فتبقى أهدافًا لا عقدًا قابلة للتشخيص",
+    "آداب المجالس (ص7) وهدايات الأحاديث: بلا أسئلة"
+  ]
+}

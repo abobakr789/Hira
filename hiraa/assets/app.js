@@ -15511,6 +15511,7 @@ padding:.25em 1.6em;border:1.5px solid #C9A85C;border-radius:999px;background:li
       if (p0 === "enrich") return pageEnrich(params);
       if (p0 === "enrich-mark") return pageEnrichMark(params);
       if (p0 === "maarij") { setNav("maarij"); return window.HiraaMaarij ? window.HiraaMaarij({ h, sb, state, esc, parts, params, isStaff, lang: () => LANG }) : h('<div class="wrap loading">…</div>'); }
+      if (p0 === "diagnose") { setNav("maarij"); return window.HiraaDiagnose ? window.HiraaDiagnose({ h, sb, state, esc, parts, params, isStaff, lang: () => LANG }) : h('<div class="wrap loading">…</div>'); }
       if (p0 === "igcse-cards") return pageIgcseCards(params);
       if (p0 === "igcse-guide") return pageIgcseGuide();
       if (p0 === "igcse-unit" && parts[1]) return pageIgcseUnit(+parts[1]);
