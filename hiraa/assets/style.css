@@ -3069,3 +3069,10 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .jr-dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-inline-end:3px;vertical-align:middle}
 .jr-top{margin:0;padding-inline-start:20px;line-height:1.6}.jr-top li{margin-bottom:8px}
 @media (max-width:700px){.jr-hero{flex-direction:column;text-align:center}.jr-act,.jr-prog{justify-content:center}.jr-grid{grid-template-columns:1fr}}
+
+/* أيقونة ملء الشاشة: رسم SVG بدل الرمز ⛶ الذي لا تعرضه بعض الخطوط (يظهر مربعًا فارغًا) */
+.fs-ic::before{content:"";display:inline-block;width:1.05em;height:1.05em;vertical-align:-.17em;margin-inline-end:.4em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5'/%3E%3C/svg%3E") center/contain no-repeat}
+.fs-ic:empty::before{margin-inline-end:0}
+/* قارئ المصحف في نص الدرس: ما بعد الآيات (تعريف أو حديث) يظهر تحت القارئ، ويُخفى ما دام النص الأصلي معروضًا كاملًا */
+.mus-after{margin-top:14px;line-height:2}.mus-after p{margin:0 0 8px}
+.mus:not(:has(.mus-box)) + .mus-after{display:none}
