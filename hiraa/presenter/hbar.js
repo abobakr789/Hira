@@ -123,7 +123,7 @@
     "@media (max-width:1180px){#tb.hb #hbZ,#tb.hb #hbKeys{display:none}#tb.hb .hb-sep{margin:0 2px}#tb.hb .hb-r{gap:3px;padding:0 6px}}",
     "@media (max-width:900px){#tb.hb .hb-r2 button.hb-b{min-width:30px;padding:0 4px}#tb.hb .hb-r2 .hb-b svg{width:18px;height:18px}}",
     "#tb.hb .hb-sw{width:18px;height:18px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.85);flex:none}",
-    "#tb.hb .hb-lbl{display:inline}",
+    "#tb.hb .hb-lbl{display:inline}#tb.hb .hb-r1 .hb-lbl{display:none}#tb.hb .hb-r1 button.hb-b{padding:0 8px}",
     "@media (max-width:1280px){#tb.hb .hb-r1 .hb-lbl{display:none}#tb.hb .hb-r1 button.hb-b{padding:0 8px}}",
     "@media (max-width:760px){#tb.hb .hb-logo span,#tb.hb .hb-sub{display:none}}",
     /* لوحات منبثقة خاصة بالشريط */
