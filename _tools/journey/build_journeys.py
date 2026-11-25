@@ -331,13 +331,72 @@ def patch_l08():
         b = b.replace('const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";', 'const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";if(d.book&&d.book.body)BOOK=d.book;', 1)
     if '.kw.nk{' not in b:
         b = b.replace('.kw.seen::after{content:"✓";background:var(--green)}', '.kw.seen::after{content:"✓";background:var(--green)}\n.kw.nk{cursor:default}.kw.nk::after{display:none}\n.scene.verse .txt{line-height:2.3;font-family:"Thmanyah Display",serif}', 1)
+    b = b.replace('if(d.book&&d.book.body)BOOK=d.book;', 'if(d.book&&d.book.body&&!window.__ownBook)BOOK=d.book;')
+    if 'total:STATIONS.length' not in b:
+        b = b.replace('S.meta={crit:CRIT.map(c=>c.t.replace(/[\\u064B-\\u0652]/g,""))};', 'S.meta={crit:CRIT.map(c=>c.t.replace(/[\\u064B-\\u0652]/g,"")),total:STATIONS.length};', 1)
     if '.scene>div{position:relative;z-index:1}' not in b:
         b = b.replace('.scene .txt{', '.scene>div{position:relative;z-index:1}\n.scene .txt{', 1)
     open(BASE, 'w', encoding='utf-8').write(b)
 
 
+IE_TAIL_PATCHES = [
+    ('قِصَّةُ «الْمَحَبَّةُ في رَمَضانَ» · ', '«${D.title}» · '),
+    ('رحلة «المحبة في رمضان»', 'رحلة «${esc(D.titlePlain)}»'),
+    ('<h3>🎙️ طفلكم يحكي القصة</h3>', '<h3>🎙️ صوت طفلكم</h3>'),
+    ('<h3>🎙️ حكاية القصة</h3><p>حكى طفلكم القصة بصوته؛ اطلبوا منه أن يحكيها لكم مرة أخرى.</p>',
+     '<h3>🎙️ بصوت طفلكم</h3><p>عبّر طفلكم بصوته عن حبه لربه وشكره؛ اطلبوا منه أن يقولها لكم.</p>'),
+    ('<ul><li>ماذا تحب هناء أن تسمع في ليالي رمضان؟</li><li>من يحكي القصة؟ وكيف عرفت؟</li><li>ما العمل الذي تحب أن تسعد به غيرك في رمضان؟ ولماذا؟</li></ul>',
+     '<ul>${D.talk.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>'),
+]
+CARD_OLD = '${S.card?`<div class="sec" style="background:#FFF9EC"><h3>💛 بطاقة طفلكم</h3><p style="font-size:20px">${S.card.icon} أكثر شيء أحبه في رمضان: <b>${S.card.love.replace(/[ًٌٍَُِّْ]/g,"")}</b>، ${S.card.why.replace(/[ًٌٍَُِّْ]/g,"")}.</p></div>`:""}'
+CARD_NEW = '${S.card?`<div class="sec" style="background:#FFF9EC"><h3>💛 ${S.card.head.replace(/[ًٌٍَُِّْ]/g,"")}</h3><p style="font-size:19px">وعد طفلكم: <b>${S.card.pledge.replace(/[ًٌٍَُِّْ]/g,"")}</b></p></div>`:""}'
+
+
+def build_ie(want):
+    """رحلات التربية الإسلامية: من بيانات ie_lessons.py (الكتاب المدرسي + عرض المعلم)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('ie_lessons', os.path.join(HERE, 'ie_lessons.py'))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    b = open(BASE, encoding='utf-8').read()
+    i_data = b.index('/* ================= بيانات الدرس')
+    i_state = b.index('/* ================= الحالة والحفظ')
+    i_st = b.index('/* ===== محطة القراءة')
+    i_fin = b.index('/* ================= الخاتمة')
+    rd = lambda n: open(os.path.join(HERE, n), encoding='utf-8').read()
+    done = []
+    for code, L in mod.LESSONS.items():
+        if want and code not in want:
+            continue
+        head = b[:i_data]
+        head = head.replace('<title>رحلة القنديل · المحبة في رمضان · حراء</title>', '<title>رحلة القنديل · ' + L['titlePlain'] + ' · حراء</title>')
+        head = head.replace('<b>رِحْلَةُ الْقِنْديلِ: الْمَحَبَّةُ في رَمَضانَ</b>', '<b>رِحْلَةُ الْقِنْديلِ: ' + L['title'] + '</b>')
+        head = head.replace('<small>اللغة العربية · الصف الأول · رحلة المذاكرة في البيت</small>', '<small>' + L['subject'] + ' · رحلة المذاكرة في البيت</small>')
+        head = head.replace('</style>', rd('ie.css') + '\n</style>', 1)
+        assert L['title'] in head and L['subject'] in head
+        D = {k: v for k, v in L.items() if k not in ('db_code', 'subject', 'weekLabel')}
+        data = json.dumps(D, ensure_ascii=False).replace('</', '<\\/')
+        tail = b[i_fin:]
+        patches = IE_TAIL_PATCHES + [
+            (CARD_OLD, CARD_NEW),
+            ('اللغة العربية · الصف الأول · ${new Date()', strip_d(L['subject']) + ' · ${new Date()'),
+            ('أسبوع العطاء: أضاء', L['weekLabel'] + ': أضاء'),
+        ]
+        for a2, c2 in patches:
+            if a2 not in tail:
+                raise SystemExit('IE tail patch not found: ' + a2[:60])
+            tail = tail.replace(a2, c2)
+        html = (head + rd('ie-data.js').replace('__DATA__', data) + '\n' + b[i_state:i_st] + rd('book-read.js') + '\n'
+                + rd('generic-render.js') + '\n' + rd('ie-render.js') + '\n' + tail)
+        out = os.path.join(ROOT, 'resources/ie', code, 'student-journey.html')
+        open(out, 'w', encoding='utf-8').write(html)
+        done.append(code)
+    print('built', len(done), 'IE journeys:', ' '.join(done))
+
+
 def main():
     patch_l08()
+    build_ie(set(sys.argv[1:]))
     tpl = make_template()
     decks = sorted(glob.glob(os.path.join(SRC, '*.deck.json')))
     all_learned = [(json.load(open(f))['code'], json.load(open(f))['learned']) for f in decks]

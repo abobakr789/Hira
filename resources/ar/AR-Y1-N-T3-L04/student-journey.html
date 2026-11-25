@@ -383,7 +383,7 @@ const fresh=()=>JSON.parse(JSON.stringify(S0));
 const load=k=>{try{const v=JSON.parse(localStorage.getItem(k)||"null");return v?Object.assign(fresh(),v):null}catch(e){return null}};
 const doneN=x=>Object.keys((x&&x.done)||{}).filter(k=>x.done[k]).length;
 let S=EMBED?fresh():(load(KEY)||fresh());
-function save(){if(ROLE==="staff")return;S.meta={crit:CRIT.map(c=>c.t.replace(/[\u064B-\u0652]/g,""))};try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+function save(){if(ROLE==="staff")return;S.meta={crit:CRIT.map(c=>c.t.replace(/[\u064B-\u0652]/g,"")),total:STATIONS.length};try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
  try{if(EMBED&&ROLE==="student")window.parent.postMessage({type:"hiraa-journey",code:LESSON.code,state:S},location.origin)}catch(e){}}
 setInterval(()=>{if(!document.hidden&&ROLE!=="staff"){S.secs+=15;save()}},15000);
 
@@ -753,7 +753,7 @@ if(EMBED){
  const cl=h(`<button class="topbtn" id="jrClose" title="إغلاق" aria-label="إغلاق">✕</button>`);$("#top").appendChild(cl);
  cl.onclick=()=>{save();window.parent.postMessage({type:"hiraa-journey-close"},location.origin)};
  addEventListener("message",e=>{if(e.origin!==location.origin||e.source!==window.parent||!e.data||e.data.type!=="hiraa-journey-init")return;
-  const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";if(d.book&&d.book.body)BOOK=d.book;
+  const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";if(d.book&&d.book.body&&!window.__ownBook)BOOK=d.book;
   if(ROLE==="student"&&d.uid){KEY+="-"+d.uid;const loc=load(KEY),srv=d.state?Object.assign(fresh(),d.state):null;
    S=[loc,srv].filter(Boolean).sort((a,b)=>doneN(b)-doneN(a)||(b.secs||0)-(a.secs||0))[0]||fresh();}
   else if(ROLE!=="staff"){S=load(KEY)||fresh()}
