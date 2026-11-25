@@ -51,6 +51,8 @@
     bell: "M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21a2 2 0 0 0 4 0",
     bolt: "M13 2L4 14h7l-1 8 9-12h-7z",
     chat: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 9h8M8 13h5",
+    game: "M6 12h4M8 10v4M15 13h.01M18 11h.01M17.3 5H6.7a4 4 0 0 0-3.9 3.3l-1.2 6.5A3 3 0 0 0 4.5 18c.8 0 1.5-.4 2-1l1.5-2h8l1.5 2c.5.6 1.2 1 2 1a3 3 0 0 0 2.9-3.2l-1.2-6.5A4 4 0 0 0 17.3 5z",
+    clip: "M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1zM8 6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2M8 12h8M8 16h5",
     ice: "M3 11h9v9H3zM12 4h9v9h-9zM3 11l3-3h9M12 20l3-3M6 14h2M15 7h2",
     dice: "M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8 8h.01M16 8h.01M12 12h.01M8 16h.01M16 16h.01",
     notes: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h6",
@@ -183,6 +185,8 @@
     "#hbIceOv .ice-sum{margin:8px 0;font-size:22px;background:#FFF6DC;border-radius:14px;padding:12px}#hbIceOv .ice-cnt3{display:flex;align-items:center;gap:6px;border-radius:14px;color:#fff;padding:6px 10px;font-weight:700}#hbIceOv .ice-cnt3 b{font:800 26px 'Thmanyah Display',Tahoma,sans-serif;min-width:30px;text-align:center}#hbIceOv .ice-cnt3 button{width:34px;height:34px;border:0;border-radius:10px;background:rgba(255,255,255,.3);color:#fff;font-size:20px;cursor:pointer}#hbIceOv .ice-cnt3 small{font-size:13px}",
     "#hbIceOv .ice-stack{display:flex;height:14px;border-radius:999px;overflow:hidden}#hbIceOv .ice-stack i{display:block}#hbIceOv .ice-grow{font-weight:800;color:#0B5F3A}",
     "#hbIceOv .ice-goal{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 18px;background:#FFF6DD;border-bottom:1px solid #E8D9A8;color:#5A4410;font-size:17px;text-align:start}#hbIceOv .ice-goal .ice-gt{flex:1 1 280px}#hbIceOv .ice-goal b{color:#102A4C}#hbIceOv .ice-gb{border:1px solid #C4943A;background:#fff;color:#5A4410;border-radius:999px;padding:6px 14px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit}#hbIceOv .ice-gb.go{background:#C4943A;color:#102A4C}#hbIceOv .ice-gc{display:flex;gap:6px;align-items:center}#hbIceOv .ice-gc button{border:0;border-radius:12px;padding:6px 12px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;color:#fff}#hbIceOv .ice-hint{display:block;font-size:14px;color:#B45309;min-height:18px;margin-top:2px}#hbIceOv .ice-mdl{display:flex;gap:8px;justify-content:center;margin:6px 0}#hbIceOv .ice-hist{margin-top:14px;border-top:1px dashed #cfd6e2;padding-top:10px;text-align:start}#hbIceOv .ice-hist h4{margin:0 0 6px;font-size:18px;color:#102A4C}#hbIceOv .ice-hr{display:flex;gap:10px;align-items:center;font-size:15px;padding:4px 0;border-bottom:1px solid #eef1f6}#hbIceOv .ice-hr>span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#hbIceOv .ice-hr b{color:#0B5F3A}",
+    "#hbIceOv .ice-pil{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 14px}#hbIceOv .ice-pil span{border:2px solid #d5dbe6;border-radius:999px;padding:6px 14px;font-weight:800;font-size:16px;color:#7b8798;background:#fff}#hbIceOv .ice-pil span.dn{border-color:#15803D;background:#E8F6EE;color:#0B5F3A}#hbIceOv .ice-pilh{font-size:15px;color:#5a6577;margin:0 0 10px}",
+    "#hbWsOv{position:fixed;left:50%;top:calc(var(--hb-lay) + 50%);transform:translate(-50%,-50%);width:min(1200px,97vw);height:calc(100vh - var(--hb-lay) - 24px);z-index:31;display:none;flex-direction:column;background:#fff;color:#102A4C;border-radius:22px;box-shadow:0 30px 80px rgba(5,12,25,.5);overflow:hidden;font-family:'Thmanyah Text',Tahoma,sans-serif}#hbWsOv.on{display:flex}#hbWsOv .ws-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid #E6EBF2;background:#fff}#hbWsOv .ws-h b{font:800 22px 'Thmanyah Display','Thmanyah Text',Tahoma,sans-serif;margin-inline-end:6px}#hbWsOv .ws-h button{border:1px solid #cfd6e2;background:#fff;color:#102A4C;border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px;font-family:inherit;cursor:pointer}#hbWsOv .ws-h button.on{background:#102A4C;color:#fff;border-color:#102A4C}#hbWsOv .ws-sp{flex:1}#hbWsOv .ws-x{border:0!important;background:#F1F4F9!important;border-radius:50%!important;width:40px;height:40px;padding:0!important;font-size:18px!important}#hbWsOv .ws-fr{flex:1;border:0;width:100%;background:#fff}#hbWsOv .ws-wn{background:#FFF1F0;color:#B3261E;padding:6px 16px;font-weight:800;font-size:15px}#hbWsOv .ws-none{padding:60px 24px;text-align:center;font-size:22px;color:#5a6577}",
     "#hbIceOv .ice-bar{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:12px 16px;background:#F6F8FC;border-top:1px solid #E6EBF2;border-radius:0 0 22px 22px}#hbIceOv .ice-bl{font-weight:800;font-size:16px}",
     "#hbIceOv .ice-tm{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:14px;padding:8px 14px;color:#fff;font-weight:700;font-size:16px;font-family:inherit;font-family:inherit;cursor:pointer}#hbIceOv .ice-tm b{font:800 24px 'Thmanyah Display',Tahoma,sans-serif}#hbIceOv .ice-tm i{font-style:normal;background:rgba(255,255,255,.3);border-radius:999px;padding:2px 10px;font-weight:800}#hbIceOv .ice-tm:disabled{opacity:.4}",
     "#hbClassOv{position:fixed;left:50%;top:calc(var(--hb-lay) + 50%);transform:translate(-50%,-50%);width:min(1000px,94vw);max-height:calc(100vh - var(--hb-lay) - 40px);overflow:auto;z-index:30;display:none;background:#fff;color:#102A4C;border-radius:22px;box-shadow:0 30px 80px rgba(5,12,25,.45);font-family:'Thmanyah Text',Tahoma,sans-serif}",
@@ -305,6 +309,8 @@
     B("hbIce", "ice", T("كسر الجليد: أنشطة تنافسية من كلمات الدرس", "Ice-breakers: competitive activities from the lesson"), T("الجليد", "Ice")) +
     B("hbAct", "bolt", T("التعلّم النشط: أنشطة تفاعلية من الدرس", "Active learning: interactive lesson activities"), T("نشط", "Active")) +
     B("hbFb", "chat", T("الفيدباك: من المعلم ومن الأقران وتقييم ذاتي", "Feedback: teacher, peers and self-assessment"), T("فيدباك", "Feedback")) +
+      B("hbGm", "game", T("ألعاب وتقويم: مسابقة الصف وبطاقة الخروج وأركان الدرس", "Games & assessment: class quiz, exit ticket, lesson checklist"), T("ألعاب", "Games")) +
+      B("hbWs", "clip", T("أوراق العمل: ورقة الطالب والمجموعات ومفتاح الإجابة", "Worksheets: student, group, answer key"), T("أوراق", "Worksheets")) +
     B("hbClass", "cup", T("إدارة الصف: المجموعات والنقاط ومقياس الهدوء", "Class tools: groups, points, noise meter"), T("الصف", "Class")) +
     ($("bNo") ? B("hbNo", "notes", T("ملاحظات المعلم (N)", "Teacher notes (N)"), T("الملاحظات", "Notes")) : "") +
     ($("bE") ? B("hbE", "edit", T("تعديل نصوص الشريحة", "Edit slide text"), T("تعديل", "Edit")) : "") +
@@ -1042,7 +1048,8 @@
       bar.innerHTML = '<span class="ice-bl">🏆 ' + T("امنح النقاط:", "Award points:") + "</span>" + tms().map(function (t, i) { return '<button class="ice-tm" data-i="' + i + '" style="background:' + t.c + '"' + (prize > 0 ? "" : " disabled") + "><b>" + t.s + "</b><span>" + esc(t.n) + "</span><i>+" + prize + "</i></button>"; }).join("");
       bar.querySelectorAll(".ice-tm").forEach(function (b) { b.onclick = function () { if (W.__hbTeams && st.prize > 0) { W.__hbTeams.add(+b.dataset.i, st.prize); snd("correct"); burst(["⭐", "🎉"]); paintBar(st.prize); } }; });
     }
-    function closeIce() { stopT(); gedit = false; gchk = false; ov.classList.remove("on"); ["hbIce", "hbAct", "hbFb"].forEach(function (id) { var b = $(id); if (b) b.classList.remove("on"); }); if (W.__hbPush) W.__hbPush(); }
+    function closeIce() { stopT(); gedit = false; gchk = false; ov.classList.remove("on"); ["hbIce", "hbAct", "hbFb", "hbGm"].forEach(function (id) { var b = $(id); if (b) b.classList.remove("on"); }); if (W.__hbPush) W.__hbPush(); }
+    W.__hbCloseIce = closeIce;
     var ACT = [
       ["scr", "🔤", T("الكلمة المبعثرة", "Scrambled word"), T("حروف كلمة من الدرس مخلوطة، وأسرع فريق يرتّبها", "Letters of a lesson word are mixed; the fastest team unscrambles it")],
       ["mys", "🕵️", T("الكلمة الغامضة", "Mystery word"), T("تُكشف الحروف تدريجيًّا، وكلما خمّنتَ مبكرًا زادت الجائزة", "Letters are revealed one by one; the earlier the guess, the bigger the prize")],
@@ -1071,7 +1078,7 @@
       $("iceSave").onclick = function () { LS.set(KEY, $("iceKw").value); say(T("حُفظت كلمات الدرس", "Saved")); };
       $("iceSug").onclick = function () { LS.set(KEY, ""); $("iceKw").value = suggest().join("\n"); };
     }
-    function start(a) { stopT(); mode = a; st = { used: [] }; if (/^(scr|mys|twq|mem|hot|cmp)$/.test(a) && !kws().length) { say(T("أضف كلمة واحدة على الأقل", "Add at least one word")); mode = "menu"; return; } paint(); }
+    function start(a) { stopT(); if (HBTN[hub] && hub !== "gm") W.__hbMark(hub); mode = a; st = { used: [] }; if (/^(scr|mys|twq|mem|hot|cmp)$/.test(a) && !kws().length) { say(T("أضف كلمة واحدة على الأقل", "Add at least one word")); mode = "menu"; return; } paint(); }
     function paintScr() {
       var w = st.w || (st.w = pickWord()), arr = letters(w), sc = st.sc;
       if (!sc) { var t = 0; do { sc = shuffle(arr); t++; } while (sc.join("") === arr.join("") && t < 12 && arr.length > 1); st.sc = sc; }
@@ -1264,7 +1271,7 @@
       };
     }
     /* ================= التعلّم النشط والفيدباك (يشاركان لوحة الجليد ونقاط الفرق) ================= */
-    var HIC = { ice: "🧊", act: "🙌", fb: "💬" };
+    var HIC = { ice: "🧊", act: "🙌", fb: "💬", gm: "🎮" };
     var STU = function () { return LS.get("hb-names", "").split(/\n|،|,/).map(function (x) { return x.trim(); }).filter(Boolean); };
     var saveNote = function (g, x) {
       var k = "hb-notes-" + DECK, a = []; try { a = JSON.parse(LS.get(k, "[]")) || []; } catch (e) {}
@@ -1275,6 +1282,12 @@
     var jget = function (k) { try { return JSON.parse(LS.get(k, "{}")) || {}; } catch (e) { return {}; } };
     var curTitle = function () { return stTitle(cur) || title; };
     /* هدف الدرس وسجلّ النمو */
+    var PILK = "hb-pil-" + DECK;
+    var pilGet = function () { try { return JSON.parse(sessionStorage.getItem(PILK) || "{}") || {}; } catch (e) { return {}; } };
+    W.__hbMark = function (k) { try { var o = pilGet(); if (!o[k]) { o[k] = 1; sessionStorage.setItem(PILK, JSON.stringify(o)); } } catch (e) {} };
+    var PILS = [["ice", "🧊", T("كسر الجليد", "Ice-breaker")], ["act", "🙌", T("تعلّم نشط", "Active learning")], ["fb", "💬", T("فيدباك", "Feedback")], ["ws", "📄", T("أوراق عمل", "Worksheets")], ["qz", "🏆", T("مسابقة الصف", "Class quiz")], ["ex", "🎟", T("بطاقة الخروج", "Exit ticket")], ["gc", "🎯", T("تحقّق الهدف", "Goal check")]];
+    var pilHtml = function () { var o = pilGet(), n = PILS.filter(function (x) { return o[x[0]]; }).length; return '<p class="ice-pilh">' + T("أركان هذه الحصة: ", "This lesson's pillars: ") + "<b>" + n + "/" + PILS.length + '</b></p><div class="ice-pil">' + PILS.map(function (x) { return '<span class="' + (o[x[0]] ? "dn" : "") + '">' + (o[x[0]] ? "✅" : x[1]) + " " + x[2] + "</span>"; }).join("") + "</div>"; };
+    W.__hbFindSlide = function (re) { for (var k = 0; k < SL.length; k++) if (re.test(norm(stTitle(k)))) return k; return -1; };
     var GK = "hb-goal-" + DECK, GRK = "hb-growth", gedit = false, gchk = false;
     var gget = function () { try { return JSON.parse(LS.get(GRK, "[]")) || []; } catch (e) { return []; } };
     var gpush = function (o) { var a = gget(); a.push(Object.assign({ t: Date.now(), d: DECK, n: title, l: (W.__hbLiveId && W.__hbLiveId()) || 0 }, o)); LS.set(GRK, JSON.stringify(a.slice(-400))); };
@@ -1304,7 +1317,7 @@
       $("iceGe").onclick = function () { gedit = true; W.__hbPaintGoal(); };
       var c = $("iceGc"); if (c) c.onclick = function () { gchk = true; W.__hbPaintGoal(); };
       var x = $("iceGx"); if (x) x.onclick = function () { gchk = false; W.__hbPaintGoal(); };
-      g.querySelectorAll(".ice-gc button[data-v]").forEach(function (b) { b.onclick = function () { gpush({ k: "goal", g: +b.dataset.v, m: mode, o: txt.slice(0, 120) }); gchk = false; snd("chime"); say(T("سُجّلت في سجلّ النمو", "Logged in the growth record")); W.__hbPaintGoal(); }; });
+      g.querySelectorAll(".ice-gc button[data-v]").forEach(function (b) { b.onclick = function () { gpush({ k: "goal", g: +b.dataset.v, m: mode, o: txt.slice(0, 120) }); W.__hbMark("gc"); gchk = false; snd("chime"); say(T("سُجّلت في سجلّ النمو", "Logged in the growth record")); W.__hbPaintGoal(); }; });
     };
     var growHtml = function () {
       var a = gget().slice(-6).reverse(); if (!a.length) return "";
@@ -1330,13 +1343,28 @@
       ["pas", "📋", T("تقييم الأقران", "Peer assessment"), T("فريق يقيّم عمل فريق آخر على معايير، ويخرج بخطوة تطوير", "A team rates another team's work on criteria, ending with a next step")],
       ["sas", "🪞", T("التقييم الذاتي", "Self-assessment"), T("إشارة المرور قبل الدرس وبعده لقياس نموّ الصف", "Traffic lights before and after the lesson to see the class's growth")]
     ];
+    var lessonUrl = function () { var dir = location.pathname.split("/").slice(-2)[0] || "", code = dir.replace(/^IE-/, ""), pre = location.pathname.split("/resources/")[0]; return location.origin + pre + "/#/lesson/" + code; };
+    var GMK = [
+      ["qz", "🏆", T("مسابقة الصف كله", "Whole-class quiz"), T("أسئلة العرض نفسها بمؤقت ونقاط وترتيب، والطلاب يجيبون من أجهزتهم (تحتاج حصة مباشرة)", "The deck's own questions with a timer, points and a leaderboard; students answer on their devices (needs a live lesson)")],
+      ["ex", "🎟", T("بطاقة الخروج", "Exit ticket"), T("تُرسل لأجهزة الطلاب، أو تنتقل إلى شريحتها إن لم تكن الحصة مباشرة", "Sent to student devices, or jumps to its slide when not live")],
+      ["qk", "🔔", T("تحدّي حراء السريع", "Quick Hiraa challenge"), T("ينقلك إلى شريحة الأسئلة السريعة في العرض", "Jumps to the quick-questions slide")],
+      ["lg", "🎮", T("ألعاب الدرس على المنصة", "Lesson games on the platform"), T("تفتح صفحة الدرس في تبويب جديد (اختر «ألعاب الدرس»)، ويبقى العرض مفتوحًا", "Opens the lesson page in a new tab (pick “Lesson games”); the deck stays open")],
+      ["ic", "🧊", T("ألعاب كسر الجليد", "Ice-breaker games"), T("ألعاب سريعة تصلح للبداية أو لإعادة النشاط", "Quick games for starting or re-energising")]
+    ];
+    var GMF = {
+      qz: function () { if (W.__hbQuiz) W.__hbQuiz(); },
+      ex: function () { if (W.__hbExit) W.__hbExit(); },
+      qk: function () { var k = W.__hbFindSlide(/تحدي حراء/); if (k < 0) { say(T("لا توجد شريحة تحدّي في هذا العرض", "No challenge slide in this deck")); return; } closeIce(); go(k); },
+      lg: function () { window.open(lessonUrl(), "_blank", "noopener"); },
+      ic: function () { openHub("ice"); }
+    };
     function paintHub() {
-      var L = hub === "act" ? ACTV : FBK;
-      shell(hub === "act" ? T("التعلّم النشط", "Active learning") : T("الفيدباك", "Feedback"),
-        '<p class="ice-lead">' + (hub === "act" ? T("أنشطة يتحرّك فيها الطلاب ويفكّرون ويتعاونون، مرتبطة بدرس «", "Activities where students think, move and collaborate, linked to the lesson «") + esc(title) + "»" : T("فيدباك من المعلم، ومن الطلاب لبعضهم، ومن الطالب لنفسه", "Feedback from teacher, from peers, and from the learner himself")) + '</p><div class="ice-grid">' +
+      var L = hub === "act" ? ACTV : hub === "fb" ? FBK : GMK;
+      shell(hub === "act" ? T("التعلّم النشط", "Active learning") : hub === "fb" ? T("الفيدباك", "Feedback") : T("ألعاب وتقويم", "Games & assessment"),
+        (hub === "gm" ? pilHtml() : "") + '<p class="ice-lead">' + (hub === "act" ? T("أنشطة يتحرّك فيها الطلاب ويفكّرون ويتعاونون، مرتبطة بدرس «", "Activities where students think, move and collaborate, linked to the lesson «") + esc(title) + "»" : hub === "fb" ? T("فيدباك من المعلم، ومن الطلاب لبعضهم، ومن الطالب لنفسه", "Feedback from teacher, from peers, and from the learner himself") : T("اختم الحصة بتقويم يُظهر ما تعلّمه الصف فعلًا", "Close the lesson with an assessment that shows what the class really learned")) + '</p><div class="ice-grid">' +
         L.map(function (a) { return '<button class="ice-card" data-a="' + a[0] + '"><span class="ice-ic">' + a[1] + "</span><b>" + a[2] + "</b><small>" + a[3] + "</small></button>"; }).join("") + "</div>" +
         (hub === "act" ? '<p class="ice-note" style="margin-top:14px">' + T("«خريطة المفاهيم» تأخذ كلماتها من لوحة «الجليد» (كلمات الدرس) ويمكنك تعديلها هناك.", "“Concept map” uses the lesson words from the Ice panel; edit them there.") + "</p>" : ""));
-      ov.querySelectorAll(".ice-card").forEach(function (b) { b.onclick = function () { start(b.dataset.a); }; });
+      ov.querySelectorAll(".ice-card").forEach(function (b) { b.onclick = function () { if (hub === "gm") GMF[b.dataset.a](); else start(b.dataset.a); }; });
     }
     /* --- التعلّم النشط --- */
     var TPS_S = [["🤔", T("فكّر وحدك", "Think alone"), 30, 1], ["👥", T("زاوج مع زميل", "Pair up"), 60, 0], ["📣", T("شارك الصف", "Share")  , 90, 0]];
@@ -1495,9 +1523,32 @@
     }
     var letPick = function () { st.L = LETS[Math.floor(Math.random() * LETS.length)]; st.cat = CATS[Math.floor(Math.random() * CATS.length)]; };
     function paint() { stopT(); if (mode === "menu") paintMenu(); else if (mode === "scr") paintScr(); else if (mode === "mys") paintMys(); else if (mode === "twq") paintTwq(); else if (mode === "brn") paintBrn(); else if (mode === "mem") paintMem(); else if (mode === "let") paintBrn(); else if (mode === "lin") paintLine(); else if (mode === "num") paintNum(); else if (mode === "cor") paintCor(); else if (mode === "tf") paintTf(); else if (mode === "buz") paintBuz(); else if (mode === "prd") paintPrd(); else if (mode === "hot") paintHot(); else if (mode === "tps") paintTps(); else if (mode === "jig") paintJig(); else if (mode === "sqs") paintSqs(); else if (mode === "cmp") paintCmp(); else if (mode === "deb") paintDeb(); else if (mode === "omp") paintOmp(); else if (mode === "tfb") paintTfb(); else if (mode === "pfb") paintPfb(); else if (mode === "pas") paintPas(); else if (mode === "sas") paintSas(); kick(); }
-    var HBTN = { ice: "hbIce", act: "hbAct", fb: "hbFb" };
-    var openHub = function (h) { closePops(); var co = $("hbClassOv"); if (co) co.classList.remove("on"); $("hbClass").classList.remove("on"); if (ov.classList.contains("on") && hub === h) { closeIce(); return; } stopT(); hub = h; mode = "menu"; st = {}; ov.classList.add("on"); ["hbIce", "hbAct", "hbFb"].forEach(function (id) { var b = $(id); if (b) b.classList.toggle("on", id === HBTN[h]); }); paint(); };
-    on("hbIce", function () { openHub("ice"); }); on("hbAct", function () { openHub("act"); }); on("hbFb", function () { openHub("fb"); });
+    var HBTN = { ice: "hbIce", act: "hbAct", fb: "hbFb", gm: "hbGm" };
+    var openHub = function (h) { closePops(); var co = $("hbClassOv"); if (co) co.classList.remove("on"); $("hbClass").classList.remove("on"); if (ov.classList.contains("on") && hub === h) { closeIce(); return; } stopT(); if (W.__hbWsClose) W.__hbWsClose(); hub = h; mode = "menu"; st = {}; ov.classList.add("on"); ["hbIce", "hbAct", "hbFb", "hbGm"].forEach(function (id) { var b = $(id); if (b) b.classList.toggle("on", id === HBTN[h]); }); paint(); };
+    on("hbIce", function () { openHub("ice"); }); on("hbAct", function () { openHub("act"); }); on("hbFb", function () { openHub("fb"); }); on("hbGm", function () { openHub("gm"); });
+    /* ---------- أوراق العمل: ملفات الدرس نفسها فوق العرض ---------- */
+    var wsOv = mk("div", "hbWsOv"); wsOv.dir = RTL ? "rtl" : "ltr"; stop(wsOv);
+    var WSF = [["worksheets-A4.html", "📝", T("ورقة الطالب", "Student worksheet")], ["group-work.html", "👥", T("عمل المجموعات", "Group work")], ["pod-sheet.html", "🧩", T("ورقة الفريق", "Team sheet")], ["answer-key.html", "🔑", T("مفتاح الإجابة", "Answer key")]];
+    var wsBase = location.href.split("#")[0].split("?")[0].replace(/[^/]*$/, ""), wsAvail = null, wsCur = "";
+    var wsLoad = function (cb) { if (wsAvail) return cb(); wsAvail = {}; var n = WSF.length; WSF.forEach(function (f) { fetch(wsBase + f[0], { method: "HEAD" }).then(function (r) { wsAvail[f[0]] = r.ok; }).catch(function () { wsAvail[f[0]] = false; }).then(function () { if (!--n) cb(); }); }); };
+    var wsClose = function () { wsOv.classList.remove("on"); var b = $("hbWs"); if (b) b.classList.remove("on"); };
+    W.__hbWsClose = wsClose;
+    function wsPaint() {
+      var have = WSF.filter(function (f) { return wsAvail[f[0]]; });
+      if (!have.some(function (f) { return f[0] === wsCur; })) wsCur = have.length ? have[0][0] : "";
+      wsOv.innerHTML = '<div class="ws-h"><b>📄 ' + T("أوراق العمل", "Worksheets") + "</b>" + have.map(function (f) { return '<button data-f="' + f[0] + '" class="' + (f[0] === wsCur ? "on" : "") + '">' + f[1] + " " + f[2] + "</button>"; }).join("") + '<span class="ws-sp"></span>' + (have.length ? '<button id="wsPr">🖨 ' + T("اطبع", "Print") + '</button><button id="wsNt">↗ ' + T("تبويب جديد", "New tab") + "</button>" : "") + '<button class="ws-x" id="wsX" aria-label="' + T("إغلاق", "Close") + '">✕</button></div>' +
+        (wsCur === "answer-key.html" ? '<div class="ws-wn">🔒 ' + T("للمعلم فقط — لا تعرضه على الطلاب قبل انتهاء العمل", "Teacher only — don't show it to students before the work is done") + "</div>" : "") +
+        (have.length ? '<iframe class="ws-fr" id="wsFr" src="' + wsBase + wsCur + '"></iframe>' : '<p class="ws-none">' + T("لا توجد أوراق عمل مرفوعة لهذا الدرس بعد.", "No worksheets have been uploaded for this lesson yet.") + "</p>");
+      $("wsX").onclick = wsClose;
+      wsOv.querySelectorAll("[data-f]").forEach(function (b) { b.onclick = function () { wsCur = b.dataset.f; wsPaint(); }; });
+      var pr = $("wsPr"); if (pr) pr.onclick = function () { try { var fr = $("wsFr"); fr.contentWindow.focus(); fr.contentWindow.print(); } catch (e) { window.open(wsBase + wsCur, "_blank", "noopener"); } };
+      var nt = $("wsNt"); if (nt) nt.onclick = function () { window.open(wsBase + wsCur, "_blank", "noopener"); };
+    }
+    on("hbWs", function () {
+      if (wsOv.classList.contains("on")) { wsClose(); return; }
+      closePops(); closeIce(); var co = $("hbClassOv"); if (co) co.classList.remove("on"); var cb = $("hbClass"); if (cb) cb.classList.remove("on");
+      wsLoad(function () { wsPaint(); wsOv.classList.add("on"); $("hbWs").classList.add("on"); W.__hbMark("ws"); });
+    });
   })();
 
   /* ---------- دعم القراءة والتمايز ---------- */
@@ -2105,12 +2156,25 @@
     }
     var exitAsked = false;
     function ask(q, known, quiet) {
-      if (q.t === "exit") exitAsked = true;
+      if (q.t === "exit") { exitAsked = true; if (W.__hbMark) W.__hbMark("ex"); }
       var tx = $("hbQt"); if (tx && tx.value.trim() && !q.text) q.text = tx.value.trim();
       q.slide = q.slide != null ? q.slide : cur; q.at = Date.now();
       return step("ask", q).then(function () { S.q = q; answers = []; pick = known != null ? known : null; closePops(); chip.classList.remove("on"); if (quiet) return; minimized = false; resP.classList.remove("mini"); resP.classList.add("on"); paintRes(); say(T("وصل السؤال إلى أجهزة الطلاب", "Question sent to students")); });
     }
 
+    var liveOn = function () { return !!(S && S.state !== "done"); };
+    W.__hbQuiz = function () {
+      if (W.__hbCloseIce) W.__hbCloseIce();
+      if (!liveOn()) { say(T("ابدأ الحصة المباشرة أولًا ليدخل الطلاب بالرمز", "Start the live lesson first so students can join")); paintShare(); togglePop(sharePop, btnLive); return; }
+      paintAsk(); if (!askPop.classList.contains("on")) togglePop(askPop, btnAsk); var q = $("hbQzOpen"); if (q) q.click();
+    };
+    W.__hbExit = function () {
+      if (W.__hbCloseIce) W.__hbCloseIce();
+      if (liveOn()) { ask({ t: "exit", text: TYPES.exit }); return; }
+      var k = W.__hbFindSlide ? W.__hbFindSlide(/بطاقه الخروج/) : -1;
+      if (k < 0) { say(T("لا توجد شريحة بطاقة خروج في هذا العرض", "No exit-ticket slide in this deck")); return; }
+      go(k); if (W.__hbMark) W.__hbMark("ex");
+    };
     /* ---------- وضع المسابقة: أسئلة العرض نفسها بمؤقت ونقاط وترتيب ---------- */
     var QZ = null, quizOv = mk("div", "hbQuiz"); quizOv.dir = RTL ? "rtl" : "ltr"; stop(quizOv);
     function quizQs() { var out = []; SL.forEach(function (_, k) { slideQs(k).forEach(function (q) { if ((q.kind === "mc" || q.kind === "tf") && q.ans != null) out.push(Object.assign({ slide: k }, q)); }); }); return out; }
@@ -2122,7 +2186,7 @@
         '</div><div class="hb-row"><label class="hb-muted">⏱ ' + T("وقت السؤال", "Time per question") + ' <select id="hbQzT" class="hb-sel2" style="width:auto">' + [10, 20, 30, 45].map(function (t) { return '<option value="' + t + '"' + (t === +LS.get("hb-qz-t", "20") ? " selected" : "") + ">" + t + T(" ثانية", " s") + "</option>"; }).join("") + '</select></label><button type="button" class="hb-btn pri" id="hbQzGo">🏁 ' + T("ابدأ المسابقة", "Start the quiz") + "</button></div></div>";
       $("hbQzGo").onclick = function () { var pickL = L.filter(function (_, i) { var c = box.querySelector('[data-qz="' + i + '"]'); return c && c.checked; }); if (!pickL.length) return say(T("اختر سؤالًا واحدًا على الأقل", "Pick at least one question")); var sec = +$("hbQzT").value; LS.set("hb-qz-t", sec); startQuiz(pickL, sec); };
     }
-    function startQuiz(list, sec) { closePops(); resP.classList.remove("on"); QZ = { list: list, i: -1, sec: sec, sc: {}, st: {}, prev: {}, phase: "", tick: 0 }; quizOv.classList.add("on"); nextQ(); }
+    function startQuiz(list, sec) { if (W.__hbMark) W.__hbMark("qz"); closePops(); resP.classList.remove("on"); QZ = { list: list, i: -1, sec: sec, sc: {}, st: {}, prev: {}, phase: "", tick: 0 }; quizOv.classList.add("on"); nextQ(); }
     function nextQ() {
       clearInterval(QZ.tick); QZ.i++; var q = QZ.list[QZ.i]; QZ.phase = "q"; QZ.prev = Object.assign({}, QZ.sc);
       paintQuiz();
