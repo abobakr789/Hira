@@ -18,6 +18,8 @@ app='window.HIRAA_PREREQ='+_dump(_pre)+';window.HIRAA_PREREQS={islamic:window.HI
 css+='\n'+open(src+'assets/verse.css').read(); app=open(src+'assets/verse.js').read()+'\n'+app
 # واحة الطالب: تقدّمه في مشهد واحة
 css+='\n'+open(src+'assets/oasis.css').read(); app=open(src+'assets/oasis.js').read()+'\n'+app
+# البحث الشامل: دروس وآيات وأحاديث الدروس
+css+='\n'+open(src+'assets/search.css').read(); app=open(src+'assets/search.js').read()+'\n'+app
 # مدارج القراءة: تُحقن داخل app.js في موضع العلامة فتشارك دواله
 assert '  //@@READING@@\n' in app; app=app.replace('  //@@READING@@\n', open(src+'assets/reading.js').read()+'\n')
 anon="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzYmt0amJ3anlrZ3Rra3FmYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM1NDc2MTYsImV4cCI6MjEwOTEyMzYxNn0.ZR43uZNPdpnw8vhEf5Qr2ThHjRTZC2seCICDjiMfeW8"
