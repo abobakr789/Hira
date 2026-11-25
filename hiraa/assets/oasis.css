@@ -1,0 +1,11 @@
+.os-wrap{max-width:760px}
+.os-h{font-family:var(--font-brand);text-align:center;margin-bottom:4px}
+.os-sub{text-align:center;color:var(--muted);margin:0 0 14px}
+.os-svg{width:100%;height:auto;border-radius:20px;display:block;box-shadow:0 8px 24px rgba(15,42,61,.18)}
+.os-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px;text-align:center}
+.os-stats div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 4px}
+.os-stats b{display:block;font-size:24px;font-family:var(--font-brand)}
+.os-stats span{font-size:13px;color:var(--muted)}
+.os-next{text-align:center;margin-top:14px}
+.os-note{text-align:center;color:var(--muted)}
+@media(max-width:520px){.os-stats{grid-template-columns:repeat(2,1fr)}}
