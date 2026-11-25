@@ -2429,7 +2429,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125q", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125t", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -10597,13 +10597,27 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       try { sessionStorage.setItem("hiraa.after", "#/remote/" + key); } catch (e) {}
       h(`<section class="rm"><div class="rm-card"><div class="rm-big">📱</div><h2>${CT("جهاز التحكم بالعرض", "Presentation remote")}</h2><p>${CT("سجّل الدخول بحساب المعلم نفسه الذي فتح العرض، ثم امسح الرمز مرة أخرى.", "Sign in with the same teacher account that opened the presentation, then scan the code again.")}</p><a class="btn btn-dawn" href="#/login">${CT("تسجيل الدخول", "Sign in")}</a></div></section>`); return; }
     document.body.classList.add("rm-on");
-    let S = null, seen = 0, t0 = Date.now(), fz = 17;
+    let S = null, seen = 0, t0 = Date.now(), fz = 17, TL = [], tmEnd = 0, tmFired = 0, lsMin = +(localStorage.getItem("hb-rm-lesson") || 0), lsWarn = {}, allKey = "", hpSeen = 0, halfSeen = 0;
     h(`<section class="rm" id="rm"><div class="rm-top"><span class="rm-dot" id="rmDot"></span><b id="rmTitle">${CT("جارٍ الاتصال بالعرض…", "Connecting to the presentation…")}</b><span class="rm-clk" id="rmClk">00:00</span></div>
-      <div class="rm-now"><div class="rm-ct" id="rmCt">– / –</div><div class="rm-st" id="rmSt"></div><div class="rm-nx" id="rmNx"></div><div class="rm-bl" id="rmBl" hidden><span id="rmBlT"></span><button id="rmSkip">${CT("تخطَّ إلى الشريحة التالية ⏭", "Skip to next slide ⏭")}</button></div><div class="rm-live" id="rmLive" hidden></div></div>
+      <div class="rm-now"><div class="rm-ct" id="rmCt">– / –</div><div class="rm-st" id="rmSt"></div><div class="rm-nx" id="rmNx"></div><div class="rm-bl" id="rmBl" hidden><span id="rmBlT"></span><button id="rmSkip">${CT("تخطَّ إلى الشريحة التالية ⏭", "Skip to next slide ⏭")}</button></div><div class="rm-live" id="rmLive" hidden></div><div class="rm-mini" id="rmMini" hidden></div><div class="rm-help" id="rmHp" hidden><span id="rmHpT"></span><button id="rmHpX">${CT("تم", "Done")}</button></div></div>
       <div class="rm-notes" id="rmNt"></div>
-      <div class="rm-tools"><button id="rmFirst">⏮ ${CT("الأولى", "First")}</button><button id="rmBlack">🌑 ${CT("شاشة سوداء", "Black")}</button><button id="rmPick">🎲 ${CT("القرعة", "Pick")}</button><button id="rmA">A±</button></div>
+      <button class="rm-ans" id="rmAns" hidden>📖 ${CT("أظهر الإجابة النموذجية", "Show the model answer")}</button>
+      <div class="rm-media" id="rmMd" hidden><button id="rmMdB" aria-label="-10">⏪</button><button id="rmMdP" aria-label="play">⏯</button><button id="rmMdF" aria-label="+10">⏩</button><button id="rmMdD" aria-label="vol-">🔉</button><b id="rmMdV">80%</b><button id="rmMdU" aria-label="vol+">🔊</button><button id="rmMdM" aria-label="mute">🔇</button></div>
+      <div class="rm-tools"><button id="rmFirst">⏮ ${CT("الأولى", "First")}</button><button id="rmBlack">🌑 ${CT("شاشة سوداء", "Black")}</button><button id="rmPick">🎲 ${CT("القرعة", "Pick")}</button><button id="rmA">A±</button><button id="rmTool" class="rm-tl">⏱ ${CT("أدوات", "Tools")}</button></div>
       <div class="rm-pick" id="rmPk" hidden></div>
-      <div class="rm-nav"><button class="rm-prev" id="rmPrev">${CT("السابق", "Back")}</button><button class="rm-next" id="rmNext"><span>${CT("التالي", "Next")}</span><small id="rmNextS"></small></button></div><div class="rm-msg" id="rmMsg" hidden></div></section>`);
+      <div class="rm-nav"><button class="rm-prev" id="rmPrev">${CT("السابق", "Back")}</button><button class="rm-next" id="rmNext"><span>${CT("التالي", "Next")}</span><small id="rmNextS"></small></button></div><div class="rm-msg" id="rmMsg" hidden></div>
+      <div class="rm-sheet" id="rmSh" hidden><div class="rm-sh">
+        <div class="rm-shh"><b>${CT("أدوات الحصة", "Lesson tools")}</b><button id="rmShX" aria-label="${CT("إغلاق", "Close")}">✕</button></div>
+        <div class="rm-sec"><h4>⏱ ${CT("مؤقّت الصف", "Class timer")}</h4><div class="rm-tmbig" id="rmTmBig">00:00</div>
+          <div class="rm-chips" id="rmTmC">${[1, 2, 3, 5, 10, 15].map((m) => `<button data-s="${m * 60}">${m} ${CT("د", "min")}</button>`).join("")}</div>
+          <div class="rm-row"><button id="rmTmM">−30 ${CT("ث", "s")}</button><button id="rmTmGo" class="go">▶ ${CT("ابدأ", "Start")}</button><button id="rmTmP">+30 ${CT("ث", "s")}</button><button id="rmTmX">■ ${CT("إلغاء", "Clear")}</button></div>
+          <p class="rm-hint">${CT("يظهر المؤقّت على شاشة الصف وعلى أجهزة الطلاب، وتنبّهك الاهتزازة عند الانتهاء.", "It shows on the class screen and on students' devices, and your phone vibrates at the end.")}</p></div>
+        <div class="rm-sec"><h4>🔔 ${CT("التنبيه", "Alert")}</h4><div class="rm-row"><button id="rmBell" class="go">🔔 ${CT("انتباه", "Attention")}</button><button id="rmSnd">🔊 ${CT("الصوت", "Sound")}</button></div></div>
+        <div class="rm-sec"><h4>🕒 ${CT("ساعة الحصة", "Lesson clock")}</h4><div class="rm-chips" id="rmLsC">${[30, 35, 40, 45, 60].map((m) => `<button data-m="${m}">${m} ${CT("د", "min")}</button>`).join("")}</div>
+          <div class="rm-row"><button id="rmLsGo" class="go">▶ ${CT("ابدأ الحصة الآن", "Start the lesson now")}</button><button id="rmLsX">■ ${CT("إخفاء", "Hide")}</button></div>
+          <p class="rm-hint">${CT("تُظهر لك المتبقّي من الحصة، وهل تسير الشرائح على المسار أم متأخرة.", "Shows the time left and whether the slides are on pace.")}</p></div>
+        <div class="rm-sec"><h4>🧭 ${CT("انتقل إلى شريحة", "Jump to a slide")}</h4><div class="rm-jl" id="rmJl"></div></div>
+      </div></div></section>`);
     const ch = sb.channel("hbr-" + key, { config: { broadcast: { self: false } } });
     let cid = 0, pend = null;
     const msg = (t) => { const m = document.getElementById("rmMsg"); if (!m) return; m.hidden = !t; m.textContent = t || ""; };
@@ -10628,6 +10642,47 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       $r("rmNextS").textContent = bl ? CT("يُظهر العنصر التالي", "reveals the next item") : (S.cur < S.n - 1 ? CT("الشريحة ", "slide ") + (S.cur + 2) : "");
       $r("rmPrev").disabled = S.cur === 0 && bl === bt; $r("rmNext").disabled = S.cur >= S.n - 1 && !bl;
       $r("rm").classList.toggle("rm-blk", !!S.black);
+      if (S.tl && S.tl.length) TL = S.tl;
+      paintJl();
+      /* الوسائط: شريط الصوت يظهر فقط إن كان في الشريحة فيديو أو صوت */
+      const md = S.md; $r("rmMd").hidden = !md;
+      if (md) { $r("rmMdV").textContent = md.mu ? "🔇" : md.v + "%"; $r("rmMdP").textContent = md.p ? "▶" : "⏸"; $r("rmMdM").classList.toggle("on", !!md.mu); }
+      $r("rmAns").hidden = !S.ma;
+      /* طلبات المساعدة: اهتزاز عند ظهور اسم جديد */
+      const hpn = S.hp || []; $r("rmHp").hidden = !hpn.length; $r("rmHpT").textContent = "✋ " + CT("يحتاجون مساعدة: ", "Need help: ") + hpn.join(CT("، ", ", "));
+      if (hpn.length > hpSeen) { try { navigator.vibrate && navigator.vibrate([60, 40, 60]); } catch (e) {} } hpSeen = hpn.length;
+      const tm = S.tm; if (tm && !tm.d) tmFired = 0;
+      if (tm && tm.h && !halfSeen) { halfSeen = 1; try { navigator.vibrate && navigator.vibrate([150, 80, 150]); } catch (e) {} msg(CT("⏱ مضى نصف الوقت", "⏱ Half the time has passed")); setTimeout(() => msg(""), 3000); } else if (!tm || !tm.h) halfSeen = 0;
+      tmEnd = tm && tm.run ? Date.now() + tm.r * 1000 : 0; paintTm();
+      $r("rmSnd").textContent = S.snd === 0 ? "🔇 " + CT("الصوت متوقّف", "Sound off") : "🔊 " + CT("الصوت يعمل", "Sound on");
+      /* اكتمال إجابات الطلاب: اهتزاز واحد لكل سؤال */
+      if (S.live && S.live.q && S.live.p > 0) {
+        const k = S.cur + ":" + S.live.p;
+        if (S.live.a >= S.live.p) { if (allKey !== k) { allKey = k; try { navigator.vibrate && navigator.vibrate([90, 50, 90]); } catch (e) {} msg(CT("✅ أجاب جميع الطلاب", "✅ Everyone has answered")); setTimeout(() => msg(""), 2500); } } else allKey = "";
+      }
+    };
+    const paintJl = () => {
+      const jl = $r("rmJl"); if (!jl || !S || !TL.length) return; const sig = TL.length + ":" + S.cur; if (jl._s === sig) return; jl._s = sig;
+      jl.innerHTML = TL.map((t, i) => `<button data-k="${i}" class="${i === S.cur ? "on" : ""}"><i>${i + 1}</i><span>${esc(t || "—")}</span></button>`).join("");
+      jl.querySelectorAll("button").forEach((b) => b.onclick = () => { cmd("go", { k: +b.dataset.k }); $r("rmSh").hidden = true; });
+    };
+    const fmtM = (s) => String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+    const paintTm = () => {
+      const tm = S && S.tm, mini = $r("rmMini"); if (!mini) return; let s = 0;
+      if (tm) s = tm.run ? Math.max(0, Math.ceil((tmEnd - Date.now()) / 1000)) : tm.r;
+      const big = $r("rmTmBig"); if (big) { big.textContent = tm && tm.d ? "⏰" : fmtM(s); big.classList.toggle("low", !!(tm && tm.run && s <= 10)); }
+      const go = $r("rmTmGo"); if (go) go.textContent = tm && tm.run ? "⏸ " + CT("إيقاف", "Pause") : (tm && !tm.d && tm.r > 0 ? "▶ " + CT("استئناف", "Resume") : "▶ " + CT("ابدأ", "Start"));
+      if (tm && tm.run && s <= 0 && !tmFired) { tmFired = 1; try { navigator.vibrate && navigator.vibrate([300, 120, 300, 120, 500]); } catch (e) {} }
+      const parts = []; let late = false;
+      if (tm) parts.push(tm.d ? "⏰ " + CT("انتهى الوقت", "Time is up") : (tm.run ? "⏱ " : "⏸ ") + fmtM(s));
+      if (lsMin && S) {
+        const el = Math.floor((Date.now() - t0) / 1000), left = Math.max(0, lsMin * 60 - el), pace = (S.cur + 1) - Math.max(1, el / (lsMin * 60) * S.n);
+        late = pace <= -2;
+        parts.push("🕒 " + CT("يتبقّى ", "left ") + Math.ceil(left / 60) + CT(" د · ", " min · ") + (pace >= 2 ? CT("متقدّم", "ahead") : late ? CT("متأخّر", "behind") : CT("على المسار", "on pace")));
+        [[10, 600], [5, 300]].forEach(([m, sec]) => { if (left <= sec && left > sec - 6 && !lsWarn[m]) { lsWarn[m] = 1; try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch (e) {} msg("🕒 " + m + CT(" دقائق على نهاية الحصة", " min left in the lesson")); setTimeout(() => msg(""), 4000); } });
+      }
+      mini.classList.toggle("late", late); mini.hidden = !parts.length; mini.textContent = parts.join("   ·   ");
+      document.querySelectorAll("#rmLsC [data-m]").forEach((b) => b.classList.toggle("on", +b.dataset.m === lsMin));
     };
     ch.on("broadcast", { event: "state" }, (m) => { S = m.payload; seen = Date.now(); if (pend && (!S.id || S.id >= pend.id)) { clearTimeout(pend.t); pend = null; msg(""); } paint(); })
       .on("broadcast", { event: "pick" }, (m) => { const p = $r("rmPk"); if (!p) return; p.hidden = false; p.textContent = "🎲 " + (m.payload.name || ""); setTimeout(() => { if ($r("rmPk")) $r("rmPk").hidden = true; }, 6000); })
@@ -10637,11 +10692,23 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     let wl = null; const wake = async () => { try { if (navigator.wakeLock && document.visibilityState === "visible") wl = await navigator.wakeLock.request("screen"); } catch (e) {} };
     wake(); document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && location.hash.startsWith("#/remote")) { wake(); cmd("hello"); } });
     $r("rmBlack").onclick = () => cmd("black"); $r("rmPick").onclick = () => cmd("pick");
+    $r("rmTool").onclick = () => { $r("rmSh").hidden = false; paintTm(); }; $r("rmShX").onclick = () => { $r("rmSh").hidden = true; }; $r("rmMini").onclick = () => { $r("rmSh").hidden = false; };
+    $r("rmSh").onclick = (e) => { if (e.target.id === "rmSh") $r("rmSh").hidden = true; };
+    document.querySelectorAll("#rmTmC [data-s]").forEach((b) => b.onclick = () => cmd("tm", { a: "start", s: +b.dataset.s }));
+    $r("rmTmGo").onclick = () => cmd("tm", { a: S && S.tm && S.tm.run ? "pause" : "start" });
+    $r("rmTmM").onclick = () => cmd("tm", { a: "add", s: -30 }); $r("rmTmP").onclick = () => cmd("tm", { a: "add", s: 30 }); $r("rmTmX").onclick = () => cmd("tm", { a: "reset" });
+    $r("rmMdP").onclick = () => cmd("md", { a: "play" }); $r("rmMdB").onclick = () => cmd("md", { a: "seek", x: -10 }); $r("rmMdF").onclick = () => cmd("md", { a: "seek", x: 10 });
+    $r("rmMdD").onclick = () => cmd("md", { a: "vol", x: -10 }); $r("rmMdU").onclick = () => cmd("md", { a: "vol", x: 10 }); $r("rmMdM").onclick = () => cmd("md", { a: "mute" });
+    $r("rmAns").onclick = () => cmd("ans"); $r("rmHpX").onclick = () => cmd("hpclr");
+    $r("rmBell").onclick = () => cmd("bell"); $r("rmSnd").onclick = () => cmd("snd", { on: S && S.snd === 0 ? 1 : 0 });
+    document.querySelectorAll("#rmLsC [data-m]").forEach((b) => b.onclick = () => { lsMin = +b.dataset.m; lsWarn = {}; try { localStorage.setItem("hb-rm-lesson", String(lsMin)); } catch (e) {} paintTm(); });
+    $r("rmLsGo").onclick = () => { t0 = Date.now(); lsWarn = {}; if (!lsMin) { lsMin = 45; try { localStorage.setItem("hb-rm-lesson", "45"); } catch (e) {} } paintTm(); $r("rmSh").hidden = true; };
+    $r("rmLsX").onclick = () => { lsMin = 0; try { localStorage.removeItem("hb-rm-lesson"); } catch (e) {} paintTm(); };
     $r("rmA").onclick = () => { fz = fz >= 26 ? 14 : fz + 3; paint(); };
     state._livePoll = setInterval(() => {
       if (!location.hash.startsWith("#/remote")) { document.body.classList.remove("rm-on"); try { wl && wl.release(); } catch (e) {} liveStop(); return; }
       const s = Math.floor((Date.now() - t0) / 1000); $r("rmClk").textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
-      const ok = Date.now() - seen < 12000; $r("rmDot").classList.toggle("ok", ok);
+      paintTm(); const ok = Date.now() - seen < 12000; $r("rmDot").classList.toggle("ok", ok);
       if (!ok && S) $r("rmTitle").textContent = CT("انقطع الاتصال بالعرض… تأكد أنه ما زال مفتوحًا", "Lost the presentation… make sure it is still open");
       if (!ok) cmd("hello");
     }, 1000);
@@ -10654,7 +10721,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (!me) { location.hash = "#/live?join=1"; return; }
     const FACES = [["😟", CT("لم أتعلّمه بعد", "Not yet"), "#F28B82"], ["😐", CT("أعرف قليلًا", "A little"), "#FFD25C"], ["😊", CT("أستطيع وحدي", "I can do it"), "#7BCB8A"]];
     let L = null, key = "", mine = {}, editing = false, celebrated = -1;
-    const head = () => `<div class="dp-head"><span class="dp-live"><i></i>${CT("حصة مباشرة", "Live lesson")}</span><b>${esc(me.title || "")}</b><small>${CT("أهلًا", "Hi")} ${esc(me.nick)} 👋</small></div>`;
+    const head = () => `<div class="dp-head"><span class="dp-live"><i></i>${CT("حصة مباشرة", "Live lesson")}</span><b>${esc(me.title || "")}</b><small>${CT("أهلًا", "Hi")} ${esc(me.nick)} 👋</small><span class="dp-tmr" id="dpTmr" hidden></span></div>`;
     const send = async (ans) => {
       const { error } = await sb.rpc("dl_answer", { p_player: me.player, p_token: me.token, p_seq: L.q_seq, p_answer: ans });
       if (error) { toast(/closed/.test(error.message) ? CT("أغلق المعلم السؤال", "The teacher closed the question") : error.message); return false; }
@@ -10697,8 +10764,16 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const t = document.createElement("div"); t.innerHTML = html; const sec = t.firstElementChild;
       let shell = document.getElementById("dpShell");
       if (!shell) {
-        h(`<section class="dp" id="dpShell">${head()}<div class="dp-slide" id="dpSlide" hidden><div class="dp-sbox"><iframe id="dpFr" title="${CT("شريحة المعلم", "Teacher's slide")}"></iframe><button type="button" class="dp-sfull" id="dpFull" aria-label="${CT("تكبير الشريحة", "Enlarge the slide")}">⤢</button></div></div><div id="dpBody"></div></section>`);
+        h(`<section class="dp" id="dpShell">${head()}<div class="dp-slide" id="dpSlide" hidden><div class="dp-sbox"><iframe id="dpFr" title="${CT("شريحة المعلم", "Teacher's slide")}"></iframe><button type="button" class="dp-sfull" id="dpFull" aria-label="${CT("تكبير الشريحة", "Enlarge the slide")}">⤢</button></div></div><button type="button" class="dp-help" id="dpHelp">✋ ${CT("أحتاج مساعدة", "I need help")}</button><div id="dpBody"></div></section>`);
         shell = document.getElementById("dpShell");
+        /* طلب المساعدة: رسالة بث صغيرة إلى المعلم باسم الحصة، ثم تهدئة 30 ثانية لمنع التكرار */
+        document.getElementById("dpHelp").onclick = (e) => {
+          const b = e.currentTarget; if (b.disabled) return; b.disabled = true;
+          const c = sb.channel("hlp-" + me.live, { config: { broadcast: { self: false } } });
+          c.subscribe((st) => { if (st === "SUBSCRIBED") { c.send({ type: "broadcast", event: "help", payload: { n: me.nick } }); setTimeout(() => { try { sb.removeChannel(c); } catch (x) {} }, 1500); } });
+          b.textContent = "✅ " + CT("وصل طلبك للمعلم", "Your teacher has been told"); try { navigator.vibrate && navigator.vibrate(30); } catch (x) {}
+          setTimeout(() => { b.disabled = false; b.textContent = "✋ " + CT("أحتاج مساعدة", "I need help"); }, 30000);
+        };
         document.getElementById("dpFull").onclick = () => { const p = document.getElementById("dpSlide"); const on = !p.classList.contains("full"); p.classList.toggle("full", on); document.body.style.overflow = on ? "hidden" : ""; try { if (on && p.requestFullscreen) p.requestFullscreen().catch(() => {}); else if (!on && document.fullscreenElement) document.exitFullscreen(); } catch (e) {} };
         applyPos();
       }
@@ -10706,7 +10781,37 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const body = document.getElementById("dpBody"); body.innerHTML = "";
       if (sec) [...sec.children].forEach((c) => { if (!c.classList.contains("dp-head")) body.appendChild(c); });
     };
+    /* مؤقّت الصف وتنبيه «انتباه» من المعلم: يصلان ضمن موضع العرض (pos.tm و pos.bl) */
+    let tmA = null, tmIv = 0, blSeen = null;
+    const dpFmt = (s) => String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+    const dpBeep = (seq) => { try { const A = (window.__dpAc = window.__dpAc || new (window.AudioContext || window.webkitAudioContext)()); if (A.state === "suspended") A.resume(); const t0 = A.currentTime + 0.02; seq.forEach((n) => { const o = A.createOscillator(), g = A.createGain(), a = t0 + n[1]; o.type = "sine"; o.frequency.value = n[0]; g.gain.setValueAtTime(0.0001, a); g.gain.exponentialRampToValueAtTime(0.3, a + 0.03); g.gain.exponentialRampToValueAtTime(0.0001, a + n[2]); o.connect(g); g.connect(A.destination); o.start(a); o.stop(a + n[2] + 0.05); }); } catch (e) {} };
+    const tmTick = () => {
+      const el = document.getElementById("dpTmr"); if (!el) { clearInterval(tmIv); return; }
+      if (!tmA) { el.hidden = true; return; }
+      el.hidden = false;
+      if (tmA.d) { el.textContent = "⏰ " + CT("انتهى الوقت", "Time is up"); el.className = "dp-tmr end"; return; }
+      if (tmA.e == null) { el.textContent = "⏸ " + dpFmt(tmA.r || 0); el.className = "dp-tmr"; return; }
+      const s = Math.max(0, Math.ceil((tmA.e - Date.now()) / 1000));
+      if (s <= 0) {
+        el.textContent = "⏰ " + CT("انتهى الوقت", "Time is up"); el.className = "dp-tmr end";
+        if (!tmA.fired) { tmA.fired = 1; dpBeep([[880, 0, 0.5], [1175, 0.35, 0.5], [1568, 0.7, 1.0]]); try { navigator.vibrate && navigator.vibrate([200, 100, 200, 100, 400]); } catch (e) {} }
+        if (Date.now() - tmA.e > 8000) { tmA = null; clearInterval(tmIv); el.hidden = true; }
+        return;
+      }
+      el.textContent = "⏱ " + dpFmt(s); el.className = "dp-tmr" + (s <= 10 ? " low" : "");
+    };
+    const tmApply = (p) => {
+      const t = p && p.tm, sig = t ? JSON.stringify(t) : "";
+      if (!t) tmA = null;
+      else if (!tmA || tmA.sig !== sig) { tmA = Object.assign({ sig }, t); if (t.e && Date.now() - t.e > 8000) tmA = null; }
+      clearInterval(tmIv); if (tmA && tmA.e != null) tmIv = setInterval(tmTick, 300); tmTick();
+      if (p && typeof p.bl === "number") {
+        if (blSeen != null && p.bl > blSeen) { toast("🔔 " + CT("انتباه: انظر إلى معلمك", "Attention: look at your teacher")); dpBeep([[784, 0, 0.35], [1047, 0.25, 0.6]]); try { navigator.vibrate && navigator.vibrate([120, 60, 120]); } catch (e) {} }
+        blSeen = p.bl;
+      }
+    };
     const applyPos = () => {
+      tmApply(L && L.state !== "done" ? L.pos : null);
       const panel = document.getElementById("dpSlide"); if (!panel) return;
       const p = L && L.pos, on = !!(L && p && p.on && L.deck && L.state !== "done");
       panel.hidden = !on; if (!on) return;

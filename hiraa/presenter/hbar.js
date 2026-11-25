@@ -221,7 +221,14 @@
     "#hbHint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);opacity:0;background:#0F2340;color:#fff;font:15px 'Thmanyah Text',Tahoma,sans-serif;padding:8px 16px;border-radius:12px;z-index:45;pointer-events:none;transition:opacity .25s,transform .25s;box-shadow:0 8px 24px rgba(0,0,0,.35)}",
     "#hbHint.on{opacity:1;transform:translateX(-50%)}",
     "#hbZone{position:fixed;left:0;right:0;top:0;height:14px;z-index:19;display:none}",
-    "@media (prefers-reduced-motion:reduce){#tb.hb,#hbDrawer,#wrap{transition:none!important}}"
+    /* مؤقّت الصف والتنبيه (يتحكّم فيهما الجوال) */
+    "#hbTm{position:fixed;bottom:22px;left:18px;z-index:46;display:none;align-items:center;gap:10px;background:rgba(15,35,64,.92);color:#FFF0C2;font:700 34px 'Thmanyah Text',Tahoma,sans-serif;direction:ltr;padding:8px 22px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.4);pointer-events:none}",
+    ".hb-dockon #hbTm{bottom:104px}#hbTm.on{display:flex}#hbTm b{font:800 46px ui-monospace,Menlo,monospace;letter-spacing:1px}",
+    "#hbTm.low{background:#B3261E;color:#fff;animation:hbTmP 1s infinite}#hbTm.end{background:#D4AA55;color:#1B1405;direction:rtl;animation:hbTmF .5s 6}",
+    "@keyframes hbTmP{50%{transform:scale(1.06)}}@keyframes hbTmF{50%{opacity:.35}}",
+    "#hbBell{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.8);z-index:47;opacity:0;pointer-events:none;background:#D4AA55;color:#1B1405;font:800 64px 'Thmanyah Text',Tahoma,sans-serif;padding:18px 44px;border-radius:28px;box-shadow:0 20px 60px rgba(0,0,0,.45);transition:opacity .25s,transform .25s}",
+    "#hbBell.on{opacity:1;transform:translate(-50%,-50%) scale(1)}",
+    "@media (prefers-reduced-motion:reduce){#tb.hb,#hbDrawer,#wrap{transition:none!important}#hbTm.low,#hbTm.end{animation:none!important}}"
   ].join("\n");
   D.head.appendChild(css);
 
@@ -1160,6 +1167,7 @@
     }
     bigDraw.addEventListener("click", function (e) { if (e.target === bigDraw) bigDraw.classList.remove("on"); });
     var btnLive = $("hbLive"), btnAsk = $("hbAsk"), badge = $("hbLiveN");
+    W.__hbLiveId = function () { return S && S.state !== "done" ? S.id : null; };
     W.__hbLiveInfo = function () { return { on: !!(S && S.state !== "done"), players: players.length, answered: answers.length, q: !!(S && S.q && S.state === "open") }; };
     /* شرائح «قياس التقدّم» في العرض: أولاها قبل الدرس وثانيتها بعده */
     var PR = SL.map(function (s, i) { return { i: i, rows: [].slice.call(s.querySelectorAll(".pr")).map(function (r) { return { v: ((r.querySelector(".vb") || {}).textContent || "").trim(), p: ((r.querySelector("p") || {}).textContent || "").trim() }; }) }; }).filter(function (x) { return x.rows.length; });
@@ -1321,10 +1329,12 @@
       clearTimeout(posT); posT = setTimeout(function () {
         if (!S) return; var sl = SL[cur]; if (!sl) return;
         var p = { k: cur, b: sl.querySelectorAll("[data-build-in]").length - sl.querySelectorAll("[data-build-in].hid").length, on: follow, black: black.classList.contains("on") };
+        var x = W.__hbPosX && W.__hbPosX(); if (x) { p.tm = x.tm; p.bl = x.bl; }
         var j = JSON.stringify(p); if (j === lastPos && !force) return; lastPos = j;
         sb.rpc("dl_step", { p_live: S.id, p_action: "pos", p_q: p }).then(function (r) { if (r && r.error) lastPos = ""; });
       }, 250);
     }
+    W.__hbPosKick = function () { sendPos(true); };
     new MutationObserver(function () { sendPos(); }).observe(stage, { subtree: true, attributes: true, attributeFilter: ["class"] });
     new MutationObserver(function () { sendPos(); }).observe(black, { attributes: true, attributeFilter: ["class"] });
     var roster = [];
@@ -1923,15 +1933,95 @@
     on("hbPV", openPV);
     W.addEventListener("pagehide", function () { try { if (pw && !pw.closed) pw.close(); } catch (e) {} });
 
+    /* ---------- مؤقّت الصف والتنبيه: يُشغَّلان من الجوال، ويظهران على شاشة الصف وأجهزة الطلاب ---------- */
+    var TM = { t: 0, end: 0, rem: 0, run: false, done: false }, tmBox = mk("div", "hbTm"), bellBox = mk("div", "hbBell"), tmIv = 0, bellT = 0, doneT = 0, bellN = 0, ac = null;
+    var sndOn = LS.get("hb-snd", "1") !== "0", tmHook = function () {};
+    tmBox.setAttribute("role", "timer"); bellBox.setAttribute("aria-live", "assertive");
+    var fmtT = function (s) { s = Math.max(0, Math.ceil(s)); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); };
+    var tmLeft = function () { return TM.run ? Math.max(0, TM.end - Date.now()) / 1000 : TM.rem; };
+    var tmActive = function () { return TM.t > 0 && (TM.run || TM.rem > 0 || TM.done); };
+    var audio = function () { try { if (!ac) ac = new (W.AudioContext || W.webkitAudioContext)(); if (ac.state === "suspended") ac.resume(); } catch (e) {} return ac; };
+    ["pointerdown", "keydown"].forEach(function (k) { D.addEventListener(k, function () { if (sndOn) audio(); }, true); });
+    var tone = function (seq) {
+      if (!sndOn) return; var A = audio(); if (!A) return; var t0 = A.currentTime + 0.02;
+      seq.forEach(function (n) { try { var o = A.createOscillator(), g = A.createGain(), a = t0 + n[1]; o.type = "sine"; o.frequency.value = n[0]; g.gain.setValueAtTime(0.0001, a); g.gain.exponentialRampToValueAtTime(0.35, a + 0.03); g.gain.exponentialRampToValueAtTime(0.0001, a + n[2]); o.connect(g); g.connect(A.destination); o.start(a); o.stop(a + n[2] + 0.05); } catch (e) {} });
+    };
+    var paintTm = function () {
+      var s = tmLeft(), vis = tmActive();
+      tmBox.classList.toggle("on", vis); tmBox.classList.toggle("low", TM.run && s <= 10); tmBox.classList.toggle("end", TM.done);
+      var h = TM.done ? "⏰ " + T("انتهى الوقت", "Time is up") : "⏱ <b>" + fmtT(s) + "</b>" + (TM.run ? "" : " ⏸");
+      if (tmBox._h !== h) { tmBox._h = h; tmBox.innerHTML = h; }
+    };
+    var tmFinish = function () {
+      clearInterval(tmIv); TM.run = false; TM.rem = 0; TM.done = true; paintTm();
+      tone([[880, 0, 0.5], [1175, 0.35, 0.5], [1568, 0.7, 1.0]]); tmHook();
+      clearTimeout(doneT); doneT = setTimeout(function () { TM.done = false; TM.t = 0; paintTm(); tmHook(); }, 8000);
+    };
+    var tmDo = function (a, s) {
+      s = Math.round(+s) || 0; clearTimeout(doneT);
+      if (a === "start") {
+        if (s > 0) { TM.t = Math.min(s, 5999); TM.end = Date.now() + TM.t * 1000; TM.run = true; TM.done = false; }
+        else if (!TM.run && TM.rem > 0) { TM.end = Date.now() + TM.rem * 1000; TM.run = true; TM.done = false; }
+      } else if (a === "pause") { if (TM.run) { TM.rem = tmLeft(); TM.run = false; } }
+      else if (a === "add") {
+        if (TM.run) { TM.end = Math.max(Date.now() + 1000, TM.end + s * 1000); TM.t = Math.max(TM.t, Math.ceil(tmLeft())); }
+        else if (TM.rem > 0) { TM.rem = Math.min(5999, Math.max(5, TM.rem + s)); TM.t = Math.max(TM.t, TM.rem); }
+      } else if (a === "reset") { TM.t = 0; TM.rem = 0; TM.run = false; TM.done = false; }
+      if (a === "start" && s > 0) TM.half = false;
+      clearInterval(tmIv); if (TM.run) tmIv = setInterval(function () {
+        var l = tmLeft();
+        if (l <= 0) return tmFinish();
+        if (!TM.half && TM.t >= 60 && l <= TM.t / 2) { TM.half = true; tone([[660, 0, 0.25], [660, 0.3, 0.25]]); say("⏱ " + T("مضى نصف الوقت", "Half the time has passed")); tmHook(); }
+        paintTm();
+      }, 250);
+      paintTm(); tmHook();
+    };
+    var bell = function () {
+      bellN++; tone([[784, 0, 0.35], [1047, 0.25, 0.6]]); bellBox.textContent = "🔔 " + T("انتباه", "Attention"); bellBox.classList.add("on");
+      clearTimeout(bellT); bellT = setTimeout(function () { bellBox.classList.remove("on"); }, 2600); tmHook();
+    };
+    /* ما يُضاف إلى موضع العرض المحفوظ ليصل أجهزة الطلاب: المؤقّت (وقت الانتهاء المطلق) وعدّاد التنبيه */
+    W.__hbPosX = function () { return { tm: tmActive() ? (TM.run ? { e: TM.end, t: Math.round(TM.t) } : TM.done ? { d: 1, t: Math.round(TM.t) } : { r: Math.round(TM.rem), t: Math.round(TM.t) }) : 0, bl: bellN }; };
+    W.__hbTimer = { do: tmDo, bell: bell };
+
     /* ---------- التحكم من الجوال ---------- */
     if (!LIVE) { var rb = $("hbRemote"); if (rb) rb.remove(); return; }
     var sb = HX.sb, rch = null, rkey = null, lastSeen = 0, remPop = mk("div", "hbRemPop");
     remPop.className = "pop hb-pop"; remPop.dir = RTL ? "rtl" : "ltr"; stop(remPop);
     var rUrl = function () { return String(HX.joinUrl).replace(/#\/live$/, "") + "#/remote/" + rkey; };
-    var state = function () { var L = liveInfo(); return { cur: cur, n: N, title: title, st: stTitle(cur), nx: cur + 1 < N ? stTitle(cur + 1) : "", nt: notesOf(cur).slice(0, 2500), black: black.classList.contains("on"), live: L && L.on ? { p: L.players, a: L.answered, q: !!L.q } : null, rtl: RTL, bt: SL[cur] ? SL[cur].querySelectorAll("[data-build-in]").length : 0, bl: SL[cur] ? SL[cur].querySelectorAll("[data-build-in].hid").length : 0, id: cmdId }; };
+    var withTl = false, state = function () { var L = liveInfo(); return { cur: cur, n: N, title: title, st: stTitle(cur), nx: cur + 1 < N ? stTitle(cur + 1) : "", nt: notesOf(cur).slice(0, 2500), black: black.classList.contains("on"), live: L && L.on ? { p: L.players, a: L.answered, q: !!L.q } : null, rtl: RTL, bt: SL[cur] ? SL[cur].querySelectorAll("[data-build-in]").length : 0, bl: SL[cur] ? SL[cur].querySelectorAll("[data-build-in].hid").length : 0, id: cmdId, tm: tmActive() ? { r: Math.round(tmLeft()), run: TM.run ? 1 : 0, t: Math.round(TM.t), d: TM.done ? 1 : 0, h: TM.half ? 1 : 0 } : null, md: mediaState(), ma: ansEl() ? 1 : 0, hp: hpList(), snd: sndOn ? 1 : 0, tl: withTl ? SL.map(function (x, i) { return stTitle(i).slice(0, 48); }) : undefined }; };
     var cmdId = 0, pushT = 0, pushSoon = function () { clearTimeout(pushT); pushT = setTimeout(push, 120); };
+    /* الفيديو والصوت داخل الشريحة: رفع وخفض وكتم وتشغيل وتقديم من الجوال */
+    var mediaEls = function () { var s = SL[cur], l = s ? [].slice.call(s.querySelectorAll("video,audio")) : []; [].forEach.call(D.querySelectorAll("video,audio"), function (m) { if (!m.paused && l.indexOf(m) < 0) l.push(m); }); return l; };
+    var mediaMain = function (l) { return l.filter(function (x) { return !x.paused; })[0] || l[0]; };
+    var mediaState = function () { var l = mediaEls(); if (!l.length) return null; var m = mediaMain(l); return { v: Math.round(m.volume * 100), mu: m.muted ? 1 : 0, p: m.paused ? 1 : 0 }; };
+    var mediaDo = function (a, x) {
+      var l = mediaEls(); if (!l.length) return; var m = mediaMain(l);
+      if (a === "vol") { var v = Math.max(0, Math.min(1, Math.round((m.volume + (+x || 0) / 100) * 100) / 100)); l.forEach(function (e) { e.volume = v; if (v > 0 && +x > 0) e.muted = false; }); }
+      else if (a === "mute") { var mu = !m.muted; l.forEach(function (e) { e.muted = mu; }); }
+      else if (a === "play") { if (m.paused) { var pr = m.play(); if (pr && pr.catch) pr.catch(function () {}); } else m.pause(); }
+      else if (a === "seek") { try { m.currentTime = Math.max(0, Math.min(m.duration || 1e9, m.currentTime + (+x || 0))); } catch (e) {} }
+    };
+    ["volumechange", "play", "pause", "ended"].forEach(function (t) { D.addEventListener(t, function () { if (rch) pushSoon(); }, true); });
+    /* زر «الإجابة النموذجية» في الشريحة الحالية (يُلتقط بعنوانه) */
+    var ansEl = function () { var s = SL[cur]; if (!s) return null; return [].slice.call(s.querySelectorAll("button,[role=button],summary,.btn,[onclick],[data-ans]")).filter(function (e) { return e.hasAttribute("data-ans") || /الإجابة النموذجية|إجابة نموذجية|model answer/i.test(e.textContent || ""); })[0] || null; };
+    /* طلبات المساعدة من الطلاب (قناة بث باسم الحصة، بلا قاعدة بيانات) */
+    var hp = {}, hch = null, hid = null;
+    var hpList = function () { var now = Date.now(); return Object.keys(hp).filter(function (n) { return now - hp[n] < 300000; }).sort(function (a, b) { return hp[a] - hp[b]; }).slice(0, 8); };
+    setInterval(function () {
+      var id = W.__hbLiveId ? W.__hbLiveId() : null; if (id === hid) return;
+      if (hch) try { sb.removeChannel(hch); } catch (e) {} hch = null; hid = id; hp = {}; if (!id) return;
+      hch = sb.channel("hlp-" + id, { config: { broadcast: { self: false } } }).on("broadcast", { event: "help" }, function (m) {
+        var n = String((m.payload || {}).n || "").replace(/[<>&]/g, "").slice(0, 30); if (!n) return;
+        var isNew = !hp[n] || Date.now() - hp[n] > 300000; hp[n] = Date.now();
+        if (isNew) { say("✋ " + n + " " + T("يحتاج مساعدة", "needs help")); tone([[523, 0, 0.2]]); }
+        push();
+      }).subscribe();
+    }, 2000);
     new MutationObserver(function () { if (rch) pushSoon(); }).observe(stage, { subtree: true, attributes: true, attributeFilter: ["class"] });
     var push = function () { if (rch) rch.send({ type: "broadcast", event: "state", payload: state() }); };
+    var pushTl = function () { withTl = true; push(); withTl = false; };
+    tmHook = function () { push(); if (W.__hbPosKick) W.__hbPosKick(); };
     subs.push(function () { push(); });
     function connect() {
       rkey = (crypto.randomUUID ? crypto.randomUUID().replace(/-/g, "") : String(Math.random()).slice(2) + Date.now()).slice(0, 14);
@@ -1949,9 +2039,15 @@
           else if (c === "go") go(+m.payload.k || 0);
           else if (c === "black") { toggleBlack(); push(); }
           else if (c === "pick") { $("hbPick").click(); setTimeout(function () { var g = $("hbGo"); if (g) g.click(); setTimeout(function () { rch.send({ type: "broadcast", event: "pick", payload: { name: ($("hbPickOut") || {}).textContent || "" } }); }, 1900); }, 150); }
-          else if (c === "hello") push();
+          else if (c === "hello") pushTl();
+          else if (c === "tm") tmDo(m.payload.a, m.payload.s);
+          else if (c === "bell") bell();
+          else if (c === "md") mediaDo(m.payload.a, m.payload.x);
+          else if (c === "ans") { var ae = ansEl(); if (ae) ae.click(); }
+          else if (c === "hpclr") hp = {};
+          else if (c === "snd") { sndOn = !!+m.payload.on; LS.set("hb-snd", sndOn ? "1" : "0"); if (sndOn) { audio(); tone([[660, 0, 0.18]]); } }
           pushSoon(); setTimeout(push, 500);
-        }).subscribe(function (s) { if (s === "SUBSCRIBED") push(); });
+        }).subscribe(function (s) { if (s === "SUBSCRIBED") pushTl(); });
     }
     function qrRem(el) { (W.QRCode ? Promise.resolve(W.QRCode) : new Promise(function (res, rej) { var sc = D.createElement("script"); sc.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"; sc.onload = function () { res(W.QRCode); }; sc.onerror = rej; D.head.appendChild(sc); }))
       .then(function (Q) { el.innerHTML = ""; new Q(el, { text: rUrl(), width: 170, height: 170, colorDark: "#0A1D36", colorLight: "#ffffff", correctLevel: Q.CorrectLevel.M }); }).catch(function () {}); }
