@@ -1,5 +1,5 @@
 /* Hira service worker: app shell offline, curriculum data cached for offline reading */
-const VERSION = "hira-v107";
+const VERSION = "hira-v108";
 const DECKS = "hira-decks"; // عروض المعلم المحفوظة للعمل دون إنترنت: لا تُحذف عند تحديث الإصدار
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 // only public curriculum tables are cached (never student data, resources or results)
