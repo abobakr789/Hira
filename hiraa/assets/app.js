@@ -10653,7 +10653,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     let me = null; try { me = JSON.parse(sessionStorage.getItem("hiraa.dl") || "null"); } catch (e) {}
     if (!me) { location.hash = "#/live?join=1"; return; }
     const FACES = [["😟", CT("لم أتعلّمه بعد", "Not yet"), "#F28B82"], ["😐", CT("أعرف قليلًا", "A little"), "#FFD25C"], ["😊", CT("أستطيع وحدي", "I can do it"), "#7BCB8A"]];
-    let L = null, key = "", mine = {}, editing = false;
+    let L = null, key = "", mine = {}, editing = false, celebrated = -1;
     const head = () => `<div class="dp-head"><span class="dp-live"><i></i>${CT("حصة مباشرة", "Live lesson")}</span><b>${esc(me.title || "")}</b><small>${CT("أهلًا", "Hi")} ${esc(me.nick)} 👋</small></div>`;
     const send = async (ans) => {
       const { error } = await sb.rpc("dl_answer", { p_player: me.player, p_token: me.token, p_seq: L.q_seq, p_answer: ans });
@@ -10728,8 +10728,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const qt = qz + (q.text ? `<p class="dp-q">${esc(q.text)}</p>` : `<p class="dp-q dp-q0">${CT("انظر إلى الشريحة، ثم أجب هنا", "Look at the slide, then answer here")}</p>`);
       if (L.state === "reveal" && (q.t === "mc" || q.t === "tf") && q.correct != null) {
         const ok = a && +a.o === +q.correct;
-        put(`<section class="dp ${a ? (ok ? "dp-good" : "dp-bad") : ""}">${head()}<div class="dp-card"><div class="dp-big">${a ? (ok ? "✅" : "💡") : "⏱"}</div><h2>${a ? (ok ? CT("إجابة صحيحة!", "Correct!") : CT("ليست هذه المرة", "Not this time")) : CT("لم تُجب", "No answer")}</h2>
-          <p>${CT("الإجابة الصحيحة", "Correct answer")}: <b>${esc((q.opts || [])[q.correct] || "")}</b></p></div></section>`); return; }
+        const PR = [["أحسنت!", "Well done!"], ["ممتاز!", "Excellent!"], ["بطل!", "Superstar!"], ["رائع، واصل!", "Great, keep going!"], ["إجابة صحيحة!", "Correct!"]], pi = (+L.q_seq || 0) % PR.length;
+        const PS = ["⭐", "🌟", "🏅", "🎉", "👏"][pi];
+        put(`<section class="dp ${a ? (ok ? "dp-good" : "dp-bad") : ""}">${head()}<div class="dp-card"><div class="dp-big ${ok ? "dp-pop" : ""}">${a ? (ok ? PS : "💡") : "⏱"}</div><h2>${a ? (ok ? CT(PR[pi][0], PR[pi][1]) : CT("ليست هذه المرة", "Not this time")) : CT("لم تُجب", "No answer")}</h2>
+          <p>${CT("الإجابة الصحيحة", "Correct answer")}: <b>${esc((q.opts || [])[q.correct] || "")}</b></p></div></section>`);
+        if (ok && celebrated !== L.q_seq) { celebrated = L.q_seq; if (!matchMedia("(prefers-reduced-motion: reduce)").matches && typeof confetti === "function") confetti(); try { if (navigator.vibrate) navigator.vibrate([60, 40, 60]); } catch (e) {} }
+        return; }
       if (L.state !== "open" || (a && !editing)) {
         put(`<section class="dp">${head()}<div class="dp-card">${qt}<div class="dp-big">${L.state === "open" ? "✓" : "🔒"}</div><h2>${a ? CT("أُرسلت إجابتك", "Answer sent") : CT("أُغلق السؤال", "The question is closed")}</h2>
           ${a ? `<p class="dp-mine">${mySummary(q, a)}</p>` : ""}${L.state === "open" && a ? `<button class="btn btn-ghost" id="dpEdit">${CT("غيّر إجابتي", "Change my answer")}</button>` : ""}</div></section>`);

@@ -2956,6 +2956,9 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .dp-q{font-size:1.3rem;font-weight:700;margin:0;line-height:1.7}
 .dp-q0{font-size:1.05rem;font-weight:600;color:var(--muted)}
 .dp-big{font-size:3.4rem;line-height:1}
+.dp-big.dp-pop{display:inline-block;font-size:4.2rem;animation:dpPop .7s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes dpPop{0%{transform:scale(.2) rotate(-25deg);opacity:0}60%{transform:scale(1.25) rotate(8deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+@media (prefers-reduced-motion:reduce){.dp-big.dp-pop{animation:none}}
 .dp-mine{font-size:1.25rem;font-weight:700;background:var(--hira-soft,#EEF2F8);border-radius:14px;padding:10px;margin:0}
 .dp-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
 .dp-opts button{all:unset;box-sizing:border-box;cursor:pointer;min-height:84px;border-radius:18px;background:var(--c);color:#fff;font-weight:800;font-size:1.25rem;display:flex;align-items:center;gap:12px;padding:14px 18px;box-shadow:0 6px 0 color-mix(in srgb,var(--c) 70%,#000);transition:transform .1s}
@@ -17241,7 +17244,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     let me = null; try { me = JSON.parse(sessionStorage.getItem("hiraa.dl") || "null"); } catch (e) {}
     if (!me) { location.hash = "#/live?join=1"; return; }
     const FACES = [["😟", CT("لم أتعلّمه بعد", "Not yet"), "#F28B82"], ["😐", CT("أعرف قليلًا", "A little"), "#FFD25C"], ["😊", CT("أستطيع وحدي", "I can do it"), "#7BCB8A"]];
-    let L = null, key = "", mine = {}, editing = false;
+    let L = null, key = "", mine = {}, editing = false, celebrated = -1;
     const head = () => `<div class="dp-head"><span class="dp-live"><i></i>${CT("حصة مباشرة", "Live lesson")}</span><b>${esc(me.title || "")}</b><small>${CT("أهلًا", "Hi")} ${esc(me.nick)} 👋</small></div>`;
     const send = async (ans) => {
       const { error } = await sb.rpc("dl_answer", { p_player: me.player, p_token: me.token, p_seq: L.q_seq, p_answer: ans });
@@ -17316,8 +17319,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const qt = qz + (q.text ? `<p class="dp-q">${esc(q.text)}</p>` : `<p class="dp-q dp-q0">${CT("انظر إلى الشريحة، ثم أجب هنا", "Look at the slide, then answer here")}</p>`);
       if (L.state === "reveal" && (q.t === "mc" || q.t === "tf") && q.correct != null) {
         const ok = a && +a.o === +q.correct;
-        put(`<section class="dp ${a ? (ok ? "dp-good" : "dp-bad") : ""}">${head()}<div class="dp-card"><div class="dp-big">${a ? (ok ? "✅" : "💡") : "⏱"}</div><h2>${a ? (ok ? CT("إجابة صحيحة!", "Correct!") : CT("ليست هذه المرة", "Not this time")) : CT("لم تُجب", "No answer")}</h2>
-          <p>${CT("الإجابة الصحيحة", "Correct answer")}: <b>${esc((q.opts || [])[q.correct] || "")}</b></p></div></section>`); return; }
+        const PR = [["أحسنت!", "Well done!"], ["ممتاز!", "Excellent!"], ["بطل!", "Superstar!"], ["رائع، واصل!", "Great, keep going!"], ["إجابة صحيحة!", "Correct!"]], pi = (+L.q_seq || 0) % PR.length;
+        const PS = ["⭐", "🌟", "🏅", "🎉", "👏"][pi];
+        put(`<section class="dp ${a ? (ok ? "dp-good" : "dp-bad") : ""}">${head()}<div class="dp-card"><div class="dp-big ${ok ? "dp-pop" : ""}">${a ? (ok ? PS : "💡") : "⏱"}</div><h2>${a ? (ok ? CT(PR[pi][0], PR[pi][1]) : CT("ليست هذه المرة", "Not this time")) : CT("لم تُجب", "No answer")}</h2>
+          <p>${CT("الإجابة الصحيحة", "Correct answer")}: <b>${esc((q.opts || [])[q.correct] || "")}</b></p></div></section>`);
+        if (ok && celebrated !== L.q_seq) { celebrated = L.q_seq; if (!matchMedia("(prefers-reduced-motion: reduce)").matches && typeof confetti === "function") confetti(); try { if (navigator.vibrate) navigator.vibrate([60, 40, 60]); } catch (e) {} }
+        return; }
       if (L.state !== "open" || (a && !editing)) {
         put(`<section class="dp">${head()}<div class="dp-card">${qt}<div class="dp-big">${L.state === "open" ? "✓" : "🔒"}</div><h2>${a ? CT("أُرسلت إجابتك", "Answer sent") : CT("أُغلق السؤال", "The question is closed")}</h2>
           ${a ? `<p class="dp-mine">${mySummary(q, a)}</p>` : ""}${L.state === "open" && a ? `<button class="btn btn-ghost" id="dpEdit">${CT("غيّر إجابتي", "Change my answer")}</button>` : ""}</div></section>`);

@@ -2938,6 +2938,9 @@ h1, h2, .page-head h1 { font-family: var(--font-brand); }
 .dp-q{font-size:1.3rem;font-weight:700;margin:0;line-height:1.7}
 .dp-q0{font-size:1.05rem;font-weight:600;color:var(--muted)}
 .dp-big{font-size:3.4rem;line-height:1}
+.dp-big.dp-pop{display:inline-block;font-size:4.2rem;animation:dpPop .7s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes dpPop{0%{transform:scale(.2) rotate(-25deg);opacity:0}60%{transform:scale(1.25) rotate(8deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+@media (prefers-reduced-motion:reduce){.dp-big.dp-pop{animation:none}}
 .dp-mine{font-size:1.25rem;font-weight:700;background:var(--hira-soft,#EEF2F8);border-radius:14px;padding:10px;margin:0}
 .dp-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
 .dp-opts button{all:unset;box-sizing:border-box;cursor:pointer;min-height:84px;border-radius:18px;background:var(--c);color:#fff;font-weight:800;font-size:1.25rem;display:flex;align-items:center;gap:12px;padding:14px 18px;box-shadow:0 6px 0 color-mix(in srgb,var(--c) 70%,#000);transition:transform .1s}

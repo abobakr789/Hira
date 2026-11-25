@@ -43,6 +43,7 @@
     spot: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
     curtain: "M3 3h18M5 3v15c2 0 3-6 3-15M19 3v15c-2 0-3-6-3-15M12 21v-7M9 17l3-3 3 3",
     board: "M3 4h18v12H3zM12 16v4M8 20h8M7 9l3-2 3 3 4-3",
+    paper: "M5 3h14v18H5zM5 8h14M5 13h14M5 18h14",
     moon: "M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z",
     film: "M4 4h16v16H4zM4 9h16M4 15h16M9 4v5M15 4v5M9 15v5M15 15v5",
     chart: "M3 3v18h18M7 15l4-4 3 3 5-6",
@@ -204,6 +205,9 @@
     "#hbLBlack.on{display:flex}",
     "#hbLBoard{position:fixed;z-index:7;display:none;background:#FFFEFA;background-image:linear-gradient(rgba(16,42,76,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(16,42,76,.07) 1px,transparent 1px);box-shadow:0 0 0 9999px rgba(14,22,33,.35)}",
     "#hbLBoard.on{display:block}",
+    "#hbPickPop .hb-wheelbox{text-align:center;margin:8px 0 2px}#hbPickPop .hb-wheelbox canvas{width:min(300px,100%);height:auto;display:inline-block}",
+    ".hbBurst{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden}.hbBurst i{position:absolute;top:-30px;width:11px;height:17px;border-radius:2px;font-style:normal;font-size:28px;line-height:1;width:auto;height:auto;animation:hbFall 2s linear both}.hbBurst i:not(:empty){background:none}.hbBurst i:empty{width:11px;height:17px}@keyframes hbFall{to{transform:translateY(112vh) rotate(540deg);opacity:.85}}",
+    "#hbPaperPop .hb-papers{display:grid;grid-template-columns:1fr;gap:6px;min-width:230px}#hbPaperPop .hb-papers .hb-btn{text-align:start;justify-content:flex-start}",
     "#hbLBoard b{position:absolute;top:12px;" + (RTL ? "right" : "left") + ":16px;font:700 18px 'Thmanyah Display',Tahoma,sans-serif;color:rgba(16,42,76,.45)}",
     "#hbLCurt{position:fixed;z-index:9;display:none;overflow:hidden}",
     "#hbLCurt.on{display:block}",
@@ -271,7 +275,7 @@
     B("hbUndo", "undo", T("تراجع (Ctrl+Z)", "Undo (Ctrl+Z)")) + B("hbClr", "trash", T("مسح كتابة الشريحة", "Clear this slide's ink")) + B("hbSave", "pdf", T("حفظ الشرح: كتابتك على الشرائح PDF", "Save your annotated slides as PDF")) + "</div>" +
     '<span class="hb-sep"></span>' +
     '<div class="hb-g">' + B("hbSup", "sup", T("دعم القراءة: اقرأ لي، والتشكيل، ومسطرة القراءة", "Reading support: read aloud, vowel marks, reading ruler")) + B("hbSpot", "spot", T("الكشّاف: يُظلم كل شيء إلا ما تشير إليه (S)", "Spotlight (S)")) + B("hbCurt", "curtain", T("الستارة: اكشف الشريحة تدريجيًّا", "Curtain reveal")) +
-    B("hbBoard", "board", T("سبورة بيضاء (W)", "Whiteboard (W)")) + B("hbBlack", "moon", T("شاشة سوداء (B)", "Black screen (B)")) + B("hbDockT", "dock", T("شريط السبورة السفلي: للسبورة الذكية واللمس", "Bottom board bar: for smart boards and touch")) + B("hbKeys", "keys", T("اختصارات لوحة المفاتيح", "Keyboard shortcuts")) + "</div>" +
+    B("hbBoard", "board", T("سبورة بيضاء (W)", "Whiteboard (W)")) + B("hbPaper", "paper", T("ورق السبورة: أربعة خطوط وسطور ومربعات", "Board paper: four lines, ruled, grid")) + B("hbBlack", "moon", T("شاشة سوداء (B)", "Black screen (B)")) + B("hbDockT", "dock", T("شريط السبورة السفلي: للسبورة الذكية واللمس", "Bottom board bar: for smart boards and touch")) + B("hbKeys", "keys", T("اختصارات لوحة المفاتيح", "Keyboard shortcuts")) + "</div>" +
     '<div class="hb-pbar"><div class="hb-prog" id="hbProg"></div></div>';
   tb.classList.add("hb"); tb.appendChild(r1); tb.appendChild(r2);
   r2.querySelector(".hb-pbar").style.display = "block";
@@ -282,6 +286,20 @@
   var board = mk("div", "hbLBoard", "<b>" + T("السبورة", "Whiteboard") + "</b>"), curt = mk("div", "hbLCurt", '<div class="hb-cv"><div class="hb-ch">⇕ ' + T("اسحب لكشف الشريحة", "Drag to reveal") + "</div></div>");
   var hint = mk("div", "hbHint"), drawer = mk("div", "hbDrawer"), zone = mk("div", "hbZone");
   drawer.setAttribute("aria-label", T("الشرائح", "Slides")); drawer.setAttribute("role", "navigation");
+  /* احتفال خفيف فوق الشريحة: نجوم وأوراق ملوّنة تتساقط ثم تزول (يحترم «تقليل الحركة») */
+  var burst = function (emo) {
+    if (W.matchMedia && W.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var box = D.createElement("div"); box.className = "hbBurst"; box.setAttribute("aria-hidden", "true");
+    var cols = ["#D4AA55", "#14A37F", "#E8833A", "#3B82F6", "#E5484D", "#8B5CF6"], em = emo || ["⭐", "🌟", "🎉"];
+    for (var i = 0; i < 46; i++) {
+      var it = D.createElement("i"), star = i % 5 === 0;
+      it.style.cssText = "left:" + (Math.random() * 100).toFixed(1) + "%;animation-delay:" + (Math.random() * 0.5).toFixed(2) + "s;animation-duration:" + (1.6 + Math.random() * 1.1).toFixed(2) + "s;" + (star ? "" : "background:" + cols[i % cols.length]);
+      if (star) it.textContent = em[(i / 5) % em.length | 0];
+      box.appendChild(it);
+    }
+    D.body.appendChild(box); setTimeout(function () { box.remove(); }, 3200);
+  };
+  W.__hbBurst = burst;
   var hintT; var say = function (t) { hint.textContent = t; hint.classList.add("on"); clearTimeout(hintT); hintT = setTimeout(function () { hint.classList.remove("on"); }, 1800); };
   var stop = function (el) { ["keydown", "keyup", "keypress", "click"].forEach(function (k) { el.addEventListener(k, function (e) { e.stopPropagation(); }); }); };
 
@@ -451,7 +469,9 @@
   pickPop.innerHTML = '<div class="hb-h">🎲 ' + T("القرعة: من سيجيب؟", "Who answers?") + '</div>' +
     '<textarea id="hbNames" rows="4" placeholder="' + T("اكتب أسماء الطلاب، اسمًا في كل سطر… أو اتركها فارغة واختر رقمًا", "Type student names, one per line… or leave empty to pick a number") + '"></textarea>' +
     '<div class="hb-row"><label class="hb-muted">' + T("أو عدد الطلاب:", "Or number of students:") + ' <input type="number" id="hbCount" min="2" max="60" style="width:80px;display:inline-block"></label>' +
-    '<label class="hb-muted" style="display:inline-flex;gap:6px;align-items:center"><input type="checkbox" id="hbNoRep" checked> ' + T("بلا تكرار", "No repeats") + "</label></div>" +
+    '<label class="hb-muted" style="display:inline-flex;gap:6px;align-items:center"><input type="checkbox" id="hbNoRep" checked> ' + T("بلا تكرار", "No repeats") + "</label>" +
+    '<label class="hb-muted" style="display:inline-flex;gap:6px;align-items:center"><input type="checkbox" id="hbWheelOn" checked> 🎡 ' + T("عجلة", "Wheel") + "</label></div>" +
+    '<div class="hb-wheelbox" id="hbWheelBox"><canvas id="hbWheel" width="340" height="340" aria-hidden="true"></canvas></div>' +
     '<div class="hb-pick" id="hbPickOut">?</div><div class="hb-row"><button type="button" class="hb-btn pri" id="hbGo">🎲 ' + T("اختر الآن", "Pick now") + '</button><button type="button" class="hb-btn" id="hbReset">' + T("ابدأ من جديد", "Start over") + '</button><span class="hb-muted" id="hbLeft"></span></div>';
   stop(pickPop);
   var names = $("hbNames"), cnt = $("hbCount");
@@ -461,17 +481,47 @@
   var used = SS.get("hb-used-" + DECK) || [];
   var pool = function () { var L = names.value.split(/\n|،|,/).map(function (x) { return x.trim(); }).filter(Boolean); if (!L.length) { var n = Math.max(2, Math.min(60, parseInt(cnt.value, 10) || 25)); for (var i = 1; i <= n; i++) L.push(String(i)); } return L; };
   var left = function () { var L = pool(), r = $("hbNoRep").checked ? L.filter(function (x) { return used.indexOf(x) < 0; }) : L; $("hbLeft").textContent = $("hbNoRep").checked ? T("بقي ", "Left: ") + r.length + T(" من ", " of ") + L.length : ""; return r; };
-  var spinning = false;
+  var spinning = false, wRot = 0, WCOL = ["#1E6BC2", "#C2410C", "#0B7A75", "#7C3AED", "#B8860B", "#BE185D", "#15803D", "#475569"];
+  /* العجلة: مقاطع بعدد الأسماء، والمؤشر في الأعلى */
+  function drawWheel(rot) {
+    var cv = $("hbWheel"); if (!cv) return; var c = cv.getContext("2d"), L = pool(), n = L.length, a = Math.PI * 2 / n, cx = 170, cy = 178, r = 156;
+    c.clearRect(0, 0, 340, 340); c.save(); c.translate(cx, cy); c.rotate(rot);
+    for (var i = 0; i < n; i++) {
+      c.beginPath(); c.moveTo(0, 0); c.arc(0, 0, r, i * a, (i + 1) * a); c.closePath(); c.fillStyle = WCOL[i % WCOL.length]; c.fill(); c.strokeStyle = "#fff"; c.lineWidth = 2; c.stroke();
+      var mid = i * a + a / 2, flip = Math.cos(mid + rot) < 0;
+      c.save(); c.rotate(mid + (flip ? Math.PI : 0)); c.fillStyle = "#fff"; c.textAlign = flip ? "left" : "right"; c.textBaseline = "middle";
+      var fs = n <= 8 ? 20 : n <= 16 ? 16 : n <= 30 ? 12 : 9; c.font = "700 " + fs + "px Tahoma,'Thmanyah Text',sans-serif";
+      var tx = String(L[i]); if (tx.length > 12) tx = tx.slice(0, 11) + "…"; c.fillText(tx, flip ? -(r - 12) : r - 12, 0); c.restore();
+    }
+    c.beginPath(); c.arc(0, 0, 20, 0, Math.PI * 2); c.fillStyle = "#fff"; c.fill(); c.restore();
+    c.beginPath(); c.moveTo(cx - 14, 4); c.lineTo(cx + 14, 4); c.lineTo(cx, 34); c.closePath(); c.fillStyle = "#D4AA55"; c.fill(); c.strokeStyle = "#102A4C"; c.lineWidth = 2; c.stroke();
+  }
+  function wheelShow() { var on = $("hbWheelOn").checked; $("hbWheelBox").style.display = on ? "block" : "none"; if (on) drawWheel(wRot); }
+  $("hbWheelOn").addEventListener("change", wheelShow);
+  names.addEventListener("input", function () { wRot = 0; if ($("hbWheelOn").checked) drawWheel(wRot); }); cnt.addEventListener("input", function () { wRot = 0; if ($("hbWheelOn").checked) drawWheel(wRot); });
+  function spinWheel(L, win, done) {
+    var n = L.length, a = Math.PI * 2 / n, wi = L.indexOf(win), target = -Math.PI / 2 - (wi + 0.5) * a, r0 = wRot % (Math.PI * 2), delta = ((target - r0) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2) + Math.PI * 2 * (5 + Math.floor(Math.random() * 2)), t0 = performance.now(), dur = 4200, lastTick = -1;
+    (function f() {
+      var p = Math.min(1, (performance.now() - t0) / dur), e = 1 - Math.pow(1 - p, 3.2), rot = r0 + delta * e; drawWheel(rot);
+      var seg = Math.floor((((-Math.PI / 2 - rot) % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2) / a); if (seg !== lastTick) { lastTick = seg; if (p < 0.92) ev("snd&&snd('chime')"); }
+      if (p < 1) requestAnimationFrame(f); else { wRot = rot; done(); }
+    })();
+  }
   on("hbGo", function () {
     if (spinning) return; var L = pool(), R = left(); if (!R.length) { used = []; R = left(); }
     var out = $("hbPickOut"), win = R[Math.floor(Math.random() * R.length)], t0 = performance.now(), dur = 1700;
+    if ($("hbWheelOn").checked) {
+      spinning = true; out.classList.remove("done"); out.textContent = "…";
+      spinWheel(L, win, function () { out.textContent = win; out.classList.add("done"); spinning = false; if ($("hbNoRep").checked) { used.push(win); SS.set("hb-used-" + DECK, used); } left(); ev("snd&&snd('correct')"); burst(["🎉", "⭐"]); });
+      return;
+    }
     spinning = true; out.classList.remove("done"); ev("snd&&snd('drum')");
     (function tick() { var p = (performance.now() - t0) / dur; if (p >= 1) { out.textContent = win; out.classList.add("done"); spinning = false; if ($("hbNoRep").checked) { used.push(win); SS.set("hb-used-" + DECK, used); } left(); ev("snd&&snd('correct')"); return; }
       out.textContent = L[Math.floor(Math.random() * L.length)]; setTimeout(tick, 40 + 260 * p * p); })();
   });
   on("hbReset", function () { used = []; SS.set("hb-used-" + DECK, used); $("hbPickOut").textContent = "?"; $("hbPickOut").classList.remove("done"); left(); });
   $("hbNoRep").addEventListener("change", left);
-  on("hbPick", function (e, b) { left(); togglePop(pickPop, b); });
+  on("hbPick", function (e, b) { left(); wheelShow(); togglePop(pickPop, b); });
 
   /* ---------- اختصارات ---------- */
   var keysPop = mk("div", "hbKeysPop"); keysPop.className = "pop hb-pop"; keysPop.dir = RTL ? "rtl" : "ltr";
@@ -675,7 +725,7 @@
       var im = inkPng(String(k));
       return page('<div class="in" data-k="' + k + '"></div>' + (im ? '<img class="ink" src="' + im + '">' : ""), T("الشريحة ", "Slide ") + (k + 1) + " / " + N + (stTitle(k) && stTitle(k) !== title ? " · " + esc(stTitle(k)) : ""), withNotes ? notesOf(k) : "");
     }).join("");
-    if (wb) html += page('<div class="wbg"></div><img class="ink" src="' + inkPng("wb") + '">', T("السبورة", "Whiteboard"), "");
+    if (wb) { var pc = paperCss(paper, 1); html += page('<div class="wbg" style="background-image:' + pc.img + ';background-size:' + pc.size + '"></div><img class="ink" src="' + inkPng("wb") + '">', T("السبورة", "Whiteboard"), ""); }
     pd.open();
     pd.write('<!doctype html><html lang="' + (EN ? "en" : "ar") + '" dir="' + (RTL ? "rtl" : "ltr") + '"><head><meta charset="utf-8"><base href="' + location.href.replace(/#.*$/, "") + '"><title>' + esc(title) + " · " + T("شرح الحصة", "Lesson notes") + "</title><style>" + deckCss() + "</style><style>" +
       "@page{size:A4 landscape;margin:0}html,body{margin:0;background:#E9EDF3;font-family:'Thmanyah Text','Cairo',Tahoma,sans-serif;overflow:auto!important;height:auto!important}" +
@@ -1019,6 +1069,7 @@
     var vis = { left: Math.max(r.left, G.ox), top: Math.max(r.top, G.top), right: Math.min(r.left + r.width, G.ox + G.w), bottom: Math.min(r.top + r.height, innerHeight) };
     [board, curt].forEach(function (el) { el.style.left = vis.left + "px"; el.style.top = vis.top + "px"; el.style.width = Math.max(0, vis.right - vis.left) + "px"; el.style.height = Math.max(0, vis.bottom - vis.top) + "px"; });
     var cv = curt.querySelector(".hb-cv"); cv.style.top = (curtY * (vis.bottom - vis.top)) + "px";
+    applyPaper(vis);
     if (tool === "spot") paintSpot();
   }
   var ch = curt.querySelector(".hb-ch"), drag = null;
@@ -1030,6 +1081,35 @@
   on("hbCurt", function (e, b) { var o = !curt.classList.contains("on"); curtY = 0; curt.classList.toggle("on", o); b.classList.toggle("on", o); place(); if (o) say(T("اسحب المقبض الذهبي إلى الأسفل لكشف الشريحة", "Drag the gold handle down to reveal")); });
   var toggleBoard = function () { var o = !board.classList.contains("on"); board.classList.toggle("on", o); $("hbBoard").classList.toggle("on", o); if (o && tool !== "pen" && tool !== "hl" && tool !== "text") setTool("pen"); place(); redraw(); say(o ? T("السبورة البيضاء: اكتب بالقلم · كتابتها محفوظة حتى تغلق العرض", "Whiteboard: write with the pen") : T("عدت إلى الشريحة", "Back to the slide")); };
   on("hbBoard", toggleBoard);
+  /* ---------- ورق السبورة: يُرسم بوحدات الشريحة (1920×1080) فيتبع التكبير ويطابق التصدير ---------- */
+  var PAPERS = [["grid", "▦", T("مربعات", "Grid")], ["plain", "▢", T("أبيض", "Plain")], ["ar4", "☰", T("أربعة خطوط (للكتابة العربية)", "Four lines (Arabic writing)")], ["ruled", "≡", T("سطور", "Ruled")], ["big", "▩", T("مربعات كبيرة", "Large squares")], ["graph", "▥", T("ورق بياني", "Graph paper")]];
+  var paper = LS.get("hb-paper", "grid"); if (!PAPERS.some(function (p) { return p[0] === paper; })) paper = "grid";
+  function paperCss(id, u) {
+    var L = "rgba(16,42,76,.11)", M = "rgba(16,42,76,.26)", R = "rgba(200,60,60,.6)", s = function (n) { return Math.max(1, n * u).toFixed(2); };
+    var g1 = function (c, w) { return "linear-gradient(" + c + " " + w + "px,transparent " + w + "px)"; }, g2 = function (c, w) { return "linear-gradient(90deg," + c + " " + w + "px,transparent " + w + "px)"; };
+    if (id === "plain") return { img: "none", size: "auto" };
+    if (id === "grid") return { img: g1(L, 1) + "," + g2(L, 1), size: s(40) + "px " + s(40) + "px" };
+    if (id === "big") return { img: g1(M, 1.5) + "," + g2(M, 1.5), size: s(90) + "px " + s(90) + "px" };
+    if (id === "graph") return { img: g1(M, 1.5) + "," + g2(M, 1.5) + "," + g1(L, 1) + "," + g2(L, 1), size: s(100) + "px " + s(100) + "px," + s(100) + "px " + s(100) + "px," + s(20) + "px " + s(20) + "px," + s(20) + "px " + s(20) + "px" };
+    if (id === "ruled") { var h = 72 * u; return { img: "linear-gradient(to bottom,transparent " + (h - 2) + "px," + M + " " + (h - 2) + "px," + M + " " + h + "px)", size: "100% " + h + "px" }; }
+    /* أربعة خطوط: ثلاثة خطوط رمادية وخط أساس أحمر في الثالث */
+    var n = function (v) { return (v * u).toFixed(2) + "px"; };
+    return { img: "linear-gradient(to bottom,transparent " + n(38) + "," + L + " " + n(38) + "," + L + " " + n(40) + ",transparent " + n(40) + ",transparent " + n(78) + "," + L + " " + n(78) + "," + L + " " + n(80) + ",transparent " + n(80) + ",transparent " + n(118) + "," + R + " " + n(118) + "," + R + " " + n(121) + ",transparent " + n(121) + ",transparent " + n(158) + "," + L + " " + n(158) + "," + L + " " + n(160) + ",transparent " + n(160) + ",transparent " + n(220) + ")", size: "100% " + n(220) };
+  }
+  function applyPaper(vis) {
+    if (!PAPERS) return;
+    var c = paperCss(paper, G.k), bx = (G.x - vis.left), by = (G.top + G.y - vis.top);
+    board.style.backgroundImage = c.img; board.style.backgroundSize = c.size; board.style.backgroundPosition = bx + "px " + by + "px";
+  }
+  var paperPop = mk("div", "hbPaperPop"); paperPop.className = "pop hb-pop"; paperPop.dir = RTL ? "rtl" : "ltr"; stop(paperPop);
+  function paintPaperPop() {
+    paperPop.innerHTML = '<div class="hb-h">📄 ' + T("ورق السبورة", "Board paper") + '</div><div class="hb-papers">' + PAPERS.map(function (p) { return '<button type="button" class="hb-btn' + (p[0] === paper ? " pri" : "") + '" data-p="' + p[0] + '"><span aria-hidden="true">' + p[1] + "</span> " + p[2] + "</button>"; }).join("") + "</div>";
+  }
+  paperPop.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-p]"); if (!b) return;
+    paper = b.dataset.p; LS.set("hb-paper", paper); paintPaperPop(); place(); say(T("تغيّر الورق", "Paper changed"));
+  });
+  on("hbPaper", function (e, b) { paintPaperPop(); if (!board.classList.contains("on")) toggleBoard(); togglePop(paperPop, b); });
   var toggleBlack = function () { var o = !black.classList.contains("on"); black.classList.toggle("on", o); $("hbBlack").classList.toggle("on", o); };
   on("hbBlack", toggleBlack); black.addEventListener("click", function (e) { e.stopPropagation(); toggleBlack(); });
 
@@ -1500,7 +1580,7 @@
         answers.forEach(function (a) { if (!okIds[a.player_id]) QZ.st[a.player_id] = 0; });
         QZ.fast = ok[0] ? ok[0].player_id : null;
         return step("reveal", { correct: q.ans });
-      }).then(function () { S.q.correct = q.ans; QZ.phase = "res"; paintQuiz(); if (W.snd) try { W.snd("correct"); } catch (e) {} });
+      }).then(function () { S.q.correct = q.ans; QZ.phase = "res"; paintQuiz(); if (W.snd) try { W.snd("correct"); } catch (e) {} if (answers.length && QZ.fast) burst(); });
     }
     function board(n) { return Object.keys(QZ.sc).map(function (id) { return { id: id, n: nickOf(id), s: QZ.sc[id] }; }).sort(function (a, b) { return b.s - a.s; }).slice(0, n || 5); }
     function paintQuiz() {
@@ -1587,7 +1667,8 @@
         else if (a === "big") { big = !big; minimized = false; paintRes(); }
         else if (a === "x") { resP.classList.remove("on"); say(T("النتائج مخفية · تظهر من «اسأل الصف»", "Results hidden · reopen from “Ask”")); }
         else if (a === "close" || a === "reopen") step(a).then(paintRes);
-        else if (a === "reveal") step("reveal", { correct: pick }).then(function () { S.q.correct = pick; paintRes(); if (W.snd) try { W.snd("correct"); } catch (e) {} });
+        else if (a === "reveal") step("reveal", { correct: pick }).then(function () { S.q.correct = pick; paintRes(); if (W.snd) try { W.snd("correct"); } catch (e) {}
+          var okN = answers.filter(function (a) { return a.answer && +a.answer.o === +pick; }).length; if (answers.length && okN / answers.length >= 0.6) burst(); });
         else if (a === "new") { paintAsk(); askPop.style.display = "block"; anchor(askPop, btnAsk); }
       }; });
     }
