@@ -49,6 +49,8 @@
     chart: "M3 3v18h18M7 15l4-4 3 3 5-6",
     timer: "M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM12 9v4l2.5 2M9 2h6",
     bell: "M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21a2 2 0 0 0 4 0",
+    bolt: "M13 2L4 14h7l-1 8 9-12h-7z",
+    chat: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 9h8M8 13h5",
     ice: "M3 11h9v9H3zM12 4h9v9h-9zM3 11l3-3h9M12 20l3-3M6 14h2M15 7h2",
     dice: "M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8 8h.01M16 8h.01M12 12h.01M8 16h.01M16 16h.01",
     notes: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h6",
@@ -170,6 +172,16 @@
     "#hbIceOv .ice-corn{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0}#hbIceOv .ice-cr{border-radius:20px;color:#fff;padding:22px 8px;display:flex;flex-direction:column;gap:8px;align-items:center}#hbIceOv .ice-cr span{font-size:56px}#hbIceOv .ice-cr b{font-size:24px}@media(max-width:700px){#hbIceOv .ice-corn{grid-template-columns:repeat(2,1fr)}}",
     "#hbIceOv .ice-bzs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:12px 0}#hbIceOv .ice-bz{display:flex;flex-direction:column;align-items:center;gap:4px;border:0;border-radius:22px;padding:26px 10px;color:#fff;font-family:inherit;cursor:pointer}#hbIceOv .ice-bz span{font-size:54px}#hbIceOv .ice-bz b{font-size:26px}#hbIceOv .ice-bz small{font-size:16px;opacity:.85}#hbIceOv .ice-bz:disabled{opacity:.35;cursor:default}",
     "#hbIceOv .ice-first{display:inline-block;color:#fff;font:800 44px 'Thmanyah Display',Tahoma,sans-serif;border-radius:24px;padding:22px 40px;margin:12px 0;animation:hbTmP 1s 3}",
+    "#hbIceOv .ice-steps{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0}#hbIceOv .ice-steps span{display:flex;flex-direction:column;gap:2px;border:2px solid #D8E1EE;border-radius:16px;padding:10px 18px;font-weight:800;font-size:19px;background:#F6F8FC;opacity:.65}#hbIceOv .ice-steps span.on{opacity:1;border-color:#D4AA55;background:#FFF6DC}#hbIceOv .ice-steps span.dn{opacity:.4}#hbIceOv .ice-steps small{font-size:13px;font-weight:600;color:#51607A}",
+    "#hbIceOv .ice-zones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}#hbIceOv .ice-zones div{border-radius:18px;color:#fff;font-weight:800;font-size:26px;padding:34px 8px}",
+    "#hbIceOv .ice-fbcard{margin:10px auto;max-width:760px;background:linear-gradient(180deg,#FFFDF5,#FFF3CF);border:3px solid #D4AA55;border-radius:24px;padding:22px 28px;text-align:start;font-size:26px;line-height:1.8}#hbIceOv .ice-fbcard p{margin:8px 0;font-weight:700}#hbIceOv .ice-fbto{font-size:20px;color:#51607A}",
+    "#hbIceOv .ice-fld{display:flex;align-items:flex-start;gap:10px;margin:10px 0;text-align:start}#hbIceOv .ice-fld>label{font-size:32px;width:44px}#hbIceOv .ice-fld>div:first-of-type{flex:1}#hbIceOv .ice-txt{width:100%;box-sizing:border-box;font-size:19px;font-family:inherit;border:1px solid #CBD5E1;border-radius:12px;padding:10px}#hbIceOv .ice-stems{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}#hbIceOv .ice-chip{border:1px solid #D4AA55;background:#FFF9E6;color:#6B4E00;border-radius:999px;padding:4px 12px;font-family:inherit;font-size:15px;cursor:pointer}",
+    "#hbIceOv .ice-sel{font-size:18px;font-family:inherit;padding:10px 14px;border:1px solid #CBD5E1;border-radius:12px;min-width:260px}",
+    "#hbIceOv .ice-rules{display:flex;gap:12px;justify-content:center;margin:10px 0}#hbIceOv .ice-rules span{background:#E8F4EE;color:#0B5F3A;border-radius:999px;padding:8px 20px;font-weight:800;font-size:20px}#hbIceOv .ice-fbstems p{font-size:22px;font-weight:700;margin:6px 0}",
+    "#hbIceOv .ice-crits{display:flex;flex-direction:column;gap:10px;margin:10px 0;text-align:start}#hbIceOv .ice-cr2{display:flex;align-items:center;gap:8px;background:#F6F8FC;border-radius:16px;padding:10px 14px}#hbIceOv .ice-cr2>span:first-child{flex:1;font-weight:800;font-size:19px}",
+    "#hbIceOv .ice-lv{display:flex;flex-direction:column;align-items:center;border:2px solid #D8E1EE;background:#fff;border-radius:14px;padding:6px 14px;font-size:26px;font-family:inherit;cursor:pointer}#hbIceOv .ice-lv small{font-size:12px;color:#51607A}#hbIceOv .ice-lv.on{border-color:#D4AA55;background:#FFF1C2}",
+    "#hbIceOv .ice-sum{margin:8px 0;font-size:22px;background:#FFF6DC;border-radius:14px;padding:12px}#hbIceOv .ice-cnt3{display:flex;align-items:center;gap:6px;border-radius:14px;color:#fff;padding:6px 10px;font-weight:700}#hbIceOv .ice-cnt3 b{font:800 26px 'Thmanyah Display',Tahoma,sans-serif;min-width:30px;text-align:center}#hbIceOv .ice-cnt3 button{width:34px;height:34px;border:0;border-radius:10px;background:rgba(255,255,255,.3);color:#fff;font-size:20px;cursor:pointer}#hbIceOv .ice-cnt3 small{font-size:13px}",
+    "#hbIceOv .ice-stack{display:flex;height:14px;border-radius:999px;overflow:hidden}#hbIceOv .ice-stack i{display:block}#hbIceOv .ice-grow{font-weight:800;color:#0B5F3A}",
     "#hbIceOv .ice-bar{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:12px 16px;background:#F6F8FC;border-top:1px solid #E6EBF2;border-radius:0 0 22px 22px}#hbIceOv .ice-bl{font-weight:800;font-size:16px}",
     "#hbIceOv .ice-tm{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:14px;padding:8px 14px;color:#fff;font-weight:700;font-size:16px;font-family:inherit;font-family:inherit;cursor:pointer}#hbIceOv .ice-tm b{font:800 24px 'Thmanyah Display',Tahoma,sans-serif}#hbIceOv .ice-tm i{font-style:normal;background:rgba(255,255,255,.3);border-radius:999px;padding:2px 10px;font-weight:800}#hbIceOv .ice-tm:disabled{opacity:.4}",
     "#hbClassOv{position:fixed;left:50%;top:calc(var(--hb-lay) + 50%);transform:translate(-50%,-50%);width:min(1000px,94vw);max-height:calc(100vh - var(--hb-lay) - 40px);overflow:auto;z-index:30;display:none;background:#fff;color:#102A4C;border-radius:22px;box-shadow:0 30px 80px rgba(5,12,25,.45);font-family:'Thmanyah Text',Tahoma,sans-serif}",
@@ -290,6 +302,8 @@
     ($("bS") ? B("hbS", "bell", T("لفت الانتباه", "Get attention"), T("الانتباه", "Attention")) : "") +
     B("hbPick", "dice", T("اختيار طالب عشوائيًّا", "Pick a student"), T("القرعة", "Pick")) +
     B("hbIce", "ice", T("كسر الجليد: أنشطة تنافسية من كلمات الدرس", "Ice-breakers: competitive activities from the lesson"), T("الجليد", "Ice")) +
+    B("hbAct", "bolt", T("التعلّم النشط: أنشطة تفاعلية من الدرس", "Active learning: interactive lesson activities"), T("نشط", "Active")) +
+    B("hbFb", "chat", T("الفيدباك: من المعلم ومن الأقران وتقييم ذاتي", "Feedback: teacher, peers and self-assessment"), T("فيدباك", "Feedback")) +
     B("hbClass", "cup", T("إدارة الصف: المجموعات والنقاط ومقياس الهدوء", "Class tools: groups, points, noise meter"), T("الصف", "Class")) +
     ($("bNo") ? B("hbNo", "notes", T("ملاحظات المعلم (N)", "Teacher notes (N)"), T("الملاحظات", "Notes")) : "") +
     ($("bE") ? B("hbE", "edit", T("تعديل نصوص الشريحة", "Edit slide text"), T("تعديل", "Edit")) : "") +
@@ -987,7 +1001,7 @@
   /* ---------- كسر الجليد: أنشطة تنافسية في أول الحصة، مبنية على كلمات الدرس نفسه ---------- */
   (function () {
     var ov = mk("div", "hbIceOv"); ov.dir = RTL ? "rtl" : "ltr"; stop(ov);
-    var KEY = "hb-ice-kw-" + DECK, mode = "menu", st = {}, tIv = 0;
+    var KEY = "hb-ice-kw-" + DECK, mode = "menu", st = {}, tIv = 0, hub = "ice";
     var HARK = /[ً-ٰٟۖ-ۭـ]/g;
     var norm = function (w) { return w.replace(HARK, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه"); };
     var STOP = {};
@@ -1017,7 +1031,7 @@
     var pickWord = function (key) { var L = kws(); if (!L.length) return ""; var u = st.used = st.used || []; var R = L.filter(function (x) { return u.indexOf(x) < 0; }); if (!R.length) { u.length = 0; R = L; } var w = R[Math.floor(Math.random() * R.length)]; u.push(w); return w; };
     function stopT() { clearInterval(tIv); tIv = 0; }
     function shell(ttl, inner, prize) {
-      ov.innerHTML = '<div class="ice-h">' + (mode !== "menu" ? '<button class="ice-back" id="iceBk">→ ' + T("الأنشطة", "Activities") + "</button>" : "") + "<b>🧊 " + ttl + '</b><button class="ice-x" id="iceX" aria-label="' + T("إغلاق", "Close") + '">✕</button></div><div class="ice-b">' + inner + "</div>" + (prize != null ? '<div class="ice-bar" id="iceBar"></div>' : "");
+      ov.innerHTML = '<div class="ice-h">' + (mode !== "menu" ? '<button class="ice-back" id="iceBk">→ ' + T("الأنشطة", "Activities") + "</button>" : "") + "<b>" + HIC[hub] + " " + ttl + '</b><button class="ice-x" id="iceX" aria-label="' + T("إغلاق", "Close") + '">✕</button></div><div class="ice-b">' + inner + "</div>" + (prize != null ? '<div class="ice-bar" id="iceBar"></div>' : "");
       $("iceX").onclick = closeIce; var bk = $("iceBk"); if (bk) bk.onclick = function () { stopT(); mode = "menu"; st = {}; paint(); };
       if (prize != null) paintBar(prize);
     }
@@ -1026,7 +1040,7 @@
       bar.innerHTML = '<span class="ice-bl">🏆 ' + T("امنح النقاط:", "Award points:") + "</span>" + tms().map(function (t, i) { return '<button class="ice-tm" data-i="' + i + '" style="background:' + t.c + '"' + (prize > 0 ? "" : " disabled") + "><b>" + t.s + "</b><span>" + esc(t.n) + "</span><i>+" + prize + "</i></button>"; }).join("");
       bar.querySelectorAll(".ice-tm").forEach(function (b) { b.onclick = function () { if (W.__hbTeams && st.prize > 0) { W.__hbTeams.add(+b.dataset.i, st.prize); snd("correct"); burst(["⭐", "🎉"]); paintBar(st.prize); } }; });
     }
-    function closeIce() { stopT(); ov.classList.remove("on"); var b = $("hbIce"); if (b) b.classList.remove("on"); if (W.__hbPush) W.__hbPush(); }
+    function closeIce() { stopT(); ov.classList.remove("on"); ["hbIce", "hbAct", "hbFb"].forEach(function (id) { var b = $(id); if (b) b.classList.remove("on"); }); if (W.__hbPush) W.__hbPush(); }
     var ACT = [
       ["scr", "🔤", T("الكلمة المبعثرة", "Scrambled word"), T("حروف كلمة من الدرس مخلوطة، وأسرع فريق يرتّبها", "Letters of a lesson word are mixed; the fastest team unscrambles it")],
       ["mys", "🕵️", T("الكلمة الغامضة", "Mystery word"), T("تُكشف الحروف تدريجيًّا، وكلما خمّنتَ مبكرًا زادت الجائزة", "Letters are revealed one by one; the earlier the guess, the bigger the prize")],
@@ -1045,7 +1059,7 @@
       ["cor", "🧭", T("الأركان الأربعة", "Four corners"), T("سؤال بأربعة اختيارات، يتحرّك الطلاب إلى ركنهم ويحكون لماذا", "A question with four options; students move to a corner and share why")]
     ];
     function paintMenu() {
-      mode = "menu"; var L = kws();
+      mode = "menu"; if (hub !== "ice") return paintHub(); var L = kws();
       shell(T("كسر الجليد", "Ice-breakers"),
         '<p class="ice-lead">' + T("تنافس بين فرق الصف، وكل الكلمات من درس «", "Team competition; every word comes from the lesson «") + esc(title) + T("»", "»") + "</p>" +
         '<h4 class="ice-sec">📚 ' + T("من كلمات الدرس", "From the lesson's words") + '</h4><div class="ice-grid">' + ACT.map(function (a) { return '<button class="ice-card" data-a="' + a[0] + '"><span class="ice-ic">' + a[1] + "</span><b>" + a[2] + "</b><small>" + a[3] + "</small></button>"; }).join("") + "</div>" +
@@ -1055,7 +1069,7 @@
       $("iceSave").onclick = function () { LS.set(KEY, $("iceKw").value); say(T("حُفظت كلمات الدرس", "Saved")); };
       $("iceSug").onclick = function () { LS.set(KEY, ""); $("iceKw").value = suggest().join("\n"); };
     }
-    function start(a) { stopT(); mode = a; st = { used: [] }; if (/^(scr|mys|twq|mem|hot)$/.test(a) && !kws().length) { say(T("أضف كلمة واحدة على الأقل", "Add at least one word")); mode = "menu"; return; } paint(); }
+    function start(a) { stopT(); mode = a; st = { used: [] }; if (/^(scr|mys|twq|mem|hot|cmp)$/.test(a) && !kws().length) { say(T("أضف كلمة واحدة على الأقل", "Add at least one word")); mode = "menu"; return; } paint(); }
     function paintScr() {
       var w = st.w || (st.w = pickWord()), arr = letters(w), sc = st.sc;
       if (!sc) { var t = 0; do { sc = shuffle(arr); t++; } while (sc.join("") === arr.join("") && t < 12 && arr.length > 1); st.sc = sc; }
@@ -1247,9 +1261,181 @@
         if (W.__hbSend && W.__hbSend("hot", { w: w })) { st.sent = true; paintHot(); } else { st.w = null; say(T("اربط جوالك أولًا من زر «تحكّم بالعرض من جوالك»", "Connect your phone first from the phone-control button")); }
       };
     }
+    /* ================= التعلّم النشط والفيدباك (يشاركان لوحة الجليد ونقاط الفرق) ================= */
+    var HIC = { ice: "🧊", act: "🙌", fb: "💬" };
+    var STU = function () { return LS.get("hb-names", "").split(/\n|،|,/).map(function (x) { return x.trim(); }).filter(Boolean); };
+    var saveNote = function (g, x) {
+      var k = "hb-notes-" + DECK, a = []; try { a = JSON.parse(LS.get(k, "[]")) || []; } catch (e) {}
+      a.push({ t: Date.now(), s: cur + 1, g: String(g).slice(0, 60), x: String(x).slice(0, 300), l: (W.__hbLiveId && W.__hbLiveId()) || 0 }); LS.set(k, JSON.stringify(a.slice(-300)));
+      say(T("حُفظت في ملاحظاتك (وتدخل تقرير الحصة المباشرة)", "Saved to your notes (included in the live lesson report)"));
+    };
+    var lines = function (k, def) { var L = LS.get(k, "").split(/\n/).map(function (x) { return x.trim(); }).filter(Boolean); return L.length ? L : def; };
+    var jget = function (k) { try { return JSON.parse(LS.get(k, "{}")) || {}; } catch (e) { return {}; } };
+    var curTitle = function () { return stTitle(cur) || title; };
+    var STRUCT = /قبل ان نبدا|قياس التقدم|خريطه العمل|نماذج الاجابه|اهداف|معايير النجاح|الخروج|الختام|الواجب|التقويم|شكرا|المراجعه|قبل الدرس|بعد الدرس|مفردات|الاستراتيجي|ملخص|عنوان/;
+    var slideTitles = function () { var o = []; SL.forEach(function (s, i) { var t = stTitle(i); if (t && o.indexOf(t) < 0 && i > 0 && i < SL.length - 1 && t.length >= 6 && t.length < 70 && !STRUCT.test(norm(t))) o.push(t); }); return o; };
+    var spread = function (arr, n) { if (arr.length <= n) return arr.slice(); var o = []; for (var k = 0; k < n; k++) o.push(arr[Math.floor(k * arr.length / n)]); return o; };
+    var ACTV = [
+      ["tps", "🤔", T("فكّر – زاوج – شارك", "Think – Pair – Share"), T("سؤال من الدرس: دقيقة تفكير هادئ، ثم نقاش مع زميل، ثم مشاركة مع الصف", "A lesson question: quiet thinking, then a partner talk, then sharing")],
+      ["jig", "🧩", T("المحاور المتقاطعة (جيغسو)", "Jigsaw"), T("كل فريق يتخصّص في جزء من الدرس ثم يعلّمه لزملائه", "Each team masters one part of the lesson then teaches it")],
+      ["sqs", "❓", T("اصنعوا الأسئلة", "Student-made questions"), T("الفرق تكتب أسئلة عن الدرس وتتبادلها للإجابة", "Teams write questions about the lesson and swap them")],
+      ["cmp", "🕸", T("خريطة المفاهيم", "Concept map"), T("تربط الفرق كلمات الدرس بأسهم وعلاقات في وقت محدّد", "Teams link lesson words with arrows and relations against the clock")],
+      ["deb", "⚖️", T("أوافق أم لا أوافق", "Agree or disagree"), T("عبارة من الدرس والطلاب يتحرّكون لموقفهم ويدافعون عنه", "A statement; students move to their stance and defend it")],
+      ["omp", "📝", T("ورقة الدقيقة", "One-minute paper"), T("أهم فكرة تعلّمتها وأصعب نقطة بقيت، في دقيقة", "The key idea learned and the muddiest point, in one minute")]
+    ];
+    var FBK = [
+      ["tfb", "🌟", T("فيدباك المعلم للطالب", "Teacher → student feedback"), T("نجمة وأمنية وخطوة تالية بعبارات مساعدة، تُعرض على الشاشة أو تُحفظ", "A star, a wish and a next step with sentence stems; show or save it")],
+      ["pfb", "🤝", T("فيدباك الأقران في مجموعات", "Peer feedback in groups"), T("دوران منظّم داخل المجموعة: كل عضو يعطي زميله فيدباك بوقت محدّد", "A timed rotation: each member gives the next one feedback")],
+      ["pas", "📋", T("تقييم الأقران", "Peer assessment"), T("فريق يقيّم عمل فريق آخر على معايير، ويخرج بخطوة تطوير", "A team rates another team's work on criteria, ending with a next step")],
+      ["sas", "🪞", T("التقييم الذاتي", "Self-assessment"), T("إشارة المرور قبل الدرس وبعده لقياس نموّ الصف", "Traffic lights before and after the lesson to see the class's growth")]
+    ];
+    function paintHub() {
+      var L = hub === "act" ? ACTV : FBK;
+      shell(hub === "act" ? T("التعلّم النشط", "Active learning") : T("الفيدباك", "Feedback"),
+        '<p class="ice-lead">' + (hub === "act" ? T("أنشطة يتحرّك فيها الطلاب ويفكّرون ويتعاونون، مرتبطة بدرس «", "Activities where students think, move and collaborate, linked to the lesson «") + esc(title) + "»" : T("فيدباك من المعلم، ومن الطلاب لبعضهم، ومن الطالب لنفسه", "Feedback from teacher, from peers, and from the learner himself")) + '</p><div class="ice-grid">' +
+        L.map(function (a) { return '<button class="ice-card" data-a="' + a[0] + '"><span class="ice-ic">' + a[1] + "</span><b>" + a[2] + "</b><small>" + a[3] + "</small></button>"; }).join("") + "</div>" +
+        (hub === "act" ? '<p class="ice-note" style="margin-top:14px">' + T("«خريطة المفاهيم» تأخذ كلماتها من لوحة «الجليد» (كلمات الدرس) ويمكنك تعديلها هناك.", "“Concept map” uses the lesson words from the Ice panel; edit them there.") + "</p>" : ""));
+      ov.querySelectorAll(".ice-card").forEach(function (b) { b.onclick = function () { start(b.dataset.a); }; });
+    }
+    /* --- التعلّم النشط --- */
+    var TPS_S = [["🤔", T("فكّر وحدك", "Think alone"), 30, 1], ["👥", T("زاوج مع زميل", "Pair up"), 60, 0], ["📣", T("شارك الصف", "Share")  , 90, 0]];
+    function tpsRun() { var s = TPS_S[st.ph - 1]; countdown(s[2], function () { snd("chime"); if (st.ph < 3) { st.ph++; paintTps(); tpsRun(); } else { st.ph = 4; paintTps(); } }, s[3]); }
+    function paintTps() {
+      var ph = st.ph || 0, q = st.q != null ? st.q : T("ما رأيك في: «", "What do you think about: «") + curTitle() + T("»؟", "»?");
+      shell(T("فكّر – زاوج – شارك", "Think – Pair – Share"),
+        (ph === 0 ? '<p class="ice-lead">' + T("اكتب السؤال أو عدّله:", "Write or edit the question:") + '</p><textarea id="iceTq" class="ice-ta" rows="2">' + esc(q) + '</textarea><div class="ice-row"><button class="ice-sm" id="iceTt">📑 ' + T("استخدم عنوان الشريحة الحالية", "Use the current slide title") + "</button></div>" : '<div class="ice-stmt">' + esc(q) + "</div>") +
+        '<div class="ice-steps">' + TPS_S.map(function (s, i) { return '<span class="' + (ph === i + 1 ? "on" : ph > i + 1 || ph === 4 ? "dn" : "") + '">' + s[0] + " " + s[1] + "<small>" + s[2] + " " + T("ث", "s") + "</small></span>"; }).join("") + "</div>" +
+        (ph >= 1 && ph <= 3 ? '<div class="ice-cdbig" id="iceCd"></div>' : "") +
+        '<div class="ice-row">' + (ph === 0 ? '<button class="ice-sm go" id="iceGo">▶ ' + T("ابدأ", "Start") + "</button>" : ph === 4 ? '<button class="ice-sm go" id="iceNx">🔄 ' + T("جولة جديدة", "New round") + "</button>" : '<button class="ice-sm" id="iceSk">⏭ ' + T("الخطوة التالية", "Next step") + "</button>") + "</div>" +
+        '<p class="ice-note">' + T("خطوة «فكّر» هادئة بلا كلام، ثم يتحدّث كل طالب مع زميله القريب.", "“Think” is silent; then each student talks to a neighbour.") + "</p>", ph === 4 ? 1 : null);
+      var tt = $("iceTt"); if (tt) tt.onclick = function () { $("iceTq").value = T("ما رأيك في: «", "What do you think about: «") + curTitle() + T("»؟", "»?"); };
+      var go = $("iceGo"); if (go) go.onclick = function () { st.q = $("iceTq").value; st.ph = 1; paintTps(); tpsRun(); };
+      var sk = $("iceSk"); if (sk) sk.onclick = function () { stopT(); st.ph++; paintTps(); if (st.ph <= 3) tpsRun(); };
+      var nx = $("iceNx"); if (nx) nx.onclick = function () { st = { used: [] }; paintTps(); };
+      if (ph >= 1 && ph <= 3) { var c = $("iceCd"); if (c && !tIv) tpsRun(); }
+    }
+    function paintJig() {
+      var n = tms().length, topics = lines("hb-act-jig-" + DECK, spread(slideTitles(), n)), Tm = tms();
+      if (st.edit) {
+        shell(T("المحاور المتقاطعة", "Jigsaw"), '<p class="ice-lead">' + T("اكتب محورًا في كل سطر (بعدد الفرق):", "One topic per line (one per team):") + '</p><textarea id="iceJt" class="ice-ta" rows="5">' + esc(topics.join("\n")) + '</textarea><div class="ice-row"><button class="ice-sm go" id="iceJs">💾 ' + T("احفظ", "Save") + '</button><button class="ice-sm" id="iceJr">🔄 ' + T("اقترح من الدرس", "Suggest from the lesson") + "</button></div>");
+        $("iceJs").onclick = function () { LS.set("hb-act-jig-" + DECK, $("iceJt").value); st.edit = false; paintJig(); };
+        $("iceJr").onclick = function () { LS.set("hb-act-jig-" + DECK, ""); st.edit = false; paintJig(); }; return;
+      }
+      shell(T("المحاور المتقاطعة", "Jigsaw"),
+        '<p class="ice-lead">' + T("لكل فريق محور من الدرس. أولًا تصيرون خبراء فيه، ثم تعلّمون زملاءكم.", "Each team gets one part of the lesson: first become experts, then teach the others.") + '</p><div class="ice-cnt">' + Tm.map(function (t, i) { return '<div class="ice-ct" style="background:' + t.c + ';min-height:88px"><span>' + esc(t.n) + "</span><b style=\"font-size:20px;flex:2;text-align:center\">" + esc(topics.length ? topics[i % topics.length] : "—") + "</b></div>"; }).join("") + "</div>" +
+        '<div class="ice-cdbig" id="iceCd">' + fmt(st.dur || 300) + '</div><div class="ice-row"><button class="ice-sm go" id="iceE">🔎 ' + T("مرحلة الخبراء ٥ د", "Expert phase 5 min") + '</button><button class="ice-sm go" id="iceT">🎓 ' + T("مرحلة التعليم ٥ د", "Teaching phase 5 min") + '</button><button class="ice-sm" id="iceEd">✏️ ' + T("عدّل المحاور", "Edit topics") + "</button></div>", 2);
+      $("iceE").onclick = function () { snd("drum"); countdown(300, function () { snd("chime"); }); }; $("iceT").onclick = function () { snd("drum"); countdown(300, function () { snd("chime"); }); };
+      $("iceEd").onclick = function () { st.edit = true; paintJig(); };
+    }
+    function paintSqs() {
+      var Tm = tms(), n = Tm.length, ph = st.ph || 0, k = st.k || 0;
+      shell(T("اصنعوا الأسئلة", "Student-made questions"),
+        (ph === 0 ? '<p class="ice-lead">' + T("كل فريق يكتب سؤالًا واحدًا جيّدًا عن الدرس، وإجابته النموذجية.", "Each team writes one good question about the lesson, with its model answer.") + '</p><div class="ice-cdbig" id="iceCd">' + fmt(120) + '</div><div class="ice-row"><button class="ice-sm go" id="iceGo">▶ ' + T("ابدأوا (دقيقتان)", "Start (2 min)") + '</button><button class="ice-sm" id="iceSk">⏭ ' + T("انتقل للتبادل", "Go to the swap") + "</button></div>" :
+          '<p class="ice-lead">' + T("تبادل الأسئلة: الفريق الأول يسأل، والفريق المجاور يجيب.", "Swap time: one team asks, the next answers.") + '</p><div class="ice-cnt">' + Tm.map(function (t, i) { var b = Tm[(i + 1) % n]; return '<div class="ice-ct" style="background:' + t.c + (i === k ? ";outline:5px solid #FFD25C" : ";opacity:.7") + '"><span>' + esc(t.n) + "</span><b style=\"font-size:18px\">→</b><span>" + esc(b.n) + "</span></div>"; }).join("") + '</div><div class="ice-row"><button class="ice-sm go" id="iceNx">➡ ' + T("الدور التالي", "Next pair") + '</button><button class="ice-sm" id="iceCh">⏱ 60 ' + T("ث للإجابة", "s to answer") + '</button><b class="ice-cd" id="iceCd"></b></div><p class="ice-note">' + T("امنح نقطة لجودة السؤال ونقطة لدقة الإجابة.", "Give a point for a good question and one for an accurate answer.") + "</p>"), ph === 1 ? 1 : null);
+      var go = $("iceGo"); if (go) go.onclick = function () { snd("drum"); countdown(120, function () { snd("chime"); st.ph = 1; st.k = 0; paintSqs(); }); };
+      var sk = $("iceSk"); if (sk) sk.onclick = function () { stopT(); st.ph = 1; st.k = 0; paintSqs(); };
+      var nx = $("iceNx"); if (nx) nx.onclick = function () { st.k = (k + 1) % n; stopT(); paintSqs(); };
+      var ch = $("iceCh"); if (ch) ch.onclick = function () { countdown(60, function () { snd("chime"); }); };
+    }
+    function paintCmp() {
+      if (!st.set) st.set = shuffle(kws()).slice(0, 8);
+      shell(T("خريطة المفاهيم", "Concept map"),
+        '<p class="ice-lead">' + T("ارسموا خريطة تربط هذه الكلمات بأسهم، واكتبوا على كل سهم العلاقة بين الكلمتين.", "Draw a map linking these words with arrows; label each arrow with the relation.") + '</p><div class="ice-words">' + st.set.map(function (w) { return '<span class="ice-wd">' + esc(w) + "</span>"; }).join("") + '</div><div class="ice-cdbig" id="iceCd">' + fmt(180) + '</div><div class="ice-row"><button class="ice-sm go" id="iceGo">▶ ' + T("ابدأوا (٣ دقائق)", "Start (3 min)") + '</button><button class="ice-sm" id="iceNx">🔄 ' + T("كلمات أخرى", "Other words") + "</button></div>", 3);
+      $("iceGo").onclick = function () { snd("drum"); countdown(180, function () { snd("chime"); }); };
+      $("iceNx").onclick = function () { st.set = null; stopT(); paintCmp(); };
+    }
+    function paintDeb() {
+      var s = st.s != null ? st.s : T("هل توافق على: «", "Do you agree with: «") + curTitle() + T("»؟", "»?");
+      shell(T("أوافق أم لا أوافق", "Agree or disagree"),
+        '<p class="ice-lead">' + T("اقرأوا العبارة، ثم تحرّكوا إلى جهة موقفكم.", "Read the statement, then move to your stance.") + '</p><textarea id="iceDs" class="ice-ta" rows="2">' + esc(s) + '</textarea><div class="ice-zones"><div style="background:#15803D">✅ ' + T("أوافق", "Agree") + '</div><div style="background:#B7791F">🤔 ' + T("متردّد", "Unsure") + '</div><div style="background:#B3261E">❌ ' + T("لا أوافق", "Disagree") + '</div></div><div class="ice-cdbig" id="iceCd"></div>' +
+        '<div class="ice-row"><button class="ice-sm" data-t="20">⏱ 20 ' + T("ث: اختاروا موقفكم", "s: pick a side") + '</button><button class="ice-sm go" data-t="90">⏱ 90 ' + T("ث: دافعوا بدليل", "s: defend with evidence") + '</button><button class="ice-sm" data-t="30">⏱ 30 ' + T("ث: هل غيّرتم رأيكم؟", "s: changed your mind?") + "</button></div>");
+      $("iceDs").oninput = function () { st.s = this.value; };
+      ov.querySelectorAll("[data-t]").forEach(function (b) { b.onclick = function () { snd("drum"); countdown(+b.dataset.t, function () { snd("chime"); }); }; });
+    }
+    function paintOmp() {
+      shell(T("ورقة الدقيقة", "One-minute paper"),
+        '<p class="ice-lead">' + T("في ورقة صغيرة اكتبوا:", "On a small paper write:") + '</p><div class="ice-cnt" style="grid-template-columns:1fr 1fr"><div class="ice-ct" style="background:#0B7A75;min-height:110px;font-size:22px;font-weight:800;justify-content:center;text-align:center">💡 ' + T("أهم فكرة تعلّمتها اليوم", "The key idea I learned today") + '</div><div class="ice-ct" style="background:#C2410C;min-height:110px;font-size:22px;font-weight:800;justify-content:center;text-align:center">❓ ' + T("أصعب نقطة أو سؤال بقي عندي", "My muddiest point or question") + '</div></div><div class="ice-cdbig" id="iceCd">' + fmt(60) + '</div><div class="ice-row"><button class="ice-sm go" id="iceGo">▶ ' + T("ابدأوا (دقيقة)", "Start (1 min)") + "</button></div>" +
+        '<p class="ice-note">' + T("اجمع الأوراق عند الخروج، وابدأ الحصة القادمة بأكثر نقطة صعبة تكرّرت.", "Collect them at the door; start next lesson with the most repeated difficulty.") + "</p>");
+      $("iceGo").onclick = function () { snd("drum"); countdown(60, function () { snd("chime"); }); };
+    }
+    /* --- الفيدباك --- */
+    var STEM = { a: [T("أعجبني أنك…", "I liked that you…"), T("أحسنتَ حين…", "Well done when you…"), T("لاحظتُ أنك…", "I noticed you…")], b: [T("ستتطوّر أكثر لو…", "You'll improve if you…"), T("حاول أن…", "Try to…"), T("ما رأيك أن…", "What if you…")], c: [T("في المرة القادمة…", "Next time…"), T("ابدأ بـ…", "Start with…"), T("تدرّب على…", "Practise…")] };
+    function paintTfb() {
+      var Stu = STU(), Tm = tms();
+      if (st.show) {
+        shell(T("رسالة تقدير", "A message for you"),
+          '<div class="ice-fbcard"><div class="ice-fbto">' + T("إلى: ", "To: ") + "<b>" + esc(st.to || T("الصف", "the class")) + "</b></div>" + (st.a ? '<p>⭐ ' + esc(st.a) + "</p>" : "") + (st.b ? '<p>🎯 ' + esc(st.b) + "</p>" : "") + (st.c ? '<p>➡ ' + esc(st.c) + "</p>" : "") + '</div><div class="ice-row"><button class="ice-sm" id="iceBk2">✏️ ' + T("عدّل", "Edit") + '</button><button class="ice-sm go" id="iceSv">💾 ' + T("احفظ في ملاحظاتي", "Save to my notes") + '</button><button class="ice-sm" id="iceNw">🆕 ' + T("فيدباك جديد", "New feedback") + "</button></div>");
+        $("iceBk2").onclick = function () { st.show = false; paintTfb(); }; $("iceNw").onclick = function () { st = { used: [] }; paintTfb(); };
+        $("iceSv").onclick = function () { saveNote("💬 " + T("فيدباك إلى ", "Feedback to ") + (st.to || T("الصف", "class")), [st.a && "⭐ " + st.a, st.b && "🎯 " + st.b, st.c && "➡ " + st.c].filter(Boolean).join(" | ")); }; return;
+      }
+      var opt = '<option value="">' + T("اختر المستلم…", "Choose a recipient…") + "</option>" + Stu.map(function (x) { return "<option" + (st.to === x ? " selected" : "") + ">" + esc(x) + "</option>"; }).join("") + Tm.map(function (t) { var v = T("الفريق ", "Team ") + t.n; return "<option" + (st.to === v ? " selected" : "") + ">" + esc(v) + "</option>"; }).join("") + "<option" + (st.to === T("الصف كله", "The whole class") ? " selected" : "") + ">" + T("الصف كله", "The whole class") + "</option>";
+      var fld = function (k, ic, ph) { return '<div class="ice-fld"><label>' + ic + '</label><input class="ice-txt" data-k="' + k + '" value="' + esc(st[k] || "") + '" placeholder="' + ph + '"><div class="ice-stems">' + STEM[k].map(function (s) { return '<button class="ice-chip" data-k="' + k + '" data-s="' + esc(s) + '">' + esc(s) + "</button>"; }).join("") + "</div></div>"; };
+      shell(T("فيدباك المعلم للطالب", "Teacher → student feedback"),
+        '<p class="ice-lead">' + T("فيدباك محدّد ومفيد: نجمة، وأمنية، وخطوة تالية.", "Specific, useful feedback: a star, a wish and a next step.") + '</p><div class="ice-row"><select id="iceTo" class="ice-sel">' + opt + "</select></div>" +
+        fld("a", "⭐", T("ما أحسن فيه…", "What went well…")) + fld("b", "🎯", T("ما يطوّره…", "What to improve…")) + fld("c", "➡", T("خطوته التالية…", "The next step…")) + '<div class="ice-row"><button class="ice-sm go" id="iceSh">📺 ' + T("اعرضها على الشاشة", "Show on screen") + "</button></div>");
+      $("iceTo").onchange = function () { st.to = this.value; };
+      ov.querySelectorAll(".ice-txt").forEach(function (i) { i.oninput = function () { st[i.dataset.k] = i.value; }; });
+      ov.querySelectorAll(".ice-chip").forEach(function (b) { b.onclick = function () { var inp = ov.querySelector('.ice-txt[data-k="' + b.dataset.k + '"]'); inp.value = (inp.value ? inp.value + " " : "") + b.dataset.s; st[b.dataset.k] = inp.value; inp.focus(); }; });
+      $("iceSh").onclick = function () { if (!(st.a || st.b || st.c)) { say(T("اكتب جملة واحدة على الأقل", "Write at least one line")); return; } st.show = true; snd("correct"); paintTfb(); };
+    }
+    function pfbRun() { countdown(60, function () { snd("chime"); if (st.k < (st.n || 4)) { st.k++; paintPfb(); pfbRun(); } else { st.k = 0; st.run = false; paintPfb(); } }, 1); }
+    function paintPfb() {
+      var n = st.n || 4, k = st.k || 0, run = !!st.run;
+      shell(T("فيدباك الأقران في مجموعات", "Peer feedback in groups"),
+        '<p class="ice-lead">' + T("كل عضو في المجموعة يعطي زميله التالي فيدباك لمدة دقيقة. الجميع يأخذ ويعطي.", "Each member gives the next one a minute of feedback. Everyone gives and receives.") + '</p><div class="ice-q"><button class="ice-sm" id="iceNm"' + (run ? " disabled" : "") + '>−</button><span>' + T("عدد أعضاء المجموعة: ", "Group size: ") + "<b>" + n + '</b></span><button class="ice-sm" id="iceNp"' + (run ? " disabled" : "") + ">＋</button></div>" +
+        (run ? '<div class="ice-first" style="background:#102A4C">' + T("الدور ", "Turn ") + k + ": " + T("العضو ", "Member ") + k + " → " + T("العضو ", "Member ") + (k % n + 1) + '</div><div class="ice-cdbig" id="iceCd"></div>' : "") +
+        '<div class="ice-rules"><span>🌸 ' + T("لطيف", "Kind") + "</span><span>🎯 " + T("محدّد", "Specific") + "</span><span>🧭 " + T("مفيد", "Helpful") + '</span></div><div class="ice-fbstems"><p>⭐ ' + T("أعجبني في عملك… (نقطتان)", "I liked… (two points)") + "</p><p>🎯 " + T("أتمنى لو… (أمنية واحدة)", "I wish… (one wish)") + "</p><p>🤝 " + T("وأقترح…", "I suggest…") + '</p></div><div class="ice-row">' + (run ? '<button class="ice-sm" id="iceSt">■ ' + T("أوقف", "Stop") + "</button>" : '<button class="ice-sm go" id="iceGo">▶ ' + T("ابدأ الدوران", "Start rotation") + "</button>") + "</div>");
+      var np = $("iceNp"), nm = $("iceNm"); if (np) np.onclick = function () { st.n = Math.min(6, n + 1); paintPfb(); }; if (nm) nm.onclick = function () { st.n = Math.max(2, n - 1); paintPfb(); };
+      var go = $("iceGo"); if (go) go.onclick = function () { st.run = true; st.k = 1; paintPfb(); pfbRun(); };
+      var sp = $("iceSt"); if (sp) sp.onclick = function () { stopT(); st.run = false; st.k = 0; paintPfb(); };
+      if (run && !tIv) pfbRun();
+    }
+    var LVL = [["🌱", T("أبدأ", "Starting")], ["🌿", T("أنمو", "Growing")], ["🌳", T("متمكّن", "Secure")]];
+    function paintPas() {
+      var Tm = tms(), ck = "hb-fb-pc-" + DECK, crit = lines(ck, [T("وضوح الفكرة", "Clarity of the idea"), T("استخدام ما تعلّمناه من الدرس", "Using what we learned in the lesson"), T("تعاون أعضاء الفريق", "Teamwork")]), D = jget("hb-fb-peer-" + DECK);
+      if (st.edit) {
+        shell(T("تقييم الأقران", "Peer assessment"), '<p class="ice-lead">' + T("معيار في كل سطر:", "One criterion per line:") + '</p><textarea id="iceCt" class="ice-ta" rows="5">' + esc(crit.join("\n")) + '</textarea><div class="ice-row"><button class="ice-sm go" id="iceCs">💾 ' + T("احفظ", "Save") + "</button></div>");
+        $("iceCs").onclick = function () { LS.set(ck, $("iceCt").value); st.edit = false; paintPas(); }; return;
+      }
+      var ti = st.t || 0; if (ti >= Tm.length) ti = st.t = 0; var tn = Tm[ti].n, R = D[tn] || [], done = crit.map(function (_, i) { return R[i]; });
+      var got = done.filter(function (x) { return x != null; }), avg = got.length ? got.reduce(function (a, b) { return a + b; }, 0) / got.length : 0, low = -1; done.forEach(function (v, i) { if (v != null && (low < 0 || v < done[low])) low = i; });
+      var trees = done.filter(function (x) { return x === 2; }).length;
+      shell(T("تقييم الأقران", "Peer assessment"),
+        '<p class="ice-lead">' + T("الفرق المشاهِدة تقيّم الفريق: ", "The watching teams rate: ") + "<b>" + esc(tn) + "</b></p>" +
+        '<div class="ice-row">' + Tm.map(function (t, i) { return '<button class="ice-sm' + (i === ti ? " on" : "") + '" data-t="' + i + '" style="' + (i === ti ? "" : "border-color:" + t.c) + '">' + esc(t.n) + "</button>"; }).join("") + "</div>" +
+        '<div class="ice-crits">' + crit.map(function (c, i) { return '<div class="ice-cr2"><span>' + esc(c) + "</span>" + LVL.map(function (l, v) { return '<button class="ice-lv' + (done[i] === v ? " on" : "") + '" data-i="' + i + '" data-v="' + v + '">' + l[0] + "<small>" + l[1] + "</small></button>"; }).join("") + "</div>"; }).join("") + "</div>" +
+        (got.length ? '<div class="ice-sum">' + (low >= 0 && done[low] < 2 ? "🧭 " + T("خطوة التطوير: ", "Next step: ") + "<b>" + esc(crit[low]) + "</b>" : "🌟 " + T("عملٌ متمكّن في كل المعايير", "Secure on every criterion")) + "</div>" : "") +
+        '<div class="ice-row"><button class="ice-sm" id="iceEd">✏️ ' + T("عدّل المعايير", "Edit criteria") + '</button><button class="ice-sm" id="iceSv">💾 ' + T("احفظ في ملاحظاتي", "Save to my notes") + "</button></div>", got.length ? Math.max(1, trees) : 0);
+      ov.querySelectorAll("[data-t]").forEach(function (b) { b.onclick = function () { st.t = +b.dataset.t; paintPas(); }; });
+      ov.querySelectorAll(".ice-lv").forEach(function (b) { b.onclick = function () { var r = (D[tn] = D[tn] || []); r[+b.dataset.i] = +b.dataset.v; LS.set("hb-fb-peer-" + DECK, JSON.stringify(D)); snd("chime"); paintPas(); }; });
+      $("iceEd").onclick = function () { st.edit = true; paintPas(); };
+      $("iceSv").onclick = function () { if (!got.length) return; saveNote("📋 " + T("تقييم أقران: ", "Peer assessment: ") + tn, crit.map(function (c, i) { return done[i] != null ? c + " " + LVL[done[i]][0] : ""; }).filter(Boolean).join(" | ") + (low >= 0 && done[low] < 2 ? " | " + T("خطوة التطوير: ", "Next: ") + crit[low] : "")); };
+    }
+    function paintSas() {
+      var ck = "hb-fb-sc-" + DECK, sug = spread(slideTitles(), 3).map(function (t) { return T("أستطيع أن أشرح: ", "I can explain: ") + t; }), crit = lines(ck, sug.length ? sug : [T("أستطيع أن أشرح فكرة الدرس الرئيسية", "I can explain the main idea of the lesson")]), D = jget("hb-fb-self-" + DECK), ph = st.ph || "before";
+      if (st.edit) {
+        shell(T("التقييم الذاتي", "Self-assessment"), '<p class="ice-lead">' + T("اكتب عبارات «أستطيع أن…» (عبارة في كل سطر):", "Write “I can…” statements, one per line:") + '</p><textarea id="iceSc" class="ice-ta" rows="5">' + esc(crit.join("\n")) + '</textarea><div class="ice-row"><button class="ice-sm go" id="iceSs">💾 ' + T("احفظ", "Save") + "</button></div>");
+        $("iceSs").onclick = function () { LS.set(ck, $("iceSc").value); st.edit = false; paintSas(); }; return;
+      }
+      var P = D[ph] = D[ph] || {}, COL = ["#D64545", "#E6B325", "#2E9E5B"], NM = [T("لم أفهم", "Not yet"), T("جزئيًّا", "Partly"), T("أتقن", "Got it")];
+      var pct = function (arr) { var t = (arr || [0, 0, 0]).reduce(function (a, b) { return a + b; }, 0); return t ? Math.round((arr[2] || 0) * 100 / t) : null; };
+      shell(T("التقييم الذاتي", "Self-assessment"),
+        '<p class="ice-lead">' + T("ارفعوا أصابعكم: ١ لم أفهم، ٢ جزئيًّا، ٣ أتقن. سجّل العدد لكل عبارة.", "Raise fingers: 1 not yet, 2 partly, 3 got it. Tap the counts for each statement.") + '</p><div class="ice-row"><button class="ice-sm' + (ph === "before" ? " on" : "") + '" data-p="before">▶ ' + T("قبل الدرس", "Before") + '</button><button class="ice-sm' + (ph === "after" ? " on" : "") + '" data-p="after">🏁 ' + T("بعد الدرس", "After") + "</button></div>" +
+        '<div class="ice-crits">' + crit.map(function (c, i) { var a = P[i] || [0, 0, 0], tot = a[0] + a[1] + a[2], b = D.before && D.before[i], af = D.after && D.after[i], pb = pct(b), pa = pct(af);
+          return '<div class="ice-cr2" style="flex-wrap:wrap"><span style="flex:1 1 100%">' + esc(c) + "</span>" + [0, 1, 2].map(function (v) { return '<span class="ice-cnt3" style="background:' + COL[v] + '"><button data-i="' + i + '" data-v="' + v + '" data-d="-1">−</button><b>' + a[v] + "</b><small>" + NM[v] + '</small><button data-i="' + i + '" data-v="' + v + '" data-d="1">＋</button></span>'; }).join("") +
+            (tot ? '<div class="ice-stack" style="flex:1 1 100%">' + [0, 1, 2].map(function (v) { return a[v] ? '<i style="flex:' + a[v] + ";background:" + COL[v] + '"></i>' : ""; }).join("") + "</div>" : "") +
+            (pb != null && pa != null ? '<span class="ice-grow" style="flex:1 1 100%">📈 ' + T("المتقنون: ", "Secure: ") + pb + "% → " + pa + "% (" + (pa - pb >= 0 ? "+" : "") + (pa - pb) + ")</span>" : "") + "</div>"; }).join("") + "</div>" +
+        '<div class="ice-row"><button class="ice-sm" id="iceEd">✏️ ' + T("عدّل العبارات", "Edit statements") + '</button><button class="ice-sm" id="iceSv">💾 ' + T("احفظ الملخص في ملاحظاتي", "Save summary to my notes") + "</button></div>");
+      ov.querySelectorAll("[data-p]").forEach(function (b) { b.onclick = function () { st.ph = b.dataset.p; paintSas(); }; });
+      ov.querySelectorAll(".ice-cnt3 button").forEach(function (b) { b.onclick = function () { var i = +b.dataset.i, v = +b.dataset.v, a = (P[i] = P[i] || [0, 0, 0]); a[v] = Math.max(0, a[v] + +b.dataset.d); LS.set("hb-fb-self-" + DECK, JSON.stringify(D)); paintSas(); }; });
+      $("iceEd").onclick = function () { st.edit = true; paintSas(); };
+      $("iceSv").onclick = function () { saveNote("🪞 " + T("تقييم ذاتي ", "Self-assessment ") + (ph === "before" ? T("(قبل)", "(before)") : T("(بعد)", "(after)")), crit.map(function (c, i) { var a = P[i]; return a ? c.slice(0, 40) + ": 🔴" + a[0] + " 🟡" + a[1] + " 🟢" + a[2] : ""; }).filter(Boolean).join(" | ")); };
+    }
     var letPick = function () { st.L = LETS[Math.floor(Math.random() * LETS.length)]; st.cat = CATS[Math.floor(Math.random() * CATS.length)]; };
-    function paint() { stopT(); if (mode === "menu") paintMenu(); else if (mode === "scr") paintScr(); else if (mode === "mys") paintMys(); else if (mode === "twq") paintTwq(); else if (mode === "brn") paintBrn(); else if (mode === "mem") paintMem(); else if (mode === "let") paintBrn(); else if (mode === "lin") paintLine(); else if (mode === "num") paintNum(); else if (mode === "cor") paintCor(); else if (mode === "tf") paintTf(); else if (mode === "buz") paintBuz(); else if (mode === "prd") paintPrd(); else if (mode === "hot") paintHot(); kick(); }
-    on("hbIce", function (e, b) { closePops(); var co = $("hbClassOv"); if (co) co.classList.remove("on"); $("hbClass").classList.remove("on"); if (ov.classList.contains("on")) { closeIce(); return; } mode = "menu"; st = {}; ov.classList.add("on"); b.classList.add("on"); paint(); });
+    function paint() { stopT(); if (mode === "menu") paintMenu(); else if (mode === "scr") paintScr(); else if (mode === "mys") paintMys(); else if (mode === "twq") paintTwq(); else if (mode === "brn") paintBrn(); else if (mode === "mem") paintMem(); else if (mode === "let") paintBrn(); else if (mode === "lin") paintLine(); else if (mode === "num") paintNum(); else if (mode === "cor") paintCor(); else if (mode === "tf") paintTf(); else if (mode === "buz") paintBuz(); else if (mode === "prd") paintPrd(); else if (mode === "hot") paintHot(); else if (mode === "tps") paintTps(); else if (mode === "jig") paintJig(); else if (mode === "sqs") paintSqs(); else if (mode === "cmp") paintCmp(); else if (mode === "deb") paintDeb(); else if (mode === "omp") paintOmp(); else if (mode === "tfb") paintTfb(); else if (mode === "pfb") paintPfb(); else if (mode === "pas") paintPas(); else if (mode === "sas") paintSas(); kick(); }
+    var HBTN = { ice: "hbIce", act: "hbAct", fb: "hbFb" };
+    var openHub = function (h) { closePops(); var co = $("hbClassOv"); if (co) co.classList.remove("on"); $("hbClass").classList.remove("on"); if (ov.classList.contains("on") && hub === h) { closeIce(); return; } stopT(); hub = h; mode = "menu"; st = {}; ov.classList.add("on"); ["hbIce", "hbAct", "hbFb"].forEach(function (id) { var b = $(id); if (b) b.classList.toggle("on", id === HBTN[h]); }); paint(); };
+    on("hbIce", function () { openHub("ice"); }); on("hbAct", function () { openHub("act"); }); on("hbFb", function () { openHub("fb"); });
   })();
 
   /* ---------- دعم القراءة والتمايز ---------- */
