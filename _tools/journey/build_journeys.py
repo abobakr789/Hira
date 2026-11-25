@@ -339,14 +339,17 @@ def patch_l08():
     if '.scene>div{position:relative;z-index:1}' not in b:
         b = b.replace('.scene .txt{', '.scene>div{position:relative;z-index:1}\n.scene .txt{', 1)
     # «أُرَكِّبُ الْكَلِمَةَ» في محطة كلماتي (الدالة من generic-render.js، والأنماط من words.css)
-    if '/*L08-BUILD*/' not in b:
-        gr = open(os.path.join(HERE, 'generic-render.js'), encoding='utf-8').read()
-        i0 = gr.index('/* أُرَكِّبُ الْكَلِمَةَ'); i1 = gr.index('const RENDER={')
-        b = b.replace('const RENDER={', '/*L08-BUILD*/\n' + gr[i0:i1] + 'const RENDER={', 1)
-        old = 'setTimeout(()=>complete("words",`جَمَعْتَ الْكَلِماتِ كُلَّها في ${moves} مُحاوَلاتٍ!`),700)'
-        assert old in b, 'L08 words completion not found'
-        b = b.replace(old, 'setTimeout(()=>buildWords(el,pairs,()=>complete("words",`جَمَعْتَ الْكَلِماتِ كُلَّها في ${moves} مُحاوَلاتٍ، وَرَكَّبْتَها حَرْفًا حَرْفًا!`)),700)', 1)
-        b = b.replace('</style>', open(os.path.join(HERE, 'words.css'), encoding='utf-8').read() + '\n</style>', 1)
+    gr = open(os.path.join(HERE, 'generic-render.js'), encoding='utf-8').read()
+    fn = gr[gr.index('/* أُرَكِّبُ الْكَلِمَةَ'):gr.index('const RENDER={')]
+    if '/*L08-BUILD*/' in b:
+        b = re.sub(r'/\*L08-BUILD\*/\n.*?(?=const RENDER=\{)', lambda m: '/*L08-BUILD*/\n' + fn, b, count=1, flags=re.S)
+    else:
+        b = b.replace('const RENDER={', '/*L08-BUILD*/\n' + fn + 'const RENDER={', 1)
+    if 'buildWords(el,pairs' not in b:
+            old = 'setTimeout(()=>complete("words",`جَمَعْتَ الْكَلِماتِ كُلَّها في ${moves} مُحاوَلاتٍ!`),700)'
+            assert old in b, 'L08 words completion not found'
+            b = b.replace(old, 'setTimeout(()=>buildWords(el,pairs,()=>complete("words",`جَمَعْتَ الْكَلِماتِ كُلَّها في ${moves} مُحاوَلاتٍ، وَرَكَّبْتَها حَرْفًا حَرْفًا!`)),700)', 1)
+            b = b.replace('</style>', open(os.path.join(HERE, 'words.css'), encoding='utf-8').read() + '\n</style>', 1)
     open(BASE, 'w', encoding='utf-8').write(b)
 
 

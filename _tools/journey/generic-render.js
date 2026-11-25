@@ -53,7 +53,7 @@ function buildWords(el,words,done){
   box.querySelectorAll(".wbk-t").forEach(b=>b.onclick=()=>{
    if(b.classList.contains("used"))return;
    if(b.textContent===L[n]){b.classList.add("used");b.disabled=true;n++;got.textContent=L.slice(0,n).join("");rest.textContent="﹏".repeat(L.length-n);tone(true);
-    if(n===L.length){box.querySelector(".wbk-slot").classList.add("ok");say(`أَحْسَنْتَ! رَكَّبْتَ «${p[0]}»`,"cheer",2500);
+    if(n===L.length){if(Array.isArray(S.words)&&!S.words.includes(p[0])){S.words.push(p[0]);save()}box.querySelector(".wbk-slot").classList.add("ok");say(`أَحْسَنْتَ! رَكَّبْتَ «${p[0]}»`,"cheer",2500);
      setTimeout(()=>{k++;if(k<list.length)round();else{box.querySelector(".wbk-tiles").remove();say("رَكَّبْتَ كَلِماتِ الدَّرْسِ كُلَّها!","cheer",3000);done()}},1300)}}
    else{b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),500);tone(false);say("لَيْسَ هذا هُوَ الْحَرْفُ التّالي… جَرِّبْ حَرْفًا آخَرَ.","think",2500)}});
  };
