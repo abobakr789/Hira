@@ -2434,9 +2434,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
   // ===== رحلة القنديل: مصادر الطالب في البيت (صفحة مستقلة لكل درس، تُحفظ نتائجها ويراها المعلم) =====
-  const JOURNEYS = new Set([...Array.from({ length: 16 }, (_, i) => "AR-Y1-N-T3-L" + String(i + 1).padStart(2, "0")), "Y1-N-T1-L01", "Y1-N-T1-L03", "Y1-N-T1-L02"]);
+  const JOURNEYS = new Set([...Array.from({ length: 16 }, (_, i) => "AR-Y1-N-T3-L" + String(i + 1).padStart(2, "0")), ...Array.from({ length: 12 }, (_, i) => "Y1-N-T1-L" + String(i + 1).padStart(2, "0"))]);
   const JR_TOTAL = 9;
-  const journeySrc = (code) => (/^AR-/.test(code) ? "resources/ar/" + code : "resources/ie/IE-" + code) + "/student-journey.html?embed=1&v=20261125";
+  const journeySrc = (code) => (/^AR-/.test(code) ? "resources/ar/" + code : "resources/ie/IE-" + code) + "/student-journey.html?embed=1&v=20261126";
   const jrSum = (j) => { j = j || {}; const f = j.first || {}, fk = Object.keys(f);
     return { stations: Object.keys(j.done || {}).filter((k) => j.done[k]).length, medals: Object.values(j.medals || {}).filter(Boolean).length,
       first_ok: fk.filter((k) => f[k]).length, first_total: fk.length, quiz_score: j.quiz ? j.quiz.score : null, quiz_max: j.quiz ? j.quiz.of : null, mistakes: (j.mist || []).length, seconds: j.secs || 0 }; };
