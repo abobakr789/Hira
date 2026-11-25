@@ -42,25 +42,7 @@ const RENDER={
   rating(el,S.pre,()=>{if(!S.done.ready){say("شُكْرًا! سَنَعودُ إِلى هذِهِ الْوُجوهِ في آخِرِ الرِّحْلَةِ لِنَرى كَمْ تَقَدَّمْتَ.","wink",5000);complete("ready","الْآنَ نَبْدَأُ رِحْلَتَنا مَعَ النَّصِّ.")}});
   say("أَهْلًا يا بَطَلَ حِراءٍ! أَنا سالِمٌ، سَأُرافِقُكَ في رِحْلَةِ الْقَناديلِ.","cheer",5000);
  },
- read(el){
-  el.appendChild(h(`<div class="inst"><span class="ic">📖</span>${D.readhead||"أَقْرَأُ النَّصَّ"}: أَقْرَأُ كُلَّ جُمْلَةٍ، وَأَلْمِسُ الْكَلِمَةَ الْمُلَوَّنَةَ لِأَعْرِفَ مَعْناها.</div>`));
-  const story=h(`<div class="story"></div>`);el.appendChild(story);
-  const N=D.key.length;
-  const next=i=>{if(i+1<N&&story.children.length===i+1){setTimeout(()=>{addScene(i+1);story.lastChild.scrollIntoView({behavior:"smooth",block:"center"})},600)}
-   else if(i+1===N&&!S.done.read){setTimeout(()=>complete("read","قَرَأْتَ النَّصَّ وَفَهِمْتَهُ!"),700)}};
-  function addScene(i){const sc=D.key[i];
-   const pv=sc.img?pic(sc.img):`<div style="display:grid;place-items:center;width:100%;height:100%">${emo(sc.e,96)}</div>`;
-   const audio=AUDIO["s"+i]?`<button class="btn ghost" style="padding:6px 14px;font-size:18px" data-au="${AUDIO["s"+i]}">🔊 أَسْتَمِعُ</button>`:"";
-   const n=h(`<div class="scene reveal" style="--tint:${["#EEF0FA","#E8F5EC","#FDEEE8","#FFF3DD","#F1ECFA"][i%5]}"><span class="n">${i+1} / ${N}</span><div class="pic">${pv}</div><div><div class="txt">${kwHTML2(sc.t)}</div>${audio}${sc.q?`<div class="think"><h4>🤔 أَتَوَقَّفُ وَأُفَكِّرُ: ${sc.q.q}</h4><div class="tq"></div></div>`:`<div class="tq2" style="margin-top:10px"></div>`}</div></div>`);
-   story.appendChild(n);
-   n.querySelectorAll(".kw[data-w]").forEach(k=>k.onclick=()=>showWord(k));
-   n.querySelectorAll("[data-au]").forEach(b=>b.onclick=()=>new Audio(b.dataset.au).play());
-   if(sc.q)mcq(n.querySelector(".tq"),{id:"read"+i,q:sc.q.q,o:sc.q.o,a:sc.q.a,st:"read",hint:"الْمِسِ الْكَلِمَةَ الْمُلَوَّنَةَ لِتَرى مَعْناها، ثُمَّ أَجِبْ.",onDone:()=>next(i)});
-   else{const b=h(`<button class="btn ghost">قَرَأْتُها ✓</button>`);n.querySelector(".tq2").appendChild(b);b.onclick=()=>{b.disabled=true;tone(true);next(i)}}
-  }
-  if(S.done.read)D.key.forEach((_,i)=>addScene(i));else addScene(0);
-  say("اقْرَأْ بِصَوْتٍ واضِحٍ، ثُمَّ أَجِبْ لِتَنْفَتِحَ الْجُمْلَةُ التّالِيَةُ.","listen",5500);
- },
+ read(el){readBook(el)},
  words(el){
   el.appendChild(h(`<div class="inst"><span class="ic">🃏</span>أَقْلِبُ بِطاقَتَيْنِ: أَجْمَعُ كُلَّ كَلِمَةٍ مَعَ مَعْناها.</div>`));
   const pairs=D.words.slice(0,4);

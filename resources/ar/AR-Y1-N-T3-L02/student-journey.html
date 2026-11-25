@@ -129,6 +129,7 @@ h1,h2,h3,.disp{font-family:"Thmanyah Display",serif;font-weight:700;margin:0}
 .scene::after{content:"";position:absolute;inset:auto -40px -60px auto;width:180px;height:180px;border-radius:50%;background:var(--tint);opacity:.6;z-index:0}
 .scene .pic{width:240px;height:200px;border-radius:22px;overflow:hidden;background:var(--tint);display:grid;place-items:center;position:relative;z-index:1}
 .scene .pic img{width:100%;height:100%;object-fit:cover}
+.scene>div{position:relative;z-index:1}
 .scene .txt{font-size:31px;line-height:2.05;position:relative;z-index:1}
 .scene .n{position:absolute;top:12px;left:14px;font-family:"Thmanyah Sans";font-weight:700;color:var(--gold);font-size:18px;z-index:1}
 .kw{background:linear-gradient(transparent 52%,#FFE08A 52%);border-radius:4px;cursor:pointer;padding:0 3px;font-weight:700;color:var(--navy);transition:.2s;position:relative}
@@ -136,6 +137,7 @@ h1,h2,h3,.disp{font-family:"Thmanyah Display",serif;font-weight:700;margin:0}
 .kw::after{content:"؟";font-size:14px;position:absolute;top:-10px;left:-6px;background:var(--gold);color:#fff;border-radius:50%;width:20px;height:20px;line-height:20px;text-align:center;font-family:"Thmanyah Sans"}
 .kw.seen::after{content:"✓";background:var(--green)}
 .kw.nk{cursor:default}.kw.nk::after{display:none}
+.scene.verse .txt{line-height:2.3;font-family:"Thmanyah Display",serif}
 .think{margin-top:6px;background:var(--peach);border-radius:22px;padding:14px 18px;border:2px dashed #F0C48F}
 .think h4{margin:0 0 4px;font-family:"Thmanyah Display";font-size:20px;color:#B76A12}
 .think .opts{grid-template-columns:repeat(3,1fr)}
@@ -345,7 +347,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:100}
 <script>
 "use strict";
 /* ================= بيانات الدرس (تُولَّد من بيانات العرض المعتمدة) ================= */
-const D={"code": "AR-Y1-N-T3-L02", "title": "مُراجَعَةُ 2: حَفْلَةُ الْمَزْرَعَةِ", "titlePlain": "مراجعة 2: حفلة المزرعة", "cover": "cover", "objective": "أَنْ أَسْتَمِعَ إِلى النَّصِّ وَأُجيبَ عَنْ أَسْئِلَتِهِ، وَأُراجِعَ الْحُروفَ وَالْأَصْواتَ، وَأُكَوِّنَ جُمَلًا وَأَكْتُبَها.", "crit": ["أُجيبَ عَنْ أَسْئِلَةِ النَّصِّ الْمَسْموعِ.", "أُفَسِّرَ الْكَلِماتِ مِنَ السِّياقِ، وَأَذْكُرَ الْمُرادِفَ وَالضِّدَّ.", "أُمَيِّزَ الْحُروفَ وَالْأَصْواتَ الطَّويلَةَ وَالْقَصيرَةَ.", "أُرَتِّبَ الْكَلِماتِ لِأُكَوِّنَ جُمْلَةً مُفيدَةً وَأَكْتُبَها."], "readhead": "أَقْرَأُ النَّصَّ الْمَسْموعَ", "words": [["الصّيصانُ", "صِغارُ الدَّجاجِ", "🐥"], ["يَخْتَبِئُ", "يَخْتَفي", "🙈"], ["دَقيقٌ", "طَحينٌ", "🌾"], ["تَعاوَنَ", "ساعَدَ غَيْرَهُ", "🤝"]], "key": [{"t": "الْخَروفُ فَرْحانُ يَجْري في كُلِّ مَكانٍ، وَالْبَقَرَةُ تَحْمِلُ أَكْبَرَ كوبِ حَليبٍ.", "e": "📖", "img": "main"}, {"t": "الدَّجاجَةُ وَ[[الصّيصانُ|الصّيصانُ]] تَجُرُّ أَكْبَرَ بَيْضَةٍ، وَالْأَرْنَبُ [[يَخْتَبِئُ|يَخْتَبِئُ]] مِنْ أَسْرَعِ نَحْلَةٍ.", "q": {"q": "ما مَعْنى «الصّيصانُ»؟", "o": ["صِغارُ الدَّجاجِ", "طَحينٌ", "يَخْتَفي"], "a": 0}, "e": "🐥"}, {"t": "الْمُزارِعُ يَحْمِلُ كيسَ [[دَقيقٍ|دَقيقٌ]]. [[تَعاوَنَ|تَعاوَنَ]] الْجَميعُ، وَحَضَّروا أَكْبَرَ كَعْكَةٍ.", "q": {"q": "ما مَعْنى «دَقيقٍ»؟", "o": ["طَحينٌ", "ساعَدَ غَيْرَهُ", "يَخْتَفي"], "a": 0}, "e": "🌾"}], "match": {"head": "مَنْ يَحْمِلُ ماذا؟", "rows": [["الْبَقَرَةُ", "تَحْمِلُ أَكْبَرَ كوبِ حَليبٍ"], ["الدَّجاجَةُ", "تَجُرُّ أَكْبَرَ بَيْضَةٍ"], ["الْأَرْنَبُ", "في يَدِهِ جَزَرَةٌ"], ["الْمُزارِعُ", "يَحْمِلُ كيسَ دَقيقٍ"]], "title": "مَنْ يَحْمِلُ ماذا؟"}, "map": {"head": "خَريطَةُ النَّصِّ الْمَسْموعِ", "rows": [["🐄", "مَنْ؟", "الْخَروفُ، الْبَقَرَةُ، الدَّجاجَةُ وَالصّيصانُ، الْأَرْنَبُ، النَّحْلَةُ، الْمُزارِعُ."], ["📍", "أَيْنَ؟", "في الْمَزْرَعَةِ الْمُزَيَّنَةِ بِالْبالوناتِ."], ["🎂", "ماذا حَدَثَ؟", "تَعاوَنَ الْجَميعُ، وَحَضَّروا أَكْبَرَ كَعْكَةٍ وَأَجْمَلَ حَفْلَةٍ."]], "title": "خَريطَةُ النَّصِّ الْمَسْموعِ"}, "wordj": {"head": "رِحْلَتي مَعَ كَلِمَةِ «تَعاوَنَ»", "sent": "«تَعاوَنَ الْجَميعُ، فَعَمِلوا بِفَرَحٍ»", "q": "مَعْنى «تَعاوَنَ»:", "o": ["ساعَدَ بَعْضُهُمْ بَعْضًا", "تَخاصَموا", "ناموا"], "a": 0, "model": "(أ): ساعَدَ بَعْضُهُمْ بَعْضًا. وَبِالتَّعاوُنِ صَنَعوا أَكْبَرَ كَعْكَةٍ."}, "order": {"type": "words", "items": [{"tiles": ["سَريعًا", "الْأَرْنَبُ", "يَجْري"], "seq": [2, 1, 0], "answer": "يَجْري الْأَرْنَبُ سَريعًا.", "opts": ["يَجْري الْأَرْنَبُ سَريعًا.", "سَريعًا يَجْري الْأَرْنَبُ.", "سَريعًا الْأَرْنَبُ يَجْري."]}, {"tiles": ["حَليبًا", "الْبَقَرَةُ", "تُعْطينا"], "seq": [2, 1, 0], "answer": "تُعْطينا الْبَقَرَةُ حَليبًا.", "opts": ["تُعْطينا الْبَقَرَةُ حَليبًا.", "حَليبًا تُعْطينا الْبَقَرَةُ.", "حَليبًا الْبَقَرَةُ تُعْطينا."]}, {"tiles": ["الْجَميعُ", "بِفَرَحٍ", "عَمِلَ"], "seq": [2, 0, 1], "answer": "عَمِلَ الْجَميعُ بِفَرَحٍ.", "opts": ["عَمِلَ الْجَميعُ بِفَرَحٍ.", "بِفَرَحٍ عَمِلَ الْجَميعُ.", "بِفَرَحٍ الْجَميعُ عَمِلَ."]}], "head": "أُكَوِّنُ جُمْلَةً مُفيدَةً", "title": "أُكَوِّنُ جُمْلَةً مُفيدَةً"}, "learned": {"o": ["أَتَعَلَّمُ أَنَّ التَّعاوُنَ يَجْعَلُ الْعَمَلَ أَجْمَلَ، وَأَنْ أُرَتِّبَ الْكَلِماتِ لِأُكَوِّنَ جُمْلَةً مُفيدَةً.", "أَتَعَلَّمُ أَنَّ الْقِراءَةَ مُمْتِعَةٌ، وَأَنْ أُمَيِّزَ الصَّوْتَ الطَّويلَ (قَريـبٌ)، وَأَنْ أُصَنِّفَ الْكَلِماتِ: إِنْسانٌ وَحَيَوانٌ وَنَباتٌ وَجَمادٌ.", "أَتَعَلَّمُ أَنَّ الصّوَرَ تَحْكي الْقِصَّةَ كَما تَحْكيها الْكَلِماتُ، وَأَنَّ كُلَّ مِهْنَةٍ تَخْدُمُ الْوَطَنَ، وَأَنّي أَسْتَطيعُ أَنْ أَحْكِيَ وَأَكْتُبَ بِثِقَةٍ."], "a": 0}, "value": {"head": "بِالتَّعاوُنِ نَنْجَحُ", "img": "main", "sana": "أُشارِكُ أُسْرَتي وَزُمَلائي في الْعَمَلِ، وَأُساعِدُ مَنْ يَحْتاجُ.", "fact": "في الْإِماراتِ مَزارِعُ كَثيرَةٌ تُنْتِجُ الْخُضارَ وَالتُّمورَ وَالْحَليبَ.", "dilemma": "زُمَلائي يُنَظِّفونَ الصَّفَّ، وَأَنا أُريدُ أَنْ أَلْعَبَ… ماذا أَفْعَلُ؟", "model": "أُساعِدُهُمْ أَوَّلًا ثُمَّ أَلْعَبُ؛ فَبِالتَّعاوُنِ نُنْجِزُ الْعَمَلَ بِسُرْعَةٍ وَفَرَحٍ."}, "speak": {"head": "أَتَحَدَّثُ", "frame": "أَحْكي عَنْ حَيَوانٍ في الْمَزْرَعَةِ: هُوَ … يُعْطينا …"}, "home": {"img": "owl", "family": "أَحْكي النَّصَّ الَّذي سَمِعْتُهُ لِأُسْرَتي، وَأَسْأَلُهُمْ سُؤالًا عَنْهُ.", "task": "أَبْحَثُ في بَيْتي عَنْ ثَلاثِ كَلِماتٍ فيها مَدٌّ (ا، و، ي)، وَأَكْتُبُها."}, "quiz": [{"q": "مِمَّنْ يَخْتَبِئُ الْأَرْنَبُ؟", "o": ["مِنْ أَسْرَعِ نَحْلَةٍ", "مِنَ الْخَروفِ", "مِنَ الْمُزارِعِ"], "a": 0, "h": "ارْجِعْ إِلى النَّصِّ وَتَذَكَّرْ ما جاءَ فيهِ."}, {"q": "ما مَعْنى «يَخْتَبِئُ»؟", "o": ["يَخْتَفي", "ساعَدَ غَيْرَهُ", "صِغارُ الدَّجاجِ"], "a": 0, "h": "تَذَكَّرْ لُعْبَةَ الذّاكِرَةِ وَبِطاقاتِ الْكَلِماتِ."}, {"q": "«أَيْنَ؟» في النَّصِّ:", "o": ["في الْمَزْرَعَةِ الْمُزَيَّنَةِ بِالْبالوناتِ.", "الْخَروفُ، الْبَقَرَةُ، الدَّجاجَةُ وَالصّيصانُ، الْأَرْنَبُ، النَّحْلَةُ، الْمُزارِعُ.", "تَعاوَنَ الْجَميعُ، وَحَضَّروا أَكْبَرَ كَعْكَةٍ وَأَجْمَلَ حَفْلَةٍ."], "a": 0, "h": "تَذَكَّرْ خَريطَةَ النَّصِّ."}, {"q": "أَيُّ جُمْلَةٍ صَحيحَةٌ مُفيدَةٌ؟", "o": ["عَمِلَ الْجَميعُ بِفَرَحٍ.", "بِفَرَحٍ عَمِلَ الْجَميعُ.", "بِفَرَحٍ الْجَميعُ عَمِلَ."], "a": 0, "h": "اقْرَأْ كُلَّ جُمْلَةٍ بِصَوْتٍ عالٍ: أَيُّها تَبْدو صَحيحَةً؟"}, {"q": "مَنْ يَحْمِلُ ماذا؟: «الْبَقَرَةُ»", "o": ["تَحْمِلُ أَكْبَرَ كوبِ حَليبٍ", "تَجُرُّ أَكْبَرَ بَيْضَةٍ", "في يَدِهِ جَزَرَةٌ"], "a": 0, "h": "تَذَكَّرْ مَحَطَّةَ التَّوْصيلِ."}], "talk": ["ماذا حضر الجميع؟", "ما اسم صغير الدجاج؟", "كيف أتعاون مع أسرتي في البيت؟"]};
+const D={"code": "AR-Y1-N-T3-L02", "title": "مُراجَعَةُ 2: حَفْلَةُ الْمَزْرَعَةِ", "titlePlain": "مراجعة 2: حفلة المزرعة", "cover": "cover", "objective": "أَنْ أَسْتَمِعَ إِلى النَّصِّ وَأُجيبَ عَنْ أَسْئِلَتِهِ، وَأُراجِعَ الْحُروفَ وَالْأَصْواتَ، وَأُكَوِّنَ جُمَلًا وَأَكْتُبَها.", "crit": ["أُجيبَ عَنْ أَسْئِلَةِ النَّصِّ الْمَسْموعِ.", "أُفَسِّرَ الْكَلِماتِ مِنَ السِّياقِ، وَأَذْكُرَ الْمُرادِفَ وَالضِّدَّ.", "أُمَيِّزَ الْحُروفَ وَالْأَصْواتَ الطَّويلَةَ وَالْقَصيرَةَ.", "أُرَتِّبَ الْكَلِماتِ لِأُكَوِّنَ جُمْلَةً مُفيدَةً وَأَكْتُبَها."], "readhead": "أَقْرَأُ النَّصَّ الْمَسْموعَ", "words": [["الصّيصانُ", "صِغارُ الدَّجاجِ", "🐥"], ["يَخْتَبِئُ", "يَخْتَفي", "🙈"], ["دَقيقٌ", "طَحينٌ", "🌾"], ["تَعاوَنَ", "ساعَدَ غَيْرَهُ", "🤝"]], "hl": {"الصّيصانُ": "الصّيصانُ", "يَخْتَبِئُ": "يَخْتَبِئُ", "دَقيقٍ": "دَقيقٌ", "تَعاوَنَ": "تَعاوَنَ"}, "hookImg": "main", "match": {"head": "مَنْ يَحْمِلُ ماذا؟", "rows": [["الْبَقَرَةُ", "تَحْمِلُ أَكْبَرَ كوبِ حَليبٍ"], ["الدَّجاجَةُ", "تَجُرُّ أَكْبَرَ بَيْضَةٍ"], ["الْأَرْنَبُ", "في يَدِهِ جَزَرَةٌ"], ["الْمُزارِعُ", "يَحْمِلُ كيسَ دَقيقٍ"]], "title": "مَنْ يَحْمِلُ ماذا؟"}, "map": {"head": "خَريطَةُ النَّصِّ الْمَسْموعِ", "rows": [["🐄", "مَنْ؟", "الْخَروفُ، الْبَقَرَةُ، الدَّجاجَةُ وَالصّيصانُ، الْأَرْنَبُ، النَّحْلَةُ، الْمُزارِعُ."], ["📍", "أَيْنَ؟", "في الْمَزْرَعَةِ الْمُزَيَّنَةِ بِالْبالوناتِ."], ["🎂", "ماذا حَدَثَ؟", "تَعاوَنَ الْجَميعُ، وَحَضَّروا أَكْبَرَ كَعْكَةٍ وَأَجْمَلَ حَفْلَةٍ."]], "title": "خَريطَةُ النَّصِّ الْمَسْموعِ"}, "wordj": {"head": "رِحْلَتي مَعَ كَلِمَةِ «تَعاوَنَ»", "sent": "«تَعاوَنَ الْجَميعُ، فَعَمِلوا بِفَرَحٍ»", "q": "مَعْنى «تَعاوَنَ»:", "o": ["ساعَدَ بَعْضُهُمْ بَعْضًا", "تَخاصَموا", "ناموا"], "a": 0, "model": "(أ): ساعَدَ بَعْضُهُمْ بَعْضًا. وَبِالتَّعاوُنِ صَنَعوا أَكْبَرَ كَعْكَةٍ."}, "order": {"type": "words", "items": [{"tiles": ["سَريعًا", "الْأَرْنَبُ", "يَجْري"], "seq": [2, 1, 0], "answer": "يَجْري الْأَرْنَبُ سَريعًا.", "opts": ["يَجْري الْأَرْنَبُ سَريعًا.", "سَريعًا يَجْري الْأَرْنَبُ.", "سَريعًا الْأَرْنَبُ يَجْري."]}, {"tiles": ["حَليبًا", "الْبَقَرَةُ", "تُعْطينا"], "seq": [2, 1, 0], "answer": "تُعْطينا الْبَقَرَةُ حَليبًا.", "opts": ["تُعْطينا الْبَقَرَةُ حَليبًا.", "حَليبًا تُعْطينا الْبَقَرَةُ.", "حَليبًا الْبَقَرَةُ تُعْطينا."]}, {"tiles": ["الْجَميعُ", "بِفَرَحٍ", "عَمِلَ"], "seq": [2, 0, 1], "answer": "عَمِلَ الْجَميعُ بِفَرَحٍ.", "opts": ["عَمِلَ الْجَميعُ بِفَرَحٍ.", "بِفَرَحٍ عَمِلَ الْجَميعُ.", "بِفَرَحٍ الْجَميعُ عَمِلَ."]}], "head": "أُكَوِّنُ جُمْلَةً مُفيدَةً", "title": "أُكَوِّنُ جُمْلَةً مُفيدَةً"}, "learned": {"o": ["أَتَعَلَّمُ أَنَّ التَّعاوُنَ يَجْعَلُ الْعَمَلَ أَجْمَلَ، وَأَنْ أُرَتِّبَ الْكَلِماتِ لِأُكَوِّنَ جُمْلَةً مُفيدَةً.", "أَتَعَلَّمُ أَنَّ الْقِراءَةَ مُمْتِعَةٌ، وَأَنْ أُمَيِّزَ الصَّوْتَ الطَّويلَ (قَريـبٌ)، وَأَنْ أُصَنِّفَ الْكَلِماتِ: إِنْسانٌ وَحَيَوانٌ وَنَباتٌ وَجَمادٌ.", "أَتَعَلَّمُ أَنَّ الصّوَرَ تَحْكي الْقِصَّةَ كَما تَحْكيها الْكَلِماتُ، وَأَنَّ كُلَّ مِهْنَةٍ تَخْدُمُ الْوَطَنَ، وَأَنّي أَسْتَطيعُ أَنْ أَحْكِيَ وَأَكْتُبَ بِثِقَةٍ."], "a": 0}, "value": {"head": "بِالتَّعاوُنِ نَنْجَحُ", "img": "main", "sana": "أُشارِكُ أُسْرَتي وَزُمَلائي في الْعَمَلِ، وَأُساعِدُ مَنْ يَحْتاجُ.", "fact": "في الْإِماراتِ مَزارِعُ كَثيرَةٌ تُنْتِجُ الْخُضارَ وَالتُّمورَ وَالْحَليبَ.", "dilemma": "زُمَلائي يُنَظِّفونَ الصَّفَّ، وَأَنا أُريدُ أَنْ أَلْعَبَ… ماذا أَفْعَلُ؟", "model": "أُساعِدُهُمْ أَوَّلًا ثُمَّ أَلْعَبُ؛ فَبِالتَّعاوُنِ نُنْجِزُ الْعَمَلَ بِسُرْعَةٍ وَفَرَحٍ."}, "speak": {"head": "أَتَحَدَّثُ", "frame": "أَحْكي عَنْ حَيَوانٍ في الْمَزْرَعَةِ: هُوَ … يُعْطينا …"}, "home": {"img": "owl", "family": "أَحْكي النَّصَّ الَّذي سَمِعْتُهُ لِأُسْرَتي، وَأَسْأَلُهُمْ سُؤالًا عَنْهُ.", "task": "أَبْحَثُ في بَيْتي عَنْ ثَلاثِ كَلِماتٍ فيها مَدٌّ (ا، و، ي)، وَأَكْتُبُها."}, "quiz": [{"q": "مِمَّنْ يَخْتَبِئُ الْأَرْنَبُ؟", "o": ["مِنْ أَسْرَعِ نَحْلَةٍ", "مِنَ الْخَروفِ", "مِنَ الْمُزارِعِ"], "a": 0, "h": "ارْجِعْ إِلى النَّصِّ وَتَذَكَّرْ ما جاءَ فيهِ."}, {"q": "ما مَعْنى «يَخْتَبِئُ»؟", "o": ["يَخْتَفي", "ساعَدَ غَيْرَهُ", "صِغارُ الدَّجاجِ"], "a": 0, "h": "تَذَكَّرْ لُعْبَةَ الذّاكِرَةِ وَبِطاقاتِ الْكَلِماتِ."}, {"q": "«أَيْنَ؟» في النَّصِّ:", "o": ["في الْمَزْرَعَةِ الْمُزَيَّنَةِ بِالْبالوناتِ.", "الْخَروفُ، الْبَقَرَةُ، الدَّجاجَةُ وَالصّيصانُ، الْأَرْنَبُ، النَّحْلَةُ، الْمُزارِعُ.", "تَعاوَنَ الْجَميعُ، وَحَضَّروا أَكْبَرَ كَعْكَةٍ وَأَجْمَلَ حَفْلَةٍ."], "a": 0, "h": "تَذَكَّرْ خَريطَةَ النَّصِّ."}, {"q": "أَيُّ جُمْلَةٍ صَحيحَةٌ مُفيدَةٌ؟", "o": ["عَمِلَ الْجَميعُ بِفَرَحٍ.", "بِفَرَحٍ عَمِلَ الْجَميعُ.", "بِفَرَحٍ الْجَميعُ عَمِلَ."], "a": 0, "h": "اقْرَأْ كُلَّ جُمْلَةٍ بِصَوْتٍ عالٍ: أَيُّها تَبْدو صَحيحَةً؟"}, {"q": "مَنْ يَحْمِلُ ماذا؟: «الْبَقَرَةُ»", "o": ["تَحْمِلُ أَكْبَرَ كوبِ حَليبٍ", "تَجُرُّ أَكْبَرَ بَيْضَةٍ", "في يَدِهِ جَزَرَةٌ"], "a": 0, "h": "تَذَكَّرْ مَحَطَّةَ التَّوْصيلِ."}], "talk": ["ماذا حضر الجميع؟", "ما اسم صغير الدجاج؟", "كيف أتعاون مع أسرتي في البيت؟"]};
 const LESSON={code:D.code,title:D.title};
 const IMG="../../slides/img/"+D.code+"-";
 const SALEM="../../../art/salem/";
@@ -359,7 +361,8 @@ const CRIT=[
 ];
 const pic=(name,cls)=>name?`<img src="${IMG}${name}.webp" alt=""${cls?` class="${cls}"`:""}>`:"";
 const emo=(e,sz)=>`<span style="font-size:${sz||90}px;line-height:1">${e||"✨"}</span>`;
-const WORDS={};D.words.forEach(w=>{WORDS[w[0]]={m:w[1],pic:`<div style="display:grid;place-items:center;width:100%;height:100%">${emo(w[2],110)}</div>`}});
+const WORDS={};D.words.forEach(w=>{WORDS[w[0]]={m:w[1],e:w[2],pic:`<div style="display:grid;place-items:center;width:100%;height:100%">${emo(w[2],110)}</div>`}});
+const HL=D.hl||{},READHEAD=D.readhead||"",PQ=null,SCENE_IMG=D.hookImg?{0:D.hookImg}:{};
 const STATIONS=[
  {id:"ready",t:"أَتَهَيَّأُ",s:"قَبْلَ الرِّحْلَةِ",bg:"#F2F7FC",x:50,y:7},
  {id:"read",t:"أَقْرَأُ وَأَكْتَشِفُ",s:"نَصُّ الدَّرْسِ",bg:"#FFF9EE",x:22,y:17},
@@ -488,6 +491,45 @@ function mcq(el,{id,q,o,a,st,hint,onDone,big}){
  return box;
 }
 
+/* ===== محطة القراءة: نص الكتاب الأصلي كاملًا (يصل من المنصة حسب صلاحية الطالب) ===== */
+let BOOK=null;
+const kwBook=t=>t.replace(/\[\[(.+?)\]\]/g,(_,w)=>{const c=HL[w];return c&&WORDS[c]?`<span class="kw" data-w="${c}" tabindex="0">${w}</span>`:`<span class="kw nk">${w}</span>`});
+function bookBlocks(B){
+ const body=String(B.body||"").replace(/\r/g,"").trim();
+ if(B.kind==="poem"){const L=body.split("\n").map(s=>s.trim()).filter(Boolean);const out=[];for(let i=0;i<L.length;i+=2)out.push({poem:true,lines:L.slice(i,i+2)});return out}
+ const parts=/\n\s*\n/.test(body)?body.split(/\n\s*\n/):body.split("\n");
+ return parts.map(s=>s.trim()).filter(Boolean).map(s=>({lines:s.split("\n").map(x=>x.trim()).filter(Boolean)}));
+}
+function readBook(el){
+ if(!BOOK||!BOOK.body){
+  el.appendChild(h(`<div class="card center reveal"><div style="font-size:70px">📖</div><h3 style="font-size:28px;color:var(--navy)">نَصُّ الْكِتابِ</h3><p style="font-size:22px;line-height:1.9">يَظْهَرُ نَصُّ الْكِتابِ كامِلًا حينَ تَفْتَحُ الرِّحْلَةَ مِنْ صَفْحَةِ الدَّرْسِ في مِنَصَّةِ حِراءٍ.<br>اقْرَأِ النَّصَّ مِنْ كِتابِكَ الْآنَ، ثُمَّ الْمِسِ الزِّرَّ.</p><button class="btn gold" id="rdOk">قَرَأْتُ النَّصَّ ✓</button></div>`));
+  el.querySelector("#rdOk").onclick=()=>{el.querySelector("#rdOk").remove();if(!S.done.read)complete("read","قَرَأْتَ النَّصَّ!")};return}
+ const blocks=bookBlocks(BOOK),N=blocks.length;
+ el.appendChild(h(`<div class="inst"><span class="ic">📖</span>${READHEAD||"أَقْرَأُ النَّصَّ"}: أَقْرَأُ النَّصَّ كُلَّهُ جُزْءًا جُزْءًا، وَأَلْمِسُ الْكَلِمَةَ الْمُلَوَّنَةَ لِأَعْرِفَ مَعْناها.</div>`));
+ if(BOOK.audioUrl)el.appendChild(h(`<div class="card reveal" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px;background:linear-gradient(135deg,#EEF6FF,#fff)"><span style="font-size:40px">🎧</span><b style="font-family:'Thmanyah Display';font-size:22px;color:var(--navy)">أَسْتَمِعُ إِلى النَّصِّ</b><audio controls preload="none" src="${esc(BOOK.audioUrl)}" style="flex:1;min-width:220px"></audio></div>`));
+ const story=h(`<div class="story"></div>`);el.appendChild(story);
+ const meanings=Object.keys(WORDS).map(k=>WORDS[k].m);
+ const next=i=>{if(i+1<N&&story.children.length===i+1){setTimeout(()=>{addScene(i+1);story.lastChild.scrollIntoView({behavior:"smooth",block:"center"})},600)}
+  else if(i+1===N&&!S.done.read){setTimeout(()=>complete("read","قَرَأْتَ نَصَّ الْكِتابِ كُلَّهُ!"),700)}};
+ function addScene(i){const b=blocks[i];
+  const raw=b.lines.join("\n");const kws=[...raw.matchAll(/\[\[(.+?)\]\]/g)].map(m=>m[1]).filter(w=>HL[w]&&WORDS[HL[w]]);
+  let q=PQ&&PQ[i];
+  if(!q&&kws.length){const w=kws[0],m=WORDS[HL[w]].m;const o=[m,...shuffle(meanings.filter(x=>x!==m)).slice(0,2)];q={q:`ما مَعْنى «${w}»؟`,o,a:0}}
+  (window.__RQ=window.__RQ||[])[i]=q||null;
+  const img=SCENE_IMG&&SCENE_IMG[i];const em=kws.length&&WORDS[HL[kws[0]]].e?WORDS[HL[kws[0]]].e:"📖";
+  const pv=img?`<img src="${IMG}${img}.webp" alt="">`:`<div style="display:grid;place-items:center;width:100%;height:100%"><span style="font-size:90px;line-height:1">${em}</span></div>`;
+  const len=raw.length,fs=b.poem?30:len>420?23:len>240?26:30;
+  const txt=b.lines.map(l=>kwBook(l)).join(b.poem?"<br>":"<br>");
+  const n=h(`<div class="scene reveal${b.poem?" verse":""}" style="--tint:${["#EEF0FA","#E8F5EC","#FDEEE8","#FFF3DD","#F1ECFA"][i%5]}"><span class="n">${i+1} / ${N}</span><div class="pic">${pv}</div><div><div class="txt" style="font-size:${fs}px${b.poem?";text-align:center":""}">${txt}</div>${q?`<div class="think"><h4>🤔 أَتَوَقَّفُ وَأُفَكِّرُ: ${q.q}</h4><div class="tq"></div></div>`:`<div class="tq2" style="margin-top:10px"></div>`}</div></div>`);
+  story.appendChild(n);
+  n.querySelectorAll(".kw[data-w]").forEach(k=>k.onclick=()=>showWord(k));
+  if(q)mcq(n.querySelector(".tq"),{id:"read"+i,q:q.q,o:q.o,a:q.a,st:"read",hint:q.hint||"ارْجِعْ إِلى هذا الْجُزْءِ مِنَ النَّصِّ، وَالْمِسِ الْكَلِمَةَ الْمُلَوَّنَةَ.",onDone:()=>next(i)});
+  else{const bt=h(`<button class="btn ghost">قَرَأْتُهُ ✓</button>`);n.querySelector(".tq2").appendChild(bt);bt.onclick=()=>{bt.disabled=true;tone(true);next(i)}}
+ }
+ if(S.done.read)blocks.forEach((_,i)=>addScene(i));else addScene(0);
+ say("اقْرَأْ بِصَوْتٍ واضِحٍ، ثُمَّ أَجِبْ لِيَنْفَتِحَ الْجُزْءُ التّالي.","listen",5500);
+}
+
 /* ================= المحطات ================= */
 const kwHTML2=t=>t.replace(/\[\[(.+?)(?:\|(.+?))?\]\]/g,(_,w,c)=>c&&WORDS[c]?`<span class="kw" data-w="${c}" tabindex="0">${w}</span>`:`<span class="kw nk">${w}</span>`);
 const FACES=[["😟","أَحْتاجُ مُساعَدَةً"],["🙂","أَسْتَطيعُ قَليلًا"],["😄","أَسْتَطيعُ جَيِّدًا"]];
@@ -532,25 +574,7 @@ const RENDER={
   rating(el,S.pre,()=>{if(!S.done.ready){say("شُكْرًا! سَنَعودُ إِلى هذِهِ الْوُجوهِ في آخِرِ الرِّحْلَةِ لِنَرى كَمْ تَقَدَّمْتَ.","wink",5000);complete("ready","الْآنَ نَبْدَأُ رِحْلَتَنا مَعَ النَّصِّ.")}});
   say("أَهْلًا يا بَطَلَ حِراءٍ! أَنا سالِمٌ، سَأُرافِقُكَ في رِحْلَةِ الْقَناديلِ.","cheer",5000);
  },
- read(el){
-  el.appendChild(h(`<div class="inst"><span class="ic">📖</span>${D.readhead||"أَقْرَأُ النَّصَّ"}: أَقْرَأُ كُلَّ جُمْلَةٍ، وَأَلْمِسُ الْكَلِمَةَ الْمُلَوَّنَةَ لِأَعْرِفَ مَعْناها.</div>`));
-  const story=h(`<div class="story"></div>`);el.appendChild(story);
-  const N=D.key.length;
-  const next=i=>{if(i+1<N&&story.children.length===i+1){setTimeout(()=>{addScene(i+1);story.lastChild.scrollIntoView({behavior:"smooth",block:"center"})},600)}
-   else if(i+1===N&&!S.done.read){setTimeout(()=>complete("read","قَرَأْتَ النَّصَّ وَفَهِمْتَهُ!"),700)}};
-  function addScene(i){const sc=D.key[i];
-   const pv=sc.img?pic(sc.img):`<div style="display:grid;place-items:center;width:100%;height:100%">${emo(sc.e,96)}</div>`;
-   const audio=AUDIO["s"+i]?`<button class="btn ghost" style="padding:6px 14px;font-size:18px" data-au="${AUDIO["s"+i]}">🔊 أَسْتَمِعُ</button>`:"";
-   const n=h(`<div class="scene reveal" style="--tint:${["#EEF0FA","#E8F5EC","#FDEEE8","#FFF3DD","#F1ECFA"][i%5]}"><span class="n">${i+1} / ${N}</span><div class="pic">${pv}</div><div><div class="txt">${kwHTML2(sc.t)}</div>${audio}${sc.q?`<div class="think"><h4>🤔 أَتَوَقَّفُ وَأُفَكِّرُ: ${sc.q.q}</h4><div class="tq"></div></div>`:`<div class="tq2" style="margin-top:10px"></div>`}</div></div>`);
-   story.appendChild(n);
-   n.querySelectorAll(".kw[data-w]").forEach(k=>k.onclick=()=>showWord(k));
-   n.querySelectorAll("[data-au]").forEach(b=>b.onclick=()=>new Audio(b.dataset.au).play());
-   if(sc.q)mcq(n.querySelector(".tq"),{id:"read"+i,q:sc.q.q,o:sc.q.o,a:sc.q.a,st:"read",hint:"الْمِسِ الْكَلِمَةَ الْمُلَوَّنَةَ لِتَرى مَعْناها، ثُمَّ أَجِبْ.",onDone:()=>next(i)});
-   else{const b=h(`<button class="btn ghost">قَرَأْتُها ✓</button>`);n.querySelector(".tq2").appendChild(b);b.onclick=()=>{b.disabled=true;tone(true);next(i)}}
-  }
-  if(S.done.read)D.key.forEach((_,i)=>addScene(i));else addScene(0);
-  say("اقْرَأْ بِصَوْتٍ واضِحٍ، ثُمَّ أَجِبْ لِتَنْفَتِحَ الْجُمْلَةُ التّالِيَةُ.","listen",5500);
- },
+ read(el){readBook(el)},
  words(el){
   el.appendChild(h(`<div class="inst"><span class="ic">🃏</span>أَقْلِبُ بِطاقَتَيْنِ: أَجْمَعُ كُلَّ كَلِمَةٍ مَعَ مَعْناها.</div>`));
   const pairs=D.words.slice(0,4);
@@ -729,7 +753,7 @@ if(EMBED){
  const cl=h(`<button class="topbtn" id="jrClose" title="إغلاق" aria-label="إغلاق">✕</button>`);$("#top").appendChild(cl);
  cl.onclick=()=>{save();window.parent.postMessage({type:"hiraa-journey-close"},location.origin)};
  addEventListener("message",e=>{if(e.origin!==location.origin||e.source!==window.parent||!e.data||e.data.type!=="hiraa-journey-init")return;
-  const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";
+  const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";if(d.book&&d.book.body)BOOK=d.book;
   if(ROLE==="student"&&d.uid){KEY+="-"+d.uid;const loc=load(KEY),srv=d.state?Object.assign(fresh(),d.state):null;
    S=[loc,srv].filter(Boolean).sort((a,b)=>doneN(b)-doneN(a)||(b.secs||0)-(a.secs||0))[0]||fresh();}
   else if(ROLE!=="staff"){S=load(KEY)||fresh()}

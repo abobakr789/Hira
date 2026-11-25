@@ -9035,7 +9035,12 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (d.type === "hiraa-journey-ready") { let st = null;
       if (isStudent() && state.session) { try { const { data } = await sb.from("journey_progress").select("state").eq("lesson_id", JR_L.id).eq("student_id", state.session.user.id).maybeSingle(); st = data && data.state; } catch (er) {} }
       const nm = String((state.profile && (state.profile.full_name_ar || state.profile.full_name)) || "").trim().split(/\s+/)[0] || "";
-      fr.contentWindow.postMessage({ type: "hiraa-journey-init", state: st, role: isStudent() ? "student" : isStaff() ? "staff" : "guest", uid: state.session ? state.session.user.id : null, name: isStudent() ? nm : "" }, location.origin); }
+      // نص الكتاب الأصلي كاملًا (حسب صلاحية المستخدم)، مع تسجيله الصوتي إن وُجد
+      let book = null;
+      try { const { data: bt } = await sb.from("lesson_book_texts").select("kind, title, body, audio").eq("lesson_id", JR_L.id).maybeSingle();
+        if (bt && bt.body) { const au = bt.audio ? (/^https?:/i.test(bt.audio) ? bt.audio : rdSndBase() + String(bt.audio).split("/").map(encodeURIComponent).join("/")) : null;
+          book = { kind: bt.kind, title: bt.title, body: bt.body, audioUrl: au }; } } catch (er) {}
+      fr.contentWindow.postMessage({ type: "hiraa-journey-init", book, state: st, role: isStudent() ? "student" : isStaff() ? "staff" : "guest", uid: state.session ? state.session.user.id : null, name: isStudent() ? nm : "" }, location.origin); }
     else if (d.type === "hiraa-journey" && d.code === JR_L.code && isStudent()) { jrPend = d.state; clearTimeout(jrT); jrT = setTimeout(jrFlush, 1500); }
     else if (d.type === "hiraa-journey-close") closeJourney(); });
   window.addEventListener("pagehide", jrFlush);

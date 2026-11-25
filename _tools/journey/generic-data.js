@@ -13,7 +13,8 @@ const CRIT=[
 ];
 const pic=(name,cls)=>name?`<img src="${IMG}${name}.webp" alt=""${cls?` class="${cls}"`:""}>`:"";
 const emo=(e,sz)=>`<span style="font-size:${sz||90}px;line-height:1">${e||"✨"}</span>`;
-const WORDS={};D.words.forEach(w=>{WORDS[w[0]]={m:w[1],pic:`<div style="display:grid;place-items:center;width:100%;height:100%">${emo(w[2],110)}</div>`}});
+const WORDS={};D.words.forEach(w=>{WORDS[w[0]]={m:w[1],e:w[2],pic:`<div style="display:grid;place-items:center;width:100%;height:100%">${emo(w[2],110)}</div>`}});
+const HL=D.hl||{},READHEAD=D.readhead||"",PQ=null,SCENE_IMG=D.hookImg?{0:D.hookImg}:{};
 const STATIONS=[
  {id:"ready",t:"أَتَهَيَّأُ",s:"قَبْلَ الرِّحْلَةِ",bg:"#F2F7FC",x:50,y:7},
  {id:"read",t:"أَقْرَأُ وَأَكْتَشِفُ",s:"نَصُّ الدَّرْسِ",bg:"#FFF9EE",x:22,y:17},

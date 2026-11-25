@@ -70,6 +70,39 @@ def img_ok(code, name):
     return bool(name) and os.path.exists(os.path.join(IMGDIR, f'{code}-{name}.webp'))
 
 
+def load_pool():
+    """كل معاني الكلمات في دروس الصف، ثم معاني المعجم المضافة (glossary.json)."""
+    pool = {}
+    for f in sorted(glob.glob(os.path.join(SRC, '*.json'))):
+        for w in json.load(open(f, encoding='utf-8')).get('words', []):
+            pool.setdefault(norm(w[0]), [w[0], w[1], w[2] if len(w) > 2 else '✨'])
+    for w in json.load(open(os.path.join(HERE, 'glossary.json'), encoding='utf-8'))['words']:
+        pool.setdefault(norm(w[0]), list(w))
+    return pool
+
+
+POOL = None
+HIGHLIGHTS = json.load(open(os.path.join(HERE, 'book_highlights.json'), encoding='utf-8'))['lessons']
+
+
+def find_word(form, entries):
+    """يطابق الكلمة الملوّنة في النص بمدخل في قائمة (مع إزالة واو العطف وال وصيغ الإعراب)."""
+    tries = [form]
+    f0 = strip_d(form)
+    if f0[:1] in 'وفب' and len(f0) > 3:
+        tries.append(re.sub(r'^[\u0648\u0641\u0628][\u064B-\u0652]*', '', form))
+    for t in tries:
+        for e in entries:
+            if norm(e[0]) == norm(t):
+                return e
+    for t in tries:
+        if len(t.split()) == 1:
+            c = [e for e in entries if len(e[0].split()) == 1 and len(skel(t)) >= 3 and skel(e[0]) == skel(t)]
+            if len(c) == 1:
+                return c[0]
+    return None
+
+
 def build_data(code, L, K, all_learned):
     rnd = random.Random(code)
     words = [[w[0], w[1], w[2] if len(w) > 2 else '✨'] for w in K['words']]
@@ -79,6 +112,18 @@ def build_data(code, L, K, all_learned):
         if norm(w[0]) not in have:
             words.append([w[0], w[1], '✨'])
             have.add(norm(w[0]))
+    # الكلمات الملوّنة في نص الكتاب: من الدرس، ثم من بقية دروس الصف، ثم من المعجم المضاف
+    global POOL
+    POOL = POOL or load_pool()
+    hl = {}
+    for form in HIGHLIGHTS.get(code, []):
+        e = find_word(form, words) or find_word(form, list(POOL.values()))
+        if e:
+            if e[0] not in [w[0] for w in words]:
+                words.append(list(e))
+            hl[form] = e[0]
+        else:
+            print('  !', code, 'no meaning for', form)
     canon = {norm(w[0]): w[0] for w in words}
     meanings = [w[1] for w in words]
 
@@ -185,7 +230,7 @@ def build_data(code, L, K, all_learned):
     return {
         'code': code, 'title': title, 'titlePlain': strip_d(title), 'cover': cover,
         'objective': K['objective'], 'crit': K['criteria'], 'readhead': L.get('readhead', ''),
-        'words': words, 'key': key, 'match': mt, 'map': mp, 'wordj': wordj, 'order': order,
+        'words': words, 'hl': hl, 'hookImg': K['hook'].get('img') if img_ok(code, K['hook'].get('img')) else None, 'match': mt, 'map': mp, 'wordj': wordj, 'order': order,
         'learned': learned, 'value': value, 'speak': speak, 'home': home, 'quiz': quiz, 'talk': talk,
     }
 
@@ -208,10 +253,10 @@ def make_template():
     b = open(BASE, encoding='utf-8').read()
     i_data = b.index('/* ================= بيانات الدرس')
     i_state = b.index('/* ================= الحالة والحفظ')
-    i_st = b.index('/* ================= المحطات')
+    i_st = b.index('/* ===== محطة القراءة') if '/* ===== محطة القراءة' in b else b.index('/* ================= المحطات')
     i_fin = b.index('/* ================= الخاتمة')
     gdata = open(os.path.join(HERE, 'generic-data.js'), encoding='utf-8').read()
-    grender = open(os.path.join(HERE, 'generic-render.js'), encoding='utf-8').read()
+    grender = open(os.path.join(HERE, 'book-read.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'generic-render.js'), encoding='utf-8').read()
     tail = b[i_fin:]
     rep = [
         ('قِصَّةُ «الْمَحَبَّةُ في رَمَضانَ» · ', '«${D.title}» · '),
@@ -232,12 +277,67 @@ def make_template():
     head = b[:i_data]
     head = head.replace('<title>رحلة القنديل · المحبة في رمضان · حراء</title>', '<title>رحلة القنديل · __TITLEPLAIN__ · حراء</title>')
     head = head.replace('<b>رِحْلَةُ الْقِنْديلِ: الْمَحَبَّةُ في رَمَضانَ</b>', '<b>رِحْلَةُ الْقِنْديلِ: __TITLE__</b>')
-    head = head.replace('.kw.seen::after{content:"✓";background:var(--green)}', '.kw.seen::after{content:"✓";background:var(--green)}\n.kw.nk{cursor:default}.kw.nk::after{display:none}')
     assert '__TITLE__' in head and '__TITLEPLAIN__' in head
     return head + gdata + '\n' + b[i_state:i_st] + grender + '\n' + tail
 
 
+L08_PQ = {
+    0: {'q': 'ما أَكْثَرُ شَيْءٍ تُحِبُّهُ هَناءُ؟', 'o': ['سَماعُ صَوْتِ الْمُؤَذِّنِ', 'مُطالَعَةُ النُّجومِ', 'قِيادَةُ الدَّرّاجَةِ'], 'a': 0},
+    2: {'q': 'مِنْ أَيْنَ تَقْطِفُ جَدَّتي لَيْلى الرُّطَبَ؟', 'o': ['مِنْ أَعْذاقِ النَّخْلَةِ', 'مِنَ السّوقِ', 'مِنَ الْبُحَيْرَةِ'], 'a': 0},
+    3: {'q': 'ما أَكْثَرُ شَيْءٍ يُحِبُّهُ جَدّي سالِمٌ؟', 'o': ['الْجُلوسُ مُسْتَقْبِلًا الْقِبْلَةَ لِتِلاوَةِ الْقُرْآنِ', 'رُكوبُ الْقارِبِ في الْبُحَيْرَةِ', 'رَسْمُ وُجوهِ النّاسِ'], 'a': 0},
+    5: {'q': 'ما أَكْثَرُ شَيْءٍ تُحِبُّهُ أُمّي سارَةُ؟', 'o': ['تَوْزيعُ الطَّعامِ عَلى الْأَهْلِ وَالْجيرانِ', 'مُمارَسَةُ الرِّياضَةِ', 'زِراعَةُ النَّخيلِ'], 'a': 0},
+    7: {'q': 'بِماذا يُحِبُّ الطِّفْلُ أَنْ يُساعِدَ؟', 'o': ['في فَرْشِ سُفْرَةِ الْإِفْطارِ وَتَوْزيعِ الطَّعامِ', 'في غَسْلِ السَّيّارَةِ', 'في قِيادَةِ الْقارِبِ'], 'a': 0},
+}
+L08_IMG = {0: 'hanaa', 3: 'grandpa', 5: 'mom', 6: 'father', 7: 'iftar'}
+
+
+def patch_l08():
+    """درس «المحبة في رمضان» اليدوي: يقرأ نص الكتاب الأصلي كاملًا بدل المقتطف، مع معاني كل الكلمات الملوّنة."""
+    global POOL
+    POOL = POOL or load_pool()
+    b = open(BASE, encoding='utf-8').read()
+    code = 'AR-Y1-N-T3-L08'
+    have = {'يَشُقُّ': 'يَشُقُّ', 'أَعْذاقِ النَّخْلَةِ': 'أَعْذاقِ النَّخْلَةِ', 'خُشوعٍ': 'خُشوعٍ'}
+    extra, hl = {}, {}
+    for form in HIGHLIGHTS[code]:
+        if form in have:
+            hl[form] = have[form]
+            continue
+        e = find_word(form, list(POOL.values()))
+        if not e:
+            raise SystemExit('L08: no meaning for ' + form)
+        hl[form] = e[0]
+        extra[e[0]] = {'w': e[0], 'm': e[1], 'e': e[2] if len(e) > 2 else '✨'}
+    block = ('/*L08-BOOK*/\nObject.entries(' + json.dumps(extra, ensure_ascii=False) +
+             ').forEach(([k,v])=>{WORDS[k]=Object.assign(v,{pic:`<div style="display:grid;place-items:center;width:100%;height:100%"><span style="font-size:110px;line-height:1">${v.e}</span></div>`})});\n'
+             'const HL=' + json.dumps(hl, ensure_ascii=False) + ',READHEAD="أَقْرَأُ الْقِصَّةَ",PQ=' + json.dumps(L08_PQ, ensure_ascii=False) +
+             ',SCENE_IMG=' + json.dumps(L08_IMG) + ';\n/*/L08-BOOK*/\n')
+    if '/*L08-BOOK*/' in b:
+        b = re.sub(r'/\*L08-BOOK\*/.*?/\*/L08-BOOK\*/\n', lambda m: block, b, flags=re.S)
+    else:
+        i = b.index('/* ================= الحالة والحفظ')
+        b = b[:i] + block + b[i:]
+    # حذف المقتطف المعاد صياغته
+    b = re.sub(r'const SCENES=\[.*?\n\];\n', '', b, flags=re.S)
+    # محطة القراءة
+    br = open(os.path.join(HERE, 'book-read.js'), encoding='utf-8').read()
+    if '/* ===== محطة القراءة' in b:
+        b = re.sub(r'/\* ===== محطة القراءة.*?(?=/\* ================= المحطات)', lambda m: br, b, flags=re.S)
+    else:
+        b = b.replace('/* ================= المحطات', br + '/* ================= المحطات', 1)
+    i, j = b.index('\n read(el){'), b.index('\n words(el){')
+    b = b[:i] + '\n read(el){readBook(el)},' + b[j:]
+    if 'if(d.book&&d.book.body)BOOK=d.book;' not in b:
+        b = b.replace('const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";', 'const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";if(d.book&&d.book.body)BOOK=d.book;', 1)
+    if '.kw.nk{' not in b:
+        b = b.replace('.kw.seen::after{content:"✓";background:var(--green)}', '.kw.seen::after{content:"✓";background:var(--green)}\n.kw.nk{cursor:default}.kw.nk::after{display:none}\n.scene.verse .txt{line-height:2.3;font-family:"Thmanyah Display",serif}', 1)
+    if '.scene>div{position:relative;z-index:1}' not in b:
+        b = b.replace('.scene .txt{', '.scene>div{position:relative;z-index:1}\n.scene .txt{', 1)
+    open(BASE, 'w', encoding='utf-8').write(b)
+
+
 def main():
+    patch_l08()
     tpl = make_template()
     decks = sorted(glob.glob(os.path.join(SRC, '*.deck.json')))
     all_learned = [(json.load(open(f))['code'], json.load(open(f))['learned']) for f in decks]
