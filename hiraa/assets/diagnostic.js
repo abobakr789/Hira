@@ -22,6 +22,8 @@ const T={
  startHere:['ابدأ من هنا','Start here'],afterRoot:n=>['بعد معالجة: '+n,'After fixing: '+n],open:['افتح الدرس','Open lesson'],
  map:['خريطة المتطلبات','Prerequisite map'],needs:['يعتمد على','Needs'],yr:['ص','Y'],
  score:['صحيح','correct'],note:['النتيجة تُحفظ على هذا الجهاز فقط.','The result is kept on this device only.'],
+ classView:['لوحة الفصل','Class view'],noRuns:['لا نتائج تشخيص من طلابك بعد.','No diagnostic results from your students yet.'],errRuns:['تعذّر تحميل النتائج. قد لا يكون جدول النتائج مُفعَّلًا بعد.','Could not load results. The results table may not be enabled yet.'],
+ mastery:['نسبة التمكّن في كل مخرج','Mastery per outcome'],groups:['مجموعات علاج مقترحة حسب أصل التعثر','Suggested remediation groups by root gap'],students:['طالب','students'],noRoot:['دون أصل متعثر','No root gap'],latest:['آخر تشخيص لكل طالب','Latest run per student'],back:['رجوع','Back'],
  stage:['المرحلة','Stage'],why:['لماذا هذه الأسئلة؟ أخطأتَ في مخرج، فنختبر ما يسبقه.','Why these? You missed an outcome, so we test what comes before it.']
 };
 let C=null;
@@ -114,6 +116,39 @@ async function lessonsFor(codes){
   return out;
 }
 
+/* ---------- الحفظ ولوحة المعلم (تحتاج جدول diag_runs؛ تفشل بصمت إن لم يوجد) ---------- */
+async function saveRun(st){
+  if(!C.state.session||(C.isStaff&&C.isStaff()))return;   // تجربة المعلم لا تُحتسب
+  const results={};Object.keys(R.res).forEach(c=>{const r=R.res[c];results[c]={r:r.right,a:r.asked,st:st[c]}});
+  try{await C.sb.from('diag_runs').insert({year_group:R.g,graph_version:D.version||1,results})}catch(e){}
+}
+async function teacher(){
+  $('dgApp').innerHTML=`<p class="dg-hint">${t('loading')}</p>`;
+  let rows;
+  try{
+    const {data,error}=await C.sb.from('diag_runs').select('student_id,year_group,results,created_at,profiles(full_name_ar)').order('created_at',{ascending:false}).limit(600);
+    if(error)throw error;rows=data||[];
+  }catch(e){$('dgApp').innerHTML=`<div class="dg-card"><p>${esc(t('errRuns'))}</p><button class="dg-btn" id="dgB">${t('back')}</button></div>`;$('dgB').onclick=landing;return}
+  const seen=new Set(),latest=[];rows.forEach(r=>{if(!seen.has(r.student_id)){seen.add(r.student_id);latest.push(r)}});
+  if(!latest.length){$('dgApp').innerHTML=`<div class="dg-card"><p>${esc(t('noRuns'))}</p><button class="dg-btn" id="dgB">${t('back')}</button></div>`;$('dgB').onclick=landing;return}
+  const name=r=>esc((r.profiles&&r.profiles.full_name_ar)||'—');
+  const codes=[...new Set(latest.flatMap(r=>Object.keys(r.results||{})))].filter(c=>NODE[c]).sort((a,b)=>NODE[a].year-NODE[b].year);
+  const rowsM=codes.map(c=>{
+    const tested=latest.filter(r=>r.results[c]&&r.results[c].st!=='na'),ok=tested.filter(r=>r.results[c].st==='ok').length;
+    const pct=tested.length?Math.round(ok/tested.length*100):0,col=pct>=75?'var(--ok)':pct>=50?'var(--am)':'var(--no)';
+    return `<div class="dg-trow"><span>${esc(ntitle(c))}<small> ${t('yr')} ${ar(NODE[c].year)} · ${ar(tested.length)} ${t('students')}</small></span><div class="dg-pb"><i style="width:${pct}%;background:${col}"></i></div><em>${ar(pct)}٪</em></div>`;
+  }).join('');
+  const groups=codes.map(c=>{
+    const ss=latest.filter(r=>r.results[c]&&r.results[c].st==='root');
+    return ss.length?`<div class="dg-grp"><b>${esc(ntitle(c))}</b> · ${ar(ss.length)} ${t('students')}<br>${ss.map(r=>`<span class="dg-pill">${name(r)}</span>`).join('')}</div>`:'';
+  }).join('');
+  const clear=latest.filter(r=>!Object.values(r.results).some(x=>x.st==='root'));
+  $('dgApp').innerHTML=`<div class="dg-card"><p class="dg-sum">${t('latest')}: ${ar(latest.length)}</p><h3 class="dg-h3">${t('mastery')}</h3><div class="dg-tbl">${rowsM}</div></div>
+    <h2 class="dg-h">${t('groups')}</h2>${groups}${clear.length?`<div class="dg-grp"><b style="color:var(--ok)">${t('noRoot')}</b> · ${clear.map(r=>`<span class="dg-pill">${name(r)}</span>`).join('')}</div>`:''}
+    <div class="dg-row"><button class="dg-btn" id="dgB">${t('back')}</button></div>`;
+  $('dgB').onclick=landing;
+}
+
 /* ---------- العرض ---------- */
 async function result(){
   const {st,roots}=analyse();
@@ -122,6 +157,7 @@ async function result(){
   const affList=codes.filter(c=>st[c]==='affected').sort((a,b)=>NODE[a].year-NODE[b].year);
   const lessons=await lessonsFor(rootList.concat(affList));
   try{localStorage.setItem('hiraa-diag-v1',JSON.stringify({g:R.g,at:Date.now(),st}))}catch(e){}
+  saveRun(st);
   const sc=c=>R.res[c]&&!R.res[c].na?`${ar(R.res[c].right)}/${ar(R.res[c].asked)} ${t('score')}`:'';
   const step=(c,i)=>{
     const l=lessons[c],isRoot=st[c]==='root',rs=isRoot?[]:roots(c);
@@ -148,7 +184,8 @@ function landing(){
   const own=+prof.year_group||0;
   const sel=(staff||!own)?`<label class="dg-lab">${t('grade')} <select id="dgG">${Array.from({length:maxY-2},(_,i)=>i+3).map(y=>`<option value="${y}" ${y===(own||7)?'selected':''}>${ar(y)}</option>`).join('')}</select></label>`:'';
   $('dgApp').innerHTML=`<div class="dg-card"><p>${esc(t('intro'))}</p>${D.status==='draft'?`<p class="dg-warn">${esc(t('draft'))}</p>`:''}${sel}
-    <div class="dg-row"><button class="dg-btn" id="dgGo">${t('start')}</button></div></div>`;
+    <div class="dg-row"><button class="dg-btn" id="dgGo">${t('start')}</button>${staff?`<button class="dg-btn dg-ghost" id="dgCls">${t('classView')}</button>`:''}</div></div>`;
+  if(staff)$('dgCls').onclick=teacher;
   $('dgGo').onclick=()=>{const g=$('dgG')?+$('dgG').value:own;if(!targetsFor(g).length){$('dgApp').innerHTML=`<div class="dg-card"><p>${t('none')}</p><button class="dg-btn" id="dgB">${t('again')}</button></div>`;$('dgB').onclick=landing;return}run(g)};
 }
 window.HiraaDiagnose=async function(ctx){
