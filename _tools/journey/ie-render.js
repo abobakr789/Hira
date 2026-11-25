@@ -57,9 +57,9 @@ const PART={
   draw();say("اقْرَأِ الْآياتِ مَعَ التِّلاوَةِ، ثُمَّ سَمِّعْها مُسْتَوًى بَعْدَ مُسْتَوًى.","listen",5000)},
  order(el,x,go,ctx){el.appendChild(h(`<div class="inst reveal" style="margin-top:20px"><span class="ic">🔢</span>${x.head}</div>`));
   const bar=h(`<div class="lt-row ${x.small?"":"big"}"></div>`);el.appendChild(bar);
-  const g=h(`<div class="${x.small?"lt-grid":"od-grid"}">${shuffle(x.list.map((t,i)=>({t,i}))).map(y=>`<button class="${x.small?"lt":"od"}" data-i="${y.i}">${y.t}</button>`).join("")}</div>`);el.appendChild(g);
+  const g=h(`<div class="${x.small?"lt-grid":"od-grid"}">${shuffle(x.list.map((t,i)=>({t,i}))).map(y=>`<button class="${x.small?"lt":"od"}${x.imgs?" odi":""}" data-i="${y.i}">${x.imgs?pimg(x.imgs[y.i]):""}<span>${y.t}</span></button>`).join("")}</div>`);el.appendChild(g);
   let k=0,miss=0;g.querySelectorAll("button").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;
-   if(x.list[i]===x.list[k]&&!b.classList.contains("used")){b.classList.add("used");bar.insertAdjacentHTML("beforeend",`<span class="${x.small?"lt-on":"od-on"} reveal">${x.small?"":`<i>${k+1}</i>`}${x.list[k]}</span>`);k++;tone(true);
+   if(x.list[i]===x.list[k]&&!b.classList.contains("used")){b.classList.add("used");bar.insertAdjacentHTML("beforeend",`<span class="${x.small?"lt-on":"od-on"} reveal">${x.small?"":`<i>${k+1}</i>`}${x.imgs?pimg(x.imgs[k]):""}${x.list[k]}</span>`);k++;tone(true);
     if(k===x.list.length){firstTry(ctx.id+"-order",miss<=1);if(x.after)bar.insertAdjacentHTML("afterend",`<div class="concl reveal">${x.after}</div>`);say(praise(),"great",2600);setTimeout(go,800)}}
    else{miss++;b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),500);tone(false);if(miss===1&&!x.small)addMistake(ctx.id,x.head+": ما الَّذي يَأْتي بَعْدَ «"+(x.list[k-1]||"الْبِدايَةِ")+"»؟",[x.list[k]].concat(x.list.filter((_,j)=>j!==k).slice(0,2)),0,b.textContent);say(x.hint||"فَكِّرْ: ما الَّذي يَأْتي الْآنَ؟","think",3200)}})},
  color(el,x,go){el.appendChild(h(`<div class="inst reveal" style="margin-top:20px"><span class="ic">🎨</span>${x.head}</div>`));
@@ -101,5 +101,6 @@ const IE={
  }
 };
 Object.keys(RENDER).forEach(k=>{if(!["ready","check"].includes(k))delete RENDER[k]});
-Object.assign(RENDER,IE,{read(el){readBook(el)}});
-STATIONS.forEach(s=>{if(s.parts)RENDER[s.id]=el=>runParts(el,s)});
+Object.assign(RENDER,IE,{read(el){const st=STATIONS.find(s=>s.id==="read");
+ if(st&&(st.parts||st.crit!=null)){const box=h(`<div></div>`);window.__afterRead=()=>{box.innerHTML="";el.appendChild(box);runParts(box,st)}}readBook(el)}});
+STATIONS.forEach(s=>{if(s.parts&&s.id!=="read")RENDER[s.id]=el=>runParts(el,s)});
