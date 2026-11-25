@@ -1286,12 +1286,12 @@
     var PILK = "hb-pil-" + DECK;
     var pilGet = function () { try { return JSON.parse(sessionStorage.getItem(PILK) || "{}") || {}; } catch (e) { return {}; } };
     W.__hbMark = function (k) { try { var o = pilGet(); if (!o[k]) { o[k] = 1; sessionStorage.setItem(PILK, JSON.stringify(o)); } } catch (e) {} };
-    var PILS = [["ice", "🧊", T("كسر الجليد", "Ice-breaker")], ["act", "🙌", T("تعلّم نشط", "Active learning")], ["fb", "💬", T("فيدباك", "Feedback")], ["ws", "📄", T("أوراق عمل", "Worksheets")], ["qz", "🏆", T("مسابقة الصف", "Class quiz")], ["ex", "🎟", T("بطاقة الخروج", "Exit ticket")], ["gc", "🎯", T("تحقّق الهدف", "Goal check")]];
+    var PILS = [["ice", "🧊", T("كسر الجليد", "Ice-breaker")], ["act", "🙌", T("تعلّم نشط", "Active learning")], ["fb", "💬", T("فيدباك", "Feedback")], ["ws", "📄", T("أوراق عمل", "Worksheets")], ["qz", "🏆", T("مسابقة الصف", "Class quiz")], ["ex", "🎟", T("بطاقة الخروج", "Exit ticket")], ["gc", "🎯", T("تحقّق الهدف", "Goal check")], ["sv", "🗣", T("رأي الطلاب", "Student voice")]];
     var pilHtml = function () { var o = pilGet(), n = PILS.filter(function (x) { return o[x[0]]; }).length; return '<p class="ice-pilh">' + T("أركان هذه الحصة: ", "This lesson's pillars: ") + "<b>" + n + "/" + PILS.length + '</b></p><div class="ice-pil">' + PILS.map(function (x) { return '<span class="' + (o[x[0]] ? "dn" : "") + '">' + (o[x[0]] ? "✅" : x[1]) + " " + x[2] + "</span>"; }).join("") + "</div>"; };
     W.__hbFindSlide = function (re) { for (var k = 0; k < SL.length; k++) if (re.test(norm(stTitle(k)))) return k; return -1; };
     var GK = "hb-goal-" + DECK, GRK = "hb-growth", gedit = false, gchk = false;
     var gget = function () { try { return JSON.parse(LS.get(GRK, "[]")) || []; } catch (e) { return []; } };
-    var gpush = function (o) { var a = gget(); a.push(Object.assign({ t: Date.now(), d: DECK, n: title, l: (W.__hbLiveId && W.__hbLiveId()) || 0 }, o)); LS.set(GRK, JSON.stringify(a.slice(-400))); };
+    var gpush = W.__hbGrow = function (o) { var a = gget(); a.push(Object.assign({ t: Date.now(), d: DECK, n: title, l: (W.__hbLiveId && W.__hbLiveId()) || 0 }, o)); LS.set(GRK, JSON.stringify(a.slice(-400))); };
     var goalAuto = function () {
       var r = "";
       for (var k = 0; k < SL.length && !r; k++) {
@@ -1324,7 +1324,7 @@
       var a = gget().slice(-6).reverse(); if (!a.length) return "";
       return '<div class="ice-hist"><h4>📈 ' + T("سجلّ النمو (آخر السجلات)", "Growth record (latest)") + "</h4>" + a.map(function (e) {
         var dt = new Date(e.t).toLocaleDateString(EN ? "en-GB" : "ar-AE-u-nu-latn", { day: "numeric", month: "numeric" });
-        return '<div class="ice-hr"><span>' + dt + " · " + esc((e.n || "").slice(0, 40)) + "</span><b>" + (e.k === "goal" ? "🎯 " + GLV[e.g][0] + " " + GLV[e.g][1] : "🪞 " + e.b + "% → " + e.a + "% (" + (e.a - e.b >= 0 ? "+" : "") + (e.a - e.b) + ")" + (e.lv ? " " + Object.keys(e.lv).map(function (k) { return LV[k][0] + e.lv[k][0] + "→" + e.lv[k][1]; }).join(" ") : "")) + "</b></div>";
+        return '<div class="ice-hr"><span>' + dt + " · " + esc((e.n || "").slice(0, 40)) + "</span><b>" + (e.k === "qz" ? "🏆 " + Object.keys(e.acc || {}).map(function (k) { var a = e.acc[k]; return ["🥉", "🥈", "🥇", "💎"][k] + " " + (a[1] ? Math.round(a[0] * 100 / a[1]) : 0) + "%"; }).join(" · ") : e.k === "goal" ? "🎯 " + GLV[e.g][0] + " " + GLV[e.g][1] : "🪞 " + e.b + "% → " + e.a + "% (" + (e.a - e.b >= 0 ? "+" : "") + (e.a - e.b) + ")" + (e.lv ? " " + Object.keys(e.lv).map(function (k) { return LV[k][0] + e.lv[k][0] + "→" + e.lv[k][1]; }).join(" ") : "")) + "</b></div>";
       }).join("") + "</div>";
     };
     var STRUCT = /قبل ان نبدا|قياس التقدم|خريطه العمل|نماذج الاجابه|اهداف|معايير النجاح|الخروج|الختام|الواجب|التقويم|شكرا|المراجعه|قبل الدرس|بعد الدرس|مفردات|الاستراتيجي|ملخص|عنوان|^المجموعه \d|نجمتان|تحدي حراء|الدرس والهويه/;
@@ -1357,6 +1357,7 @@
       ["ex", "🎟", T("بطاقة الخروج", "Exit ticket"), T("تُرسل لأجهزة الطلاب، أو تنتقل إلى شريحتها إن لم تكن الحصة مباشرة", "Sent to student devices, or jumps to its slide when not live")],
       ["qk", "🔔", T("تحدّي حراء السريع", "Quick Hiraa challenge"), T("ينقلك إلى شريحة الأسئلة السريعة في العرض", "Jumps to the quick-questions slide")],
       ["lg", "🎮", T("ألعاب الدرس على المنصة", "Lesson games on the platform"), T("تفتح صفحة الدرس في تبويب جديد (اختر «ألعاب الدرس»)، ويبقى العرض مفتوحًا", "Opens the lesson page in a new tab (pick “Lesson games”); the deck stays open")],
+      ["sv", "🗣", T("رأيك يهمّني: فيدباك الطلاب", "Your voice: student feedback"), T("ثلاثة أسئلة تصل أجهزة الطلاب: ما الذي ساعدهم وما الذي غمض وما يقترحونه (تحتاج حصة مباشرة)", "Three questions to students' devices: what helped, what's unclear, what they suggest (needs a live lesson)")],
       ["ic", "🧊", T("ألعاب كسر الجليد", "Ice-breaker games"), T("ألعاب سريعة تصلح للبداية أو لإعادة النشاط", "Quick games for starting or re-energising")]
     ];
     var GMF = {
@@ -1364,6 +1365,7 @@
       ex: function () { if (W.__hbExit) W.__hbExit(); },
       qk: function () { var k = W.__hbFindSlide(/تحدي حراء/); if (k < 0) { say(T("لا توجد شريحة تحدّي في هذا العرض", "No challenge slide in this deck")); return; } closeIce(); go(k); },
       lg: function () { window.open(lessonUrl(), "_blank", "noopener"); },
+      sv: function () { mode = "sv"; st = {}; paint(); },
       ic: function () { openHub("ice"); }
     };
     function paintHub() {
@@ -1440,6 +1442,20 @@
         }).join("") + '</div><div class="ice-row"><button class="ice-sm go" id="iceRn">🔄 ' + T("جولة جديدة: بدّلوا الأدوار", "New round: swap the roles") + " (" + (r + 1) + ')</button></div><p class="ice-note">' + T("صيغ المهام عامة بحسب مستويات التفكير، والموضوع من محاور الدرس (عدّلها من «المحاور المتقاطعة»). الأدوار لفريق من أربعة.", "Task stems follow thinking levels; the topic comes from the lesson's parts (edit them in Jigsaw). Roles assume a team of four.") + "</p>");
       ov.querySelectorAll(".ice-lvs button").forEach(function (b) { b.onclick = function () { var t = tms()[+b.dataset.t]; if (!t) return; D[t.n] = +b.dataset.l; LS.set(LVK, JSON.stringify(D)); paintLvl(); }; });
       $("iceRn").onclick = function () { st.r = r + 1; snd("chime"); paintLvl(); };
+    }
+    var SVQ = [T("ما الذي ساعدني على التعلّم اليوم؟", "What helped me learn today?"), T("ما الذي ما زال غامضًا عندي؟", "What is still unclear to me?"), T("ماذا أقترح ليكون درسنا أفضل؟", "What do I suggest to make our lesson better?")];
+    function paintSv() {
+      var k = "hb-sv-q-" + DECK, Q = lines(k, SVQ), sent = st.sent || {};
+      if (st.edit) {
+        shell(T("رأيك يهمّني", "Your voice"), '<p class="ice-lead">' + T("سؤال في كل سطر (يُنصح بثلاثة):", "One question per line (three recommended):") + '</p><textarea id="iceSq" class="ice-ta" rows="5">' + esc(Q.join("\n")) + '</textarea><div class="ice-row"><button class="ice-sm go" id="iceSs">💾 ' + T("احفظ", "Save") + '</button><button class="ice-sm" id="iceSr">↺ ' + T("الافتراضي", "Defaults") + "</button></div>");
+        $("iceSs").onclick = function () { LS.set(k, $("iceSq").value); st.edit = false; paintSv(); };
+        $("iceSr").onclick = function () { LS.set(k, ""); st.edit = false; paintSv(); }; return;
+      }
+      shell(T("رأيك يهمّني: فيدباك الطلاب", "Your voice: student feedback"),
+        '<p class="ice-lead">' + T("الطلاب يعطون المعلم فيدباك عن الدرس. أرسل سؤالًا واحدًا في كل مرة، فتصل إجاباتهم (حتى 40 حرفًا) سحابةَ كلمات تدخل تقرير الحصة.", "Students give the teacher feedback. Send one question at a time; answers (up to 40 characters) form a word cloud that goes into the lesson report.") + '</p><div class="ice-lvg" style="grid-template-columns:1fr">' + Q.map(function (q, i) { return '<div class="ice-lvc" style="border-color:' + (sent[i] ? "#15803D" : "#C4943A") + '"><div class="ice-lvt" style="font-size:22px;font-weight:800;margin:10px 14px">' + (i + 1) + ". " + esc(q) + '</div><div class="ice-row" style="padding:0 12px 10px"><button class="ice-sm go" data-q="' + i + '">📲 ' + (sent[i] ? T("أعد الإرسال", "Resend") : T("أرسل للطلاب", "Send to students")) + "</button>" + (sent[i] ? "<b>✅ " + T("أُرسل", "Sent") + "</b>" : "") + "</div></div>"; }).join("") + '</div><div class="ice-row"><button class="ice-sm" id="iceRs">📊 ' + T("اعرض الإجابات", "Show the answers") + '</button><button class="ice-sm" id="iceEd">✏️ ' + T("عدّل الأسئلة", "Edit questions") + '</button></div><p class="ice-note">' + T("إن لم تكن الحصة مباشرة فاطرحها شفهيًّا أو على أوراق لاصقة.", "If the lesson isn't live, ask them aloud or on sticky notes.") + "</p>");
+      ov.querySelectorAll("[data-q]").forEach(function (b) { b.onclick = function () { if (W.__hbAskWord && W.__hbAskWord(Q[+b.dataset.q])) { sent[+b.dataset.q] = 1; st.sent = sent; W.__hbMark("sv"); paintSv(); } }; });
+      $("iceRs").onclick = function () { if (W.__hbShowRes) W.__hbShowRes(); };
+      $("iceEd").onclick = function () { st.edit = true; paintSv(); };
     }
     function paintOmp() {
       shell(T("ورقة الدقيقة", "One-minute paper"),
@@ -1543,7 +1559,7 @@
       $("iceSv").onclick = function () { saveNote("🪞 " + T("تقييم ذاتي ", "Self-assessment ") + (ph === "before" ? T("(قبل)", "(before)") : T("(بعد)", "(after)")), crit.map(function (c, i) { var a = P[i]; return a ? c.slice(0, 40) + ": 🔴" + a[0] + " 🟡" + a[1] + " 🟢" + a[2] : ""; }).filter(Boolean).join(" | ")); };
     }
     var letPick = function () { st.L = LETS[Math.floor(Math.random() * LETS.length)]; st.cat = CATS[Math.floor(Math.random() * CATS.length)]; };
-    function paint() { stopT(); if (mode === "menu") paintMenu(); else if (mode === "scr") paintScr(); else if (mode === "mys") paintMys(); else if (mode === "twq") paintTwq(); else if (mode === "brn") paintBrn(); else if (mode === "mem") paintMem(); else if (mode === "let") paintBrn(); else if (mode === "lin") paintLine(); else if (mode === "num") paintNum(); else if (mode === "cor") paintCor(); else if (mode === "tf") paintTf(); else if (mode === "buz") paintBuz(); else if (mode === "prd") paintPrd(); else if (mode === "hot") paintHot(); else if (mode === "tps") paintTps(); else if (mode === "jig") paintJig(); else if (mode === "sqs") paintSqs(); else if (mode === "cmp") paintCmp(); else if (mode === "deb") paintDeb(); else if (mode === "omp") paintOmp(); else if (mode === "lvl") paintLvl(); else if (mode === "tfb") paintTfb(); else if (mode === "pfb") paintPfb(); else if (mode === "pas") paintPas(); else if (mode === "sas") paintSas(); kick(); }
+    function paint() { stopT(); if (mode === "menu") paintMenu(); else if (mode === "scr") paintScr(); else if (mode === "mys") paintMys(); else if (mode === "twq") paintTwq(); else if (mode === "brn") paintBrn(); else if (mode === "mem") paintMem(); else if (mode === "let") paintBrn(); else if (mode === "lin") paintLine(); else if (mode === "num") paintNum(); else if (mode === "cor") paintCor(); else if (mode === "tf") paintTf(); else if (mode === "buz") paintBuz(); else if (mode === "prd") paintPrd(); else if (mode === "hot") paintHot(); else if (mode === "tps") paintTps(); else if (mode === "jig") paintJig(); else if (mode === "sqs") paintSqs(); else if (mode === "cmp") paintCmp(); else if (mode === "deb") paintDeb(); else if (mode === "omp") paintOmp(); else if (mode === "lvl") paintLvl(); else if (mode === "sv") paintSv(); else if (mode === "tfb") paintTfb(); else if (mode === "pfb") paintPfb(); else if (mode === "pas") paintPas(); else if (mode === "sas") paintSas(); kick(); }
     var HBTN = { ice: "hbIce", act: "hbAct", fb: "hbFb", gm: "hbGm" };
     var openHub = function (h) { closePops(); var co = $("hbClassOv"); if (co) co.classList.remove("on"); $("hbClass").classList.remove("on"); if (ov.classList.contains("on") && hub === h) { closeIce(); return; } stopT(); if (W.__hbWsClose) W.__hbWsClose(); hub = h; mode = "menu"; st = {}; ov.classList.add("on"); ["hbIce", "hbAct", "hbFb", "hbGm"].forEach(function (id) { var b = $(id); if (b) b.classList.toggle("on", id === HBTN[h]); }); paint(); };
     on("hbIce", function () { openHub("ice"); }); on("hbAct", function () { openHub("act"); }); on("hbFb", function () { openHub("fb"); }); on("hbGm", function () { openHub("gm"); });
@@ -2192,6 +2208,11 @@
       if (!liveOn()) { say(T("ابدأ الحصة المباشرة أولًا ليدخل الطلاب بالرمز", "Start the live lesson first so students can join")); paintShare(); togglePop(sharePop, btnLive); return; }
       paintAsk(); if (!askPop.classList.contains("on")) togglePop(askPop, btnAsk); var q = $("hbQzOpen"); if (q) q.click();
     };
+    W.__hbAskWord = function (text) {
+      if (!liveOn()) { say(T("ابدأ الحصة المباشرة أولًا ليصل السؤال لأجهزة الطلاب", "Start the live lesson first so the question reaches students")); return false; }
+      ask({ t: "word", text: text }, null, true); say(T("وصل السؤال إلى أجهزة الطلاب", "The question reached the students' devices")); return true;
+    };
+    W.__hbShowRes = function () { if (W.__hbCloseIce) W.__hbCloseIce(); minimized = false; resP.classList.remove("mini"); resP.classList.add("on"); paintRes(); };
     W.__hbExit = function () {
       if (W.__hbCloseIce) W.__hbCloseIce();
       if (liveOn()) { ask({ t: "exit", text: TYPES.exit }); return; }
@@ -2203,12 +2224,17 @@
     var QZ = null, quizOv = mk("div", "hbQuiz"); quizOv.dir = RTL ? "rtl" : "ltr"; stop(quizOv);
     function quizQs() { var out = []; SL.forEach(function (_, k) { slideQs(k).forEach(function (q) { if ((q.kind === "mc" || q.kind === "tf") && q.ans != null) out.push(Object.assign({ slide: k }, q)); }); }); return out; }
     var nickOf = function (id) { var p = players.find(function (x) { return x.id === id; }); return p ? p.nick : "—"; };
+    var QLV = [T("🥉 برونزي", "🥉 Bronze"), T("🥈 فضي", "🥈 Silver"), T("🥇 ذهبي", "🥇 Gold"), T("💎 تحدٍّ", "💎 Challenge")], QMUL = [1, 1.5, 2, 3], QLK = "hb-qlv-" + DECK;
+    var qNorm = function (t) { return String(t || "").replace(/[ً-ٰٟـ]/g, "").replace(/[إأآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه"); };
+    var qGuess = function (q) { var t = qNorm(q.text); if (/قيم|اقترح|ماذا لو|كيف يمكن|ما رايك|كيف تطبق|كيف نطبق|evaluate|suggest|what if/i.test(t)) return 3; if (/لماذا|علل|استنتج|ما الحكمه|ما السبب|حلل|ما الدليل|ماذا نستفيد|why|infer|analy/i.test(t)) return 2; if (/ما معني|وضح|اشرح|بين|ما المقصود|ما الفرق|ماذا تعني|تتحدث عن|ما المراد|من صفات|explain|what does|meaning/i.test(t)) return 1; return 0; };
+    var qSaved = function () { try { return JSON.parse(LS.get(QLK, "{}")) || {}; } catch (e) { return {}; } };
+    function qzLog() { if (QZ && QZ.acc && !QZ.logged && W.__hbGrow) { QZ.logged = 1; W.__hbGrow({ k: "qz", acc: QZ.acc }); } }
     function quizSetup() {
-      var L = quizQs(), box = $("hbAskX"); if (!box) return;
-      box.innerHTML = '<div class="hb-qzs"><b>🏆 ' + T("مسابقة من أسئلة العرض", "Quiz from the deck's questions") + "</b> <small>" + L.length + T(" سؤالًا لها إجابة على الشرائح", " questions with answers on the slides") + '</small><div class="hb-qzl">' +
-        L.map(function (q, i) { return '<label class="hb-ck"><input type="checkbox" data-qz="' + i + '"' + (i < 12 ? " checked" : "") + "> <span>" + T("ش", "S") + (q.slide + 1) + " · " + esc(q.text) + "</span></label>"; }).join("") +
+      var L = quizQs(), box = $("hbAskX"); if (!box) return; var SV = qSaved();
+      box.innerHTML = '<div class="hb-qzs"><b>🏆 ' + T("مسابقة من أسئلة العرض", "Quiz from the deck's questions") + "</b> <small>" + L.length + T(" سؤالًا لها إجابة على الشرائح", " questions with answers on the slides") + '</small><div class="hb-muted" style="margin:4px 0">' + T("المستوى مقترح بحسب صيغة السؤال فعدّله. نقاط السؤال × 1 / 1.5 / 2 / 3 بحسب المستوى.", "Level is guessed from the wording; adjust it. Points × 1 / 1.5 / 2 / 3 by level.") + '</div><label class="hb-ck"><input type="checkbox" id="hbQzLad" checked> <span>' + T("رتّبها تصاعديًّا من البرونزي إلى التحدّي", "Order them from Bronze up to Challenge") + '</span></label><div class="hb-qzl">' +
+        L.map(function (q, i) { var lv0 = SV[q.text] != null ? SV[q.text] : qGuess(q); return '<label class="hb-ck"><input type="checkbox" data-qz="' + i + '"' + (i < 12 ? " checked" : "") + '> <select class="hb-sel2" data-ql="' + i + '" style="width:auto">' + QLV.map(function (x, k) { return '<option value="' + k + '"' + (k === lv0 ? " selected" : "") + ">" + x + "</option>"; }).join("") + "</select> <span>" + T("ش", "S") + (q.slide + 1) + " · " + esc(q.text) + "</span></label>"; }).join("") +
         '</div><div class="hb-row"><label class="hb-muted">⏱ ' + T("وقت السؤال", "Time per question") + ' <select id="hbQzT" class="hb-sel2" style="width:auto">' + [10, 20, 30, 45].map(function (t) { return '<option value="' + t + '"' + (t === +LS.get("hb-qz-t", "20") ? " selected" : "") + ">" + t + T(" ثانية", " s") + "</option>"; }).join("") + '</select></label><button type="button" class="hb-btn pri" id="hbQzGo">🏁 ' + T("ابدأ المسابقة", "Start the quiz") + "</button></div></div>";
-      $("hbQzGo").onclick = function () { var pickL = L.filter(function (_, i) { var c = box.querySelector('[data-qz="' + i + '"]'); return c && c.checked; }); if (!pickL.length) return say(T("اختر سؤالًا واحدًا على الأقل", "Pick at least one question")); var sec = +$("hbQzT").value; LS.set("hb-qz-t", sec); startQuiz(pickL, sec); };
+      $("hbQzGo").onclick = function () { var SV2 = qSaved(), pickL = []; L.forEach(function (q, i) { var c = box.querySelector('[data-qz="' + i + '"]'), sl = box.querySelector('[data-ql="' + i + '"]'), lv = sl ? +sl.value : 0; SV2[q.text] = lv; if (c && c.checked) pickL.push(Object.assign({}, q, { lv: lv })); }); LS.set(QLK, JSON.stringify(SV2)); if ($("hbQzLad") && $("hbQzLad").checked) pickL = pickL.map(function (q, i) { return [q, i]; }).sort(function (a, b) { return a[0].lv - b[0].lv || a[1] - b[1]; }).map(function (x) { return x[0]; }); if (!pickL.length) return say(T("اختر سؤالًا واحدًا على الأقل", "Pick at least one question")); var sec = +$("hbQzT").value; LS.set("hb-qz-t", sec); startQuiz(pickL, sec); };
     }
     function startQuiz(list, sec) { if (W.__hbMark) W.__hbMark("qz"); closePops(); resP.classList.remove("on"); QZ = { list: list, i: -1, sec: sec, sc: {}, st: {}, prev: {}, phase: "", tick: 0 }; quizOv.classList.add("on"); nextQ(); }
     function nextQ() {
@@ -2226,8 +2252,9 @@
       step("close").then(function () { return sb.from("deck_live_answers").select("player_id, answer, at").eq("live_id", S.id).eq("q_seq", S.q_seq); }).then(function (r) {
         answers = r.data || [];
         var ok = answers.filter(function (a) { return a.answer && +a.answer.o === +q.ans; }).sort(function (a, b) { return new Date(a.at) - new Date(b.at); });
+        var lvq = q.lv || 0, ac = (QZ.acc = QZ.acc || {}); ac[lvq] = ac[lvq] || [0, 0]; ac[lvq][1] += answers.length; ac[lvq][0] += ok.length;
         var stepP = ok.length > 1 ? 500 / (ok.length - 1) : 0, okIds = {};
-        ok.forEach(function (a, rk) { okIds[a.player_id] = 1; QZ.st[a.player_id] = (QZ.st[a.player_id] || 0) + 1; QZ.sc[a.player_id] = (QZ.sc[a.player_id] || 0) + Math.round(1000 - rk * stepP) + Math.min(300, (QZ.st[a.player_id] - 1) * 100); });
+        ok.forEach(function (a, rk) { okIds[a.player_id] = 1; QZ.st[a.player_id] = (QZ.st[a.player_id] || 0) + 1; QZ.sc[a.player_id] = (QZ.sc[a.player_id] || 0) + Math.round((Math.round(1000 - rk * stepP) + Math.min(300, (QZ.st[a.player_id] - 1) * 100)) * (QMUL[lvq] || 1)); });
         answers.forEach(function (a) { if (!okIds[a.player_id]) QZ.st[a.player_id] = 0; });
         QZ.fast = ok[0] ? ok[0].player_id : null;
         return step("reveal", { correct: q.ans });
@@ -2236,7 +2263,7 @@
     function board(n) { return Object.keys(QZ.sc).map(function (id) { return { id: id, n: nickOf(id), s: QZ.sc[id] }; }).sort(function (a, b) { return b.s - a.s; }).slice(0, n || 5); }
     function paintQuiz() {
       if (!QZ) { quizOv.classList.remove("on"); return; }
-      var q = QZ.list[QZ.i], head = '<div class="qz-top"><span class="qz-n">' + T("السؤال ", "Question ") + (QZ.i + 1) + T(" من ", " of ") + QZ.list.length + '</span><span class="qz-sp"></span><button type="button" class="qz-x" id="hbQzEnd">' + T("أنهِ المسابقة", "End quiz") + "</button></div>", h = "";
+      var q = QZ.list[QZ.i], head = '<div class="qz-top"><span class="qz-n">' + T("السؤال ", "Question ") + (QZ.i + 1) + T(" من ", " of ") + QZ.list.length + (q.lv != null ? " · " + QLV[q.lv] : "") + '</span><span class="qz-sp"></span><button type="button" class="qz-x" id="hbQzEnd">' + T("أنهِ المسابقة", "End quiz") + "</button></div>", h = "";
       if (QZ.phase === "q" || QZ.phase === "wait") {
         h = head + '<div class="qz-q">' + esc(q.text) + '</div><div class="qz-mid"><div class="qz-ring" id="hbQzRing" style="--p:1"><b id="hbQzLeft">' + QZ.sec + '</b></div><div class="qz-cnt"><b id="hbQzCnt">' + answers.length + "</b><span>" + T("أجابوا", "answered") + " / " + players.length + "</span></div></div>" +
           '<div class="qz-opts">' + q.opts.map(function (o, i) { return '<div class="qz-o" style="--c:' + COLS[i % 6] + '"><i>' + (q.kind === "tf" ? (i ? "✗" : "✓") : SH[i % 6]) + "</i>" + esc(o) + "</div>"; }).join("") + '</div><div class="qz-row"><button type="button" class="qz-btn" id="hbQzStop">⏭ ' + T("أوقف الوقت الآن", "Stop the clock") + "</button></div>";
@@ -2254,14 +2281,14 @@
         var B3 = board(10), pod = [B3[1], B3[0], B3[2]];
         h = '<div class="qz-top"><span class="qz-n">🎉 ' + T("انتهت المسابقة", "Quiz over") + '</span><span class="qz-sp"></span><button type="button" class="qz-x" id="hbQzClose">' + T("إغلاق", "Close") + "</button></div>" +
           '<div class="qz-pod">' + pod.map(function (x, j) { var place = [2, 1, 3][j]; return x ? '<div class="qz-p p' + place + '"><span class="qz-medal">' + ["🥇", "🥈", "🥉"][place - 1] + "</span><b>" + esc(x.n) + "</b><em>" + x.s + '</em><div class="qz-step">' + place + "</div></div>" : '<div class="qz-p p' + place + ' none"></div>'; }).join("") + "</div>" +
-          (B3.length > 3 ? '<p class="qz-rest">' + B3.slice(3).map(function (x, k) { return (k + 4) + ". " + esc(x.n) + " (" + x.s + ")"; }).join(" · ") + "</p>" : "") + '<div class="qz-conf">' + Array.from({ length: 40 }, function (_, k) { return '<i style="--x:' + Math.random() * 100 + "%;--d:" + (Math.random() * 2 + 2) + "s;--dl:" + Math.random() * 1.5 + "s;--c:" + COLS[k % 6] + '"></i>'; }).join("") + "</div>";
+          (QZ.acc ? '<p class="qz-rest">🎯 ' + T("نسبة الإجابات الصحيحة بحسب مستوى السؤال: ", "Correct answers by question level: ") + [0, 1, 2, 3].filter(function (k) { return QZ.acc[k] && QZ.acc[k][1]; }).map(function (k) { return QLV[k] + " " + pct(QZ.acc[k][0], QZ.acc[k][1]) + "%"; }).join(" · ") + "</p>" : "") + (B3.length > 3 ? '<p class="qz-rest">' + B3.slice(3).map(function (x, k) { return (k + 4) + ". " + esc(x.n) + " (" + x.s + ")"; }).join(" · ") + "</p>" : "") + '<div class="qz-conf">' + Array.from({ length: 40 }, function (_, k) { return '<i style="--x:' + Math.random() * 100 + "%;--d:" + (Math.random() * 2 + 2) + "s;--dl:" + Math.random() * 1.5 + "s;--c:" + COLS[k % 6] + '"></i>'; }).join("") + "</div>";
       }
       quizOv.innerHTML = h;
       var bind = function (id, f) { var e = $(id); if (e) e.onclick = f; };
       bind("hbQzStop", finishQ);
       bind("hbQzBoard", function () { QZ.phase = "board"; paintQuiz(); });
-      bind("hbQzNext", function () { if (QZ.i >= QZ.list.length - 1) { QZ.phase = "end"; step("idle"); paintQuiz(); if (W.snd) try { W.snd("win"); } catch (e) {} } else nextQ(); });
-      bind("hbQzEnd", function () { if (!confirm(T("إنهاء المسابقة الآن؟", "End the quiz now?"))) return; clearInterval(QZ.tick); QZ.phase = "end"; step("idle"); paintQuiz(); });
+      bind("hbQzNext", function () { if (QZ.i >= QZ.list.length - 1) { QZ.phase = "end"; qzLog(); step("idle"); paintQuiz(); if (W.snd) try { W.snd("win"); } catch (e) {} } else nextQ(); });
+      bind("hbQzEnd", function () { if (!confirm(T("إنهاء المسابقة الآن؟", "End the quiz now?"))) return; clearInterval(QZ.tick); QZ.phase = "end"; qzLog(); step("idle"); paintQuiz(); });
       bind("hbQzClose", function () { QZ = null; quizOv.classList.remove("on"); });
     }
 
@@ -2445,7 +2472,7 @@
       var GR = []; try { GR = JSON.parse(LS.get("hb-growth", "[]")) || []; } catch (e) {}
       var GM = GR.filter(function (e) { return e.l && e.l === L.id; }), GH = GR.filter(function (e) { return !(e.l && e.l === L.id); }).slice(-6);
       if (GM.length || GH.length) {
-        var GLB = ["🌱 " + T("لم نحقّقه بعد", "Not yet"), "🌿 " + T("جزئيًّا", "Partly"), "🌳 " + T("حقّقناه", "Achieved")], grow = function (e) { return "<tr><td>" + new Date(e.t).toLocaleDateString(EN ? "en-GB" : "ar-AE-u-nu-latn", { day: "numeric", month: "numeric" }) + "</td><td>" + esc((e.n || "").slice(0, 50)) + "</td><td>" + (e.k === "goal" ? "🎯 " + T("تحقّق الهدف", "Goal check") : "🪞 " + T("تقييم ذاتي", "Self-assessment")) + "</td><td>" + (e.k === "goal" ? GLB[e.g] : "<b>" + e.b + "% → " + e.a + "%</b> (" + (e.a - e.b >= 0 ? "+" : "") + (e.a - e.b) + ")" + (e.lv && Object.keys(e.lv).length ? "<br><small>" + Object.keys(e.lv).map(function (k) { return ["🥉", "🥈", "🥇", "💎"][k] + " " + e.lv[k][0] + "% → " + e.lv[k][1] + "%"; }).join(" · ") + "</small>" : "")) + "</td></tr>"; };
+        var GLB = ["🌱 " + T("لم نحقّقه بعد", "Not yet"), "🌿 " + T("جزئيًّا", "Partly"), "🌳 " + T("حقّقناه", "Achieved")], grow = function (e) { return "<tr><td>" + new Date(e.t).toLocaleDateString(EN ? "en-GB" : "ar-AE-u-nu-latn", { day: "numeric", month: "numeric" }) + "</td><td>" + esc((e.n || "").slice(0, 50)) + "</td><td>" + (e.k === "qz" ? "🏆 " + T("مسابقة الصف", "Class quiz") : e.k === "goal" ? "🎯 " + T("تحقّق الهدف", "Goal check") : "🪞 " + T("تقييم ذاتي", "Self-assessment")) + "</td><td>" + (e.k === "qz" ? Object.keys(e.acc || {}).map(function (k) { var a = e.acc[k]; return ["🥉", "🥈", "🥇", "💎"][k] + " " + (a[1] ? Math.round(a[0] * 100 / a[1]) : 0) + "%"; }).join(" · ") : e.k === "goal" ? GLB[e.g] : "<b>" + e.b + "% → " + e.a + "%</b> (" + (e.a - e.b >= 0 ? "+" : "") + (e.a - e.b) + ")" + (e.lv && Object.keys(e.lv).length ? "<br><small>" + Object.keys(e.lv).map(function (k) { return ["🥉", "🥈", "🥇", "💎"][k] + " " + e.lv[k][0] + "% → " + e.lv[k][1] + "%"; }).join(" · ") + "</small>" : "")) + "</td></tr>"; };
         h += "<h2>📈 " + T("نموّ التعلّم", "Learning growth") + "</h2>" + (GM.length ? "<p><b>" + T("هذه الحصة", "This lesson") + '</b></p><table><thead><tr><th style="width:70px">' + T("التاريخ", "Date") + "</th><th>" + T("الدرس", "Lesson") + "</th><th>" + T("النوع", "Type") + "</th><th>" + T("النتيجة", "Result") + "</th></tr></thead><tbody>" + GM.map(grow).join("") + "</tbody></table>" : "") + (GH.length ? "<p><b>" + T("حصص سابقة (للمقارنة)", "Earlier lessons (for comparison)") + '</b></p><table><thead><tr><th style="width:70px">' + T("التاريخ", "Date") + "</th><th>" + T("الدرس", "Lesson") + "</th><th>" + T("النوع", "Type") + "</th><th>" + T("النتيجة", "Result") + "</th></tr></thead><tbody>" + GH.map(grow).join("") + "</tbody></table>" : "");
       }
       if (!seqs.length) h += '<p class="note" style="font-size:16px">' + T("لم يُطرح أي سؤال في هذه الحصة بعد.", "No questions were asked in this lesson yet.") + "</p>";
