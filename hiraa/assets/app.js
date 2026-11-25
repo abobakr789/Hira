@@ -2429,7 +2429,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125p", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261125q", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -3445,7 +3445,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const refTxt = () => (R.sur ? `سورة ${TD_SURAHS[R.sur - 1]}${R.a1 ? ` (${R.a1}${R.a2 && R.a2 != R.a1 ? "–" + R.a2 : ""})` : ""}` : "");
     h(`<section class="section rtn"><div class="wrap">
       <div class="rtn-top"><a class="muted" href="#/recite-sheet?class=${clsId}&t=${R.term}">← كشف التسميع · ${esc(c.name)}</a>
-        <span class="rtn-acts"><button class="btn btn-ghost btn-small" id="rtnHide"></button><button class="btn btn-ghost btn-small" id="rtnFs">⛶ ملء الشاشة</button></span></div>
+        <span class="rtn-acts"><button class="btn btn-ghost btn-small" id="rtnHide"></button><button class="btn btn-ghost btn-small" id="rtnFs"><span class="fs-ic"></span>ملء الشاشة</button></span></div>
       <div class="rtn-set">
         <span class="rt-seg">${[1, 2, 3].map((t) => `<button type="button" class="rt-c ${t === R.term ? "on" : ""}" data-term="${t}">الفصل ${["الأول", "الثاني", "الثالث"][t - 1]}</button>`).join("")}</span>
         <span class="rt-seg">${Object.keys(RT_SK).map((k) => `<button type="button" class="rt-c ${k === R.skill ? "on" : ""}" data-sk="${k}">${RT_SK[k][0]}</button>`).join("")}</span>
@@ -3744,13 +3744,13 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         if (!stored && /^resources\/.+\.html$/i.test(r.url || "") && r.kind !== "slides") {
           const abs = new URL(r.url, location.href.split("#")[0]).href;
           return `<div class="pdfv-card htmlv-card"><div class="pdfv-head">${ic}<span><strong>${esc(r.title_ar)}</strong><span class="kind">${KIND[r.kind]}</span></span>
-            <span class="pdfv-tools"><button class="btn btn-ghost btn-small" data-htmlv="full">⛶ ${CT("ملء الشاشة", "Full screen")}</button><button class="btn btn-ghost btn-small" data-htmlv="print">🖨️ ${CT("طباعة", "Print")}</button><a class="btn btn-ghost btn-small" href="${esc(abs)}" target="_blank" rel="noopener">↗️ ${CT("فتح في صفحة", "Open in a page")}</a></span></div>
+            <span class="pdfv-tools"><button class="btn btn-ghost btn-small fs-ic" data-htmlv="full">${CT("ملء الشاشة", "Full screen")}</button><button class="btn btn-ghost btn-small" data-htmlv="print">🖨️ ${CT("طباعة", "Print")}</button><a class="btn btn-ghost btn-small" href="${esc(abs)}" target="_blank" rel="noopener">↗️ ${CT("فتح في صفحة", "Open in a page")}</a></span></div>
             <iframe class="htmlv" src="${esc(abs)}" loading="lazy" title="${esc(r.title_ar)}"></iframe></div>`;
         }
         if (!stored && /^resources\/.+\.pdf$/i.test(r.url || "")) {
           const deck = r.kind === "slides";
           return `<div class="pdfv-card"><div class="pdfv-head">${ic}<span><strong>${esc(r.title_ar)}</strong><span class="kind">${KIND[r.kind]}</span></span>
-            <span class="pdfv-tools">${deck ? `<button class="btn btn-dawn btn-small" data-pdfv-act="full">📽️ عرض في الصف</button>` : `<button class="btn btn-ghost btn-small" data-pdfv-act="full">⛶ ملء الشاشة</button>`}
+            <span class="pdfv-tools">${deck ? `<button class="btn btn-dawn btn-small" data-pdfv-act="full">📽️ عرض في الصف</button>` : `<button class="btn btn-ghost btn-small fs-ic" data-pdfv-act="full">ملء الشاشة</button>`}
             ${deck ? "" : `<button class="btn btn-ghost btn-small" data-pdfv-act="print" data-url="${esc(r.url)}">🖨️ طباعة</button>
             <button class="btn btn-ghost btn-small" data-pdfv-act="dl" data-url="${esc(r.url)}" data-name="${esc(r.title_ar)}">⬇️ تنزيل</button>`}</span></div>
             <div class="pdfv" data-pdf="${esc(r.url)}" data-mode="${deck ? "deck" : "doc"}"><div class="pdfv-load">جارٍ تجهيز العرض…</div></div></div>`;
@@ -7724,7 +7724,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const close = () => { d.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", key); };
     const draw = () => { const it = items[i];
       d.innerHTML = `<div class="td-bar"><button class="btn btn-ghost btn-small" id="ssX">✕ ${CT("خروج", "Exit")}</button><b>${esc(L_(c, "title"))}${lvObj ? " · " + esc(L_(lvObj, "name")) : ""}</b><span class="td-count">${i + 1} / ${items.length}</span><span style="flex:1"></span>
-        <button class="btn btn-ghost btn-small" id="ssH">${hide ? "👁 " + CT("إظهار", "Show") : "🙈 " + CT("إخفاء للتسميع", "Hide to recite")}</button><button class="btn btn-dawn btn-small" id="ssF">⛶ ${CT("ملء الشاشة", "Full screen")}</button></div>
+        <button class="btn btn-ghost btn-small" id="ssH">${hide ? "👁 " + CT("إظهار", "Show") : "🙈 " + CT("إخفاء للتسميع", "Hide to recite")}</button><button class="btn btn-dawn btn-small fs-ic" id="ssF">${CT("ملء الشاشة", "Full screen")}</button></div>
         <div class="syl-stage ${hide ? "hide" : ""}" dir="${LANG === "en" ? "ltr" : "rtl"}">${sylCard(it, i, { en, done: new Set(), student: false, test: false })}</div>
         <div class="td-nav"><button id="ssP">${LANG === "en" ? "‹" : "›"}</button><button id="ssN">${LANG === "en" ? "›" : "‹"}</button></div>`;
       d.querySelector("#ssX").onclick = close; d.querySelector("#ssH").onclick = () => { hide = !hide; draw(); };
@@ -9658,7 +9658,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <button class="btn btn-primary btn-small" id="tdSave">${dirty ? "حفظ التعديلات" : "محفوظ ✓"}</button><button class="btn btn-dawn btn-small" id="tdDone">إنهاء التعديل</button>`
           : `<select id="tdFxSel" class="td-sel" title="مؤثر الانتقال">${TD_FX.map(([k, t]) => `<option value="${k}" ${k === fx ? "selected" : ""}>✨ ${t}</option>`).join("")}</select>${state._bookTx ? `<button class="btn btn-ghost btn-small" data-bk="1">📖 ${CT("النَّصُّ كامِلًا", "Full text")}</button>` : ""}<button class="btn btn-ghost btn-small" id="tdProg">📈 ${CT("قياس التقدّم", "Progress check")}</button>
             ${s.t === "table" || (s.d && s.d.live && ctx.sc.length) ? '<button class="btn btn-primary btn-small" id="tdLive">📲 قياس مباشر</button>' : ""}<button class="btn btn-ghost btn-small" id="tdTimer">⏱ مؤقت</button><button class="btn btn-ghost btn-small" id="tdSnd">🔔 انتباه</button>
-            <button class="btn btn-ghost btn-small" id="tdNotes">📝 الملاحظات</button><button class="btn btn-ghost btn-small" id="tdEdit">✏️ تعديل</button><button class="btn btn-dawn btn-small" id="tdFull">⛶ ملء الشاشة</button>`}
+            <button class="btn btn-ghost btn-small" id="tdNotes">📝 الملاحظات</button><button class="btn btn-ghost btn-small" id="tdEdit">✏️ تعديل</button><button class="btn btn-dawn btn-small fs-ic" id="tdFull">ملء الشاشة</button>`}
         </div>
         <div class="td-main">
           ${keepTh ? '<div id="tdThPh"></div>' : `<div class="td-thumbs">${slides.map((x, j) => `<button class="td-th ${j === cur ? "on" : ""}" data-go="${j}"><span>${j + 1}</span><div class="td-mini">${tdSlideHtml(x, ctx, "m" + j)}</div></button>`).join("")}</div>`}
@@ -9669,7 +9669,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
             <div class="td-dock" dir="ltr"><button data-dk="prev" title="${CT("السابق", "Previous")}">${en ? "‹" : "›"}</button><span class="td-dkn">${cur + 1} / ${slides.length}</span><button data-dk="next" title="${CT("التالي", "Next")}">${en ? "›" : "‹"}</button><i></i>
               <button data-dk="pen" class="${ink === "pen" ? "on" : ""}" title="${CT("قلم (P)", "Pen (P)")}">✏️</button><button data-dk="hl" class="${ink === "hl" ? "on" : ""}" title="${CT("تظليل (H)", "Highlighter (H)")}">🖍️</button><button data-dk="er" class="${ink === "er" ? "on" : ""}" title="${CT("ممحاة (E)", "Eraser (E)")}">🧽</button><button data-dk="clr" title="${CT("مسح الكتابة (C)", "Clear ink (C)")}">🗑️</button>
               ${["#E53935", "#1E88E5", "#43A047", "#111111"].map((c) => `<button data-col="${c}" class="td-dot ${inkColor === c ? "on" : ""}" style="--c:${c}"></button>`).join("")}<i></i>
-              <button data-dk="pick" title="${CT("اختيار طالب (R)", "Pick a student (R)")}">🎲</button><button data-dk="timer" title="${CT("مؤقت (T)", "Timer (T)")}">⏱</button>${s.t === "exit" ? `<button data-dk="sum" title="${CT("ملخص بطاقة الخروج", "Exit ticket summary")}">📊</button>` : ""}<button data-dk="full" title="${CT("ملء الشاشة (F)", "Fullscreen (F)")}">⛶</button></div>`}</div>
+              <button data-dk="pick" title="${CT("اختيار طالب (R)", "Pick a student (R)")}">🎲</button><button data-dk="timer" title="${CT("مؤقت (T)", "Timer (T)")}">⏱</button>${s.t === "exit" ? `<button data-dk="sum" title="${CT("ملخص بطاقة الخروج", "Exit ticket summary")}">📊</button>` : ""}<button data-dk="full" title="${CT("ملء الشاشة (F)", "Fullscreen (F)")}" class="fs-ic"></button></div>`}</div>
         </div>`;
       const stage = document.getElementById("tdStage");
       if (keepTh) { const ph = document.getElementById("tdThPh"); ph.replaceWith(keepTh); keepTh.querySelectorAll(".td-th").forEach((b, j) => b.classList.toggle("on", j === cur)); }
@@ -12397,7 +12397,11 @@ border:1px solid rgba(16,42,76,.2);font:inherit;line-height:1.2;white-space:nowr
       const a = +h[1], z = +(h[2] || h[1]), ay = [];
       L.slice(1).forEach((x) => { const m = x.match(/^﴿([^﴿﴾]+)﴾\s*\(\s*(\d+)\s*\)$/); if (m) ay.push([+m[2], m[1]]); });
       if (z < a || ay.length !== z - a + 1 || ay.some((x, i) => x[0] !== a + i)) return null;
-      return `<div class="mus" data-no-tilawa data-mus="${a}-${z}" data-mus-q="${hx(JSON.stringify(ay.slice(0, 4).map((x) => x[1])))}"${o.tr ? ` data-mus-tr="${hx(o.tr)}"` : ""}${o.en ? ' data-mus-en="1"' : ""}>${fallback || ""}</div>`;
+      /* ما بعد آخر آية (تعريف، حديث، تعليق) يظهر تحت القارئ كما هو وبترتيبه؛ ويُستثنى سطر الترجمة الذي يلي الآية مباشرة لأن القارئ يعرض الترجمة */
+      const isAy = (x) => /^﴿([^﴿﴾]+)﴾\s*\(\s*(\d+)\s*\)$/.test(x); let last = 0; L.forEach((x, i) => { if (i && isAy(x)) last = i; });
+      const tail = L.slice(last + 1).filter((x, k) => !(k === 0 && !/[\u0600-\u06FF]/.test(x)));
+      const after = tail.length ? `<div class="mus-after bk-read" dir="rtl">${tail.map((x) => `<p dir="auto">${hx(x)}</p>`).join("")}</div>` : "";
+      return `<div class="mus" data-no-tilawa data-mus="${a}-${z}" data-mus-q="${hx(JSON.stringify(ay.slice(0, 4).map((x) => x[1])))}"${o.tr ? ` data-mus-tr="${hx(o.tr)}"` : ""}${o.en ? ' data-mus-en="1"' : ""}>${fallback || ""}</div>` + after;
     }
     function musMount(el) {
       el.setAttribute("data-mus-on", "1");
