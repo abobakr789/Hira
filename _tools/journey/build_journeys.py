@@ -327,7 +327,7 @@ def patch_l08():
         b = b.replace('/* ================= المحطات', br + '/* ================= المحطات', 1)
     i, j = b.index('\n read(el){'), b.index('\n words(el){')
     b = b[:i] + '\n read(el){readBook(el)},' + b[j:]
-    if 'if(d.book&&d.book.body)BOOK=d.book;' not in b:
+    if 'BOOK=d.book;' not in b:
         b = b.replace('const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";', 'const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";if(d.book&&d.book.body)BOOK=d.book;', 1)
     if '.kw.nk{' not in b:
         b = b.replace('.kw.seen::after{content:"✓";background:var(--green)}', '.kw.seen::after{content:"✓";background:var(--green)}\n.kw.nk{cursor:default}.kw.nk::after{display:none}\n.scene.verse .txt{line-height:2.3;font-family:"Thmanyah Display",serif}', 1)
