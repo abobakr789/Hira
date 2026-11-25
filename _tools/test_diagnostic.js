@@ -2,7 +2,7 @@
 const fs = require('fs');
 const root = process.argv[2];
 global.window = { HIRAA_PREREQ: JSON.parse(fs.readFileSync(root + '/data/prereqs-islamic.json', 'utf8')) };
-window.HIRAA_PREREQS = { islamic: window.HIRAA_PREREQ, arabic: JSON.parse(fs.readFileSync(root + '/data/prereqs-arabic.json', 'utf8')) };
+window.HIRAA_PREREQS = { islamic: window.HIRAA_PREREQ, arabic: JSON.parse(fs.readFileSync(root + '/data/prereqs-arabic.json', 'utf8')), social: JSON.parse(fs.readFileSync(root + '/data/prereqs-social.json', 'utf8')) };
 let PARTS = ['diagnose'], seenSubject = null;
 const els = {};
 const lastHtml = () => (els.dgApp || {}).innerHTML || '';
@@ -78,5 +78,11 @@ async function sim(weakSet, grade) {
   const rb = out.split('dg-step root')[1] || '';
   const okD = seenSubject === 'arabic' && /AR-1\.1\.1\.3\.G3/.test(rb.split('dg-step')[0]) && /dg-step affected[\s\S]*AR-1\.1\.1\.3\.G4/.test(out) && !/AR-1\.1\.1\.3\.G2/.test(rb.split('dg-step')[0]);
   console.log('D root:', strip(rb).slice(0, 140));
-  console.log(okA && okB && okC && okD ? 'ALL PASS' : 'FAIL', { okA, okB, okC, okD });
+  // هـ) الدراسات الاجتماعية: ص3 وص2 يتعثران وص1 ينجح → الأصل ص2 والمتأثر ص3
+  PARTS = ['diagnose', 'social'];
+  out = await sim(new Set(['SS-1.1.2.1.G3', 'SS-1.1.2.1.G2']), 3);
+  const rs = out.split('dg-step root')[1] || '';
+  const okE = seenSubject === 'social' && /SS-1\.1\.2\.1\.G2/.test(rs.split('dg-step')[0]) && /dg-step affected[\s\S]*SS-1\.1\.2\.1\.G3/.test(out);
+  console.log('E root:', strip(rs).slice(0, 120));
+  console.log(okA && okB && okC && okD && okE ? 'ALL PASS' : 'FAIL', { okA, okB, okC, okD, okE });
 })().catch(e => { console.error('ERR', e); process.exit(1); });

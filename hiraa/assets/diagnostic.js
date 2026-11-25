@@ -5,7 +5,7 @@
 "use strict";
 let D={nodes:[],edges:[]},NODE={},PRE={},SUC={},SUBJ='islamic';
 function useSubject(s){
-  SUBJ=s==='arabic'?'arabic':'islamic';
+  SUBJ=['arabic','social'].includes(s)?s:'islamic';
   const all=window.HIRAA_PREREQS||{};
   D=all[SUBJ]||(SUBJ==='islamic'&&window.HIRAA_PREREQ)||{nodes:[],edges:[]};
   NODE=Object.fromEntries(D.nodes.map(n=>[n.code,n]));PRE={};SUC={};
@@ -206,7 +206,7 @@ function landing(){
   $('dgGo').onclick=()=>{const g=$('dgG')?+$('dgG').value:own;if(!targetsFor(g).length){$('dgApp').innerHTML=`<div class="dg-card"><p>${t('none')}</p><button class="dg-btn" id="dgB">${t('again')}</button></div>`;$('dgB').onclick=landing;return}run(g)};
 }
 window.HiraaDiagnose=async function(ctx){
-  C=ctx;useSubject(ctx.parts&&ctx.parts[1]==='arabic'?'arabic':'islamic');
+  C=ctx;useSubject(ctx.parts&&ctx.parts[1]);
   ctx.h(`<div class="dg" dir="${L()?'ltr':'rtl'}" lang="${L()?'en':'ar'}"><div class="wrap"><h1 class="dg-title">${t('title')}</h1><div id="dgApp">${t('loading')}</div></div></div>`);
   await fillTitles();landing();
 };

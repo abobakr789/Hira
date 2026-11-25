@@ -11,8 +11,9 @@ import json
 _pre=json.load(open(os.path.dirname(src.rstrip('/'))+'/data/prereqs-islamic.json',encoding='utf-8'))
 css+='\n'+open(src+'assets/diagnostic.css').read()
 _pra=json.load(open(os.path.dirname(src.rstrip('/'))+'/data/prereqs-arabic.json',encoding='utf-8'))
+_prs=json.load(open(os.path.dirname(src.rstrip('/'))+'/data/prereqs-social.json',encoding='utf-8'))
 _dump=lambda o:json.dumps(o,ensure_ascii=False,separators=(',',':'))
-app='window.HIRAA_PREREQ='+_dump(_pre)+';window.HIRAA_PREREQS={islamic:window.HIRAA_PREREQ,arabic:'+_dump(_pra)+'};\n'+open(src+'assets/diagnostic.js').read()+'\n'+app
+app='window.HIRAA_PREREQ='+_dump(_pre)+';window.HIRAA_PREREQS={islamic:window.HIRAA_PREREQ,arabic:'+_dump(_pra)+',social:'+_dump(_prs)+'};\n'+open(src+'assets/diagnostic.js').read()+'\n'+app
 # بطاقة الآية: آية اليوم وآيات كل درس
 css+='\n'+open(src+'assets/verse.css').read(); app=open(src+'assets/verse.js').read()+'\n'+app
 # واحة الطالب: تقدّمه في مشهد واحة
