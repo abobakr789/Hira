@@ -168,6 +168,8 @@
     "#hbIceOv .ice-hist{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:20px;font-weight:700}#hbIceOv .ice-hist span{background:#EEF2F8;border-radius:999px;padding:4px 14px}",
     "#hbIceOv .ice-ta{width:100%;box-sizing:border-box;font-weight:600;font-size:18px;line-height:1.7;font-family:inherit;border:1px solid #CBD5E1;border-radius:12px;padding:10px}#hbIceOv .ice-stmt{font:800 36px/1.6 'Thmanyah Display','Thmanyah Text',Tahoma,sans-serif;margin:10px 0;padding:18px;background:#F6F8FC;border-radius:18px}",
     "#hbIceOv .ice-corn{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0}#hbIceOv .ice-cr{border-radius:20px;color:#fff;padding:22px 8px;display:flex;flex-direction:column;gap:8px;align-items:center}#hbIceOv .ice-cr span{font-size:56px}#hbIceOv .ice-cr b{font-size:24px}@media(max-width:700px){#hbIceOv .ice-corn{grid-template-columns:repeat(2,1fr)}}",
+    "#hbIceOv .ice-bzs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:12px 0}#hbIceOv .ice-bz{display:flex;flex-direction:column;align-items:center;gap:4px;border:0;border-radius:22px;padding:26px 10px;color:#fff;font-family:inherit;cursor:pointer}#hbIceOv .ice-bz span{font-size:54px}#hbIceOv .ice-bz b{font-size:26px}#hbIceOv .ice-bz small{font-size:16px;opacity:.85}#hbIceOv .ice-bz:disabled{opacity:.35;cursor:default}",
+    "#hbIceOv .ice-first{display:inline-block;color:#fff;font:800 44px 'Thmanyah Display',Tahoma,sans-serif;border-radius:24px;padding:22px 40px;margin:12px 0;animation:hbTmP 1s 3}",
     "#hbIceOv .ice-bar{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:12px 16px;background:#F6F8FC;border-top:1px solid #E6EBF2;border-radius:0 0 22px 22px}#hbIceOv .ice-bl{font-weight:800;font-size:16px}",
     "#hbIceOv .ice-tm{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:14px;padding:8px 14px;color:#fff;font-weight:700;font-size:16px;font-family:inherit;font-family:inherit;cursor:pointer}#hbIceOv .ice-tm b{font:800 24px 'Thmanyah Display',Tahoma,sans-serif}#hbIceOv .ice-tm i{font-style:normal;background:rgba(255,255,255,.3);border-radius:999px;padding:2px 10px;font-weight:800}#hbIceOv .ice-tm:disabled{opacity:.4}",
     "#hbClassOv{position:fixed;left:50%;top:calc(var(--hb-lay) + 50%);transform:translate(-50%,-50%);width:min(1000px,94vw);max-height:calc(100vh - var(--hb-lay) - 40px);overflow:auto;z-index:30;display:none;background:#fff;color:#102A4C;border-radius:22px;box-shadow:0 30px 80px rgba(5,12,25,.45);font-family:'Thmanyah Text',Tahoma,sans-serif}",
@@ -1024,7 +1026,7 @@
       bar.innerHTML = '<span class="ice-bl">🏆 ' + T("امنح النقاط:", "Award points:") + "</span>" + tms().map(function (t, i) { return '<button class="ice-tm" data-i="' + i + '" style="background:' + t.c + '"' + (prize > 0 ? "" : " disabled") + "><b>" + t.s + "</b><span>" + esc(t.n) + "</span><i>+" + prize + "</i></button>"; }).join("");
       bar.querySelectorAll(".ice-tm").forEach(function (b) { b.onclick = function () { if (W.__hbTeams && st.prize > 0) { W.__hbTeams.add(+b.dataset.i, st.prize); snd("correct"); burst(["⭐", "🎉"]); paintBar(st.prize); } }; });
     }
-    function closeIce() { stopT(); ov.classList.remove("on"); var b = $("hbIce"); if (b) b.classList.remove("on"); }
+    function closeIce() { stopT(); ov.classList.remove("on"); var b = $("hbIce"); if (b) b.classList.remove("on"); if (W.__hbPush) W.__hbPush(); }
     var ACT = [
       ["scr", "🔤", T("الكلمة المبعثرة", "Scrambled word"), T("حروف كلمة من الدرس مخلوطة، وأسرع فريق يرتّبها", "Letters of a lesson word are mixed; the fastest team unscrambles it")],
       ["mys", "🕵️", T("الكلمة الغامضة", "Mystery word"), T("تُكشف الحروف تدريجيًّا، وكلما خمّنتَ مبكرًا زادت الجائزة", "Letters are revealed one by one; the earlier the guess, the bigger the prize")],
@@ -1037,6 +1039,9 @@
       ["lin", "🧍", T("اصطفّوا بصمت", "Silent line-up"), T("الفرق تصطفّ دون كلام حسب معيار مفاجئ، والأسرع يفوز", "Teams line up without speaking by a surprise rule; the fastest wins")],
       ["num", "🔢", T("خمّن الرقم", "Guess the number"), T("تخمين رقم سرّي بتلميح أكبر/أصغر، وأقل محاولات تنال جائزة أكبر", "Guess a secret number with higher/lower hints; fewer tries, bigger prize")],
       ["tf", "✅", T("صواب أم خطأ", "True or false"), T("عبارات تكتبها من الدرس، والفرق تقف يمينًا أو يسارًا", "Statements you write from the lesson; teams stand left or right")],
+      ["buz", "🔔", T("الجرس الأسرع", "Fastest buzzer"), T("أول فريق يضغط جرسه يجيب، وتسجّل الضغط من الشاشة أو من جوالك", "The first team to buzz answers; register it on screen or from your phone")],
+      ["prd", "🤔", T("توقّع قبل أن نبدأ", "Predict first"), T("كل فريق يقدّر رقمًا عن الدرس، ويُكشف الجواب لاحقًا والأقرب يفوز", "Each team estimates a number; the closest wins when revealed")],
+      ["hot", "🎭", T("مَن أنا؟", "Who am I?"), T("كلمة سرّية تصل جوالك فقط، والصف يسألك نعم/لا ليكتشفها", "A secret word reaches only your phone; the class asks yes/no to find it")],
       ["cor", "🧭", T("الأركان الأربعة", "Four corners"), T("سؤال بأربعة اختيارات، يتحرّك الطلاب إلى ركنهم ويحكون لماذا", "A question with four options; students move to a corner and share why")]
     ];
     function paintMenu() {
@@ -1050,7 +1055,7 @@
       $("iceSave").onclick = function () { LS.set(KEY, $("iceKw").value); say(T("حُفظت كلمات الدرس", "Saved")); };
       $("iceSug").onclick = function () { LS.set(KEY, ""); $("iceKw").value = suggest().join("\n"); };
     }
-    function start(a) { stopT(); mode = a; st = { used: [] }; if (/^(scr|mys|twq|mem)$/.test(a) && !kws().length) { say(T("أضف كلمة واحدة على الأقل", "Add at least one word")); mode = "menu"; return; } paint(); }
+    function start(a) { stopT(); mode = a; st = { used: [] }; if (/^(scr|mys|twq|mem|hot)$/.test(a) && !kws().length) { say(T("أضف كلمة واحدة على الأقل", "Add at least one word")); mode = "menu"; return; } paint(); }
     function paintScr() {
       var w = st.w || (st.w = pickWord()), arr = letters(w), sc = st.sc;
       if (!sc) { var t = 0; do { sc = shuffle(arr); t++; } while (sc.join("") === arr.join("") && t < 12 && arr.length > 1); st.sc = sc; }
@@ -1179,8 +1184,71 @@
       $("iceNx").onclick = function () { st.i = (i + 1) % L.length; st.show = false; paintTf(); };
       $("iceEd").onclick = function () { st.edit = true; paintTf(); };
     }
+    /* ----- الجرس الأسرع: يُسجَّل الفريق الذي ضغط أولًا من الشاشة أو من الجوال ----- */
+    var BZ = { f: -1, lock: [] };
+    var kick = function () { if (W.__hbPush) W.__hbPush(); };
+    var bzDo = function (a, i) {
+      var n = tms().length; i = +i;
+      if (a === "buzz") { if (mode !== "buz" || BZ.f >= 0 || BZ.lock.indexOf(i) >= 0 || !(i >= 0 && i < n)) return; BZ.f = i; snd("drum"); }
+      else if (a === "ok") { if (BZ.f < 0) return; if (W.__hbTeams) W.__hbTeams.add(BZ.f, 1); snd("correct"); burst(["⭐", "🎉"]); BZ.f = -1; BZ.lock = []; }
+      else if (a === "no") { if (BZ.f < 0) return; BZ.lock.push(BZ.f); BZ.f = -1; snd("wrong"); if (BZ.lock.length >= n) BZ.lock = []; }
+      else if (a === "reset") { BZ.f = -1; BZ.lock = []; }
+      if (mode === "buz" && ov.classList.contains("on")) paintBuz(); kick();
+    };
+    W.__hbBuzz = { on: function () { return mode === "buz" && ov.classList.contains("on"); }, get: function () { return { f: BZ.f, l: BZ.lock.slice() }; }, do: bzDo };
+    function paintBuz() {
+      var Tm = tms(), f = BZ.f;
+      shell(T("الجرس الأسرع", "Fastest buzzer"),
+        '<p class="ice-lead">' + T("اطرح سؤالك، وأول فريق يضغط جرسه يجيب. يمكنك تسجيل الضغط من هنا أو من جوالك.", "Ask your question; the first team to buzz answers. Register the buzz here or from your phone.") + "</p>" +
+        (f >= 0 ? '<div class="ice-first" style="background:' + Tm[f].c + '">🔔 ' + esc(Tm[f].n) + " " + T("أولًا!", "first!") + '</div><div class="ice-row"><button class="ice-sm go" id="iceOk">✓ ' + T("إجابة صحيحة (+1)", "Correct (+1)") + '</button><button class="ice-sm" id="iceNo">✗ ' + T("خاطئة، افتح للآخرين", "Wrong, open to others") + "</button></div>" :
+          '<div class="ice-bzs">' + Tm.map(function (t, i) { var lk = BZ.lock.indexOf(i) >= 0; return '<button class="ice-bz" data-i="' + i + '" style="background:' + t.c + '"' + (lk ? " disabled" : "") + "><span>🔔</span><b>" + esc(t.n) + "</b>" + (lk ? "<small>" + T("أخطأ", "out") + "</small>" : "<small>" + t.s + "</small>") + "</button>"; }).join("") + "</div>") +
+        '<div class="ice-row"><button class="ice-sm" id="iceRs">↺ ' + T("سؤال جديد", "New question") + "</button></div>");
+      ov.querySelectorAll(".ice-bz").forEach(function (b) { b.onclick = function () { bzDo("buzz", +b.dataset.i); }; });
+      var ok = $("iceOk"); if (ok) ok.onclick = function () { bzDo("ok"); }; var no = $("iceNo"); if (no) no.onclick = function () { bzDo("no"); };
+      $("iceRs").onclick = function () { bzDo("reset"); };
+    }
+    /* ----- توقّع قبل أن نبدأ: كل فريق يقدّر رقمًا، ويُكشف الجواب لاحقًا والأقرب يفوز ----- */
+    function paintPrd() {
+      var key = "hb-ice-pr-" + DECK, gkey = "hb-ice-pg-" + DECK, raw = LS.get(key, ""), G = {}; try { G = JSON.parse(LS.get(gkey, "{}")) || {}; } catch (e) {}
+      var L = raw.split(/\n/).map(function (x) { return x.trim(); }).filter(Boolean).map(function (x) { var p = x.lastIndexOf("|"); if (p < 0) return null; var v = parseFloat(x.slice(p + 1).replace(/[٠-٩]/g, function (d) { return "٠١٢٣٤٥٦٧٨٩".indexOf(d); })); return isNaN(v) ? null : { q: x.slice(0, p).trim(), a: v }; }).filter(Boolean);
+      if (st.edit || !L.length) {
+        shell(T("توقّع قبل أن نبدأ", "Predict before we start"),
+          '<p class="ice-lead">' + T("اكتب أسئلة جوابها رقم من الدرس، سؤال في كل سطر وفي آخره | ثم الرقم", "Write questions whose answer is a number, one per line, ending with | then the number") + '</p><textarea id="icePt" rows="5" class="ice-ta" spellcheck="false" placeholder="' + T("مثال: كم عدد آيات السورة؟ | 29", "Example: How many planets are there? | 8") + '">' + esc(raw) + '</textarea><div class="ice-row"><button class="ice-sm go" id="icePs">💾 ' + T("احفظ وابدأ", "Save and start") + "</button></div>" +
+          '<p class="ice-note">' + T("تأكّد من صحة الرقم من مصدرك قبل الحفظ.", "Check the number against your source before saving.") + "</p>");
+        $("icePs").onclick = function () { LS.set(key, $("icePt").value); st = { used: [] }; paintPrd(); }; return;
+      }
+      var i = st.i || 0; if (i >= L.length) i = st.i = 0; var it = L[i], Tm = tms(), g = G[i] || [], rv = !!st.rv, best = null;
+      if (rv) { Tm.forEach(function (t, k) { var v = parseFloat(g[k]); if (!isNaN(v)) { var d = Math.abs(v - it.a); if (best == null || d < best) best = d; } }); }
+      shell(T("توقّع قبل أن نبدأ", "Predict before we start"),
+        '<p class="ice-lead">' + (i + 1) + " / " + L.length + '</p><div class="ice-stmt">' + esc(it.q) + "</div>" +
+        '<div class="ice-cnt">' + Tm.map(function (t, k) { var v = parseFloat(g[k]), win = rv && !isNaN(v) && Math.abs(v - it.a) === best; return '<div class="ice-ct" style="background:' + t.c + (win ? ";outline:5px solid #FFD25C" : "") + '"><span>' + esc(t.n) + (win ? " 🏆" : "") + '</span><input class="ice-in" data-k="' + k + '" type="number" value="' + (g[k] == null ? "" : esc(String(g[k]))) + '"' + (rv ? " disabled" : "") + ">" + (rv && !isNaN(v) ? "<small>±" + Math.abs(v - it.a) + "</small>" : "") + "</div>"; }).join("") + "</div>" +
+        (rv ? '<div class="ice-secret">✅ ' + it.a + "</div>" : "") +
+        '<div class="ice-row"><button class="ice-sm go" id="iceRv">' + (rv ? "🙈 " + T("أخفِ", "Hide") : "👁 " + T("اكشف الجواب", "Reveal")) + '</button><button class="ice-sm" id="iceNx">➡ ' + T("سؤال آخر", "Next") + '</button><button class="ice-sm" id="iceEd">✏️ ' + T("عدّل", "Edit") + "</button></div>" +
+        '<p class="ice-note">' + T("سجّل تقدير كل فريق، ويمكنك إغلاق اللوحة والعودة لكشف الجواب في آخر الحصة (التقديرات محفوظة).", "Enter each team's estimate. You can close this and come back at the end to reveal (estimates are saved).") + "</p>", rv ? 2 : null);
+      ov.querySelectorAll(".ice-in").forEach(function (inp) { inp.oninput = function () { var a = G[i] || []; a[+inp.dataset.k] = inp.value; G[i] = a; LS.set(gkey, JSON.stringify(G)); }; });
+      $("iceRv").onclick = function () { st.rv = !st.rv; if (st.rv) snd("chime"); paintPrd(); };
+      $("iceNx").onclick = function () { st.i = (i + 1) % L.length; st.rv = false; paintPrd(); };
+      $("iceEd").onclick = function () { st.edit = true; paintPrd(); };
+    }
+    /* ----- مَن أنا؟ الكرسي الساخن: الكلمة تصل جوال المعلم فقط، والصف يسأل نعم/لا ----- */
+    function paintHot() {
+      var q = st.q || 0, prize = st.show ? 0 : Math.max(1, 6 - q), sent = !!st.sent;
+      shell(T("مَن أنا؟", "Who am I?"),
+        '<p class="ice-lead">' + T("كلمة سرّية من درس اليوم، وأنا أعرفها وحدي. اسألوني أسئلة إجابتها نعم أو لا.", "A secret word from today's lesson that only I know. Ask yes/no questions.") + '</p><div class="ice-secret">' + (st.show ? esc(st.w || "") : "❔ ❔ ❔") + "</div>" +
+        (sent ? "" : '<div class="ice-row"><button class="ice-sm go" id="iceSend">📲 ' + T("أرسل الكلمة إلى جوالي", "Send the word to my phone") + "</button></div>") +
+        (sent ? '<p class="ice-note">✓ ' + T("أُرسلت الكلمة إلى جوالك، ولا تظهر هنا.", "The word was sent to your phone; it is not shown here.") + "</p>" : "") +
+        '<div class="ice-q"><button class="ice-sm" id="iceQm">−</button><span>' + T("الأسئلة المطروحة: ", "Questions asked: ") + "<b>" + q + '</b></span><button class="ice-sm" id="iceQp">＋</button></div><p class="ice-prize">' + T("الجائزة الآن: ", "Prize now: ") + "<b>" + prize + "</b></p>" +
+        '<div class="ice-row"><button class="ice-sm" id="iceSh">👁 ' + T("اكشف الكلمة", "Reveal") + '</button><button class="ice-sm" id="iceNx">🔄 ' + T("كلمة جديدة", "New word") + "</button></div>", prize);
+      $("iceQp").onclick = function () { st.q = q + 1; paintHot(); }; $("iceQm").onclick = function () { st.q = Math.max(0, q - 1); paintHot(); };
+      $("iceSh").onclick = function () { if (!st.w) st.w = pickWord(); st.show = true; paintHot(); };
+      $("iceNx").onclick = function () { st = { used: st.used }; paintHot(); };
+      var sd = $("iceSend"); if (sd) sd.onclick = function () {
+        var w = st.w || (st.w = pickWord()); if (!w) { say(T("أضف كلمات الدرس أولًا", "Add lesson words first")); return; }
+        if (W.__hbSend && W.__hbSend("hot", { w: w })) { st.sent = true; paintHot(); } else { st.w = null; say(T("اربط جوالك أولًا من زر «تحكّم بالعرض من جوالك»", "Connect your phone first from the phone-control button")); }
+      };
+    }
     var letPick = function () { st.L = LETS[Math.floor(Math.random() * LETS.length)]; st.cat = CATS[Math.floor(Math.random() * CATS.length)]; };
-    function paint() { stopT(); if (mode === "menu") paintMenu(); else if (mode === "scr") paintScr(); else if (mode === "mys") paintMys(); else if (mode === "twq") paintTwq(); else if (mode === "brn") paintBrn(); else if (mode === "mem") paintMem(); else if (mode === "let") paintBrn(); else if (mode === "lin") paintLine(); else if (mode === "num") paintNum(); else if (mode === "cor") paintCor(); else if (mode === "tf") paintTf(); }
+    function paint() { stopT(); if (mode === "menu") paintMenu(); else if (mode === "scr") paintScr(); else if (mode === "mys") paintMys(); else if (mode === "twq") paintTwq(); else if (mode === "brn") paintBrn(); else if (mode === "mem") paintMem(); else if (mode === "let") paintBrn(); else if (mode === "lin") paintLine(); else if (mode === "num") paintNum(); else if (mode === "cor") paintCor(); else if (mode === "tf") paintTf(); else if (mode === "buz") paintBuz(); else if (mode === "prd") paintPrd(); else if (mode === "hot") paintHot(); kick(); }
     on("hbIce", function (e, b) { closePops(); var co = $("hbClassOv"); if (co) co.classList.remove("on"); $("hbClass").classList.remove("on"); if (ov.classList.contains("on")) { closeIce(); return; } mode = "menu"; st = {}; ov.classList.add("on"); b.classList.add("on"); paint(); });
   })();
 
@@ -2257,7 +2325,7 @@
     var sb = HX.sb, rch = null, rkey = null, lastSeen = 0, remPop = mk("div", "hbRemPop");
     remPop.className = "pop hb-pop"; remPop.dir = RTL ? "rtl" : "ltr"; stop(remPop);
     var rUrl = function () { return String(HX.joinUrl).replace(/#\/live$/, "") + "#/remote/" + rkey; };
-    var withTl = false, state = function () { var L = liveInfo(); return { cur: cur, n: N, title: title, st: stTitle(cur), nx: cur + 1 < N ? stTitle(cur + 1) : "", nt: notesOf(cur).slice(0, 2500), black: black.classList.contains("on"), live: L && L.on ? { p: L.players, a: L.answered, q: !!L.q } : null, rtl: RTL, bt: SL[cur] ? SL[cur].querySelectorAll("[data-build-in]").length : 0, bl: SL[cur] ? SL[cur].querySelectorAll("[data-build-in].hid").length : 0, id: cmdId, tm: tmActive() ? { r: Math.round(tmLeft()), run: TM.run ? 1 : 0, t: Math.round(TM.t), d: TM.done ? 1 : 0, h: TM.half ? 1 : 0, q: TM.q ? 1 : 0 } : null, md: mediaState(), ma: maState(), cu: curState(), hp: hpList(), snd: sndOn ? 1 : 0, tp: W.__hbTeams ? W.__hbTeams.get() : [], nn: notesGet().length, nl: notesGet().slice(-4).reverse().map(function (x) { return { g: x.g, x: x.x, s: x.s }; }), tl: withTl ? SL.map(function (x, i) { return stTitle(i).slice(0, 48); }) : undefined }; };
+    var withTl = false, state = function () { var L = liveInfo(); return { cur: cur, n: N, title: title, st: stTitle(cur), nx: cur + 1 < N ? stTitle(cur + 1) : "", nt: notesOf(cur).slice(0, 2500), black: black.classList.contains("on"), live: L && L.on ? { p: L.players, a: L.answered, q: !!L.q } : null, rtl: RTL, bt: SL[cur] ? SL[cur].querySelectorAll("[data-build-in]").length : 0, bl: SL[cur] ? SL[cur].querySelectorAll("[data-build-in].hid").length : 0, id: cmdId, tm: tmActive() ? { r: Math.round(tmLeft()), run: TM.run ? 1 : 0, t: Math.round(TM.t), d: TM.done ? 1 : 0, h: TM.half ? 1 : 0, q: TM.q ? 1 : 0 } : null, md: mediaState(), ma: maState(), cu: curState(), hp: hpList(), snd: sndOn ? 1 : 0, bz: W.__hbBuzz && W.__hbBuzz.on() ? W.__hbBuzz.get() : null, tp: W.__hbTeams ? W.__hbTeams.get() : [], nn: notesGet().length, nl: notesGet().slice(-4).reverse().map(function (x) { return { g: x.g, x: x.x, s: x.s }; }), tl: withTl ? SL.map(function (x, i) { return stTitle(i).slice(0, 48); }) : undefined }; };
     /* ملاحظات سريعة من الجوال: تُحفظ على جهاز المعلم وتدخل تقرير الحصة، ولا تظهر على شاشة الفصل */
     var notesKey = "hb-notes-" + DECK;
     var notesGet = function () { try { var a = JSON.parse(LS.get(notesKey, "[]")); return Array.isArray(a) ? a : []; } catch (e) { return []; } };
@@ -2304,6 +2372,8 @@
     }, 2000);
     new MutationObserver(function () { if (rch) pushSoon(); }).observe(stage, { subtree: true, attributes: true, attributeFilter: ["class"] });
     var push = function () { if (rch) rch.send({ type: "broadcast", event: "state", payload: state() }); };
+    W.__hbPush = function () { pushSoon(); };
+    W.__hbSend = function (ev, p) { if (!rch || !lastSeen) return false; rch.send({ type: "broadcast", event: ev, payload: p }); return true; };
     var pushTl = function () { withTl = true; push(); withTl = false; };
     tmHook = function () { push(); if (W.__hbPosKick) W.__hbPosKick(); };
     subs.push(function () { push(); });
@@ -2325,6 +2395,7 @@
           else if (c === "pick") { $("hbPick").click(); setTimeout(function () { var g = $("hbGo"); if (g) g.click(); setTimeout(function () { rch.send({ type: "broadcast", event: "pick", payload: { name: ($("hbPickOut") || {}).textContent || "" } }); }, 1900); }, 150); }
           else if (c === "hello") pushTl();
           else if (c === "tm") tmDo(m.payload.a, m.payload.s, m.payload.q);
+          else if (c === "bz") { if (W.__hbBuzz) W.__hbBuzz.do(m.payload.a, m.payload.i); }
           else if (c === "tp") { if (W.__hbTeams) W.__hbTeams.add(+m.payload.i, +m.payload.d > 0 ? 1 : -1); }
           else if (c === "note") noteAdd(m.payload.g, m.payload.x);
           else if (c === "pickp") { var Rp = left(); if (!Rp.length) { used = []; Rp = left(); } var wn = Rp[Math.floor(Math.random() * Rp.length)]; if ($("hbNoRep").checked) { used.push(wn); SS.set("hb-used-" + DECK, used); } var lf = left() && $("hbNoRep").checked ? Rp.length - 1 : 0; rch.send({ type: "broadcast", event: "pick", payload: { name: wn, priv: 1, left: lf } }); }

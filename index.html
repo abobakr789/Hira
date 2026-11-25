@@ -3156,6 +3156,16 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .rm-pks{margin-top:8px;padding:12px;border-radius:14px;background:#102A4C;color:#FFF0C2;font:800 24px var(--font-brand);text-align:center}
 .rm-in{flex:1;min-width:0;padding:10px 12px;border:1px solid rgba(16,42,76,.25);border-radius:12px;font:inherit;font-size:16px}
 
+/* الجرس الأسرع والكلمة السرّية على الجوال */
+.rm-bz{margin:10px 0;padding:12px;border-radius:16px;background:#102A4C;color:#fff;text-align:center}
+.rm-bzh{font-weight:800;margin-bottom:8px}
+.rm-bzt{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rm-bzt button{border:0;border-radius:14px;padding:16px 6px;color:#fff;font-weight:800;font-size:17px}
+.rm-bzt button:disabled{opacity:.3}
+.rm-bzf{border-radius:14px;padding:16px;font:800 22px var(--font-brand);color:#fff}
+.rm-bzr{display:flex;gap:8px;margin-top:8px}.rm-bzr button{flex:1;border:0;border-radius:12px;padding:14px;font-weight:800;font-size:17px;background:#fff;color:#102A4C}.rm-bzr .go{background:#D4AA55}
+.rm-hot{background:#102A4C!important;color:#FFF0C2!important;font:800 26px var(--font-brand)!important}
+
 /* =================== ساحة ألعاب حراء =================== */
 .arc { --arc-r: 18px; --arc-gold: #D4AA55; --arc-green: #14A37F; --arc-coral: #E8833A; --arc-bad: #C0392B; font-family: var(--font-ui); color: var(--ink); }
 .arc button { font: inherit; color: inherit; }
@@ -9078,7 +9088,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       // جسر المشاركة المباشرة: العرض يستعمل اتصال المنصة وجلسة المعلم لينشئ حصة يدخلها الطلاب برمز
       const lc = (String(src).match(/\/([A-Z]{2,4}-[A-Z0-9-]+)\/[^/]*\.html/) || [])[1] || null;
       fr.contentWindow.__hiraa = { sb, staff: isStaff(), uid: state.session ? state.session.user.id : null, lesson: lc, deck: String(src).split("?")[0], joinUrl: appUrl() + "#/live", lang: LANG };
-      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261126d", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
+      const s = d.createElement("script"); s.src = new URL("hiraa/presenter/hbar.js?v=20261126e", location.href.split("#")[0]).href; d.head.appendChild(s); } catch (e) {} });
     setTimeout(() => { try { fr.focus(); } catch (e) {} }, 300);
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
@@ -17272,8 +17282,9 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       <div class="rm-notes" id="rmNt"></div>
       <button class="rm-ans" id="rmAns" hidden>📖 ${CT("أظهر الإجابة النموذجية", "Show the model answer")}</button>
       <div class="rm-media" id="rmMd" hidden><button id="rmMdB" aria-label="-10">⏪</button><button id="rmMdP" aria-label="play">⏯</button><button id="rmMdF" aria-label="+10">⏩</button><button id="rmMdD" aria-label="vol-">🔉</button><b id="rmMdV">80%</b><button id="rmMdU" aria-label="vol+">🔊</button><button id="rmMdM" aria-label="mute">🔇</button></div>
+      <div class="rm-bz" id="rmBz" hidden></div>
       <div class="rm-tools"><button id="rmFirst">⏮ ${CT("الأولى", "First")}</button><button id="rmBlack">🌑 ${CT("شاشة سوداء", "Black")}</button><button id="rmPick">🎲 ${CT("القرعة", "Pick")}</button><button id="rmA">A±</button><button id="rmTool" class="rm-tl">⏱ ${CT("أدوات", "Tools")}</button></div>
-      <div class="rm-pick" id="rmPk" hidden></div>
+      <div class="rm-pick" id="rmPk" hidden></div><div class="rm-pick rm-hot" id="rmHot" hidden></div>
       <div class="rm-nav"><button class="rm-prev" id="rmPrev">${CT("السابق", "Back")}</button><button class="rm-next" id="rmNext"><span>${CT("التالي", "Next")}</span><small id="rmNextS"></small></button></div><div class="rm-msg" id="rmMsg" hidden></div>
       <div class="rm-sheet" id="rmSh" hidden><div class="rm-sh">
         <div class="rm-shh"><b>${CT("أدوات الحصة", "Lesson tools")}</b><button id="rmShX" aria-label="${CT("إغلاق", "Close")}">✕</button></div>
@@ -17351,6 +17362,21 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
         tpe.querySelectorAll("button").forEach((b) => b.onclick = () => cmd("tp", { i: +b.dataset.i, d: +b.dataset.d }));
       }
       const nh = $r("rmNtH"); if (nh) nh.textContent = S.nn ? "📝 " + CT("المحفوظ: ", "Saved: ") + S.nn + (S.nl && S.nl[0] ? " · " + CT("آخرها: ", "last: ") + (S.nl[0].g || "") + " " + (S.nl[0].x || "") : "") : "";
+      const bz = S.bz, bze = $r("rmBz");
+      if (bze) {
+        const sg = bz ? JSON.stringify([bz, (S.tp || []).map((t) => t.n)]) : "";
+        if (bze._s !== sg) {
+          bze._s = sg; bze.hidden = !bz;
+          if (bz) {
+            const tq = S.tp || [], ft = tq[bz.f];
+            bze.innerHTML = bz.f >= 0
+              ? `<div class="rm-bzf" style="background:${esc(ft ? ft.c : "#333")}">🔔 ${esc(ft ? ft.n : "")} ${CT("أولًا", "first")}</div><div class="rm-bzr"><button data-a="ok" class="go">✓ ${CT("صحيحة", "Correct")}</button><button data-a="no">✗ ${CT("خاطئة", "Wrong")}</button></div>`
+              : `<div class="rm-bzh">🔔 ${CT("الجرس الأسرع: مَن ضغط أولًا؟", "Fastest buzzer: who buzzed first?")}</div><div class="rm-bzt">${tq.map((t, i) => `<button data-i="${i}" style="background:${esc(t.c)}" ${bz.l.includes(i) ? "disabled" : ""}>${esc(t.n)}</button>`).join("")}</div>`;
+            bze.querySelectorAll("[data-a]").forEach((b) => b.onclick = () => cmd("bz", { a: b.dataset.a }));
+            bze.querySelectorAll("[data-i]").forEach((b) => b.onclick = () => cmd("bz", { a: "buzz", i: +b.dataset.i }));
+          }
+        }
+      }
       $r("rmSnd").textContent = S.snd === 0 ? "🔇 " + CT("الصوت متوقّف", "Sound off") : "🔊 " + CT("الصوت يعمل", "Sound on");
       /* اكتمال إجابات الطلاب: اهتزاز واحد لكل سؤال */
       if (S.live && S.live.q && S.live.p > 0) {
@@ -17383,6 +17409,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     };
     ch.on("broadcast", { event: "state" }, (m) => { S = m.payload; seen = Date.now(); if (pend && (!S.id || S.id >= pend.id)) { clearTimeout(pend.t); pend = null; msg(""); } paint(); })
       .on("broadcast", { event: "pick" }, (m) => { const pl = m.payload || {}, p = $r("rmPk"), ps = $r("rmPkS"); if (pl.priv) { if (ps) { ps.hidden = false; ps.textContent = "🔒 " + (pl.name || "") + (pl.left ? " · " + CT("بقي ", "left ") + pl.left : ""); } try { navigator.vibrate && navigator.vibrate(40); } catch (e) {} return; } if (!p) return; p.hidden = false; p.textContent = "🎲 " + (pl.name || ""); setTimeout(() => { if ($r("rmPk")) $r("rmPk").hidden = true; }, 6000); })
+      .on("broadcast", { event: "hot" }, (m) => { const e = $r("rmHot"); if (!e) return; e.hidden = false; e.textContent = "🎭 " + CT("الكلمة السرّية: ", "Secret word: ") + ((m.payload || {}).w || ""); try { navigator.vibrate && navigator.vibrate([80, 40, 80]); } catch (e2) {} })
       .subscribe((s) => { if (s === "SUBSCRIBED") cmd("hello"); });
     state._liveCh = ch;
     $r("rmNext").onclick = () => cmd("next"); $r("rmPrev").onclick = () => cmd("prev"); $r("rmFirst").onclick = () => cmd("first"); $r("rmSkip").onclick = () => cmd("skip");
@@ -17393,7 +17420,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     $r("rmSh").onclick = (e) => { if (e.target.id === "rmSh") $r("rmSh").hidden = true; };
     document.querySelectorAll("#rmTmC [data-s]").forEach((b) => b.onclick = () => cmd("tm", { a: "start", s: +b.dataset.s }));
     document.querySelectorAll("#rmTmQ [data-s]").forEach((b) => b.onclick = () => cmd("tm", { a: "start", s: +b.dataset.s, q: 1 }));
-    $r("rmPickP").onclick = () => cmd("pickp");
+    $r("rmPickP").onclick = () => cmd("pickp"); $r("rmHot").onclick = () => { $r("rmHot").hidden = true; };
     const noteSend = (g, x) => { cmd("note", { g, x }); const h = $r("rmNtH"); if (h) h.textContent = "✓ " + CT("سُجّلت الملاحظة", "Note saved"); try { navigator.vibrate && navigator.vibrate(20); } catch (e) {} };
     document.querySelectorAll("#rmNtT [data-g]").forEach((b) => b.onclick = () => { const x = $r("rmNtX"); noteSend(b.dataset.g, x.value.trim()); x.value = ""; });
     $r("rmNtGo").onclick = () => { const x = $r("rmNtX"); if (!x.value.trim()) return; noteSend("", x.value.trim()); x.value = ""; };

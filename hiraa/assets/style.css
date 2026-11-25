@@ -3137,3 +3137,13 @@ body.rm-on .site-header,body.rm-on .site-footer,body.rm-on #viewAs,body.rm-on #v
 .rm-tr button{width:48px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.25);color:#fff;font-size:24px;font-weight:800}
 .rm-pks{margin-top:8px;padding:12px;border-radius:14px;background:#102A4C;color:#FFF0C2;font:800 24px var(--font-brand);text-align:center}
 .rm-in{flex:1;min-width:0;padding:10px 12px;border:1px solid rgba(16,42,76,.25);border-radius:12px;font:inherit;font-size:16px}
+
+/* الجرس الأسرع والكلمة السرّية على الجوال */
+.rm-bz{margin:10px 0;padding:12px;border-radius:16px;background:#102A4C;color:#fff;text-align:center}
+.rm-bzh{font-weight:800;margin-bottom:8px}
+.rm-bzt{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rm-bzt button{border:0;border-radius:14px;padding:16px 6px;color:#fff;font-weight:800;font-size:17px}
+.rm-bzt button:disabled{opacity:.3}
+.rm-bzf{border-radius:14px;padding:16px;font:800 22px var(--font-brand);color:#fff}
+.rm-bzr{display:flex;gap:8px;margin-top:8px}.rm-bzr button{flex:1;border:0;border-radius:12px;padding:14px;font-weight:800;font-size:17px;background:#fff;color:#102A4C}.rm-bzr .go{background:#D4AA55}
+.rm-hot{background:#102A4C!important;color:#FFF0C2!important;font:800 26px var(--font-brand)!important}
