@@ -1,0 +1,8 @@
+.vc-wrap{max-width:640px}
+.vc-h{font-family:var(--font-brand);text-align:center;margin-bottom:14px}
+.vc-card{background:linear-gradient(180deg,#0F2A3D,#1C4A5E);border:3px solid #E7B659;border-radius:22px;padding:34px 26px;color:#FFF8E7;text-align:center;box-shadow:0 10px 30px rgba(15,42,61,.25)}
+.vc-body{font-family:var(--font-brand);font-size:clamp(22px,4.6vw,30px);line-height:2.1;margin:0 0 18px}
+.vc-ref{color:#E7B659;font-size:16px;margin:0}
+.vc-meta{text-align:center;margin:14px 0;font-size:15px}
+.vc-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.vc-note{text-align:center;color:var(--muted)}
