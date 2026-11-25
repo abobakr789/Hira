@@ -110,10 +110,10 @@ h1,h2,h3,.disp{font-family:"Thmanyah Display",serif;font-weight:700;margin:0}
 #salem.talk img.body{animation:sTalk .5s ease-in-out 4}
 @keyframes sBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @keyframes sTalk{0%,100%{transform:rotate(0)}50%{transform:rotate(-3deg) translateY(-6px)}}
-#bubble{direction:rtl;pointer-events:auto;max-width:min(380px,62vw);margin-bottom:120px;background:#fff;border-radius:24px 24px 24px 6px;padding:14px 18px;box-shadow:0 14px 30px -12px rgba(16,42,76,.45);font-size:21px;line-height:1.6;display:flex;gap:10px;align-items:flex-start;opacity:0;transform:translateY(16px) scale(.9);transition:.35s cubic-bezier(.3,1.5,.6,1);border:2px solid #F0E4C8}
+#bubble{direction:rtl;pointer-events:none;max-width:min(380px,62vw);margin-bottom:120px;background:#fff;border-radius:24px 24px 24px 6px;padding:14px 18px;box-shadow:0 14px 30px -12px rgba(16,42,76,.45);font-size:21px;line-height:1.6;display:flex;gap:10px;align-items:flex-start;opacity:0;transform:translateY(16px) scale(.9);transition:.35s cubic-bezier(.3,1.5,.6,1);border:2px solid #F0E4C8}
 #bubble.show{opacity:1;transform:none}
 #bubble img{width:52px;height:52px;border-radius:50%;flex:none;background:#EAF3FB}
-#bubble .x{margin-inline-start:auto;font-size:16px;color:#999;padding:0 4px}
+#bubble .x{pointer-events:auto;margin-inline-start:auto;font-size:16px;color:#999;padding:0 4px}
 
 /* ===== محطة 1: أتهيأ ===== */
 .rate{display:grid;gap:14px}
@@ -294,7 +294,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:100}
   .tiles{grid-template-columns:repeat(2,1fr)}
   .fam{grid-template-columns:repeat(3,1fr)}
   .week{grid-template-columns:repeat(4,1fr)}
-  #stage .bar h2{font-size:22px}#stage .bar .crit{font-size:11px;max-width:48%}.sky{height:300px}.slot{font-size:15px}.slot .s{height:70px}
+  #stage .bar h2{font-size:22px}#stage .bar .crit{display:none}.sky{height:300px}.slot{font-size:15px}.slot .s{height:70px}
   #salem img.body{width:86px}#bubble{margin-bottom:90px;font-size:18px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -391,7 +391,7 @@ const fresh=()=>JSON.parse(JSON.stringify(S0));
 const load=k=>{try{const v=JSON.parse(localStorage.getItem(k)||"null");return v?Object.assign(fresh(),v):null}catch(e){return null}};
 const doneN=x=>Object.keys((x&&x.done)||{}).filter(k=>x.done[k]).length;
 let S=EMBED?fresh():(load(KEY)||fresh());
-function save(){if(ROLE==="staff")return;try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+function save(){if(ROLE==="staff")return;S.meta={crit:CRIT.map(c=>c.t.replace(/[\u064B-\u0652]/g,""))};try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
  try{if(EMBED&&ROLE==="student")window.parent.postMessage({type:"hiraa-journey",code:LESSON.code,state:S},location.origin)}catch(e){}}
 setInterval(()=>{if(!document.hidden&&ROLE!=="staff"){S.secs+=15;save()}},15000);
 

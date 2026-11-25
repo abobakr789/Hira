@@ -9015,7 +9015,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
   // ===== رحلة القنديل: مصادر الطالب في البيت (صفحة مستقلة لكل درس، تُحفظ نتائجها ويراها المعلم) =====
-  const JOURNEYS = new Set(["AR-Y1-N-T3-L08"]);
+  const JOURNEYS = new Set(Array.from({ length: 16 }, (_, i) => "AR-Y1-N-T3-L" + String(i + 1).padStart(2, "0")));
   const JR_TOTAL = 9;
   const journeySrc = (code) => "resources/ar/" + code + "/student-journey.html?embed=1&v=20261125";
   const jrSum = (j) => { j = j || {}; const f = j.first || {}, fk = Object.keys(f);
@@ -9058,7 +9058,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     if (!cls.length && (isSchoolAdmin() || isSuper())) { const { data } = await sb.from("classes").select("id, name, year_group, track, subject_id").eq("year_group", yg).eq("track", tr).eq("subject_id", sub).limit(20); cls = data || []; }
     if (!cls.length) { B.innerHTML = `<div class="empty"><strong>لا توجد فصول مرتبطة بك في هذا الصف، فلا يوجد تقرير بعد.</strong></div>`; return; }
     let cur = cls[0].id;
-    const CR = [["bronze", "أذكر الشخصيات وما تحبه", "#B06A34"], ["silver", "أحدد عناصر القصة", "#7A8797"], ["gold", "أرتب الأحداث وأعيد السرد", "#C99A1E"], ["challenge", "أستنتج الرسالة وأربطها بحياتي", "#7B4FC0"]];
+    let CR = [["bronze", "المستوى البرونزي", "#B06A34"], ["silver", "المستوى الفضي", "#7A8797"], ["gold", "المستوى الذهبي", "#C99A1E"], ["challenge", "مستوى التحدي", "#7B4FC0"]];
     const plain = (t) => String(t || "").replace(/[ً-ْ]/g, "");
     const draw = async () => {
       const { data: roster } = await sb.from("class_students").select("student_id, profiles(full_name_ar)").eq("class_id", cur);
@@ -9066,6 +9066,8 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const { data: rows, error } = S.length ? await sb.from("journey_progress").select("*").eq("lesson_id", lid).in("student_id", S.map((s) => s.id)) : { data: [] };
       if (error) { B.innerHTML = `<div class="empty"><strong>تعذّر تحميل التقرير الآن.</strong></div>`; return; }
       const M = {}; (rows || []).forEach((r) => { M[r.student_id] = r; });
+      const meta = (rows || []).map((r) => r.state && r.state.meta).find((m) => m && Array.isArray(m.crit) && m.crit.length === 4);
+      if (meta) CR = CR.map((c, i) => [c[0], String(meta.crit[i]).replace(/^أستطيع أن\s*/, ""), c[2]]);
       const started = S.filter((s) => M[s.id]), fin = S.filter((s) => M[s.id] && M[s.id].finished_at);
       const pct = (a, b) => b ? Math.round(a * 100 / b) : null;
       const ft = started.reduce((a, s) => [a[0] + M[s.id].first_ok, a[1] + M[s.id].first_total], [0, 0]);
@@ -10484,7 +10486,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
       const id = (l.lesson_identity_links || [])[0];
       const quiz = (sm.quiz || []).slice(0, 2);
       const jrHero = JOURNEYS.has(l.code) ? `<div class="jr-hero ars-wide"><div class="jr-art" aria-hidden="true"><svg viewBox="0 0 100 120"><circle cx="50" cy="8" r="5" fill="none" stroke="#102A4C" stroke-width="3.5"/><path d="M32 34 Q32 20 50 14 Q68 20 68 34Z" fill="#102A4C"/><rect x="26" y="34" width="48" height="7" rx="3.5" fill="#102A4C"/><path d="M29 44 L71 44 L78 100 Q50 114 22 100Z" fill="#FFF1C9" stroke="#102A4C" stroke-width="5" stroke-linejoin="round"/><path d="M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z" fill="#F7B731"/><line x1="36" y1="112" x2="64" y2="112" stroke="#102A4C" stroke-width="5" stroke-linecap="round"/></svg></div>
-        <div class="jr-body"><span class="jr-kick">🏠 مُذاكَرَتي في الْبَيْتِ</span><h3>رِحْلَةُ الْقِنْديلِ</h3><p>تِسْعُ مَحَطّاتٍ أَقْرَأُ فيها الْقِصَّةَ وَأَلْعَبُ وَأَتَحَقَّقُ، وَأُضيءُ قِنْديلًا بَعْدَ كُلِّ مَحَطَّةٍ، وَأَجْمَعُ أَرْبَعَةَ أَوْسِمَةٍ.</p>
+        <div class="jr-body"><span class="jr-kick">🏠 مُذاكَرَتي في الْبَيْتِ</span><h3>رِحْلَةُ الْقِنْديلِ</h3><p>تِسْعُ مَحَطّاتٍ أَقْرَأُ فيها النَّصَّ وَأَلْعَبُ وَأَتَحَقَّقُ، وَأُضيءُ قِنْديلًا بَعْدَ كُلِّ مَحَطَّةٍ، وَأَجْمَعُ أَرْبَعَةَ أَوْسِمَةٍ.</p>
         ${isStudent() ? `<div class="jr-prog" data-lid="${esc(l.id)}"></div>` : ""}
         <div class="jr-act"><button class="btn btn-primary jr-open" data-lid="${esc(l.id)}" data-code="${esc(l.code)}">🏮 <b>${isStaff() ? "معاينة الرحلة" : "أَبْدَأُ الرِّحْلَةَ"}</b></button>${isStaff() ? `<button class="btn btn-ghost jr-rep-btn" data-lid="${esc(l.id)}" data-title="${esc(l.title_ar || "")}" data-yg="${esc(u.year_group)}" data-tr="${esc(u.track)}" data-sub="${esc(u.subject_id)}">📊 تقرير الصف</button>` : ""}</div></div></div>` : "";
       return `<div class="ars"${nnEn ? ' dir="ltr"' : ""}>
