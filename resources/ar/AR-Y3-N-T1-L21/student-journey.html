@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>رحلة القنديل · اعرف لغتك: أسلوب التعجب · حراء</title>
+<style>
+@font-face{font-family:"Thmanyah Display";src:url("../../../art/fonts/thmanyahserifdisplay-Bold.woff2") format("woff2");font-weight:700}
+@font-face{font-family:"Thmanyah Display";src:url("../../../art/fonts/thmanyahserifdisplay-Black.woff2") format("woff2");font-weight:900}
+@font-face{font-family:"Thmanyah Text";src:url("../../../art/fonts/thmanyahseriftext-Medium.woff2") format("woff2");font-weight:500}
+@font-face{font-family:"Thmanyah Text";src:url("../../../art/fonts/thmanyahseriftext-Bold.woff2") format("woff2");font-weight:700}
+@font-face{font-family:"Thmanyah Sans";src:url("../../../art/fonts/thmanyahsans-Medium.woff2") format("woff2");font-weight:500}
+@font-face{font-family:"Thmanyah Sans";src:url("../../../art/fonts/thmanyahsans-Bold.woff2") format("woff2");font-weight:700}
+:root{
+  --navy:#102A4C;--gold:#C4943A;--gold2:#E9C77B;--cream:#FBF8F1;--sand:#F4E7CC;--ink:#1d2b3f;
+  --bronze:#B06A34;--silver:#7A8797;--goldm:#C99A1E;--chal:#7B4FC0;
+  --green:#1F9D6B;--red:#D9534F;--sky:#EAF4FB;--rose:#FCEDEA;--mint:#E7F6EF;--lav:#F1ECFA;--peach:#FFF1E2;
+  --r:26px;--shadow:0 14px 34px -16px rgba(16,42,76,.35);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{font-family:"Thmanyah Text",system-ui,sans-serif;color:var(--ink);background:var(--cream);overflow:hidden;font-size:22px}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
+h1,h2,h3,.disp{font-family:"Thmanyah Display",serif;font-weight:700;margin:0}
+.ui{font-family:"Thmanyah Sans",system-ui,sans-serif}
+
+/* ===== المشهد العام ===== */
+#world{position:fixed;inset:0;background:
+ radial-gradient(120% 70% at 85% 0%,#FFF6DF 0%,transparent 60%),
+ radial-gradient(90% 60% at 0% 10%,#EAF3FB 0%,transparent 55%),
+ linear-gradient(#FDFBF6,#F8F0E0 70%,#F2E1BF);}
+.dune{position:absolute;left:-10%;right:-10%;bottom:0;pointer-events:none}
+.hanglant{position:absolute;top:0;transform-origin:50% 0;animation:swing 4.5s ease-in-out infinite alternate}
+@keyframes swing{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+.twinkle{position:absolute;color:var(--gold2);animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
+
+/* ===== الشريط العلوي ===== */
+#top{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;gap:14px;padding:12px 18px;
+ background:rgba(251,248,241,.82);backdrop-filter:blur(10px);border-bottom:1px solid #EFE4CD}
+#top .logo{height:46px;flex:none}
+#top .ttl{flex:1;min-width:0}
+#top .ttl small{display:block;font-family:"Thmanyah Sans";font-size:14px;color:#8a7a5a}
+#top .ttl b{font-family:"Thmanyah Display";font-size:24px;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.medals{display:flex;gap:6px}
+.medal{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#EEE7D8;position:relative;transition:.4s}
+.medal svg{width:26px;height:26px;opacity:.35;transition:.4s}
+.medal.on{box-shadow:0 0 0 3px #fff,0 6px 16px -4px var(--c)}
+.medal.on svg{opacity:1}
+.medal.pop{animation:pop .7s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{0%{transform:scale(.3)}100%{transform:scale(1)}}
+.topbtn{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:999px;background:#fff;box-shadow:0 4px 14px -6px rgba(16,42,76,.4);font-family:"Thmanyah Sans";font-size:16px;font-weight:700;color:var(--navy);white-space:nowrap}
+.topbtn .cnt{background:var(--red);color:#fff;border-radius:999px;padding:0 8px;font-size:14px;min-width:24px;text-align:center}
+.topbtn .cnt.zero{background:var(--green)}
+
+/* ===== الخريطة ===== */
+#map{position:fixed;inset:74px 0 0 0;overflow:auto;z-index:5}
+#mapInner{position:relative;width:100%;max-width:1100px;margin:0 auto;height:1180px}
+#path{position:absolute;inset:0;width:100%;height:100%}
+.node{position:absolute;transform:translate(50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;width:170px}
+.node .lamp{width:96px;height:110px;position:relative;transition:transform .3s}
+.node:not(.locked):hover .lamp{transform:translateY(-6px) rotate(-3deg)}
+.node .glow{position:absolute;inset:-26px;border-radius:50%;background:radial-gradient(circle,rgba(255,206,92,.75),rgba(255,206,92,0) 65%);opacity:0;transition:.6s}
+.node.done .glow{opacity:1;animation:breath 2.6s ease-in-out infinite}
+.node.current .lamp{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes breath{0%,100%{opacity:.7;transform:scale(.95)}50%{opacity:1;transform:scale(1.08)}}
+.node .lbl{background:#fff;border-radius:16px;padding:6px 14px;font-family:"Thmanyah Display";font-size:20px;color:var(--navy);box-shadow:var(--shadow);text-align:center;line-height:1.35}
+.node .lbl small{display:block;font-family:"Thmanyah Sans";font-size:13px;color:#8a7a5a;font-weight:500}
+.node.locked{filter:grayscale(.85);opacity:.6}
+.node.locked .lbl::before{content:"🔒 ";font-size:14px}
+.node .num{position:absolute;top:-6px;right:-4px;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:"Thmanyah Sans";font-weight:700;font-size:17px;box-shadow:0 0 0 3px #fff;z-index:2}
+.node.done .num{background:var(--green)}
+.node .tag{font-family:"Thmanyah Sans";font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;color:#fff}
+
+/* ===== المحطة (طبقة كاملة) ===== */
+#stage{position:fixed;inset:0;z-index:40;display:none;overflow:auto;background:var(--bg,#fff);
+ clip-path:circle(0 at var(--x,50%) var(--y,50%));transition:clip-path .75s cubic-bezier(.7,0,.2,1)}
+#stage.open{clip-path:circle(150% at var(--x,50%) var(--y,50%))}
+#stage .bar{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:12px;padding:12px 18px;background:rgba(255,255,255,.75);backdrop-filter:blur(8px)}
+#stage .bar h2{flex:1;font-size:28px;color:var(--navy)}
+#stage .bar .crit{font-family:"Thmanyah Sans";font-size:15px;font-weight:700;color:#fff;padding:5px 12px;border-radius:999px}
+.back{width:48px;height:48px;border-radius:50%;background:#fff;box-shadow:var(--shadow);display:grid;place-items:center;font-size:24px;color:var(--navy)}
+.wrap{max-width:1000px;margin:0 auto;padding:18px 22px 220px}
+.inst{display:flex;align-items:center;gap:12px;font-family:"Thmanyah Display";font-size:26px;color:var(--navy);margin:8px 0 18px}
+.inst .ic{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:#fff;box-shadow:var(--shadow);font-size:26px;flex:none}
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 30px;border-radius:999px;background:var(--navy);color:#fff;font-family:"Thmanyah Display";font-size:22px;box-shadow:0 10px 22px -10px var(--navy);transition:transform .15s}
+.btn:active{transform:scale(.96)}
+.btn.gold{background:linear-gradient(135deg,#D8A94A,#B9832B);box-shadow:0 10px 22px -10px #B9832B}
+.btn.ghost{background:#fff;color:var(--navy);box-shadow:var(--shadow)}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.center{text-align:center}
+.reveal{opacity:0;transform:translateY(24px);animation:rv .6s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rv{to{opacity:1;transform:none}}
+.shake{animation:shake .45s}
+@keyframes shake{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+
+/* خيارات */
+.opts{display:grid;gap:12px;margin-top:14px}
+.opt{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:20px;background:#F7F4EC;border:3px solid transparent;font-size:24px;text-align:right;transition:.2s}
+.opt:hover{background:#F1EBDC}
+.opt .dot{width:30px;height:30px;border-radius:50%;border:3px solid #CDBF9F;flex:none;display:grid;place-items:center;font-size:16px;color:#fff}
+.opt.ok{border-color:var(--green);background:var(--mint)}.opt.ok .dot{background:var(--green);border-color:var(--green)}
+.opt.no{border-color:var(--red);background:var(--rose)}.opt.no .dot{background:var(--red);border-color:var(--red)}
+
+/* ===== سالم ===== */
+#salem{position:fixed;bottom:0;left:14px;z-index:60;display:flex;direction:ltr;align-items:flex-end;gap:6px;pointer-events:none}
+#salem img.body{width:118px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.18));transform-origin:50% 100%;animation:sBob 3.2s ease-in-out infinite}
+#salem.talk img.body{animation:sTalk .5s ease-in-out 4}
+@keyframes sBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes sTalk{0%,100%{transform:rotate(0)}50%{transform:rotate(-3deg) translateY(-6px)}}
+#bubble{direction:rtl;pointer-events:none;max-width:min(380px,62vw);margin-bottom:120px;background:#fff;border-radius:24px 24px 24px 6px;padding:14px 18px;box-shadow:0 14px 30px -12px rgba(16,42,76,.45);font-size:21px;line-height:1.6;display:flex;gap:10px;align-items:flex-start;opacity:0;transform:translateY(16px) scale(.9);transition:.35s cubic-bezier(.3,1.5,.6,1);border:2px solid #F0E4C8}
+#bubble.show{opacity:1;transform:none}
+#bubble img{width:52px;height:52px;border-radius:50%;flex:none;background:#EAF3FB}
+#bubble .x{pointer-events:auto;margin-inline-start:auto;font-size:16px;color:#999;padding:0 4px}
+
+/* ===== محطة 1: أتهيأ ===== */
+.rate{display:grid;gap:14px}
+.rrow{display:flex;align-items:center;gap:14px;background:#fff;border-radius:22px;padding:14px 16px;box-shadow:var(--shadow);border-inline-start:8px solid var(--c)}
+.rrow p{flex:1;margin:0;font-size:23px;line-height:1.6}
+.faces{display:flex;gap:8px}
+.face{width:58px;height:58px;border-radius:50%;background:#F5F1E6;font-size:32px;display:grid;place-items:center;transition:.2s;border:3px solid transparent}
+.face.sel{background:#FFF4D6;border-color:var(--gold);transform:scale(1.12)}
+
+/* ===== محطة 2: أقرأ ===== */
+.story{display:grid;gap:22px}
+.scene{display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:center;background:#fff;border-radius:30px;padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.scene::after{content:"";position:absolute;inset:auto -40px -60px auto;width:180px;height:180px;border-radius:50%;background:var(--tint);opacity:.6;z-index:0}
+.scene .pic{width:240px;height:200px;border-radius:22px;overflow:hidden;background:var(--tint);display:grid;place-items:center;position:relative;z-index:1}
+.scene .pic img{width:100%;height:100%;object-fit:cover}
+.scene>div{position:relative;z-index:1}
+.scene .txt{font-size:31px;line-height:2.05;position:relative;z-index:1}
+.scene .n{position:absolute;top:12px;left:14px;font-family:"Thmanyah Sans";font-weight:700;color:var(--gold);font-size:18px;z-index:1}
+.kw{background:linear-gradient(transparent 52%,#FFE08A 52%);border-radius:4px;cursor:pointer;padding:0 3px;font-weight:700;color:var(--navy);transition:.2s;position:relative}
+.kw:hover{background:#FFE08A}
+.kw::after{content:"؟";font-size:14px;position:absolute;top:-10px;left:-6px;background:var(--gold);color:#fff;border-radius:50%;width:20px;height:20px;line-height:20px;text-align:center;font-family:"Thmanyah Sans"}
+.kw.seen::after{content:"✓";background:var(--green)}
+.kw.nk{cursor:default}.kw.nk::after{display:none}
+.scene.verse .txt{line-height:2.3;font-family:"Thmanyah Display",serif}
+.think{margin-top:6px;background:var(--peach);border-radius:22px;padding:14px 18px;border:2px dashed #F0C48F}
+.think h4{margin:0 0 4px;font-family:"Thmanyah Display";font-size:20px;color:#B76A12}
+.think .opts{grid-template-columns:repeat(3,1fr)}
+.think .opt{font-size:21px;padding:10px 12px}
+.locked-scene{filter:blur(6px);pointer-events:none;opacity:.5}
+
+/* بطاقة المعنى */
+#wordPop{position:fixed;inset:0;z-index:80;display:none;place-items:center;background:rgba(16,42,76,.25);backdrop-filter:blur(3px)}
+#wordPop.show{display:grid}
+#wordPop .wcard{width:min(440px,90vw);background:#fff;border-radius:32px;padding:24px;text-align:center;box-shadow:0 30px 60px -20px rgba(16,42,76,.5);animation:pop .5s cubic-bezier(.3,1.6,.5,1)}
+#wordPop .wpic{height:190px;border-radius:22px;background:var(--sky);display:grid;place-items:center;overflow:hidden;margin-bottom:14px}
+#wordPop .wpic img{height:100%;width:100%;object-fit:cover}
+#wordPop .w{font-family:"Thmanyah Display";font-size:44px;color:var(--navy)}
+#wordPop .m{font-size:28px;color:#6b5a35;margin:6px 0 16px}
+
+/* ===== محطة 3: كلماتي ===== */
+.memory{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;perspective:1200px}
+.mc{height:170px;position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,1.4,.5,1)}
+.mc.flip,.mc.matched{transform:rotateY(180deg)}
+.mc .f,.mc .b{position:absolute;inset:0;border-radius:24px;backface-visibility:hidden;display:grid;place-items:center;box-shadow:var(--shadow)}
+.mc .f{background:linear-gradient(145deg,#1B3C69,#102A4C);}
+.mc .f svg{width:58px;opacity:.95}
+.mc .b{transform:rotateY(180deg);background:#fff;padding:10px;text-align:center;font-size:24px;line-height:1.5;border:4px solid #fff}
+.mc .b.word{font-family:"Thmanyah Display";font-size:30px;color:var(--navy);background:#FFF8E5}
+.mc .b img{height:70px;border-radius:12px;margin-bottom:4px}
+.mc.matched .b{border-color:var(--green);animation:glowok 1s}
+@keyframes glowok{0%{box-shadow:0 0 0 0 rgba(31,157,107,.7)}100%{box-shadow:0 0 0 22px rgba(31,157,107,0)}}
+
+/* ===== محطة 4: من يحب ماذا ===== */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.col{display:grid;gap:14px}
+.who{display:flex;align-items:center;gap:14px;background:#fff;border-radius:24px;padding:10px;box-shadow:var(--shadow);border:4px solid transparent;transition:.2s;text-align:right}
+.who img{width:96px;height:96px;border-radius:18px;object-fit:cover;flex:none}
+.who b{font-family:"Thmanyah Display";font-size:26px;color:var(--navy)}
+.who.sel{border-color:var(--gold);transform:scale(1.03)}
+.who.ok{border-color:var(--green);opacity:.75}
+.love{padding:18px;border-radius:24px;background:#fff;box-shadow:var(--shadow);font-size:23px;line-height:1.6;border:4px dashed #E6D8B8;text-align:right;transition:.2s;min-height:96px;display:flex;align-items:center;gap:12px}
+.love .ic{font-size:34px}
+.love.ok{border:4px solid var(--green);background:var(--mint)}
+.love .who-chip{white-space:nowrap;margin-inline-start:auto;font-family:"Thmanyah Display";font-size:18px;color:#fff;background:var(--green);padding:4px 12px;border-radius:999px}
+
+/* ===== محطة 5: خريطة القصة ===== */
+.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;min-height:70px;padding:12px;border-radius:24px;background:#fff;box-shadow:var(--shadow)}
+.chip{padding:10px 20px;border-radius:999px;background:#FFF4DA;border:3px solid #F1D79C;font-family:"Thmanyah Display";font-size:23px;color:var(--navy);transition:.2s}
+.chip.sel{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-4px) scale(1.06)}
+.baskets{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.basket{border-radius:28px;padding:16px;min-height:220px;background:var(--bk);border:4px dashed rgba(16,42,76,.15);transition:.25s;text-align:center}
+.basket.hot{border-style:solid;border-color:var(--navy);transform:translateY(-4px)}
+.basket h3{font-size:26px;color:var(--navy);display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px}
+.basket .in{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.basket .in span{background:#fff;border-radius:999px;padding:6px 14px;font-size:20px;animation:pop .45s cubic-bezier(.3,1.6,.5,1)}
+
+/* ===== محطة 6: رتب ===== */
+.sky{position:relative;height:340px;border-radius:32px;overflow:hidden;background:linear-gradient(var(--skyc,#FDEBD3),#FFF9EF);transition:background 1.2s;box-shadow:var(--shadow)}
+.sky svg{position:absolute;inset:0;width:100%;height:100%}
+.sun{position:absolute;width:64px;height:64px;border-radius:50%;background:#F7B731;box-shadow:0 0 0 14px rgba(247,183,49,.25),0 0 40px 10px rgba(247,183,49,.45);transform:translate(-50%,-50%);transition:left 1.4s cubic-bezier(.5,0,.3,1),top 1.4s cubic-bezier(.5,0,.3,1)}
+.slot{position:absolute;bottom:18px;width:30%;transform:translateX(50%);text-align:center;font-family:"Thmanyah Display";font-size:20px;color:var(--navy)}
+.slot .s{height:96px;border-radius:20px;border:3px dashed rgba(16,42,76,.25);background:rgba(255,255,255,.6);display:grid;place-items:center;margin-top:6px;overflow:hidden}
+.slot .s img{width:100%;height:100%;object-fit:contain;background:#fff;animation:pop .5s}
+.events{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.ev{background:#fff;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);text-align:right;transition:.25s;border:4px solid transparent}
+.ev img{width:100%;height:140px;object-fit:cover;display:block}
+.ev p{margin:0;padding:12px 14px;font-size:21px;line-height:1.65}
+.ev.used{opacity:.25;transform:scale(.94);pointer-events:none}
+.rec{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.micbtn{width:96px;height:96px;border-radius:50%;background:linear-gradient(145deg,#E25D5D,#C23B3B);color:#fff;font-size:40px;display:grid;place-items:center;box-shadow:0 14px 26px -10px #C23B3B;position:relative}
+.micbtn.on::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:4px solid #E25D5D;animation:ring 1.2s infinite}
+@keyframes ring{from{transform:scale(.9);opacity:1}to{transform:scale(1.35);opacity:0}}
+.timer{font-family:"Thmanyah Sans";font-weight:700;font-size:26px;color:var(--red);min-width:70px}
+
+/* ===== محطة 7: رسالتي ===== */
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.tile{background:#fff;border-radius:22px;padding:14px 8px;box-shadow:var(--shadow);text-align:center;border:4px solid transparent;transition:.2s;font-size:19px;line-height:1.5}
+.tile .e{font-size:44px;display:block;margin-bottom:6px}
+.tile.sel{border-color:var(--gold);background:#FFF8E5;transform:translateY(-6px)}
+.mycard{margin:26px auto 0;max-width:620px;border-radius:34px;padding:30px 28px 26px;text-align:center;position:relative;overflow:hidden;
+ background:radial-gradient(circle at 80% 0%,#FFF4D6,transparent 55%),linear-gradient(160deg,#fff,#FFF9EC);border:3px solid var(--gold2);box-shadow:0 26px 50px -24px rgba(196,148,58,.7)}
+.mycard .top{font-family:"Thmanyah Sans";font-size:16px;color:var(--gold);letter-spacing:.5px}
+.mycard h3{font-size:34px;color:var(--navy);margin:6px 0 14px}
+.mycard .big{font-size:64px}
+.mycard p{font-size:28px;line-height:1.9;margin:8px 0}
+.mycard .sig{margin-top:12px;font-family:"Thmanyah Sans";font-size:15px;color:#8a7a5a}
+
+/* ===== محطة 8: مع أسرتي ===== */
+.fam{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.fm{background:#fff;border-radius:20px;padding:12px 6px;text-align:center;box-shadow:var(--shadow);border:4px solid transparent;font-family:"Thmanyah Display";font-size:20px;color:var(--navy);transition:.2s}
+.fm .e{font-size:40px;display:block}
+.fm.sel{border-color:var(--green);background:var(--mint)}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:10px}
+.day{background:#fff;border-radius:20px;padding:10px 4px 12px;text-align:center;box-shadow:var(--shadow);font-family:"Thmanyah Sans";font-size:15px;font-weight:700;color:var(--navy)}
+.day svg{width:44px;height:56px;display:block;margin:4px auto}
+.day .act{font-family:"Thmanyah Text";font-weight:500;font-size:13px;color:#7b6a44;min-height:20px}
+.day.lit svg .fl{fill:#F7B731}
+.day.lit{background:#FFF8E1}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
+
+/* ===== محطة 9: أتحقق ===== */
+.qbox{max-width:760px;margin:0 auto}
+.qprog{display:flex;gap:8px;justify-content:center;margin-bottom:16px}
+.qprog i{width:44px;height:10px;border-radius:999px;background:#E9E1CF}
+.qprog i.ok{background:var(--green)}.qprog i.no{background:#F1A33B}.qprog i.cur{background:var(--navy)}
+.qbox h3{font-size:32px;color:var(--navy);line-height:1.7;text-align:center}
+.hint{margin:14px auto 0;display:flex;justify-content:center}
+
+/* ===== الخاتمة ===== */
+#finale{position:fixed;inset:0;z-index:70;display:none;overflow:auto;background:radial-gradient(circle at 50% 20%,#FFF6DA,#FBF8F1 60%)}
+#finale.show{display:block;animation:fadeIn .6s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.cert{max-width:860px;margin:30px auto 160px;padding:0 20px;text-align:center}
+.bigLamp{width:170px;margin:0 auto;filter:drop-shadow(0 0 40px rgba(247,183,49,.8));animation:bob 2.4s ease-in-out infinite}
+.cert h1{font-size:46px;color:var(--navy);margin:8px 0}
+.cert .sub{font-size:24px;color:#6b5a35}
+.bars{display:grid;gap:14px;margin:26px 0;text-align:right}
+.bar2{background:#fff;border-radius:22px;padding:14px 18px;box-shadow:var(--shadow)}
+.bar2 .t{display:flex;align-items:center;gap:10px;font-size:21px;margin-bottom:8px}
+.bar2 .t .med{width:30px;height:30px;border-radius:50%;display:grid;place-items:center}
+.ba{display:grid;grid-template-columns:70px 1fr;gap:8px 12px;align-items:center;font-family:"Thmanyah Sans";font-size:14px;color:#7b6a44}
+.track{height:14px;border-radius:999px;background:#F1EADB;overflow:hidden}
+.track i{display:block;height:100%;border-radius:999px;width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+
+/* ===== الأدراج ===== */
+.drawer{position:fixed;inset:0;z-index:90;display:none;background:rgba(16,42,76,.3);backdrop-filter:blur(4px)}
+.drawer.show{display:block}
+.drawer .panel{position:absolute;top:0;bottom:0;left:0;width:min(640px,100%);background:var(--cream);overflow:auto;padding:22px 24px 60px;animation:slideIn .45s cubic-bezier(.2,.8,.2,1);box-shadow:20px 0 50px -20px rgba(0,0,0,.3)}
+@keyframes slideIn{from{transform:translateX(-100%)}to{transform:none}}
+.drawer h2{font-size:30px;color:var(--navy);display:flex;align-items:center;gap:10px}
+.mist{background:#fff;border-radius:22px;padding:16px;box-shadow:var(--shadow);margin-top:14px;border-inline-start:6px solid #F1A33B}
+.mist .q{font-size:22px;line-height:1.6;margin-bottom:6px}
+.mist .a{font-size:19px;color:var(--green)}
+.empty{text-align:center;padding:40px 10px;color:#8a7a5a;font-size:22px}
+
+/* تقرير ولي الأمر */
+.rep{font-family:"Thmanyah Sans";font-size:17px;line-height:1.75}
+.rep h2{font-family:"Thmanyah Display"}
+.rep .sec{background:#fff;border-radius:20px;padding:16px 18px;margin-top:14px;box-shadow:0 8px 20px -14px rgba(16,42,76,.4)}
+.rep .sec h3{font-size:20px;color:var(--navy);margin-bottom:8px}
+.rep table{width:100%;border-collapse:collapse}
+.rep td{padding:8px 4px;border-bottom:1px solid #F1EADB;vertical-align:middle}
+.rep .pill{display:inline-block;padding:2px 10px;border-radius:999px;color:#fff;font-size:13px;font-weight:700}
+.rep .stat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+.rep .stat div{background:#F7F2E6;border-radius:16px;padding:10px}
+.rep .stat b{display:block;font-size:28px;color:var(--navy);font-family:"Thmanyah Display"}
+.rep ul{margin:6px 0;padding-inline-start:22px}
+
+canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:100}
+
+@media (max-width:760px){
+  body{font-size:19px}
+  #top{flex-wrap:wrap;gap:8px;padding:8px 12px}#top .logo{height:34px}#top .ttl{order:9;flex-basis:100%}#top .ttl small{display:none}
+  #top .ttl b{font-size:19px}.medals{margin-inline-start:auto;gap:4px}.medal{width:30px;height:30px}.medal svg{width:18px;height:18px}.topbtn{padding:7px 10px}
+  .node{width:140px}.node .lamp{width:76px;height:88px}.node .lbl{font-size:17px}
+  .topbtn span.l{display:none}
+  .scene{grid-template-columns:1fr}.scene .pic{width:100%}.scene .txt{font-size:26px}
+  .think .opts{grid-template-columns:1fr}
+  .memory{grid-template-columns:repeat(2,1fr)}
+  .match,.baskets,.events{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .fam{grid-template-columns:repeat(3,1fr)}
+  .week{grid-template-columns:repeat(4,1fr)}
+  #stage .bar h2{font-size:22px}#stage .bar .crit{display:none}.sky{height:300px}.slot{font-size:15px}.slot .s{height:70px}
+  #salem img.body{width:86px}#bubble{margin-bottom:90px;font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* أُرَكِّبُ الْكَلِمَةَ */
+.wbk{text-align:center;padding:22px 18px}
+.wbk-top{font-size:18px;color:#8a7a52;text-align:start}
+.wbk-clue{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.wbk-em{font-size:84px;line-height:1}.wbk-clue p{margin:0;font-size:26px;color:#4a3d1c;max-width:420px}
+.wbk-slot{margin:18px auto;min-height:96px;display:flex;align-items:center;justify-content:center;gap:6px;background:#FFFBEF;border:3px dashed #E9C77B;border-radius:22px;padding:8px 18px;max-width:560px}
+.wbk-got{font-size:64px;line-height:1.5;color:#102A4C;font-weight:700}.wbk-rest{font-size:42px;color:#E0C98F;letter-spacing:2px}
+.wbk-slot.ok{border-style:solid;border-color:#2E9E6A;background:#EEF9F2;animation:wbkPop .5s}
+.wbk-tiles{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
+.wbk-t{font-family:inherit;font-size:46px;line-height:1.3;min-width:78px;min-height:78px;padding:4px 14px;border:0;border-radius:20px;background:#fff;color:#102A4C;box-shadow:0 5px 0 #E3D3A6,0 8px 18px rgba(16,42,76,.12);cursor:pointer}
+.wbk-t:active{transform:translateY(3px);box-shadow:0 2px 0 #E3D3A6}
+.wbk-t.used{opacity:.18;box-shadow:none;transform:scale(.85)}
+@keyframes wbkPop{50%{transform:scale(1.05)}}
+@media (prefers-reduced-motion:reduce){.wbk-slot.ok{animation:none}}
+
+</style>
+</head>
+<body>
+
+<div id="world" aria-hidden="true">
+  <div class="twinkle" style="top:120px;right:12%;font-size:22px">✦</div>
+  <div class="twinkle" style="top:220px;left:8%;font-size:16px;animation-delay:1s">✦</div>
+  <div class="twinkle" style="top:420px;right:4%;font-size:14px;animation-delay:2s">✦</div>
+  <div class="twinkle" style="top:640px;left:16%;font-size:20px;animation-delay:.5s">✦</div>
+  <svg class="dune" viewBox="0 0 1400 260" preserveAspectRatio="none" height="200"><path d="M0 170 Q220 90 470 150 T950 130 T1400 120 V260 H0Z" fill="#F0DCB4" opacity=".7"/><path d="M0 210 Q300 150 620 200 T1400 180 V260 H0Z" fill="#E9CD98" opacity=".75"/></svg>
+</div>
+
+<header id="top">
+  <svg class="logo" viewBox="0 0 653 260" aria-label="حراء"><use href="#lockup"/></svg>
+  <div class="ttl"><small>اللغة العربية · الصف الثالث · رحلة المذاكرة في البيت</small><b>رِحْلَةُ الْقِنْديلِ: اعْرِفْ لُغَتَكَ: أُسْلوبُ التَّعَجُّبِ</b></div>
+  <div class="medals" id="medals"></div>
+  <button class="topbtn" id="mistBtn" title="دفتر أخطائي">📒 <span class="l">دَفْتَرُ أَخْطائي</span> <span class="cnt zero" id="mistCnt">0</span></button>
+  <button class="topbtn" id="repBtn" title="تقرير ولي الأمر">👪 <span class="l">وَلِيُّ الْأَمْرِ</span></button>
+</header>
+
+<main id="map"><div id="mapInner"><svg id="path"></svg></div></main>
+
+<section id="stage" aria-modal="true" role="dialog"></section>
+
+<div id="wordPop"><div class="wcard"><div class="wpic" id="wpPic"></div><div class="w" id="wpW"></div><div class="m" id="wpM"></div><button class="btn" id="wpOk">فَهِمْتُ</button></div></div>
+
+<div id="finale"></div>
+<div class="drawer" id="mistDrawer"><div class="panel" id="mistPanel"></div></div>
+<div class="drawer" id="repDrawer"><div class="panel rep" id="repPanel"></div></div>
+
+<div id="salem" aria-live="polite"><img class="body" src="../../../art/salem/full.webp" alt="سالم"><div id="bubble"><img id="bFace" src="../../../art/salem/head.webp" alt=""><div id="bText"></div><button class="x" id="bX" aria-label="إغلاق">✕</button></div></div>
+<canvas id="fx"></canvas>
+
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <symbol id="lockup" viewBox="0 0 653 260"><g transform="translate(503.2 27) scale(1.25)"><g transform="translate(-60 -12)"><circle cx="100" cy="21" r="6" fill="none" stroke="#102A4C" stroke-width="4"/><path d="M 80 52 Q 80 37 100 28 Q 120 37 120 52 Z" fill="#102A4C"/><rect x="72" y="52" width="56" height="7" rx="3.5" fill="#102A4C"/><circle cx="100" cy="104" r="23" fill="#C4943A" opacity="0.22"/><path d="M 76 64 L 124 64 L 132 136 Q 100 152 68 136 Z" fill="none" stroke="#102A4C" stroke-width="6" stroke-linejoin="round"/><path d="M 100 78 L 115 106 Q 118 115 111 122 L 89 122 Q 82 115 85 106 Z" fill="#C4943A"/><line x1="100" y1="88" x2="100" y2="105" stroke="#FBF8F1" stroke-width="2.5" stroke-linecap="round"/><circle cx="100" cy="109" r="3" fill="#FBF8F1"/><line x1="84" y1="152" x2="116" y2="152" stroke="#102A4C" stroke-width="6" stroke-linecap="round"/><path d="M 93 158 L 107 158 L 100 170 Z" fill="#102A4C"/></g></g><rect x="460.2" y="30" width="3" height="190" fill="#E4DDCC"/><g transform="translate(50 170)"><path d="M27.6 -9.2V-27.2Q27.6 -38.8 31.5 -47.7Q35.4 -56.6 42.2 -61.7Q49 -66.8 57.8 -66.8Q66.6 -66.8 73.2 -63.4Q79.8 -60 83.8 -53.6Q87.8 -47.2 88.4 -38.2Q83.4 -43.4 77.5 -46Q71.6 -48.6 66.8 -48.6Q61.6 -48.6 58.7 -45.4Q55.8 -42.2 55.8 -38.8Q55.8 -36 57.3 -33.5Q58.8 -31 61.8 -29.5Q64.8 -28 69.6 -28H80.2L80.4 -9.2ZM5 0 21.6 -28H99L82.4 0Z" fill="#102A4C"/><g transform="translate(120.4 -147.36) scale(0.91)"><path d="M 11 14 Q 11 2 20 2 Q 29 2 29 14 L 29 132 L 20 176 L 11 132 Z" fill="#C4943A"/><rect x="11" y="120" width="18" height="6" fill="#FBF8F1"/></g><path d="M208 0V-28H237.2V0ZM156.2 30Q165 32.4 170.7 31.8Q176.4 31.2 179.6 28.4Q182.8 25.6 184 21.3Q185.2 17 185.2 12V-61.8L213.2 -68V12Q213.2 22.6 208.7 29.3Q204.2 36 197 39.1Q189.8 42.2 181.9 42Q174 41.8 167.1 38.7Q160.2 35.6 156.2 30Z M229.2 0V-28H258.8Q256.2 -30.6 253.7 -34.3Q251.2 -38 248.4 -42.8L261.6 -68.4Q269 -57.2 278 -48Q287 -38.8 295.6 -33.4Q304.2 -28 310.4 -28H365.2L353.2 0Z" fill="#102A4C"/><path d="M178.4 -112.8 175 -118.8 220 -144.8 223.4 -138.8Z M260.4 62 257 56 302 30 305.4 36Z" fill="#C4943A"/></g></symbol>
+  <symbol id="lamp" viewBox="0 0 100 120"><circle cx="50" cy="8" r="5" fill="none" stroke="#102A4C" stroke-width="3.5"/><path d="M32 34 Q32 20 50 14 Q68 20 68 34Z" fill="#102A4C"/><rect x="26" y="34" width="48" height="7" rx="3.5" fill="#102A4C"/><path d="M29 44 L71 44 L78 100 Q50 114 22 100Z" fill="#FFF8E6" stroke="#102A4C" stroke-width="5" stroke-linejoin="round"/><path class="fl" d="M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z" fill="#D9CDB3"/><line x1="36" y1="112" x2="64" y2="112" stroke="#102A4C" stroke-width="5" stroke-linecap="round"/></symbol>
+  <symbol id="medal" viewBox="0 0 24 24"><path d="M7 2h4l1 5-3 2zM17 2h-4l-1 5 3 2z" fill="currentColor" opacity=".6"/><circle cx="12" cy="15" r="7" fill="currentColor"/><path d="M12 11l1.2 2.5 2.7.3-2 1.8.6 2.7-2.5-1.4-2.5 1.4.6-2.7-2-1.8 2.7-.3z" fill="#fff"/></symbol>
+  <symbol id="palm" viewBox="0 0 200 180"><rect width="200" height="180" fill="#EAF6EE"/><path d="M98 175 Q104 120 100 70" stroke="#9B6B3C" stroke-width="12" fill="none" stroke-linecap="round"/><g fill="#3E9D5B"><path d="M100 70 Q60 40 20 60 Q60 50 100 74Z"/><path d="M100 70 Q140 40 182 58 Q140 52 100 74Z"/><path d="M100 70 Q80 20 50 14 Q84 34 100 72Z"/><path d="M100 70 Q122 22 154 16 Q118 36 100 72Z"/><path d="M100 70 Q70 70 40 104 Q74 80 100 74Z"/><path d="M100 70 Q132 72 162 104 Q128 80 100 74Z"/></g><g fill="#C26A1F"><circle cx="88" cy="86" r="7"/><circle cx="96" cy="94" r="7"/><circle cx="84" cy="98" r="7"/><circle cx="112" cy="86" r="7"/><circle cx="118" cy="96" r="7"/><circle cx="106" cy="100" r="7"/></g><path d="M92 76 L88 86 M108 76 L112 86" stroke="#B8862F" stroke-width="3"/></symbol>
+  <symbol id="adhan" viewBox="0 0 200 180"><rect width="200" height="180" fill="#EEF0FA"/><circle cx="160" cy="34" r="16" fill="#F3C969"/><circle cx="168" cy="28" r="14" fill="#EEF0FA"/><g fill="#5B6FA8"><rect x="40" y="70" width="24" height="100" rx="4"/><path d="M36 70 L52 40 L68 70Z"/><rect x="34" y="92" width="36" height="8" rx="3"/><path d="M80 170 V120 Q120 84 160 120 V170Z"/></g><g fill="none" stroke="#F0A43A" stroke-width="5" stroke-linecap="round"><path d="M80 64 Q96 52 80 40"/><path d="M96 74 Q122 52 96 30"/><path d="M112 84 Q148 52 112 20"/></g></symbol>
+ </defs>
+</svg>
+
+<script>
+"use strict";
+/* ================= بيانات الدرس (تُولَّد من بيانات العرض المعتمدة) ================= */
+const D={"code": "AR-Y3-N-T1-L21", "title": "اعْرِفْ لُغَتَكَ: أُسْلوبُ التَّعَجُّبِ", "titlePlain": "اعرف لغتك: أسلوب التعجب", "cover": "cover", "objective": "أَنْ أَعْرِفَ أُسْلوبَ التَّعَجُّبِ (ما أَفْعَلَ…!) وَأُمَيِّزَهُ مِنَ الِاسْتِفْهامِ، وَأُعَبِّرَ عَنْ دَهْشَتي بِطَرائِقَ مُخْتَلِفَةٍ.", "crit": ["أَعْرِفَ صيغَةَ التَّعَجُّبِ: ما + أَفْعَلَ + الْمُتَعَجَّبُ مِنْهُ + !", "أُمَيِّزَ جُمْلَةَ التَّعَجُّبِ مِنْ جُمْلَةِ الِاسْتِفْهامِ.", "أُحاكيَ أُسْلوبَ التَّعَجُّبِ في جُمَلٍ جَديدَةٍ.", "أُعَبِّرَ عَنِ الدَّهْشَةِ بِـ«يا إِلهي!» وَ«سُبْحانَ اللهِ!»."], "readhead": "أَقْرَأُ مِنْ الدَّرْسِ", "words": [["التَّعَجُّبُ", "التَّعْبيرُ عَنِ الدَّهْشَةِ", "😮"], ["ما أَفْعَلَ", "صيغَةُ التَّعَجُّبِ", "✨"], ["عَلامَةُ التَّعَجُّبِ", "!", "❗"], ["الدَّهْشَةُ", "الِانْبِهارُ", "🤩"]], "hl": {}, "hookImg": "main", "match": {"head": "تَعَجُّبٌ أَمِ اسْتِفْهامٌ؟", "rows": [["ما أَلَذَّ الْفِطْرَ!", "تَعَجُّبٌ"], ["ما اسْمُكَ يا بُنَيَّ؟", "اسْتِفْهامٌ"], ["ما أَنْشَطَ اللّاعِبينَ!", "تَعَجُّبٌ"], ["سُبْحانَ اللهِ!", "تَعَجُّبٌ بِعِبارَةٍ"]], "title": "تَعَجُّبٌ أَمِ اسْتِفْهامٌ؟"}, "map": {"head": "أُسْلوبُ التَّعَجُّبِ", "rows": [["✨", "ما + أَفْعَلَ", "ما أَلْطَفَ · ما أَشَدَّ · ما أَنْفَعَ · ما أَرْوَعَ"], ["🎯", "الْمُتَعَجَّبُ مِنْهُ", "الْأُمَّ · حُمْرَةَ الْوَرْدِ · اسْتِغْلالَ الْوَقْتِ"], ["❗", "الْعَلامَةُ", "نَخْتِمُ جُمْلَةَ التَّعَجُّبِ بِـ(!)"]], "title": "أُسْلوبُ التَّعَجُّبِ"}, "wordj": {"head": "رِحْلَتي مَعَ كَلِمَةِ «ما»", "sent": "«ما أَرْوَعَ أَنْ يُقامَ الْحَقُّ!» وَ«ما اسْمُكَ؟»", "q": "مَعْنى «ما» هُنا:", "o": ["الْأولى لِلتَّعَجُّبِ وَالثّانِيَةُ لِلِاسْتِفْهامِ", "كِلْتاهُما لِلِاسْتِفْهامِ", "كِلْتاهُما لِلتَّعَجُّبِ"], "a": 0, "model": "(أ): «ما أَفْعَلَ…!» تَعَجُّبٌ، وَ«ما…؟» اسْتِفْهامٌ."}, "order": {"type": "events", "items": [{"e": "📖", "label": "اللَّحْمُ لَذيذٌ.", "t": "ما أَلَذَّ اللَّحْمَ!"}, {"e": "📖", "label": "الْقِرْدُ لَطيفٌ.", "t": "ما أَلْطَفَ الْقِرْدَ!"}, {"e": "📖", "label": "مِدْخَنَةُ الْمَنْزِلِ كَبيرَةٌ.", "t": "ما أَكْبَرَ مِدْخَنَةَ الْمَنْزِلِ!"}], "head": "أُحاكي التَّعَجُّبَ", "title": "أُحاكي التَّعَجُّبَ"}, "learned": {"o": ["أَتَعَلَّمُ: أَعْرِفُ صيغَةَ التَّعَجُّبِ: ما + أَفْعَلَ + الْمُتَعَجَّبُ مِنْهُ + !، أُمَيِّزُ جُمْلَةَ التَّعَجُّبِ مِنْ جُمْلَةِ الِاسْتِفْهامِ.", "أَتَعَلَّمُ: أَذْكُرُ شَخْصِيّاتِ الْقِصَّةِ وَأَماكِنَ أَحْداثِها، أَرْبِطُ أَفْعالَ الثَّعالِبِ بِدَوافِعِها في الْبِدايَةِ وَالنِّهايَةِ.", "أَتَعَلَّمُ: أَكْتُبُ مَعَ زَميلي قائِمَتَيْنِ لِلدَّوافِعِ الْخَيِّرَةِ وَالشِّرّيرَةِ، أُمَيِّزُ الْمَعْنى الْحَقيقِيَّ مِنَ الْمَجازِيِّ لِكَلِمَةِ «بَزَغَتْ»."], "a": 0}, "value": {"head": "أَتَأَمَّلُ الْجَمالَ", "img": "main", "sana": "أُلاحِظُ جَمالَ ما حَوْلي، وَأُعَبِّرُ عَنْ إِعْجابي بِكَلِماتٍ جَميلَةٍ.", "fact": "«سُبْحانَ اللهِ» عِبارَةٌ نَقولُها حينَ نَنْدَهِشُ مِنْ جَمالِ خَلْقِ اللهِ.", "dilemma": "رَأَيْتُ رَسْمَةَ زَميلي الْجَميلَةَ… ماذا أَقولُ لَهُ؟", "model": "أَقولُ: ما أَجْمَلَ رَسْمَتَكَ! وَأُشَجِّعُهُ."}, "speak": {"head": "أَتَعَجَّبُ", "frame": "ما أَ… !"}, "home": {"img": "cover", "family": "أَقولُ لِأُسْرَتي ثَلاثَ جُمَلٍ بِأُسْلوبِ التَّعَجُّبِ عَنْ أَشْياءَ في بَيْتي.", "task": "أَكْتُبُ ثَلاثَ جُمَلِ تَعَجُّبٍ، وَجُمْلَةَ اسْتِفْهامٍ واحِدَةً، وَأُمَيِّزُ بَيْنَها."}, "quiz": [{"q": "أَيُّ جُمْلَةٍ فيها أُسْلوبُ تَعَجُّبٍ؟", "o": ["ما أَعْذَبَ صَوْتَ الْغِناءِ!", "ما لَوْنُ الْوَرْدِ؟", "الْغِناءُ عَذْبٌ."], "a": 0, "h": "ارْجِعْ إِلى النَّصِّ وَتَذَكَّرْ ما جاءَ فيهِ."}, {"q": "ما مَعْنى «ما أَفْعَلَ»؟", "o": ["صيغَةُ التَّعَجُّبِ", "التَّعْبيرُ عَنِ الدَّهْشَةِ", "الِانْبِهارُ"], "a": 0, "h": "تَذَكَّرْ لُعْبَةَ الذّاكِرَةِ وَبِطاقاتِ الْكَلِماتِ."}, {"q": "«الْمُتَعَجَّبُ مِنْهُ» في النَّصِّ:", "o": ["الْأُمَّ · حُمْرَةَ الْوَرْدِ · اسْتِغْلالَ الْوَقْتِ", "ما أَلْطَفَ · ما أَشَدَّ · ما أَنْفَعَ · ما أَرْوَعَ", "نَخْتِمُ جُمْلَةَ التَّعَجُّبِ بِـ(!)"], "a": 0, "h": "تَذَكَّرْ خَريطَةَ النَّصِّ."}, {"q": "ماذا جاءَ في «اللَّحْمُ لَذيذٌ.»؟", "o": ["ما أَلَذَّ اللَّحْمَ!", "ما أَلْطَفَ الْقِرْدَ!", "ما أَكْبَرَ مِدْخَنَةَ الْمَنْزِلِ!"], "a": 0, "h": "رَتِّبِ الْأَحْداثَ في ذِهْنِكَ مِنَ الْبِدايَةِ."}, {"q": "تَعَجُّبٌ أَمِ اسْتِفْهامٌ؟: «ما أَلَذَّ الْفِطْرَ!»", "o": ["تَعَجُّبٌ", "اسْتِفْهامٌ", "تَعَجُّبٌ"], "a": 0, "h": "تَذَكَّرْ مَحَطَّةَ التَّوْصيلِ."}], "talk": ["صيغة التعجب في الدرس:", "«ما ألطف الأم مع أطفالها!» أسلوب:", "رأيت رسمة زميلي الجميلة… ماذا أقول له؟"]};
+const LESSON={code:D.code,title:D.title};
+const IMG="../../slides/img/"+D.code+"-";
+const SALEM="../../../art/salem/";
+/* تسجيلات المعلم (تُضاف لاحقًا بصوت الأستاذ): مفتاح الجملة ← ملف صوتي. الأزرار لا تظهر إلا عند وجود الملف */
+const AUDIO=D.audio||{};
+const CRIT=[
+ {k:"bronze",got:"الْوِسامِ الْبُرونْزِيِّ",name:"بُرونْزِيٌّ",c:"#B06A34",t:"أَسْتَطيعُ أَنْ "+D.crit[0]},
+ {k:"silver",got:"الْوِسامِ الْفِضِّيِّ",name:"فِضِّيٌّ",c:"#7A8797",t:"أَسْتَطيعُ أَنْ "+D.crit[1]},
+ {k:"gold",got:"الْوِسامِ الذَّهَبِيِّ",name:"ذَهَبِيٌّ",c:"#C99A1E",t:"أَسْتَطيعُ أَنْ "+D.crit[2]},
+ {k:"challenge",got:"وِسامِ التَّحَدّي",name:"تَحَدٍّ",c:"#7B4FC0",t:"أَسْتَطيعُ أَنْ "+D.crit[3]}
+];
+const pic=(name,cls)=>name?`<img src="${IMG}${name}.webp" alt=""${cls?` class="${cls}"`:""}>`:"";
+const emo=(e,sz)=>`<span style="font-size:${sz||90}px;line-height:1">${e||"✨"}</span>`;
+const WORDS={};D.words.forEach(w=>{WORDS[w[0]]={m:w[1],e:w[2],pic:`<div style="display:grid;place-items:center;width:100%;height:100%">${emo(w[2],110)}</div>`}});
+const HL=D.hl||{},READHEAD=D.readhead||"",PQ=null,SCENE_IMG=D.hookImg?{0:D.hookImg}:{};
+const STATIONS=[
+ {id:"ready",t:"أَتَهَيَّأُ",s:"قَبْلَ الرِّحْلَةِ",bg:"#F2F7FC",x:50,y:7},
+ {id:"read",t:"أَقْرَأُ وَأَكْتَشِفُ",s:"نَصُّ الدَّرْسِ",bg:"#FFF9EE",x:22,y:17},
+ {id:"words",t:"كَلِماتي",s:"لُعْبَةُ الذّاكِرَةِ",bg:"#F3F0FB",x:72,y:27},
+ {id:"match",t:D.match.title,s:"أَصِلُ",bg:"#FBF1EA",x:30,y:38,crit:0},
+ {id:"map",t:D.map.title,s:"أَفْهَمُ النَّصَّ",bg:"#EEF5F1",x:74,y:49,crit:1},
+ {id:"order",t:D.order.title,s:D.order.type==="words"?"أُكَوِّنُ جُمَلًا":"أُرَتِّبُ وَأَحْكي",bg:"#FFF8EA",x:26,y:60,crit:2},
+ {id:"message",t:"رِسالَتي",s:"الدَّرْسُ وَحَياتي",bg:"#F5F0FC",x:70,y:71,crit:3},
+ {id:"family",t:"مَعَ أُسْرَتي",s:"مُهِمَّةُ الْبَيْتِ",bg:"#EFF7F1",x:28,y:82},
+ {id:"check",t:"أَتَحَقَّقُ",s:"الْقِنْديلُ الْأَخيرُ",bg:"#FFF6E3",x:62,y:93},
+];
+
+/* ================= الحالة والحفظ ================= */
+const EMBED=window.parent!==window&&/[?&]embed=1/.test(location.search);
+let KEY="hiraa-journey-"+LESSON.code,ROLE="guest",NAME="";
+const S0={pre:{},post:{},done:{},medals:{},mist:[],first:{},words:[],start:Date.now(),secs:0,fam:{asked:[],week:{}},card:null,quiz:null,retold:false};
+const fresh=()=>JSON.parse(JSON.stringify(S0));
+const load=k=>{try{const v=JSON.parse(localStorage.getItem(k)||"null");return v?Object.assign(fresh(),v):null}catch(e){return null}};
+const doneN=x=>Object.keys((x&&x.done)||{}).filter(k=>x.done[k]).length;
+let S=EMBED?fresh():(load(KEY)||fresh());
+function save(){if(ROLE==="staff")return;S.meta={crit:CRIT.map(c=>c.t.replace(/[\u064B-\u0652]/g,"")),total:STATIONS.length};try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+ try{if(EMBED&&ROLE==="student")window.parent.postMessage({type:"hiraa-journey",code:LESSON.code,state:S},location.origin)}catch(e){}}
+setInterval(()=>{if(!document.hidden&&ROLE!=="staff"){S.secs+=15;save()}},15000);
+
+/* ================= أدوات ================= */
+const $=s=>document.querySelector(s);
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+const h=(html)=>{const t=document.createElement("template");t.innerHTML=html.trim();return t.content.firstChild};
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const kwHTML=t=>t.replace(/\[\[(.+?)\]\]/g,(_,w)=>`<span class="kw" data-w="${w}" tabindex="0">${w}</span>`);
+const plain=t=>t.replace(/\[\[|\]\]/g,"");
+function addMistake(st,q,opts,ans,given){
+ if(!S.mist.find(m=>m.q===q)){S.mist.push({st,q,opts,ans,given});save();updMist()}
+}
+function firstTry(id,ok){if(!(id in S.first)){S.first[id]=ok;save()}}
+function updMist(){const n=S.mist.length;$("#mistCnt").textContent=n;$("#mistCnt").classList.toggle("zero",n===0)}
+
+/* ================= سالم ================= */
+let bT;
+function say(text,face="head",ms=5200){
+ $("#bText").innerHTML=text;$("#bFace").src=SALEM+face+".webp";
+ $("#bubble").classList.add("show");const s=$("#salem");s.classList.remove("talk");void s.offsetWidth;s.classList.add("talk");
+ clearTimeout(bT);if(ms)bT=setTimeout(()=>$("#bubble").classList.remove("show"),ms);
+}
+$("#bX").onclick=()=>$("#bubble").classList.remove("show");
+const PRAISE=["أَحْسَنْتَ يا بَطَلَ حِراءٍ!","رائِعٌ! قِنْديلُكَ يَزْدادُ نورًا.","مُمْتازٌ! أَنْتَ قارِئٌ ذَكِيٌّ.","أَصَبْتَ! هكَذا يَكونُ الْأَبْطالُ."];
+const praise=()=>PRAISE[Math.floor(Math.random()*PRAISE.length)];
+
+/* ================= المؤثرات ================= */
+const fx=$("#fx"),cx=fx.getContext("2d");let parts=[];
+function resize(){fx.width=innerWidth;fx.height=innerHeight}resize();addEventListener("resize",resize);
+function burst(x=innerWidth/2,y=innerHeight/3,n=90){
+ const cols=["#C4943A","#E9C77B","#102A4C","#1F9D6B","#F7B731","#7B4FC0"];
+ for(let i=0;i<n;i++)parts.push({x,y,vx:(Math.random()-.5)*14,vy:Math.random()*-13-3,g:.38,r:Math.random()*6+3,c:cols[i%cols.length],a:1,rot:Math.random()*6,star:Math.random()<.4});
+ if(parts.length===n)requestAnimationFrame(tick);
+}
+function tick(){cx.clearRect(0,0,fx.width,fx.height);
+ parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.99;p.a-=.008;p.rot+=.1;cx.save();cx.globalAlpha=Math.max(p.a,0);cx.fillStyle=p.c;cx.translate(p.x,p.y);cx.rotate(p.rot);
+  if(p.star){cx.beginPath();for(let k=0;k<5;k++){cx.lineTo(Math.cos((18+k*72)*Math.PI/180)*p.r*1.6,-Math.sin((18+k*72)*Math.PI/180)*p.r*1.6);cx.lineTo(Math.cos((54+k*72)*Math.PI/180)*p.r*.7,-Math.sin((54+k*72)*Math.PI/180)*p.r*.7)}cx.fill()}
+  else cx.fillRect(-p.r/2,-p.r/2,p.r,p.r*1.6);cx.restore()});
+ parts=parts.filter(p=>p.a>0&&p.y<fx.height+40);if(parts.length)requestAnimationFrame(tick);else cx.clearRect(0,0,fx.width,fx.height)}
+let actx;function tone(ok){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();const t=actx.currentTime;
+ (ok?[523,659,784]:[311,262]).forEach((f,i)=>{const o=actx.createOscillator(),g=actx.createGain();o.type=ok?"triangle":"sine";o.frequency.value=f;g.gain.setValueAtTime(.0001,t+i*.09);g.gain.exponentialRampToValueAtTime(.18,t+i*.09+.02);g.gain.exponentialRampToValueAtTime(.0001,t+i*.09+.25);o.connect(g).connect(actx.destination);o.start(t+i*.09);o.stop(t+i*.09+.3)})}catch(e){}}
+
+/* ================= الأوسمة ================= */
+function drawMedals(pop){const m=$("#medals");m.innerHTML="";
+ CRIT.forEach(c=>{const on=!!S.medals[c.k];const d=h(`<div class="medal ${on?"on":""} ${pop===c.k?"pop":""}" style="--c:${c.c};color:${on?c.c:"#9b8f78"}" title="${c.name}: ${c.t}"><svg><use href="#medal"/></svg></div>`);m.appendChild(d)})}
+function award(k){if(S.medals[k])return;S.medals[k]=true;save();drawMedals(k);const c=CRIT.find(x=>x.k===k);
+ setTimeout(()=>{burst(innerWidth/2,innerHeight/2,70);say(`حَصَلْتَ عَلى <b style="color:${c.c}">${c.got}</b>! ${c.t}`,"great",6000)},400)}
+
+/* ================= الخريطة ================= */
+function unlocked(i){return i===0||!!S.done[STATIONS[i-1].id]}
+function drawMap(){
+ const inner=$("#mapInner");inner.querySelectorAll(".node").forEach(n=>n.remove());
+ const W=inner.clientWidth,H=inner.clientHeight;const svg=$("#path");svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+ const pts=STATIONS.map(s=>[W*(100-s.x)/100,H*s.y/100]);
+ let d=`M${pts[0][0]} ${pts[0][1]}`;for(let i=1;i<pts.length;i++){const [x0,y0]=pts[i-1],[x1,y1]=pts[i];const my=(y0+y1)/2;d+=` C${x0} ${my} ${x1} ${my} ${x1} ${y1}`}
+ const lit=STATIONS.filter(s=>S.done[s.id]).length;
+ svg.innerHTML=`<path d="${d}" fill="none" stroke="#E5D6B5" stroke-width="16" stroke-linecap="round"/><path d="${d}" fill="none" stroke="#fff" stroke-width="5" stroke-dasharray="2 18" stroke-linecap="round"/><path id="litPath" d="${d}" fill="none" stroke="url(#gg)" stroke-width="10" stroke-linecap="round"/><defs><linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7B731"/><stop offset="1" stop-color="#C4943A"/></linearGradient></defs>`;
+ const lp=$("#litPath"),L=lp.getTotalLength();
+ // طول المسار حتى آخر محطة مضاءة
+ let target=0;if(lit>0){const idx=Math.min(lit,STATIONS.length-1);let best=0,bd=1e9;for(let t=0;t<=L;t+=4){const p=lp.getPointAtLength(t);const dd=Math.hypot(p.x-pts[idx][0],p.y-pts[idx][1]);if(dd<bd){bd=dd;best=t}}target=lit>=STATIONS.length?L:best}
+ lp.style.strokeDasharray=L;lp.style.strokeDashoffset=L;lp.getBoundingClientRect();lp.style.transition="stroke-dashoffset 1.6s ease";lp.style.strokeDashoffset=L-target;
+ STATIONS.forEach((s,i)=>{const done=!!S.done[s.id],un=unlocked(i),cur=un&&!done;
+  const c=s.crit!=null?CRIT[s.crit]:null;
+  const n=h(`<button class="node ${done?"done":""} ${cur?"current":""} ${un?"":"locked"}" style="right:${s.x}%;top:${s.y}%" aria-label="${plain(s.t)}">
+   <div class="lamp"><div class="glow"></div><span class="num">${i+1}</span><svg viewBox="0 0 100 120" style="width:100%;height:100%;position:relative"><use href="#lamp" class="${done?"lit":""}"/></svg></div>
+   <div class="lbl">${s.t}<small>${s.s}</small></div>${c?`<span class="tag" style="background:${c.c}">${c.name}</span>`:""}</button>`);
+  n.onclick=e=>{if(!un){n.classList.add("shake");setTimeout(()=>n.classList.remove("shake"),500);say("أَكْمِلِ الْمَحَطَّةَ السّابِقَةَ أَوَّلًا لِيُضيءَ هذا الْقِنْديلُ.","think");return}openStation(i,e)};
+  inner.appendChild(n);
+ });
+ // إضاءة لهب القناديل المكتملة
+ document.querySelectorAll(".node.done svg").forEach(sv=>{sv.innerHTML=`<circle cx="50" cy="8" r="5" fill="none" stroke="#102A4C" stroke-width="3.5"/><path d="M32 34 Q32 20 50 14 Q68 20 68 34Z" fill="#102A4C"/><rect x="26" y="34" width="48" height="7" rx="3.5" fill="#102A4C"/><path d="M29 44 L71 44 L78 100 Q50 114 22 100Z" fill="#FFF1C9" stroke="#102A4C" stroke-width="5" stroke-linejoin="round"/><path d="M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z" fill="#F7B731"><animate attributeName="d" dur="1.4s" repeatCount="indefinite" values="M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z;M50 52 L63 80 Q66 89 58 94 L42 94 Q34 89 37 80Z;M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z"/></path><line x1="36" y1="112" x2="64" y2="112" stroke="#102A4C" stroke-width="5" stroke-linecap="round"/>`});
+}
+
+/* ================= فتح المحطة ================= */
+let curI=-1;
+function openStation(i,e){curI=i;const s=STATIONS[i];const st=$("#stage");
+ const x=e?e.clientX:innerWidth/2,y=e?e.clientY:innerHeight/2;st.style.setProperty("--x",x+"px");st.style.setProperty("--y",y+"px");st.style.setProperty("--bg",s.bg);
+ const c=s.crit!=null?CRIT[s.crit]:null;
+ st.innerHTML=`<div class="bar"><button class="back" id="backBtn" aria-label="رجوع">→</button><h2>${s.t}</h2>${c?`<span class="crit" style="background:${c.c}">${c.name}: ${c.t}</span>`:""}</div><div class="wrap" id="sw"></div>`;
+ st.style.display="block";requestAnimationFrame(()=>requestAnimationFrame(()=>st.classList.add("open")));st.scrollTop=0;
+ $("#backBtn").onclick=closeStation;
+ RENDER[s.id]($("#sw"));
+}
+function closeStation(){const st=$("#stage");st.classList.remove("open");setTimeout(()=>{st.style.display="none";st.innerHTML="";drawMap()},750)}
+function complete(id,msg){const first=!S.done[id];S.done[id]=true;save();
+ const sw=$("#sw");const i=STATIONS.findIndex(s=>s.id===id);const next=STATIONS[i+1];
+ const box=h(`<div class="card center reveal" style="margin-top:26px;background:linear-gradient(135deg,#FFF7E0,#fff)"><svg viewBox="0 0 100 120" width="90"><circle cx="50" cy="8" r="5" fill="none" stroke="#102A4C" stroke-width="3.5"/><path d="M32 34 Q32 20 50 14 Q68 20 68 34Z" fill="#102A4C"/><rect x="26" y="34" width="48" height="7" rx="3.5" fill="#102A4C"/><path d="M29 44 L71 44 L78 100 Q50 114 22 100Z" fill="#FFF1C9" stroke="#102A4C" stroke-width="5"/><path d="M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z" fill="#F7B731"/></svg><h3 style="font-size:30px;color:var(--navy);margin:6px 0">أَضاءَ الْقِنْديلُ ${i+1}!</h3><p style="margin:0 0 16px;font-size:22px">${msg||""}</p>${next?`<button class="btn gold" id="goNext">الْمَحَطَّةُ التّالِيَةُ: ${next.t} ←</button> `:""}<button class="btn ghost" id="goMap">إِلى الْخَريطَةِ</button></div>`);
+ sw.appendChild(box);box.scrollIntoView({behavior:"smooth",block:"center"});
+ if(first){burst();tone(true)}
+ box.querySelector("#goMap").onclick=closeStation;
+ if(next)box.querySelector("#goNext").onclick=()=>{const st=$("#stage");st.classList.remove("open");setTimeout(()=>{drawMap();openStation(i+1)},650)};
+}
+
+/* سؤال اختيار من متعدد عام */
+function mcq(el,{id,q,o,a,st,hint,onDone,big}){
+ const order=shuffle(o.map((t,i)=>i));let tries=0;
+ const box=h(`<div><div class="opts">${order.map(k=>`<button class="opt" data-k="${k}"><span class="dot"></span><span>${o[k]}</span></button>`).join("")}</div></div>`);
+ el.appendChild(box);
+ box.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(box.dataset.done)return;const k=+b.dataset.k;tries++;
+  if(k===a){b.classList.add("ok");b.querySelector(".dot").textContent="✓";box.dataset.done=1;firstTry(id,tries===1);tone(true);say(praise(),"cheer",2600);onDone&&onDone(tries===1)}
+  else{b.classList.add("no","shake");b.querySelector(".dot").textContent="✕";tone(false);
+   if(tries===1){addMistake(st,q,o,a,o[k]);say(hint||"لا بَأْسَ! اقْرَأْ مَرَّةً أُخْرى وَفَكِّرْ… أَنْتَ قادِرٌ.","think",4500)}
+   setTimeout(()=>b.classList.remove("shake"),500)}});
+ return box;
+}
+
+/* ===== محطة القراءة: نص الكتاب الأصلي كاملًا (يصل من المنصة حسب صلاحية الطالب) ===== */
+let BOOK=null;
+const kwBook=t=>t.replace(/\[\[(.+?)\]\]/g,(_,w)=>{const c=HL[w];return c&&WORDS[c]?`<span class="kw" data-w="${c}" tabindex="0">${w}</span>`:`<span class="kw nk">${w}</span>`});
+function bookBlocks(B){
+ const body=String(B.body||"").replace(/\r/g,"").trim();
+ if(B.kind==="poem"){const L=body.split("\n").map(s=>s.trim()).filter(Boolean);const out=[];for(let i=0;i<L.length;i+=2)out.push({poem:true,lines:L.slice(i,i+2)});return out}
+ const parts=/\n\s*\n/.test(body)?body.split(/\n\s*\n/):body.split("\n");
+ return parts.map(s=>s.trim()).filter(Boolean).map(s=>({lines:s.split("\n").map(x=>x.trim()).filter(Boolean)}));
+}
+function readBook(el){
+ if(!BOOK||!BOOK.body){
+  el.appendChild(h(`<div class="card center reveal"><div style="font-size:70px">📖</div><h3 style="font-size:28px;color:var(--navy)">نَصُّ الْكِتابِ</h3><p style="font-size:22px;line-height:1.9">يَظْهَرُ نَصُّ الْكِتابِ كامِلًا حينَ تَفْتَحُ الرِّحْلَةَ مِنْ صَفْحَةِ الدَّرْسِ في مِنَصَّةِ حِراءٍ.<br>اقْرَأِ النَّصَّ مِنْ كِتابِكَ الْآنَ، ثُمَّ الْمِسِ الزِّرَّ.</p><button class="btn gold" id="rdOk">قَرَأْتُ النَّصَّ ✓</button></div>`));
+  el.querySelector("#rdOk").onclick=()=>{el.querySelector("#rdOk").remove();if(window.__afterRead)window.__afterRead();else if(!S.done.read)complete("read","قَرَأْتَ النَّصَّ!")};return}
+ const blocks=bookBlocks(BOOK),N=blocks.length;
+ el.appendChild(h(`<div class="inst"><span class="ic">📖</span>${READHEAD||"أَقْرَأُ النَّصَّ"}: أَقْرَأُ النَّصَّ كُلَّهُ جُزْءًا جُزْءًا، وَأَلْمِسُ الْكَلِمَةَ الْمُلَوَّنَةَ لِأَعْرِفَ مَعْناها.</div>`));
+ if(BOOK.audioUrl)el.appendChild(h(`<div class="card reveal" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px;background:linear-gradient(135deg,#EEF6FF,#fff)"><span style="font-size:40px">🎧</span><b style="font-family:'Thmanyah Display';font-size:22px;color:var(--navy)">أَسْتَمِعُ إِلى النَّصِّ</b><audio controls preload="none" src="${esc(BOOK.audioUrl)}" style="flex:1;min-width:220px"></audio></div>`));
+ const story=h(`<div class="story"></div>`);el.appendChild(story);
+ const meanings=Object.keys(WORDS).map(k=>WORDS[k].m);
+ const next=i=>{if(i+1<N&&story.children.length===i+1){setTimeout(()=>{addScene(i+1);story.lastChild.scrollIntoView({behavior:"smooth",block:"center"})},600)}
+  else if(i+1===N&&!S.done.read){setTimeout(()=>window.__afterRead?window.__afterRead():complete("read","قَرَأْتَ نَصَّ الْكِتابِ كُلَّهُ!"),700)}};
+ function addScene(i){const b=blocks[i];
+  const raw=b.lines.join("\n");const kws=[...raw.matchAll(/\[\[(.+?)\]\]/g)].map(m=>m[1]).filter(w=>HL[w]&&WORDS[HL[w]]);
+  let q=PQ&&PQ[i];
+  if(!q&&kws.length){const w=kws[0],m=WORDS[HL[w]].m;const o=[m,...shuffle(meanings.filter(x=>x!==m)).slice(0,2)];q={q:`ما مَعْنى «${w}»؟`,o,a:0}}
+  (window.__RQ=window.__RQ||[])[i]=q||null;
+  const img=SCENE_IMG&&SCENE_IMG[i];const em=kws.length&&WORDS[HL[kws[0]]].e?WORDS[HL[kws[0]]].e:"📖";
+  const pv=img?`<img src="${IMG}${img}.webp" alt="">`:`<div style="display:grid;place-items:center;width:100%;height:100%"><span style="font-size:90px;line-height:1">${em}</span></div>`;
+  const len=raw.length,fs=b.poem?30:len>420?23:len>240?26:30;
+  const txt=b.lines.map(l=>kwBook(l)).join(b.poem?"<br>":"<br>");
+  const n=h(`<div class="scene reveal${b.poem?" verse":""}" style="--tint:${["#EEF0FA","#E8F5EC","#FDEEE8","#FFF3DD","#F1ECFA"][i%5]}"><span class="n">${i+1} / ${N}</span><div class="pic">${pv}</div><div><div class="txt" style="font-size:${fs}px${b.poem?";text-align:center":""}">${txt}</div>${q?`<div class="think"><h4>🤔 أَتَوَقَّفُ وَأُفَكِّرُ: ${q.q}</h4><div class="tq"></div></div>`:`<div class="tq2" style="margin-top:10px"></div>`}</div></div>`);
+  story.appendChild(n);
+  n.querySelectorAll(".kw[data-w]").forEach(k=>k.onclick=()=>showWord(k));
+  if(q)mcq(n.querySelector(".tq"),{id:"read"+i,q:q.q,o:q.o,a:q.a,st:"read",hint:q.hint||"ارْجِعْ إِلى هذا الْجُزْءِ مِنَ النَّصِّ، وَالْمِسِ الْكَلِمَةَ الْمُلَوَّنَةَ.",onDone:()=>next(i)});
+  else{const bt=h(`<button class="btn ghost">قَرَأْتُهُ ✓</button>`);n.querySelector(".tq2").appendChild(bt);bt.onclick=()=>{bt.disabled=true;tone(true);next(i)}}
+ }
+ if(S.done.read){blocks.forEach((_,i)=>addScene(i));if(window.__afterRead)window.__afterRead()}else addScene(0);
+ say("اقْرَأْ بِصَوْتٍ واضِحٍ، ثُمَّ أَجِبْ لِيَنْفَتِحَ الْجُزْءُ التّالي.","listen",5500);
+}
+
+/* ================= المحطات ================= */
+const kwHTML2=t=>t.replace(/\[\[(.+?)(?:\|(.+?))?\]\]/g,(_,w,c)=>c&&WORDS[c]?`<span class="kw" data-w="${c}" tabindex="0">${w}</span>`:`<span class="kw nk">${w}</span>`);
+const FACES=[["😟","أَحْتاجُ مُساعَدَةً"],["🙂","أَسْتَطيعُ قَليلًا"],["😄","أَسْتَطيعُ جَيِّدًا"]];
+function rating(el,store,onAll){
+ el.appendChild(h(`<div class="rate">${CRIT.map((c,i)=>`<div class="rrow reveal" style="--c:${c.c};animation-delay:${i*.12}s"><p>${c.t}</p><div class="faces">${FACES.map((f,j)=>`<button class="face ${store[c.k]===j?"sel":""}" data-c="${c.k}" data-v="${j}" title="${f[1]}" aria-label="${f[1]}">${f[0]}</button>`).join("")}</div></div>`).join("")}</div>`));
+ el.querySelectorAll(".face").forEach(b=>b.onclick=()=>{store[b.dataset.c]=+b.dataset.v;save();
+  b.parentNode.querySelectorAll(".face").forEach(x=>x.classList.toggle("sel",x===b));tone(true);
+  if(CRIT.every(c=>c.k in store))onAll()});
+}
+/* توصيل زوجين: يمين ↔ يسار */
+function pairMatch(el,{id,st,left,right,qOf,onDone}){
+ const ord=shuffle(right.map((_,i)=>i));
+ const m=h(`<div class="match"><div class="col">${left.map((x,i)=>`<button class="who" data-i="${i}">${x}</button>`).join("")}</div><div class="col">${ord.map(i=>`<button class="love" data-i="${i}"><span>${right[i]}</span></button>`).join("")}</div></div>`);el.appendChild(m);
+ let sel=null,okN=0,miss=0;
+ m.querySelectorAll(".who").forEach(b=>b.onclick=()=>{if(b.classList.contains("ok"))return;m.querySelectorAll(".who").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");sel=b});
+ m.querySelectorAll(".love").forEach(b=>b.onclick=()=>{if(b.classList.contains("ok"))return;if(!sel){say("الْمِسْ بِطاقَةً مِنَ الْعَمودِ الْأَيْمَنِ أَوَّلًا.","think",2500);return}
+  const i=+sel.dataset.i;if(+b.dataset.i===i){b.classList.add("ok");b.insertAdjacentHTML("beforeend",`<span class="who-chip">✓</span>`);sel.classList.remove("sel");sel.classList.add("ok");sel=null;okN++;tone(true);say(praise(),"cheer",2000);
+    if(okN===left.length){firstTry(id,miss===0);onDone&&onDone(miss)}}
+  else{miss++;b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),500);tone(false);if(miss<=2)addMistake(st,qOf(i),right,i,right[+b.dataset.i]);say("فَكِّرْ مَرَّةً أُخْرى… ارْجِعْ إِلى النَّصِّ إِنِ احْتَجْتَ.","think",3200)}});
+}
+function retellBox(el,title,hint,onDone){
+ const c=h(`<div class="card reveal" style="margin-top:24px;text-align:center"><div class="inst" style="justify-content:center;margin-top:0"><span class="ic">🎙️</span>${title}</div>
+  <p style="font-size:21px;color:#6b5a35;margin:0">${hint}</p>
+  <div class="rec"><button class="micbtn" aria-label="تسجيل">🎤</button><span class="timer">0:00</span><span class="play"></span></div>
+  <button class="btn ghost nomic" style="margin-top:12px;font-size:18px">قُلْتُها لِأَهْلي بِصَوْتٍ عالٍ ✓</button></div>`);
+ el.appendChild(c);c.scrollIntoView({behavior:"smooth",block:"center"});
+ let rec,chunks=[],t0,iv,fin=false;const finish=()=>{if(fin)return;fin=true;S.retold=true;save();onDone()};
+ c.querySelector(".nomic").onclick=finish;
+ c.querySelector(".micbtn").onclick=async()=>{const b=c.querySelector(".micbtn");
+  if(rec&&rec.state==="recording"){rec.stop();return}
+  try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});rec=new MediaRecorder(stream);chunks=[];
+   rec.ondataavailable=e=>chunks.push(e.data);
+   rec.onstop=()=>{clearInterval(iv);b.classList.remove("on");b.textContent="🎤";stream.getTracks().forEach(t=>t.stop());const url=URL.createObjectURL(new Blob(chunks,{type:rec.mimeType}));window.__retell=url;
+    c.querySelector(".play").innerHTML=`<audio controls src="${url}"></audio>`;say("ما أَجْمَلَ صَوْتَكَ! اسْتَمِعْ إِلى نَفْسِكَ.","listen",4500);finish()};
+   rec.start();t0=Date.now();b.classList.add("on");b.textContent="⏹";iv=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);c.querySelector(".timer").textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`;if(s>=60)rec.stop()},250)}
+  catch(e){say("لَمْ أَسْتَطِعْ فَتْحَ الْميكْروفونِ. قُلْها لِأَهْلِكَ، ثُمَّ الْمِسِ الزِّرَّ الْأَبْيَضَ.","think",6000)}};
+}
+/* أُرَكِّبُ الْكَلِمَةَ: يَلْمِسُ الطِّفْلُ الْحُروفَ بِالتَّرْتيبِ فَتَتَّصِلُ أَمامَهُ (كَلِماتُ الدَّرْسِ نَفْسُها) */
+function buildWords(el,words,done){
+ const cl=w=>w.match(/[\u0621-\u064A\u0671-\u06D3][\u064B-\u065F\u0670\u0640]*/g)||[];
+ const list=words.filter(p=>p[0]&&!/\s/.test(p[0])&&cl(p[0]).length>=3&&cl(p[0]).length<=8);
+ if(list.length<2){done();return}
+ el.appendChild(h(`<div class="inst reveal" style="margin-top:26px"><span class="ic">🔤</span>أُرَكِّبُ الْكَلِمَةَ: أَلْمِسُ الْحُروفَ بِالتَّرْتيبِ.</div>`));
+ const box=h(`<div class="card reveal wbk"></div>`);el.appendChild(box);box.scrollIntoView({behavior:"smooth",block:"center"});
+ let k=0;
+ const round=()=>{
+  const p=list[k],L=cl(p[0]);let n=0,tiles=shuffle(L.map((x,i)=>i));
+  if(L.length>1&&tiles.every((t,i)=>t===i))tiles=tiles.slice(1).concat(tiles[0]);
+  box.innerHTML=`<div class="wbk-top"><span dir="ltr">${k+1} / ${list.length}</span></div><div class="wbk-clue">${p[2]?`<span class="wbk-em">${p[2]}</span>`:""}<p>${p[1]}</p></div>
+   <div class="wbk-slot" dir="rtl" aria-live="polite"><span class="wbk-got"></span><span class="wbk-rest">${"﹏".repeat(L.length)}</span></div>
+   <div class="wbk-tiles" dir="rtl">${tiles.map(i=>`<button class="wbk-t" data-i="${i}" aria-label="حَرْفٌ">${L[i]}</button>`).join("")}</div>`;
+  const got=box.querySelector(".wbk-got"),rest=box.querySelector(".wbk-rest");
+  box.querySelectorAll(".wbk-t").forEach(b=>b.onclick=()=>{
+   if(b.classList.contains("used"))return;
+   if(b.textContent===L[n]){b.classList.add("used");b.disabled=true;n++;got.textContent=L.slice(0,n).join("");rest.textContent="﹏".repeat(L.length-n);tone(true);
+    if(n===L.length){if(Array.isArray(S.words)&&!S.words.includes(p[0])){S.words.push(p[0]);save()}box.querySelector(".wbk-slot").classList.add("ok");say(`أَحْسَنْتَ! رَكَّبْتَ «${p[0]}»`,"cheer",2500);
+     setTimeout(()=>{k++;if(k<list.length)round();else{box.querySelector(".wbk-tiles").remove();say("رَكَّبْتَ كَلِماتِ الدَّرْسِ كُلَّها!","cheer",3000);done()}},1300)}}
+   else{b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),500);tone(false);say("لَيْسَ هذا هُوَ الْحَرْفُ التّالي… جَرِّبْ حَرْفًا آخَرَ.","think",2500)}});
+ };
+ round();
+}
+const RENDER={
+ ready(el){
+  el.appendChild(h(`<div class="card reveal" style="display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:center;background:linear-gradient(135deg,#fff,#F3F8FD)">${D.cover?`<img src="${IMG}${D.cover}.webp" alt="" style="width:220px;border-radius:22px">`:emo("📖",120)}<div><h3 style="font-size:32px;color:var(--navy)">هَدَفُ رِحْلَتي</h3><p style="font-size:26px;line-height:1.9;margin:8px 0 0">${D.objective}</p></div></div>`));
+  el.appendChild(h(`<div class="inst" style="margin-top:26px"><span class="ic">🧭</span>كَيْفَ أَشْعُرُ الْآنَ؟ أَخْتارُ وَجْهًا لِكُلِّ جُمْلَةٍ.</div>`));
+  rating(el,S.pre,()=>{if(!S.done.ready){say("شُكْرًا! سَنَعودُ إِلى هذِهِ الْوُجوهِ في آخِرِ الرِّحْلَةِ لِنَرى كَمْ تَقَدَّمْتَ.","wink",5000);complete("ready","الْآنَ نَبْدَأُ رِحْلَتَنا مَعَ النَّصِّ.")}});
+  say("أَهْلًا يا بَطَلَ حِراءٍ! أَنا سالِمٌ، سَأُرافِقُكَ في رِحْلَةِ الْقَناديلِ.","cheer",5000);
+ },
+ read(el){readBook(el)},
+ words(el){
+  el.appendChild(h(`<div class="inst"><span class="ic">🃏</span>أَقْلِبُ بِطاقَتَيْنِ: أَجْمَعُ كُلَّ كَلِمَةٍ مَعَ مَعْناها.</div>`));
+  const pairs=D.words.slice(0,4);
+  const cards=shuffle(pairs.flatMap((p,i)=>[{i,type:"word",html:`<div style="font-size:44px;line-height:1.1">${p[2]||""}</div><div>${p[0]}</div>`},{i,type:"mean",html:p[1]}]));
+  const back='<svg viewBox="0 0 100 120"><path d="M32 34 Q32 20 50 14 Q68 20 68 34Z" fill="#E9C77B"/><rect x="26" y="34" width="48" height="7" rx="3.5" fill="#E9C77B"/><path d="M29 44 L71 44 L78 100 Q50 114 22 100Z" fill="none" stroke="#E9C77B" stroke-width="5"/><path d="M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z" fill="#F7B731"/></svg>';
+  const g=h(`<div class="memory">${cards.map((c,k)=>`<button class="mc" data-k="${k}"><div class="f">${back}</div><div class="b ${c.type==="word"?"word":""}"><div>${c.html}</div></div></button>`).join("")}</div>`);el.appendChild(g);
+  let open=[],found=0,moves=0,lock=false;
+  g.querySelectorAll(".mc").forEach(b=>b.onclick=()=>{if(lock||b.classList.contains("flip")||b.classList.contains("matched"))return;b.classList.add("flip");open.push(b);
+   if(open.length===2){moves++;lock=true;const [x,y]=open.map(o=>cards[+o.dataset.k]);
+    if(x.i===y.i&&x.type!==y.type){setTimeout(()=>{open.forEach(o=>o.classList.add("matched"));open=[];lock=false;found++;tone(true);
+      const w=pairs[x.i][0];if(!S.words.includes(w)){S.words.push(w);save()}
+      say(`«${w}» = ${pairs[x.i][1]}`,"idea",3000);
+      if(found===pairs.length){firstTry("words",moves<=pairs.length+3);setTimeout(()=>buildWords(el,D.words.slice(0,4),()=>complete("words",`جَمَعْتَ الْكَلِماتِ كُلَّها في ${moves} مُحاوَلاتٍ، وَرَكَّبْتَها حَرْفًا حَرْفًا!`)),700)}},500)}
+    else{setTimeout(()=>{open.forEach(o=>o.classList.remove("flip"));open=[];lock=false},1000)}}});
+  say("تَذَكَّرْ مَكانَ كُلِّ بِطاقَةٍ… الذّاكِرَةُ الْقَوِيَّةُ تَصْنَعُ قارِئًا قَوِيًّا!","wink",4500);
+ },
+ match(el){
+  el.appendChild(h(`<div class="inst"><span class="ic">👆</span>${D.match.head}: أَلْمِسُ بِطاقَةً، ثُمَّ أَلْمِسُ ما يُناسِبُها.</div>`));
+  pairMatch(el,{id:"match",st:"match",left:D.match.rows.map(r=>`<b>${r[0]}</b>`),right:D.match.rows.map(r=>r[1]),qOf:i=>`${D.match.head}: «${D.match.rows[i][0]}» ← ؟`,
+   onDone:()=>{award("bronze");setTimeout(()=>complete("match","أَحْسَنْتَ التَّوْصيلَ!"),1600)}});
+ },
+ map(el){
+  el.appendChild(h(`<div class="inst"><span class="ic">🗺️</span>${D.map.head}: أَصِلُ كُلَّ سُؤالٍ بِجَوابِهِ مِنَ النَّصِّ.</div>`));
+  pairMatch(el,{id:"map",st:"map",left:D.map.rows.map(r=>`<span style="font-size:40px">${r[0]}</span><b>${r[1]}</b>`),right:D.map.rows.map(r=>r[2]),qOf:i=>`${D.map.rows[i][1]}`,
+   onDone:()=>{say("رائِعٌ! بَقِيَ سُؤالٌ عَنْ كَلِمَةٍ.","great",2500);
+    const c=h(`<div class="card reveal" style="margin-top:24px"><div class="inst" style="margin:0 0 6px"><span class="ic">🔍</span>${D.wordj.head}</div><p style="font-size:26px;line-height:1.9;margin:0 0 4px">${D.wordj.sent}</p><h3 style="font-size:24px;color:var(--navy)">${D.wordj.q}</h3></div>`);el.appendChild(c);c.scrollIntoView({behavior:"smooth",block:"center"});
+    mcq(c,{id:"wordj",q:D.wordj.q+" "+D.wordj.sent,o:D.wordj.o,a:D.wordj.a,st:"map",hint:"اقْرَأِ الْجُمْلَةَ كُلَّها، فَالْمَعْنى يَظْهَرُ مِنْها.",onDone:()=>{c.appendChild(h(`<p class="reveal" style="font-size:20px;color:#1F7A55;margin:12px 0 0">💡 ${D.wordj.model}</p>`));award("silver");setTimeout(()=>complete("map","فَهِمْتَ النَّصَّ وَكَلِماتِهِ."),1800)}});
+   }});
+ },
+ order(el){
+  const O=D.order;
+  if(O.type==="words"){
+   el.appendChild(h(`<div class="inst"><span class="ic">🧩</span>${O.head}: أَلْمِسُ الْكَلِماتِ بِالتَّرْتيبِ لِأُكَوِّنَ جُمْلَةً مُفيدَةً.</div>`));
+   let k=0,miss=0;
+   const one=()=>{const it=O.items[k];const box=h(`<div class="card reveal" style="margin-top:16px;text-align:center"><div style="font-family:'Thmanyah Sans';font-weight:700;color:var(--gold)">${k+1} / ${O.items.length}</div><div class="sent" style="min-height:70px;font-size:32px;line-height:2;border-bottom:3px dashed #E6D8B8;margin:6px 0 16px;color:var(--navy)"></div><div class="chips" style="box-shadow:none;background:#FFF9EC"></div></div>`);el.appendChild(box);box.scrollIntoView({behavior:"smooth",block:"center"});
+    const tiles=shuffle(it.tiles.map((t,i)=>i));let pos=0;
+    tiles.forEach(i=>{const b=h(`<button class="chip">${it.tiles[i]}</button>`);box.querySelector(".chips").appendChild(b);
+     b.onclick=()=>{if(it.seq[pos]===i){b.style.visibility="hidden";box.querySelector(".sent").insertAdjacentHTML("beforeend",`<span class="reveal" style="display:inline-block;margin:0 6px">${it.tiles[i]}</span>`);pos++;tone(true);
+       if(pos===it.seq.length){box.querySelector(".sent").innerHTML=it.answer;box.querySelector(".chips").remove();say(praise(),"cheer",2200);k++;if(k<O.items.length)setTimeout(one,900);else{firstTry("order",miss===0);setTimeout(()=>retellBox(el,"أَقْرَأُ جُمَلي بِصَوْتٍ عالٍ.","أَقْرَأُ الْجُمَلَ الثَّلاثَ قِراءَةً واضِحَةً.",()=>{award("gold");setTimeout(()=>complete("order","كَوَّنْتَ الْجُمَلَ وَقَرَأْتَها!"),1500)}),900)}}}
+     else{miss++;b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),500);tone(false);if(miss===1)addMistake("order","أَيُّ جُمْلَةٍ صَحيحَةٌ؟",it.opts,0,"");say("فَكِّرْ: بِأَيِّ كَلِمَةٍ تَبْدَأُ الْجُمْلَةُ الْمُفيدَةُ؟","think",3500)}}});
+   };one();return;
+  }
+  el.appendChild(h(`<div class="inst"><span class="ic">☀️</span>${O.head}: أَلْمِسُ الْأَحْداثَ بِالتَّرْتيبِ.</div>`));
+  const E=O.items;const pos=[5,35,65];
+  const sky=h(`<div class="sky"><svg viewBox="0 0 900 340" preserveAspectRatio="none"><path d="M60 170 Q450 -110 840 170" fill="none" stroke="#F0C27A" stroke-width="3" stroke-dasharray="8 10" vector-effect="non-scaling-stroke"/></svg><div class="sun" id="sun"></div>${E.map((e,i)=>`<div class="slot" style="right:${pos[i]}%;transform:none"><span>${e.label}</span><div class="s" id="slot${i}"></div></div>`).join("")}</div>`);el.appendChild(sky);
+  const sun=sky.querySelector("#sun");
+  const setSun=k=>{const p=[[84.7,35],[58.7,11],[37,13],[13.6,38]][k];sun.style.left=p[0]+"%";sun.style.top=p[1]+"%";sky.style.setProperty("--skyc",["#FDE3C8","#E7F3FD","#DDEFFC","#FCD9B8"][k])};setSun(0);
+  const evs=h(`<div class="events">${shuffle(E.map((_,i)=>i)).map(i=>`<button class="ev" data-i="${i}"><div style="height:110px;display:grid;place-items:center;background:#FFF6E3">${emo(E[i].e,64)}</div><p>${E[i].t}</p></button>`).join("")}</div>`);el.appendChild(evs);
+  let step=0,miss=0;
+  evs.querySelectorAll(".ev").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;
+   if(i===step){b.classList.add("used");$("#slot"+i).innerHTML=`<div style="display:grid;place-items:center;height:100%;background:#fff">${emo(E[i].e,52)}</div>`;step++;setSun(step);tone(true);say(praise(),"cheer",2200);
+    if(step===E.length){firstTry("order",miss===0);setTimeout(()=>retellBox(el,"أَحْكي بِصَوْتي في جُمْلَتَيْنِ.",`أَبْدَأُ هكَذا: «${E[0].label}…»`,()=>{award("gold");setTimeout(()=>complete("order","رَتَّبْتَ الْأَحْداثَ وَحَكَيْتَها بِصَوْتِكَ!"),1500)}),1000)}}
+   else{miss++;b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),500);tone(false);if(miss===1)addMistake("order","ماذا جاءَ أَوَّلًا؟",E.map(e=>e.t),0,E[i].t);say(`انْظُرْ إِلى الْخانَةِ: «${E[step].label}»… أَيُّ حَدَثٍ يُناسِبُها؟`,"think",4000)}});
+ },
+ message(el){
+  el.appendChild(h(`<div class="inst"><span class="ic">💡</span>ماذا تَعَلَّمْتُ مِنَ الدَّرْسِ؟</div>`));
+  const c=h(`<div class="card"></div>`);el.appendChild(c);
+  mcq(c,{id:"message",q:"ماذا تَعَلَّمْتُ مِنْ دَرْسِ «"+D.title+"»؟",o:D.learned.o,a:D.learned.a,st:"message",hint:"تَذَكَّرْ ما حَدَثَ في النَّصِّ… ما الْفِكْرَةُ الَّتي تَجْمَعُهُ؟",onDone:()=>setTimeout(value,800)});
+  function value(){const V=D.value;
+   const w=h(`<div class="reveal" style="margin-top:26px">
+    <div class="card" style="display:grid;grid-template-columns:${V.img?"200px ":""}1fr;gap:18px;align-items:center;background:linear-gradient(135deg,#F7F2FF,#fff)">${V.img?`<img src="${IMG}${V.img}.webp" alt="" style="width:200px;border-radius:20px">`:""}<div><h3 style="font-size:28px;color:var(--navy)">${V.head}</h3>${V.fact?`<p style="font-size:21px;line-height:1.8;margin:6px 0 0">🇦🇪 ${V.fact}</p>`:""}</div></div>
+    <div class="card" style="margin-top:16px;background:var(--peach)"><h3 style="font-size:25px;color:#B76A12">🤔 ${V.dilemma}</h3><p style="font-size:20px;margin:6px 0 12px">أُفَكِّرُ وَأَقولُ جَوابي بِصَوْتٍ عالٍ، ثُمَّ أَكْشِفُ الْجَوابَ النَّموذَجِيَّ.</p><button class="btn ghost" id="rv">👁️ الْإِجابَةُ النَّموذَجِيَّةُ</button><p id="rvT" style="display:none;font-size:23px;line-height:1.9;margin:12px 0 0">${V.model}</p></div>
+    <div id="pledge"></div></div>`);
+   el.appendChild(w);w.scrollIntoView({behavior:"smooth",block:"start"});say("مَوْقِفٌ مِنْ حَياتِكَ… ماذا تَفْعَلُ أَنْتَ؟","idea",4000);
+   w.querySelector("#rv").onclick=()=>{w.querySelector("#rvT").style.display="block";w.querySelector("#rv").remove();tone(true);showPledge()};
+   const showPledge=()=>{const P=w.querySelector("#pledge");
+    P.innerHTML=`<div class="card reveal" style="margin-top:16px;text-align:center"><div class="inst" style="justify-content:center;margin-top:0"><span class="ic">💛</span>${D.speak.head}</div><p style="font-size:25px;line-height:1.9;margin:0">${D.speak.frame}</p><button class="btn gold" id="pl" style="margin-top:14px">قُلْتُها، وَأَعِدُ أَنْ أَعْمَلَ بِها ✓</button></div><div id="cardOut"></div>`;
+    P.querySelector("#pl").onclick=()=>{S.card={pledge:V.sana,head:V.head};save();P.querySelector("#pl").remove();
+     P.querySelector("#cardOut").innerHTML=`<div class="mycard reveal"><div class="top">بِطاقَةُ قِيمَتي · حِراءٌ</div><h3>${V.head}</h3><div class="big">🏮</div><p>${V.sana}</p><div class="sig">تَظْهَرُ بِطاقَتُكَ لِأَهْلِكَ في تَقْريرِ وَلِيِّ الْأَمْرِ</div></div>`;
+     if(!S.done.message){award("challenge");setTimeout(()=>complete("message","رَبَطْتَ الدَّرْسَ بِحَياتِكَ."),1700)}}};
+   if(S.card)showPledge();
+  }
+ },
+ family(el){const H=D.home;
+  el.appendChild(h(`<div class="card reveal" style="display:grid;grid-template-columns:${H.img?"180px ":""}1fr;gap:18px;align-items:center;background:linear-gradient(135deg,#EFF9F3,#fff)">${H.img?`<img src="${IMG}${H.img}.webp" alt="" style="width:180px;border-radius:20px">`:""}<div><h3 style="font-size:30px;color:var(--navy)">مُهِمَّةُ الْبَيْتِ 🏠</h3><p style="font-size:24px;line-height:1.9;margin:6px 0 0"><b>${H.family}</b></p></div></div>`));
+  el.appendChild(h(`<div class="inst" style="margin-top:22px"><span class="ic">👨‍👩‍👧</span>مَنْ شارَكْتُ مِنْ أُسْرَتي؟</div>`));
+  const F=[["👨","أَبي"],["👩","أُمّي"],["👴","جَدّي"],["👵","جَدَّتي"],["👦","أَخي"],["👧","أُخْتي"]];
+  const fam=h(`<div class="fam">${F.map((f,i)=>`<button class="fm ${S.fam.asked.includes(i)?"sel":""}" data-i="${i}"><span class="e">${f[0]}</span>${f[1]}</button>`).join("")}</div>`);el.appendChild(fam);
+  fam.querySelectorAll(".fm").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;const k=S.fam.asked.indexOf(i);if(k<0)S.fam.asked.push(i);else S.fam.asked.splice(k,1);b.classList.toggle("sel");save();tone(true)});
+  if(H.task)el.appendChild(h(`<div class="card" style="margin-top:18px;background:#FFF9EC"><h4 style="margin:0 0 4px;font-family:'Thmanyah Display';font-size:22px;color:#9A6F1E">✏️ مُهِمَّتي</h4><p style="font-size:23px;line-height:1.9;margin:0">${H.task}</p></div>`));
+  el.appendChild(h(`<div class="inst" style="margin-top:26px"><span class="ic">🏮</span>أُسْبوعُ الْقِراءَةِ: أَقْرَأُ النَّصَّ لِأُسْرَتي كُلَّ يَوْمٍ، فَيُضيءُ قِنْديلٌ.</div>`));
+  const Dd=["السَّبْتُ","الْأَحَدُ","الْإِثْنَيْنِ","الثُّلاثاءُ","الْأَرْبِعاءُ","الْخَميسُ","الْجُمُعَةُ"];
+  const lampSvg='<svg viewBox="0 0 100 120"><path d="M32 34 Q32 20 50 14 Q68 20 68 34Z" fill="#102A4C"/><rect x="26" y="34" width="48" height="7" rx="3.5" fill="#102A4C"/><path d="M29 44 L71 44 L78 100 Q50 114 22 100Z" fill="#FFF8E6" stroke="#102A4C" stroke-width="5"/><path class="fl" d="M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z" fill="#D9CDB3"/></svg>';
+  const wk=h(`<div class="week">${Dd.map((d,i)=>`<button class="day ${S.fam.week[i]!=null?"lit":""}" data-i="${i}">${d}${lampSvg}<div class="act">${S.fam.week[i]!=null?"📖":""}</div></button>`).join("")}</div>`);el.appendChild(wk);
+  wk.querySelectorAll(".day").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(S.fam.week[i]!=null)return;S.fam.week[i]=1;save();b.classList.add("lit");b.querySelector(".act").textContent="📖";tone(true);const n=Object.keys(S.fam.week).length;say(n>=7?"أَضاءَ أُسْبوعُكَ كُلُّهُ! أَنْتَ بَطَلُ الْقِراءَةِ.":`أَضاءَ ${n} مِنْ 7 قَناديلَ. عُدْ غَدًا لِتُضيءَ قِنْديلًا جَديدًا!`,"great",4000);if(n>=7)burst()});
+  const fin=h(`<div class="center" style="margin-top:24px"><button class="btn gold" id="famDone">أَنْهَيْتُ مُهِمَّةَ الْبَيْتِ ✓</button></div>`);el.appendChild(fin);
+  fin.querySelector("#famDone").onclick=()=>{if(!S.fam.asked.length){say("شارِكْ فَرْدًا واحِدًا مِنْ أُسْرَتِكَ عَلى الْأَقَلِّ، ثُمَّ الْمِسْ صورَتَهُ.","think",4500);fam.classList.add("shake");setTimeout(()=>fam.classList.remove("shake"),500);return}fin.remove();complete("family","شارَكْتَ أُسْرَتَكَ الدَّرْسَ. أُسْبوعُ الْقِراءَةِ يَبْقى مَفْتوحًا كُلَّ يَوْمٍ.")};
+  say("هذِهِ مُهِمَّةٌ تَعْمَلُها مَعَ أَهْلِكَ. وَقَناديلُ الْأُسْبوعِ تُضيئُها يَوْمًا بَعْدَ يَوْمٍ.","wink",5000);
+ },
+ check(el){
+  const Q=D.quiz;let qi=0,res=[];
+  const box=h(`<div class="qbox"><div class="qprog">${Q.map(()=>"<i></i>").join("")}</div><div id="qa"></div></div>`);el.appendChild(box);
+  const prog=()=>box.querySelectorAll(".qprog i").forEach((x,i)=>{x.className=i<res.length?(res[i]?"ok":"no"):i===qi?"cur":""});
+  function ask(){prog();const q=Q[qi];const a=box.querySelector("#qa");a.innerHTML="";
+   const c=h(`<div class="card reveal"><h3>${q.q}</h3><div class="o"></div><div class="hint"><button class="btn ghost" style="font-size:18px;padding:8px 18px">💡 تَلْميحٌ مِنْ سالِمٍ</button></div></div>`);a.appendChild(c);
+   c.querySelector(".hint button").onclick=()=>say(q.h,"idea",5000);
+   mcq(c.querySelector(".o"),{id:"q"+qi,q:q.q,o:q.o,a:q.a,st:"check",hint:q.h,onDone:ok=>{res.push(ok);qi++;prog();setTimeout(()=>qi<Q.length?ask():post(),900)}});}
+  function post(){const score=res.filter(Boolean).length;S.quiz={score,of:Q.length};save();
+   const a=box.querySelector("#qa");a.innerHTML="";
+   a.appendChild(h(`<div class="card center reveal"><h3>أَجَبْتَ ${score} مِنْ ${Q.length} مِنَ الْمُحاوَلَةِ الْأولى</h3><p style="font-size:22px;margin:6px 0 0">${score===Q.length?"عَلامَةٌ كامِلَةٌ! 🌟":"وَالْأَسْئِلَةُ الَّتي أَخْطَأْتَ فيها تَنْتَظِرُكَ في دَفْتَرِ أَخْطائي لِتُراجِعَها."}</p></div>`));
+   a.appendChild(h(`<div class="inst" style="margin-top:24px"><span class="ic">🧭</span>وَالْآنَ… كَيْفَ أَشْعُرُ بَعْدَ الرِّحْلَةِ؟</div>`));
+   const r=h("<div></div>");a.appendChild(r);
+   rating(r,S.post,()=>{if(!S.done.check){S.done.check=true;save();setTimeout(()=>{closeStation();setTimeout(showFinale,800)},900)}});
+   say("قارِنْ نَفْسَكَ بِبِدايَةِ الرِّحْلَةِ… كَمْ تَقَدَّمْتَ؟","think",5000);}
+  ask();say("الْقِنْديلُ الْأَخيرُ! وَإِنِ احْتَجْتَ فَاطْلُبْ تَلْميحًا.","cheer",4500);
+ }
+};
+
+/* ================= بطاقة الكلمة ================= */
+function showWord(k){const w=k.dataset.w,d=WORDS[w];if(!d)return;$("#wpPic").innerHTML=d.pic;$("#wpW").textContent=w;$("#wpM").textContent=d.m;$("#wordPop").classList.add("show");k.classList.add("seen");
+ if(!S.words.includes(w)){S.words.push(w);save()}}
+$("#wpOk").onclick=()=>$("#wordPop").classList.remove("show");
+$("#wordPop").onclick=e=>{if(e.target.id==="wordPop")$("#wordPop").classList.remove("show")};
+
+/* ================= الخاتمة ================= */
+function showFinale(){const f=$("#finale");
+ const rows=CRIT.map(c=>{const b=S.pre[c.k]??0,a=S.post[c.k]??0;return `<div class="bar2"><div class="t"><span class="med" style="background:${S.medals[c.k]?c.c:"#ddd"}"><svg width="18" height="18" style="color:#fff"><use href="#medal"/></svg></span>${c.t}</div><div class="ba"><span>قَبْلَ</span><div class="track"><i data-w="${(b+1)/3*100}" style="background:#CDBF9F"></i></div><span>بَعْدَ</span><div class="track"><i data-w="${(a+1)/3*100}" style="background:${c.c}"></i></div></div></div>`}).join("");
+ f.innerHTML=`<div class="cert"><svg class="bigLamp" viewBox="0 0 100 120"><circle cx="50" cy="8" r="5" fill="none" stroke="#102A4C" stroke-width="3.5"/><path d="M32 34 Q32 20 50 14 Q68 20 68 34Z" fill="#102A4C"/><rect x="26" y="34" width="48" height="7" rx="3.5" fill="#102A4C"/><path d="M29 44 L71 44 L78 100 Q50 114 22 100Z" fill="#FFF1C9" stroke="#102A4C" stroke-width="5"/><path d="M50 56 L62 80 Q65 88 58 94 L42 94 Q35 88 38 80Z" fill="#F7B731"/><line x1="36" y1="112" x2="64" y2="112" stroke="#102A4C" stroke-width="5" stroke-linecap="round"/></svg>
+ <h1>أَضَأْتَ قَناديلَ الرِّحْلَةِ كُلَّها!</h1><div class="sub">${NAME?esc(NAME)+" · ":""}«${D.title}» · ${Object.values(S.medals).filter(Boolean).length} أَوْسِمَةٍ مِنْ 4</div>
+ <div class="bars">${rows}</div>
+ <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="btn gold" id="fRep">👪 أُري أَهْلي تَقْريري</button><button class="btn ghost" id="fMist">📒 دَفْتَرُ أَخْطائي (${S.mist.length})</button><button class="btn ghost" id="fMap">إِلى الْخَريطَةِ</button></div></div>`;
+ f.classList.add("show");burst(innerWidth/2,innerHeight/3,160);tone(true);setTimeout(()=>burst(innerWidth*.25,innerHeight/2,80),500);setTimeout(()=>burst(innerWidth*.75,innerHeight/2,80),900);
+ setTimeout(()=>f.querySelectorAll(".track i").forEach(i=>i.style.width=i.dataset.w+"%"),300);
+ say("مَبْروكٌ يا بَطَلَ حِراءٍ! أَرِ أَهْلَكَ تَقْريرَكَ، فَهُمْ فَخورونَ بِكَ.","great",7000);
+ $("#fRep").onclick=openReport;$("#fMist").onclick=openMist;$("#fMap").onclick=()=>{f.classList.remove("show");drawMap()};
+}
+
+/* ================= دفتر الأخطاء ================= */
+function openMist(){const p=$("#mistPanel");
+ p.innerHTML=`<h2><button class="back" id="mX">✕</button> 📒 دَفْتَرُ أَخْطائي</h2><p style="font-size:20px;color:#6b5a35">كُلُّ خَطَإٍ هُنا فُرْصَةٌ لِأَتَعَلَّمَ. أُجيبُ مِنْ جَديدٍ، فَإِذا أَصَبْتُ خَرَجَ السُّؤالُ مِنَ الدَّفْتَرِ.</p><div id="ml"></div>`;
+ const ml=p.querySelector("#ml");
+ if(!S.mist.length)ml.innerHTML=`<div class="empty">🌟<br>دَفْتَرُكَ نَظيفٌ! لا أَخْطاءَ لِلْمُراجَعَةِ.</div>`;
+ S.mist.slice().forEach(m=>{const c=h(`<div class="mist"><div class="q">${m.q}</div><div class="o"></div></div>`);ml.appendChild(c);
+  mcq(c.querySelector(".o"),{id:"m-"+m.q,q:m.q,o:m.opts,a:m.ans,st:m.st,onDone:()=>{S.mist=S.mist.filter(x=>x.q!==m.q);save();updMist();setTimeout(()=>{c.style.transition=".5s";c.style.opacity=0;c.style.transform="translateX(-40px)";setTimeout(()=>{c.remove();if(!S.mist.length)ml.innerHTML=`<div class="empty">🌟<br>راجَعْتَ أَخْطاءَكَ كُلَّها! أَحْسَنْتَ.</div>`},500)},900)}})});
+ $("#mistDrawer").classList.add("show");p.querySelector("#mX").onclick=()=>$("#mistDrawer").classList.remove("show");
+}
+$("#mistBtn").onclick=openMist;$("#mistDrawer").onclick=e=>{if(e.target.id==="mistDrawer")e.target.classList.remove("show")};
+
+/* ================= تقرير ولي الأمر ================= */
+const LV=["يحتاج إلى مساعدة","يستطيع قليلًا","يستطيع جيدًا"];
+function openReport(){const p=$("#repPanel");
+  const doneN=STATIONS.filter(s=>S.done[s.id]).length;const mins=Math.max(1,Math.round(S.secs/60));
+ const firstIds=Object.keys(S.first);const firstOk=firstIds.filter(k=>S.first[k]).length;
+ const critRows=CRIT.map((c,i)=>{const st=STATIONS.find(s=>s.crit===i);const got=!!S.medals[c.k];const b=S.pre[c.k],a=S.post[c.k];
+  return `<tr><td><span class="pill" style="background:${c.c}">${c.name.replace(/[ًٌٍَُِّْ]/g,"")}</span></td><td>${plain(c.t).replace(/[ًٌٍَُِّْ]/g,"")}</td><td>${got?"✅ تحقق":"⏳ لم يكتمل"}${st&&st.id in S.first?(S.first[st.id]?" · من أول محاولة":" · بعد محاولات"):""}</td><td style="font-size:14px;color:#7b6a44">${b!=null?LV[b]:"—"} ← ${a!=null?LV[a]:"—"}</td></tr>`}).join("");
+ const F=["الأب","الأم","الجد","الجدة","الأخ","الأخت"];
+ const mistTxt=S.mist.length?`<ul>${S.mist.map(m=>`<li>${m.q.replace(/[ًٌٍَُِّْ]/g,"")} — <b style="color:var(--green)">${m.opts[m.ans].replace(/[ًٌٍَُِّْ]/g,"")}</b></li>`).join("")}</ul>`:"<p>لا توجد أخطاء معلّقة؛ راجع طفلكم كل ما أخطأ فيه. 🌟</p>";
+ p.innerHTML=`<div style="display:flex;align-items:center;gap:12px"><button class="back" id="rX">✕</button><svg viewBox="0 0 653 260" height="52"><use href="#lockup"/></svg></div>
+ <h2 style="font-size:28px;color:var(--navy);margin-top:12px">تقرير وليّ الأمر · رحلة «${esc(D.titlePlain)}»</h2>
+ <p style="margin:2px 0 0;color:#7b6a44">اللغة العربية · الصف الثالث · ${new Date().toLocaleDateString("ar-AE-u-nu-latn",{day:"numeric",month:"long",year:"numeric"})}</p>
+ <div class="sec"><div class="stat"><div><b>${doneN}/${STATIONS.length}</b>محطات أُنجزت</div><div><b>${Object.values(S.medals).filter(Boolean).length}/4</b>أوسمة</div><div><b>${mins}</b>دقيقة تعلّم</div></div></div>
+ <div class="sec"><h3>🎯 معايير النجاح</h3><table>${critRows}</table><p style="font-size:14px;color:#7b6a44;margin:6px 0 0">العمود الأخير: تقييم طفلكم لنفسه قبل الرحلة ← بعدها.</p></div>
+ <div class="sec"><h3>📊 الدقة</h3><p>أجاب طفلكم <b>${firstOk}</b> من <b>${firstIds.length}</b> مهمة صحيحًا من المحاولة الأولى${S.quiz?`، وحصل في التحقق النهائي على <b>${S.quiz.score} من ${S.quiz.of}</b>`:""}.</p></div>
+ <div class="sec"><h3>📚 كلمات جديدة تعلّمها</h3><p>${S.words.length?S.words.map(w=>w.replace(/[ًٌٍَُِّْ]/g,"")).join("، "):"—"}</p></div>
+ <div class="sec"><h3>📒 ما يحتاج إلى مراجعة</h3>${mistTxt}</div>
+ ${S.card?`<div class="sec" style="background:#FFF9EC"><h3>💛 بطاقة قيمة طفلكم: ${S.card.head.replace(/[ًٌٍَُِّْ]/g,"")}</h3><p style="font-size:19px">وعد طفلكم: <b>${S.card.pledge.replace(/[ًٌٍَُِّْ]/g,"")}</b></p></div>`:""}
+ ${window.__retell?`<div class="sec"><h3>🎙️ صوت طفلكم</h3><audio controls src="${window.__retell}" style="width:100%"></audio></div>`:S.retold?`<div class="sec"><h3>🎙️ القراءة بصوت عالٍ</h3><p>قرأ طفلكم بصوته؛ اطلبوا منه أن يقرأ لكم مرة أخرى.</p></div>`:""}
+ <div class="sec"><h3>🏠 مهمة البيت</h3><p>${S.fam.asked.length?`سأل طفلكم: ${S.fam.asked.map(i=>F[i]).join("، ")}.`:"لم تُنجز بعد."} أسبوع القراءة: أضاء <b>${Object.keys(S.fam.week).length}</b> من 7 قناديل.</p></div>
+ <div class="sec" style="background:#EFF7F1"><h3>💬 حاوروا طفلكم الليلة</h3><ul>${D.talk.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>
+ <p style="font-size:14px;color:#8a7a5a;margin-top:14px">${ROLE==="student"?"تصل هذه النتائج إلى معلّم طفلكم على منصة حراء ليبني عليها في الحصة القادمة.":"تُحفظ هذه النتائج على هذا الجهاز؛ وعند الدخول بحساب الطالب على منصة حراء تصل إلى معلّمه."}</p>`;
+ $("#repDrawer").classList.add("show");p.querySelector("#rX").onclick=()=>$("#repDrawer").classList.remove("show");
+}
+$("#repBtn").onclick=openReport;$("#repDrawer").onclick=e=>{if(e.target.id==="repDrawer")e.target.classList.remove("show")};
+
+/* ================= البدء ================= */
+function fitTop(){$("#map").style.top=$("#top").offsetHeight+"px"}fitTop();addEventListener("resize",fitTop);
+let booted=false;
+function boot(){if(booted)return;booted=true;
+drawMedals();updMist();drawMap();addEventListener("resize",()=>drawMap());
+if(ROLE==="staff"){const b=h(`<div class="ui" style="position:fixed;bottom:12px;right:12px;z-index:65;background:#102A4C;color:#fff;border-radius:999px;padding:8px 16px;font-size:15px;font-weight:700">👁️ معاينة المعلم: لا تُحفظ النتائج</div>`);document.body.appendChild(b)}
+setTimeout(()=>{const n=STATIONS.findIndex((s,i)=>unlocked(i)&&!S.done[s.id]);
+ say(n===0?"أَهْلًا بِكَ في رِحْلَةِ الْقِنْديلِ! الْمِسِ الْقِنْديلَ الْأَوَّلَ لِنَبْدَأَ. 🏮":n<0?"أَكْمَلْتَ الرِّحْلَةَ! راجِعْ دَفْتَرَ أَخْطائِكَ، أَوْ أَضِئْ قَناديلَ أُسْبوعِ الْعَطاءِ.":`أَهْلًا بِعَوْدَتِكَ! الْقِنْديلُ التّالي: «${STATIONS[n].t}».`,"cheer",6000);
+ const cur=document.querySelector(".node.current");if(cur)cur.scrollIntoView({behavior:"smooth",block:"center"})},700);
+}
+if(EMBED){
+ const cl=h(`<button class="topbtn" id="jrClose" title="إغلاق" aria-label="إغلاق">✕</button>`);$("#top").appendChild(cl);
+ cl.onclick=()=>{save();window.parent.postMessage({type:"hiraa-journey-close"},location.origin)};
+ addEventListener("message",e=>{if(e.origin!==location.origin||e.source!==window.parent||!e.data||e.data.type!=="hiraa-journey-init")return;
+  const d=e.data;ROLE=d.role||"guest";NAME=d.name||"";if(d.book&&d.book.body&&!window.__ownBook)BOOK=d.book;
+  if(ROLE==="student"&&d.uid){KEY+="-"+d.uid;const loc=load(KEY),srv=d.state?Object.assign(fresh(),d.state):null;
+   S=[loc,srv].filter(Boolean).sort((a,b)=>doneN(b)-doneN(a)||(b.secs||0)-(a.secs||0))[0]||fresh();}
+  else if(ROLE!=="staff"){S=load(KEY)||fresh()}
+  boot()});
+ window.parent.postMessage({type:"hiraa-journey-ready",code:LESSON.code},location.origin);
+ setTimeout(()=>{if(!booted){S=load(KEY)||fresh();boot()}},3000);
+}else boot();
+</script>
+</body>
+</html>

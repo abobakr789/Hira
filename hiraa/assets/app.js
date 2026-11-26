@@ -2434,7 +2434,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
   }
   document.addEventListener("click", (e) => { const b = e.target.closest(".ie-deck-open"); if (b) openIeDeck(b.dataset.src, b.dataset.vid); });
   // ===== رحلة القنديل: مصادر الطالب في البيت (صفحة مستقلة لكل درس، تُحفظ نتائجها ويراها المعلم) =====
-  const JOURNEYS = new Set([...Array.from({ length: 16 }, (_, i) => "AR-Y1-N-T3-L" + String(i + 1).padStart(2, "0")), ...Array.from({ length: 12 }, (_, i) => "Y1-N-T1-L" + String(i + 1).padStart(2, "0")), "Y5-N-T1-L02", "Y9-N-T1-L08", "Y5-N-T1-L01"]);
+  const JOURNEYS = new Set([...Array.from({ length: 16 }, (_, i) => "AR-Y1-N-T3-L" + String(i + 1).padStart(2, "0")), ...[["T1", 24], ["T2", 16], ["T3", 16]].flatMap(([t, n]) => Array.from({ length: n }, (_, i) => "AR-Y3-N-" + t + "-L" + String(i + 1).padStart(2, "0"))), ...Array.from({ length: 12 }, (_, i) => "Y1-N-T1-L" + String(i + 1).padStart(2, "0")), "Y5-N-T1-L02", "Y9-N-T1-L08", "Y5-N-T1-L01"]);
   const JR_TOTAL = 9;
   const journeySrc = (code) => (/^AR-/.test(code) ? "resources/ar/" + code : "resources/ie/IE-" + code) + "/student-journey.html?embed=1&v=20261126";
   const jrSum = (j) => { j = j || {}; const f = j.first || {}, fk = Object.keys(f);
