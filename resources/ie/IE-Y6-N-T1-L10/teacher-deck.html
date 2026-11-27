@@ -604,7 +604,7 @@ S.forEach((s,i)=>{
   // counter in foot
   const f=d.querySelector('.foot');if(f){const c=document.createElement('span');c.className='fc';c.style.cssText='font-family:ThD;color:#8A8576;direction:ltr;unicode-bidi:isolate';f.insertBefore(c,f.children[1]);const rt=document.createElement('span');rt.className='rtag';rt.innerHTML=`<span>الحصة ${AR(s.lesson)}</span><b class="${s.tier}">${s.tier==='core'?'أساسي':'إثرائي'}</b><span>≈ ${AR(s.min)} د</span>`;f.appendChild(rt);}
 });
-function fit(){const r=document.getElementById('wrap');const k=Math.min(r.clientWidth/1920,r.clientHeight/1080);stage.style.transform=`scale(${k})`;}
+function fit(){if(window.__hbar||document.getElementById('hb-css'))return;const r=document.getElementById('wrap');const k=Math.min(r.clientWidth/1920,r.clientHeight/1080);const x=Math.max(0,(r.clientWidth-1920*k)/2),y=Math.max(0,(r.clientHeight-1080*k)/2);stage.style.transform=`translate(${x}px,${y}px) scale(${k})`;}
 addEventListener('resize',fit);new ResizeObserver(fit).observe(document.getElementById('wrap'));fit();
 const slides=[...document.querySelectorAll('.slide')];
 /* ---- motion: tag elements for staggered reveal (answers panel excluded) ---- */
@@ -826,7 +826,7 @@ body.edit .sl *{animation:none!important}
 @media (max-width:1100px){#tb{gap:4px;padding:0 6px}#tb .cnt{display:none}#tb button,#tb select{padding:5px 7px;font-size:13px}}
 @keyframes pulse{50%{transform:scale(1.08)}}
 #wrap{position:fixed;left:0;right:0;top:64px;bottom:0;z-index:1}
-#stage{position:absolute!important;left:0!important;top:0!important;width:1920px!important;height:1080px!important;transform-origin:center center}
+#stage{position:absolute!important;left:0!important;top:0!important;width:1920px!important;height:1080px!important;transform-origin:0 0}
 body.fx-fade .slide.on.df,body.fx-fade .slide.on.db,body.fx-zoom .slide.on.df,body.fx-zoom .slide.on.db{animation-name:hIn}
 </style>
 </body></html>
