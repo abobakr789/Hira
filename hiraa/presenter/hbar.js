@@ -2224,7 +2224,8 @@
     };
     /* ---------- وضع المسابقة: أسئلة العرض نفسها بمؤقت ونقاط وترتيب ---------- */
     var QZ = null, quizOv = mk("div", "hbQuiz"); quizOv.dir = RTL ? "rtl" : "ltr"; stop(quizOv);
-    function quizQs() { var out = []; SL.forEach(function (_, k) { slideQs(k).forEach(function (q) { if ((q.kind === "mc" || q.kind === "tf") && q.ans != null) out.push(Object.assign({ slide: k }, q)); }); }); return out; }
+    W.__hbQuizQs = function () { return quizQs(); };
+    function quizQs() { var out = [], lo = 0, hi = SL.length - 1, l2 = W.__l2, c = null; try { c = sessionStorage.getItem("hiraa-class-" + location.pathname); } catch (e) {} if (l2) { if (c === "1") hi = l2 - 1; else if (c === "2") lo = l2; } SL.forEach(function (_, k) { if (k < lo || k > hi) return; slideQs(k).forEach(function (q) { if ((q.kind === "mc" || q.kind === "tf") && q.ans != null) out.push(Object.assign({ slide: k }, q)); }); }); return out; }
     var nickOf = function (id) { var p = players.find(function (x) { return x.id === id; }); return p ? p.nick : "—"; };
     var QLV = [T("🥉 برونزي", "🥉 Bronze"), T("🥈 فضي", "🥈 Silver"), T("🥇 ذهبي", "🥇 Gold"), T("💎 تحدٍّ", "💎 Challenge")], QMUL = [1, 1.5, 2, 3], QLK = "hb-qlv-" + DECK;
     var qNorm = function (t) { return String(t || "").replace(/[ً-ٰٟـ]/g, "").replace(/[إأآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه"); };
