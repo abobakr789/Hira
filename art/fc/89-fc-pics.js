@@ -8,8 +8,8 @@
   const BASE = location.href.split("#")[0].replace(/[^/]*$/, "") + "art/fc/";
   let man = null, manGrade = null, loading = null;
   const norm = (s) => String(s || "").normalize("NFKD").replace(/[\u064B-\u065F\u0670\u0640]/g, "").replace(/[^\p{L}\p{N}]/gu, "").toLowerCase();
-  const code = () => { const m = location.hash.match(/#\/lesson\/(Y(\d+)-[A-Z]+-T\d+-L\d+)/); return m ? m[1] : null; };
-  const grade = () => { const m = location.hash.match(/#\/lesson\/Y(\d+)-/); return m ? m[1] : null; };
+  const code = () => { const m = location.hash.match(/#\/lesson\/((?:[A-Z]+-)?Y(\d+)-(?:[A-Z]+-)?T\d+-L\d+)/); return m ? m[1] : null; };
+  const grade = () => { const m = location.hash.match(/#\/lesson\/(?:[A-Z]+-)?Y(\d+)-/); return m ? m[1] : null; };
   const css = document.createElement("style");
   css.textContent = ".fc-card.has-pic{height:440px}.fc-pic{display:block;width:min(100%,300px);aspect-ratio:4/3;object-fit:cover;border-radius:18px;margin:0 auto 10px;box-shadow:0 4px 14px rgba(16,42,76,.15)}.fc-b .fc-pic{width:min(100%,200px);margin:0 auto 12px}@font-face{font-family:'FcAr';font-weight:400 800;src:url('art/fonts/thmanyahserifdisplay-Bold.woff2') format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF,U+200C-200F;font-display:swap}.fc-card.fc-th .fc-face{font-family:'FcAr','Noto Naskh Arabic','Amiri',serif}.fc-card.fc-th .fc-b{font-weight:700}@media(max-width:560px){.fc-card.has-pic{height:400px}.fc-pic{width:min(100%,240px)}}";
   document.head.appendChild(css);
