@@ -1,3 +1,5 @@
+/* صور البطاقات التعليمية للصف الأول: يحمّل art/fc/89-fc-pics.js، وهو لا يعمل إلا في دروس Y1-* */
+(function () { try { var s = document.createElement("script"); s.src = "art/fc/89-fc-pics.js"; document.head.appendChild(s); } catch (e) {} })();
 /* «سالم» رفيق الدراسة — حراء
    ملف مستقل يحمّله التطبيق عند الحاجة: window.HiraaSalem.mount(lesson, nn, deps) و report(params, deps)
    deps = { sb, cfg, esc, h, loading, state } من التطبيق نفسه */
