@@ -520,7 +520,7 @@ const hwSlide=(name,sub,taskHtml,note)=>({name,bg:'#F4F1FC',html:`${titlebar('أ
 
 // ---- class 1 closing block ----
 add(chal('تحدي حراء السريع (الحصة الأولى)',[0,1],'سُؤالانِ'));
-add({name:'قياس التقدم بعد الحصة الأولى',bg:'#EEF6F2',html:progress('قِياسُ التَّقَدُّمِ: بَعْدَ الْحِصَّةِ الْأولى','كَمْ تَقَدَّمْتُ؟','أعد تقييم نفسك الآن، وقارنه بتقييمك في بداية الحصة.','',[0,1,2])});
+add({name:'قياس التقدم بعد الحصة الأولى',bg:'#EEF6F2',html:progress('قِياسُ التَّقَدُّمِ: بَعْدَ الْحِصَّةِ الْأولى','كَمْ تَقَدَّمْتُ؟','أعد تقييم نفسك الآن، وقارنه بتقييمك في بداية الحصة.','',[0,1])});
 add({name:'بطاقة الخروج: الحصة الأولى',bg:'#FFF6E6',exit:true,html:`${titlebar('بِطاقَةُ الْخُروجِ','الْحِصَّةُ الْأولى')}
  <div class="body" style="top:150px;gap:14px">${exItems(EX1)}
  <div class="card exres" style="background:#E3F0EC;padding:8px 24px;display:flex;align-items:center;gap:12px;flex-wrap:nowrap"><span class="lead" style="font-size:26px;white-space:nowrap">تسميع ثنائي:</span><span class="t-sm" style="font-size:24px;line-height:1.3">قل لزميلك دعاء الدخول ثم دعاء الخروج دون النظر، وهو يصحّح.</span><span class="exscore" style="margin-inline-start:auto;font:700 22px ThD;color:#0F3D4E;max-width:520px;line-height:1.3"></span></div></div>${foot()}`,
@@ -577,7 +577,7 @@ add({name:'مواقف مع التعليل',bg:'#F2F8F4',html:`${titlebar('أُب
 // 28 critique
 add({name:'أتأمل وأنقد',bg:'#FFF8EC',html:`${titlebar('أَتَأَمَّلُ وَأَنْقُدُ','صَحِّحْ وَعَلِّلْ')}
  <div class="body" style="top:160px;gap:18px">${['نصلّي تحية المسجد ركعتين عند الدخول.','نرفع أصواتنا ونلعب في المسجد.','لماذا نهى الإسلام عن أكل ما له رائحة كريهة قبل المسجد؟ لئلا يؤذي المصلين والملائكة.','من يحافظ على نظافة المسجد يؤدي عملًا يخص العمال فقط.'].map(t=>`<div class="card row" style="align-items:center;gap:26px;padding:22px 36px"><div style="width:84px;height:84px;border-radius:50%;background:#EFE9D8;display:flex;align-items:center;justify-content:center;font-size:44px;flex:none">❓</div><p class="t-mid grow" style="font-size:40px">«${t}»</p></div>`).join('')}</div>${foot()}`,
- ans:ANS(`<div class="a" style="font-size:36px;line-height:1.65"><ol><li><b style="color:#2C6A3C">✓ صحيح:</b> تحية المسجد ركعتان قبل الجلوس.</li><li><b style="color:#B3411E">✗ خطأ:</b> المسجد بيت الله، فنخفض أصواتنا ولا نلعب فيه.</li><li><b style="color:#2C6A3C">✓ صحيح:</b> لأن الملائكة تتأذى مما يتأذى منه الناس.</li><li><b style="color:#B3411E">✗ خطأ:</b> المحافظة على نظافة المسجد مسؤولية كل مصلٍّ، فقد سأل النبي ﷺ عمّن كان يقمّ المسجد.</li></ol></div>`)});
+ ans:ANS(`<div class="a" style="font-size:36px;line-height:1.65"><ol><li><b style="color:#2C6A3C">✓ صحيح:</b> تحية المسجد ركعتان قبل الجلوس.</li><li><b style="color:#B3411E">✗ خطأ:</b> المسجد بيت الله، فنخفض أصواتنا ولا نلعب فيه.</li><li><b style="color:#2C6A3C">✓ صحيح:</b> لأن الملائكة تتأذى مما يتأذى منه الناس.</li><li><b style="color:#B3411E">✗ خطأ:</b> المحافظة على نظافة المسجد مسؤولية كل مصلٍّ، اقتداءً بأم محجن رضي الله عنها كما في الدرس.</li></ol></div>`)});
 
 
 add({name:'الهوية الوطنية: أسهم أنا',bg:'#E8F2F5',html:`${titlebar('أَصُونُ بُيوتَ اللهِ فِي وَطَني','الدَّرْسُ وَالْهُوِيَّةُ الْوَطَنِيَّةُ')}
