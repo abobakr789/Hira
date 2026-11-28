@@ -10808,7 +10808,7 @@ const TRACKS = { native: "الناطقون بالعربية", non_native: "غي�
     const hb = document.getElementById("hwBtn");
     if (hb) hb.onclick = () => hwDialog(l, u, !!(ticket && (ticket.assessment_questions || []).length), gameItems.length > 0, !!mdrId);
     if (state.session && isStudent() && !lockedForMe) duelFab(l, nn);
-    if (state.session && (isStudent() || isSuper()) && !lockedForMe) buddyFab(l, nn);
+    if (state.session && (isStudent() || isSuper()) && !lockedForMe) buddyFab(l, nn); if (!window.__fcPics) { try { const fp = document.createElement("script"); fp.src = "art/fc/89-fc-pics.js"; document.head.appendChild(fp); } catch (e) {} }
   }
 
   /* ---------- exit-ticket editor (staff) ---------- */
